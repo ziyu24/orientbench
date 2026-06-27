@@ -1,0 +1,4 @@
+dataset,ann_dir,n_images,n_obb_objects,n_invalid_geometry,angle_version
+SODA-A,/home/rspip/cqc/data/dataset/SODA-A/dota_format_tiled_ss/val_tiled/annfiles,408,15187,0,le90_via_QuadriBoxes (uncertain pending formal proof)
+DIOR-R,/home/rspip/cqc/data/dataset/DIOR/annfiles/obb,600,4065,0,le90_via_QuadriBoxes (uncertain pending formal proof)
+FAIR1M-v1.0,/home/rspip/cqc/data/dataset/fair1m1.0/split/val_20/annfiles,521,10408,2,le90_via_QuadriBoxes (uncertain pending formal proof)

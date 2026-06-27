@@ -42,3 +42,12 @@
 - DIOR-R blocked_missing_obb_gt（仅 HBB）；FAIR1M blocked_missing_gt（标注空/路径缺）；env 非阻塞（020 已解）。
 ### forbidden (unchanged)
 - cross-dataset formal gate / all datasets covered / ARS-DETR=RHINO（仍不可宣称）。
+
+---
+## 022 cross-dataset GT correction + real runs (2026-06-27 23:49:17 CST)
+### corrected (021 error fixed)
+- 021 误判 DIOR-R/FAIR1M blocked_missing_gt、SODA-A missing_dataset = **错误**（扩展名/路径/递归不足）。022 递归重扫: DIOR OBB=annfiles/obb robndbox XML、FAIR1M OBB=val_20 points XML、SODA-A present(dota_format_tiled_ss) — 真实 OBB GT 均找到。
+### allowed (qualified, exploratory)
+- DIOR-R/FAIR1M/SODA-A/HRSC2016 真实 4-GPU inference + exploratory D2 metrics（NRC: DIOR 0.52, FAIR1M 0.86, SODA 0.84, HRSC 0.81）。**全部 cross_dataset_exploratory，非 formal，阈值未变。**
+### forbidden (unchanged)
+- cross-dataset formal gate / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO（仍不可宣称）。

@@ -1,0 +1,17 @@
+{
+  "dataset": "fair1m",
+  "dataset_key": "fair1m",
+  "split": "train",
+  "data_root": "/home/rspip/cqc/data/dataset",
+  "max_files": 200,
+  "stats": {
+    "n_ids_considered": 200,
+    "n_files_ok": 200,
+    "n_files_missing": 0,
+    "n_objects": 2874,
+    "n_valid_geometry": 2874,
+    "n_invalid_geometry": 0
+  },
+  "n_warnings": 0,
+  "warnings_sample": []
+}

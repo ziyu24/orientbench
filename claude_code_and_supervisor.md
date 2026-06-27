@@ -1126,3 +1126,51 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - scripts/{63_cross_dataset_metrics,92_verify_cross_dataset_exploratory}.py、tests/test_021_cross_dataset.py
 - 报告: cross_dataset_{execution_plan_021,metrics_021,failures_021,probe_summary_021}.*, remaining_detector_blockers_021.*, verification_cross_dataset_exploratory_021.*, full_project_coverage_report.json(更新), claim_ledger/readiness_check(追加)
 - predictions: outputs/predictions/HRSC2016/{13/raw,13/schema,_hrsc_gt.jsonl,_hrsc_root符号农场}, logs/13_hrsc_4gpu_infer.log
+
+---
+
+## [2026-06-27 23:53:18 CST] 来源: supervisor
+
+### 输入/指令
+022：纠正 021 跨数据集 GT 结论。监督员裁示 DIOR-R/FAIR1M/SODA-A 均有 OBB 标签，SODA-A present。重扫真实 dataset root，修 parser/split/adapter，启动 4-GPU inference。token: SUPERVISOR_APPROVED_022_FIX_GT_DISCOVERY_AND_RUN_CROSS_DATASET_4GPU。
+
+### DIOR/FAIR1M/SODA-A 重新扫描结果（dataset_gt_rediscovery_022）
+- **DIOR-R OBB GT 找到**: /home/rspip/cqc/data/dataset/DIOR/annfiles/obb/*.xml（robndbox 8-corner），23463 非空；val split=splits/val.txt，images/trainval。
+- **FAIR1M-v1.0 OBB GT 找到**: fair1m1.0/split/val_20/annfiles/*.xml（points/quad），4362 非空。
+- **SODA-A present 并可解析**: /home/rspip/cqc/data/dataset/SODA-A（dota_format_tiled_ss/val_tiled DOTA-poly8 txt 12832 非空 + Annotations/*.json 源）；不再 missing_dataset。
+- HRSC2016: annfiles mbox XML（保留，angle uncertain）。
+
+### 旧 021 判断为何不充分
+- DIOR obb 文件是 *.xml，021 只搜 *.txt → 误判 empty；FAIR1M find -size 优先级 bug + 假设 split_ss 路径；SODA-A 未递归发现 dota_format_tiled_ss。已全部纠正。
+
+### GT index 规模（OBB nonzero）
+- SODA-A 408 img / 15187 obj；DIOR-R 600 img / 4065 obj；FAIR1M-v1.0 521 img / 10408 obj（invalid=2）；HRSC 1228 obj。parser: parse_dior/parse_fair1m/parse_dota_txt（QuadriBoxes→le90，angle_version=uncertain）。
+
+### inference 命令 + world_size=4 + batch override=false
+- DIOR-R orcnn #3: torch.distributed.run --nproc_per_node=4 --master_port=29634 mmrotate_1x/tools/test.py adapter(xds_b3_dump.py, _base_=pth_data config, DumpDetResults) → result_b3.pkl 1.1MB。
+- FAIR1M orcnn #5: --master_port=29635 → result_b5.pkl 1.8MB。
+- SODA-A orcnn #4: --master_port=29636 → result_b4.pkl 1.5MB。
+- 全部 CUDA_VISIBLE_DEVICES=0,1,2,3、world_size=4、OMP 6×4=24CPU、**batch override=false**、无 OOM。gpu_policy_record 10 tasks 全 world_size=4。数据用非破坏性 symlink farm（outputs/predictions/{ds}/_root），**未改原始 dataset**。
+
+### raw/schema 路径 + metrics 摘要（全 exploratory）
+- raw/schema: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/{3,5,4}/；GT index: outputs/bench_core/gt_index/。
+- D2 exploratory metrics（near-square masked，class 对齐）: DIOR-R #3 n_used=3281 med_err 1.13° **NRC 0.52**；FAIR1M #5 n_used=6770 med_err 1.89° **NRC 0.86**；SODA-A #4 n_used=11890 med_err 1.96° **NRC 0.84**；HRSC 240 **NRC 0.81**。4 cells 0 failed。
+
+### HRSC angle 状态
+- angle_error_gate_status=**blocked_angle_uncertain**（mbox↔le90 正式只读证明未完成；mAP 0.906 一致性 sanity 记录）；不影响其它 dataset 跑 inference。其余 dataset le90_via_quadriboxes 标 uncertain（exploratory，不冻结）。
+
+### 失败/blocked
+- 跑通 4/4（DIOR/FAIR1M/SODA/HRSC）。仍 blocked: point2rbox（网络下载 __init__）、ARS-DETR（mmrotate 0.1.0 无 env，不替代 RHINO）。
+
+### thresholds 未变 + 测试 + verification
+- thresholds.yaml sha256 b7c4e649… **未变**。
+- 新增 tests/test_022_gt_discovery.py（10 例：DIOR/FAIR1M OBB discovery、SODA present、empty split≠missing、gt_index nonzero、recursive schema、exploratory guard、gpu world_size=4、thresholds unchanged、HRSC angle isolated）；修复 gt_index meta 'stats' schema（兼容 bench_core 报告）。pytest -q → **202 passed**。
+- scripts/90 21/21、91 20/20、92 12/12、新增 93_verify_cross_dataset_gt_and_runs.py → **16/16**。
+
+### 停止条件
+未触发（未训练/下载/装依赖/改 pth_data·dataset/替代 RHINO/改 batch·config/改 R1-R8·GV·NRC·score；thresholds 未变；DOTA milestone verify 通过；正式报告无 forbidden claim）。
+
+### 产物路径
+- scripts/{64_cross_dataset_gt,65_cross_dataset_metrics_022,93_verify_cross_dataset_gt_and_runs}.py、configs/_adapters/xds_b{3,4,5}_dump.py、tests/test_022_gt_discovery.py
+- 报告: dataset_gt_rediscovery_022.*, gt_index_cross_dataset_022.*, cross_dataset_metrics_022.*, cross_dataset_failures_022.csv, soda_a_status_022.*, verification_cross_dataset_022.*, full_project_coverage_report.json(更新)
+- gt_index: outputs/bench_core/gt_index/{DIOR-R,FAIR1M-v1.0,SODA-A}_val.{jsonl,meta.json}；predictions: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/

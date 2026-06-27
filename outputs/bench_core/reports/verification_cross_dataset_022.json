@@ -1,0 +1,90 @@
+{
+  "time": "2026-06-27 23:50:01 CST",
+  "verdict": "VERIFIED",
+  "n_checks": 16,
+  "n_pass": 16,
+  "cross_dataset_status": "partial_exploratory_4_datasets",
+  "full_project_complete": false,
+  "checks": [
+    {
+      "check": "exists:dataset_gt_rediscovery_022.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:gt_index_cross_dataset_022.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:cross_dataset_metrics_022.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:soda_a_status_022.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "gt_nonzero:DIOR-R",
+      "ok": true,
+      "detail": "4065"
+    },
+    {
+      "check": "gt_nonzero:FAIR1M-v1.0",
+      "ok": true,
+      "detail": "10408"
+    },
+    {
+      "check": "gt_nonzero:SODA-A",
+      "ok": true,
+      "detail": "15187"
+    },
+    {
+      "check": "dior_obb_found",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "fair1m_obb_found",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "soda_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "all_exploratory",
+      "ok": true,
+      "detail": "['cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory']"
+    },
+    {
+      "check": "cells_have_metrics",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "hrsc_angle_uncertain",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": "b7c4e649b1a3de6d"
+    },
+    {
+      "check": "xds_world_size_4",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "check": "no_forbidden_overclaim",
+      "ok": true,
+      "detail": "[]"
+    }
+  ]
+}

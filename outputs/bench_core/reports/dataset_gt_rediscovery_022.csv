@@ -1,0 +1,5 @@
+dataset,root,chosen_ann_dir,split_file,format,non_empty_count,obb_sample,parser,why_021_wrong,status
+DIOR-R,/home/rspip/cqc/data/dataset/DIOR,annfiles/obb (robndbox 8-corner XML),splits/val.txt,DIOR robndbox XML (8 corners),23463,4065,parse_dior,021 searched annfiles/obb with *.txt only; real files are *.xml -> false 'empty',OBB_FOUND
+FAIR1M-v1.0,/home/rspip/cqc/data/dataset/fair1m1.0,split/val_20/annfiles (points XML),split/val_20,FAIR1M points/quad XML,4362,10408,parse_fair1m,021 find -size precedence bug + assumed split_ss path; val_20/annfiles non-empty XML present,OBB_FOUND
+SODA-A,/home/rspip/cqc/data/dataset/SODA-A,dota_format_tiled_ss/val_tiled/annfiles (DOTA poly8 txt),val_tiled,DOTA poly8 txt (+ Annotations/*.json source),12832,15187,parse_dota_txt,021 marked SODA-A missing_dataset; it is PRESENT with dota_format_tiled_ss,PRESENT_OBB_FOUND
+HRSC2016,/home/rspip/cqc/data/dataset/HRSC2016,annfiles (mbox XML),splits/test.txt,HRSC mbox XML,1681,1228,HRSCDataset(mmrotate),021 correct; angle uncertain,OBB_FOUND_angle_uncertain

@@ -1,0 +1,2 @@
+dataset,present,obb_format,parser,baseline,status,note
+SODA-A,True,DOTA poly8 (dota_format_tiled_ss) + Annotations json,parse_dota_txt (ready),"oriented_rcnn #4 (valid, mr_dev1x)",present_parser_ready_inference_done,9 classes (small-object); val_tiled subset 408 img/15187 obj; NRC 0.84 exploratory

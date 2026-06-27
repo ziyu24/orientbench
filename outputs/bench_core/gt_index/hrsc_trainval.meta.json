@@ -1,0 +1,17 @@
+{
+  "dataset": "hrsc",
+  "dataset_key": "hrsc",
+  "split": "trainval",
+  "data_root": "/home/rspip/cqc/data/dataset",
+  "max_files": 200,
+  "stats": {
+    "n_ids_considered": 200,
+    "n_files_ok": 200,
+    "n_files_missing": 0,
+    "n_objects": 613,
+    "n_valid_geometry": 613,
+    "n_invalid_geometry": 0
+  },
+  "n_warnings": 0,
+  "warnings_sample": []
+}

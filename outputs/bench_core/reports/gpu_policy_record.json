@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27 22:35:32 CST",
+  "generated": "2026-06-27 23:48:21 CST",
   "policy": "every GPU inference task world_size=4 (nproc_per_node=4); no batch override; no OOM batch-lowering",
   "tasks": [
     {
@@ -121,6 +121,57 @@
       "cuda_visible": "0,1,2,3",
       "batch_override": false,
       "log": "outputs/logs/13_hrsc_4gpu_infer.log",
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "orcnn/DIOR-R/3",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29634,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "log": "outputs/logs/xds_b3_DIOR-R_infer.log",
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "orcnn/FAIR1M-v1.0/5",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29635,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "log": "outputs/logs/xds_b5_FAIR1M-v1.0_infer.log",
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "orcnn/SODA-A/4",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29636,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "log": "outputs/logs/xds_b4_SODA-A_infer.log",
       "oom": false,
       "omp_threads": 6
     }

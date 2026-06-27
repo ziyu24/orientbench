@@ -1,0 +1,19 @@
+{
+  "dataset": "SODA-A",
+  "ann_dir": "/home/rspip/cqc/data/dataset/SODA-A/dota_format_tiled_ss/val_tiled/annfiles",
+  "img_dir": "/home/rspip/cqc/data/dataset/SODA-A/dota_format_tiled_ss/val_tiled/images",
+  "n_images": 408,
+  "n_obb_objects": 15187,
+  "n_invalid_geometry": 0,
+  "subset_cap": 600,
+  "farm": "/home/rspip/cqc/pro/study/orientbench/outputs/predictions/SODA-A/_root",
+  "angle_version": "le90_via_QuadriBoxes (uncertain pending formal proof)",
+  "split": "val",
+  "max_files": 600,
+  "stats": {
+    "n_files_ok": 408,
+    "n_objects": 15187,
+    "n_valid_geometry": 15187,
+    "n_invalid_geometry": 0
+  }
+}

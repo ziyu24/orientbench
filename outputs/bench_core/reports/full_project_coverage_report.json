@@ -53,11 +53,20 @@
   "full_project_complete": false,
   "full_matrix_status": "partial",
   "training_needed_now": false,
-  "cross_dataset_status": "partial_exploratory",
+  "cross_dataset_status": "partial_exploratory_4_datasets",
   "cross_dataset_cells": {
-    "HRSC2016": "exploratory(angle_uncertain), mAP_sanity 0.906",
-    "DIOR-R": "blocked_missing_obb_gt",
-    "FAIR1M-v1.0": "blocked_missing_gt"
+    "HRSC2016": "exploratory NRC 0.81 (angle_uncertain)",
+    "DIOR-R": "exploratory NRC 0.52 (real OBB GT robndbox xml)",
+    "FAIR1M-v1.0": "exploratory NRC 0.86 (real OBB GT points xml)",
+    "SODA-A": "exploratory NRC 0.84 (present, dota_format)"
   },
-  "cross_dataset_blocker": "GT availability/angle convention (env solved in 020)"
+  "cross_dataset_blocker": "022 corrected 021: DIOR/FAIR1M/SODA OBB GT rediscovered; remaining blocked: point2rbox(network)/ARS-DETR(0.1.0 env)",
+  "datasets_covered_exploratory": [
+    "DOTA-v1.0",
+    "DOTA-v1.5",
+    "HRSC2016",
+    "DIOR-R",
+    "FAIR1M-v1.0",
+    "SODA-A"
+  ]
 }

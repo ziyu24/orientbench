@@ -23,3 +23,7 @@
 ---
 ## 021 cross-dataset (2026-06-27 22:36:45 CST)
 - cross_dataset_status=partial_exploratory（HRSC 1 real cell；DIOR/FAIR1M GT-blocked）。full_project_complete=false。
+
+---
+## 022 cross-dataset GT correction (2026-06-27 23:49:17 CST)
+- cross_dataset_status=partial_exploratory_4_datasets（DIOR/FAIR1M/SODA/HRSC 真实 cells）。full_project_complete=false。

@@ -1,0 +1,5 @@
+dataset,baseline_id,detector,n_used,median_orient_err_deg,Risk@90,NRC_AUC,angle_status,map_sanity,formal_scope
+HRSC2016,13,oriented_rcnn_lsknet,240,5.875,7.1819,0.8068,blocked_angle_uncertain,0.9061,cross_dataset_exploratory
+DIOR-R,3,oriented_rcnn,3281,1.132,1.6932,0.5235,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
+FAIR1M-v1.0,5,oriented_rcnn,6770,1.888,2.6035,0.8644,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
+SODA-A,4,oriented_rcnn,11890,1.963,2.8482,0.8397,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
