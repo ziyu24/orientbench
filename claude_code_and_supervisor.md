@@ -1174,3 +1174,48 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - scripts/{64_cross_dataset_gt,65_cross_dataset_metrics_022,93_verify_cross_dataset_gt_and_runs}.py、configs/_adapters/xds_b{3,4,5}_dump.py、tests/test_022_gt_discovery.py
 - 报告: dataset_gt_rediscovery_022.*, gt_index_cross_dataset_022.*, cross_dataset_metrics_022.*, cross_dataset_failures_022.csv, soda_a_status_022.*, verification_cross_dataset_022.*, full_project_coverage_report.json(更新)
 - gt_index: outputs/bench_core/gt_index/{DIOR-R,FAIR1M-v1.0,SODA-A}_val.{jsonl,meta.json}；predictions: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/
+
+---
+
+## [2026-06-28 00:14:42 CST] 来源: supervisor
+
+### 输入/指令
+023：跨数据集 multi-detector 扩展。token: SUPERVISOR_APPROVED_023_CROSS_DATASET_MULTI_DETECTOR_4GPU_EXISTING_ASSETS。
+- **032 ignored_due_to_wrong_thread_or_stage**：明确不执行 032 / 不切 C-5/source-teacher；当前仍是 OrientBench full-matrix 扩展。
+
+### 执行计划（cross_dataset_multidetector_plan_023）
+- datasets: DIOR-R/FAIR1M-v1.0/SODA-A/HRSC2016。mr_dev1x(orcnn/psc/rtmdet via pth_data config+adapter)=可跑；lsknet/strip cross-dataset=blocked_config_mismatch（ai4rs 无 matching-class config）；ARS-DETR=blocked_dependency（0.1.0，不替代 RHINO）；point2rbox=weak_nonformal（网络下载）。
+
+### inference 命令 + world_size=4 + batch override=false
+- DIOR-R psc#22(port 29641)→1.7MB；DIOR-R rtmdet-s#61(29642)→1.3MB；FAIR1M psc#24(29643)→3.4MB；SODA-A psc#23(29644)→2.5MB。
+- 全部 torch.distributed.run --nproc_per_node=4 mmrotate_1x/tools/test.py + adapter(DumpDetResults)，CUDA_VISIBLE_DEVICES=0,1,2,3，world_size=4，OMP 6×4=24CPU，**batch override=false**，无 OOM。symlink farm（未改原始 dataset）。gpu_policy_record 14 tasks 全 world_size=4。
+
+### raw/schema 路径 + metrics 摘要（全 exploratory）
+- raw/schema: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/{22,61,24,23}/。
+- D2 exploratory metrics(near-square masked): DIOR-R orcnn#3 NRC 0.52 / psc#22 NRC 0.59 / rtmdet#61 NRC 0.44；FAIR1M orcnn#5 NRC 0.86 / psc#24 **NRC 1.03**；SODA-A orcnn#4 NRC 0.84 / psc#23 **NRC 1.17**；HRSC lsknet#13 NRC 0.81。**8 cells 0 failed**。
+- 观察(exploratory): PSC angle-coder 在 FAIR1M/SODA NRC>1.0（选择弱于 random），与 DOTA psc#20(NRC 1.06) 一致 — 跨数据集模式。
+
+### 各数据集 detector 覆盖率
+- DIOR-R: 3 detector（orcnn/psc/rtmdet）；FAIR1M-v1.0: 2（orcnn/psc）；SODA-A: 2（orcnn/psc）；HRSC2016: 1（lsknet）。
+
+### full val 是否完成
+- 否（受控 subset：DIOR 600 / FAIR1M 521 / SODA 408 img；HRSC test split）。**非静默截断**，cross_dataset_fullval_status_023 明确记录原因（exploratory 吞吐 + 多 detector 优先）；如需 full val 同 4-GPU 去 SUBSET cap 重跑。
+
+### HRSC angle 状态
+- blocked_angle_uncertain（mbox↔le90 正式只读证明未完成；不阻塞其它 dataset）。
+
+### 失败/blocked
+- 跑通 4/4 ready cells。blocked: lsknet/strip cross-dataset(config_mismatch)、ARS-DETR(0.1.0 env)、point2rbox(网络)。
+
+### thresholds 未变 + 测试 + verification
+- thresholds.yaml sha256 b7c4e649… **未变**。
+- 新增 tests/test_023_multidetector.py（10 例：plan schema、ready executed、gpu world_size=4、batch forbidden、schema、exploratory guard、thresholds unchanged、HRSC angle、fullval no silent trunc、no 032/C5 artifacts）。pytest -q → **212 passed**。
+- scripts/90 21/21、91 20/20、92 12/12、93 16/16、新增 94_verify_cross_dataset_multidetector.py → **15/15**。
+
+### 停止条件
+未触发（未训练/下载/装依赖/改 pth_data·dataset/替代 RHINO/执行 032/改 batch·config/改 R1-R8·GV·NRC·score；thresholds 未变；DOTA milestone verify 通过；正式报告无 forbidden claim）。
+
+### 产物路径
+- scripts/{65(更新),94_verify_cross_dataset_multidetector}.py、configs/_adapters/xds_b{22,61,24,23}_dump.py、tests/test_023_multidetector.py
+- 报告: cross_dataset_multidetector_plan_023.*, cross_dataset_schema_validation_023.*, cross_dataset_metrics_023.*, cross_dataset_fullval_status_023.*, verification_cross_dataset_multidetector_023.*, full_project_coverage_report.json(更新)
+- predictions: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/{22,61,24,23}/

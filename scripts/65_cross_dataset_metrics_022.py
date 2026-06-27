@@ -28,8 +28,12 @@ SCORE_THR = 0.30
 # (dataset, baseline_id, adapter_config_for_classes, detector)
 CELLS = [
     ("DIOR-R", "3", "configs/_adapters/xds_b3_dump.py", "oriented_rcnn"),
+    ("DIOR-R", "22", "configs/_adapters/xds_b22_dump.py", "rotated_retinanet_psc"),
+    ("DIOR-R", "61", "configs/_adapters/xds_b61_dump.py", "rotated_rtmdet_s"),
     ("FAIR1M-v1.0", "5", "configs/_adapters/xds_b5_dump.py", "oriented_rcnn"),
+    ("FAIR1M-v1.0", "24", "configs/_adapters/xds_b24_dump.py", "rotated_retinanet_psc"),
     ("SODA-A", "4", "configs/_adapters/xds_b4_dump.py", "oriented_rcnn"),
+    ("SODA-A", "23", "configs/_adapters/xds_b23_dump.py", "rotated_retinanet_psc"),
 ]
 
 

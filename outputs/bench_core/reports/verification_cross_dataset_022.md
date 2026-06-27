@@ -1,6 +1,6 @@
 # Cross-Dataset 022 Verification (read-only)
 
-> 2026-06-27 23:50:01 CST
+> 2026-06-28 00:13:50 CST
 > verdict: **VERIFIED** (16/16)
 
 | check | ok | detail |
@@ -15,9 +15,9 @@
 | dior_obb_found | ✓ |  |
 | fair1m_obb_found | ✓ |  |
 | soda_present | ✓ |  |
-| all_exploratory | ✓ | ['cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory'] |
+| all_exploratory | ✓ | ['cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory', 'cross_dataset_exploratory'] |
 | cells_have_metrics | ✓ |  |
 | hrsc_angle_uncertain | ✓ |  |
 | thresholds_unchanged | ✓ | b7c4e649b1a3de6d |
-| xds_world_size_4 | ✓ | 4 |
+| xds_world_size_4 | ✓ | 8 |
 | no_forbidden_overclaim | ✓ | [] |

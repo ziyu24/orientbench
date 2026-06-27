@@ -1,0 +1,85 @@
+{
+  "time": "2026-06-28 00:13:50 CST",
+  "verdict": "VERIFIED",
+  "n_checks": 15,
+  "n_pass": 15,
+  "cross_dataset_status": "partial_exploratory_multidetector",
+  "full_project_complete": false,
+  "checks": [
+    {
+      "check": "exists:cross_dataset_multidetector_plan_023.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:cross_dataset_schema_validation_023.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:cross_dataset_metrics_023.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:cross_dataset_fullval_status_023.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "plan_schema_valid",
+      "ok": true,
+      "detail": "['already_available', 'already_available', 'already_available', 'blocked_config_mismatch (no DIOR-class ai4rs lsknet config)', 'blocked_config_mismatch (no DIOR-class ai4rs strip config)', 'blocked_dependency (0.1.0)', 'already_available', 'already_available', 'blocked_config_mismatch', 'blocked_dependency', 'already_available', 'already_available', 'blocked_config_mismatch', 'blocked_dependency', 'already_available', 'ready_to_run (HRSC native; not run this batch)', 'ready_to_run', 'weak_nonformal (network __init__)']"
+    },
+    {
+      "check": "multidetector_coverage",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "dior_multi",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "all_exploratory",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "hrsc_angle_uncertain",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "schema_nonzero",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "fullval_no_silent_truncation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "all_gpu_world_size_4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": "b7c4e649b1a3de6d"
+    },
+    {
+      "check": "no_032_c5_artifacts",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_forbidden_overclaim",
+      "ok": true,
+      "detail": "[]"
+    }
+  ]
+}

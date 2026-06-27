@@ -51,3 +51,14 @@
 - DIOR-R/FAIR1M/SODA-A/HRSC2016 真实 4-GPU inference + exploratory D2 metrics（NRC: DIOR 0.52, FAIR1M 0.86, SODA 0.84, HRSC 0.81）。**全部 cross_dataset_exploratory，非 formal，阈值未变。**
 ### forbidden (unchanged)
 - cross-dataset formal gate / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO（仍不可宣称）。
+
+---
+## 023 cross-dataset multi-detector (2026-06-28 00:13:04 CST)
+### allowed (qualified, exploratory)
+- 8 cross-dataset cells（DIOR-R orcnn/psc/rtmdet, FAIR1M orcnn/psc, SODA-A orcnn/psc, HRSC lsknet）真实 4-GPU + exploratory D2 metrics。
+- 观察(exploratory): PSC angle-coder 在 FAIR1M/SODA NRC>1.0（选择弱于 random），与 DOTA psc 一致——跨数据集模式。
+### qualified
+- 全 cross_dataset_exploratory；非 formal；阈值未变。DIOR/FAIR1M/SODA 用受控 subset（非静默，已记 fullval_status）。
+- 032/C5/source-teacher = **本轮明确忽略**（错误 thread/stage）。
+### forbidden (unchanged)
+- cross-dataset formal gate / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO（仍不可宣称）。

@@ -1,0 +1,4 @@
+dataset,used,full_val_done,reason,subset_size
+DIOR-R,600-img subset (DIOR/FAIR1M/SODA) / HRSC test split,False,"controlled subset for exploratory throughput; full val deferred (not silent — recorded). 4-GPU, no batch change.",DIOR 600/FAIR1M 521/SODA 408 img
+FAIR1M-v1.0,600-img subset (DIOR/FAIR1M/SODA) / HRSC test split,False,"controlled subset for exploratory throughput; full val deferred (not silent — recorded). 4-GPU, no batch change.",DIOR 600/FAIR1M 521/SODA 408 img
+SODA-A,600-img subset (DIOR/FAIR1M/SODA) / HRSC test split,False,"controlled subset for exploratory throughput; full val deferred (not silent — recorded). 4-GPU, no batch change.",DIOR 600/FAIR1M 521/SODA 408 img

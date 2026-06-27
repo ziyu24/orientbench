@@ -27,3 +27,7 @@
 ---
 ## 022 cross-dataset GT correction (2026-06-27 23:49:17 CST)
 - cross_dataset_status=partial_exploratory_4_datasets（DIOR/FAIR1M/SODA/HRSC 真实 cells）。full_project_complete=false。
+
+---
+## 023 multi-detector (2026-06-28 00:13:04 CST)
+- cross_dataset_status=partial_exploratory_multidetector（8 cells）。full_project_complete=false。
