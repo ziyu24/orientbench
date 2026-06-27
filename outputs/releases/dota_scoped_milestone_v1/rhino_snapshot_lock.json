@@ -1,0 +1,1 @@
+{"host":"rhino","best_checkpoint":"outputs/training/rhino/best_dota_mAP_epoch_35.pth","best_sha256":"55a90abbace429276e593f8e4418fad002240ff1951912172367d997b474f9d9","latest_checkpoint":"outputs/training/rhino/epoch_36.pth","snapshot_rule":"best val dota/mAP; D_audit NOT consulted","locked_time":"2026-06-27 19:37:06 CST"}

@@ -1,0 +1,2 @@
+gate,host,host_sha256,split,n_gt,n_both_views,n_used,view_consistency_p90_deg,p90_max_threshold,p90_bootstrap_ci,drop_rate,drop_rate_max_threshold,ot_dustbin_mass_mean,ot_vs_gt_identity_reldiff,near_square_masked,verdict,scope
+C1_augmentation_view_consistency,RHINO,55a90abbace42927,D_audit,10470,9042,8956,3.489,5.04,"[3.409,3.577]",0.1364,0.184,0.1162,0.0,86,formal_pass,augmentation_view_only_NOT_genuine_physical_multiview

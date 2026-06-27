@@ -1,0 +1,40 @@
+{
+  "release": "dota_scoped_milestone_v1",
+  "generated": "2026-06-27 21:39:50 CST",
+  "scope": "frozen DOTA C1/A4 milestone (NOT full project)",
+  "files": [
+    "a4_snapshot_lock.json",
+    "claim_ledger.csv",
+    "claim_ledger.md",
+    "dota_scoped_milestone_acceptance.csv",
+    "dota_scoped_milestone_acceptance.md",
+    "formal_gate_summary.md",
+    "project_status_matrix.csv",
+    "project_status_matrix.md",
+    "reproducibility_manifest.json",
+    "reproducibility_manifest.md",
+    "rhino_snapshot_lock.json",
+    "thresholds.yaml.copy",
+    "verification_dota_scoped_milestone.json",
+    "verification_dota_scoped_milestone.md"
+  ],
+  "sha256": {
+    "a4_snapshot_lock.json": "f6790f8bba0a17d8286ece9324f82b2e0e30b298f660e62ddbbe6740d9725c85",
+    "claim_ledger.csv": "e30c237ab7f9d8205019257505548936c190cbb1fb1b4d3c080ea02c1b5f8352",
+    "claim_ledger.md": "7bd665a99d44531b5810b6a0b24db9b265110ee2681187f0b1f4b110ed0be913",
+    "dota_scoped_milestone_acceptance.csv": "6bd46dcb3e85951ec18eb1bbc15a7aa1e79b3d7664c43c97e29b041db5bcf84d",
+    "dota_scoped_milestone_acceptance.md": "1e2b76aa9c915415f3ddc5661674995c3a8b59186b49ed3dc5e225679ad84389",
+    "formal_gate_summary.md": "0f9e24f0bb7a87ffda7904ee557eda109070d19b5e8603e0ab024c681081cf05",
+    "project_status_matrix.csv": "db88c7c1aa98bde50bc923d8a72bdc5fec7d8c25f9ace2a2614b962cb9d0a56d",
+    "project_status_matrix.md": "461fb266ddf854145aafd661fbd2213dcadbd7fbcb293de21837913b765d8bb5",
+    "reproducibility_manifest.json": "e33e59ae8f4c07fe67c9f42073e4efcba6598047c4d8c64e5bb6002a109b8a3d",
+    "reproducibility_manifest.md": "9a201a7ea80777f85fa0aad8b98e68070fc806f316861f4ca93b206868509c15",
+    "rhino_snapshot_lock.json": "b38f2420e0125d64558e479aa8c414e6f66ba0b9595612b8066756d8413f65c7",
+    "thresholds.yaml.copy": "b7c4e649b1a3de6d0c985a5f20dc5ba70a8fb3e428c3c184e2f86bf96d593fae",
+    "verification_dota_scoped_milestone.json": "91a83a137ec70fdeeed65eaa2771e8ef567b61e87f96f15b332c5c4d659829a0",
+    "verification_dota_scoped_milestone.md": "23a93eb490af88ba459dcf3ef5a469f6666c55565ff3db39e9f649169a0f8a8c"
+  },
+  "thresholds_sha256": "b7c4e649b1a3de6d0c985a5f20dc5ba70a8fb3e428c3c184e2f86bf96d593fae",
+  "verdict": "PASS within frozen DOTA scope",
+  "overall_project_complete": false
+}

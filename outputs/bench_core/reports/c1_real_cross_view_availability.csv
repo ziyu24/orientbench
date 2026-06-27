@@ -1,0 +1,16 @@
+field,value
+genuine_multi_physical_view_pairs,False
+reason,DOTA/HRSC/DIOR are single-view aerial tiles; no multi-viewpoint capture / view-pair metadata.
+pair_source,constructible: deterministic view transform (image rotate/flip) + REAL RHINO inference
+pair_id_trackable,True
+image_a,original val image
+image_b,transformed (90deg) val image
+object_identity_trackable_via,shared GT object (transform-mapped); satisfies R1 GT-identity control
+satisfies_R1_gt_identity,True
+available_images_for_transformed_view,5297
+available_object_pairs_estimate,>20000 (DOTA-v1.0 val GT objects)
+classes_covered,DOTA-v1.0 15 classes
+can_reach_2000_images,True
+cross_view_kind,augmentation_view_real_inference (NOT genuine second physical viewpoint)
+missing,genuine multi-physical-viewpoint capture;human-annotated cross-view object correspondences
+c1_status,real_transformed_view_inference_available (augmentation-consistency); genuine_multi_view_blocked

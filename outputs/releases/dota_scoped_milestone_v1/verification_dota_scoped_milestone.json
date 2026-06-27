@@ -1,0 +1,116 @@
+{
+  "time": "2026-06-27 21:36:51 CST",
+  "verdict": "VERIFIED",
+  "scoped_formal_gate_allowed": "true_for_frozen_dota_c1_a4_scope_only",
+  "overall_project_complete": false,
+  "training_needed_now": false,
+  "n_checks": 21,
+  "n_pass": 21,
+  "checks": [
+    {
+      "check": "exists:configs/thresholds.yaml",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/training/rhino/best_dota_mAP_epoch_35.pth",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/training/a4_host/best_dota_mAP_epoch_70.pth",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/bench_core/reports/c1_formal_audit.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/bench_core/reports/a4_formal_audit.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/bench_core/reports/c1_a4_threshold_freeze_record.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/bench_core/reports/project_status_matrix.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/bench_core/reports/claim_ledger.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:outputs/bench_core/reports/reproducibility_manifest.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "freeze_status_correct",
+      "ok": true,
+      "detail": "partial_frozen_dota_d2+host_orientation_gates+c1_a4_formal_thresholds"
+    },
+    {
+      "check": "freeze_not_overclaimed",
+      "ok": true,
+      "detail": "partial_frozen_dota_d2+host_orientation_gates+c1_a4_formal_thresholds"
+    },
+    {
+      "check": "rhino_sha256",
+      "ok": true,
+      "detail": "55a90abbace42927"
+    },
+    {
+      "check": "a4_sha256",
+      "ok": true,
+      "detail": "3e32fa11114ced82"
+    },
+    {
+      "check": "B_C1_host_match",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "A_A4_host_match",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "dcal_daudit_disjoint",
+      "ok": true,
+      "detail": "|cal|=529 |aud|=471"
+    },
+    {
+      "check": "calibration_split_dcal",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "c1_formal_pass",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "a4_formal_pass",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_forbidden_assertions",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "status_codes_valid",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

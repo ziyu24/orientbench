@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-06-25_234556",
+  "execute_requested": true,
+  "approval_token_present": true,
+  "n_targets": 1,
+  "any_detector_invoked": false,
+  "results": [
+    {
+      "baseline_id": 1,
+      "model_id": "oriented_rcnn_r50_fpn_1x_le90",
+      "dataset": "DOTA-v1.0",
+      "split": "train",
+      "output_path": "/home/rspip/cqc/pro/study/orientbench/outputs/predictions/DOTA-v1.0/1/pred_b1_DOTA-v1.0_train_2026-06-25_234556.jsonl",
+      "command": "# env: conda activate pcp-obb\npython tools/test.py /home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_r50_fpn_1x_le90/DOTA10_train_val/config.py /home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_r50_fpn_1x_le90/DOTA10_train_val/best_mAP_7061_epoch_11.pth --out /home/rspip/cqc/pro/study/orientbench/outputs/predictions/DOTA-v1.0/1/pred_b1_DOTA-v1.0_train_2026-06-25_234556.jsonl --cfg-options test_evaluator.format_only=False",
+      "guards": {
+        "all_ok": true,
+        "guards": [
+          {
+            "guard": "dataset_present",
+            "ok": true,
+            "detail": "normalized=DOTA-v1.0"
+          },
+          {
+            "guard": "dataset_not_silently_skipped",
+            "ok": true,
+            "detail": "SODA-A/ICDAR-MLT must be explicit, not skipped"
+          },
+          {
+            "guard": "config_exists",
+            "ok": true,
+            "detail": "/home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_r50_fpn_1x_le90/DOTA10_train_val/config.py"
+          },
+          {
+            "guard": "checkpoint_exists",
+            "ok": true,
+            "detail": "/home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_r50_fpn_1x_le90/DOTA10_train_val/best_mAP_7061_epoch_11.pth"
+          },
+          {
+            "guard": "baseline_valid",
+            "ok": true,
+            "detail": "valid=True"
+          },
+          {
+            "guard": "output_path_under_predictions",
+            "ok": true,
+            "detail": "/home/rspip/cqc/pro/study/orientbench/outputs/predictions/DOTA-v1.0/1/pred_b1_DOTA-v1.0_train_2026-06-25_234556.jsonl"
+          },
+          {
+            "guard": "not_rhino_substitution",
+            "ok": true,
+            "detail": "ARS-DETR != RHINO; no substitution"
+          },
+          {
+            "guard": "thresholds_freeze_state",
+            "ok": true,
+            "detail": "thresholds pending=True (inference non-formal until R8 freeze)"
+          }
+        ]
+      },
+      "approved_D5": false,
+      "is_synthetic": false,
+      "detector_invoked": false,
+      "mode": "execute_requested",
+      "status": "refused_not_approved",
+      "reason": "D5 not 'allow' or token mismatch in approvals.yaml"
+    }
+  ]
+}

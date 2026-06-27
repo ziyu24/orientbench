@@ -1,0 +1,129 @@
+{
+  "training_allowed": false,
+  "can_train_now": false,
+  "expected": false,
+  "reasons": [
+    "thresholds not frozen",
+    "RHINO missing",
+    "A4 host pending",
+    "real predictions not yet formal",
+    "human approval required"
+  ],
+  "n_items": 15,
+  "blockers": [
+    "training_allowed_default",
+    "R8_thresholds_frozen",
+    "host_baseline_selected",
+    "checkpoint_log_path_policy",
+    "lr_batch_schedule_alignment_plan",
+    "gpu_plan",
+    "real_predictions_formal",
+    "angle_version_verified",
+    "human_approval"
+  ],
+  "items": [
+    {
+      "item": "training_allowed_default",
+      "status": "blocked",
+      "detail": "training_allowed defaults to FALSE (监督 006)"
+    },
+    {
+      "item": "R8_thresholds_frozen",
+      "status": "pending",
+      "detail": "thresholds.yaml must complete R8 freeze before training"
+    },
+    {
+      "item": "host_baseline_selected",
+      "status": "blocked",
+      "detail": "RHINO (C1/B) missing; A4 host pending — host/baseline ruling required"
+    },
+    {
+      "item": "config_path_exists",
+      "status": "ready",
+      "detail": "baseline config paths exist (inventory config_exists all True) — alignment plan still required"
+    },
+    {
+      "item": "checkpoint_log_path_policy",
+      "status": "pending",
+      "detail": "policy: save only best-mAP + latest; logs full path — to be enacted at training time"
+    },
+    {
+      "item": "dataset_path_exists",
+      "status": "ready",
+      "detail": "5 present datasets verified (DOTA10/15/DIOR/HRSC/FAIR1M)"
+    },
+    {
+      "item": "split_policy_valid",
+      "status": "ready",
+      "detail": "D_cal/D_audit mutually exclusive; train/val(test) per dataset policy"
+    },
+    {
+      "item": "lr_batch_schedule_alignment_plan",
+      "status": "pending",
+      "detail": "must align epoch/batch/lr/SyncBN/schedule to official/valid baseline (not yet authored)"
+    },
+    {
+      "item": "gpu_plan",
+      "status": "pending",
+      "detail": "4xA30 default; fall back on OOM and log — plan to be confirmed"
+    },
+    {
+      "item": "first_epoch_stop_rule",
+      "status": "ready",
+      "detail": "first-epoch-low stop rule recorded: if first-epoch mAP clearly low -> stop & report"
+    },
+    {
+      "item": "output_directory_policy",
+      "status": "ready",
+      "detail": "self-built baselines -> orientbench/pth_data with baseline_ prefix; no root clutter"
+    },
+    {
+      "item": "no_pollution_rule",
+      "status": "ready",
+      "detail": "no writes outside study root; pth_data read-only"
+    },
+    {
+      "item": "real_predictions_formal",
+      "status": "pending",
+      "detail": "formal real detector predictions required before training is meaningful"
+    },
+    {
+      "item": "angle_version_verified",
+      "status": "pending",
+      "detail": "angle_version le90 sign consistency (esp. HRSC) must be verified"
+    },
+    {
+      "item": "human_approval",
+      "status": "blocked",
+      "detail": "explicit human/supervisor approval required to start training"
+    }
+  ],
+  "remaining_before_training": [
+    "R8 thresholds frozen (configs/thresholds.yaml freeze_time + freeze_status=frozen)",
+    "D_cal/D_audit split policy ratified",
+    "RHINO (C1/B) host ruling + A4 frozen host provided",
+    "real predictions converted + angle_version verified (esp. HRSC)",
+    "config/log/schedule/lr/batch alignment plan authored",
+    "GPU plan (4xA30 default) confirmed"
+  ],
+  "human_decisions_required": [
+    "approve threshold draft values",
+    "rule on RHINO host (download/train/supply/approve-substitute)",
+    "supply A4 hybrid-encoder frozen snapshot",
+    "explicit approval to start training"
+  ],
+  "files_needed": [
+    "frozen thresholds.yaml (freeze_time set)",
+    "RHINO checkpoint+config (or approved substitute)",
+    "A4 hybrid-host frozen snapshot+config",
+    "real detector prediction files in prediction schema"
+  ],
+  "commands_allowed_after_approval": [
+    "(after approval only) training command aligned to official/valid baseline; 4xA30; per-epoch eval; save best-mAP+latest; logs to outputs/logs with full path"
+  ],
+  "stop_conditions_for_first_epoch": [
+    "first-epoch mAP clearly below baseline expectation -> STOP and report",
+    "NaN/inf loss -> STOP and report",
+    "OOM not resolved by documented fallback -> STOP and report"
+  ]
+}

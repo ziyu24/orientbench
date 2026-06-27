@@ -1,0 +1,118 @@
+{
+  "overall_readiness": "blocked",
+  "n_items": 19,
+  "n_ready": 8,
+  "n_pending": 7,
+  "n_blocked": 4,
+  "blockers": [
+    "B_C1_thresholds",
+    "A_A4_thresholds",
+    "D2_thresholds",
+    "freeze_time_set",
+    "responsible_role_filled",
+    "rhino_host",
+    "a4_hybrid_host",
+    "soda_a_icdar_mlt_datasets",
+    "real_prediction_available",
+    "angle_version_certain",
+    "training_approval"
+  ],
+  "items": [
+    {
+      "item": "B_C1_thresholds",
+      "status": "pending",
+      "detail": "thresholds.yaml B_C1.status=pending"
+    },
+    {
+      "item": "A_A4_thresholds",
+      "status": "pending",
+      "detail": "A_A4.status=pending"
+    },
+    {
+      "item": "D2_thresholds",
+      "status": "pending",
+      "detail": "D2.status=pending"
+    },
+    {
+      "item": "freeze_time_set",
+      "status": "pending",
+      "detail": "freeze_time=None"
+    },
+    {
+      "item": "responsible_role_filled",
+      "status": "pending",
+      "detail": "responsible_role={'B_C1': None, 'A_A4': None, 'D2': None}"
+    },
+    {
+      "item": "change_log_present",
+      "status": "ready",
+      "detail": "thresholds.yaml change_log"
+    },
+    {
+      "item": "rhino_host",
+      "status": "blocked",
+      "detail": "RHINO missing in pth_data/readme.md"
+    },
+    {
+      "item": "a4_hybrid_host",
+      "status": "blocked",
+      "detail": "A4 hybrid-encoder oriented DETR frozen snapshot pending"
+    },
+    {
+      "item": "soda_a_icdar_mlt_datasets",
+      "status": "blocked",
+      "detail": "missing: ['SODA-A', 'ICDAR-MLT']"
+    },
+    {
+      "item": "real_prediction_available",
+      "status": "pending",
+      "detail": "real_prediction_smoke_available=3 baselines (NON-formal real predictions; DOTA angle convention RESOLVED); formal pending"
+    },
+    {
+      "item": "calibration_input_available",
+      "status": "ready",
+      "detail": "real D_cal calibration candidate present=True; baselines=3"
+    },
+    {
+      "item": "angle_version_certain",
+      "status": "pending",
+      "detail": "evidence audit: resolved_with_evidence=5 uncertain=2; HRSC=uncertain; detector-sign equivalence still needs real prediction"
+    },
+    {
+      "item": "dcal_daudit_disjoint",
+      "status": "ready",
+      "detail": "all_mutually_exclusive=True"
+    },
+    {
+      "item": "guarded_inference_runner_available",
+      "status": "ready",
+      "detail": "orientbench/runners/inference_runner.py present (refuses execution by default)"
+    },
+    {
+      "item": "output_policy_valid",
+      "status": "ready",
+      "detail": "outputs/predictions/{dataset}/{baseline_id}/ policy enforced"
+    },
+    {
+      "item": "baseline_shortlist_exists",
+      "status": "ready",
+      "detail": "baseline_shortlist.csv"
+    },
+    {
+      "item": "calibration_plan_exists",
+      "status": "ready",
+      "detail": "calibration_plan.csv"
+    },
+    {
+      "item": "formal_inference_approval",
+      "status": "ready",
+      "detail": "approvals.D5=allow"
+    },
+    {
+      "item": "training_approval",
+      "status": "blocked",
+      "detail": "approvals.D6=deny"
+    }
+  ],
+  "formal_gate_allowed": false
+}

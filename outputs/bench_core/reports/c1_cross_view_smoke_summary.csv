@@ -1,0 +1,3 @@
+host,route,split,max_images,n_images,n_gt,ot_dustbin_mass_mean,drop_rate,ot_matched,gt_identity_matched,ot_vs_gt_identity_reldiff,view_consistency_orient_err_median_deg,synthetic_view_dustbin_mass_mean,n_near_square_masked,failure_taxonomy,synthetic_view_transform_for_mechanism_smoke,missing_real_cross_view_pairs
+RHINO,C1/B,D_cal,80,80,1600,0.2248,0.235,1224,1201,0.0192,1.666,0.233,48,"{""dropped_no_responsibility"": 375, ""high_orientation_risk"": 44, ""dropped_near_square"": 17, ""no_pred_or_gt"": 1}",True,True
+RHINO,C1/B,D_audit,80,80,1499,0.2176,0.3029,1045,1000,0.045,1.523,0.2196,25,"{""dropped_no_responsibility"": 454, ""high_orientation_risk"": 60, ""dropped_near_square"": 12}",True,True

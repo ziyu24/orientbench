@@ -1,0 +1,3 @@
+host,route,block,best_ckpt,sha256_first16,sha256_matches_expected,superseded_dirs,mix_guard
+RHINO,C1/B,B_C1,outputs/training/rhino/best_dota_mAP_epoch_35.pth,55a90abbace42927,True,superseded_2gpu_run;superseded_invalid_eval_ckpt,RHINO->C1/B/B_C1 only
+O2-RTDETR,A4,A_A4,outputs/training/a4_host/best_dota_mAP_epoch_70.pth,3e32fa11114ced82,True,superseded_2gpu_run,O2-RTDETR->A4/A_A4 only
