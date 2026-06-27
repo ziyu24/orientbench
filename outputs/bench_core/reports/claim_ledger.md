@@ -32,3 +32,13 @@
 - 未创建新 env，未安装依赖（reuse-first）。
 ### forbidden (unchanged)
 - 9-detector matrix complete / all datasets covered（仍不可宣称；ARS-DETR/point2rbox 未跑，非 DOTA 未跑）。
+
+---
+## 021 cross-dataset exploratory (2026-06-27 22:36:45 CST)
+### allowed (qualified)
+- HRSC2016 LSKNet exploratory: mAP sanity 0.906（与 baseline 一致），D2 orientation-reliability NRC 0.81 / med_err 5.9°（**exploratory only**）。
+### qualified
+- HRSC angle_error_gate_status=blocked_angle_uncertain（mbox→le90 未正式证明）；全部 cross-dataset exploratory，不冻结、非 formal。
+- DIOR-R blocked_missing_obb_gt（仅 HBB）；FAIR1M blocked_missing_gt（标注空/路径缺）；env 非阻塞（020 已解）。
+### forbidden (unchanged)
+- cross-dataset formal gate / all datasets covered / ARS-DETR=RHINO（仍不可宣称）。

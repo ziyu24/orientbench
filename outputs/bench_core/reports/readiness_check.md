@@ -19,3 +19,7 @@
 ## 020 env-unblock (2026-06-27 22:15:11 CST)
 - 3 family unblocked via reuse (LSKNet/Strip/h2rbox); 0 new env; full_matrix_status=partial(10 cells, 9 archetypes).
 - full_project_complete=false; training_needed_now=false.
+
+---
+## 021 cross-dataset (2026-06-27 22:36:45 CST)
+- cross_dataset_status=partial_exploratory（HRSC 1 real cell；DIOR/FAIR1M GT-blocked）。full_project_complete=false。

@@ -1084,3 +1084,45 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 报告: env_audit_020.{md,csv}, env_install_manifest_020.{md,json}, full_matrix_execution_plan_020.{md,csv}, full_matrix_{schema_validation,metrics_summary,probe_summary}.*, full_project_coverage_report.*, gpu_policy_record.json, verification_full_matrix_partial.*
 - scripts/{60,61,62}.py(更新), tests/test_020_env_unblock.py
 - predictions: outputs/predictions/DOTA-v1.0/{7,35,70}/(raw+schema), logs/{7,35,70}_4gpu_infer.log
+
+---
+
+## [2026-06-27 22:38:41 CST] 来源: supervisor
+
+### 输入/指令
+021：跨数据集 exploratory matrix（DIOR-R/HRSC2016/FAIR1M）。token: SUPERVISOR_APPROVED_021_CROSS_DATASET_EXPLORATORY_EXISTING_ASSETS_ONLY。不训练/下载/装依赖/改 pth_data·dataset/替代 RHINO/写 formal/改 thresholds；GPU 4 卡 world_size=4 不改 batch。
+
+### cross dataset plan
+- env 在 020 已解（reuse ai4rs_train/mr_dev1x）；本轮 cross-dataset 真正阻塞 = **GT 可用性/角度约定**，非 env。
+- HRSC2016: 唯一有真实 OBB GT（XML mbox，1681 文件）→ 可跑 exploratory。DIOR-R: 仅 HBB xml，obb annfiles 全空 → blocked_missing_obb_gt。FAIR1M: val_20 annfiles 全空 + split_ss_fair1m1.0 路径缺失 → blocked_missing_gt。SODA-A/ICDAR-MLT missing。
+
+### inference 命令 + world_size=4 + batch override=false
+- HRSC2016 LSKNet #13: torch.distributed.run --nproc_per_node=4 --master_port=29623 ai4rs_clone/tools/test.py lsk_s_fpn_3x_hrsc_le90.py + #13 ckpt（0.3.4→ai4rs 1.x missing=0/406）--out result_b13.pkl，data_root=非破坏性 symlink farm(outputs/.../HRSC2016/_hrsc_root: Annotations→annfiles, AllImages/images→images, splits→splits)。"Distributed training: True"，**dota/mAP 0.9061 / AP50 0.906**（与 baseline 一致 = matching/GT 正确）。1.4MB。
+- world_size=4，CUDA_VISIBLE_DEVICES=0,1,2,3，OMP 6×4=24CPU，batch override=false，无 OOM。gpu_policy_record.json: 7 tasks 全 world_size=4。
+
+### raw/schema 路径 + metrics 摘要
+- raw: outputs/predictions/HRSC2016/13/raw/result_b13.pkl；schema: /13/schema/pred_b13_test.jsonl（17 字段，is_synthetic=false, not_detector_output=false）；GT: outputs/predictions/HRSC2016/_hrsc_gt.jsonl（1228 obj，le90 经 mmrotate HRSCDataset 提取）。
+- HRSC exploratory metrics(near-square masked): n_used=240, median orient err 5.875°, NRC=0.81, mAP_sanity 0.906。
+
+### probe 摘要
+- HRSC D2 orientation-reliability=exploratory；C1/A4 跨数据集本轮未跑。全 exploratory，不冻结新阈值，不改 DOTA formal 结论。
+
+### HRSC angle 状态
+- angle_error_gate_status=**blocked_angle_uncertain**。证据: mAP 0.906 证明 mmrotate HRSCDataset mbox→le90 内部一致、pred/GT 同 convention；但 raw mbox→le90 等价未做正式只读证明 → 保持 exploratory，不给 angle formal 结论，不冻结。
+
+### blocked detector 最小解除条件（remaining_detector_blockers_021）
+- ARS-DETR: 需隔离创建 mmrotate 0.1.0 env（old mmcv/torch，构建脆弱，风险高）；**confusable_with_RHINO=NO**（独立 archetype，RHINO host locked 55a90abb，绝不替代）；非网络下载；建 env 后 formal_capable。最小解除=批准创建 0.1.0 隔离 env + load #14 + 4 卡 infer。
+- point2rbox_v2: model __init__ 触发 urllib 网络下载（禁止）；weak/pseudo nonformal；最小解除=离线缓存权重 + 隔离 clone patch 跳过下载（记 diff），仍 nonformal。
+
+### thresholds 未变 + 测试 + verification
+- thresholds.yaml sha256 b7c4e649… **未变**（不冻结/不改）。
+- 新增 tests/test_021_cross_dataset.py（8 例：plan schema、非 DOTA exploratory、HRSC angle uncertain、blocked detector packet、converter failure continues、thresholds unchanged、gpu world_size=4、claim no overclaim）。pytest -q → **192 passed**。
+- scripts/90 VERIFIED 21/21；91 VERIFIED 20/20；新增 92_verify_cross_dataset_exploratory.py → **VERIFIED 12/12**。
+
+### 停止条件
+未触发（未训练/下载/装依赖/改 pth_data·dataset/替代 RHINO/改 batch·config/改 R1-R8·GV·NRC·score；thresholds 未变；DOTA milestone verify 通过；正式报告无 forbidden claim）。
+
+### 产物路径
+- scripts/{63_cross_dataset_metrics,92_verify_cross_dataset_exploratory}.py、tests/test_021_cross_dataset.py
+- 报告: cross_dataset_{execution_plan_021,metrics_021,failures_021,probe_summary_021}.*, remaining_detector_blockers_021.*, verification_cross_dataset_exploratory_021.*, full_project_coverage_report.json(更新), claim_ledger/readiness_check(追加)
+- predictions: outputs/predictions/HRSC2016/{13/raw,13/schema,_hrsc_gt.jsonl,_hrsc_root符号农场}, logs/13_hrsc_4gpu_infer.log

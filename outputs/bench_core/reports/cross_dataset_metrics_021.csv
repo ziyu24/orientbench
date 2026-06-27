@@ -1,0 +1,2 @@
+dataset,archetype,baseline_id,detector,n_pred,n_schema_ok,formal_scope,angle_error_gate_status,map_sanity,n_matched,n_used,n_masked,median_orient_err_deg,Risk@70,Risk@90,AURC,NRC_AUC
+HRSC2016,lsknet_backbone,13,oriented_rcnn_lsknet,1393,0,cross_dataset_exploratory,blocked_angle_uncertain,0.9061,240,240,0,5.875,6.6651,7.1819,6.5059,0.8068

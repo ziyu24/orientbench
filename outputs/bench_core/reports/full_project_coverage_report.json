@@ -52,5 +52,12 @@
   "dota_scoped_milestone": "pass",
   "full_project_complete": false,
   "full_matrix_status": "partial",
-  "training_needed_now": false
+  "training_needed_now": false,
+  "cross_dataset_status": "partial_exploratory",
+  "cross_dataset_cells": {
+    "HRSC2016": "exploratory(angle_uncertain), mAP_sanity 0.906",
+    "DIOR-R": "blocked_missing_obb_gt",
+    "FAIR1M-v1.0": "blocked_missing_gt"
+  },
+  "cross_dataset_blocker": "GT availability/angle convention (env solved in 020)"
 }

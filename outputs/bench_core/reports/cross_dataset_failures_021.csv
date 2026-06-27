@@ -1,0 +1,3 @@
+cell,reason
+DIOR-R/*,blocked_missing_obb_gt (only HBB xml; obb annfiles empty)
+FAIR1M-v1.0/*,blocked_missing_gt (val_20 annfiles empty; split_ss path absent)
