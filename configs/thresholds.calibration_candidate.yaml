@@ -1,0 +1,63 @@
+project: orientbench
+version: v1.0-calibration-candidate
+proposed_by: claude_dcal
+approval_status: approved_frozen_dota_d2
+freeze_status: not_frozen
+freeze_time: null
+angle_convention: le90_longside_canonical (RESOLVED via mmrotate GT + long-side canonicalization)
+dataset: DOTA-v1.0
+split: val
+n_D_cal_images: 266
+n_D_audit_images: 296
+note: 基于真实 prediction 的 D_cal 观测；候选值待合作者批准 + R8 冻结；非正式 gate。
+observed_per_baseline:
+  baseline_1:
+    detector_id: oriented_rcnn_r50
+    archetype: two_stage_regression
+    D_cal:
+      n_matched: 9820
+      median_orient_err_deg: 1.564
+      Risk@70: 2.2687
+      Risk@90: 2.3864
+      AURC: 2.4502
+      NRC_AUC: 0.9736
+    D_audit:
+      n_matched: 9422
+      median_orient_err_deg: 1.59
+      Risk@90: 2.4543
+      NRC_AUC: 0.8138
+  baseline_20:
+    detector_id: rotated_retinanet_psc_r50
+    archetype: angle_coder_psc
+    D_cal:
+      n_matched: 7549
+      median_orient_err_deg: 1.599
+      Risk@70: 3.0532
+      Risk@90: 2.9161
+      AURC: 3.5228
+      NRC_AUC: 1.3113
+    D_audit:
+      n_matched: 7201
+      median_orient_err_deg: 1.543
+      Risk@90: 2.7927
+      NRC_AUC: 1.0059
+  baseline_32:
+    detector_id: rotated_rtmdet_s
+    archetype: one_stage_realtime
+    D_cal:
+      n_matched: 9926
+      median_orient_err_deg: 1.596
+      Risk@70: 2.2916
+      Risk@90: 2.4482
+      AURC: 2.1873
+      NRC_AUC: 0.7767
+    D_audit:
+      n_matched: 9437
+      median_orient_err_deg: 1.615
+      Risk@90: 2.464
+      NRC_AUC: 0.7523
+candidate_thresholds:
+  D2:
+    selective_orientation_risk_at_90_deg_max: TBD_from_D_cal (see observed Risk@90)
+    nrc_auc_max: TBD_from_D_cal
+  status: draft_candidate

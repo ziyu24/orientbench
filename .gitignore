@@ -1,0 +1,13 @@
+# large/raw — never commit
+outputs/predictions/
+outputs/training/
+outputs/probes/
+*.pth
+*.pkl
+*.png
+*.jpg
+*.zip
+__pycache__/
+*.pyc
+work/
+work_dirs/

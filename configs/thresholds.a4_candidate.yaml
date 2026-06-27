@@ -1,0 +1,33 @@
+project: orientbench
+block: A_A4
+host: O2-RTDETR
+host_ckpt_sha256: 3e32fa11114ced82
+approval_status: approved_frozen
+frozen: false
+calibration_split: D_cal
+background_source: image_annulus_gradient_orientation (real)
+bg_unavailable_ratio: 0.0
+candidate:
+  partial_corr_max_abs: 0.2
+  hsic_p_min_after_correction: 0.05
+  near_square_masked: true
+dcal_observed:
+  n_used: 2951
+  sources:
+    E_bg:
+      partial_corr: -0.033
+      hsic_p: 0.05472636815920398
+    E_layout:
+      partial_corr: -0.0589
+      hsic_p: 0.004975124378109453
+    score:
+      partial_corr: -0.2041
+      hsic_p: 0.004975124378109453
+    entropy:
+      partial_corr: 0.1978
+      hsic_p: 0.004975124378109453
+    gv:
+      partial_corr: -0.0005
+      hsic_p: 0.009950248756218905
+status: ready_for_threshold_review
+note: candidate only; needs R8 freeze approval; D_audit not used to set thresholds.

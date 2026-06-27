@@ -1,0 +1,32 @@
+[
+  {
+    "archetype": "two_stage_oriented_rcnn",
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "1",
+    "formal_scope": "formal_compatible"
+  },
+  {
+    "archetype": "angle_coder_psc",
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "20",
+    "formal_scope": "formal_compatible"
+  },
+  {
+    "archetype": "one_stage_rtmdet",
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "32",
+    "formal_scope": "formal_compatible"
+  },
+  {
+    "archetype": "rotated_detr_rhino",
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "rhino",
+    "formal_scope": "formal_compatible"
+  },
+  {
+    "archetype": "hybrid_encoder_oriented_detr_a4",
+    "dataset": "DOTA-v1.5",
+    "baseline_id": "a4_host",
+    "formal_scope": "formal_compatible"
+  }
+]

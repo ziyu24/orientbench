@@ -1,0 +1,55 @@
+# orientbench — datasets.yaml (数据集清单与可解析状态)
+# 状态由 scripts/00_env_check.py 实测 dataset inventory 得到 (2026-06-25)。
+# 不伪造可用性；missing 据实标注。
+dataset_root: /home/rspip/cqc/data/dataset
+
+datasets:
+  - name: DOTA-v1.0
+    key: dota10
+    present: true
+    format: dota_txt_poly8
+    angle_version: le90_derived_from_poly(cv2.minAreaRect)
+    ann: dota/dota1.0/split_ss_dota10/{train,val}/annfiles
+    img: dota/dota1.0/split_ss_dota10/{train,val}/images
+    split: train→val
+  - name: DOTA-v1.5
+    key: dota15
+    present: true
+    format: dota_txt_poly8
+    angle_version: le90_derived_from_poly(cv2.minAreaRect)
+    ann: dota/dota1.5/split_ss_dota15/{train,val}/annfiles
+    split: train→val
+  - name: DIOR-R
+    key: dior
+    present: true
+    format: dior_obb_xml_robndbox
+    angle_version: le90_derived_from_corners(cv2.minAreaRect); raw <angle> retained
+    ann: DIOR/annfiles/obb
+    img: DIOR/images/{trainval,test}
+    splits: DIOR/splits/*.txt
+    split: trainval→test
+  - name: HRSC2016
+    key: hrsc
+    present: true
+    format: hrsc_xml_mbox
+    angle_version: mbox_ang_rad(opencv-like, UNVERIFIED le90 equivalence)
+    ann: HRSC2016/annfiles
+    img: HRSC2016/images
+    split: trainval→test
+  - name: FAIR1M-v1.0
+    key: fair1m
+    present: true
+    format: fair1m_xml_points
+    angle_version: le90_derived_from_poly(cv2.minAreaRect)
+    ann: fair1m1.0/split/{train_80,val_20}/annfiles
+    split: train→val
+  - name: SODA-A
+    key: soda_a
+    present: false        # MISSING in dataset root (readme baseline 有引用)
+    format: unknown
+    note: dataset availability risk — 待合作者提供路径或确认不在范围
+  - name: ICDAR-MLT
+    key: icdar_mlt
+    present: false        # MISSING in dataset root (跨域 probe 数据)
+    format: unknown
+    note: dataset availability risk — 待合作者提供路径或确认不在范围

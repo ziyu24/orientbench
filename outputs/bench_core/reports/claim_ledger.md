@@ -1,6 +1,6 @@
 # Claim Ledger
 
-> 2026-06-27 21:18:21 CST
+> 2026-06-27 21:48:46 CST
 
 ## allowed_claims
 - DOTA-scoped C1 augmentation-view consistency passed frozen D_audit formal gate.
@@ -22,3 +22,13 @@
 - 9-detector matrix complete.
 - All datasets covered.
 - ARS-DETR substituted RHINO.
+
+---
+## 019 full-matrix additions (2026-06-27 21:48:47 CST)
+### allowed (qualified by scope)
+- DOTA-v1.0/v1.5 上 7 个 detector cell（oriented_rcnn/psc/rtmdet-s/rtmdet-m/RHINO/O2-RTDETR）已跑真实 D2 orientation-reliability metrics（NRC/Risk@90），DOTA formal-compatible（阈值未改）。
+### qualified
+- full matrix status = **partial**（7 cells / 9 archetypes；新 inference 均 4-GPU world_size=4，无 batch override）。
+- 非 DOTA detector 家族多因 env 未安装 blocked_dependency；SODA-A/ICDAR-MLT missing。
+### forbidden (unchanged)
+- 9-detector matrix complete / all datasets covered（**仍不可宣称**）。

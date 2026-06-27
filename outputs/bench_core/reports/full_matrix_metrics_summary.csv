@@ -1,0 +1,8 @@
+archetype,dataset,baseline_id,detector,formal_scope,n_pred,n_matched,n_used,n_masked,median_orient_err_deg,Risk@70,Risk@90,AURC,NRC_AUC,per_class_coverage_n
+two_stage_oriented_rcnn,DOTA-v1.0,1,oriented_rcnn,formal_compatible,680,529,529,0,0.878,0.9977,1.1773,0.8809,0.5699,13
+angle_coder_psc,DOTA-v1.0,20,rotated_retinanet_psc,formal_compatible,674,361,361,0,1.004,1.4682,1.3539,1.4275,1.0574,13
+rotated_detr_rhino,DOTA-v1.0,rhino,rhino_rotated_detr,formal_compatible_locked_host,22276,19411,19157,254,1.52,1.9513,2.0475,1.8174,0.771,13
+hybrid_encoder_oriented_detr_a4,DOTA-v1.5,a4_host,o2_rtdetr_hybrid_encoder,formal_compatible_locked_host,32988,26857,26613,244,1.771,2.0535,2.3314,1.7887,0.5515,14
+two_stage_oriented_rcnn,DOTA-v1.5,2,oriented_rcnn,formal_compatible,30258,26662,26360,302,1.803,2.1427,2.3603,1.9784,0.6943,14
+one_stage_rtmdet,DOTA-v1.5,33,rotated_rtmdet_s,formal_compatible,33504,28184,27916,268,1.902,2.184,2.4322,2.0109,0.6263,14
+one_stage_rtmdet_m,DOTA-v1.5,39,rotated_rtmdet_m,formal_compatible,34117,28672,28413,259,1.763,2.0536,2.3153,1.8953,0.6156,14

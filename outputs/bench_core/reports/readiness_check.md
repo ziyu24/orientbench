@@ -9,3 +9,8 @@
   - 说明: 该字段**不是**继续训练许可。历史上 host-scope 训练(RHINO/O2-RTDETR)曾经 D6 批准并已完成冻结；当前 scope 无需新训练。
 - DOTA-scoped milestone = PASS（D2 partial / host orientation / C1 augmentation-view / A4 same-host）。
 - full project / 全数据集 / 9-detector matrix / genuine physical multi-view / 跨 host 因果 = 未完成, 不得宣称。
+
+---
+## 019 full-matrix update (2026-06-27 21:48:47 CST)
+- full_matrix_status = partial（7 real cells，4-GPU）。full_project_complete = false。
+- DOTA scoped milestone = pass（不变）。training_needed_now = false。
