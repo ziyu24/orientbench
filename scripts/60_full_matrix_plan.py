@@ -27,10 +27,10 @@ ARCHETYPES = [
     ("one_stage_rtmdet", "rotated_rtmdet", {"mr_dev1x"}, "formal_capable"),
     ("rotated_detr_rhino", "RHINO_host", {"ai4rs_train"}, "formal_capable_locked_host"),
     ("hybrid_encoder_oriented_detr_a4", "O2RTDETR_host", {"ai4rs_train"}, "formal_capable_locked_host"),
-    ("lsknet_backbone", "oriented_rcnn_lsknet_s_fpn", {"pcp-obb-soda"}, "formal_capable"),
-    ("strip_rcnn", "strip_rcnn_s_fpn", {"unknown"}, "formal_capable"),
-    ("weakly_supervised_h2rbox", "h2rbox_v2", {"unknown"}, "weak_or_pseudo_nonformal"),
-    ("pseudo_point2rbox", "point2rbox_v2", {"unknown"}, "weak_or_pseudo_nonformal"),
+    ("lsknet_backbone", "oriented_rcnn_lsknet_s_fpn", {"ai4rs_train"}, "formal_capable"),
+    ("strip_rcnn", "strip_rcnn_s_fpn", {"ai4rs_train"}, "formal_capable"),
+    ("weakly_supervised_h2rbox", "h2rbox_v2", {"ai4rs_train"}, "weak_or_pseudo_nonformal"),
+    ("pseudo_point2rbox", "point2rbox_v2", {"unknown"}, "weak_or_pseudo_nonformal_blocked_network_init"),
     ("rotated_detr_arsdetr_distinct", "arsdetr", {"ars"}, "formal_capable_NOT_rhino_substitute"),
 ]
 
@@ -58,6 +58,9 @@ def main():
         ("one_stage_rtmdet", "DOTA-v1.0"): "32",
         ("rotated_detr_rhino", "DOTA-v1.0"): "rhino",
         ("hybrid_encoder_oriented_detr_a4", "DOTA-v1.5"): "a4_host",
+        ("lsknet_backbone", "DOTA-v1.0"): "7",
+        ("strip_rcnn", "DOTA-v1.0"): "35",
+        ("weakly_supervised_h2rbox", "DOTA-v1.0"): "70",
     }
 
     rows = []
@@ -100,7 +103,7 @@ def main():
 
     cols = ["archetype", "detector_family", "dataset", "representative_baseline_id", "required_env",
             "env_installed", "status", "formal_capability", "formal_scope"]
-    with open(os.path.join(REP, "full_matrix_execution_plan.csv"), "w", newline="") as fh:
+    with open(os.path.join(REP, "full_matrix_execution_plan_020.csv"), "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=cols); w.writeheader(); w.writerows(rows)
     json.dump(cells, open(os.path.join(REP, "full_matrix_available_cells.json"), "w"), indent=2)
 
@@ -121,7 +124,7 @@ def main():
           "- blocked_missing_dataset: SODA-A / ICDAR-MLT 不在 present datasets（仅记录）。",
           "- RHINO 用 locked RHINO host；ARS-DETR 为独立 archetype，**不**替代 RHINO。",
           "- DOTA-v1.0/v1.5 = formal_compatible（不改阈值）；DIOR-R/HRSC/FAIR1M = cross_dataset_exploratory。"]
-    open(os.path.join(REP, "full_matrix_execution_plan.md"), "w").write("\n".join(L) + "\n")
+    open(os.path.join(REP, "full_matrix_execution_plan_020.md"), "w").write("\n".join(L) + "\n")
     print(f"[ok] matrix plan: {dict(sc)}; available cells={len(cells)}")
 
 

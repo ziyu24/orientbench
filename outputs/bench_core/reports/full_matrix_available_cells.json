@@ -28,5 +28,23 @@
     "dataset": "DOTA-v1.5",
     "baseline_id": "a4_host",
     "formal_scope": "formal_compatible"
+  },
+  {
+    "archetype": "lsknet_backbone",
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "7",
+    "formal_scope": "formal_compatible"
+  },
+  {
+    "archetype": "strip_rcnn",
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "35",
+    "formal_scope": "formal_compatible"
+  },
+  {
+    "archetype": "weakly_supervised_h2rbox",
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "70",
+    "formal_scope": "nonformal"
   }
 ]

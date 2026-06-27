@@ -1,6 +1,6 @@
 # DOTA-Scoped Milestone Acceptance
 
-> 2026-06-27 21:48:46 CST
+> 2026-06-27 22:15:09 CST
 
 ## 验收结论: **PASS within frozen DOTA scope**
 

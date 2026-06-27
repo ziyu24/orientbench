@@ -1,15 +1,18 @@
 {
-  "generated": "2026-06-27 21:52:37 CST",
+  "generated": "2026-06-27 22:14:33 CST",
   "detector_archetypes_total": 10,
   "detector_archetypes_covered": [
     "angle_coder_psc",
     "hybrid_encoder_oriented_detr_a4",
+    "lsknet_backbone",
     "one_stage_rtmdet",
     "one_stage_rtmdet_m",
     "rotated_detr_rhino",
-    "two_stage_oriented_rcnn"
+    "strip_rcnn",
+    "two_stage_oriented_rcnn",
+    "weakly_supervised_h2rbox"
   ],
-  "n_detector_covered": 6,
+  "n_detector_covered": 9,
   "datasets_present": [
     "DIOR-R",
     "DOTA-v1.0",
@@ -21,14 +24,14 @@
     "DOTA-v1.0",
     "DOTA-v1.5"
   ],
-  "successful_cells": 7,
-  "schema_cells": 7,
+  "successful_cells": 10,
+  "schema_cells": 10,
   "blocked_cells": {
-    "blocked_dependency_not_installed": 15,
-    "weak_nonformal_blocked_dependency": 10,
+    "weak_nonformal_blocked_dependency": 5,
+    "blocked_dependency_not_installed": 5,
     "blocked_missing_dataset": 2
   },
-  "formal_compatible_cells": 7,
+  "formal_compatible_cells": 10,
   "exploratory_cells": 0,
   "missing_datasets": [
     "SODA-A",

@@ -1038,3 +1038,49 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - scripts/{60_full_matrix_plan,61_full_matrix_metrics,62_full_matrix_coverage,91_verify_full_matrix_partial}.py、configs/_adapters/{rtmdet_b33,rtmdet_b39,orcnn_b2}_dump.py、tests/test_019_full_matrix.py
 - outputs/releases/dota_scoped_milestone_v1/*、outputs/bench_core/reports/{full_matrix_execution_plan,full_matrix_schema_validation,full_matrix_metrics_summary,full_matrix_failures,full_matrix_probe_summary,full_project_coverage_report,gpu_policy_record,verification_full_matrix_partial}.*
 - outputs/predictions/DOTA-v1.5/{2,33,39}/（raw+schema）、outputs/logs/{b2,b33,b39}_4gpu_infer.log
+
+---
+
+## [2026-06-27 22:17:58 CST] 来源: supervisor
+
+### 输入/指令
+020：环境审计 + 复用/创建缺失 env 解除 full-matrix dependency blockers。token: SUPERVISOR_APPROVED_020_ENV_AUDIT_AND_CREATE_MISSING_ONLY。reuse-first；不盲装/不改 base/不破坏已有 env/不下载 dataset·ckpt/不改 pth_data/不替代 RHINO；GPU 4 卡 world_size=4 不改 batch。
+
+### 已有 env 审计
+- conda envs: ai4rs_train, geostructdota, mr(mmrotate0.3.4/torch1.12), mr_dev1x(1.0.0rc1), p2_foundation。
+- 关键发现: ai4rs_clone(ai4rs_train, mmrotate1.x) 含 LSKNet/Strip_RCNN/h2rbox_v2/Point2Rbox_v2 projects。各 family 的 pth_data 0.3.4/unknown ckpt 试加载入 ai4rs 1.x 模型: LSKNet missing=0/406、Strip missing=2/384、h2rbox 兼容 → **state_dict 完整兼容**。env_audit_020.{md,csv}。
+
+### 创建 env 命令 / 安装包版本
+- **无**。全部 reuse ai4rs_train（reuse-first 满足）；**未创建新 env，未安装任何包**；base/已有 env 未动。env_install_manifest_020.{md,json}: envs_created=[], packages_installed=[]。
+
+### adapter 路径
+- 无需新 adapter：cfg-options data override + custom_imports=projects.{LSKNet.lsknet,Strip_RCNN.strip_rcnn} via PYTHONPATH=ai4rs_clone。
+
+### 每个 inference 命令 + world_size=4 证据 + batch override=false
+- LSKNet #7 DOTA-v1.0: torch.distributed.run --nproc_per_node=4 --master_port=29614 ai4rs_clone/tools/test.py lsk_s_fpn_1x_dota_le90.py + 0.3.4 ckpt --out result_b7.pkl；"Distributed training: True"；3.6MB。
+- Strip_RCNN #35 DOTA-v1.0: --nproc_per_node=4 --master_port=29615 strip_rcnn_s_fpn_1x_dota_le90.py；2.0MB。
+- h2rbox_v2 #70 DOTA-v1.0: --nproc_per_node=4 --master_port=29613；4.4MB。
+- 全部 CUDA_VISIBLE_DEVICES=0,1,2,3、OMP_NUM_THREADS=6×4=24CPU、world_size=4、**batch override=false**、无 OOM、串行各自 4 卡。gpu_policy_record.json: 6 tasks 全 world_size=4。
+
+### raw/schema 路径 + metrics 摘要
+- raw: outputs/predictions/DOTA-v1.0/{7,35,70}/raw/；schema: 同 /schema/（17 字段，is_synthetic=false, not_detector_output=false）。
+- D2 metrics(DOTA-v1.0, near-square masked): LSKNet NRC=0.71 med_err=1.46°；Strip NRC=0.72 med_err=1.50°；h2rbox NRC=0.76 med_err=1.87°(弱监督 weak_nonformal_metrics)。
+- full matrix: **10 cells / 9 distinct archetype 真实覆盖**（oriented_rcnn/psc/rtmdet-s/rtmdet-m/RHINO/O2-RTDETR/LSKNet/Strip/h2rbox）。
+
+### 失败原因（仍 blocked）
+- point2rbox_v2: model __init__ 触发 urllib 网络下载（禁止 no-download）+ weak/pseudo generator → nonformal blocked。
+- ARS-DETR: mmrotate 0.1.0 fork，无匹配 env，ai4rs 无 reuse code；**不替代 RHINO** → blocked_dependency（如需须 create 0.1.0 env，本轮未做以免风险）。
+- 非 DOTA(DIOR-R/HRSC/FAIR1M) cells: ready_to_run 但本轮未跑（exploratory，留待）；HRSC angle uncertain 保持 blocked_angle_uncertain。
+
+### thresholds 未变 + 测试 + verification
+- thresholds.yaml sha256 b7c4e649… **全程未变**（matrix 不改阈值；DOTA D2/host/C1/A4 frozen 不动）。
+- 新增 tests/test_020_env_unblock.py（6 例：env audit schema、manifest 无 env 创建、unblocked families in metrics、blocked reclassification、ARS-DETR≠RHINO、gpu world_size=4）。pytest -q → **184 passed**。
+- scripts/90 → VERIFIED 21/21；scripts/91 → VERIFIED 20/20。
+
+### 停止条件
+未触发（无需下载/装包/改 pth_data·dataset/替代 RHINO/改配置或 batch/改 R1-R8·GV·NRC·score；未破坏 env；DOTA milestone verify 通过；thresholds 未变）。
+
+### 产物路径
+- 报告: env_audit_020.{md,csv}, env_install_manifest_020.{md,json}, full_matrix_execution_plan_020.{md,csv}, full_matrix_{schema_validation,metrics_summary,probe_summary}.*, full_project_coverage_report.*, gpu_policy_record.json, verification_full_matrix_partial.*
+- scripts/{60,61,62}.py(更新), tests/test_020_env_unblock.py
+- predictions: outputs/predictions/DOTA-v1.0/{7,35,70}/(raw+schema), logs/{7,35,70}_4gpu_infer.log

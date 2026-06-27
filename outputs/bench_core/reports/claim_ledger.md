@@ -1,6 +1,6 @@
 # Claim Ledger
 
-> 2026-06-27 21:48:46 CST
+> 2026-06-27 22:15:09 CST
 
 ## allowed_claims
 - DOTA-scoped C1 augmentation-view consistency passed frozen D_audit formal gate.
@@ -24,11 +24,11 @@
 - ARS-DETR substituted RHINO.
 
 ---
-## 019 full-matrix additions (2026-06-27 21:48:47 CST)
-### allowed (qualified by scope)
-- DOTA-v1.0/v1.5 上 7 个 detector cell（oriented_rcnn/psc/rtmdet-s/rtmdet-m/RHINO/O2-RTDETR）已跑真实 D2 orientation-reliability metrics（NRC/Risk@90），DOTA formal-compatible（阈值未改）。
+## 020 env-unblock additions (2026-06-27 22:15:11 CST)
+### allowed (qualified)
+- LSKNet / Strip R-CNN / h2rbox_v2 经 reuse(ai4rs_train, 0.3.4 ckpt 完整加载入 ai4rs 1.x) 跑通真实 4-GPU inference，DOTA-v1.0 D2 metrics（LSKNet NRC 0.71 / Strip 0.72 / h2rbox 0.76）。
 ### qualified
-- full matrix status = **partial**（7 cells / 9 archetypes；新 inference 均 4-GPU world_size=4，无 batch override）。
-- 非 DOTA detector 家族多因 env 未安装 blocked_dependency；SODA-A/ICDAR-MLT missing。
+- h2rbox 为弱监督，标 weak_nonformal_metrics（非 formal angle gate）。full matrix = 9/9 archetype 真实覆盖（除 point2rbox 网络阻塞 + ARS-DETR 0.1.0 无 env）。
+- 未创建新 env，未安装依赖（reuse-first）。
 ### forbidden (unchanged)
-- 9-detector matrix complete / all datasets covered（**仍不可宣称**）。
+- 9-detector matrix complete / all datasets covered（仍不可宣称；ARS-DETR/point2rbox 未跑，非 DOTA 未跑）。

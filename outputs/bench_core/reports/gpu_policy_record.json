@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27 21:49:17 CST",
+  "generated": "2026-06-27 22:15:09 CST",
   "policy": "every GPU inference task world_size=4 (nproc_per_node=4); no batch override; no OOM batch-lowering",
   "tasks": [
     {
@@ -53,6 +53,57 @@
       "batch_override": false,
       "log": "outputs/logs/b2_4gpu_infer.log",
       "result": "outputs/predictions/DOTA-v1.5/2/raw/result_b2.pkl",
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "lsknet/DOTA-v1.0/7",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29614,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "log": "outputs/logs/7_4gpu_infer.log",
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "strip_rcnn/DOTA-v1.0/35",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29615,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "log": "outputs/logs/35_4gpu_infer.log",
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "h2rbox_v2/DOTA-v1.0/70",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29613,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "log": "outputs/logs/70_4gpu_infer.log",
       "oom": false,
       "omp_threads": 6
     }

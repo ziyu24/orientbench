@@ -14,3 +14,8 @@
 ## 019 full-matrix update (2026-06-27 21:48:47 CST)
 - full_matrix_status = partial（7 real cells，4-GPU）。full_project_complete = false。
 - DOTA scoped milestone = pass（不变）。training_needed_now = false。
+
+---
+## 020 env-unblock (2026-06-27 22:15:11 CST)
+- 3 family unblocked via reuse (LSKNet/Strip/h2rbox); 0 new env; full_matrix_status=partial(10 cells, 9 archetypes).
+- full_project_complete=false; training_needed_now=false.

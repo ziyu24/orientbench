@@ -11,5 +11,8 @@
 | two_stage_oriented_rcnn | DOTA-v1.5 | 2 | 26360 | 1.803 | 2.1427 | 2.3603 | 1.9784 | 0.6943 | formal_compatible |
 | one_stage_rtmdet | DOTA-v1.5 | 33 | 27916 | 1.902 | 2.184 | 2.4322 | 2.0109 | 0.6263 | formal_compatible |
 | one_stage_rtmdet_m | DOTA-v1.5 | 39 | 28413 | 1.763 | 2.0536 | 2.3153 | 1.8953 | 0.6156 | formal_compatible |
+| lsknet_backbone | DOTA-v1.0 | 7 | 19458 | 1.456 | 1.834 | 1.9479 | 1.6495 | 0.7138 | formal_compatible |
+| strip_rcnn | DOTA-v1.0 | 35 | 19342 | 1.499 | 1.7958 | 1.9425 | 1.6792 | 0.7167 | formal_compatible |
+| weakly_supervised_h2rbox | DOTA-v1.0 | 70 | 17160 | 1.871 | 2.4347 | 2.5552 | 2.2474 | 0.7602 | weak_nonformal_metrics |
 
 - failures: 0 (见 full_matrix_failures.csv)

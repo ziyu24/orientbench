@@ -1,6 +1,6 @@
 # Full-Matrix Schema Validation
 
-> cells=7; all is_synthetic=false, not_detector_output=false.
+> cells=10; all is_synthetic=false, not_detector_output=false.
 
 | archetype | dataset | baseline | detector | n_pred | schema_ok |
 |---|---|---|---|---|---|
@@ -11,3 +11,6 @@
 | two_stage_oriented_rcnn | DOTA-v1.5 | 2 | oriented_rcnn | 37508 | 37508 |
 | one_stage_rtmdet | DOTA-v1.5 | 33 | rotated_rtmdet_s | 91051 | 91051 |
 | one_stage_rtmdet_m | DOTA-v1.5 | 39 | rotated_rtmdet_m | 79394 | 79394 |
+| lsknet_backbone | DOTA-v1.0 | 7 | oriented_rcnn_lsknet | 28818 | 28818 |
+| strip_rcnn | DOTA-v1.0 | 35 | strip_rcnn | 30395 | 30395 |
+| weakly_supervised_h2rbox | DOTA-v1.0 | 70 | h2rbox_v2 | 86446 | 86446 |

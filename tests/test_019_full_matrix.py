@@ -42,7 +42,8 @@ def test_dota_formal_scope_guard():
     met=_csv("full_matrix_metrics_summary.csv")
     for m in met:
         if m["dataset"] in ("DOTA-v1.0","DOTA-v1.5"):
-            assert "formal_compatible" in m["formal_scope"]
+            assert ("formal_compatible" in m["formal_scope"]) or ("weak_nonformal" in m["formal_scope"])
+            assert "exploratory" not in m["formal_scope"]
 
 def test_non_dota_exploratory_guard():
     met=_csv("full_matrix_metrics_summary.csv")

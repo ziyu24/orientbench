@@ -52,6 +52,15 @@ CELLS = [
     ("one_stage_rtmdet_m", "DOTA-v1.5", "39", f"{PRED}/DOTA-v1.5/39/raw/result_b39.pkl",
      f"{PRED}/DOTA-v1.5/39/schema/pred_b39_val.jsonl",
      f"{PRED}/DOTA-v1.5/_dcal_subset/gt_mmrotate.jsonl", "rotated_rtmdet_m", "formal_compatible"),
+    ("lsknet_backbone", "DOTA-v1.0", "7", f"{PRED}/DOTA-v1.0/7/raw/result_b7.pkl",
+     f"{PRED}/DOTA-v1.0/7/schema/pred_b7_val.jsonl",
+     f"{PRED}/DOTA-v1.0/_dcal_subset/gt_mmrotate.jsonl", "oriented_rcnn_lsknet", "formal_compatible"),
+    ("strip_rcnn", "DOTA-v1.0", "35", f"{PRED}/DOTA-v1.0/35/raw/result_b35.pkl",
+     f"{PRED}/DOTA-v1.0/35/schema/pred_b35_val.jsonl",
+     f"{PRED}/DOTA-v1.0/_dcal_subset/gt_mmrotate.jsonl", "strip_rcnn", "formal_compatible"),
+    ("weakly_supervised_h2rbox", "DOTA-v1.0", "70", f"{PRED}/DOTA-v1.0/70/raw/result_b70.pkl",
+     f"{PRED}/DOTA-v1.0/70/schema/pred_b70_val.jsonl",
+     f"{PRED}/DOTA-v1.0/_dcal_subset/gt_mmrotate.jsonl", "h2rbox_v2", "weak_nonformal_metrics"),
 ]
 
 

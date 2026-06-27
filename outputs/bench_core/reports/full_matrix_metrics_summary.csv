@@ -6,3 +6,6 @@ hybrid_encoder_oriented_detr_a4,DOTA-v1.5,a4_host,o2_rtdetr_hybrid_encoder,forma
 two_stage_oriented_rcnn,DOTA-v1.5,2,oriented_rcnn,formal_compatible,30258,26662,26360,302,1.803,2.1427,2.3603,1.9784,0.6943,14
 one_stage_rtmdet,DOTA-v1.5,33,rotated_rtmdet_s,formal_compatible,33504,28184,27916,268,1.902,2.184,2.4322,2.0109,0.6263,14
 one_stage_rtmdet_m,DOTA-v1.5,39,rotated_rtmdet_m,formal_compatible,34117,28672,28413,259,1.763,2.0536,2.3153,1.8953,0.6156,14
+lsknet_backbone,DOTA-v1.0,7,oriented_rcnn_lsknet,formal_compatible,23321,19723,19458,265,1.456,1.834,1.9479,1.6495,0.7138,13
+strip_rcnn,DOTA-v1.0,35,strip_rcnn,formal_compatible,23682,19624,19342,282,1.499,1.7958,1.9425,1.6792,0.7167,13
+weakly_supervised_h2rbox,DOTA-v1.0,70,h2rbox_v2,weak_nonformal_metrics,19283,17519,17160,359,1.871,2.4347,2.5552,2.2474,0.7602,13

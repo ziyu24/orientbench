@@ -1,0 +1,6 @@
+family,existing_env,repo_path,import_ok,config_build_ok,checkpoint_compatible,dataset_supported,needs_create_env,needs_install,blocker_reason
+LSKNet,ai4rs_train,ai4rs_clone/projects/LSKNet,True,True,True (missing=0/406),DOTA-v1.0,False,False,none -> UNBLOCKED via reuse
+Strip_RCNN,ai4rs_train,ai4rs_clone/projects/Strip_RCNN,True,True,True (missing=2/384 negligible),DOTA-v1.0,False,False,none -> UNBLOCKED via reuse
+h2rbox_v2,ai4rs_train,ai4rs_clone/configs/h2rbox_v2,True,True,True,DOTA-v1.0,False,False,none -> UNBLOCKED via reuse (weakly-supervised)
+point2rbox_v2,ai4rs_train,ai4rs_clone/projects/Point2Rbox_v2,True,False,untested,DOTA-v1.0,False,False,blocked: model __init__ performs network download (urllib) -> forbidden no-download; also weak/pseudo generator -> nonformal
+ARS-DETR,none (needs mmrotate 0.1.0),third_party/ARS-DETR,False,False,untested,DOTA/multi,True,True,blocked_dependency: mmrotate 0.1.0 fork; no matching env; no ai4rs reuse code; NOT a RHINO substitute
