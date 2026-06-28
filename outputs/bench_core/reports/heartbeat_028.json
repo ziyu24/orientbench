@@ -1,0 +1,30 @@
+{
+  "time": "2026-06-28 17:24:30 CST",
+  "round": "028",
+  "gpu_busy": true,
+  "completed_cells": [
+    "ARS-DETR DIOR-R #16 full-val (68MB, 40668 preds, exploratory)"
+  ],
+  "running_queue": [
+    "ARS-DETR FAIR1M #18",
+    "ARS-DETR SODA #17",
+    "Strip DIOR #47"
+  ],
+  "root_cause_fixed": "ARS-DETR 0.1.0 empty-annfile -> ZeroDivisionError; populated farm annfiles with real GT (DOTA poly8)",
+  "thresholds_sha": "b7c4e649",
+  "storage": "raw+schema scratch; project manifest",
+  "next": "queue completes async; convert+metrics each",
+  "running": [
+    "Strip DIOR #47 (inference works [700/733]; evaluator=DumpDetResults fix; completing)"
+  ],
+  "blocked_with_evidence": [
+    "ARS-DETR FAIR1M #18: KeyError class-name-has-space (DOTA-txt space-delimited incompatible)",
+    "ARS-DETR SODA #17: not retried (FAIR1M-class-format risk)"
+  ],
+  "runtime_fixes_028": [
+    "ARS-DETR ckpt-path corrected",
+    "ARS-DETR empty-annfile->ZeroDivision: populate real GT",
+    "mmrotate-1.x empty-annfile restore for Strip",
+    "Strip DOTAMetric empty-GT IndexError -> DumpDetResults evaluator override"
+  ]
+}

@@ -89,3 +89,10 @@
 - ARS-DETR/Strip cross-dataset inference=blocked_runtime（cross-dataset farm worker crash/stall；DOTA scope 成功）。point2rbox=blocked_upstream_artifact_unavailable(weak_nonformal)。
 ### forbidden (unchanged)
 - ARS-DETR=RHINO / all datasets covered / 9-detector matrix complete（仍不可宣称）。
+
+---
+## 028 run-now + fix runtime (2026-06-28 17:04:40 CST)
+### allowed (qualified, exploratory)
+- ARS-DETR cross-dataset **UNBLOCKED**：根因=空 annfile(ARS-DETR 0.1.0 ZeroDivisionError)，填真实 GT 后跑通。DIOR #16 full-val 完成(40668 preds, exploratory NRC 0.999/n_used=33, ARS-DETR DIOR 弱模型 mAP 0.4158)。FAIR1M/SODA/Strip 队列运行中。independent_archetype, NOT RHINO。
+### forbidden (unchanged)
+- ARS-DETR=RHINO / all datasets covered / 9-detector matrix complete（仍不可宣称）。

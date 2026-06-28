@@ -105,5 +105,9 @@
     "HRSC_angle": "resolved_with_evidence",
     "ARS-DETR_cross_dataset": "blocked_runtime (ckpt OK; DOTA works)",
     "Strip_cross_dataset": "blocked_runtime (ckpt OK)"
+  },
+  "round_028": {
+    "ARS-DETR_cross_dataset": "UNBLOCKED (root cause=empty annfile; DIOR done, FAIR1M/SODA/Strip queued)",
+    "gpu_busy": "yes (bare-command launches work)"
   }
 }

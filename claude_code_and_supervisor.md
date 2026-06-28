@@ -1428,3 +1428,8 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - scripts/98_verify_gpu_busy_training_queue_027.py、tests/test_027_gpu_busy.py
 - 报告: gpu_busy_training_027.md, verification_gpu_busy_training_027.*, full_project_coverage_report.json
 - outputs/training/027_replicate_training_manifest.json；training workdir=/dev/shm/cqc/orientbench/training/replicate_orcnn_dota10_027
+
+---
+## [2026-06-28 15:31:29 CST] 来源: claude (027 训练完成回填)
+- replicate training (oriented_rcnn DOTA-v1.0, trained_by_027_replicate) **完成 12 epoch**：best dota/mAP **0.7015** @epoch12（原 baseline #1=0.7061，delta 0.0046，忠实复现）。best/latest + sha256 写入 027_replicate_training_manifest.json（status=completed, NOT formal/NOT readme substitute, in scratch）。GPU 现空闲（其余为他用户 baseline）。
+- 下一步: 用 bare run_in_background 命令重试 cross-dataset Strip/ARS-DETR + HRSC 多 detector（根因=launch-method 已定位）。
