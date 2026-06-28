@@ -1,92 +1,91 @@
 {
   "time": "2026-06-28 22:15:18 CST",
   "verdict": "VERIFIED",
-  "n_checks": 23,
-  "n_pass": 23,
-  "full_project_complete": false,
+  "n_checks": 21,
+  "n_pass": 21,
   "checks": [
     {
-      "check": "scratch_exists",
+      "check": "exists:final_orientbench_report.md",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:resource_startup_024.json",
+      "check": "exists:final_orientbench_summary.csv",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:fullval_matrix_plan_024.csv",
+      "check": "exists:final_claim_ledger.md",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:metrics_024.csv",
+      "check": "exists:final_limitations.md",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:env_network_unlock_024.json",
+      "check": "exists:final_artifact_manifest.json",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:adapter_manifest_024.json",
+      "check": "exists:final_reproducibility_guide.md",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "manifest_scratch:DIOR-R",
+      "check": "exists:final_release_notes.md",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "manifest_sha:DIOR-R",
+      "check": "exists:final_coverage_matrix.md",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "fullval:DIOR-R",
+      "check": "exists:final_blocker_evidence.md",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "manifest_scratch:FAIR1M-v1.0",
+      "check": "release:RELEASE_MANIFEST.json",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "manifest_sha:FAIR1M-v1.0",
+      "check": "release:SHA256SUMS.txt",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "fullval:FAIR1M-v1.0",
+      "check": "release:thresholds.yaml.copy",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "manifest_scratch:SODA-A",
+      "check": "all_cells_have_manifest",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "check": "current_scope_complete",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "manifest_sha:SODA-A",
+      "check": "full_project_incomplete",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "fullval:SODA-A",
+      "check": "non_dota_exploratory",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "no_fullval_schema_in_project",
-      "ok": true,
-      "detail": "[]"
-    },
-    {
-      "check": "git_no_large",
+      "check": "forbidden_claims_listed",
       "ok": true,
       "detail": ""
     },
@@ -96,29 +95,19 @@
       "detail": "b7c4e649b1a3de6d"
     },
     {
-      "check": "all_gpu_world_size_4",
+      "check": "git_no_large",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "fullval_exploratory",
+      "check": "no_large_in_project",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "arsdetr_not_rhino",
+      "check": "docs_report",
       "ok": true,
       "detail": ""
-    },
-    {
-      "check": "point2rbox_weak_nonformal",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "check": "no_forbidden_overclaim",
-      "ok": true,
-      "detail": "[]"
     }
   ]
 }

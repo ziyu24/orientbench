@@ -1534,3 +1534,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - blocked final w/ evidence: ARS-DETR FAIR1M(class-space)、ARS-DETR SODA(class-mapping KeyError, 3 retry)、point2rbox(upstream dead: modelscope空/github 9B/hf 401/openmmlab 404)、Strip/ARS-DETR HRSC(pattern available budget-bound)。
 - 存储: 移大 pred schema(a4_host/rhino)至 scratch _archive，project 0 大 pred schema。thresholds b7c4e649 未变。
 - verification 100_verify_final_push_030 + 90-99 全过；pytest passed；git lightweight。建议进入 031 final freeze/report。
+
+---
+## [2026-06-28 22:16:10 CST] 来源: supervisor
+### 031 final freeze/report（简报写入 docs/cc_latest_report.md，本处审计）
+- token SUPERVISOR_APPROVED_031_FINAL_FREEZE_AND_REPORT。无新实验/无 GPU job（cells 已有 metrics；backfill 11 个 per-cell manifest 自 aggregate metrics，非重跑）。
+- 生成最终报告: final_orientbench_report/summary/claim_ledger/limitations/artifact_manifest/reproducibility_guide/release_notes/coverage_matrix/blocker_evidence。release 包 outputs/releases/orientbench_final_current_scope（manifest+sha256，无大文件）。
+- 冻结确认: thresholds b7c4e649 未变；git 0 大文件；project 0 大 pred schema；23 cells 全有 manifest。current_approved_scope_complete=true, full_project_complete=false。
+- verification 101_verify_final_release_031 21/21；90-100 全过；pytest 264 passed。

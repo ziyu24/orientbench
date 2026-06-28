@@ -1,0 +1,181 @@
+{
+  "generated": "2026-06-28 22:14:10 CST",
+  "git": "a54d5364597b",
+  "thresholds_sha256": "b7c4e649b1a3de6d0c985a5f20dc5ba70a8fb3e428c3c184e2f86bf96d593fae",
+  "current_approved_scope_complete": true,
+  "full_project_complete": false,
+  "n_cells": 23,
+  "datasets": [
+    "DIOR-R",
+    "DOTA-v1.0",
+    "DOTA-v1.5",
+    "FAIR1M-v1.0",
+    "HRSC2016",
+    "SODA-A"
+  ],
+  "cells": [
+    {
+      "cell": "DIOR-R/16",
+      "detector": "ars_detr",
+      "manifest_sha16": "d6cf168906809af2",
+      "NRC_AUC": "0.9985",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "DIOR-R/3",
+      "detector": "oriented_rcnn",
+      "manifest_sha16": "8ecc859f36732a40",
+      "NRC_AUC": "0.5212",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "DIOR-R/10",
+      "detector": "oriented_rcnn_lsknet",
+      "manifest_sha16": "c3244e87babd46dd",
+      "NRC_AUC": "0.5294",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "DIOR-R/22",
+      "detector": "rotated_retinanet_psc",
+      "manifest_sha16": "ba48f1c23a3588a1",
+      "NRC_AUC": "0.5494",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "DIOR-R/61",
+      "detector": "rotated_rtmdet_s",
+      "manifest_sha16": "03d59bc1c0579296",
+      "NRC_AUC": "0.4274",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "DIOR-R/47",
+      "detector": "strip_rcnn",
+      "manifest_sha16": "2941217ca0aaf896",
+      "NRC_AUC": "0.5061",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "DOTA-v1.0/70",
+      "detector": "h2rbox_v2",
+      "manifest_sha16": "c799c683516a07ae",
+      "NRC_AUC": "0.7602",
+      "scope": "weak_nonformal_metrics"
+    },
+    {
+      "cell": "DOTA-v1.0/1",
+      "detector": "oriented_rcnn",
+      "manifest_sha16": "fcf0167f195c0e3c",
+      "NRC_AUC": "0.5699",
+      "scope": "formal_compatible"
+    },
+    {
+      "cell": "DOTA-v1.0/7",
+      "detector": "oriented_rcnn_lsknet",
+      "manifest_sha16": "19a5578693f65140",
+      "NRC_AUC": "0.7138",
+      "scope": "formal_compatible"
+    },
+    {
+      "cell": "DOTA-v1.0/rhino",
+      "detector": "rhino_rotated_detr",
+      "manifest_sha16": "fe06a27f40c41878",
+      "NRC_AUC": "0.771",
+      "scope": "formal_compatible_locked_host"
+    },
+    {
+      "cell": "DOTA-v1.0/20",
+      "detector": "rotated_retinanet_psc",
+      "manifest_sha16": "3646fe3bf26141a7",
+      "NRC_AUC": "1.0574",
+      "scope": "formal_compatible"
+    },
+    {
+      "cell": "DOTA-v1.0/35",
+      "detector": "strip_rcnn",
+      "manifest_sha16": "42a72ed2d8b413b8",
+      "NRC_AUC": "0.7167",
+      "scope": "formal_compatible"
+    },
+    {
+      "cell": "DOTA-v1.5/a4_host",
+      "detector": "o2_rtdetr_hybrid_encoder",
+      "manifest_sha16": "02e69bb3c0402853",
+      "NRC_AUC": "0.5515",
+      "scope": "formal_compatible_locked_host"
+    },
+    {
+      "cell": "DOTA-v1.5/2",
+      "detector": "oriented_rcnn",
+      "manifest_sha16": "2ede121a1e58a19e",
+      "NRC_AUC": "0.6943",
+      "scope": "formal_compatible"
+    },
+    {
+      "cell": "DOTA-v1.5/39",
+      "detector": "rotated_rtmdet_m",
+      "manifest_sha16": "f143d55aec079189",
+      "NRC_AUC": "0.6156",
+      "scope": "formal_compatible"
+    },
+    {
+      "cell": "DOTA-v1.5/33",
+      "detector": "rotated_rtmdet_s",
+      "manifest_sha16": "f76f8c0bf6cd3fb6",
+      "NRC_AUC": "0.6263",
+      "scope": "formal_compatible"
+    },
+    {
+      "cell": "FAIR1M-v1.0/5",
+      "detector": "oriented_rcnn",
+      "manifest_sha16": "87448c7facccc597",
+      "NRC_AUC": "0.845",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "FAIR1M-v1.0/12",
+      "detector": "oriented_rcnn_lsknet",
+      "manifest_sha16": "9eb8462de07eaca5",
+      "NRC_AUC": "0.8256",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "FAIR1M-v1.0/24",
+      "detector": "rotated_retinanet_psc",
+      "manifest_sha16": "7ea8a3ca193c99b2",
+      "NRC_AUC": "1.0825",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "HRSC2016/13",
+      "detector": "oriented_rcnn_lsknet",
+      "manifest_sha16": "e8fa137854223064",
+      "NRC_AUC": "0.8068",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "SODA-A/4",
+      "detector": "oriented_rcnn",
+      "manifest_sha16": "4894e8ff8f27250d",
+      "NRC_AUC": "0.8323",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "SODA-A/11",
+      "detector": "oriented_rcnn_lsknet",
+      "manifest_sha16": "d3e2904781db859b",
+      "NRC_AUC": "0.7632",
+      "scope": "cross_dataset_exploratory"
+    },
+    {
+      "cell": "SODA-A/23",
+      "detector": "rotated_retinanet_psc",
+      "manifest_sha16": "59feb99b4d1515b4",
+      "NRC_AUC": "1.2596",
+      "scope": "cross_dataset_exploratory"
+    }
+  ],
+  "scratch_root": "/dev/shm/cqc/orientbench/predictions",
+  "no_large_in_git": true
+}

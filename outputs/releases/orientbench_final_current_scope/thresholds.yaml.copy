@@ -1,0 +1,128 @@
+# FROZEN: DOTA D2 + host orientation gates + C1/A4 formal (D_cal). Do NOT edit.
+project: orientbench
+version: v1.0
+freeze_time: 2026-06-26 09:51:38 CST
+freeze_status: partial_frozen_dota_d2+host_orientation_gates+c1_a4_formal_thresholds
+responsible_role:
+  B_C1: null
+  A_A4: null
+  D2: supervisor
+B_C1:
+  status: frozen
+  gate_name: C1_augmentation_view_consistency
+  scope: DOTA / RHINO frozen host / augmentation-view
+  not_genuine_physical_multiview: true
+  host_sha256: 55a90abbace42927
+  calibration_split: D_cal
+  audit_split: D_audit
+  approval_token: SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
+  approval_status: frozen
+  freeze_time: 2026-06-27 21:04:08 CST
+  responsible_role: supervisor
+  near_square_masked: true
+  view_consistency_p90_deg_max: 5.04
+  drop_rate_across_views_max: 0.184
+  gate_rule: PASS iff D_audit view-consistency p90 <= max AND DropRate <= max
+  dcal_reference:
+    p90_deg: 3.363
+    drop_rate: 0.1151
+  calibration_note: thresholds from D_cal observations + fixed margin; D_audit NOT
+    used.
+A_A4:
+  status: frozen
+  gate_name: A4_source_attribution
+  scope: DOTA / O2-RTDETR frozen A4 host / same-host source attribution
+  host_sha256: 3e32fa11114ced82
+  background_source_enabled: true
+  calibration_split: D_cal
+  audit_split: D_audit
+  approval_token: SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
+  approval_status: frozen
+  freeze_time: 2026-06-27 21:04:08 CST
+  responsible_role: supervisor
+  near_square_masked: true
+  partial_corr_max_abs: 0.2
+  hsic_p_min_after_correction: 0.05
+  gate_rule: PASS iff on D_audit a non-GV source has HSIC p <= hsic_p_min (significant
+    orientation-evidence attribution; same-host scope)
+  dcal_reference:
+    n_used: 2951
+    sources:
+      E_bg:
+        partial_corr: -0.033
+        hsic_p: 0.05472636815920398
+      E_layout:
+        partial_corr: -0.0589
+        hsic_p: 0.004975124378109453
+      score:
+        partial_corr: -0.2041
+        hsic_p: 0.004975124378109453
+      entropy:
+        partial_corr: 0.1978
+        hsic_p: 0.004975124378109453
+      gv:
+        partial_corr: -0.0005
+        hsic_p: 0.009950248756218905
+  calibration_note: thresholds from D_cal + project §9; D_audit NOT used.
+D2:
+  status: frozen
+  scope: 'DOTA-v1.0 partial formal audit (baselines #1,#20,#32)'
+  spearman_mAP_NRC_max: 0.95
+  fdr_method: benjamini_hochberg
+  per_detector_nrc_auc_pass_max: 1.0
+  orientation_risk_metric: angle_error_canonical_longside (deg)
+  near_square_masked: true
+  dcal_reference:
+    baseline_1:
+      Risk@90_deg: 2.3864
+      NRC_AUC: 0.9736
+    baseline_20:
+      Risk@90_deg: 2.9161
+      NRC_AUC: 1.3113
+    baseline_32:
+      Risk@90_deg: 2.4482
+      NRC_AUC: 0.7767
+  gate_rule: per detector PASS if NRC_AUC <= 1.0; D2-independence stop if Spearman(mAP
+    rank, NRC rank) > 0.95
+  calibration_note: thresholds from project file (§12.2) + 'beat random' principle,
+    referenced against D_cal; D_audit NOT consulted.
+bucket_placeholders:
+  status: pending
+  near_square_aspect_ratio_max: 1.15
+  min_box_side_px: 2.0
+  class_conditional_percentiles:
+    dense_coherent:
+      D_nbr_pct: 80
+      R_nbr_pct: 70
+    dense_incoherent:
+      D_nbr_pct: 80
+      R_nbr_pct: 30
+    sparse_bg_strong:
+      E_bg_pct: 70
+    status: pending
+change_log:
+- time: 2026-06-25 15:xx CST
+  role: claude
+  action: 创建 thresholds.yaml 骨架; 所有 gate 阈值 pending/null; 仅预填项目执行文件已给出的 D2 spearman
+    上界 0.95 与 bucket placeholder; 无任何已批准阈值伪造
+- time: 2026-06-26 09:51:38 CST
+  role: supervisor
+  action: FREEZE DOTA D2 partial (D1/R8, token 012); B_C1/A_A4 pending hosts; data_fp=b49a350d5600b720
+    code_fp=f5ef709cfb7b3935
+- time: 2026-06-27 19:45:34 CST
+  role: supervisor
+  action: freeze host orientation gates B_C1(RHINO)/A_A4(O2-RTDETR) from D_cal (token
+    014); full C1/A4 criteria pending P2/P3
+- time: 2026-06-27 21:04:08 CST
+  role: supervisor
+  action: FREEZE C1/A4 from D_cal (token 017); data_fp=08426e73a026ab7a code_fp=769131f75f73c050;
+    D_audit not used
+approval_token: SUPERVISOR_APPROVED_012_D1_R8_D6_HOST_TRAINING
+calibration_split: D_cal
+metric_version: orientation_risk_v1
+normalization_version: longside_v1
+data_fingerprint: b49a350d5600b720
+code_fingerprint: f5ef709cfb7b3935
+code_commit: no_git_repo
+c1_a4_data_fingerprint: 08426e73a026ab7a
+c1_a4_code_fingerprint: 769131f75f73c050
