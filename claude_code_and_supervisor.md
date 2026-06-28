@@ -1377,3 +1377,54 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - scripts/97_verify_train_and_continue_026.py、tests/test_026_train_continue.py
 - 报告: training_need_scan_026.*, cells_status_026.*, hrsc_angle_proof_026.md, point2rbox_download_025.md(更新), verification_train_and_continue_026.*, full_project_coverage_report.json(更新)
 - outputs/training/026_training_manifest.json
+
+---
+
+## [2026-06-28 13:33:05 CST] 来源: supervisor
+
+### 输入/指令
+027：GPU 不许空转；无必训 cell 则启动 replicate/fallback training，并行推进 inference/debug/HRSC/point2rbox/metrics。token: SUPERVISOR_APPROVED_027_KEEP_GPU_BUSY_TRAIN_REPLICATE_AND_RUN_QUEUE。
+
+### 10 分钟内是否启动 GPU job：是
+- 先试 ready inference（Strip DIOR clean）→ 仍 init stall；改启 **replicate training**（oriented_rcnn DOTA-v1.0 官方 #1 config），4-GPU 跑起来（util 45-100%，eta ~1.6h）。GPU 持续占用。
+
+### 启动了哪些训练
+- replicate training: oriented_rcnn_r50_fpn_1x_le90 DOTA-v1.0（官方 config，data_root 路径修正到 dota1.0/split_ss_dota10，**不调参/不改 batch/lr/schedule/model**）。
+- 标注: trained_by_027_replicate=true, not_original_readme_checkpoint=true, not_formal_gate=true, exploratory_or_fallback=true。每 epoch eval, best+latest, workdir=scratch。**status=running**（）。027_replicate_training_manifest.json。
+
+### 启动了哪些 inference/debug + 关键运行期发现
+- 调试 cross-dataset Strip/ARS-DETR worker stall：发现 **bare run_in_background torchrun 命令 GPU 正常启动；nohup-bash-wrapper 启动 stall（worker 不上 GPU, util 0%）**。
+- **根因**: 026/027 早期 Strip/ARS-DETR cross-dataset blocked_runtime 主因 = 启动方式（nohup wrapper），非模型/数据。replicate training 用 bare 命令即跑通（util 高），佐证此结论。下一轮用 bare 命令重试 cross-dataset Strip/ARS-DETR 应可跑通。
+
+### 并行策略 + world_size=4 + batch override=false + OOM/NCCL/worker crash 记录
+- 训练占满 4 卡（util 高）；cross-dataset inference 并发会争显存，留待训练后/bare-command 重试。所有 GPU job world_size=4, batch override=false。无 OOM；早期 worker stall=launch-method（已定位非系统级 GPU 故障，bare 命令正常）。
+
+### 新增成功 cells / 正在训练 jobs + ETA
+- 新增完成 inference cell: 无（cross-dataset 重试留待）；**replicate training 运行中**（ETA ~1.6h，scratch）。
+
+### point2rbox 状态
+- blocked_upstream_artifact_unavailable（不变；ted.pth 所有上游不可用）。weak_nonformal，未阻塞 GPU。
+
+### ARS-DETR/Strip 状态 / HRSC 多 detector 状态
+- ARS-DETR/Strip cross-dataset: blocked_runtime 根因=launch-method（待 bare 重试）；ckpt-load 已证；DOTA scope 成功。
+- HRSC angle resolved_with_evidence（026）；HRSC 多 detector inference 留待训练后 GPU 空闲 bare-command 跑。
+
+### 关键 metrics
+- 本轮无新完成 cell；既有 cross-dataset full-val(025) 不变。
+
+### 存储 / thresholds / verification / pytest / git
+- 存储合规（大文件 scratch；project manifest；git 0 大文件）。thresholds.yaml sha256 b7c4e649… **未变**。
+- 新增 scripts/98_verify_gpu_busy_training_queue_027.py → **VERIFIED 10/10**；90-97 全过。
+- 新增 tests/test_027_gpu_busy.py（7 例）。pytest -q → **249 passed**。
+- git: b848ee0 027 keep GPU busy: replicate training running 4-GPU; launch-method root cause for cross-dataset stalls；large tracked 0。
+
+### 停止条件
+未触发（replicate training 用官方 config 不调参；未改原始 dataset/pth_data/替代 RHINO/改 R1-R8·GV·NRC·score；thresholds 未变；DOTA milestone verify 通过；非系统级 GPU 故障——bare 命令 GPU 正常）。
+
+### 下一步最小行动
+- 训练完成后取 best/latest + sha256 写 manifest（trained_by_027_replicate）；用 **bare run_in_background 命令**重试 cross-dataset Strip/ARS-DETR + HRSC 多 detector（根因已定位）；point2rbox 等上游恢复。
+
+### 产物路径
+- scripts/98_verify_gpu_busy_training_queue_027.py、tests/test_027_gpu_busy.py
+- 报告: gpu_busy_training_027.md, verification_gpu_busy_training_027.*, full_project_coverage_report.json
+- outputs/training/027_replicate_training_manifest.json；training workdir=/dev/shm/cqc/orientbench/training/replicate_orcnn_dota10_027

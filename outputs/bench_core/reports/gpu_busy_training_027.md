@@ -13,3 +13,9 @@
 
 ## 并行策略
 - 训练占用 4 卡；inference 并发会与训练争显存（baseline ~4GB/卡 + 训练）。本轮训练优先占满，cross-dataset 重试留待训练后或显存允许时 bare-command 并发。
+
+---
+## replicate training COMPLETED (2026-06-28 15:31:29 CST)
+- 12-epoch (1x) 完成；best **dota/mAP 0.7015** @epoch12（原 baseline #1 = 0.7061，delta 0.0046，**忠实复现**）。
+- best=best_dota_mAP_epoch_12.pth(sha a237ed41a9599a4f), latest=epoch_12.pth(sha 0008c83d4b207ef3)，均在 scratch。
+- trained_by_027_replicate, exploratory/fallback, **NOT formal / NOT readme-checkpoint substitute**。usable_for_inference=true。
