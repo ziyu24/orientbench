@@ -1324,3 +1324,56 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 报告: unlock_remaining_detectors_025.*, arsdetr_env_025.*, point2rbox_download_025.md, fullval_remaining_cells_025.csv, metrics_025.*, verification_unlock_remaining_025.*, full_project_coverage_report.json(更新)
 - project manifest: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A,DOTA-v1.0}/{22,61,10,24,12,23,11,14}/manifest.json
 - SCRATCH: /dev/shm/cqc/orientbench/predictions/（raw+schema）, env /home/rspip/anaconda3/envs/arsdetr
+
+---
+
+## [2026-06-28 12:59:57 CST] 来源: supervisor
+
+### 输入/指令
+026：不让 GPU 空闲；需训练则先训再并行推进。token: SUPERVISOR_APPROVED_026_TRAIN_IF_NEEDED_AND_CONTINUE_FULL_MATRIX。
+
+### 是否有训练任务 / 训练是否启动
+- **no_training_needed**：扫描 remaining cells（Strip/ARS-DETR cross-dataset, HRSC detectors）在 pth_data 均有 valid matching checkpoint → 按规则不训练，直接 inference。training_need_scan_026.* + 026_training_manifest.json(training_needed=false)。GPU 由 inference 占用不空闲。
+
+### 并行 GPU 使用情况
+- 演示并行：ARS-DETR(arsdetr env) + Strip(ai4rs env) 并发共享 4 卡（异 port）。出现 torchelastic worker 重启/不稳 → **按规则改串行 4-GPU**。串行后 cross-dataset ARS-DETR/Strip 仍 worker crash/stall。
+
+### 新增成功 cells / 失败 blocked
+- 成功(本轮新): 无新完成 inference cell（cross-dataset ARS-DETR/Strip blocked_runtime）。本轮交付为 scans/proofs/unlock-load-proofs。
+- ARS-DETR cross-dataset(DIOR/FAIR1M/SODA/HRSC): ckpt load OK(missing=0)，inference **blocked_runtime**（cross-dataset farm 4-GPU worker crash-loop, torchelastic 8 attempts）。ARS-DETR DOTA-v1.0(025) 成功。
+- Strip cross-dataset(DIOR #47): ckpt load OK(missing=2/384，**不假改 head**)，inference **blocked_runtime**（worker stall）。
+- 修了 .jpg→.png symlink(ARS-DETR DOTADataset 硬编码 .png) 与 work_dirs/Task1 清理，仍 worker 级不稳。
+
+### ARS-DETR cross-dataset 状态 / Strip 状态
+- 均 ckpt-load 已证 + DOTA scope 成功；cross-dataset inference blocked_runtime（记录原因继续，未训练/未改协议）。
+
+### point2rbox 状态
+- **blocked_upstream_artifact_unavailable**：ted.pth modelscope「文件内容为空」/github 9B(asset 不存在)/huggingface 401。weak_nonformal，不进 formal gate。
+
+### HRSC angle 状态
+- **resolved_with_evidence**：hrsc.py:175-181 将 mbox_ang 直接作为 le90 rbox theta（无变换）+ LSKNet HRSC mAP 0.906 双证据。hrsc_angle_proof_026.md。
+
+### 关键 metrics
+- 本轮无新完成 cell；既有 cross-dataset full-val(025): DIOR/FAIR1M/SODA orcnn/psc/rtmdet/LSKNet + ARS-DETR DOTA 不变。
+
+### 存储 / GPU policy / thresholds
+- 存储合规（大文件 scratch，project manifest，git 0 大文件）。GPU policy: 所有 job world_size=4, batch override=false。thresholds.yaml sha256 b7c4e649… **未变**。
+
+### env 创建记录
+- 本轮未建新 env（复用 025 的 arsdetr env）。
+
+### verification / pytest / git
+- 新增 scripts/97_verify_train_and_continue_026.py → **VERIFIED 13/13**；90-96 全过（21/20/12/16/15/23/18）。
+- 新增 tests/test_026_train_continue.py（7 例）。pytest -q → **242 passed**。
+- git: 01327f4 026 no-training-needed; HRSC angle resolved; point2rbox blocked_upstream; ARS-DETR/Strip cross-dataset blocked_runtime；large tracked 0。
+
+### 停止条件
+未触发（no_training_needed 故未训练；未改原始 dataset/pth_data/替代 RHINO/改 batch·config 语义/改 R1-R8·GV·NRC·score；thresholds 未变；DOTA milestone verify 通过；arsdetr env 隔离；无系统级 GPU 故障——worker crash 为 cross-dataset run 局部失败，已记录继续）。
+
+### 下一步最小行动
+- ARS-DETR/Strip cross-dataset blocked_runtime 根因排查（单卡 smoke 定位 worker crash，或换 ann-listing/数据 pipeline）；point2rbox 等上游恢复 ted.pth；Strip cross-dataset 改 DumpDetResults 评估器避开 DOTAMetric。
+
+### 产物路径
+- scripts/97_verify_train_and_continue_026.py、tests/test_026_train_continue.py
+- 报告: training_need_scan_026.*, cells_status_026.*, hrsc_angle_proof_026.md, point2rbox_download_025.md(更新), verification_train_and_continue_026.*, full_project_coverage_report.json(更新)
+- outputs/training/026_training_manifest.json
