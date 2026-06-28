@@ -1,19 +1,19 @@
 # Final Matrix Summary (029)
 
-> 2026-06-28 17:58:54 CST
+> 2026-06-28 18:19:03 CST
 > 全 detector×dataset 真实完成 cell 汇总。DOTA=formal-compatible(阈值未改)；非 DOTA=exploratory。
 
 ## detector coverage per dataset
 | dataset | #detectors | detectors |
 |---|---|---|
-| DIOR-R | 5 | ars_detr, oriented_rcnn, oriented_rcnn_lsknet, rotated_retinanet_psc, rotated_rtmdet_s |
+| DIOR-R | 6 | ars_detr, oriented_rcnn, oriented_rcnn_lsknet, rotated_retinanet_psc, rotated_rtmdet_s, strip_rcnn |
 | DOTA-v1.0 | 6 | h2rbox_v2, oriented_rcnn, oriented_rcnn_lsknet, rhino_rotated_detr, rotated_retinanet_psc, strip_rcnn |
 | DOTA-v1.5 | 4 | o2_rtdetr_hybrid_encoder, oriented_rcnn, rotated_rtmdet_m, rotated_rtmdet_s |
 | FAIR1M-v1.0 | 3 | oriented_rcnn, oriented_rcnn_lsknet, rotated_retinanet_psc |
 | HRSC2016 | 1 | oriented_rcnn_lsknet |
 | SODA-A | 3 | oriented_rcnn, oriented_rcnn_lsknet, rotated_retinanet_psc |
 
-## completed cells: **22**
+## completed cells: **23**
 
 | dataset | baseline | detector | NRC-AUC | med_err° | scope |
 |---|---|---|---|---|---|
@@ -22,6 +22,7 @@
 | DIOR-R | 10 | oriented_rcnn_lsknet | 0.5294 | 1.102 | cross_dataset_exploratory |
 | DIOR-R | 22 | rotated_retinanet_psc | 0.5494 | 0.725 | cross_dataset_exploratory |
 | DIOR-R | 61 | rotated_rtmdet_s | 0.4274 | 1.116 | cross_dataset_exploratory |
+| DIOR-R | 47 | strip_rcnn | 0.5061 | 1.181 | cross_dataset_exploratory |
 | DOTA-v1.0 | 70 | h2rbox_v2 | 0.7602 | 1.871 | weak_nonformal_metrics |
 | DOTA-v1.0 | 1 | oriented_rcnn | 0.5699 | 0.878 | formal_compatible |
 | DOTA-v1.0 | 7 | oriented_rcnn_lsknet | 0.7138 | 1.456 | formal_compatible |

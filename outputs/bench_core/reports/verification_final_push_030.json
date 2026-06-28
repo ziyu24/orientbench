@@ -1,33 +1,43 @@
 {
-  "time": "2026-06-28 18:23:57 CST",
+  "time": "2026-06-28 18:26:57 CST",
   "verdict": "VERIFIED",
-  "n_checks": 13,
-  "n_pass": 13,
+  "n_checks": 14,
+  "n_pass": 14,
   "checks": [
+    {
+      "check": "exists:final_push_030.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:final_push_030.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:final_blocker_evidence_030.md",
+      "ok": true,
+      "detail": ""
+    },
     {
       "check": "exists:final_matrix_summary.csv",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:remaining_blockers.csv",
+      "check": "strip_dior_manifest",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:heartbeat_029.json",
+      "check": "strip_in_matrix",
       "ok": true,
       "detail": ""
-    },
-    {
-      "check": "matrix_multidataset",
-      "ok": true,
-      "detail": "23 cells, 6 datasets"
     },
     {
       "check": "non_dota_exploratory",
       "ok": true,
-      "detail": "13"
+      "detail": ""
     },
     {
       "check": "arsdetr_not_rhino",
@@ -35,7 +45,7 @@
       "detail": ""
     },
     {
-      "check": "full_project_incomplete",
+      "check": "point2rbox_final_blocked",
       "ok": true,
       "detail": ""
     },
@@ -50,7 +60,12 @@
       "detail": ""
     },
     {
-      "check": "no_large_schema_in_project",
+      "check": "no_large_in_project",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "docs_report",
       "ok": true,
       "detail": ""
     },
@@ -58,16 +73,6 @@
       "check": "all_gpu_world_size_4",
       "ok": true,
       "detail": ""
-    },
-    {
-      "check": "blockers_documented",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "check": "no_forbidden_overclaim",
-      "ok": true,
-      "detail": "[]"
     }
   ]
 }

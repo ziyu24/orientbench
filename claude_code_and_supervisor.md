@@ -1525,3 +1525,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - scripts/{74_final_matrix_summary,99_verify_full_matrix_finish_029}.py、tests/test_029_finish.py
 - 报告: final_matrix_summary.*, remaining_blockers.*, heartbeat_029.json, verification_full_matrix_finish_029.*
 - scratch: /dev/shm/cqc/orientbench/predictions/（raw+schema+_archive）
+
+---
+## [2026-06-28 18:26:59 CST] 来源: supervisor
+### 030 final push（简报已写入 docs/cc_latest_report.md，本处仅审计）
+- token SUPERVISOR_APPROVED_030_FINAL_PUSH_AND_FILE_ONLY_REPORTING。汇报规则改为只写 docs/cc_latest_report.md（clear+rewrite），终端仅 REPORT_WRITTEN。
+- 新增成功 cell: Strip cross-dataset DIOR #47（NRC 0.506；关键修复 test_evaluator._delete_+DumpDetResults 绕开 DOTAMetric 空-GT crash）。final matrix 23 cells/6 datasets，DIOR-R 6 detectors。
+- blocked final w/ evidence: ARS-DETR FAIR1M(class-space)、ARS-DETR SODA(class-mapping KeyError, 3 retry)、point2rbox(upstream dead: modelscope空/github 9B/hf 401/openmmlab 404)、Strip/ARS-DETR HRSC(pattern available budget-bound)。
+- 存储: 移大 pred schema(a4_host/rhino)至 scratch _archive，project 0 大 pred schema。thresholds b7c4e649 未变。
+- verification 100_verify_final_push_030 + 90-99 全过；pytest passed；git lightweight。建议进入 031 final freeze/report。

@@ -105,3 +105,12 @@
 - Strip cross-dataset(DIOR): blocked_runtime_with_evidence（evaluator/DDP 收尾不稳）。ARS-DETR FAIR1M: blocked_class_mapping(空格类名)。point2rbox: blocked_upstream。
 ### forbidden (unchanged)
 - full project complete / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO / cross-dataset formal gate（**仍不可宣称**）。
+
+---
+## 030 final push (2026-06-28 18:20:05 CST)
+### allowed (qualified, exploratory)
+- Strip cross-dataset DIOR 解锁完成（_delete_ evaluator fix, NRC 0.506）。final matrix 23 cells/6 datasets，DIOR-R 6 detectors。
+### blocked final (with evidence)
+- ARS-DETR FAIR1M(class-space), point2rbox(upstream dead), Strip/ARS-DETR HRSC(pattern available budget-bound)。
+### forbidden (unchanged)
+- full project complete / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO（仍不可宣称）。

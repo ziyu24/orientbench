@@ -36,7 +36,7 @@ def main():
             r.get("NRC_AUC"), r.get("median_orient_err_deg"), r.get("formal_scope", "formal_compatible"), "dota_9archetype")
     # cross-dataset rounds
     for fn, src in (("metrics_024.csv", "fullval_024"), ("metrics_025.csv", "fullval_025"),
-                    ("cross_dataset_metrics_022.csv", "xds_022"), ("arsdetr_xds_metrics_028.csv", "arsdetr_028")):
+                    ("cross_dataset_metrics_022.csv", "xds_022"), ("arsdetr_xds_metrics_028.csv", "arsdetr_028"), ("final_push_030.csv", "final_030")):
         for r in rd(fn):
             add(r.get("dataset"), r.get("baseline_id"), r.get("detector"),
                 r.get("NRC_AUC"), r.get("median_orient_err_deg"), r.get("formal_scope", "cross_dataset_exploratory"), src)

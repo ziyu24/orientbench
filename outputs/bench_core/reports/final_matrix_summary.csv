@@ -4,6 +4,7 @@ DIOR-R,3,oriented_rcnn,0.5212,1.062,cross_dataset_exploratory,fullval_024
 DIOR-R,10,oriented_rcnn_lsknet,0.5294,1.102,cross_dataset_exploratory,fullval_025
 DIOR-R,22,rotated_retinanet_psc,0.5494,0.725,cross_dataset_exploratory,fullval_025
 DIOR-R,61,rotated_rtmdet_s,0.4274,1.116,cross_dataset_exploratory,fullval_025
+DIOR-R,47,strip_rcnn,0.5061,1.181,cross_dataset_exploratory,final_030
 DOTA-v1.0,70,h2rbox_v2,0.7602,1.871,weak_nonformal_metrics,dota_9archetype
 DOTA-v1.0,1,oriented_rcnn,0.5699,0.878,formal_compatible,dota_9archetype
 DOTA-v1.0,7,oriented_rcnn_lsknet,0.7138,1.456,formal_compatible,dota_9archetype

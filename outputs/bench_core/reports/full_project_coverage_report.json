@@ -111,14 +111,15 @@
     "gpu_busy": "yes (bare-command launches work)"
   },
   "final_matrix": {
-    "completed_cells": 22,
+    "completed_cells": 23,
     "detector_coverage": {
       "DIOR-R": [
         "ars_detr",
         "oriented_rcnn",
         "oriented_rcnn_lsknet",
         "rotated_retinanet_psc",
-        "rotated_rtmdet_s"
+        "rotated_rtmdet_s",
+        "strip_rcnn"
       ],
       "DOTA-v1.0": [
         "h2rbox_v2",
@@ -150,5 +151,10 @@
     },
     "cross_dataset_matrix": "partial_exploratory_multidetector",
     "full_project_complete": false
+  },
+  "round_030": {
+    "Strip_cross_dataset": "UNBLOCKED (DIOR NRC 0.506)",
+    "point2rbox": "blocked_upstream_final",
+    "ARS-DETR_FAIR1M": "blocked_class_mapping_final"
   }
 }

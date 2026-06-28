@@ -1,0 +1,2 @@
+dataset,baseline_id,detector,n_used,NRC_AUC,median_orient_err_deg,scope
+DIOR-R,47,strip_rcnn,27846,0.5061,1.181,cross_dataset_exploratory
