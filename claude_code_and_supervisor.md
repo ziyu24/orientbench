@@ -1542,3 +1542,8 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 生成最终报告: final_orientbench_report/summary/claim_ledger/limitations/artifact_manifest/reproducibility_guide/release_notes/coverage_matrix/blocker_evidence。release 包 outputs/releases/orientbench_final_current_scope（manifest+sha256，无大文件）。
 - 冻结确认: thresholds b7c4e649 未变；git 0 大文件；project 0 大 pred schema；23 cells 全有 manifest。current_approved_scope_complete=true, full_project_complete=false。
 - verification 101_verify_final_release_031 21/21；90-100 全过；pytest 264 passed。
+
+---
+## 2026-06-28 23:53:21 CST 来源: supervisor
+### 032 合作者进展报告（简报 docs/cc_latest_report.md；审计）
+- token SUPERVISOR_APPROVED_032。无实验/GPU/thresholds 变更。生成 docs/orientbench_project_progress_report.md + summary.json + release copy；verification 102 VERIFIED 10/10；thresholds b7c4e649 未变；git 0 大文件。
