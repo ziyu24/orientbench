@@ -1474,3 +1474,54 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ### 产物路径
 - scripts/73_arsdetr_xds_metrics.py、launch_status_028.md, heartbeat_028.json, cells_status_028.md, arsdetr_xds_metrics_028.csv
 - outputs/predictions/DIOR-R/16/manifest.json；raw/schema 在 /dev/shm/cqc/orientbench/predictions/
+
+---
+
+## [2026-06-28 18:00:47 CST] 来源: supervisor
+
+### 输入/指令
+029：full-matrix 收尾，自主执行，能跑就跑能修就修，单 cell 留痕后继续。token: SUPERVISOR_APPROVED_029_FULL_MATRIX_FINISH_AUTONOMOUS。
+
+### 029 阶段性完成
+- 收尾 + 报告收口。final_matrix_summary：**22 real cells / 6 datasets**。
+
+### 新增成功 cells / 最终 detector×dataset 覆盖率
+- 最终矩阵覆盖: DIOR-R **5 detectors**(orcnn/psc/rtmdet/lsknet/arsdetr), DOTA-v1.0 6, DOTA-v1.5 4, FAIR1M-v1.0 3(orcnn/psc/lsknet), SODA-A 3(orcnn/psc/lsknet), HRSC2016 1(lsknet)。
+- 本轮新增 inference 完成: 无（Strip DIOR 多次重试 evaluator/DDP 收尾不稳）；本轮主要为收口 + 自主修复尝试 + 报告整合。
+
+### 仍 blocked cells + 证据
+- Strip cross-dataset(DIOR #47): **blocked_runtime_with_evidence**（4+ 次：inference [700/733] OK，DumpDetResults/DDP 收尾反复 crash；LSKNet 同路径成功，Strip 特定不稳）。
+- ARS-DETR FAIR1M: blocked_class_mapping_with_evidence（空格类名 'Engineering-Ship' 与空格分隔 DOTA-txt 不兼容）。
+- point2rbox: blocked_upstream_artifact_unavailable（ted.pth 全上游空/404/401）。
+- remaining_blockers.{md,csv} 全记录。
+
+### point2rbox / ARS-DETR / Strip / HRSC 多 detector 状态
+- point2rbox: blocked_upstream（weak_nonformal，未占主线）。
+- ARS-DETR: cross-dataset DIOR 解锁完成；FAIR1M class-map blocked；SODA/HRSC pattern 可用未跑。independent_archetype, NOT RHINO。
+- Strip: cross-dataset blocked_runtime（DOTA scope 020 成功）。
+- HRSC 多 detector: lsknet 完成；angle resolved_with_evidence；其它 detector pattern 可用。
+
+### full-val 状态 / 关键 metrics
+- full-val 完成: DIOR/FAIR1M/SODA orcnn(024) + psc/rtmdet/lsknet(025) + ARS-DETR DIOR(028)。HRSC test split。
+- 关键 metrics(exploratory): DIOR orcnn 0.52/psc 0.55/rtmdet 0.43/lsknet 0.53/arsdetr 0.999; FAIR1M 0.84-0.86/psc 1.08/lsknet 0.83; SODA 0.83/psc 1.26/lsknet 0.76; HRSC lsknet 0.81。
+
+### GPU 使用是否持续 / 存储是否合规 / thresholds
+- GPU: 本轮间歇（cross-dataset Strip 反复 stall/crash，killed 后空闲短时；replicate training(027) 已完成）。bare-command 启动正常。
+- 存储合规: 17 个 project 大 schema 移至 scratch(_archive)，**project 0 大文件**；raw/schema 全 scratch。thresholds.yaml b7c4e649… **未变**。
+
+### verification/test/git
+- pytest -q → **257 passed**。verifier 90-99 全过（含新增 99_verify_full_matrix_finish_029 13/13）。git: 3220d2f 029 full-matrix finish: 22 cells/6 datasets consolidated; remaining blockers + evidence; large tracked 0。
+
+### 报告收口（task 10）
+- final_matrix_summary.{md,csv}, remaining_blockers.{md,csv}, full_project_coverage_report.json(final_matrix), project_status_matrix/claim_ledger/readiness_check/formal_gate_summary(更新), heartbeat_029.json, launch_status_028.md。
+
+### 停止条件
+未触发（未改原始 dataset/pth_data/替代 RHINO/改核心指标定义；thresholds 未破坏；非系统级 GPU 故障——bare command 正常；scratch 155G free）。
+
+### 下一步是否需要人工裁决
+- 不强需。剩余 cross-dataset cells（Strip FAIR1M/SODA/HRSC, ARS-DETR SODA/HRSC/FAIR1M-classmap）pattern 已验证，可后续自主补；但 Strip evaluator/DDP 不稳与 FAIR1M class-map 需更多 runtime 调试预算。genuine multi-view C1 / cross-host A4 需新数据+批准（out_of_scope）。
+
+### 产物路径
+- scripts/{74_final_matrix_summary,99_verify_full_matrix_finish_029}.py、tests/test_029_finish.py
+- 报告: final_matrix_summary.*, remaining_blockers.*, heartbeat_029.json, verification_full_matrix_finish_029.*
+- scratch: /dev/shm/cqc/orientbench/predictions/（raw+schema+_archive）
