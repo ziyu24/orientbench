@@ -1,0 +1,8 @@
+dataset,baseline_id,detector,split,n_pred,n_used,median_orient_err_deg,Risk@90,NRC_AUC,formal_scope,fullval
+DIOR-R,22,rotated_retinanet_psc,fullval,30586,23362,0.725,1.6638,0.5494,cross_dataset_exploratory,True
+DIOR-R,61,rotated_rtmdet_s,fullval,34255,28583,1.116,1.7448,0.4274,cross_dataset_exploratory,True
+DIOR-R,10,oriented_rcnn_lsknet,fullval,40640,29363,1.102,1.8226,0.5294,cross_dataset_exploratory,True
+FAIR1M-v1.0,24,rotated_retinanet_psc,fullval,94363,32100,1.724,2.5463,1.0825,cross_dataset_exploratory,True
+FAIR1M-v1.0,12,oriented_rcnn_lsknet,fullval,94432,53400,1.8,2.4445,0.8256,cross_dataset_exploratory,True
+SODA-A,23,rotated_retinanet_psc,fullval,355270,224991,1.441,2.5956,1.2596,cross_dataset_exploratory,True
+SODA-A,11,oriented_rcnn_lsknet,fullval,383697,273498,1.545,2.5561,0.7632,cross_dataset_exploratory,True

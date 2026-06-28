@@ -71,3 +71,12 @@
 - 全 cross_dataset_exploratory；非 formal；阈值未变。ARS-DETR=needs_env(独立 archetype, NOT RHINO)；point2rbox=needs_download(weak_nonformal)；lsknet/strip cross-dataset=needs_adapter。
 ### forbidden (unchanged)
 - cross-dataset formal gate / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO（仍不可宣称）。
+
+---
+## 025 unlock + full-val (2026-06-28 12:04:12 CST)
+### allowed (qualified, exploratory)
+- ARS-DETR 隔离 env 建成并 DOTA-v1.0 4-GPU 跑通（independent_archetype, NOT RHINO）；LSKNet cross-dataset full-val（DIOR 0.53/FAIR1M 0.83/SODA 0.76）；psc/rtmdet cross-dataset full-val。
+### qualified
+- 全 exploratory（非 DOTA）/ARS-DETR DOTA exploratory coverage（不改 frozen D2 gate）；阈值未变；point2rbox blocked_download_source_empty(weak_nonformal)。
+### forbidden (unchanged)
+- ARS-DETR=RHINO / all datasets covered / 9-detector matrix complete / cross-dataset formal gate（仍不可宣称）。

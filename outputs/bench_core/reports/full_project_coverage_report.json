@@ -53,7 +53,7 @@
   "full_project_complete": false,
   "full_matrix_status": "partial",
   "training_needed_now": false,
-  "cross_dataset_status": "improved_partial_fullval",
+  "cross_dataset_status": "improved_partial_fullval_multidetector",
   "cross_dataset_cells": {
     "HRSC2016": "exploratory NRC 0.81 (angle_uncertain)",
     "DIOR-R": "exploratory NRC 0.52 (real OBB GT robndbox xml)",
@@ -93,5 +93,10 @@
     "FAIR1M-v1.0/5": "NRC 0.84 (48969, fullval)",
     "SODA-A/4": "NRC 0.83 (323616, fullval)"
   },
-  "storage_policy_compliant": true
+  "storage_policy_compliant": true,
+  "unlocked_025": {
+    "ARS-DETR": "env built + DOTA inference (independent_archetype, NOT RHINO)",
+    "LSKNet_cross_dataset": "DIOR/FAIR1M/SODA full-val",
+    "point2rbox": "blocked_download_source_empty (weak_nonformal)"
+  }
 }

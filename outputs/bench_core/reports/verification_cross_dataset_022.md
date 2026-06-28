@@ -1,6 +1,6 @@
 # Cross-Dataset 022 Verification (read-only)
 
-> 2026-06-28 11:00:40 CST
+> 2026-06-28 12:05:49 CST
 > verdict: **VERIFIED** (16/16)
 
 | check | ok | detail |
@@ -19,5 +19,5 @@
 | cells_have_metrics | ✓ |  |
 | hrsc_angle_uncertain | ✓ |  |
 | thresholds_unchanged | ✓ | b7c4e649b1a3de6d |
-| xds_world_size_4 | ✓ | 8 |
+| xds_world_size_4 | ✓ | 18 |
 | no_forbidden_overclaim | ✓ | [] |

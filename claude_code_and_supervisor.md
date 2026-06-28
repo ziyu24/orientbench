@@ -1219,3 +1219,59 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - scripts/{65(更新),94_verify_cross_dataset_multidetector}.py、configs/_adapters/xds_b{22,61,24,23}_dump.py、tests/test_023_multidetector.py
 - 报告: cross_dataset_multidetector_plan_023.*, cross_dataset_schema_validation_023.*, cross_dataset_metrics_023.*, cross_dataset_fullval_status_023.*, verification_cross_dataset_multidetector_023.*, full_project_coverage_report.json(更新)
 - predictions: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/{22,61,24,23}/
+
+---
+
+## [2026-06-28 11:01:37 CST] 来源: supervisor
+
+### 输入/指令
+024：full-val + env/network unlock + matrix 扩展，严格 scratch 存储。token: SUPERVISOR_APPROVED_024_FULLVAL_ENV_NETWORK_SCRATCH_MATRIX_EXPANSION。SCRATCH=/dev/shm/cqc/orientbench；大文件(pth/pkl/raw/schema>1MB)→SCRATCH，项目仅留 manifest/sha256/metrics。
+
+### 网络权限使用
+- 已用网络（点对点下载尝试）。**未创建新 env**（full-val 复用 mr_dev1x 足够）。**未安装新依赖**。base/已有 env 未动。
+
+### 资源
+- /dev/shm 170GB free；4×A30 idle；网络 openmmlab+github 通；0 遗留进程。resource_startup_024.{md,json}。
+
+### 下载文件
+- point2rbox ted.pth: URL=https://www.modelscope.cn/models/wokaikaixinxin/mmrotate/resolve/master/Point2Rbox_v2/ted.pth → raw curl 返回 JSON metadata（需 modelscope SDK/auth 取二进制），**下载未完成**；记于 env_network_unlock_024。
+
+### 每个 inference 命令 + world_size=4 + batch override=false
+- DIOR-R orcnn#3 full-val: torch.distributed.run --nproc_per_node=4 --master_port=29691 mmrotate_1x/tools/test.py adapter(scratch farm, DumpDetResults) → /dev/shm/.../DIOR-R/3/raw/result_b3.pkl(10.3MB)，5863 img。
+- FAIR1M orcnn#5 full-val: --master_port=29692 → result_b5.pkl(13MB)，3896 img。
+- SODA-A orcnn#4 full-val: --master_port=29693 → result_b4.pkl(45MB)，12832 img。
+- 全部 CUDA_VISIBLE_DEVICES=0,1,2,3、world_size=4、OMP 6×4=24CPU、**batch override=false**、无 OOM、无降 batch。
+
+### raw/schema scratch 路径 + 项目 manifest
+- raw: /dev/shm/cqc/orientbench/predictions/{ds}/{bid}/raw/；schema: 同 /schema/（DIOR 37MB/FAIR1M 118MB/SODA 421MB，全在 SCRATCH）。
+- 项目: outputs/predictions/{ds}/{bid}/manifest.json（raw/schema scratch 路径 + sha256 + count + schema fields + validation summary + sample）+ schema_validation.csv + metrics_summary.csv。**项目无大文件**（git 不追踪 pkl/大 jsonl）。
+
+### metrics 摘要（full-val, exploratory, near-square masked）
+- DIOR-R #3: n_pred=60881 n_used=28437 **NRC 0.52** med_err 1.06°（与 subset 0.52 一致）。
+- FAIR1M #5: n_pred=188153 n_used=48969 **NRC 0.84** med_err 1.9°（subset 0.86）。
+- SODA-A #4: n_pred=676208 n_used=323616 **NRC 0.83** med_err 1.73°（subset 0.84）。
+
+### ARS-DETR / point2rbox 解锁状态
+- ARS-DETR: **needs_env**（隔离 mmrotate 0.1.0 + old mmcv-full/torch，构建风险高，本轮未建以免破坏 env，路径记录）；independent_archetype=true，**not_RHINO_replacement=true**。
+- point2rbox: **needs_download**（modelscope SDK/auth）；**weak_nonformal**，不影响 formal gate。
+- lsknet/strip cross-dataset: needs_adapter（ckpt head 已匹配数据集 num_classes，需 class-map adapter，不假改 head；本轮未跑）。
+
+### full-val 完成情况 + 失败/blocked
+- DIOR-R/FAIR1M/SODA-A orcnn **full-val 完成**（非 subset，非静默截断）。HRSC test split 已（022）。
+- blocked: ARS-DETR(needs_env)/point2rbox(needs_download)/lsknet·strip cross-dataset(needs_adapter)，failures_024.csv。
+
+### thresholds 未变 + verification + pytest + git
+- thresholds.yaml sha256 b7c4e649… **未变**。
+- 新增 scripts/{70_fullval_gt,71_fullval_metrics,95_verify_fullval_matrix_024,_cross_dataset_parsers}.py。
+- verification: 90 21/21、91 20/20、92 12/12、93 16/16、94 15/15、95_verify_fullval_matrix_024 **23/23**（scratch 存储/manifest→scratch/sha256/git 无大文件/thresholds/world_size4/ARS≠RHINO/point2rbox weak）。
+- 新增 tests/test_024_fullval.py（12 例：scratch policy、no large in project、manifest→scratch、env unlock、ARS≠RHINO、point2rbox weak、adapter 不假改 head、world_size4、fullval no silent subset、thresholds、exploratory、converter failure）。pytest -q → **224 passed**。
+- git: 29bfbf1 024 full-val cross-dataset: DIOR/FAIR1M/SODA orcnn full-val (scratch storage)；large files tracked: 0。
+
+### 停止条件
+未触发（未训练/改原始 dataset·pth_data/替代 RHINO/改 batch·config 语义/改 R1-R8·GV·NRC·score；thresholds 未变；DOTA milestone verify 通过；正式报告无 forbidden claim；下载目标=named baseline 辅助权重）。
+
+### 产物路径
+- scripts/{70,71,95,_cross_dataset_parsers}.py、configs/_adapters/fv_b*.py、tests/test_024_fullval.py
+- 报告: resource_startup_024.*, fullval_matrix_plan_024.*, env_network_unlock_024.*, adapter_manifest_024.*, schema_validation_024.*, metrics_024.*, failures_024.csv, probe_summary_024.*, verification_fullval_matrix_024.*, fullval_gt_index_024.csv, full_project_coverage_report.json(更新)
+- 项目 manifest: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/{3,5,4}/manifest.json
+- SCRATCH: /dev/shm/cqc/orientbench/predictions/（raw+schema 大文件）、downloads/、gt_index meta outputs/bench_core/gt_index/*_fullval.meta.json

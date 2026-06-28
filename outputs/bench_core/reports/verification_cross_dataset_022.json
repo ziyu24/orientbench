@@ -1,5 +1,5 @@
 {
-  "time": "2026-06-28 11:00:40 CST",
+  "time": "2026-06-28 12:05:49 CST",
   "verdict": "VERIFIED",
   "n_checks": 16,
   "n_pass": 16,
@@ -79,7 +79,7 @@
     {
       "check": "xds_world_size_4",
       "ok": true,
-      "detail": "8"
+      "detail": "18"
     },
     {
       "check": "no_forbidden_overclaim",

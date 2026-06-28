@@ -1,0 +1,98 @@
+{
+  "time": "2026-06-28 12:05:49 CST",
+  "verdict": "VERIFIED",
+  "n_checks": 18,
+  "n_pass": 18,
+  "checks": [
+    {
+      "check": "exists:unlock_remaining_detectors_025.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:arsdetr_env_025.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:point2rbox_download_025.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:metrics_025.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:fullval_remaining_cells_025.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "arsdetr_env_isolated",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "arsdetr_not_rhino",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "arsdetr_env_exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "arsdetr_manifest",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "lsknet_cross_dataset_matched",
+      "ok": true,
+      "detail": "3"
+    },
+    {
+      "check": "all_exploratory",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "point2rbox_blocked_documented",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "scratch:DIOR-R/10",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "scratch:DOTA-v1.0/14",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_large_schema_in_project",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": "b7c4e649b1a3de6d"
+    },
+    {
+      "check": "all_gpu_world_size_4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_forbidden_overclaim",
+      "ok": true,
+      "detail": "[]"
+    }
+  ]
+}

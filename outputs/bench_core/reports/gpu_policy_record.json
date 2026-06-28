@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-28 00:12:08 CST",
+  "generated": "2026-06-28 12:04:12 CST",
   "policy": "every GPU inference task world_size=4 (nproc_per_node=4); no batch override; no OOM batch-lowering",
   "tasks": [
     {
@@ -240,6 +240,182 @@
       "cuda_visible": "0,1,2,3",
       "batch_override": false,
       "log": "outputs/logs/xds_b23_SODA-A_infer.log",
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "xds-fv/DIOR-R/22",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29701,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "xds-fv/DIOR-R/61",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29702,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "xds-fv/FAIR1M-v1.0/24",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29703,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "xds-fv/SODA-A/23",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29704,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "fv/DIOR-R/3",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29691,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "fv/FAIR1M-v1.0/5",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29692,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "fv/SODA-A/4",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29693,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "lsk/DIOR-R/10",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29712,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "lsk/FAIR1M-v1.0/12",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29721,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "lsk/SODA-A/11",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29722,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
+      "oom": false,
+      "omp_threads": 6
+    },
+    {
+      "cell": "arsdetr/DOTA-v1.0/14",
+      "world_size": 4,
+      "nproc_per_node": 4,
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "master_port": 29731,
+      "cuda_visible": "0,1,2,3",
+      "batch_override": false,
       "oom": false,
       "omp_threads": 6
     }

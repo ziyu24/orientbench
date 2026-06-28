@@ -1,0 +1,26 @@
+{
+  "time": "2026-06-28 12:04:12 CST",
+  "env_name": "arsdetr",
+  "python": "3.8",
+  "torch": "1.9.0+cu111",
+  "mmcv-full": "1.5.0",
+  "mmdet": "2.25.1",
+  "mmrotate": "0.1.0 (third_party/ARS-DETR fork)",
+  "extra": [
+    "e2cnn"
+  ],
+  "isolated": true,
+  "base_env_untouched": true,
+  "build_cmds": [
+    "conda create -n arsdetr python=3.8",
+    "pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111",
+    "pip install mmcv-full==1.5.0 (cu111/torch1.9 wheel)",
+    "pip install mmdet==2.25.1",
+    "pip install -e third_party/ARS-DETR --no-deps",
+    "pip install e2cnn"
+  ],
+  "ckpt_load": "missing=0 unexpected=0",
+  "inference": "DOTA-v1.0 4-GPU OK",
+  "independent_archetype": true,
+  "not_RHINO_replacement": true
+}
