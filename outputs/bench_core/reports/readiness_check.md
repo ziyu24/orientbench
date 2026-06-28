@@ -35,3 +35,7 @@
 ---
 ## 024 full-val (2026-06-28 10:58:48 CST)
 - cross_dataset_status=improved_partial_fullval（DIOR/FAIR1M/SODA orcnn full-val）。full_project_complete=false。
+
+---
+## 026 (2026-06-28 12:57:53 CST)
+- no_training_needed; cross-dataset ARS-DETR/Strip inference blocked_runtime; HRSC angle resolved_with_evidence. full_project_complete=false.

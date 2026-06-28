@@ -1275,3 +1275,52 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 报告: resource_startup_024.*, fullval_matrix_plan_024.*, env_network_unlock_024.*, adapter_manifest_024.*, schema_validation_024.*, metrics_024.*, failures_024.csv, probe_summary_024.*, verification_fullval_matrix_024.*, fullval_gt_index_024.csv, full_project_coverage_report.json(更新)
 - 项目 manifest: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A}/{3,5,4}/manifest.json
 - SCRATCH: /dev/shm/cqc/orientbench/predictions/（raw+schema 大文件）、downloads/、gt_index meta outputs/bench_core/gt_index/*_fullval.meta.json
+
+---
+
+## [2026-06-28 12:06:45 CST] 来源: supervisor
+
+### 输入/指令
+025：大胆执行解锁剩余 detectors + full-val。token: SUPERVISOR_APPROVED_025_UNLOCK_REMAINING_DETECTORS_AND_FULLVAL_RUNS。能下载/建 env/写 adapter/跑 full-val 就做，失败记录继续。
+
+### 网络下载记录
+- point2rbox ted.pth: modelscope（SDK + raw resolve）→ 服务器返回「文件内容为空」(Code 10990101007)/404 → **upstream 文件不可用**，blocked_download_source_empty。weak_nonformal。
+- pip 安装: torch 1.9.0+cu111, torchvision 0.10.0, mmcv-full 1.5.0, mmdet 2.25.1, e2cnn, modelscope（隔离 env）。
+
+### env 创建记录
+- **arsdetr**（隔离 conda env, python3.8, torch1.9.0+cu111, mmcv-full1.5.0, mmdet2.25.1, mmrotate0.1.0 fork, e2cnn）。base/已有 env 未动。arsdetr_env_025.{md,json}。
+
+### adapter 记录
+- configs/_adapters/{fv_b*(scratch farm), arsdetr_b14(0.1.0 data.test override)}.py；LSKNet cross-dataset 用 cfg-options num_classes+img_suffix（**不假改 head**，ckpt head 已匹配）。
+
+### 每个 inference 命令 + world_size=4 + batch override=false
+- psc/rtmdet full-val: DIOR#22(29701)/#61(29702), FAIR1M#24(29703), SODA#23(29704)（mr_dev1x, mmrotate_1x/tools/test.py）。
+- LSKNet cross-dataset full-val: DIOR#10(29712)/FAIR1M#12(29721)/SODA#11(29722)（ai4rs_train, cfg-options num_classes+img_suffix）。
+- ARS-DETR: DOTA-v1.0 #14(29731)（arsdetr env, torch.distributed.launch --nproc_per_node=4, ARS-DETR/tools/test.py）。
+- 全部 CUDA_VISIBLE_DEVICES=0,1,2,3, world_size=4, **batch override=false**, 无 OOM。gpu_policy_record 25 tasks 全 world_size=4。
+
+### scratch 路径 + project manifest
+- raw+schema 全在 /dev/shm/cqc/orientbench/predictions/；project 仅 manifest/sha256/metrics（outputs/predictions/{ds}/{bid}/manifest.json）。项目无大 schema（git 0 大文件）。
+
+### 失败原因
+- point2rbox: modelscope upstream 文件空（blocked_download_source_empty）；weak_nonformal。strip cross-dataset 本轮未跑（LSKNet 优先）。
+
+### metrics 摘要（全 exploratory, near-square masked）
+- psc: DIOR#22 NRC 0.55 / FAIR1M#24 NRC 1.08 / SODA#23 NRC 1.26；rtmdet: DIOR#61 NRC 0.43。
+- LSKNet cross-dataset: DIOR#10 NRC 0.53 / FAIR1M#12 NRC 0.83 / SODA#11 NRC 0.76。
+- ARS-DETR DOTA-v1.0 #14: NRC 1.20 med_err 1.73°（exploratory；independent_archetype, NOT RHINO）。
+
+### thresholds 未变 + verification + pytest + git
+- thresholds.yaml sha256 b7c4e649… **未变**。
+- verification: 90 21/21, 91 20/20, 92 12/12, 93 16/16, 94 15/15, 95 23/23, 新增 96_verify_unlock_remaining_detectors_025 **18/18**。
+- 新增 scripts/{72_fullval_metrics_all,96_verify...}.py、tests/test_025_unlock.py（10 例）。pytest -q → **235 passed**。
+- git: 06736a0 025 unlock ARS-DETR(env)+LSKNet(cross-dataset)+psc/rtmdet full-val; point2rbox blocked；large tracked 0。
+
+### 停止条件
+未触发（未训练/改原始 dataset·pth_data/替代 RHINO/改 batch·config 语义/改 R1-R8·GV·NRC·score；thresholds 未变；DOTA milestone verify 通过；arsdetr env 隔离未破坏已有 env；下载目标=named baseline 辅助权重）。
+
+### 产物路径
+- scripts/{72,96}.py、configs/_adapters/{fv_b*,arsdetr_b14}.py、tests/test_025_unlock.py
+- 报告: unlock_remaining_detectors_025.*, arsdetr_env_025.*, point2rbox_download_025.md, fullval_remaining_cells_025.csv, metrics_025.*, verification_unlock_remaining_025.*, full_project_coverage_report.json(更新)
+- project manifest: outputs/predictions/{DIOR-R,FAIR1M-v1.0,SODA-A,DOTA-v1.0}/{22,61,10,24,12,23,11,14}/manifest.json
+- SCRATCH: /dev/shm/cqc/orientbench/predictions/（raw+schema）, env /home/rspip/anaconda3/envs/arsdetr

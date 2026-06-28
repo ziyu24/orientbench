@@ -98,5 +98,12 @@
     "ARS-DETR": "env built + DOTA inference (independent_archetype, NOT RHINO)",
     "LSKNet_cross_dataset": "DIOR/FAIR1M/SODA full-val",
     "point2rbox": "blocked_download_source_empty (weak_nonformal)"
+  },
+  "round_026": {
+    "training": "no_training_needed",
+    "point2rbox": "blocked_upstream_artifact_unavailable",
+    "HRSC_angle": "resolved_with_evidence",
+    "ARS-DETR_cross_dataset": "blocked_runtime (ckpt OK; DOTA works)",
+    "Strip_cross_dataset": "blocked_runtime (ckpt OK)"
   }
 }

@@ -80,3 +80,12 @@
 - 全 exploratory（非 DOTA）/ARS-DETR DOTA exploratory coverage（不改 frozen D2 gate）；阈值未变；point2rbox blocked_download_source_empty(weak_nonformal)。
 ### forbidden (unchanged)
 - ARS-DETR=RHINO / all datasets covered / 9-detector matrix complete / cross-dataset formal gate（仍不可宣称）。
+
+---
+## 026 train-if-needed + continue (2026-06-28 12:57:53 CST)
+### allowed (qualified)
+- no_training_needed（所有 cell 有匹配 ckpt）。HRSC angle resolved_with_evidence。Strip/ARS-DETR cross-dataset ckpt-load 已证（不假改 head）。并行 GPU 演示 + 不稳串行回退。
+### blocked
+- ARS-DETR/Strip cross-dataset inference=blocked_runtime（cross-dataset farm worker crash/stall；DOTA scope 成功）。point2rbox=blocked_upstream_artifact_unavailable(weak_nonformal)。
+### forbidden (unchanged)
+- ARS-DETR=RHINO / all datasets covered / 9-detector matrix complete（仍不可宣称）。
