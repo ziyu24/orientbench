@@ -31,3 +31,7 @@
 ---
 ## 023 multi-detector (2026-06-28 00:13:04 CST)
 - cross_dataset_status=partial_exploratory_multidetector（8 cells）。full_project_complete=false。
+
+---
+## 024 full-val (2026-06-28 10:58:48 CST)
+- cross_dataset_status=improved_partial_fullval（DIOR/FAIR1M/SODA orcnn full-val）。full_project_complete=false。

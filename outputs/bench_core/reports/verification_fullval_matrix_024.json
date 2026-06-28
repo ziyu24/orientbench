@@ -1,0 +1,124 @@
+{
+  "time": "2026-06-28 11:00:40 CST",
+  "verdict": "VERIFIED",
+  "n_checks": 23,
+  "n_pass": 23,
+  "full_project_complete": false,
+  "checks": [
+    {
+      "check": "scratch_exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:resource_startup_024.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:fullval_matrix_plan_024.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:metrics_024.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:env_network_unlock_024.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:adapter_manifest_024.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_scratch:DIOR-R",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_sha:DIOR-R",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "fullval:DIOR-R",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_scratch:FAIR1M-v1.0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_sha:FAIR1M-v1.0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "fullval:FAIR1M-v1.0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_scratch:SODA-A",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_sha:SODA-A",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "fullval:SODA-A",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_fullval_schema_in_project",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": "b7c4e649b1a3de6d"
+    },
+    {
+      "check": "all_gpu_world_size_4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "fullval_exploratory",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "arsdetr_not_rhino",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "point2rbox_weak_nonformal",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_forbidden_overclaim",
+      "ok": true,
+      "detail": "[]"
+    }
+  ]
+}

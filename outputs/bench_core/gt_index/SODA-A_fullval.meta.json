@@ -1,0 +1,21 @@
+{
+  "dataset": "SODA-A",
+  "split": "fullval",
+  "ann_dir": "/home/rspip/cqc/data/dataset/SODA-A/dota_format_tiled_ss/val_tiled/annfiles",
+  "n_images": 12832,
+  "n_obb_objects": 449644,
+  "n_invalid_geometry": 0,
+  "fullval": true,
+  "not_fullval": false,
+  "scratch_gt_path": "/dev/shm/cqc/orientbench/predictions/SODA-A/SODA-A_fullval_gt.jsonl",
+  "scratch_farm": "/dev/shm/cqc/orientbench/predictions/SODA-A/_root",
+  "gt_sha256": "68805e7d7098054a62977b3b34bc718cd565b9bb1b89db5118350340b3cc0a5b",
+  "max_files": null,
+  "stats": {
+    "n_files_ok": 12832,
+    "n_objects": 449644,
+    "n_valid_geometry": 449644,
+    "n_invalid_geometry": 0
+  },
+  "angle_version": "le90_via_QuadriBoxes (uncertain)"
+}

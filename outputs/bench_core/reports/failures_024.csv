@@ -1,0 +1,4 @@
+cell,reason
+ARS-DETR,needs_env (0.1.0 not built this round)
+point2rbox_v2,needs_download (modelscope SDK/auth)
+lsknet/strip_cross_dataset,needs_adapter (class-map)

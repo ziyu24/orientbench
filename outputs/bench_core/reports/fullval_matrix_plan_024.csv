@@ -1,0 +1,18 @@
+dataset,detector,baseline_id,status,note
+DOTA-v1.0,orcnn/psc/rtmdet/RHINO/lsknet/strip/h2rbox,-,already_available,9-archetype done (DOTA scope)
+DOTA-v1.5,orcnn/rtmdet/A4,-,already_available,done
+DIOR-R,oriented_rcnn,3,ready_to_run_fullval,full-val running
+DIOR-R,rotated_retinanet_psc,22,ready_to_run,subset done; fullval pending
+DIOR-R,rotated_rtmdet_s,61,ready_to_run,subset done
+DIOR-R,oriented_rcnn_lsknet,10,needs_adapter,class-map adapter (20cls); ckpt head matches
+DIOR-R,strip_rcnn,47,needs_adapter,class-map adapter (20cls)
+FAIR1M-v1.0,oriented_rcnn,5,ready_to_run_fullval,full-val running
+FAIR1M-v1.0,rotated_retinanet_psc,24,ready_to_run,subset done
+FAIR1M-v1.0,oriented_rcnn_lsknet,12,needs_adapter,class-map adapter (37cls)
+SODA-A,oriented_rcnn,4,ready_to_run_fullval,full-val running
+SODA-A,rotated_retinanet_psc,23,ready_to_run,subset done
+SODA-A,oriented_rcnn_lsknet,11,needs_adapter,class-map adapter (9cls)
+HRSC2016,oriented_rcnn_lsknet,13,already_available,test split done (angle uncertain)
+HRSC2016,rotated_rtmdet_s,34,ready_to_run,HRSC native farm
+ALL,arsdetr,-,needs_env,isolated mmrotate 0.1.0 env; independent_archetype; NOT_RHINO
+ALL,point2rbox_v2,64,needs_download,offline init weight to scratch + patch clone; weak_nonformal

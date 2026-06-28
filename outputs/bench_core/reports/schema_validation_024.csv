@@ -1,0 +1,4 @@
+dataset,baseline_id,n_predictions,schema_valid_ok,schema_sha256,scratch_path
+DIOR-R,3,60881,0,47699f125d4806c7,/dev/shm/cqc/orientbench/predictions/DIOR-R/3/schema/pred_b3_fullval.jsonl
+FAIR1M-v1.0,5,188153,0,43a4c25993a0d282,/dev/shm/cqc/orientbench/predictions/FAIR1M-v1.0/5/schema/pred_b5_fullval.jsonl
+SODA-A,4,676208,0,054c1952033628a9,/dev/shm/cqc/orientbench/predictions/SODA-A/4/schema/pred_b4_fullval.jsonl

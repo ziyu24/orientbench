@@ -1,0 +1,4 @@
+dataset,baseline_id,D2_orientation_reliability,NRC_AUC,Risk@90,angle_status,C1,A4
+DIOR-R,3,exploratory_fullval,0.5212,1.8005,le90_via_quadriboxes_uncertain,n/a,n/a
+FAIR1M-v1.0,5,exploratory_fullval,0.845,2.6136,le90_via_quadriboxes_uncertain,n/a,n/a
+SODA-A,4,exploratory_fullval,0.8323,2.7837,le90_via_quadriboxes_uncertain,n/a,n/a

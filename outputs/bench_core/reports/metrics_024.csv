@@ -1,0 +1,4 @@
+dataset,baseline_id,detector,split,n_pred,n_used,median_orient_err_deg,Risk@90,NRC_AUC,formal_scope,fullval
+DIOR-R,3,oriented_rcnn,fullval,38974,28437,1.062,1.8005,0.5212,cross_dataset_exploratory,True
+FAIR1M-v1.0,5,oriented_rcnn,fullval,91170,48969,1.9,2.6136,0.845,cross_dataset_exploratory,True
+SODA-A,4,oriented_rcnn,fullval,462599,323616,1.731,2.7837,0.8323,cross_dataset_exploratory,True

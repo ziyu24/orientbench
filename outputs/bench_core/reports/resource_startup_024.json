@@ -1,0 +1,19 @@
+{
+  "time": "2026-06-28 10:10:07 CST",
+  "scratch": "/dev/shm/cqc/orientbench",
+  "scratch_exists": true,
+  "shm_total_gb": 252.5,
+  "shm_free_gb": 170.9,
+  "gpus": "4xA30 24GB idle ~4GB baseline",
+  "leftover_procs": 0,
+  "network": "openmmlab+github reachable (200)",
+  "conda_envs": [
+    "ai4rs_train",
+    "geostructdota",
+    "mr",
+    "mr_dev1x",
+    "p2_foundation"
+  ],
+  "project": "/home/rspip/cqc/pro/study/orientbench",
+  "storage_policy": "large files(pth/pkl/raw/schema>1MB)->SCRATCH; project keeps manifest/sha256/metrics"
+}

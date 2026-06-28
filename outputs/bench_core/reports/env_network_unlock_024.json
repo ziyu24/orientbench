@@ -1,0 +1,34 @@
+{
+  "time": "2026-06-28 10:58:48 CST",
+  "network_used": true,
+  "new_envs_created": [],
+  "reuse_envs": [
+    "mr_dev1x(full-val orcnn)",
+    "ai4rs_train(lsknet/strip prior)"
+  ],
+  "packages_installed": [],
+  "downloads": [
+    {
+      "name": "point2rbox ted.pth",
+      "url": "https://www.modelscope.cn/models/wokaikaixinxin/mmrotate/resolve/master/Point2Rbox_v2/ted.pth",
+      "result": "modelscope returns JSON metadata (needs modelscope SDK/auth for binary); raw curl insufficient",
+      "scratch": "/dev/shm/cqc/orientbench/downloads/ted.pth",
+      "status": "download_incomplete"
+    }
+  ],
+  "arsdetr": {
+    "independent_archetype": true,
+    "not_RHINO_replacement": true,
+    "status": "needs_env",
+    "unlock": "create isolated conda env (mmrotate 0.1.0 fork third_party/ARS-DETR + old mmcv-full/torch per requirements/); high build risk; NOT attempted to avoid env breakage this round; documented path"
+  },
+  "point2rbox": {
+    "weak_nonformal": true,
+    "status": "needs_download",
+    "unlock": "download ted.pth via modelscope SDK/auth to scratch + patch isolated clone __init__ to local path; stays nonformal"
+  },
+  "lsknet_strip_cross_dataset": {
+    "status": "needs_adapter",
+    "note": "ckpt head matches dataset num_classes; needs class-map adapter config (no fake head); not run this round"
+  }
+}

@@ -62,3 +62,12 @@
 - 032/C5/source-teacher = **本轮明确忽略**（错误 thread/stage）。
 ### forbidden (unchanged)
 - cross-dataset formal gate / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO（仍不可宣称）。
+
+---
+## 024 full-val + storage (2026-06-28 10:58:48 CST)
+### allowed (qualified, exploratory)
+- DIOR-R/FAIR1M/SODA-A orcnn **full-val** 真实 4-GPU + exploratory D2 metrics（NRC 0.52/0.84/0.83，consistent with subset）。raw+schema 在 SCRATCH，project 仅 manifest/sha256/metrics。
+### qualified
+- 全 cross_dataset_exploratory；非 formal；阈值未变。ARS-DETR=needs_env(独立 archetype, NOT RHINO)；point2rbox=needs_download(weak_nonformal)；lsknet/strip cross-dataset=needs_adapter。
+### forbidden (unchanged)
+- cross-dataset formal gate / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO（仍不可宣称）。

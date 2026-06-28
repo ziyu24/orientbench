@@ -53,7 +53,7 @@
   "full_project_complete": false,
   "full_matrix_status": "partial",
   "training_needed_now": false,
-  "cross_dataset_status": "partial_exploratory_multidetector",
+  "cross_dataset_status": "improved_partial_fullval",
   "cross_dataset_cells": {
     "HRSC2016": "exploratory NRC 0.81 (angle_uncertain)",
     "DIOR-R": "exploratory NRC 0.52 (real OBB GT robndbox xml)",
@@ -87,5 +87,11 @@
       "lsknet"
     ]
   },
-  "cross_dataset_cells_total": 8
+  "cross_dataset_cells_total": 8,
+  "fullval_cells": {
+    "DIOR-R/3": "NRC 0.52 (28437 used, fullval)",
+    "FAIR1M-v1.0/5": "NRC 0.84 (48969, fullval)",
+    "SODA-A/4": "NRC 0.83 (323616, fullval)"
+  },
+  "storage_policy_compliant": true
 }

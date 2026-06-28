@@ -1,0 +1,21 @@
+{
+  "dataset": "FAIR1M-v1.0",
+  "split": "fullval",
+  "ann_dir": "/home/rspip/cqc/data/dataset/fair1m1.0/split/val_20/annfiles",
+  "n_images": 3896,
+  "n_obb_objects": 78638,
+  "n_invalid_geometry": 6,
+  "fullval": true,
+  "not_fullval": false,
+  "scratch_gt_path": "/dev/shm/cqc/orientbench/predictions/FAIR1M-v1.0/FAIR1M-v1.0_fullval_gt.jsonl",
+  "scratch_farm": "/dev/shm/cqc/orientbench/predictions/FAIR1M-v1.0/_root",
+  "gt_sha256": "22b7446f9d2bada54606471951c8d66618e9484179a2c9e6dc84aaa3bf45766e",
+  "max_files": null,
+  "stats": {
+    "n_files_ok": 3896,
+    "n_objects": 78638,
+    "n_valid_geometry": 78638,
+    "n_invalid_geometry": 6
+  },
+  "angle_version": "le90_via_QuadriBoxes (uncertain)"
+}

@@ -1,0 +1,20 @@
+{
+  "time": "2026-06-28 10:58:48 CST",
+  "adapters": [
+    {
+      "adapter": "fv_b3_DIOR-R.py",
+      "path": "configs/_adapters/fv_b3_DIOR-R.py",
+      "purpose": "_base_ pth_data config + scratch farm + DumpDetResults"
+    },
+    {
+      "adapter": "fv_b4_SODA.py",
+      "path": "configs/_adapters/fv_b4_SODA.py",
+      "purpose": "_base_ pth_data config + scratch farm + DumpDetResults"
+    },
+    {
+      "adapter": "fv_b5_FAIR1M.py",
+      "path": "configs/_adapters/fv_b5_FAIR1M.py",
+      "purpose": "_base_ pth_data config + scratch farm + DumpDetResults"
+    }
+  ]
+}
