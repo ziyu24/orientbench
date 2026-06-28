@@ -21,3 +21,7 @@
 - scoped_formal_gate_allowed=true_for_frozen_dota_c1_a4_scope_only
 - overall_project_complete=false; training_needed_now=false
 - training_allowed=no_new_training_required_for_current_scope（非继续训练许可；历史 host-scope 训练已批准并完成）
+
+---
+## 029 (2026-06-28 17:56:03 CST)
+- formal gates 不变（frozen DOTA C1/A4 scope）；cross-dataset/multi-detector 全 exploratory，未新增 formal gate；thresholds 未变。

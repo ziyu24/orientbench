@@ -5,52 +5,37 @@
   "n_pass": 13,
   "checks": [
     {
-      "check": "exists:training_need_scan_026.md",
+      "check": "exists:final_matrix_summary.csv",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:cells_status_026.csv",
+      "check": "exists:remaining_blockers.csv",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:hrsc_angle_proof_026.md",
+      "check": "exists:heartbeat_029.json",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "exists:point2rbox_download_025.md",
+      "check": "matrix_multidataset",
       "ok": true,
-      "detail": ""
+      "detail": "22 cells, 6 datasets"
     },
     {
-      "check": "training_manifest",
+      "check": "non_dota_exploratory",
       "ok": true,
-      "detail": ""
-    },
-    {
-      "check": "hrsc_resolved",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "check": "point2rbox_blocked",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "check": "arsdetr_strip_blocked_runtime_or_done",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "check": "hrsc_proof_code_and_map",
-      "ok": true,
-      "detail": ""
+      "detail": "12"
     },
     {
       "check": "arsdetr_not_rhino",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "full_project_incomplete",
       "ok": true,
       "detail": ""
     },
@@ -60,14 +45,29 @@
       "detail": "b7c4e649b1a3de6d"
     },
     {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_large_schema_in_project",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "check": "all_gpu_world_size_4",
       "ok": true,
       "detail": ""
     },
     {
-      "check": "git_no_large",
+      "check": "blockers_documented",
       "ok": true,
       "detail": ""
+    },
+    {
+      "check": "no_forbidden_overclaim",
+      "ok": true,
+      "detail": "[]"
     }
   ]
 }

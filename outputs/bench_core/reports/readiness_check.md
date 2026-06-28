@@ -39,3 +39,7 @@
 ---
 ## 026 (2026-06-28 12:57:53 CST)
 - no_training_needed; cross-dataset ARS-DETR/Strip inference blocked_runtime; HRSC angle resolved_with_evidence. full_project_complete=false.
+
+---
+## 029 finish (2026-06-28 17:56:03 CST)
+- final_matrix=24 cells/6 datasets (partial_exploratory_multidetector). full_project_complete=false. DOTA milestone=pass.

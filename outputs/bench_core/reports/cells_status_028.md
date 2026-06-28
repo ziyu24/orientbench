@@ -13,3 +13,8 @@
 - **ARS-DETR cross-dataset UNBLOCKED**（DIOR full-val 真实跑通；根因=空 annfile→ZeroDivisionError，已填真实 GT 修复）。
 - 自主修复多个 runtime bug（ckpt-path/empty-annfile/evaluator），未请示。GPU 持续占用（util 50-76%，bare command 正常）。
 - ARS-DETR independent_archetype, NOT RHINO。thresholds 未变。非 DOTA 全 exploratory。
+
+---
+## 029 update (2026-06-28 17:56:03 CST)
+- Strip cross-dataset DIOR #47: **blocked_runtime_with_evidence**（4+ 次尝试：inference 跑到 [700/733] OK，但 DumpDetResults/DDP 在 evaluator/收尾阶段反复 crash；mmrotate-1.x Strip 特定不稳）。LSKNet 同路径成功，Strip 不稳→留证据。
+- 最终矩阵: 24 cells / 6 datasets（final_matrix_summary）。

@@ -96,3 +96,12 @@
 - ARS-DETR cross-dataset **UNBLOCKED**：根因=空 annfile(ARS-DETR 0.1.0 ZeroDivisionError)，填真实 GT 后跑通。DIOR #16 full-val 完成(40668 preds, exploratory NRC 0.999/n_used=33, ARS-DETR DIOR 弱模型 mAP 0.4158)。FAIR1M/SODA/Strip 队列运行中。independent_archetype, NOT RHINO。
 ### forbidden (unchanged)
 - ARS-DETR=RHINO / all datasets covered / 9-detector matrix complete（仍不可宣称）。
+
+---
+## 029 full-matrix finish (2026-06-28 17:56:03 CST)
+### allowed (qualified, exploratory)
+- 最终矩阵 **24 real cells / 6 datasets**：DIOR-R 5 detectors, DOTA-v1.0 6, DOTA-v1.5 4, FAIR1M 4, SODA-A 4, HRSC 1。DOTA=formal-compatible(阈值未改)，非 DOTA=exploratory。ARS-DETR cross-dataset(DIOR) 解锁。
+### blocked (with evidence)
+- Strip cross-dataset(DIOR): blocked_runtime_with_evidence（evaluator/DDP 收尾不稳）。ARS-DETR FAIR1M: blocked_class_mapping(空格类名)。point2rbox: blocked_upstream。
+### forbidden (unchanged)
+- full project complete / all datasets covered / 9-detector matrix complete / ARS-DETR=RHINO / cross-dataset formal gate（**仍不可宣称**）。

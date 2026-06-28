@@ -109,5 +109,46 @@
   "round_028": {
     "ARS-DETR_cross_dataset": "UNBLOCKED (root cause=empty annfile; DIOR done, FAIR1M/SODA/Strip queued)",
     "gpu_busy": "yes (bare-command launches work)"
+  },
+  "final_matrix": {
+    "completed_cells": 22,
+    "detector_coverage": {
+      "DIOR-R": [
+        "ars_detr",
+        "oriented_rcnn",
+        "oriented_rcnn_lsknet",
+        "rotated_retinanet_psc",
+        "rotated_rtmdet_s"
+      ],
+      "DOTA-v1.0": [
+        "h2rbox_v2",
+        "oriented_rcnn",
+        "oriented_rcnn_lsknet",
+        "rhino_rotated_detr",
+        "rotated_retinanet_psc",
+        "strip_rcnn"
+      ],
+      "DOTA-v1.5": [
+        "o2_rtdetr_hybrid_encoder",
+        "oriented_rcnn",
+        "rotated_rtmdet_m",
+        "rotated_rtmdet_s"
+      ],
+      "FAIR1M-v1.0": [
+        "oriented_rcnn",
+        "oriented_rcnn_lsknet",
+        "rotated_retinanet_psc"
+      ],
+      "HRSC2016": [
+        "oriented_rcnn_lsknet"
+      ],
+      "SODA-A": [
+        "oriented_rcnn",
+        "oriented_rcnn_lsknet",
+        "rotated_retinanet_psc"
+      ]
+    },
+    "cross_dataset_matrix": "partial_exploratory_multidetector",
+    "full_project_complete": false
   }
 }
