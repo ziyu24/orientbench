@@ -1,0 +1,3 @@
+cell,n,tta_match_frac,mean_real_tta_consistency_deg,feature_set
+DIOR-R_3,26338,0.995,1.98,score+geometry+real_tta_consistency(hflip+vflip)
+DIOR-R_22,21622,0.993,1.37,score+geometry+real_tta_consistency(hflip+vflip)

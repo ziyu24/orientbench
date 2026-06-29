@@ -1,0 +1,3 @@
+mode,target,n_audit,NRC_score,NRC_sizelin,NRC_geo,NRC_realTTA,NRC_oracle,AURC_realTTA,Risk@70,Risk@90,p90,p95,p99,delta_sizelin_minus_realTTA,ci_sz_lo,realTTA_beats_sizelin,delta_geo_minus_realTTA,ci_geo_lo,realTTA_beats_geo,oracle_gain_retained,uses_target_GT
+leave_detector_DIOR,DIOR-R/3(orcnn),13738,0.548,0.638,0.4377,0.3907,0.3442,1.0597,1.333,1.579,3.02,4.0,6.66,0.2456,0.2115,True,0.0474,0.0277,True,0.772,False
+leave_detector_DIOR,DIOR-R/22(psc),10999,0.5629,0.5677,0.4217,0.4191,0.3456,0.9208,1.149,1.417,3.02,4.09,6.73,0.149,0.1098,True,0.0032,-0.0111,False,0.661,False

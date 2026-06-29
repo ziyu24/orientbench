@@ -1,0 +1,118 @@
+{
+  "time": "2026-06-29 23:13:52 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 22,
+  "n_checks": 22,
+  "checks": [
+    {
+      "check": "main_report",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:real_tta_inference_manifest_042.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:real_tta_feature_table_042.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:real_tta_selector_results_042.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:real_tta_selector_results_042.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:tta_transform_sanity_042.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:tta_transform_sanity_042.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:dior_farm_manifest_042.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_verdict",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "distinguishes_offline_vs_real",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_shadow_farm",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_transform_sanity",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "dataset_not_modified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "dataset_dir_untouched",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_p3_final",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_topconf",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "split_threshold_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_trackA",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_large_tracked_v2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

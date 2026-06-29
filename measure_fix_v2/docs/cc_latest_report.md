@@ -1,30 +1,33 @@
 👇👇👇👇👇👇
 
-# OrientBench v2 — 041 Route-C GT-free Deployable Proxy 完成
+# OrientBench v2 — 042 Real-TTA Deployability Proof 完成
 
-- **041 完成**。未改 thresholds(b7c4e649)/P1 split；未训练 detector；未补 full matrix；未恢复 P2；未启动 Track A；DOTA #20 未调参。
-- **主报告（唯一人读）**：`measure_fix_v2/docs/route_c_tta_proxy_report.md`
+- **042 完成**。原始 dataset **未修改**；未改 thresholds(b7c4e649)/P1 split；未训练 detector；未补 full matrix；未恢复 P2；未启动 Track A；DOTA #20 未调参。
+- **主报告（唯一人读）**：`measure_fix_v2/docs/real_tta_deployability_report.md`
 
-## Route-C 裁决：**STABLE-PASS**
-- non-DOTA **10/10 优于 score+ar+size linear**；GT-free consistency feature **8/10 优于 geometry-only**（提供额外可部署增益）；mean retained oracle gain **0.718**（>040 的 0.645）；全程无目标 GT。
+## real TTA 裁决：**STABLE-PASS（on tested cells；coverage limited）**
+- real flip 推理（hflip+vflip，shadow farm 修复 annfile blocker，未改 dataset）→ real TTA consistency feature。
+- selector（leave-detector within DIOR，无目标 GT）：**2/2 cells 显著优于 score+ar+size linear**（DIOR ORCNN #3 0.391、PSC #22 0.419），mean retained 0.717；**方向与 041 offline proxy 一致** → real TTA 证实 offline proxy 结论。
 
-## TTA cells / 信号
-- 实际信号 = **GT-free offline local-angle-consistency proxy**（6 cells，augmentation-free，无 GT）。
-- **real flip-TTA 推理 = blocked**（DIOR annfiles_dotaformat/test 为空，populate 会改 read-only dataset；已写 4-GPU hflip adapter + 记录 blocker）→ documented next-step。
+## 成功 TTA cells
+- DIOR ORCNN #3、DIOR PSC #22（identity+hflip+vflip，4-GPU world_size=4）。未成功：DIOR LSKNet #10（registry 阻塞，3 次）、SODA/FAIR1M real-TTA（未建 farm）= documented next-step。
 
-## 关键指标
-- SODA #23 leave-dataset：score 0.98→sizelin 0.68→geo 0.50→**Route-C 0.46**（retained 0.85）。DIOR #22：sizelin 0.92→**Route-C 0.41**。
+## transform sanity 结果
+- hflip/vflip/rot90 round-trip IoU=**1.0000**（inverse 几何可靠）。
 
-## DOTA #20 解释
-- weak-structure / low-oracle-gain（0.155，未显著反校准）**negative control**；加 consistency 后 leave-dataset 由 fail 转 pass（0.59），leave-detector 仍弱（符合预期）。**不调参**。
+## real TTA vs offline proxy 结论
+- 一致：real TTA Route-C 优于 size-linear；consistency 在 ORCNN #3 优于 geometry-only、PSC #22 边际。real TTA（非 offline proxy）已跑通。
+
+## DOTA #20 状态
+- weak-structure negative control，本轮 real TTA 未跑、**未调参**；延续 040/041 诊断。
 
 ## 是否允许 Track A
-- **可有条件准备**，本轮未启动；待监督员批准作机制支线（非阻塞）。
+- 可有条件准备，本轮未启动；待批准作机制支线（非阻塞）。
 
 ## 是否允许 P3 method development
-- **支持继续**（deployable reliability-aware selector）。边界：consistency 为 offline proxy（非 real TTA）；selector 训练仍用 source GT（calibration）；target 无 GT = deployable 方向。**不声称 P3 最终完成/顶会级别**。
+- **支持继续**。边界：real TTA coverage 限 2 DIOR cells；selector 训练仍用 source GT（calibration），target 无 GT（deployable）。**不声称 P3 最终完成/顶会 ready**。
 
 ## 验证/test/git
-- verifier `verify_route_c_tta_proxy_041` → 见下；pytest 全过；thresholds/split 未变；git 0 大文件（artifacts/logs/configs-TTA gitignored）。
+- verifier `verify_real_tta_deployability_042` → 见下；pytest 全过；原 dataset 0 文件改动；thresholds/split 未变；git 0 大文件。
 
 👆👆👆👆👆👆

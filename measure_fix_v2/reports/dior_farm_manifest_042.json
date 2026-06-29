@@ -1,0 +1,12 @@
+{
+  "dataset": "DIOR-R",
+  "source_image_dir": "/home/rspip/cqc/data/dataset/DIOR/images/trainval",
+  "source_gt": "/dev/shm/cqc/orientbench/predictions/DIOR-R/DIOR-R_fullval_gt.jsonl",
+  "farm": "/dev/shm/cqc/orientbench/measure_fix_v2_tta/DIOR-R",
+  "n_image_symlinks": 5863,
+  "n_annfiles": 5863,
+  "original_dataset_modified": false,
+  "evidence_no_dataset_write": "only os.symlink (read-only target) + writes confined to /dev/shm farm; no write under /home/rspip/cqc/data/dataset",
+  "annfile_format": "DOTA poly8 x1 y1 x2 y2 x3 y3 x4 y4 class difficult",
+  "class_source": "GT jsonl class_name"
+}

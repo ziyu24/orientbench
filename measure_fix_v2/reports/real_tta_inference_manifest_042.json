@@ -1,0 +1,62 @@
+{
+  "generated": "2026-06-29 23:11:09 CST",
+  "shadow_farm": "/dev/shm/cqc/orientbench/measure_fix_v2_tta/DIOR-R (5863 symlinks+generated annfiles; ORIGINAL dataset NOT modified)",
+  "world_size": 4,
+  "batch_override": false,
+  "launcher": "torch.distributed.run --nproc_per_node=4 (bare)",
+  "checkpoint_source": "pth_data read-only reused (no training)",
+  "transforms": [
+    "identity",
+    "hflip",
+    "vflip"
+  ],
+  "unflip_geometry": "hflip: cx->W-cx, theta->-theta; vflip: cy->H-cy, theta->-theta (round-trip IoU=1.0 verified, tta_transform_sanity_042)",
+  "cells_succeeded": [
+    {
+      "cell": "DIOR-R_3",
+      "detector": "oriented_rcnn",
+      "pkls": {
+        "identity": {
+          "size": 10322845,
+          "sha256_16": "281e2cf2d9c8ef43"
+        },
+        "hflip": {
+          "size": 10662045,
+          "sha256_16": "d74d8ec882d92222"
+        },
+        "vflip": {
+          "size": 10643044,
+          "sha256_16": "2d8b61b9e2011ed8"
+        }
+      }
+    },
+    {
+      "cell": "DIOR-R_22",
+      "detector": "rotated_retinanet_psc",
+      "pkls": {
+        "identity": {
+          "size": 16654761,
+          "sha256_16": "0f6fed537fe35b0e"
+        },
+        "hflip": {
+          "size": 17008723,
+          "sha256_16": "9a5611de47069729"
+        },
+        "vflip": {
+          "size": 17027938,
+          "sha256_16": "f0d7b7fe80c38b93"
+        }
+      }
+    }
+  ],
+  "cells_blocked": [
+    {
+      "cell": "DIOR-R_10 (lsknet)",
+      "blocker": "OrientedRCNN not in mmengine model registry under adapter inheritance (mmrotate scope/custom_imports); 3 attempts; next-step"
+    },
+    {
+      "cell": "SODA-A/23, FAIR1M-v1.0/24 real-TTA",
+      "status": "same shadow-farm pattern; not built this round = next-step coverage"
+    }
+  ]
+}

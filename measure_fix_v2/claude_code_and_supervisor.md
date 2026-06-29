@@ -67,3 +67,25 @@ Route-C = STABLE-PASS。未触发停止条件。
 
 ### 下一步建议
 real flip/rotation TTA(建 scratch annfile 镜像, 不改 dataset); 扩 leave 覆盖 + few-shot calibration; Track A 待批准作机制支线; venue 交合作者。
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (042)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_042_REAL_TTA_DEPLOYABILITY_PROOF。real TTA deployability proof。measure_fix_v2/。原 dataset 不改。
+
+### 行动/结论
+- 修复 041 real-TTA blocker = shadow farm（/dev/shm/.../measure_fix_v2_tta/DIOR-R: 5863 image symlinks + 由 GT 生成 annfiles）；原 dataset 0 文件改动（find -newer=0）。
+- transform sanity: hflip/vflip/rot90 round-trip IoU=1.0。
+- real TTA 推理（4-GPU world_size=4, DumpDetResults→scratch, bare torchrun）: DIOR ORCNN #3 + PSC #22 各 identity+hflip+vflip 成功; 坐标 un-flip(cx->W-cx, theta->-theta) 经验确认; consistency match_frac 0.99-1.0, mean disagree ~1.4-2deg。未成功: #10 lsknet(OrientedRCNN registry, 3 次) + SODA/FAIR1M(未建 farm)=next-step。
+- real TTA selector(leave-detector within DIOR, 无目标 GT): 2/2 显著优于 score+ar+size linear(#3 0.391, #22 0.419), realTTA 优于 geometry-only on #3, marginal on #22, mean retained 0.717; 方向与 041 offline proxy 一致 → real TTA 证实 offline 结论。
+- 裁决: real TTA = STABLE-PASS (on tested cells; coverage limited to 2 DIOR cells). 区分 offline proxy vs real TTA; 未声称 P3 最终完成/顶会 ready。
+
+### 产物路径
+measure_fix_v2/docs/{real_tta_deployability_report,cc_latest_report}.md;
+measure_fix_v2/reports/{tta_transform_sanity_042,real_tta_inference_manifest_042,real_tta_feature_table_042,real_tta_selector_results_042,dior_farm_manifest_042,verification_real_tta_deployability_042}.*;
+measure_fix_v2/configs/tta_*.py(adapters); measure_fix_v2/artifacts/features_real_tta/*.jsonl(gitignored); shadow farm /dev/shm/.../measure_fix_v2_tta/(scratch); scripts/{build_dior_farm_042,extract_real_tta_042,real_tta_selector_042,run_tta_driver_042.sh,verify_real_tta_deployability_042}.py。
+
+### pass/fail/partial
+real TTA = STABLE-PASS (tested cells; coverage limited). 未触发停止条件。
+
+### 下一步建议
+扩 real TTA coverage(修 lsknet registry; SODA/FAIR1M shadow farm); few-shot calibration; Track A 待批准。venue 交合作者。
