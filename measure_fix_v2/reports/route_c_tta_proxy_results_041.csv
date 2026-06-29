@@ -1,0 +1,13 @@
+mode,target,n_audit,NRC_score,NRC_sizelin,NRC_geo_selector,NRC_routeC,NRC_oracle,AURC_rc,Risk@70,Risk@90,p90,p95,p99,delta_sizelin_minus_routeC,ci_sz_lo,routeC_beats_sizelin,delta_geo_minus_routeC,ci_geo_lo,routeC_beats_geo,oracle_gain_retained,uses_target_GT,is_dota_negctrl
+leave_dataset,FAIR1M-v1.0/24(psc),13796,0.896,0.7647,0.6062,0.6063,0.5131,1.7607,2.025,2.267,4.73,5.98,8.3,0.1584,0.1366,True,-0.0002,-0.0111,False,0.756,False,False
+leave_dataset,SODA-A/23(psc),105343,0.9823,0.6782,0.5034,0.4557,0.3648,1.3843,1.727,2.086,3.92,5.19,8.72,0.2227,0.2143,True,0.0478,0.0436,True,0.853,False,False
+leave_dataset,DIOR-R/22(psc),10999,0.5629,0.9224,0.445,0.4068,0.3441,0.9066,1.153,1.428,3.06,4.1,6.57,0.5159,0.4782,True,0.0376,0.0247,True,0.713,False,False
+leave_dataset,DIOR-R/3(orcnn),13738,0.548,0.8064,0.5423,0.4331,0.3483,1.1108,1.379,1.618,3.21,4.2,6.62,0.3726,0.3431,True,0.109,0.0928,True,0.576,False,False
+leave_dataset,DIOR-R/10(lsknet),14108,0.5478,0.7715,0.5182,0.4288,0.3319,1.0889,1.367,1.597,3.21,4.16,6.42,0.343,0.3226,True,0.0896,0.076,True,0.551,False,False
+leave_dataset,DOTA-v1.0/20(psc),6696,0.7035,0.7251,0.7061,0.59,0.4982,1.4762,1.655,1.845,3.59,4.43,6.11,0.1347,0.1047,True,0.1163,0.0994,True,0.553,False,True
+leave_detector_psc2nonpsc,DIOR-R/3(orcnn),13738,0.548,0.7596,0.4308,0.3964,0.3483,1.0666,1.332,1.608,3.02,3.98,6.59,0.3619,0.3329,True,0.0348,0.0203,True,0.759,False,False
+leave_detector_psc2nonpsc,DIOR-R/10(lsknet),14108,0.5478,0.7335,0.401,0.376,0.3319,1.0275,1.317,1.577,3.06,3.94,6.06,0.3574,0.3382,True,0.0255,0.0161,True,0.795,False,False
+leave_detector_nonpsc2psc,FAIR1M-v1.0/24(psc),13796,0.896,0.7743,0.6621,0.639,0.5131,1.8125,2.072,2.282,4.85,6.09,8.59,0.1372,0.1094,True,0.0236,0.0142,True,0.671,False,False
+leave_detector_nonpsc2psc,SODA-A/23(psc),105343,0.9823,0.7976,0.4806,0.4519,0.3648,1.3785,1.665,2.021,3.8,5.0,8.21,0.3458,0.334,True,0.0287,0.026,True,0.859,False,False
+leave_detector_nonpsc2psc,DIOR-R/22(psc),10999,0.5629,0.5676,0.4254,0.4215,0.3441,0.9235,1.162,1.42,3.15,4.17,6.44,0.1464,0.1203,True,0.0038,-0.0088,False,0.646,False,False
+leave_detector_nonpsc2psc,DOTA-v1.0/20(psc),6696,0.7035,0.6524,0.7967,0.6648,0.4982,1.565,1.652,1.851,3.58,4.4,6.09,-0.0126,-0.0438,False,0.1316,0.1152,True,0.189,False,True

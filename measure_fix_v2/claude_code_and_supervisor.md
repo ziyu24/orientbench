@@ -44,3 +44,26 @@ Deployable hardening = STABLE-PASS (with DOTA documented limitation)。未触发
 
 ### 下一步建议
 P3 method development（巩固 route-C TTA 推理 proxy + 扩 leave 覆盖 + 处理弱结构 cell）；Track A 待批准作机制支线。venue 决定交合作者。
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (041)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_041_ROUTE_C_TTA_PROXY_DEPLOYABLE_CHECK。验证 Route-C GT-free deployable proxy。measure_fix_v2/。
+
+### 行动/结论
+- 冻结 route_c_tta_proxy_protocol.md。
+- real flip-TTA 推理: 写 4-GPU hflip adapter(tta_hflip_dior3.py)但 blocked(DIOR annfiles_dotaformat/test 空; populate 会改 read-only dataset, 禁止) → documented next-step(tta_proxy_manifest_041.json), 未改 dataset。
+- 实际 Route-C 信号 = GT-free offline local-angle-consistency proxy(6 cells, features_v2, 无 GT)。
+- Route-C 对照(无目标 GT, source-trained): non-DOTA 10/10 优于 score+ar+size linear; GT-free consistency feature 8/10 优于 geometry-only; mean retained 0.718/median 0.734(>040 的 0.645)。
+- DOTA #20 negative control: 加 consistency 后 leave-dataset 转 pass(0.59 beats sizelin), leave-detector 仍弱(弱结构 oracle_gain 0.155); 不调参。
+- 裁决: Route-C = STABLE-PASS。诚实边界: consistency 为 offline proxy(非 real TTA, blocked); selector 训练仍用 source GT(calibration); target 无 GT = deployable。未声称 P3 最终完成/顶会级别。
+
+### 产物路径
+measure_fix_v2/docs/{route_c_tta_proxy_protocol,route_c_tta_proxy_report,cc_latest_report}.md;
+measure_fix_v2/reports/{route_c_tta_proxy_results_041,tta_proxy_features_041,route_c_tta_proxy_results_041(md),dota20_negative_control_041(md),tta_proxy_manifest_041,route_c_summary_041,verification_route_c_tta_proxy_041}.*;
+measure_fix_v2/configs/tta_hflip_dior3.py; measure_fix_v2/artifacts/features_v2/*.jsonl(gitignored); measure_fix_v2/scripts/{enrich_features_041,route_c_eval_041,verify_route_c_tta_proxy_041}.py。
+
+### pass/fail/partial
+Route-C = STABLE-PASS。未触发停止条件。
+
+### 下一步建议
+real flip/rotation TTA(建 scratch annfile 镜像, 不改 dataset); 扩 leave 覆盖 + few-shot calibration; Track A 待批准作机制支线; venue 交合作者。
