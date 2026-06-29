@@ -21,3 +21,26 @@ G2_double_prime=PASS; Deployable=PARTIAL-PASS。未触发停止条件。
 
 ### 下一步建议
 扩 leave-dataset/detector + 路线C(TTA proxy) 巩固 deployable; 之后再考虑 Track A forward dump(本轮未启动); venue 决定交合作者。
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (040)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_040_P3_DEPLOYABLE_HARDENING。把 039 Deployable partial-pass 加固为 stable-pass 或降级。measure_fix_v2/ 内。
+
+### 行动/结论
+- 冻结 deployable_hardening_protocol.md（stable-pass 5 准则）。
+- leave-dataset 6/7 pass（DOTA✗）；leave-detector 6/7 pass（PSC↔非PSC，DOTA✗）；均无目标 GT，复用 cached feature tables（无重匹配/无训练）。
+- TTA route-C: GT-free local-angle-consistency proxy 在 FAIR1M/DIOR 优于 score-only 且<random（offline 最小版；完整 TTA 推理为 next-step limitation）。
+- DOTA #20 failure = 弱内在结构（oracle_gain 0.155 四 PSC 最低；masked NRC 0.84 未显著反校准），非样本量/分布 shift/过拟合 → documented limitation。
+- 裁决: STABLE-PASS（with DOTA documented limitation）。准则①85.7%(非DOTA 100%)，②非DOTA mean retained 0.645（all-cells 0.481 仅因 DOTA，差0.02 提请确认），③LD/LDET 两类 stable 无 fail，④DOTA 诊断标局限，⑤无目标 GT。
+- Track A 可有条件准备本轮未启动；支持 P3 method development（边界: 仍 source-trained / route-C 仅 offline 弱版；不声称完成/顶会级别）。
+
+### 产物路径
+measure_fix_v2/docs/{deployable_hardening_protocol,p3_deployable_hardening_report,cc_latest_report}.md;
+measure_fix_v2/reports/{leave_dataset_hardening_040,leave_detector_hardening_040,tta_proxy_hardening_040,dota20_failure_analysis_040,hardening_summary_040,verification_deployable_hardening_040}.*;
+measure_fix_v2/scripts/{hardening_040,tta_proxy_040,verify_deployable_hardening_040}.py。
+
+### pass/fail/partial
+Deployable hardening = STABLE-PASS (with DOTA documented limitation)。未触发停止条件。
+
+### 下一步建议
+P3 method development（巩固 route-C TTA 推理 proxy + 扩 leave 覆盖 + 处理弱结构 cell）；Track A 待批准作机制支线。venue 决定交合作者。

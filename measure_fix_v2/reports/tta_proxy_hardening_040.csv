@@ -1,0 +1,3 @@
+cell,n,uses_GT_to_build_proxy,NRC_score_only,NRC_local_angle_consistency_proxy,proxy_beats_score,proxy_better_than_random
+FAIR1M-v1.0/24(psc),28869,False,0.8788,0.7699,True,True
+DIOR-R/3(orcnn),26338,False,0.546,0.5277,True,True

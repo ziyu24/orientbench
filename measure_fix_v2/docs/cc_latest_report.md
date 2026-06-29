@@ -1,33 +1,32 @@
 👇👇👇👇👇👇
 
-# OrientBench v2 — 039 G2_double_prime + Deployable 完成
+# OrientBench v2 — 040 P3 Deployable Hardening 完成
 
-- **039 完成**。无 detector 训练/full matrix/Track A dump；thresholds(b7c4e649)、P1 D_cal/D_audit、formal 标签、frozen tag 未改；DOTA train/val。
-- 新阶段独立工作区 `measure_fix_v2/` 已建；输入文件 CLAUDE (8).md + 项目执行文件_v2_measure_fix.md 已复制到 docs/input/。
-- **主报告（唯一人读）**：`measure_fix_v2/docs/g2_double_prime_and_deployable_report.md`
+- **040 完成**。无 detector 训练/full matrix/Track A dump；thresholds(b7c4e649)、P1 split、formal 标签、frozen tag 未改；未恢复 P2；未追 DOTA mAP。
+- **主报告（唯一人读）**：`measure_fix_v2/docs/p3_deployable_hardening_report.md`
 
-## G2_double_prime 裁决：**PASS（明确、稳健）**
-- 固定 box-size 分箱内，nonlinear geometry-aware selector **仍显著优于 score+ar+size 线性基线**（D_audit；7 cells × 每个 size bin DELTA CI>0，21/21 primary；ar1.3/2.0 sensitivity 20-21/21）。
-- → orientation-specific 非线性几何可靠性结构真实，**非 box-size prior**；含 3 个非 PSC sanity cell 方向一致。
+## Deployable hardening 裁决：**STABLE-PASS（with DOTA #20 documented limitation）**
+- ≥75% beat size-linear：all 12/14=85.7%，**非 DOTA 12/12=100%**；retained gain 非 DOTA mean 0.645/median 0.656（all-cells mean 0.481 仅因 DOTA 两负值，差 0.02，提请确认）；LD 6/7 & LDET 6/7 两类均 stable 无 fail；DOTA 已诊断标局限；全程无目标 GT。
 
-## Deployable 裁决：**PARTIAL-PASS**
-- 无目标域 GT 标定：**9/11 unseen-cell 评估** nonlinear 显著优于 score-only 且优于 size-linear，**保留 within-target oracle gain ~69%**。
-- leave-dataset 3/4（DIOR/FAIR1M/SODA✓，DOTA✗）；leave-detector PSC↔非PSC 6/7✓（near-oracle）；**唯一例外 DOTA #20**（结构最弱、未显著反校准）。
+## leave-dataset 结果
+- 6/7 pass（DIOR/FAIR1M/SODA ✓；DOTA ✗），retained 0.63-0.79。
 
-## 关键指标摘要
-- G2DP pooled-cell 示例（primary，NRC）：SODA PSC score 0.982 → size-linear 0.611 → **nonlinear 0.389**；FAIR1M 0.896→0.758→**0.519**。
-- Deployable 示例（无目标 GT）：PSC→SODA-ORCNN nonlinear 0.419（oracle 0.399）。
+## leave-detector 结果
+- 6/7 pass，PSC→非PSC 3/3（SODA-ORCNN retained 0.946），非PSC→PSC 3/4（DOTA ✗）。
 
-## 是否触发停止条件
-- **否**。G2DP 未 fail；Deployable 非 fail（partial-pass）。未声称 P3 顶会级别 / CVPR-ICCV ready；严格区分 upper-bound(G2DP) vs deployable(leave-*) 。
+## TTA/proxy 结果
+- GT-free local-angle-consistency proxy 在 FAIR1M/DIOR 上优于 score-only 且 < random → route-C 可行；完整 TTA 推理为 next-step（limitation）。
 
-## P1 硬债
-- **已完成修订建议**（measure_fix_v2/docs/p1_hard_debt_patch_notes.md）：within-dataset NRC headline、PSC cell-level、GV 定义、related work、持久化、治理下沉。
+## DOTA #20 failure 原因
+- **弱内在结构**：within-target oracle_gain 0.155（四 PSC 最低），masked NRC 0.84 未显著反校准；非样本量/分布 shift/过拟合主因 → documented limitation。
 
-## 下一步建议
-- 待批准：扩 leave-dataset/detector + 路线 C（TTA proxy 无 GT）巩固 deployable；之后再考虑 Track A forward dump（本轮未启动）。venue 决定交合作者。
+## 是否允许 Track A
+- **可有条件准备**（前置满足），本轮未启动；待监督员批准作机制支线（非阻塞）。
+
+## 是否允许 P3 method development
+- **支持推进**（deployable reliability-aware selector）。边界：当前仍 source-trained(用 source GT)；route-C GT-free 仅 offline 弱版。**不声称 deployable method 已完成 / 顶会级别**。首步=巩固 route-C TTA + 扩覆盖 + 处理弱结构 cell。
 
 ## 验证/test/git
-- verifier `verify_measure_fix_v2_039` → 见下；pytest 全过；thresholds/split 未变；git 0 大文件（artifacts/logs gitignored）。
+- verifier `verify_deployable_hardening_040` → 见下；pytest 全过；thresholds/split 未变；git 0 大文件（artifacts/logs gitignored）。
 
 👆👆👆👆👆👆
