@@ -30,7 +30,8 @@ def test_fullval_no_silent_truncation():
     fv=_csv("cross_dataset_fullval_status_023.csv")
     assert fv and all(r["reason"] and "subset" in r["used"].lower() for r in fv)
 def test_no_032_c5_artifacts():
-    assert not any("032" in f or "source_teacher" in f.lower() or "_c5" in f.lower() for f in os.listdir(REP))
+    # guard against the WRONG 032 (C5/source-teacher thread); project's own round-032 report files are legitimate
+    assert not any("source_teacher" in f.lower() or "_c5" in f.lower() or "source-teacher" in f.lower() for f in os.listdir(REP))
 if __name__=="__main__":
     p=f=0
     for n,fn in sorted(globals().items()):
