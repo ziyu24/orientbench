@@ -12,3 +12,4 @@ __pycache__/
 work/
 work_dirs/
 outputs/persistent_artifacts/
+outputs/bench_core/figures/

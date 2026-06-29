@@ -1557,3 +1557,8 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ## 2026-06-29 12:42:17 CST 来源: supervisor
 ### 034 合作者决策包（简报 docs/cc_latest_report.md 用 👇/👆 包住；审计）
 - token 034。无训练/GPU/thresholds 变更。生成 collaborator_p1_scientific_validity_packet / decision_form(D1-D7) / one_page_summary。新汇报格式：cc_latest_report 用 👇👆 入口出口包住，终端只输出同样包住的文件路径。verifier 103_verify_collaborator_packet_034 8/8；pytest 264 passed；git 0 大文件。等待 D1-D7 裁决。
+
+---
+## 2026-06-29 13:24:57 CST 来源: supervisor
+### 035 P1 深度核验+单文件报告（简报 cc_latest_report 👇👆 包住；审计）
+- token 035。无训练/GPU/thresholds·split 变更。p99 核验: 代码正确, 90°=near-square ill-posed(非 catastrophic, 纠正 033), masked p99 10-16° 真实。cliff 成立(p99 vs ar). NRC 构造效度: Spearman -0.046 CI[-0.49,0.48], partial df=7 under-powered → 未检测显著相关, 不主张严格独立. PSC Track B 反校准稳定. 单文件 docs/orientbench_p1_scientific_report.md(034 分散→_superseded). 14 p99 figs + cliff fig(gitignored). verifier 104 19/19; pytest pass; git 0 大文件.

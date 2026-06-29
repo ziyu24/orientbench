@@ -1,14 +1,32 @@
 👇👇👇👇👇👇
 
-# OrientBench — 034 合作者决策包 完成
+# OrientBench — 035 P1 深度科学有效性核验 + 单文件报告 完成
 
-- **034 完成**。生成 P1 scientific-validity 合作者决策包（无新实验、未改 thresholds）。
-- collaborator packet：`docs/collaborator_p1_scientific_validity_packet.md`
-- decision form（D1-D7）：`docs/collaborator_p1_decision_form.md`
-- one-page summary：`docs/collaborator_p1_one_page_summary.md`
-- 是否新增实验：**否**。是否改 thresholds：**否**（b7c4e649 未变）。
-- 是否需要合作者裁决：**是**。
-- 下一步等待裁决：**D1**（接受 v2 作顶刊依据）、**D2**（PSC angle-head control）、**D3**（P3 formalization）、**D4**（补剩余 cells）、**D5**（冻结 current scope）、**D6**（启动论文主文）、**D7**（额外图表/附录）。
-- 验证：`103_verify_collaborator_packet_034` → VERIFIED；pytest 全过；git 0 大文件。
+- **035 完成**。无训练、无 GPU、thresholds 未变（b7c4e649）、D_cal/D_audit split 未变。
+- **主报告（唯一人读）**：`docs/orientbench_p1_scientific_report.md`（034 分散文件已移入 docs/_superseded/）。
+
+## p99 核验结论
+- 角度误差代码**正确**（π-周期最短距离，max 90°，无 bug）。**p99≈90° = near-square / aspect-ratio 退化（朝向 ill-posed），非 detector 灾难性失败** → 已纠正 033 的 "catastrophic" 措辞。well-defined region masked p99 = **10-16°**（真实非平凡尾部）。
+
+## reliability cliff 结论
+- **成立**：p99 随 aspect-ratio：ar>2 ~8-10° → ar<1.3 ~84-90°；NRC well-defined ~0.47-0.49、near-square ~0.93-0.97。core 动机图：figures/reliability_cliff/。
+
+## NRC 构造效度结论
+- **克制措辞**：23-cell 上**未检测到 NRC 与 mAP 显著相关**（Spearman -0.046，CI95 [-0.49,0.48]；partial ctrl both df=7，CI 退化 → under-powered）。NRC 提供不同于 accuracy 的信号；**不主张严格独立**。最强反例 = PSC。
+
+## PSC preflight 结论
+- Track B（detection-score proxy）下 PSC 反校准**稳定**（DOTA/FAIR1M/SODA NRC>1，延伸到 well-defined 区）。**只能说 score-level 反校准，不能说 angle head 本身**。Track A/C pending。
+
+## 是否建议 angle-head control experiment
+- **建议申请**（Track B 证据足够）；但**现在不启动大训练**（边界）。需合作者批准 + 算力。
+
+## 是否建议 P3 继续
+- **建议继续**：reliability cliff + well-defined tail + PSC 反校准 = P3 前置证据成立（非收缩情形）。
+
+## 顶刊判断（克制）
+- TGRS/ISPRS JPRS：有希望（p99/cliff/NRC 严谨写）。CVPR/ICCV/TPAMI：现在不够（需把 PSC/cliff 做成机制/方法贡献，非仅评测表）。
+
+## 验证/test/git
+- verifier `104_verify_p1_scientific_report_035` → VERIFIED 19/19；pytest 全过；thresholds 未变；git 0 大文件（figures/persistent gitignored）。
 
 👆👆👆👆👆👆
