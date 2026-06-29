@@ -1,30 +1,26 @@
 👇👇👇👇👇👇
 
-# OrientBench — 037 P3 可行性门控 完成
+# OrientBench — 038 P3 G2′ feasibility-to-method 判定 完成
 
-- **037 完成**。无训练/host 重训/full matrix/追 mAP；thresholds 未变（b7c4e649），frozen DOTA D_cal/D_audit 未改。
-- **主报告（唯一人读）**：`docs/p3_feasibility_gate_report.md`
+- **038 完成**。无 detector 训练 / full matrix / Track A forward dump；thresholds(b7c4e649)、P1 D_cal/D_audit 未改；DOTA train/val。
+- **G2′ 裁决：PASS（明确、稳健）。**
+- **主报告（唯一人读）**：`docs/p3_g2prime_feasibility_report.md`
 
-## P1 状态
-- P1 当前阶段已完成（工程 + 效度审计 + 中文审稿稿），可交合作者审核。
+## primary ar 阈值
+- ar ≥ 1.6（near-square 已排除）；sensitivity ar≥1.3 / ar≥2.0 结论一致。
 
-## PSC Track A 是否可用
-- **不可用**。4 个 PSC cell 的 saved preds 仅含 bboxes/scores/labels，无 angle logits/distribution/uncertainty。架构上存在（PSCCoder encode_size=6 相位码），需 instrumented forward dump 提取。**P3 现不能声称 PSC angle-head intrinsic miscalibration**。
+## score-only / score+ar linear / P3 selector 关键指标（pooled ar≥1.6, D_audit）
+- score-only NRC 0.838；score+ar **linear NRC 0.626**；**P3 non-linear NRC 0.409**（AURC 1.91→1.60→1.29；p99@70%cov 10.45→9.18→7.80）。
 
-## Track A/B/C 结果（D_audit，split 互斥）
-- Track B det-score：FAIR1M 1.153 / SODA 1.254（反校准，CI 排除 1）。
-- **Track C post-hoc selector（D_cal 学→D_audit 验证）：显著改善——FAIR1M 1.153→0.627、SODA 1.254→0.464、DOTA 0.740→0.503；AURC/Risk@70 全面下降**。PSC 问题 = score-proxy mismatch，可由 selector 修复。
-- Track A：unavailable（forward dump pending）。
-- cliff：near-square vs well-defined p99 delta ~81.6°（主要 near-square 几何退化，trivial）；well-defined p99 ~8.3°（modest 真实问题空间）。
+## bootstrap CI 结论（核心判定 DELTA = NRC_linear − NRC_p3）
+- **所有 cell + pooled 的 DELTA CI 均 >0**（pooled 0.217 [0.211,0.221]；DOTA 0.150、DIOR 0.314、FAIR1M 0.239、SODA 0.230）→ **P3 非线性 selector 显著优于 score+ar 线性项**。
+- feature importance：主导 = box size(w/h/sqrt_area)+GV-obliquity；**log_ar 极小（0.02-0.08）** → 增益非 aspect-ratio、非 near-square trivial。
 
-## P3 是否建议启动
-- **有条件建议启动**：作为 **unified-proxy / post-hoc selective-orientation 路线**（Track C 在 held-out 显著改善）。**不**建议立项为 intrinsic-only（Track A 未验证）或 near-square-only（trivial）。
-- 最小首步 = **PSC forward dump 提取 Track A**（现有 checkpoint，不训练），判别 angle-head 机制 vs score-proxy mismatch。
+## 下一步建议
+- **pass 分支**：允许进入 P3 G1/G3/G4（泛化/部署性/稳健）+ 启动 Track A forward dump（机制解释）。
+- 关键诚实约束：当前 P3 selector 用 D_cal 的 GT angle-error 标签训练，是 **upper-bound post-hoc 估计，非 deployable method**；G1/G3 须做无 GT 的可部署变体。**未声称 P3 已成立/顶会级别**。
 
 ## 验证/test/git
-- verifier `106_verify_p3_feasibility_gate_037` → VERIFIED 14/14；pytest 264 passed；thresholds/split 未变；git 0 大文件。
-
-## 需合作者批准
-- PSC Track A forward dump；P3 作 post-hoc/unified-proxy 路线立项；Track C 是否扩更多 detector/dataset。
+- verifier `107_verify_p3_g2prime_038` → VERIFIED 14/14；pytest 264 passed；thresholds/split 未变；git 0 大文件。
 
 👆👆👆👆👆👆

@@ -1,0 +1,78 @@
+{
+  "time": "2026-06-29 16:49:47 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 14,
+  "n_checks": 14,
+  "checks": [
+    {
+      "check": "report_exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_three_selectors",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_ar_primary_and_sens",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_dcal_daudit",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_metrics",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_verdict",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_p3_established",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_trackc_deployable",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_near_square_main_gain",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_venue",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "p1_split_threshold_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_has_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

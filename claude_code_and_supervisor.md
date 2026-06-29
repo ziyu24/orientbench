@@ -1572,3 +1572,8 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ## 2026-06-29 15:54:08 CST 来源: supervisor
 ### 037 P3 可行性门控（简报 cc 👇👆；审计）
 - token 037。无训练/host 重训/full matrix/追 mAP；thresholds·frozen split 未改。Track A: PSC saved preds 无 angle logits(只 bboxes/scores/labels)→unavailable, 需 forward dump(encode_size=6 相位码). Track B/C(D_cal→D_audit, 互斥): post-hoc selector 显著改善 FAIR1M 1.153→0.627 / SODA 1.254→0.464 / DOTA 0.740→0.503, AURC 全降 → PSC=score-proxy mismatch 可修复. cliff: near-square delta~81.6°(trivial), well-defined p99~8.3°(modest). 门控: P3 有条件启动(post-hoc/unified-proxy 路线), 首步=PSC forward dump 提取 Track A. 单文件 docs/p3_feasibility_gate_report.md. verifier 106 14/14; pytest 264; git 0 大文件.
+
+---
+## 2026-06-29 16:50:24 CST 来源: supervisor
+### 038 P3 G2′ feasibility（简报 cc 👇👆；审计）
+- token 038。无 detector 训练/full matrix/Track A dump；thresholds·P1 split 未改。G2′ PASS: well-defined(ar>=1.6, near-square 排除) 上非线性 geometry-aware selector 显著优于 score+ar 线性(D_audit, 所有 cell+pooled DELTA CI>0; pooled P3 NRC 0.409 vs linear 0.626, delta 0.217[0.211,0.221]). ar>=1.3/2.0 sensitivity 一致. feature imp: box size+GV 主导, log_ar 极小→非 ar/非 near-square trivial. 诚实: P3=upper-bound post-hoc(用 GT 标签训练), 非 deployable; 未声称 P3 已成立. 下一步 pass 分支: G1/G3/G4 + Track A dump. 单文件 docs/p3_g2prime_feasibility_report.md. verifier 107 14/14; pytest 264; git 0 大文件.
