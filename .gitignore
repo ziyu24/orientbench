@@ -11,3 +11,4 @@ __pycache__/
 *.pyc
 work/
 work_dirs/
+outputs/persistent_artifacts/

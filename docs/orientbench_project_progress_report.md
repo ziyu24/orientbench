@@ -28,7 +28,7 @@
 
 | 项 | 结果 |
 |---|---|
-| DOTA D2 partial formal gate | **passed**（3 detector：#1 orcnn / #20 psc / #32 rtmdet；NRC≤1.0；near-square masked；Spearman(mAP,NRC) 独立性 OK） |
+| DOTA D2 partial formal gate | **passed**（认证的是**协议/阈值冻结/split 互斥/metric 可计算**，**不是**要求每个 detector NRC≤1.0）。组成 detector：#1 orcnn / #20 psc / #32 rtmdet（D2-audit NRC 0.67 / 0.74 / 0.62，near-square masked）。**注：#32 rtmdet 是 gate 组成项但仅 dcal-subset 推理，未进入第 4/5 节 full-val summary table**。NRC↔mAP 独立性见构造效度分析（§见 scientific_validity_audit，非 DOTA n=3） |
 | RHINO host (C1/B) 训练+锁定 | DOTA-v1.0，val **dota/mAP 0.7201** @epoch35；ckpt sha256 **55a90abb…** |
 | O2-RTDETR host (A4) 训练+锁定 | DOTA-v1.5，val **dota/mAP 0.6497** @epoch70；ckpt sha256 **3e32fa11…** |
 | C1 augmentation-view consistency gate | **formal_pass**（D_audit：view-consistency p90 3.489°≤5.04，DropRate 0.136≤0.184） |

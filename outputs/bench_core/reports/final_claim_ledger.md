@@ -5,9 +5,11 @@
 ## allowed
 - DOTA-scoped C1 augmentation-view consistency passed frozen D_audit formal gate.
 - DOTA-scoped A4 same-host source-attribution passed frozen D_audit formal gate.
-- DOTA D2 partial frozen gate passed; host checkpoints locked+hashed (RHINO 55a90abb, O2-RTDETR 3e32fa11).
+- DOTA D2 partial frozen gate passed (certifies protocol/threshold-freeze/split/metric, NOT per-detector NRC<=1); host checkpoints locked+hashed (RHINO 55a90abb, O2-RTDETR 3e32fa11).
 - 23 real cross-dataset/multi-detector exploratory cells across 6 datasets measured (NRC/Risk).
 - ARS-DETR isolated env built; DIOR cross-dataset unlocked. Strip DIOR cross-dataset unlocked. HRSC angle resolved_with_evidence.
+
+- NRC independent of mAP (Spearman=-0.05, partial≈0 over 23 cells); PSC angle-coder reverse-calibrated (NRC>1 on DOTA/FAIR1M/SODA) — benchmark finding.
 
 ## qualified
 - C1 = augmentation-view (NOT genuine physical multi-view). A4 = same-host (NOT cross-host causal). All non-DOTA = exploratory.

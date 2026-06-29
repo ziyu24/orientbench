@@ -1,0 +1,8 @@
+metric,value
+spearman_nrc_map,-0.0455
+partial_nrc_map_ctrl_both,-0.0051
+spearman_nrc_med,0.4002
+psc_nrc_gt1_count,3
+masked_p99_max_deg,26.14
+unmasked_p99_max_deg,89.98
+p1_verdict,retains_top_journal_value

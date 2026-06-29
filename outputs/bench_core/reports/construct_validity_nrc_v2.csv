@@ -1,0 +1,15 @@
+metric,value
+n,23
+spearman_nrc_map,-0.0455
+spearman_nrc_map_p,0.8368
+pearson_nrc_map,-0.2601
+pearson_nrc_map_p,0.2307
+spearman_nrc_med,0.4002
+pearson_nrc_med,0.2858
+partial_nrc_map_ctrl_dataset,-0.5669
+partial_nrc_map_ctrl_family,0.1573
+partial_nrc_map_ctrl_both,-0.0051
+mean_rank_distance_nrc_vs_map,7.83
+nrc_gt1_cells,"DOTA-v1.0/rotated_retinanet_psc(NRC=1.0574,mAP=0.5562); FAIR1M-v1.0/rotated_retinanet_psc(NRC=1.0825,mAP=0.3462); SODA-A/rotated_retinanet_psc(NRC=1.2596,mAP=0.5991)"
+psc_cells,"('DIOR-R', 0.549, 0.537); ('DOTA-v1.0', 1.057, 0.556); ('FAIR1M-v1.0', 1.083, 0.346); ('SODA-A', 1.26, 0.599)"
+psc_nrc_gt1_count,3

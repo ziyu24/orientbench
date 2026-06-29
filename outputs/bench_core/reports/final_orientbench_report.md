@@ -9,7 +9,7 @@
 - cross-dataset matrix = **exploratory partial success**（23 real cells / 6 datasets）。
 
 ## 已完成（formal, DOTA frozen scope）
-- DOTA D2 partial formal gate（3 detector）。
+- DOTA D2 partial formal gate（认证协议/阈值冻结/split 互斥/metric 可计算，**非**要求每 detector NRC≤1；组成 detector #1/#20/#32，D2-audit NRC 0.67/0.74/0.62；#32 仅 dcal-subset 未入 summary table）。
 - RHINO host(C1/B, mAP 0.7201) + O2-RTDETR host(A4, mAP 0.6497) 训练+锁定。
 - C1 augmentation-view consistency gate（formal_pass, D_audit）。
 - A4 same-host source-attribution gate（formal_pass, D_audit）。
@@ -25,6 +25,10 @@
 - point2rbox: blocked_upstream_artifact_unavailable_final（ted.pth 全上游死）。
 - Strip FAIR1M/SODA: 无 baseline; HRSC: pattern available（未跑）。
 - genuine physical multi-view C1 / cross-host A4: out_of_scope。
+
+## benchmark finding（构造效度）
+- NRC ⟂ mAP：Spearman(NRC,mAP)=-0.05(p=0.84)，控 dataset+family 偏相关≈0 → NRC 提供独立于 accuracy 的信息（非 mAP 换皮）。
+- **PSC angle-coder orientation selection 反校准**：PSC 在 DOTA/FAIR1M/SODA NRC>1（1.06/1.08/1.26），mAP 不弱时仍 selection 弱于 random → benchmark 真实发现。
 
 ## 可宣称结论
 - DOTA 范围内 D2/host/C1(augmentation-view)/A4(same-host) 已冻结 + D_audit formal_pass。

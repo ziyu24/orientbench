@@ -1547,3 +1547,8 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ## 2026-06-28 23:53:21 CST 来源: supervisor
 ### 032 合作者进展报告（简报 docs/cc_latest_report.md；审计）
 - token SUPERVISOR_APPROVED_032。无实验/GPU/thresholds 变更。生成 docs/orientbench_project_progress_report.md + summary.json + release copy；verification 102 VERIFIED 10/10；thresholds b7c4e649 未变；git 0 大文件。
+
+---
+## 2026-06-29 10:59:19 CST 来源: supervisor
+### 033 P1 科学有效性审计 v2（简报 docs/cc_latest_report.md；审计）
+- token 033。无训练/GPU。修 3 矛盾(PSC NRC≤1 误述/rtmdet#32 缺表/NRC-mAP n=3)。construct validity: Spearman(NRC,mAP)=-0.046, partial(ctrl both)=-0.005 → NRC⟂mAP。tail risk: unmasked p99≈89°(near-square), masked p99 10-16° → cliff 真实。PSC 反校准(DOTA/FAIR1M/SODA NRC>1)成立。selection score 三轨 + 持久化(2.6GB→persistent_artifacts gitignored)。verifier 102_v2 21/21。P1 值得继续。thresholds b7c4e649 未变。
