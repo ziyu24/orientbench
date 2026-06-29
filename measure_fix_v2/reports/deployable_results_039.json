@@ -1,0 +1,244 @@
+[
+  {
+    "mode": "leave_dataset",
+    "target": "DOTA-v1.0/20(psc)",
+    "n_audit": 6696,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.7035,
+    "NRC_size_linear": 0.7264,
+    "NRC_nonlinear_deployed": 0.715,
+    "NRC_oracle_within_target": 0.5481,
+    "delta_sizelin_minus_nl": 0.0115,
+    "ci_sl": [
+      -0.0173,
+      0.0396
+    ],
+    "nl_beats_sizelin": false,
+    "delta_scoreonly_minus_nl": -0.0118,
+    "ci_so": [
+      -0.0446,
+      0.0204
+    ],
+    "nl_beats_scoreonly": false
+  },
+  {
+    "mode": "leave_dataset",
+    "target": "DIOR-R/22(psc)",
+    "n_audit": 10999,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.5629,
+    "NRC_size_linear": 0.9186,
+    "NRC_nonlinear_deployed": 0.4381,
+    "NRC_oracle_within_target": 0.3563,
+    "delta_sizelin_minus_nl": 0.4814,
+    "ci_sl": [
+      0.4414,
+      0.5196
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.1239,
+    "ci_so": [
+      0.0998,
+      0.1504
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_dataset",
+    "target": "FAIR1M-v1.0/24(psc)",
+    "n_audit": 13796,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.896,
+    "NRC_size_linear": 0.7647,
+    "NRC_nonlinear_deployed": 0.6072,
+    "NRC_oracle_within_target": 0.5185,
+    "delta_sizelin_minus_nl": 0.1578,
+    "ci_sl": [
+      0.1375,
+      0.1752
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.2855,
+    "ci_so": [
+      0.2532,
+      0.3306
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_dataset",
+    "target": "SODA-A/23(psc)",
+    "n_audit": 105343,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.9823,
+    "NRC_size_linear": 0.6742,
+    "NRC_nonlinear_deployed": 0.4952,
+    "NRC_oracle_within_target": 0.389,
+    "delta_sizelin_minus_nl": 0.1794,
+    "ci_sl": [
+      0.1707,
+      0.1876
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.4881,
+    "ci_so": [
+      0.4715,
+      0.5035
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_detector_psc2nonpsc",
+    "target": "SODA-A/4(orcnn)",
+    "n_audit": 155468,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.722,
+    "NRC_size_linear": 0.5822,
+    "NRC_nonlinear_deployed": 0.4186,
+    "NRC_oracle_within_target": 0.399,
+    "delta_sizelin_minus_nl": 0.1638,
+    "ci_sl": [
+      0.1596,
+      0.168
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.3034,
+    "ci_so": [
+      0.2963,
+      0.311
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_detector_psc2nonpsc",
+    "target": "DIOR-R/3(orcnn)",
+    "n_audit": 13738,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.548,
+    "NRC_size_linear": 0.7564,
+    "NRC_nonlinear_deployed": 0.4288,
+    "NRC_oracle_within_target": 0.3642,
+    "delta_sizelin_minus_nl": 0.3289,
+    "ci_sl": [
+      0.2914,
+      0.3602
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.1204,
+    "ci_so": [
+      0.0879,
+      0.1462
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_detector_psc2nonpsc",
+    "target": "DIOR-R/10(lsknet)",
+    "n_audit": 14108,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.5478,
+    "NRC_size_linear": 0.7289,
+    "NRC_nonlinear_deployed": 0.3937,
+    "NRC_oracle_within_target": 0.3501,
+    "delta_sizelin_minus_nl": 0.3361,
+    "ci_sl": [
+      0.3158,
+      0.3536
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.1555,
+    "ci_so": [
+      0.1347,
+      0.175
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_detector_nonpsc2psc",
+    "target": "DOTA-v1.0/20(psc)",
+    "n_audit": 6696,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.7035,
+    "NRC_size_linear": 0.6554,
+    "NRC_nonlinear_deployed": 0.8508,
+    "NRC_oracle_within_target": 0.5481,
+    "delta_sizelin_minus_nl": -0.1959,
+    "ci_sl": [
+      -0.23,
+      -0.1613
+    ],
+    "nl_beats_sizelin": false,
+    "delta_scoreonly_minus_nl": -0.1462,
+    "ci_so": [
+      -0.1878,
+      -0.1037
+    ],
+    "nl_beats_scoreonly": false
+  },
+  {
+    "mode": "leave_detector_nonpsc2psc",
+    "target": "DIOR-R/22(psc)",
+    "n_audit": 10999,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.5629,
+    "NRC_size_linear": 0.6826,
+    "NRC_nonlinear_deployed": 0.4269,
+    "NRC_oracle_within_target": 0.3563,
+    "delta_sizelin_minus_nl": 0.2545,
+    "ci_sl": [
+      0.2238,
+      0.2843
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.1354,
+    "ci_so": [
+      0.11,
+      0.1605
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_detector_nonpsc2psc",
+    "target": "FAIR1M-v1.0/24(psc)",
+    "n_audit": 13796,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.896,
+    "NRC_size_linear": 0.7519,
+    "NRC_nonlinear_deployed": 0.6356,
+    "NRC_oracle_within_target": 0.5185,
+    "delta_sizelin_minus_nl": 0.117,
+    "ci_sl": [
+      0.0944,
+      0.14
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.2588,
+    "ci_so": [
+      0.2213,
+      0.3018
+    ],
+    "nl_beats_scoreonly": true
+  },
+  {
+    "mode": "leave_detector_nonpsc2psc",
+    "target": "SODA-A/23(psc)",
+    "n_audit": 105343,
+    "uses_target_GT_in_train": false,
+    "NRC_score_only": 0.9823,
+    "NRC_size_linear": 0.6476,
+    "NRC_nonlinear_deployed": 0.412,
+    "NRC_oracle_within_target": 0.389,
+    "delta_sizelin_minus_nl": 0.2358,
+    "ci_sl": [
+      0.2289,
+      0.2422
+    ],
+    "nl_beats_sizelin": true,
+    "delta_scoreonly_minus_nl": 0.5701,
+    "ci_so": [
+      0.5544,
+      0.5876
+    ],
+    "nl_beats_scoreonly": true
+  }
+]

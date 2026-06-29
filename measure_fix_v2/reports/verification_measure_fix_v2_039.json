@@ -1,0 +1,133 @@
+{
+  "time": "2026-06-29 19:55:39 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 25,
+  "n_checks": 25,
+  "checks": [
+    {
+      "check": "folder:docs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "folder:reports",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "folder:scripts",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "folder:data",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "folder:figures",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "folder:artifacts",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "folder:logs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "folder:docs/input",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "input_claude8",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "input_exec_v2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "main_report",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "protocol_doc",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "results_csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report_has_g2dp",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report_has_size_bins",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report_has_three_selectors",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report_has_verdict",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "products_under_v2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "split_threshold_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "deploy_only_if_g2pass",
+      "ok": true,
+      "detail": "g2pass=True dep=True"
+    },
+    {
+      "check": "no_trackA_products",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_large_tracked_in_v2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_has_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

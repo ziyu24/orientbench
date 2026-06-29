@@ -13,3 +13,5 @@ work/
 work_dirs/
 outputs/persistent_artifacts/
 outputs/bench_core/figures/
+measure_fix_v2/artifacts/
+measure_fix_v2/logs/

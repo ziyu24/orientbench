@@ -1,0 +1,12 @@
+mode,target,n_audit,uses_target_GT_in_train,NRC_score_only,NRC_size_linear,NRC_nonlinear_deployed,NRC_oracle_within_target,delta_sizelin_minus_nl,ci_sl,nl_beats_sizelin,delta_scoreonly_minus_nl,ci_so,nl_beats_scoreonly
+leave_dataset,DOTA-v1.0/20(psc),6696,False,0.7035,0.7264,0.715,0.5481,0.0115,"[-0.0173, 0.0396]",False,-0.0118,"[-0.0446, 0.0204]",False
+leave_dataset,DIOR-R/22(psc),10999,False,0.5629,0.9186,0.4381,0.3563,0.4814,"[0.4414, 0.5196]",True,0.1239,"[0.0998, 0.1504]",True
+leave_dataset,FAIR1M-v1.0/24(psc),13796,False,0.896,0.7647,0.6072,0.5185,0.1578,"[0.1375, 0.1752]",True,0.2855,"[0.2532, 0.3306]",True
+leave_dataset,SODA-A/23(psc),105343,False,0.9823,0.6742,0.4952,0.389,0.1794,"[0.1707, 0.1876]",True,0.4881,"[0.4715, 0.5035]",True
+leave_detector_psc2nonpsc,SODA-A/4(orcnn),155468,False,0.722,0.5822,0.4186,0.399,0.1638,"[0.1596, 0.168]",True,0.3034,"[0.2963, 0.311]",True
+leave_detector_psc2nonpsc,DIOR-R/3(orcnn),13738,False,0.548,0.7564,0.4288,0.3642,0.3289,"[0.2914, 0.3602]",True,0.1204,"[0.0879, 0.1462]",True
+leave_detector_psc2nonpsc,DIOR-R/10(lsknet),14108,False,0.5478,0.7289,0.3937,0.3501,0.3361,"[0.3158, 0.3536]",True,0.1555,"[0.1347, 0.175]",True
+leave_detector_nonpsc2psc,DOTA-v1.0/20(psc),6696,False,0.7035,0.6554,0.8508,0.5481,-0.1959,"[-0.23, -0.1613]",False,-0.1462,"[-0.1878, -0.1037]",False
+leave_detector_nonpsc2psc,DIOR-R/22(psc),10999,False,0.5629,0.6826,0.4269,0.3563,0.2545,"[0.2238, 0.2843]",True,0.1354,"[0.11, 0.1605]",True
+leave_detector_nonpsc2psc,FAIR1M-v1.0/24(psc),13796,False,0.896,0.7519,0.6356,0.5185,0.117,"[0.0944, 0.14]",True,0.2588,"[0.2213, 0.3018]",True
+leave_detector_nonpsc2psc,SODA-A/23(psc),105343,False,0.9823,0.6476,0.412,0.389,0.2358,"[0.2289, 0.2422]",True,0.5701,"[0.5544, 0.5876]",True
