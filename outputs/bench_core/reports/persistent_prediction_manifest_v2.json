@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29 10:54:00 CST",
+  "generated": "2026-06-29 15:29:07 CST",
   "persistent_dir": "outputs/persistent_artifacts/orientbench_v2",
   "gitignored": true,
   "note": "key cells persisted (host + PSC + ARS-DETR DIOR + Strip DIOR + reps); /dev/shm is non-persistent",
@@ -159,6 +159,45 @@
       "schema_version": "17field_v1",
       "can_recompute": true,
       "generation_command": "adapter inference (see reproducibility guide); offline metrics scripts 61/65/71/72/73"
+    },
+    {
+      "cell_id": "DOTA-v1.0/20",
+      "dataset": "DOTA-v1.0",
+      "detector_baseline": "20",
+      "kind": "schema",
+      "source_scratch": "/dev/shm/cqc/orientbench/predictions/_archive/DOTA-v1.0/20/schema/pred_b20_dcal.jsonl",
+      "persistent_path": "outputs/persistent_artifacts/orientbench_v2/DOTA-v1.0/20/schema/pred_b20_dcal.jsonl",
+      "sha256": "0949fb21d609a735db0b59e791addac4b3d51d5c63b8aa66193c3fc584012c21",
+      "size": 48554034,
+      "schema_version": "17field_v1",
+      "can_recompute": true,
+      "generation_command": "adapter inference + offline metrics"
+    },
+    {
+      "cell_id": "DOTA-v1.0/20",
+      "dataset": "DOTA-v1.0",
+      "detector_baseline": "20",
+      "kind": "schema",
+      "source_scratch": "/dev/shm/cqc/orientbench/predictions/_archive/DOTA-v1.0/20/schema/pred_b20_DOTA-v1.0_val.jsonl",
+      "persistent_path": "outputs/persistent_artifacts/orientbench_v2/DOTA-v1.0/20/schema/pred_b20_DOTA-v1.0_val.jsonl",
+      "sha256": "387568639418fe6ccaab5920c074e881e277ee4a642927147e92b6475b461e71",
+      "size": 1472583,
+      "schema_version": "17field_v1",
+      "can_recompute": true,
+      "generation_command": "adapter inference + offline metrics"
+    },
+    {
+      "cell_id": "DOTA-v1.0/rhino",
+      "dataset": "DOTA-v1.0",
+      "detector_baseline": "rhino",
+      "kind": "schema",
+      "source_scratch": "/dev/shm/cqc/orientbench/predictions/_archive/DOTA-v1.0/rhino/schema/pred_rhino_val.jsonl",
+      "persistent_path": "outputs/persistent_artifacts/orientbench_v2/DOTA-v1.0/rhino/schema/pred_rhino_val.jsonl",
+      "sha256": "f89b767e42ca78482628aae89811dfcbd3c94c87b0ea7ad8ba97dccb9028d54d",
+      "size": 192438224,
+      "schema_version": "17field_v1",
+      "can_recompute": true,
+      "generation_command": "adapter inference + offline metrics"
     }
   ]
 }

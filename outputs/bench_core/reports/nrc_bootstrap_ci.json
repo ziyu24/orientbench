@@ -1,0 +1,112 @@
+[
+  {
+    "dataset": "DOTA-v1.0",
+    "baseline_id": "20",
+    "detector": "psc",
+    "n_masked": 14404,
+    "NRC": 0.8403,
+    "ci95_lo": 0.7873,
+    "ci95_hi": 0.9003,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "FAIR1M-v1.0",
+    "baseline_id": "24",
+    "detector": "psc",
+    "n_masked": 32100,
+    "NRC": 1.0825,
+    "ci95_lo": 1.0268,
+    "ci95_hi": 1.134,
+    "gt1_significant": true
+  },
+  {
+    "dataset": "SODA-A",
+    "baseline_id": "23",
+    "detector": "psc",
+    "n_masked": 224991,
+    "NRC": 1.2596,
+    "ci95_lo": 1.2384,
+    "ci95_hi": 1.2812,
+    "gt1_significant": true
+  },
+  {
+    "dataset": "DIOR-R",
+    "baseline_id": "22",
+    "detector": "psc",
+    "n_masked": 23362,
+    "NRC": 0.5494,
+    "ci95_lo": 0.529,
+    "ci95_hi": 0.5721,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "DIOR-R",
+    "baseline_id": "3",
+    "detector": "orcnn",
+    "n_masked": 28437,
+    "NRC": 0.5212,
+    "ci95_lo": 0.5055,
+    "ci95_hi": 0.5371,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "DIOR-R",
+    "baseline_id": "10",
+    "detector": "lsknet",
+    "n_masked": 29363,
+    "NRC": 0.5294,
+    "ci95_lo": 0.5139,
+    "ci95_hi": 0.5449,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "DIOR-R",
+    "baseline_id": "61",
+    "detector": "rtmdet",
+    "n_masked": 28583,
+    "NRC": 0.4274,
+    "ci95_lo": 0.4135,
+    "ci95_hi": 0.4406,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "FAIR1M-v1.0",
+    "baseline_id": "5",
+    "detector": "orcnn",
+    "n_masked": 48969,
+    "NRC": 0.845,
+    "ci95_lo": 0.8235,
+    "ci95_hi": 0.8712,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "FAIR1M-v1.0",
+    "baseline_id": "12",
+    "detector": "lsknet",
+    "n_masked": 53400,
+    "NRC": 0.8256,
+    "ci95_lo": 0.8054,
+    "ci95_hi": 0.8479,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "SODA-A",
+    "baseline_id": "4",
+    "detector": "orcnn",
+    "n_masked": 323616,
+    "NRC": 0.8323,
+    "ci95_lo": 0.8228,
+    "ci95_hi": 0.8432,
+    "gt1_significant": false
+  },
+  {
+    "dataset": "SODA-A",
+    "baseline_id": "11",
+    "detector": "lsknet",
+    "n_masked": 273498,
+    "NRC": 0.7632,
+    "ci95_lo": 0.7553,
+    "ci95_hi": 0.771,
+    "gt1_significant": false
+  }
+]

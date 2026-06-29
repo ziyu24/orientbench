@@ -1562,3 +1562,8 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ## 2026-06-29 13:24:57 CST 来源: supervisor
 ### 035 P1 深度核验+单文件报告（简报 cc_latest_report 👇👆 包住；审计）
 - token 035。无训练/GPU/thresholds·split 变更。p99 核验: 代码正确, 90°=near-square ill-posed(非 catastrophic, 纠正 033), masked p99 10-16° 真实。cliff 成立(p99 vs ar). NRC 构造效度: Spearman -0.046 CI[-0.49,0.48], partial df=7 under-powered → 未检测显著相关, 不主张严格独立. PSC Track B 反校准稳定. 单文件 docs/orientbench_p1_scientific_report.md(034 分散→_superseded). 14 p99 figs + cliff fig(gitignored). verifier 104 19/19; pytest pass; git 0 大文件.
+
+---
+## 2026-06-29 15:34:06 CST 来源: supervisor
+### 036 P1 中文论文标准审稿稿（简报 cc 👇👆；审计）
+- token 036。无训练/GPU/thresholds·split 变更。单文档 docs/orientbench_p1_chinese_paper_draft.md(11 节+附录+图表占位, 无期刊名). bootstrap NRC CI(masked): FAIR1M PSC[1.027,1.134]/SODA PSC[1.238,1.281] 显著>1; DOTA PSC 0.840[0.787,0.900] 不显著(修正 unmasked 1.06=near-square). fig1/2/3 数据 csv. persistent 8 key cells(+DOTA #20/rhino). claim ledger + license 完成. verifier 105 19/19; pytest pass; git 0 大文件. 下一步等 PSC Track A/B control 批准.
