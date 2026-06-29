@@ -1,0 +1,48 @@
+{
+  "time": "2026-06-29 12:41:25 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 8,
+  "n_checks": 8,
+  "checks": [
+    {
+      "check": "exists:collaborator_p1_scientific_validity_packet.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:collaborator_p1_decision_form.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:collaborator_p1_one_page_summary.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "decision_form_D1_D7",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_has_wrappers",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_overclaim",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}
