@@ -1567,3 +1567,8 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ## 2026-06-29 15:34:06 CST 来源: supervisor
 ### 036 P1 中文论文标准审稿稿（简报 cc 👇👆；审计）
 - token 036。无训练/GPU/thresholds·split 变更。单文档 docs/orientbench_p1_chinese_paper_draft.md(11 节+附录+图表占位, 无期刊名). bootstrap NRC CI(masked): FAIR1M PSC[1.027,1.134]/SODA PSC[1.238,1.281] 显著>1; DOTA PSC 0.840[0.787,0.900] 不显著(修正 unmasked 1.06=near-square). fig1/2/3 数据 csv. persistent 8 key cells(+DOTA #20/rhino). claim ledger + license 完成. verifier 105 19/19; pytest pass; git 0 大文件. 下一步等 PSC Track A/B control 批准.
+
+---
+## 2026-06-29 15:54:08 CST 来源: supervisor
+### 037 P3 可行性门控（简报 cc 👇👆；审计）
+- token 037。无训练/host 重训/full matrix/追 mAP；thresholds·frozen split 未改。Track A: PSC saved preds 无 angle logits(只 bboxes/scores/labels)→unavailable, 需 forward dump(encode_size=6 相位码). Track B/C(D_cal→D_audit, 互斥): post-hoc selector 显著改善 FAIR1M 1.153→0.627 / SODA 1.254→0.464 / DOTA 0.740→0.503, AURC 全降 → PSC=score-proxy mismatch 可修复. cliff: near-square delta~81.6°(trivial), well-defined p99~8.3°(modest). 门控: P3 有条件启动(post-hoc/unified-proxy 路线), 首步=PSC forward dump 提取 Track A. 单文件 docs/p3_feasibility_gate_report.md. verifier 106 14/14; pytest 264; git 0 大文件.

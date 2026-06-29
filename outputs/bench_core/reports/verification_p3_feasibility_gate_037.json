@@ -1,0 +1,78 @@
+{
+  "time": "2026-06-29 15:53:25 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 14,
+  "n_checks": 14,
+  "checks": [
+    {
+      "check": "gate_report_exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:psc_track_a_signal_audit_037.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:psc_trackabc_control_037.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:psc_trackabc_control_037.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:p3_reliability_cliff_feasibility_037.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_p3_established",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "track_a_unavailable_noted",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_anglehead_proven",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_full_matrix",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "dota_train_val_or_frozen",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "split_threshold_files_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_has_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}
