@@ -136,3 +136,23 @@ P3 method package 就绪; real TTA coverage 补强(4 cells). 允许进入方法�
 
 ### 下一步建议
 补非 PSC real TTA; 写方法正文; 扩 Track A negative control; venue 交合作者.
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (045)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_045_MEASURE_DIAGNOSE_FIX_PAPER_DRAFT。进入论文主稿整理。measure_fix_v2/。无 GPU/训练。
+
+### 行动/结论
+- 整合 039-044 报告 + P1 scientific_validity_audit + chinese_paper_draft 数字(均来自 report/csv/json, 非记忆)。
+- 主文稿 orientation_reliability_measure_diagnose_fix_draft.md: 合作者审核摘要 + 摘要/引言/任务定义/Measure/Diagnose/Fix/实验结果/图表计划/局限/结论 + why-no-GPU-training + claim ledger。中文, 无期刊会议名。
+- 关键数字: NRC vs mAP Spearman -0.046[CI -0.49,0.48] partial -0.005; cliff masked p99 10-26 unmasked 88-90; PSC bootstrap FAIR1M 1.083[1.03,1.13]/SODA 1.260[1.24,1.28] 显著, DOTA 0.84/DIOR 0.55 不显著; G2'' 21/21 size-bin; Deployable 非DOTA 12/12 retained 0.645; Route-C offline 10/10 retained 0.718; real TTA 4 cells/3 datasets; Track A phase_mod 3/3 NRC>1(DIOR 1.156/SODA 1.117/FAIR1M 1.121).
+- verifier 045 17/17; pytest 264; thresholds/split 未变; git 0 大文件.
+
+### 产物路径
+measure_fix_v2/docs/{orientation_reliability_measure_diagnose_fix_draft,cc_latest_report}.md;
+measure_fix_v2/reports/verification_measure_diagnose_fix_draft_045.json; scripts/verify_measure_diagnose_fix_draft_045.py。
+
+### pass/fail/partial
+论文主稿就绪, 建议进入合作者审核。未声称 P3 final/顶会 ready/full project complete/PSC angle head 最终证明反校准。
+
+### 下一步建议
+合作者审核; 并行补非 PSC real TTA + DOTA #20 Track A negative control(不调参)。
