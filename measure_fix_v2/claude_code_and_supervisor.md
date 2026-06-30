@@ -178,3 +178,28 @@ measure_fix_v2/reports/{diagnose_predicts_fix_boundary*,real_tta_nonpsc_046,veri
 
 ### 下一步建议
 补 SODA ORCNN #4 等剩余 non-PSC; 构造 D_cal-only 非循环 predictor; method 正文写作.
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (047)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_047_TOP_JOURNAL_LOCKDOWN。目标=遥感顶刊级别。停止 predictive-boundary/full matrix/venue 口号。
+
+### 行动/结论
+- 任务1 non-PSC deployable leave-*: 建 5 新非 PSC feature tables(SODA#4 304k/FAIR1M#5/SODA#11/FAIR1M#12/DIOR#61), source-supervised+target GT-free leave-detector+leave-dataset. 结果 8/9 beat size-linear, 2 family(ORCNN,LSKNet)×3 dataset(DIOR/SODA/FAIR1M); RTMDet#61 单 family 失败(documented); leave-dataset SODA/DIOR folds 大 SODA bootstrap 进程被 kill=compute-cost limitation(报告未跳过, train subsample 120k 后仍 OOM). 裁决 PASS.
+- 任务2 supervision spectrum: upper-bound/source-supervised transfer/fully GT-free proxy 三档写清; Route-C=source-supervised+target GT-free, 非 fully GT-free.
+- 任务3 framing: 四贡献(measure/diagnose/fix/deployability spectrum), 删 venue-selling, DOTA#20=limitation.
+- 任务4 持久化: 43 artifacts/1361MB→/home persistent(gitignored)+manifest(sha256/can_recompute/source_ckpt/split). 无 blocked_storage.
+- 任务5 D_cal-only predictor: partial/inconclusive(time-boxed, 不消耗主线).
+- 任务6 决定: top_journal_submission_package_ready=true(遥感顶刊级别), 9 项全满足, 不冲 CVPR/ICCV.
+- verifier 047 22/22; pytest 264; thresholds/split 未变; git 0 大文件; persistent 不进 git; heartbeat 写了.
+
+### 产物路径
+docs/{nonpsc_deployable_leave_star_047,supervision_spectrum_method_section_047,paper_framing_top_journal_047,artifact_persistence_047,dcal_only_predictor_sanity_047}.md(+镜像 measure_fix_v2/docs/);
+measure_fix_v2/docs/top_journal_lockdown_decision_047.md; outputs/persistent_artifacts/manifest_047.json;
+measure_fix_v2/reports/{nonpsc_deployable_leave_star_047.csv,nonpsc_leave_star_summary_047.json,heartbeat_047.json,verification_top_journal_lockdown_047.json};
+measure_fix_v2/scripts/{build_nonpsc_features_047,nonpsc_leave_star_047,verify_top_journal_lockdown_047}.py.
+
+### pass/fail/partial
+non-PSC leave-* PASS; supervision spectrum 写清; artifacts 持久化; 无 GT 泄漏; ready=true(遥感顶刊级别). D_cal predictor partial. leave-dataset SODA/DIOR folds=compute-cost next-step. 未触发收缩条件.
+
+### 下一步建议
+补完整 leave-dataset(降 bootstrap/分批); RTMDet 失败几何解释; method 正文写作.

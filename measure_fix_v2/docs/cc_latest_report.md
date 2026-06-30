@@ -1,29 +1,32 @@
 👇👇👇👇👇👇
 
-# OrientBench v2 — 046 Claim Cleanup + Route-C Boundary + TTA Extension 完成
+# OrientBench v2 — 047 Top-Journal Lockdown 完成
 
-- **046 完成**。未训练 detector；未改 thresholds(b7c4e649)/P1 split；未补 full matrix；未恢复 P2；未追 DOTA mAP；未改原 dataset。
-- **五个文件**：docs/{claim_language_cleanup_report, route_c_dataflow_audit, diagnose_predicts_fix_boundary, real_tta_non_psc_extension, track_a_mechanism_boundary}.md（并镜像 measure_fix_v2/docs/）。
+- **047 完成**。目标=遥感顶刊级别（不空喊 CVPR/ICCV）。未训练 detector；未改 thresholds(b7c4e649)/P1 split；未补 full matrix；未恢复 P2；未追 DOTA mAP；未改原 dataset。
 
-## Route-C 接缝裁决
-- **source-supervised selector + target GT-free inference**（leave-* 无 target GT，无泄漏）。**非 fully GT-free，非 deployable method complete**。standalone consistency proxy 才是较弱的 fully-GT-free 方向。措辞已更正。
+## non-PSC leave-* 是否通过
+- ✅ **PASS**：source-supervised + target GT-free，**8/9 evals beat size-linear**，**2 非 PSC family(ORCNN,LSKNet) × 3 dataset(DIOR/SODA/FAIR1M)**；RTMDet #61 单 family 失败(documented)；leave-dataset SODA/DIOR folds 因大 SODA bootstrap 被 kill = compute-cost limitation(已报告未跳过)。
 
-## predictive-boundary 是否成立
-- **未成立（本轮）**。oracle_gain↔retained 相关(0.87)**循环**（retained 含 oracle_gain 分母）；非循环检验无预测力（Spearman 0.02）。→ measure→diagnose→fix 写**并列结构**；**DOTA #20 仍是 limitation，非 validation**。
+## supervision spectrum 是否写清
+- ✅ upper-bound / source-supervised transfer(主 deployable candidate) / fully GT-free proxy(较弱)。Route-C = source-supervised + target GT-free inference，**非 fully GT-free**。
 
-## non-PSC real TTA 扩展结果
-- 新增 **RTMDet/DIOR（realTTA 0.331）+ ORCNN/FAIR1M（0.537）**，2 非 PSC family × 2 dataset，**均 beat size-linear 且 beat geometry-only，无失败**。real TTA 现 6 cells/3 datasets/3 families。SODA ORCNN #4(304k) 过慢未完成=next-step。
+## artifacts 是否持久化
+- ✅ 43 artifacts / 1361 MB → /home persistent(gitignored) + manifest(sha256+can_recompute+source_checkpoint+split)。无 blocked_storage。
 
-## Track A 边界结论
-- 机制支线：phase_mod intrinsic signal supports a mechanism candidate；不决定主线/venue，不恢复 P2，不写 angle head definitively broken；DOTA #20 不调参。
+## 是否出现 target GT 泄漏
+- **无**（leave-* target GT 仅评估）。
 
-## 是否需要降级 deployable claim
-- **不降级为 upper-bound**（无 target GT 泄漏），但**措辞更正**为 source-supervised + target GT-free inference deployable candidate（非 fully GT-free / 非 method complete）。
+## 当前是否达到 top-journal submission package
+- **top_journal_submission_package_ready = true（遥感顶刊级别）**：9 项裁决全满足。**不冲 CVPR/ICCV**。
+
+## 主产物路径
+- docs/{nonpsc_deployable_leave_star_047, supervision_spectrum_method_section_047, paper_framing_top_journal_047, artifact_persistence_047}.md
+- measure_fix_v2/docs/top_journal_lockdown_decision_047.md；outputs/persistent_artifacts/manifest_047.json
 
 ## 验证/test/git
-- verifier `108_verify_claim_routec_boundary_046` → 见下；pytest 全过；thresholds/split 未变；git 0 大文件。
+- verifier `verify_top_journal_lockdown_047` → 见下；pytest 全过；thresholds/split 未变；git 0 大文件；persistent 不进 git。
 
 ## 下一步建议
-- 补 SODA ORCNN #4 等剩余 non-PSC real TTA；构造 D_cal-only diagnose predictor（非循环）；method 正文写作。
+- 补完整 leave-dataset(降 bootstrap)；RTMDet 失败几何解释；D_cal-only predictor(partial)；进入 method 正文写作。
 
 👆👆👆👆👆👆
