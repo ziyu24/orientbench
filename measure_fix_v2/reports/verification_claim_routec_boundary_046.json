@@ -1,0 +1,98 @@
+{
+  "time": "2026-06-30 15:18:27 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 18,
+  "n_checks": 18,
+  "checks": [
+    {
+      "check": "exists:claim_language_cleanup_report",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:route_c_dataflow_audit",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:diagnose_predicts_fix_boundary",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:real_tta_non_psc_extension",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:track_a_mechanism_boundary",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "draft_no_topvenue_selling",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "draft_no_strict_independence",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "routec_source_supervised",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "routec_not_fully_gtfree",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "predboundary_circularity_flagged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "predboundary_dota_limitation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "nonpsc_two_families",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "nonpsc_two_datasets",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "trackA_sidebranch",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "split_threshold_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

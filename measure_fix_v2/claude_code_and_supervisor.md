@@ -156,3 +156,25 @@ measure_fix_v2/reports/verification_measure_diagnose_fix_draft_045.json; scripts
 
 ### 下一步建议
 合作者审核; 并行补非 PSC real TTA + DOTA #20 Track A negative control(不调参)。
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (046)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_046_CLAIM_CLEANUP_ROUTE_C_BOUNDARY_TTA_EXTENSION。五文件: claim cleanup / route-c dataflow audit / predictive boundary / non-PSC real TTA / track A boundary。
+
+### 行动/结论
+- 任务1 claim cleanup: 主稿删 "顶刊点", "NRC 独立于 accuracy"→"提供 mAP 之外 reliability signal(不主张严格独立)"; deployable→candidate; historical/forbidden-list 负向保留. docs/claim_language_cleanup_report.md.
+- 任务2 route-c dataflow audit: selector=source-supervised(D_cal GT 训练); leave-* target 无 GT(无泄漏); TTA consistency 是 feature 非 standalone; 裁决=source-supervised + target GT-free inference deployable candidate, 非 fully GT-free, 非 method complete. docs/route_c_dataflow_audit.md.
+- 任务3 predictive boundary: oracle_gain↔retained 0.87 但循环(retained 含 oracle_gain 分母); 非循环检验 Spearman 0.02 无预测力 → 未成立, measure→diagnose→fix 写并列结构, DOTA #20 仍 limitation 非 validation. docs/diagnose_predicts_fix_boundary.md(+csv/stats).
+- 任务4 non-PSC real TTA: RTMDet/DIOR realTTA 0.331 + ORCNN/FAIR1M 0.537, 2 family×2 dataset, 均 beat size-linear+geometry, 无失败; real TTA 现 6 cells/3 datasets/3 families; SODA ORCNN #4(304k) 过慢未完成=next-step. docs/real_tta_non_psc_extension.md.
+- 任务5 track A boundary: 机制支线, 不决定主线/venue, 不恢复 P2, 不写 definitively broken, DOTA #20 不调参. docs/track_a_mechanism_boundary.md.
+- verifier 108 18/18; pytest 264; thresholds/split 未变; git 0 大文件; 原 dataset 未改.
+
+### 产物路径
+docs/{claim_language_cleanup_report,route_c_dataflow_audit,diagnose_predicts_fix_boundary,real_tta_non_psc_extension,track_a_mechanism_boundary}.md(+镜像 measure_fix_v2/docs/);
+measure_fix_v2/reports/{diagnose_predicts_fix_boundary*,real_tta_nonpsc_046,verification_claim_routec_boundary_046}.*; scripts/108_verify_claim_routec_boundary_046.py.
+
+### pass/fail/partial
+五文件完成; Route-C 接缝焊死(source-supervised+target GT-free); predictive boundary 未成立(并列结构); non-PSC TTA pass(无失败); Track A 机制支线. 未触发停止条件(无 GT 泄漏, 不降级 upper-bound).
+
+### 下一步建议
+补 SODA ORCNN #4 等剩余 non-PSC; 构造 D_cal-only 非循环 predictor; method 正文写作.

@@ -1,0 +1,15 @@
+cell,mode,detector,is_dota,diagnose_oracle_gain,diagnose_score_nrc,diagnose_phase_mod_nrc,outcome_retained,outcome_beats_sizelin
+DOTA-v1.0/20,leave_dataset,psc,True,0.1554,0.7035,,-0.04,False
+DIOR-R/22,leave_dataset,psc,False,0.2066,0.5629,1.1556,0.632,True
+DIOR-R/3,leave_dataset,orcnn,False,0.1838,0.548,,0.105,True
+DIOR-R/10,leave_dataset,lsknet,False,0.1977,0.5478,,0.245,True
+FAIR1M-v1.0/24,leave_dataset,psc,False,0.3775,0.896,1.1205,0.773,True
+SODA-A/23,leave_dataset,psc,False,0.5933,0.9823,1.1167,0.787,True
+SODA-A/4,leave_dataset,orcnn,False,0.323,0.722,,0.645,True
+SODA-A/4,leave_detector,orcnn,False,0.323,0.722,,0.946,True
+DIOR-R/3,leave_detector,orcnn,False,0.1838,0.548,,0.619,True
+DIOR-R/10,leave_detector,lsknet,False,0.1977,0.5478,,0.76,True
+DOTA-v1.0/20,leave_detector,psc,True,0.1554,0.7035,,-0.974,False
+DIOR-R/22,leave_detector,psc,False,0.2066,0.5629,1.1556,0.612,True
+FAIR1M-v1.0/24,leave_detector,psc,False,0.3775,0.896,1.1205,0.667,True
+SODA-A/23,leave_detector,psc,False,0.5933,0.9823,1.1167,0.952,True

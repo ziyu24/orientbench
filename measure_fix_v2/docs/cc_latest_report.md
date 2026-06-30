@@ -1,26 +1,29 @@
 👇👇👇👇👇👇
 
-# OrientBench v2 — 045 Measure→Diagnose→Fix 论文主稿 完成
+# OrientBench v2 — 046 Claim Cleanup + Route-C Boundary + TTA Extension 完成
 
-- **045 完成**。无 GPU/训练；未改 thresholds(b7c4e649)/P1 split；未补 full matrix；未恢复 P2；未追 DOTA mAP。
-- **主文稿（唯一人读）**：`measure_fix_v2/docs/orientation_reliability_measure_diagnose_fix_draft.md`
+- **046 完成**。未训练 detector；未改 thresholds(b7c4e649)/P1 split；未补 full matrix；未恢复 P2；未追 DOTA mAP；未改原 dataset。
+- **五个文件**：docs/{claim_language_cleanup_report, route_c_dataflow_audit, diagnose_predicts_fix_boundary, real_tta_non_psc_extension, track_a_mechanism_boundary}.md（并镜像 measure_fix_v2/docs/）。
 
-## 本文到底在做什么
-- 把"旋转检测朝向是否可信"做成可测量(P1: NRC/reliability cliff)、可诊断(PSC 双重反校准机制候选)、可初步修复(P3: reliability-aware selector)的问题。非 detector 训练论文。
+## Route-C 接缝裁决
+- **source-supervised selector + target GT-free inference**（leave-* 无 target GT，无泄漏）。**非 fully GT-free，非 deployable method complete**。standalone consistency proxy 才是较弱的 fully-GT-free 方向。措辞已更正。
 
-## 为什么没有大规模 GPU 训练
-- 研究对象是 reliability measurement/diagnosis/selection；大规模重训会混淆变量；已有 checkpoint 足够；selector 是轻量后处理；GPU 仅 inference/TTA/forward dump，不追 mAP。
+## predictive-boundary 是否成立
+- **未成立（本轮）**。oracle_gain↔retained 相关(0.87)**循环**（retained 含 oracle_gain 分母）；非循环检验无预测力（Spearman 0.02）。→ measure→diagnose→fix 写**并列结构**；**DOTA #20 仍是 limitation，非 validation**。
 
-## 顶刊点在哪里
-- ① NRC 独立于 accuracy 的可靠性维度(Spearman -0.046)；② aspect-ratio reliability cliff；③ PSC detection-score(FAIR1M/SODA 显著) + intrinsic phase_mod(3/3 NRC>1) 双重反校准机制候选；④ deployable reliability-aware selector candidate(G2''/Deployable/Route-C/real TTA 4 cells/3 datasets)。
+## non-PSC real TTA 扩展结果
+- 新增 **RTMDet/DIOR（realTTA 0.331）+ ORCNN/FAIR1M（0.537）**，2 非 PSC family × 2 dataset，**均 beat size-linear 且 beat geometry-only，无失败**。real TTA 现 6 cells/3 datasets/3 families。SODA ORCNN #4(304k) 过慢未完成=next-step。
 
-## 是否存在过度宣称
-- 无。核心结论均有 bootstrap CI + 可复算 artifacts；明确标 candidate/limited/pending；含 claim ledger(allowed/qualified/forbidden)。未声称 full project/P3 final/顶会 ready/PSC angle head 最终证明反校准。
+## Track A 边界结论
+- 机制支线：phase_mod intrinsic signal supports a mechanism candidate；不决定主线/venue，不恢复 P2，不写 angle head definitively broken；DOTA #20 不调参。
 
-## 是否建议进入合作者审核
-- **建议进入合作者审核**（主稿含合作者审核摘要 + 10 节 + why-no-GPU + claim ledger + 图表计划）。
+## 是否需要降级 deployable claim
+- **不降级为 upper-bound**（无 target GT 泄漏），但**措辞更正**为 source-supervised + target GT-free inference deployable candidate（非 fully GT-free / 非 method complete）。
 
 ## 验证/test/git
-- verifier `verify_measure_diagnose_fix_draft_045` → 见下；pytest 全过；thresholds/split 未变；git 0 大文件。
+- verifier `108_verify_claim_routec_boundary_046` → 见下；pytest 全过；thresholds/split 未变；git 0 大文件。
+
+## 下一步建议
+- 补 SODA ORCNN #4 等剩余 non-PSC real TTA；构造 D_cal-only diagnose predictor（非循环）；method 正文写作。
 
 👆👆👆👆👆👆

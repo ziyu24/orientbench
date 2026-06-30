@@ -9,7 +9,7 @@
 
 - **本项目在做什么**：把"旋转目标检测的朝向是否可信"做成一个可测量、可诊断、可初步修复的问题。P1 = measure+diagnose（朝向可靠性度量 NRC、reliability cliff、PSC 反校准）；P3 = fix（reliability-aware orientation selector，后处理选择，不重训 detector）。
 - **为什么没有大规模 GPU 训练**：研究对象是 reliability 的**测量/诊断/选择**，不是训练更强 detector。大规模重训会混淆变量；已有 checkpoint 足以产生可靠性分析对象；selector 是轻量后处理模块；GPU 仅用于 inference / TTA / forward dump，不追 mAP。
-- **顶刊点在哪里**：① NRC 提供独立于 accuracy 的可靠性维度；② orientation reliability 随 aspect-ratio 退化呈结构性 cliff；③ PSC 检测器 detection-score 与 intrinsic phase_mod **双重反校准**（机制候选）；④ 一个 deployable reliability-aware selector candidate 在多 dataset/detector 上修复排序问题。
+- **科学贡献点（克制，不绑定 venue）**：① 在当前可比设置中 NRC 提供 mAP 之外的 reliability signal（**不主张严格独立**）；② orientation reliability 随 aspect-ratio 退化呈结构性 cliff；③ PSC 检测器 detection-score 与 intrinsic phase_mod **双重反校准**（机制候选）；④ 一个 reliability-aware selector candidate（source-supervised + target GT-free inference）在多 dataset/detector 上修复部分排序问题。
 - **有没有吹牛**：核心结论均有 bootstrap CI + 可复算 artifacts；明确标注 candidate / limited / pending；**不**声称 P3 final method 完成、顶会 ready、PSC angle head 最终证明反校准、full project complete。
 - **当前最需要合作者审什么**：① measure/diagnose 的科学口径是否严谨；② P3 selector 定位（candidate vs method）是否合适；③ Track A phase_mod 机制候选的表述强度；④ 下一步是继续写作还是补实验（real TTA 全覆盖 / Track A negative control）。
 - **下一步建议**：进入合作者审核；并行补非 PSC real TTA + DOTA #20 Track A negative control（不调参）。
@@ -83,7 +83,7 @@
 - 不追公开 mAP；DOTA #20 不调参。
 
 ## 10. 结论
-本文提出并验证 **orientation reliability** 这一 accuracy 之外的诊断维度：P1 提供测量与诊断（NRC 独立性、reliability cliff、PSC 双重反校准机制候选）；P3 初步证明 reliability-aware selector 能修复部分朝向排序问题（固定 size-bin 内非线性、leave-dataset/detector、real TTA 一致优于基线）。**最终方法与更大范围验证仍需后续工作**；本文不声称 P3 final method 完成或顶会 ready。
+本文提出并验证 **orientation reliability** 这一 accuracy 之外的诊断维度：P1 提供测量与诊断（NRC 提供 mAP 之外的 reliability signal（不主张严格独立）、reliability cliff、PSC 双重反校准机制候选）；P3 初步证明 reliability-aware selector 能修复部分朝向排序问题（固定 size-bin 内非线性、leave-dataset/detector、real TTA 一致优于基线）。**最终方法与更大范围验证仍需后续工作**；本文不声称 P3 final method 完成或顶会 ready。
 
 ---
 
