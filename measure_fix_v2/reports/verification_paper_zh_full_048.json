@@ -1,0 +1,163 @@
+{
+  "time": "2026-06-30 18:02:16 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 31,
+  "n_checks": 31,
+  "checks": [
+    {
+      "check": "paper_exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:摘要",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:关键词",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:引言",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:相关工作",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:问题定义",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:实验结果",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:讨论",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:局限",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:结论",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "section:附录",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "measure_diagnose_fix",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "supervision_spectrum",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "g2_double_prime",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "route_c",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "nonpsc_leave_star",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "track_a_candidate",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "dota20_limitation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "why_no_gpu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "why_no_dota_map",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_venue_names",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_venue_ready",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_full_project_complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_p3_final_complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_strict_independent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_angle_head_proven",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "source_sup_not_fully_gtfree",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "split_threshold_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

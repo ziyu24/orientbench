@@ -203,3 +203,23 @@ non-PSC leave-* PASS; supervision spectrum 写清; artifacts 持久化; 无 GT �
 
 ### 下一步建议
 补完整 leave-dataset(降 bootstrap/分批); RTMDet 失败几何解释; method 正文写作.
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (048)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_048_FULL_CHINESE_PAPER_DRAFT。写正式论文中文稿。无实验/GPU/训练。
+
+### 行动/结论
+- 整合 P1 + 039-047 报告数字(非记忆), 写正式论文中文稿 orientation_reliability_paper_zh_full.md:
+  标题+摘要+关键词+引言+相关工作+问题定义+OrientBench协议+Measure+Diagnose+Fix+实验结果(表1-10)+图表占位(Fig1-9)+讨论+局限+结论+附录A-J+合作者审稿重点(7条)。
+- 关键数字均来自 report/csv/json: 23 cells/6 datasets; NRC vs mAP Spearman -0.046[CI -0.49,0.48] partial -0.005; cliff masked p99 10-26 unmasked 88-90; PSC detection-score FAIR1M 1.083/SODA 1.260 显著, DOTA 0.84/DIOR 0.55 不显著; phase_mod 3/3 NRC>1(DIOR 1.156/SODA 1.117/FAIR1M 1.121); G2'' 21/21; Deployable 非DOTA 12/12 retained 0.645; Route-C real TTA 5 cells; non-PSC leave-* 8/9 ORCNN+LSKNet×3 datasets RTMDet#61 fail; artifacts 43/1361MB.
+- 口径锁定: source-supervised+target GT-free(非 fully GT-free); DOTA #20=limitation 非 validation; phase_mod=mechanism candidate; P3=deployable candidate 非 final method. 无 venue 名/会议级话术.
+- verifier 048 31/31; pytest 264; thresholds/split 未变; git 0 大文件.
+
+### 产物路径
+measure_fix_v2/docs/orientation_reliability_paper_zh_full.md(主文稿); measure_fix_v2/scripts/verify_paper_zh_full_048.py; measure_fix_v2/reports/verification_paper_zh_full_048.json.
+
+### pass/fail/partial
+正式论文中文稿完成(完整结构+表1-10+Fig1-9占位+审稿重点), 无 forbidden claims, 建议交合作者审稿.
+
+### 下一步建议
+合作者审稿(7 重点); 补图; 补完整 leave-dataset + RTMDet 解释; 之后英文稿.
