@@ -1,0 +1,7 @@
+item,status,note
+real TTA coverage,limited,DIOR+SODA/FAIR1M PSC; non-PSC & more datasets next-step
+P3 selector,candidate,trained on source GT (calibration/upper-bound); not final production method
+Track A phase_mod,one intrinsic signal,mechanism candidate; not definitive proof
+DOTA #20,weak-structure negative control,not tuned; Track A not run (next-step)
+P2/C1,appendix/negative result,OT did not clearly beat GT-identity; not restored
+point2rbox,blocked_upstream,ted.pth unavailable (P1)

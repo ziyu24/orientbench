@@ -1,0 +1,143 @@
+{
+  "time": "2026-06-30 10:59:06 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 27,
+  "n_checks": 27,
+  "checks": [
+    {
+      "check": "main_report",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "doc:p3_selector_method_spec.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "doc:paper_outline_measure_diagnose_fix_v1.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "doc:claim_ledger_measure_fix_v1.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "doc:measure_fix_route_status.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:real_tta_coverage_044.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:real_tta_coverage_044.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:fig_g2doubleprime_size_control.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:fig_deployable_leave_dataset_detector.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:fig_route_c_real_tta.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:fig_track_a_psc_mechanism.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:table_main_results_measure_fix.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:table_ablation_tracks_abc.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:table_limitations_and_blockers.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:artifact_persistence_check_044.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "report:artifact_persistence_check_044.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_p3_final_complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_top_venue",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_trackA_final_proof",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "has_real_tta_limitation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "artifact_manifest",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "split_threshold_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_training_artifacts",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_large_tracked_v2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

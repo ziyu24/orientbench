@@ -1,0 +1,15 @@
+source,target,mode,NRC_sizelin,NRC_routeC,beats_sizelin
+offline_proxy_041,FAIR1M-v1.0/24(psc),leave_dataset,0.7647,0.6063,True
+offline_proxy_041,SODA-A/23(psc),leave_dataset,0.6782,0.4557,True
+offline_proxy_041,DIOR-R/22(psc),leave_dataset,0.9224,0.4068,True
+offline_proxy_041,DIOR-R/3(orcnn),leave_dataset,0.8064,0.4331,True
+offline_proxy_041,DIOR-R/10(lsknet),leave_dataset,0.7715,0.4288,True
+offline_proxy_041,DOTA-v1.0/20(psc),leave_dataset,0.7251,0.59,True
+offline_proxy_041,DIOR-R/3(orcnn),leave_detector_psc2nonpsc,0.7596,0.3964,True
+offline_proxy_041,DIOR-R/10(lsknet),leave_detector_psc2nonpsc,0.7335,0.376,True
+offline_proxy_041,FAIR1M-v1.0/24(psc),leave_detector_nonpsc2psc,0.7743,0.639,True
+offline_proxy_041,SODA-A/23(psc),leave_detector_nonpsc2psc,0.7976,0.4519,True
+offline_proxy_041,DIOR-R/22(psc),leave_detector_nonpsc2psc,0.5676,0.4215,True
+offline_proxy_041,DOTA-v1.0/20(psc),leave_detector_nonpsc2psc,0.6524,0.6648,False
+real_tta_042,DIOR-R/3(orcnn),leave_detector_DIOR,0.638,0.3907,True
+real_tta_042,DIOR-R/22(psc),leave_detector_DIOR,0.5677,0.4191,True

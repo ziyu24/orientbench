@@ -114,3 +114,25 @@ Track A = intrinsic angle-coder miscalibration mechanism candidate SUPPORTED(3/3
 
 ### 下一步建议
 扩 Track A 到 DOTA #20 negative control + 更多 intrinsic 信号; real TTA 复用 farms 扩 SODA/FAIR1M; controlled angle-head 实验需新批准。
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (044)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_044_P3_METHOD_PACKAGE_AND_TTA_COVERAGE。整合 P1+P3 为 paper-ready method package + 补强 real TTA coverage。measure_fix_v2/。原 dataset 不改。
+
+### 行动/结论
+- real TTA coverage: 复用 043 shadow farms 跑 SODA #23 + FAIR1M #24 real hflip+vflip(4-GPU world_size=4, scratch). real TTA Route-C 均 beat size-linear 且 beat geometry-only(SODA NRC 0.378, FAIR1M 0.499, tta_match 0.99). real TTA 现 4 cells/3 datasets.
+- p3_selector_method_spec.md(完整方法定义, 克制 candidate/非 final). paper_outline_measure_diagnose_fix_v1.md(P2/C1 入 appendix). claim_ledger_measure_fix_v1.md(allowed/qualified/forbidden/pending).
+- 7 fig/table data + captions(fig_table_captions_044). artifact_persistence_check_044(21 artifacts, all sha256, /dev/shm 非持久警告, 原 dataset 未改).
+- 主报告 p3_method_package_report.md: 门控状态汇总, 允许进入方法写作, 缺口列表, 下一步最小行动.
+- verifier 044 27/27; pytest 264; thresholds/split 未变; git 0 大文件; 原 dataset 0 改动.
+
+### 产物路径
+measure_fix_v2/docs/{p3_selector_method_spec,paper_outline_measure_diagnose_fix_v1,claim_ledger_measure_fix_v1,p3_method_package_report,cc_latest_report}.md;
+measure_fix_v2/reports/{real_tta_coverage_044,fig_*,table_*,fig_table_captions_044,artifact_persistence_check_044,verification_p3_method_package_044}.*;
+scripts/{real_tta_coverage_044,verify_p3_method_package_044}.py; configs/ttacov_*.py; preds /dev/shm scratch.
+
+### pass/fail/partial
+P3 method package 就绪; real TTA coverage 补强(4 cells). 允许进入方法写作. 未声称 P3 最终完成/顶会 ready.
+
+### 下一步建议
+补非 PSC real TTA; 写方法正文; 扩 Track A negative control; venue 交合作者.

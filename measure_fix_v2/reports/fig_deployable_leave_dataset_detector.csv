@@ -1,0 +1,15 @@
+mode,target,NRC_score,NRC_size_linear,NRC_deployed_nl,NRC_oracle,nl_beats_sizelin,oracle_gain_retained
+leave_dataset,DOTA-v1.0/20(psc),0.7035,0.7251,0.7097,0.5481,False,-0.04
+leave_dataset,DIOR-R/22(psc),0.5629,0.9224,0.4322,0.3563,True,0.632
+leave_dataset,DIOR-R/3(orcnn),0.548,0.8064,0.5287,0.3642,True,0.105
+leave_dataset,DIOR-R/10(lsknet),0.5478,0.7715,0.4994,0.3501,True,0.245
+leave_dataset,FAIR1M-v1.0/24(psc),0.896,0.7647,0.6042,0.5185,True,0.773
+leave_dataset,SODA-A/23(psc),0.9823,0.6782,0.5156,0.389,True,0.787
+leave_dataset,SODA-A/4(orcnn),0.722,0.5939,0.5137,0.399,True,0.645
+leave_detector,SODA-A/4(orcnn),0.722,0.5817,0.4166,0.399,True,0.946
+leave_detector,DIOR-R/3(orcnn),0.548,0.7596,0.4343,0.3642,True,0.619
+leave_detector,DIOR-R/10(lsknet),0.5478,0.7335,0.3976,0.3501,True,0.76
+leave_detector,DOTA-v1.0/20(psc),0.7035,0.6596,0.8549,0.5481,False,-0.974
+leave_detector,DIOR-R/22(psc),0.5629,0.6914,0.4364,0.3563,True,0.612
+leave_detector,FAIR1M-v1.0/24(psc),0.896,0.7519,0.6442,0.5185,True,0.667
+leave_detector,SODA-A/23(psc),0.9823,0.6449,0.4176,0.389,True,0.952
