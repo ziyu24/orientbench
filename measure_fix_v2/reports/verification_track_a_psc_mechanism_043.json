@@ -1,0 +1,83 @@
+{
+  "time": "2026-06-30 10:14:09 CST",
+  "verdict": "VERIFIED",
+  "n_pass": 15,
+  "n_checks": 15,
+  "checks": [
+    {
+      "check": "main_report",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "protocol",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "dump_manifest",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "route_status",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:track_abc_results_043.csv",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:track_abc_results_043.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists:track_a_schema_sample_043.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "git_no_large",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no_large_tracked_v2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "thresholds_unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "split_threshold_unmodified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "track_a_not_main_gate",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "anglehead_claim_has_evidence",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "not_overclaim_proven",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cc_wrappers",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

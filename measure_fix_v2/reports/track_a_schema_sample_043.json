@@ -1,0 +1,19 @@
+{
+  "pred_instances_keys": [
+    "labels",
+    "phase_mod",
+    "bboxes",
+    "scores"
+  ],
+  "phase_mod_dtype": "float",
+  "sample_phase_mod": [
+    2.353,
+    2.216,
+    0.178,
+    1.786,
+    2.135,
+    2.509,
+    2.218,
+    2.218
+  ]
+}

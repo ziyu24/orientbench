@@ -89,3 +89,28 @@ real TTA = STABLE-PASS (tested cells; coverage limited). 未触发停止条件�
 
 ### 下一步建议
 扩 real TTA coverage(修 lsknet registry; SODA/FAIR1M shadow farm); few-shot calibration; Track A 待批准。venue 交合作者。
+## '+time.strftime('%Y-%m-%d %H:%M:%S %Z')+' 来源: supervisor (043)
+
+### 输入/指令
+token SUPERVISOR_APPROVED_043_TRACK_A_PSC_MECHANISM_DIAGNOSTIC。Track A PSC 机制支线(非门控 P3)。measure_fix_v2/。原 dataset 不改。
+
+### 行动/结论
+- 冻结 track_a_psc_mechanism_protocol.md。
+- instrumentation: InstrumentedAngleBranchRetinaHead 子类(track_a_pkg)把 PSC phase_mod(phase_cos^2+phase_sin^2, first freq=intrinsic 角度码置信)经 NMS 附 pred_instances 导出; phase_mod dump 成功(range 0.18-2.51)。entropy/margin: PSC 连续 coder 无 softmax → unavailable_with_evidence。
+- shadow farms(未改 dataset): DIOR(042), FAIR1M(3896 symlinks+dummy-class annfiles 绕 space-class), SODA(原 val_tiled populated read-only)。4-GPU world_size=4。
+- Track A/B/C(masked ar>=1.6, D_audit): Track A(phase_mod) 3/3 PSC cell 显著 NRC>1: DIOR#22 1.156[1.11,1.19], SODA#23 1.117[1.11,1.13], FAIR1M#24 1.121[1.08,1.16]; Track B(score) 0.56-0.98; Track C(geometry) 0.36-0.52(最佳)。
+- 机制裁决: PSC intrinsic angle-coder miscalibration mechanism candidate SUPPORTED(angle 码自身置信反校准, 非仅 score-proxy mismatch)。克制: phase_mod 一 intrinsic 信号, candidate 非定论。
+- DOTA #20: 未跑 Track A(未建 farm, negative control, 未调参)=next-step。real TTA coverage: farms 已建可复用, 本轮未跑额外=next-step。
+- Track A 不门控 P3; P3 继续(G2''/Deployable/Route-C 支撑)。未声称 P3 最终完成/顶会 ready。
+
+### 产物路径
+measure_fix_v2/docs/{track_a_psc_mechanism_protocol,track_a_psc_mechanism_report,measure_fix_route_status,cc_latest_report}.md;
+measure_fix_v2/reports/{track_abc_results_043,track_a_dump_manifest_043,track_a_schema_sample_043,verification_track_a_psc_mechanism_043}.*;
+measure_fix_v2/track_a_pkg/(instrumented head); measure_fix_v2/configs/tracka_*.py; scripts/{track_abc_043,build_farm_general_043,verify_track_a_psc_mechanism_043}.py;
+dumps /dev/shm/cqc/orientbench/measure_fix_v2/track_a/(scratch); farms /dev/shm/.../measure_fix_v2_tta/(scratch)。
+
+### pass/fail/partial
+Track A = intrinsic angle-coder miscalibration mechanism candidate SUPPORTED(3/3 PSC NRC>1)。未触发停止条件。
+
+### 下一步建议
+扩 Track A 到 DOTA #20 negative control + 更多 intrinsic 信号; real TTA 复用 farms 扩 SODA/FAIR1M; controlled angle-head 实验需新批准。
