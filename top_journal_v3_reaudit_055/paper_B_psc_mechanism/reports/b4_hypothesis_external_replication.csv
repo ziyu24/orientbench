@@ -1,0 +1,9 @@
+hypothesis,endpoint,status,evidence
+H1,endpoint_continuous,REPLICATED,three healthy RotatedFCOS seeds; frozen intervention
+H1,endpoint_severe_event,PARTIALLY_REPLICATED,direction or base-rate response heterogeneous
+H2,endpoint_continuous,PARTIALLY_REPLICATED,three healthy RotatedFCOS seeds; frozen intervention
+H2,endpoint_severe_event,PARTIALLY_REPLICATED,direction or base-rate response heterogeneous
+H3,endpoint_continuous,REPLICATED,three healthy RotatedFCOS seeds; frozen intervention
+H3,endpoint_severe_event,PARTIALLY_REPLICATED,direction or base-rate response heterogeneous
+H4,endpoint_continuous,PARTIALLY_REPLICATED,three healthy RotatedFCOS seeds; frozen intervention
+H4,endpoint_severe_event,PARTIALLY_REPLICATED,direction or base-rate response heterogeneous

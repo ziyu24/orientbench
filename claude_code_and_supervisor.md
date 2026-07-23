@@ -2141,6 +2141,15 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 复算：`paper_B_psc_mechanism/scripts/reproduce_B1_B3.sh` 完整执行，13 项检查全部通过。
 - 合规：未训练、未执行 B4--B7、未修改或写入 A 工作区，未修改 thresholds.yaml 或 D_cal/D_audit；下一正式编号为 079。
 
+## [2026-07-23 21:25:40 CST] 命令 079：B4 外部变体验证与 B5 机制终审
+- 执行时间：2026-07-23 18:38--21:25 CST。
+- 外部 variant：DOTA-v1.0 `train -> val` 的 RotatedFCOS-PSCD；未参与 B1--B3 开发。按冻结官方 dual-frequency 配置训练 3 seeds，每任务 4 GPU、FP32、12 epochs；AP50=0.629/0.627/0.632，三者均 `HEALTHY_COMPARABLE`。
+- B4：H1/H3 的结构干预在新 host 上复现，H2/H4 部分复现；Endpoint E 继续异质。外部 host 的 phase_mod 对 Endpoint C 为 informative（NRC=0.917--0.950），未复现原 RetinaNet 的反序方向，说明机制和排序语义必须 host/endpoint qualified。
+- 冻结候选未独立确认稳定优于 detection score；机制干预改变 angle box，仅作 mechanism-only，未称 ranking-only。
+- B5=`PASS_MECHANISM_BOUNDED`：允许进入 B6，但不得继承修复成功或宣称通用 PSC failure。
+- 复算：`paper_B_psc_mechanism/scripts/reproduce_B4_B5.sh` 完整执行，15 项检查全部通过。
+- 合规：未执行 B6/B7，未修改或写入 A 工作区，未修改 thresholds.yaml 或 D_cal/D_audit，未追 public mAP。
+
 ## [2026-07-23 18:29:41 CST] Git 仓库发布
 - 指令来源：用户要求提交应提交的项目内容，并由 Codex 处理 Git 发布阻塞。
 - 执行动作：配置官方 GitHub 远端，按源码、配置、论文、可复算脚本、权威表格和标注协议整理提交范围；排除 checkpoint、原始预测、日志、缓存、标注图片、测试状态及超过 GitHub 单文件限制的逐实例持久化数据。

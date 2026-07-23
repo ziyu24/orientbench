@@ -1,0 +1,16 @@
+check,status
+seed0_dump,PASS
+seed0_health,PASS
+seed1_dump,PASS
+seed1_health,PASS
+seed2_dump,PASS
+seed2_health,PASS
+b4_variant_model_health.csv,PASS
+b4_variant_intervention_results.csv,PASS
+b4_variant_identity_ap_audit.csv,PASS
+b4_hypothesis_external_replication.csv,PASS
+b4_candidate_external_confirmation.csv,PASS
+b4_candidate_external_bootstrap.csv,PASS
+b4_nontriviality_external_audit.csv,PASS
+b4_candidate_cost.csv,PASS
+b5_mechanism_gate_decision.csv,PASS

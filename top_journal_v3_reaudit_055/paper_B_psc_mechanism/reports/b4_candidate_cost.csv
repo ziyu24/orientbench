@@ -1,0 +1,22 @@
+score,forwards,extra_memory,external_status
+phase_mod,1,O(N),MEASURED
+negative_phase_mod,1,O(N),MEASURED
+detection_score,1,O(N),MEASURED
+multi_frequency_consistency,1,O(N),MEASURED
+unwrap_candidate_energy_gap,1,O(N),MEASURED
+phase_direction_margin,1,O(N),MEASURED
+tta_phase_direction_consistency,3,three prediction sets,NOT_TESTABLE_NO_TTA_DUMP
+phase_mod,1,O(N),MEASURED
+negative_phase_mod,1,O(N),MEASURED
+detection_score,1,O(N),MEASURED
+multi_frequency_consistency,1,O(N),MEASURED
+unwrap_candidate_energy_gap,1,O(N),MEASURED
+phase_direction_margin,1,O(N),MEASURED
+tta_phase_direction_consistency,3,three prediction sets,NOT_TESTABLE_NO_TTA_DUMP
+phase_mod,1,O(N),MEASURED
+negative_phase_mod,1,O(N),MEASURED
+detection_score,1,O(N),MEASURED
+multi_frequency_consistency,1,O(N),MEASURED
+unwrap_candidate_energy_gap,1,O(N),MEASURED
+phase_direction_margin,1,O(N),MEASURED
+tta_phase_direction_consistency,3,three prediction sets,NOT_TESTABLE_NO_TTA_DUMP

@@ -1,0 +1,6 @@
+condition,status,evidence,impact
+real_intervention_cross_variant,PASS_BOUNDED,H1 and H3 structural responses recur on three healthy RotatedFCOS seeds,mechanism is real but host-qualified
+ranking_direction_cross_variant,BOUNDED,RotatedFCOS phase_mod NRC is 0.917-0.950 for Endpoint C versus reverse ranking on RetinaNet,no universal PSC reverse-ranking claim
+endpoint_separation,PASS,Endpoint C and E reported separately; E remains heterogeneous,endpoint-qualified claims only
+candidate_external_confirmation,NOT_CONFIRMED,Frozen candidates do not stably beat phase_mod or detection score under paired mother-scene bootstrap,B6 may test repair but cannot inherit success
+final_decision,PASS_MECHANISM_BOUNDED,causal decoding/modulation structure repeats while ranking semantics change by host and endpoint,B6 allowed with bounded claims
