@@ -1,0 +1,9 @@
+condition,status,evidence,blocking,required_action
+ar>=2.1 unified,DONE,M1=PASS,False,run M1
+M2 new G2_double_prime or geometry->appendix,DONE,M2=FAIL,False,"run M2; if FAIL, geometry score demoted to appendix"
+image-level formal risk guarantee,DONE,M3=PASS,False,run M3
+geometry-normalized main risk,DONE,M4 geometry risk csv,False,run M4
+human double-annotation anchor,PENDING,PENDING_HUMAN_LABELS,True,return annotatorA_raw.csv/annotatorB_raw.csv; then merge+analyze
+one-click reproduction,OK,checks_ok=True,False,fix failing checks
+PSC Phase1 gate decided,DONE,Phase1=PASS,False,run PSC Phase1
+FINAL,NOT_FROZEN,blocking=['human double-annotation anchor'],True,resolve blocking conditions (human labels typically outstanding)

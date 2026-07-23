@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M4 OBB 长轴双标工具</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182026;
+      --muted: #5f6b73;
+      --line: #c8d0d5;
+      --panel: #f4f6f7;
+      --accent: #006d77;
+      --danger: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: #fff; font: 14px/1.45 system-ui, sans-serif; letter-spacing: 0; }
+    header { padding: 14px 18px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 16px; }
+    h1 { margin: 0; font-size: 20px; font-weight: 650; }
+    #status { color: var(--muted); }
+    main { display: grid; grid-template-columns: minmax(260px, 320px) minmax(0, 1fr); min-height: calc(100vh - 58px); }
+    aside { padding: 16px; border-right: 1px solid var(--line); background: var(--panel); }
+    .field { margin-bottom: 14px; }
+    label { display: block; margin-bottom: 5px; font-weight: 600; }
+    input[type="text"], input[type="number"], input[type="file"] { width: 100%; }
+    input[type="text"], input[type="number"] { height: 34px; border: 1px solid #9aa6ad; padding: 5px 8px; background: #fff; }
+    input[type="file"] { font-size: 12px; }
+    .meta { margin: 16px 0; padding: 10px; border: 1px solid var(--line); background: #fff; overflow-wrap: anywhere; }
+    .meta div + div { margin-top: 5px; }
+    .workspace { min-width: 0; padding: 14px; display: grid; grid-template-rows: minmax(360px, 1fr) auto; gap: 12px; }
+    .canvas-wrap { min-height: 360px; display: grid; place-items: center; border: 1px solid var(--line); background: #1b1f22; overflow: hidden; }
+    canvas { display: block; max-width: 100%; max-height: calc(100vh - 190px); cursor: crosshair; }
+    .toolbar { display: grid; grid-template-columns: auto minmax(170px, 230px) auto auto auto auto auto; gap: 8px; align-items: end; }
+    button { min-height: 36px; border: 1px solid #87939a; background: #fff; padding: 7px 12px; cursor: pointer; }
+    button:hover { border-color: var(--accent); }
+    button.primary { color: #fff; border-color: var(--accent); background: var(--accent); }
+    button:disabled { opacity: .45; cursor: default; }
+    .check { min-height: 36px; display: flex; align-items: center; gap: 7px; padding: 0 8px; border: 1px solid #87939a; background: #fff; }
+    .check label { margin: 0; font-weight: 500; }
+    .warning { color: var(--danger); }
+    .hint { color: var(--muted); font-size: 12px; }
+    @media (max-width: 820px) {
+      main { grid-template-columns: 1fr; }
+      aside { border-right: 0; border-bottom: 1px solid var(--line); }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .canvas-wrap { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>M4 OBB 长轴双标工具</h1>
+    <span id="status">尚未载入任务</span>
+  </header>
+  <main>
+    <aside>
+      <div class="field">
+        <label for="taskFile">任务 CSV</label>
+        <input id="taskFile" type="file" accept=".csv,text/csv">
+      </div>
+      <div class="field">
+        <label for="cropDir">裁剪目录（浏览器无法直接读取相对路径时选择）</label>
+        <input id="cropDir" type="file" accept="image/*" webkitdirectory multiple>
+      </div>
+      <div class="field">
+        <label for="annotatorId">独立标注者 ID</label>
+        <input id="annotatorId" type="text" autocomplete="off" placeholder="不得与另一标注者相同">
+      </div>
+      <div class="meta">
+        <div><strong>任务：</strong><span id="assignment">-</span></div>
+        <div><strong>槽位：</strong><span id="slot">-</span></div>
+        <div><strong>进度：</strong><span id="progress">0 / 0</span></div>
+        <div><strong>数据：</strong><span id="dataset">-</span></div>
+        <div><strong>匿名实例：</strong><span id="anonId">-</span></div>
+      </div>
+      <p class="hint">画布上拖动长轴方向；屏幕向上为正角，结果归一化到 [-90°, 90°)。不能可靠判断时勾选“无法判定”。</p>
+      <p id="error" class="warning" role="alert"></p>
+    </aside>
+    <section class="workspace">
+      <div class="canvas-wrap"><canvas id="canvas" width="800" height="600"></canvas></div>
+      <div class="toolbar">
+        <button id="previous" type="button" title="上一实例">上一项</button>
+        <div>
+          <label for="angle">长边角度（度）</label>
+          <input id="angle" type="number" min="-90" max="89.999999" step="0.1" disabled>
+        </div>
+        <div class="check">
+          <input id="cannot" type="checkbox" disabled>
+          <label for="cannot">Ambiguous</label>
+        </div>
+        <div class="check">
+          <input id="skip" type="checkbox" disabled>
+          <label for="skip">跳过</label>
+        </div>
+        <button id="next" type="button" title="下一实例">下一项</button>
+        <button id="export" class="primary" type="button" title="导出本槽位原始标注">导出 CSV</button>
+        <button id="exportJson" type="button" title="导出本槽位原始标注 JSON">导出 JSON</button>
+      </div>
+    </section>
+  </main>
+  <img id="sourceImage" alt="" hidden>
+  <script>
+    "use strict";
+
+    const REQUIRED = [
+      "assignment_version", "annotator_slot", "task_order", "task_id", "dataset",
+      "crop_relpath", "long_side_angle_deg_le90", "ambiguous", "skip",
+      "annotator_id", "annotation_timestamp_utc"
+    ];
+    const taskFile = document.getElementById("taskFile");
+    const cropDir = document.getElementById("cropDir");
+    const annotatorId = document.getElementById("annotatorId");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const sourceImage = document.getElementById("sourceImage");
+    const angleInput = document.getElementById("angle");
+    const cannotInput = document.getElementById("cannot");
+    const skipInput = document.getElementById("skip");
+    const errorBox = document.getElementById("error");
+    let tasks = [];
+    let current = 0;
+    let imageFiles = new Map();
+    let imageUrl = "";
+    let dragStart = null;
+    let dragEnd = null;
+
+    function parseCsv(text) {
+      const rows = [];
+      let row = [], field = "", quoted = false;
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text[i];
+        if (quoted) {
+          if (ch === '"' && text[i + 1] === '"') { field += '"'; i += 1; }
+          else if (ch === '"') quoted = false;
+          else field += ch;
+        } else if (ch === '"') quoted = true;
+        else if (ch === ",") { row.push(field); field = ""; }
+        else if (ch === "\n") { row.push(field.replace(/\r$/, "")); rows.push(row); row = []; field = ""; }
+        else field += ch;
+      }
+      if (field || row.length) { row.push(field.replace(/\r$/, "")); rows.push(row); }
+      if (!rows.length) return [];
+      const header = rows.shift();
+      return rows.filter(r => r.some(v => v !== "")).map(values =>
+        Object.fromEntries(header.map((key, index) => [key, values[index] ?? ""]))
+      );
+    }
+
+    function csvCell(value) {
+      const text = String(value ?? "");
+      return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+    }
+
+    function normalizeAngle(value) {
+      let result = Number(value);
+      while (result < -90) result += 180;
+      while (result >= 90) result -= 180;
+      return result;
+    }
+
+    function storageKey() {
+      if (!tasks.length) return "";
+      return `m4:${tasks[0].assignment_version}:${tasks[0].annotator_slot}`;
+    }
+
+    function saveLocal() {
+      const key = storageKey();
+      if (!key) return;
+      const labels = Object.fromEntries(tasks.map(row => [row.task_id, {
+        angle: row.long_side_angle_deg_le90,
+        ambiguous: row.ambiguous,
+        skip: row.skip,
+        timestamp: row.annotation_timestamp_utc
+      }]));
+      localStorage.setItem(key, JSON.stringify(labels));
+    }
+
+    function restoreLocal() {
+      const key = storageKey();
+      if (!key) return;
+      try {
+        const labels = JSON.parse(localStorage.getItem(key) || "{}");
+        tasks.forEach(row => {
+          const saved = labels[row.task_id];
+          if (saved) {
+            row.long_side_angle_deg_le90 = saved.angle || "";
+            row.ambiguous = saved.ambiguous || "";
+            row.skip = saved.skip || "";
+            row.annotation_timestamp_utc = saved.timestamp || "";
+          }
+        });
+      } catch (_) { /* Ignore malformed local recovery data. */ }
+    }
+
+    function setError(message) { errorBox.textContent = message || ""; }
+
+    function validateTasks(rows) {
+      if (!rows.length) throw new Error("任务 CSV 为空");
+      const fields = new Set(Object.keys(rows[0]));
+      const missing = REQUIRED.filter(field => !fields.has(field));
+      if (missing.length) throw new Error(`任务缺少字段：${missing.join(", ")}`);
+      const slots = new Set(rows.map(row => row.annotator_slot));
+      const versions = new Set(rows.map(row => row.assignment_version));
+      if (slots.size !== 1 || !["A", "B"].includes([...slots][0])) throw new Error("任务槽位必须唯一且为 A 或 B");
+      if (versions.size !== 1) throw new Error("任务含多个 assignment_version");
+      if (new Set(rows.map(row => row.task_id)).size !== rows.length) throw new Error("任务含重复 task_id");
+      if (rows.some(row => row.long_side_angle_deg_le90 || row.ambiguous || row.skip)) throw new Error("任务文件不应预填标注");
+    }
+
+    function commitCurrent() {
+      if (!tasks.length) return;
+      const row = tasks[current];
+      row.long_side_angle_deg_le90 = (cannotInput.checked || skipInput.checked) ? "" : angleInput.value;
+      row.ambiguous = cannotInput.checked ? "1" : ((angleInput.value || skipInput.checked) ? "0" : "");
+      row.skip = skipInput.checked ? "1" : ((angleInput.value || cannotInput.checked) ? "0" : "");
+      if (row.long_side_angle_deg_le90 || row.ambiguous === "1" || row.skip === "1") {
+        row.annotation_timestamp_utc = new Date().toISOString();
+      }
+      saveLocal();
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const done = tasks.filter(row => row.long_side_angle_deg_le90 || row.ambiguous === "1" || row.skip === "1").length;
+      document.getElementById("progress").textContent = `${done} / ${tasks.length}`;
+    }
+
+    function drawImage() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#1b1f22";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (!sourceImage.naturalWidth) return;
+      ctx.drawImage(sourceImage, 0, 0, canvas.width, canvas.height);
+      let start = dragStart, end = dragEnd;
+      if ((!start || !end) && angleInput.value && !cannotInput.checked) {
+        const radians = -Number(angleInput.value) * Math.PI / 180;
+        const length = Math.min(canvas.width, canvas.height) * 0.38;
+        start = {x: canvas.width / 2 - Math.cos(radians) * length, y: canvas.height / 2 - Math.sin(radians) * length};
+        end = {x: canvas.width / 2 + Math.cos(radians) * length, y: canvas.height / 2 + Math.sin(radians) * length};
+      }
+      if (start && end) {
+        ctx.strokeStyle = "#00e5ff";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(start.x, start.y);
+        ctx.lineTo(end.x, end.y);
+        ctx.stroke();
+      }
+    }
+
+    function imageSourceFor(row) {
+      const basename = row.crop_relpath.split(/[\\/]/).pop();
+      if (imageFiles.has(basename)) {
+        if (imageUrl.startsWith("blob:")) URL.revokeObjectURL(imageUrl);
+        imageUrl = URL.createObjectURL(imageFiles.get(basename));
+        return imageUrl;
+      }
+      return row.crop_relpath;
+    }
+
+    function loadCurrent() {
+      if (!tasks.length) return;
+      const row = tasks[current];
+      dragStart = null; dragEnd = null;
+      document.getElementById("assignment").textContent = row.assignment_version;
+      document.getElementById("slot").textContent = row.annotator_slot;
+      document.getElementById("dataset").textContent = row.dataset;
+      document.getElementById("anonId").textContent = row.task_id;
+      document.getElementById("status").textContent = `第 ${current + 1} 项`;
+      angleInput.disabled = false;
+      cannotInput.disabled = false;
+      skipInput.disabled = false;
+      angleInput.value = row.long_side_angle_deg_le90 || "";
+      cannotInput.checked = row.ambiguous === "1";
+      skipInput.checked = row.skip === "1";
+      angleInput.disabled = cannotInput.checked || skipInput.checked;
+      sourceImage.onload = () => {
+        const scale = Math.min(800 / sourceImage.naturalWidth, 620 / sourceImage.naturalHeight, 1.0);
+        canvas.width = Math.max(1, Math.round(sourceImage.naturalWidth * scale));
+        canvas.height = Math.max(1, Math.round(sourceImage.naturalHeight * scale));
+        setError("");
+        drawImage();
+      };
+      sourceImage.onerror = () => setError("无法读取裁剪图。请选择 crops 目录，或从工具目录直接打开 index.html。");
+      sourceImage.src = imageSourceFor(row);
+      document.getElementById("previous").disabled = current === 0;
+      document.getElementById("next").disabled = current === tasks.length - 1;
+      updateProgress();
+    }
+
+    function canvasPoint(event) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: (event.clientX - rect.left) * canvas.width / rect.width,
+        y: (event.clientY - rect.top) * canvas.height / rect.height
+      };
+    }
+
+    taskFile.addEventListener("change", async () => {
+      try {
+        const file = taskFile.files[0];
+        if (!file) return;
+        const rows = parseCsv(await file.text());
+        validateTasks(rows);
+        tasks = rows;
+        current = 0;
+        restoreLocal();
+        loadCurrent();
+      } catch (error) {
+        tasks = [];
+        setError(error.message);
+      }
+    });
+
+    cropDir.addEventListener("change", () => {
+      imageFiles = new Map([...cropDir.files].map(file => [file.name, file]));
+      if (tasks.length) loadCurrent();
+    });
+
+    canvas.addEventListener("pointerdown", event => {
+      if (!tasks.length || cannotInput.checked || skipInput.checked) return;
+      dragStart = canvasPoint(event); dragEnd = dragStart;
+      canvas.setPointerCapture(event.pointerId);
+      drawImage();
+    });
+    canvas.addEventListener("pointermove", event => {
+      if (!dragStart || !canvas.hasPointerCapture(event.pointerId)) return;
+      dragEnd = canvasPoint(event); drawImage();
+    });
+    canvas.addEventListener("pointerup", event => {
+      if (!dragStart) return;
+      dragEnd = canvasPoint(event);
+      const dx = dragEnd.x - dragStart.x;
+      const dy = dragEnd.y - dragStart.y;
+      if (Math.hypot(dx, dy) >= 8) {
+        angleInput.value = normalizeAngle(Math.atan2(-dy, dx) * 180 / Math.PI).toFixed(3);
+        cannotInput.checked = false;
+        skipInput.checked = false;
+        commitCurrent();
+      }
+      drawImage();
+    });
+
+    angleInput.addEventListener("change", () => {
+      if (angleInput.value !== "") {
+        const value = Number(angleInput.value);
+        if (!Number.isFinite(value)) { setError("角度必须为数值"); return; }
+        angleInput.value = normalizeAngle(value).toFixed(3);
+        cannotInput.checked = false;
+        skipInput.checked = false;
+      }
+      dragStart = null; dragEnd = null; commitCurrent(); drawImage();
+    });
+    cannotInput.addEventListener("change", () => {
+      if (cannotInput.checked) skipInput.checked = false;
+      angleInput.disabled = cannotInput.checked || skipInput.checked;
+      if (cannotInput.checked) angleInput.value = "";
+      dragStart = null; dragEnd = null; commitCurrent(); drawImage();
+    });
+    skipInput.addEventListener("change", () => {
+      if (skipInput.checked) cannotInput.checked = false;
+      angleInput.disabled = cannotInput.checked || skipInput.checked;
+      if (skipInput.checked) angleInput.value = "";
+      dragStart = null; dragEnd = null; commitCurrent(); drawImage();
+    });
+
+    document.getElementById("previous").addEventListener("click", () => {
+      commitCurrent(); if (current > 0) current -= 1; loadCurrent();
+    });
+    document.getElementById("next").addEventListener("click", () => {
+      commitCurrent(); if (current < tasks.length - 1) current += 1; loadCurrent();
+    });
+    document.getElementById("export").addEventListener("click", () => {
+      if (!tasks.length) { setError("请先载入任务 CSV"); return; }
+      const identity = annotatorId.value.trim();
+      if (!identity) { setError("导出前必须填写独立标注者 ID"); return; }
+      commitCurrent();
+      const fields = REQUIRED;
+      const lines = [fields.join(",")];
+      tasks.forEach(row => {
+        row.annotator_id = identity;
+        lines.push(fields.map(field => csvCell(row[field])).join(","));
+      });
+      const blob = new Blob([lines.join("\n") + "\n"], {type: "text/csv;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `annotator${tasks[0].annotator_slot}_raw.csv`;
+      link.click();
+      URL.revokeObjectURL(url);
+      setError("");
+    });
+    document.getElementById("exportJson").addEventListener("click", () => {
+      if (!tasks.length) { setError("请先载入任务 CSV"); return; }
+      const identity = annotatorId.value.trim();
+      if (!identity) { setError("导出前必须填写独立标注者 ID"); return; }
+      commitCurrent();
+      tasks.forEach(row => { row.annotator_id = identity; });
+      const blob = new Blob([JSON.stringify(tasks, null, 2) + "\n"], {type: "application/json"});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `annotator${tasks[0].annotator_slot}_raw.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+      setError("");
+    });
+  </script>
+</body>
+</html>

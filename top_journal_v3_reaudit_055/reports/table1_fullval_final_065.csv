@@ -1,0 +1,7 @@
+cell,detector,old_Table1_AP50,AP50_fullval,pert_AP50,dAP50,AP75_fullval,pert_AP75,angle_err_base,angle_err_pert,n_gt_fullval,baseline_own_DOTAMetric,evaluator,status
+DIOR-R/22,rotated_retinanet_psc,0.6964,0.5368,0.5368,0.0,0.3503,0.0384,8.947,39.189,124445,0.537,torch_RBboxOverlaps2D_VOC11==DOTAMetric,recomputed_fullval
+DIOR-R/3,oriented_rcnn,0.7999,0.6448,0.6448,0.0,0.4275,0.0484,8.665,40.041,124445,0.6448,torch_RBboxOverlaps2D_VOC11==DOTAMetric,recomputed_fullval
+DIOR-R/61,rotated_rtmdet_s,0.8866,0.6462,0.6462,0.0,0.4515,0.0532,9.087,40.541,124445,0.5489(taos setup),torch_RBboxOverlaps2D_VOC11==DOTAMetric,recomputed_fullval
+FAIR1M-v1.0/24,rotated_retinanet_psc,0.3452,0.3462,0.3462,0.0,0.2422,0.0665,4.631,36.516,78644,0.3462,torch_RBboxOverlaps2D_VOC11==DOTAMetric,recomputed_fullval
+SODA-A/23,rotated_retinanet_psc,0.6119,0.5991,0.5991,0.0,0.2735,0.0448,5.23,34.416,449644,0.5991,torch_RBboxOverlaps2D_VOC11==DOTAMetric,recomputed_fullval
+SODA-A/4,oriented_rcnn,0.7592,0.7295,0.7295,0.0,0.3805,0.0278,5.148,35.893,449644,0.7295,torch_RBboxOverlaps2D_VOC11==DOTAMetric,recomputed_fullval

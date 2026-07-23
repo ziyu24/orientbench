@@ -1,0 +1,12 @@
+{
+  "status": "READY_FOR_TWO_INDEPENDENT_HUMAN_ANNOTATORS",
+  "assignment_version": "m4-070-final-v1",
+  "counts": {
+    "DIOR-R": 500,
+    "FAIR1M-v1.0": 500,
+    "SODA-A": 500
+  },
+  "real_human_results": 0,
+  "human_status": "HUMAN_BLOCKED",
+  "internal_mapping": "annotation_tools/m4_angle_annotation/internal_mapping_070.csv"
+}

@@ -1,0 +1,1063 @@
+{
+  "current_index": 175,
+  "annotator_id": "",
+  "records": {
+    "3ed7c1860414723990c1": {
+      "angle": 67.06790107070738,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "c62d2e6bdd2dd9ee7e38": {
+      "angle": 1.3803288732269436,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6f568781d45d8b0aecdd": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "e0eb06ac80cfee5082e3": {
+      "angle": 102.81733468432833,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "ee8005958dbd513b46bd": {
+      "angle": 102.09470283531293,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "54e446744a53c3f6febe": {
+      "angle": 91.47638608938016,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "34b358217303a26cc1bf": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "14e1b64119edcc543749": {
+      "angle": 13.544975269391529,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e16594e1d1936be715f7": {
+      "angle": 107.68435317846321,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "4de392ca319f058b72d8": {
+      "angle": 85.8150897431835,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "9fafa52b8c6d8f3fb1ab": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "84565862687fdc26933e": {
+      "angle": 178.76804322764048,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "c2bfca146fa5bca91dab": {
+      "angle": 65.27267186476593,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "a4ccde8f3fbf26bddc63": {
+      "angle": 2.0731453187626414,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "b7f674186f22233a51cf": {
+      "angle": 44.99998196831933,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "146207edd840a4d207e1": {
+      "angle": 28.540009649015474,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "ad3aa34bcd7de6755aff": {
+      "angle": 79.135958295332,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "79dfb153847d5e8c9623": {
+      "angle": 75.3791294687748,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "3acc55b2a155ffd22517": {
+      "angle": 72.57017061959749,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "771e0223186be66e440d": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "60d45482c08fe1cf7a79": {
+      "angle": 156.5014094791027,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "48d557d5b6eb0adca1d4": {
+      "angle": 130.2665640186266,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "39bc759035c8053ff4e1": {
+      "angle": 47.36632176089921,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "2226ee537d341d77062e": {
+      "angle": 21.57131225160026,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "4b4cb056281640d81778": {
+      "angle": 89.00368440762075,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e496f4faaafcc4060248": {
+      "angle": 5.305091698255097,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "8505108bb843f7989f0b": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "a5f3b7adb0aee99995a1": {
+      "angle": 175.47119227528995,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "0e99498bc50b65543a1a": {
+      "angle": 159.5776645706915,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "040ef01f5c31df720db4": {
+      "angle": 130.7321477110964,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6c15f8b294fecdfdbfc9": {
+      "angle": 85.85531999618594,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "638da50ecf40974e2b65": {
+      "angle": 50.47737431693301,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "4cca02db987ec7d88c29": {
+      "angle": 177.9854061388233,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "15b0269b812aeb8ea44f": {
+      "angle": 16.94708979378254,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "3304ab39c4c81aefd84f": {
+      "angle": 164.39604479982125,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "9225c1845a38851ff1a0": {
+      "angle": null,
+      "ambiguous": false,
+      "skip": true,
+      "notes": ""
+    },
+    "773083956f7ace5d891a": {
+      "angle": 81.86990966697077,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "827e10a4d39338fb3641": {
+      "angle": 10.705667989829465,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "b566883c858141d3eadd": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "52bcc8398a9ff11a55b0": {
+      "angle": 169.0888974413648,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "9d1b5909d12290f9d48e": {
+      "angle": 170.1722741057859,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "af7b3ec798f1264cf697": {
+      "angle": 83.8533263852148,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6fb51e1c016317e0f0fc": {
+      "angle": 172.26639254602537,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "d72ed6145a24353081d1": {
+      "angle": 75.96379778105175,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "f390841db170611b20a1": {
+      "angle": 1.390399494607209,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "305786f0e4d18de8c011": {
+      "angle": 176.79478115458548,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "8384cbc27cc65cab53d6": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "3c0350db00a4f60e9ebd": {
+      "angle": 149.23727996257506,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "a95783c1dcaddaef4d45": {
+      "angle": 90.0,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "9d3f3c7886c3ebe79233": {
+      "angle": null,
+      "ambiguous": false,
+      "skip": true,
+      "notes": ""
+    },
+    "8bcee75b94d6af5214bd": {
+      "angle": 179.18151964247647,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "2b876ac2ee076e29e1ab": {
+      "angle": 4.398688855389651,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "aa3b443bc76b9a712052": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "e681c33f0960a6126295": {
+      "angle": 178.9291660987694,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "847d3b16f9b355f00358": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "e4255537f04d6ba542de": {
+      "angle": 91.08086065861664,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "56f1f5f8de98f8aeeb9f": {
+      "angle": 18.004159737167356,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "ed69f65569574b6be3be": {
+      "angle": 158.8753193485721,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "97d4690dd890997a7c65": {
+      "angle": 76.27769933890787,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "62b6694d01e5f183a306": {
+      "angle": 88.84264982888185,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "bd3e47a433210886ef7b": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "16d7bd7ea97217ba93e9": {
+      "angle": 94.99208000797613,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "5b97cf92a63b460b0f7c": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "8dd86fdf121b83227dd2": {
+      "angle": 92.52610575451325,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e16a1dd87fe51af5cb2b": {
+      "angle": 89.72052549070834,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "342b92079b040f08ce95": {
+      "angle": 93.20202427527838,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "4d31c583fa0294985e38": {
+      "angle": 78.21183242304772,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "bfe5c6fd10734de73162": {
+      "angle": 45.51614696196461,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "2b1197055022445fe4a7": {
+      "angle": 78.07071754316901,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "9c99b4d065a2cadf8bdf": {
+      "angle": 154.1556276590711,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "838036a078693556b04e": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "c11cb43ed1677f99ff97": {
+      "angle": 38.88453332078407,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "15768eddb9e9474ce140": {
+      "angle": 166.6512802834488,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6de412f2197fac6e6026": {
+      "angle": 89.44101754388569,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "067320f17040968b5a7f": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "31c365a6f165487a24dd": {
+      "angle": 20.185812055660506,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "cbfd4b8d51a2cc4f9f5f": {
+      "angle": 70.84184527630595,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "b811823131c2d4e75842": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "eb66f7df86bf60ce6c78": {
+      "angle": 101.70899974036244,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "a9e6c578b63ff449800d": {
+      "angle": 89.15750329038916,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "c8610c448ee197444bef": {
+      "angle": 102.79228584617802,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "5be52f7988d78e537dfc": {
+      "angle": 50.440325084606656,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6f2c1927d1b137620b3d": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "959f2ec32de9a8ff0a3e": {
+      "angle": 124.72896608250782,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6df412a33f227953ca44": {
+      "angle": 98.12998748558202,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "2a5daf18807a0143ef11": {
+      "angle": 122.78428534073878,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "d029f0aa91f223d321c7": {
+      "angle": 179.67446999256563,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "4788286fe4570870a5f4": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "14bdd76362b99f5bcb52": {
+      "angle": 64.33472864953978,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "d1fbcf786cb4b1e8747f": {
+      "angle": 93.81407084497668,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e70c12af79e625e4744d": {
+      "angle": 3.3664624399518743,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "1b27a71fec8942782e20": {
+      "angle": 162.84760653098843,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "08f30373089f35595e97": {
+      "angle": 104.65679998320175,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "b4f39aaedac20ca94dcc": {
+      "angle": 151.0799473881175,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6f9ee9f4455930c48c58": {
+      "angle": 0.5562454998959083,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "049788ffe4208fb3daab": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "12d767162864da26e338": {
+      "angle": 1.032210652027402,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "34e37d0363ccf82dfe1e": {
+      "angle": 32.15229138980766,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "9167e2fb6b88b2d5bdd8": {
+      "angle": 96.95296063904722,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "5e9ae49a2fb3ad5365a5": {
+      "angle": 95.57224296289795,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "5ec064ad03f7a8e76b01": {
+      "angle": 158.41600885484263,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "b1543acee32dc797ab7b": {
+      "angle": 97.230269554195,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "40918956f3e437ede6ea": {
+      "angle": 7.754291188240927,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "08f8445a7fbed0508ec9": {
+      "angle": 42.30573716754947,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "677ef0f09e3b3ce1b800": {
+      "angle": 85.79101579109009,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "ecc0c4ce1f333a721681": {
+      "angle": 177.93989084040385,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "4f6bbc95447589a36a85": {
+      "angle": 90.0,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "d850acbe9de10eae569d": {
+      "angle": 42.79732592940749,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6cdd7398fcec36e1e1d8": {
+      "angle": 143.24933716622732,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e40a4c5825d7e71fcc2b": {
+      "angle": 141.4587975758958,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e469c43ff5f07ff00cd6": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "8aace67cbe2f42861065": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "dff1409399860c497cca": {
+      "angle": null,
+      "ambiguous": false,
+      "skip": true,
+      "notes": ""
+    },
+    "77a742004259c79f1dc1": {
+      "angle": 47.3749328454918,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "80cd9c982fb60c148103": {
+      "angle": 89.08701260382954,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "c17fd41367295fe51cd4": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "175777fb3c4dab94c677": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "9736fea667ddc86e3faa": {
+      "angle": 96.41874462565833,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "224f78a9e15bbbf4e22d": {
+      "angle": 174.48508985326214,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "58a6071cb8de5a24ef5e": {
+      "angle": 142.37382510872848,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "d13338666967e2cfc7a9": {
+      "angle": 138.5214670888405,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "7df42f45e6aa34767a66": {
+      "angle": 32.171230012330625,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "73c452f563d20921d194": {
+      "angle": 32.34743936847113,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "4617c53b27c1533aa048": {
+      "angle": 0.0,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "9ebf0d5d576ada700737": {
+      "angle": 30.854217281615945,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "a4bd359911136990ba9f": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "3ed2b21c38ce4485f9f4": {
+      "angle": 171.5524872221866,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "d178e7d9e40469a19eb8": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "47af047a0b79a5c03214": {
+      "angle": 89.16158288785296,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "ecfd5e70e73c58c725a4": {
+      "angle": 33.11135019767053,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "c83b5539c887d108142b": {
+      "angle": 91.97493523461463,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "b22e7a37caa35ef57482": {
+      "angle": 1.9580357646498214,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "14e78f81afd98296a059": {
+      "angle": 89.59073891147683,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "cd2ab186260b4eec25a4": {
+      "angle": 176.91782240257373,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "59e44ae7fca90ad4b988": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "d0495d898b60bf814f63": {
+      "angle": 172.53291841649772,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "849499e4b305d819c0c1": {
+      "angle": 86.46770489895354,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6a707928fec1df4377fb": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "3de3b75bd542b86199b1": {
+      "angle": 178.90879641823386,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "536dbb2296d55bb4e2f8": {
+      "angle": 91.19352580029381,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "6257b920a07b8082dc3c": {
+      "angle": 1.5343229695664604,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "c5a646425ee8df5ce180": {
+      "angle": 159.11419626842655,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "a9fc013f21cc30d7f554": {
+      "angle": 94.9502732699588,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "09cd59396336dbacfa41": {
+      "angle": 108.91107781477969,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "7ceb685f4f97422eb99d": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "5baae535a6b03f74ab3a": {
+      "angle": 2.0453742248318463,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e0dcaa54ed2a07cc5459": {
+      "angle": 91.36384733397063,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "de57eaff186371f62288": {
+      "angle": 136.59115150914818,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "3ff2d9ac7fd9eb9f3913": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "dadbcec31e914805354c": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "7fd822b5d277f270cd92": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "c368b3bf5b4020e1a3b0": {
+      "angle": 175.76357301614138,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "bae10d35341fcaf0a118": {
+      "angle": 90.0,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "1f01d7d0be6d94f4e1a3": {
+      "angle": 141.26747838865077,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "f1a1509da9255dc5fc8e": {
+      "angle": 88.44345044628872,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "35936cc3e79757643a41": {
+      "angle": 8.846647965256295,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "990f15517fd389a700ee": {
+      "angle": 48.01280466141125,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "ea786651e6f5e69ef10a": {
+      "angle": 55.04532395665446,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "3cf3eae8a3f4a7dc29ac": {
+      "angle": 94.81359427504059,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "42e3c3caf5cca344835c": {
+      "angle": 6.812782303837565,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e39af9726a895f1feba5": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "822fa267aba3943a7398": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "85766eaf4da4e0ef07c5": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "63669d25926f007903a8": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "6f143306fd4722ba5351": {
+      "angle": 91.27301527548056,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "b2c1557f5a99931d9f31": {
+      "angle": 176.71074909003005,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "2d5ec44a82c8f15a8c8a": {
+      "angle": 58.64287967781735,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "2e0da6aa4e9fe8487491": {
+      "angle": 87.67218788570042,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "8ee93246537abc5db52b": {
+      "angle": 65.71416697186477,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "0cabf81a39bb2f2f8260": {
+      "angle": 43.60285899551209,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "0f6fa802f1cf437e6519": {
+      "angle": 176.7905355054969,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "d11e4b3eadf44fab2249": {
+      "angle": 176.54339616323807,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "437463d446c9693f6615": {
+      "angle": 179.06082027764322,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "39091db91acde5325128": {
+      "angle": null,
+      "ambiguous": true,
+      "skip": false,
+      "notes": ""
+    },
+    "fd54041977032cc7e880": {
+      "angle": 3.814076733963617,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    },
+    "e102490503cf29dd2887": {
+      "angle": 114.28584305440364,
+      "ambiguous": false,
+      "skip": false,
+      "notes": ""
+    }
+  },
+  "saved_at_utc": "2026-07-18T05:48:24.416668+00:00"
+}

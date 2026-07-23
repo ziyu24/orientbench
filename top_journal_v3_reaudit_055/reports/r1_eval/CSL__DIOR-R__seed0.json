@@ -1,0 +1,23 @@
+{
+  "run_id": "CSL__DIOR-R__seed0",
+  "angle_head": "CSL",
+  "dataset": "DIOR-R",
+  "seed": "0",
+  "checkpoint": "epoch_12.pth",
+  "n_matched": 54201,
+  "n_masked_ar16": 27208,
+  "native_signal": "softmax_margin",
+  "masked_NRC_native": 0.8929,
+  "masked_NRC_score": 0.8413,
+  "masked_AURC_native": 13.3228,
+  "masked_Risk70_native": 13.66,
+  "masked_Risk90_native": 14.061,
+  "masked_NRC_native_CI": [
+    0.872,
+    0.915
+  ],
+  "masked_angle_error_mean": 14.2253,
+  "AP50_self": 0.3305,
+  "AP75_self": 0.1026,
+  "AP50_val_log": 0.331
+}

@@ -1,0 +1,4 @@
+NRC,interpretation
+1.0,random ordering baseline
+<1,better than random risk ordering
+>1,reverse-calibrated worse than random ordering

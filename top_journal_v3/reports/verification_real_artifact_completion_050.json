@@ -1,0 +1,189 @@
+{
+  "status": "pass",
+  "failures": [],
+  "checks": [
+    {
+      "check": "required docs/real_artifact_inventory_050.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/real_artifact_inventory_050.csv",
+      "pass": true
+    },
+    {
+      "check": "required reports/real_artifact_regeneration_050.csv",
+      "pass": true
+    },
+    {
+      "check": "required reports/psc_track_a_dump_050.csv",
+      "pass": true
+    },
+    {
+      "check": "required docs/psc_track_a_dump_050.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/uncertainty_real_artifacts_050.csv",
+      "pass": true
+    },
+    {
+      "check": "required docs/uncertainty_real_artifacts_050.md",
+      "pass": true
+    },
+    {
+      "check": "required docs/p1_constructive_decoupling_experiment.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/p1_angle_perturb_dose_response.csv",
+      "pass": true
+    },
+    {
+      "check": "required reports/p1_reverse_perturb_decoupling.csv",
+      "pass": true
+    },
+    {
+      "check": "required docs/p2_conformal_orientation_risk_control.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/conformal_within_cell_risk_control.csv",
+      "pass": true
+    },
+    {
+      "check": "required reports/conformal_shift_violation_audit.csv",
+      "pass": true
+    },
+    {
+      "check": "required docs/p3_psc_free_mechanism_tests.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/psc_dota20_phase_mod.csv",
+      "pass": true
+    },
+    {
+      "check": "required reports/psc_phase_mod_aliasing_hist.csv",
+      "pass": true
+    },
+    {
+      "check": "required reports/psc_phase_mod_confounding_check.csv",
+      "pass": true
+    },
+    {
+      "check": "required docs/p4_uncertainty_baselines_circular_stats.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/uncertainty_baselines_nrc.csv",
+      "pass": true
+    },
+    {
+      "check": "required docs/p5_downstream_selective_orientation_task.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/downstream_selective_orientation.csv",
+      "pass": true
+    },
+    {
+      "check": "required docs/top_journal_evidence_decision_050.md",
+      "pass": true
+    },
+    {
+      "check": "required docs/codex_latest_report.md",
+      "pass": true
+    },
+    {
+      "check": "required reports/heartbeat_050.json",
+      "pass": true
+    },
+    {
+      "check": "manifest_050.json exists",
+      "pass": true
+    },
+    {
+      "check": "manifest records no training/threshold/split modification",
+      "pass": true
+    },
+    {
+      "check": "no synthetic/proxy rows in reports/p1_angle_perturb_dose_response.csv",
+      "pass": true
+    },
+    {
+      "check": "no synthetic/proxy rows in reports/p1_reverse_perturb_decoupling.csv",
+      "pass": true
+    },
+    {
+      "check": "no synthetic/proxy rows in reports/conformal_within_cell_risk_control.csv",
+      "pass": true
+    },
+    {
+      "check": "no synthetic/proxy rows in reports/downstream_selective_orientation.csv",
+      "pass": true
+    },
+    {
+      "check": "P2 uses real D_cal/D_audit",
+      "pass": "True"
+    },
+    {
+      "check": "P3 per-instance Track A dump status recorded",
+      "pass": true
+    },
+    {
+      "check": "P4 circular statistics documented",
+      "pass": true
+    },
+    {
+      "check": "P5 uses real matched predictions",
+      "pass": "True"
+    },
+    {
+      "check": "latest report entrance/exit",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: TPAMI ready",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: CVPR ready",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: full project complete",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: PSC angle head finally proven broken",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: DOTA #20 validation",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: oracle_gain",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: retained oracle",
+      "pass": true
+    },
+    {
+      "check": "no tracked modification configs/thresholds.yaml",
+      "pass": true,
+      "status": ""
+    },
+    {
+      "check": "no tracked modification outputs/bench_core/splits",
+      "pass": true,
+      "status": "?? outputs/bench_core/splits/"
+    },
+    {
+      "check": "git no large files under top_journal_v3",
+      "pass": true,
+      "large_files": []
+    }
+  ]
+}

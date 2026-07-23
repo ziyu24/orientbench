@@ -1,0 +1,31 @@
+cell,stratum,value,n,phase_mod_nrc
+DIOR#22,ALL,,24988,1.1286
+DIOR#22,size,size_low,8239,1.1505
+DIOR#22,size,size_mid,8253,1.1289
+DIOR#22,size,size_high,8496,1.0498
+DIOR#22,ar,ar_low,8246,1.078
+DIOR#22,ar,ar_mid,8243,1.1885
+DIOR#22,ar,ar_high,8499,1.135
+DIOR#22,class,ship,12975,1.2184
+DIOR#22,class,vehicle,5448,1.1051
+DIOR#22,class,tenniscourt,2545,1.4563
+FAIR1M#24,ALL,,45740,1.1009
+FAIR1M#24,size,size_low,15091,1.1363
+FAIR1M#24,size,size_mid,15095,1.1151
+FAIR1M#24,size,size_high,15554,1.0486
+FAIR1M#24,ar,ar_low,15086,1.0995
+FAIR1M#24,ar,ar_mid,15102,1.092
+FAIR1M#24,ar,ar_high,15552,1.108
+FAIR1M#24,class,Small Car,18386,1.1423
+FAIR1M#24,class,Van,16569,1.1159
+FAIR1M#24,class,Dump Truck,3205,1.0818
+SODA#23,ALL,,267796,1.0902
+SODA#23,size,size_low,88372,1.033
+SODA#23,size,size_mid,88372,1.1137
+SODA#23,size,size_high,91052,1.1521
+SODA#23,ar,ar_low,88373,1.0342
+SODA#23,ar,ar_mid,88372,1.1369
+SODA#23,ar,ar_high,91051,1.1415
+SODA#23,class,small-vehicle,177732,1.0975
+SODA#23,class,container,37344,1.3622
+SODA#23,class,ship,34447,0.9842

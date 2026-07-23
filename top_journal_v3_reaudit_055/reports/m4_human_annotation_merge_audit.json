@@ -1,0 +1,11 @@
+{
+  "annotator_identities_distinct": false,
+  "errors": [],
+  "human_usable": 0,
+  "minimum_per_dataset": 200,
+  "pairs": 1500,
+  "raw_a_exists": false,
+  "raw_b_exists": false,
+  "status": "HUMAN_BLOCKED",
+  "usable_counts": {}
+}

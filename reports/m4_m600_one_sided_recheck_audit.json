@@ -1,0 +1,9 @@
+{
+  "rechecks": 29,
+  "recheck_state_counts": {
+    "LABELED": 27,
+    "AMBIGUOUS": 2
+  },
+  "resolved_numeric_pairs": 27,
+  "primary_annotations_unchanged": true
+}

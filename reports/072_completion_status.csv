@@ -1,0 +1,12 @@
+component,status,key_result
+same_canonical_double_annotation,PASS,"600 targets; 200 per dataset; no pending"
+independent_blinding,PASS,"distinct identities; shuffled manifests; no peer/GT/model fields"
+numeric_angle_pairs,PASS,"450 total: DIOR-R=122, FAIR1M=169, SODA-A=159"
+overall_disagreement,PASS,"mean=2.3112 deg; cluster-bootstrap 95% CI=[1.9970,2.7854]"
+fixed_angle_sensitivity,PASS_WITH_BOUNDARY,"P>5=8.00%; P>10=0.89%; 5 deg remains noise-sensitive"
+ar21_primary_subset,PASS,"n=308; mean=2.2823 deg; P>5=6.82%; P>10=0.65%"
+one_sided_recheck,PASS,"27/29 resolved to numeric; 2 remained ambiguous; secondary only"
+minimum_human_protocol,COMPLETE,"200 completed targets per dataset"
+fine_grained_1500_target,OPTIONAL,"required only for formal rare-class/size/extreme-tail claims"
+global_submission_freeze,NOT_CLAIMED,"072 results not yet integrated into global reproduction/freeze gate"
+next_formal_command,073,"integrate only if separately ordered"

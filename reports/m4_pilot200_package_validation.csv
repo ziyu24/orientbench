@@ -1,0 +1,8 @@
+check,status,detail
+pilot_count_each,PASS,A=200; B=200
+same_canonical_set,PASS,True
+different_order,PASS,same_positions=3
+images_readable,PASS,200/200
+blinded_schema,PASS,no GT/prediction/A-result fields
+b_output_empty,PASS,0 real results
+a_snapshot,PASS,"{""ambiguous"": 27, ""angle"": 151, ""pending"": 5, ""skip"": 17}"

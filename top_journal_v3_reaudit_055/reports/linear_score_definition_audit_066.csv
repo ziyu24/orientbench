@@ -1,0 +1,5 @@
+variant,form,fit_weights,fit_label,uses_GT,setting
+score-only,s = detection_score,no,none,no,deployable baseline
+score+ar linear,s = w0 + w1*score + w2*log(ar),yes(LinearRegression),angle_error(D_cal GT),YES(fit target),calibration/upper-bound
+score+ar+size linear,s = w0 + w1*score + w2*log(ar) + w3*log(sqrt(size)),yes(LinearRegression),angle_error(D_cal GT),YES(fit target),calibration/upper-bound
+geometry_selector(GBR),"s = -GBR([score,log ar,log sqrt size])",yes(GradientBoosting),angle_error(D_cal GT),YES(fit target),calibration/upper-bound (nonlinear); same fair feature set as linear

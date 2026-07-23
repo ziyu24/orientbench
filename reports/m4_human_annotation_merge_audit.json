@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE_INDEPENDENT_DOUBLE_ANNOTATION",
+  "primary_targets": 600,
+  "decision_complete_counts": {
+    "DIOR-R": 200,
+    "FAIR1M-v1.0": 200,
+    "SODA-A": 200
+  },
+  "usable_numeric_pairs": 450,
+  "usable_counts": {
+    "DIOR-R": 122,
+    "FAIR1M-v1.0": 169,
+    "SODA-A": 159
+  },
+  "same_canonical_target_set": true,
+  "identities_distinct": true,
+  "pending": 0,
+  "test_annotations_included": false,
+  "pair_state_counts": {
+    "LABELED|LABELED": 450,
+    "LABELED|AMBIGUOUS": 15,
+    "AMBIGUOUS|AMBIGUOUS": 103,
+    "LABELED|SKIP": 3,
+    "SKIP|AMBIGUOUS": 9,
+    "AMBIGUOUS|SKIP": 4,
+    "AMBIGUOUS|LABELED": 8,
+    "SKIP|SKIP": 3,
+    "SKIP|LABELED": 5
+  }
+}

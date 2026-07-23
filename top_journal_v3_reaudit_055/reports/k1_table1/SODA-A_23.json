@@ -1,0 +1,18 @@
+{
+  "cell": "SODA-A/23",
+  "detector": "rotated_retinanet_psc",
+  "n_pred": 1663631,
+  "n_gt_fullval": 449644,
+  "base_AP50": 0.5991,
+  "pert_AP50": 0.5991,
+  "dAP50": 0.0,
+  "base_AP75": 0.2735,
+  "pert_AP75": 0.0448,
+  "dAP75": -0.2287,
+  "angle_err_base": 5.23,
+  "angle_err_pert": 34.416,
+  "evaluator": "torch_RBboxOverlaps2D_VOC11 (K1-validated==DOTAMetric)",
+  "ckpt": "best_mAP_5991_epoch_12.pth",
+  "can_recompute": "yes",
+  "command": "recompute_table1_by_inference_065.py SODA-A/23"
+}

@@ -1,0 +1,29 @@
+{
+  "status": "A_ANNOTATION_REQUIRED",
+  "frozen_at_utc": "2026-07-21T12:33:04.377604+00:00",
+  "b_frozen_completed": 526,
+  "a_already_completed_on_target": 195,
+  "a_remaining_displayed": 331,
+  "target_by_dataset": {
+    "DIOR-R": 170,
+    "FAIR1M-v1.0": 177,
+    "SODA-A": 179
+  },
+  "a_remaining_by_dataset": {
+    "DIOR-R": 112,
+    "FAIR1M-v1.0": 101,
+    "SODA-A": 118
+  },
+  "source_sha256": {
+    "A": {
+      "top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/annotator_A/outputs/draft_state.json": "f69b1c24dbcd04c5ea864c73c4c011e64d7822053fd763ef77da30b285863105",
+      "top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/annotator_A/outputs_full_remaining/draft_state.json": "956d5642d12a9703597518af85898763dd19a7c8f540fb6279b21b125cf6d6df"
+    },
+    "B": {
+      "top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/annotator_B/outputs/draft_state.json": "a21c86e3165b07cd435bba539f5b966b67c80ffe294037a5b10488cd1e817083",
+      "top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/annotator_B/outputs_pilot_176_remaining/draft_state.json": "613c48b6fceb62222716572dddbc1f7f4b76ea852f8080295388d3ebafab6cff",
+      "top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/annotator_B/outputs_full_remaining/draft_state.json": "1818ccae502127af3947dec941706e05233af6704f7586c0df3e73862ec818a9"
+    }
+  },
+  "b_service_should_pause_until_analysis": true
+}

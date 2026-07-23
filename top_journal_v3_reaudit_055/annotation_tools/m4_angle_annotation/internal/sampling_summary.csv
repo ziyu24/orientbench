@@ -1,0 +1,4 @@
+dataset,instances,ar21_instances,source_manifest
+DIOR-R,500,278,reports/m4_human_annotation_sampling_manifest.csv
+FAIR1M-v1.0,500,281,reports/m4_human_annotation_sampling_manifest.csv
+SODA-A,500,316,reports/m4_human_annotation_sampling_manifest.csv

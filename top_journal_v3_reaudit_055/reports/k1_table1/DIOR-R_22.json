@@ -1,0 +1,18 @@
+{
+  "cell": "DIOR-R/22",
+  "detector": "rotated_retinanet_psc",
+  "n_pred": 556660,
+  "n_gt_fullval": 124445,
+  "base_AP50": 0.5368,
+  "pert_AP50": 0.5368,
+  "dAP50": 0.0,
+  "base_AP75": 0.3503,
+  "pert_AP75": 0.0384,
+  "dAP75": -0.312,
+  "angle_err_base": 8.947,
+  "angle_err_pert": 39.189,
+  "evaluator": "torch_RBboxOverlaps2D_VOC11 (K1-validated==DOTAMetric)",
+  "ckpt": "best_mAP_5368_epoch_12.pth",
+  "can_recompute": "yes",
+  "command": "recompute_table1_by_inference_065.py DIOR-R/22"
+}

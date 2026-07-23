@@ -1,0 +1,2 @@
+subset,n,mean_deg,mean_cluster_ci95_low,mean_cluster_ci95_high,median_deg,p90_deg,p95_deg,P_gt5,P_gt5_cluster_ci95_low,P_gt5_cluster_ci95_high,P_gt10,P_gt10_cluster_ci95_low,P_gt10_cluster_ci95_high,interpretation
+ar>=2.1,308,2.2823,1.8674,2.9426,1.613,4.1978,5.586,0.068182,0.042208,0.09772,0.006494,0.0,0.016287,human circular disagreement; not dataset GT error

@@ -1,0 +1,2 @@
+decision,changed_nrc_directions,main_rows,sensitivity_rows,main_mask,legacy_masks
+PASS,6,62,124,ar>=2.1,sensitivity_only

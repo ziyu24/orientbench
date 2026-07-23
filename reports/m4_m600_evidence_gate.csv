@@ -1,0 +1,10 @@
+gate,status,evidence,decision
+completed_targets,PASS,"600 independently double-annotated targets; 200 per dataset; no pending",MINIMUM_PROTOCOL_COMPLETE
+numeric_angle_pairs,PASS,"450 usable numeric pairs: DIOR-R=122, FAIR1M=169, SODA-A=159",SUFFICIENT_FOR_PRIMARY_HUMAN_ANCHOR
+overall_agreement,PASS,"mean=2.3112 deg, cluster-bootstrap 95% CI=[1.9970,2.7854]; median=1.6359; p90=4.4220; p95=5.9359",SUPPORTED
+fine_risk,PASS_WITH_BOUNDARY,"P(>5 deg)=8.00%, cluster-bootstrap 95% CI=[5.57%,10.56%]",KEEP_5DEG_NOISE_SENSITIVE
+severe_tail,PASS_WITH_LIMITATION,"P(>10 deg)=0.89%; events remain concentrated in SODA-A",REPORT_DATASET_LIMITATION
+ar21_primary,PASS,"n=308; mean=2.2823; median=1.6130; P(>5 deg)=6.82%; P(>10 deg)=0.65%",SUPPORTED
+one_sided_recheck,PASS,"27/29 became numeric; mean disagreement=2.2126 deg; median=1.9302; two remained ambiguous",SECONDARY_ONLY_NO_PRIMARY_OVERWRITE
+primary_paper_support,PASS,"directions stable at 200, 526, and 600 target checkpoints",ENOUGH_FOR_OVERALL_DATASET_AND_AR_BOUNDARY_CLAIMS
+fine_grained_strata,PARTIAL,"rare class/size/tail cells remain small",CONTINUE_TO_1500_ONLY_IF_FORMAL_FINE_GRAINED_CLAIMS_REMAIN

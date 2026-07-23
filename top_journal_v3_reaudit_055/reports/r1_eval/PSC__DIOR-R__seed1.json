@@ -1,0 +1,23 @@
+{
+  "run_id": "PSC__DIOR-R__seed1",
+  "angle_head": "PSC",
+  "dataset": "DIOR-R",
+  "seed": "1",
+  "checkpoint": "epoch_12.pth",
+  "n_matched": 85337,
+  "n_masked_ar16": 57917,
+  "native_signal": "phase_mod",
+  "masked_NRC_native": 1.2102,
+  "masked_NRC_score": 0.5644,
+  "masked_AURC_native": 1.9563,
+  "masked_Risk70_native": 1.634,
+  "masked_Risk90_native": 1.536,
+  "masked_NRC_native_CI": [
+    1.1769,
+    1.2437
+  ],
+  "masked_angle_error_mean": 1.6938,
+  "AP50_self": 0.5391,
+  "AP75_self": 0.3485,
+  "AP50_val_log": 0.539
+}

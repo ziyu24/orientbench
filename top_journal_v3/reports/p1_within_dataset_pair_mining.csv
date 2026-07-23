@@ -1,0 +1,6 @@
+dataset,detector_a,detector_b,baseline_a,baseline_b,NRC_AUC_a,NRC_AUC_b,Risk90_a,Risk90_b,delta_NRC_AUC,delta_Risk90
+SODA-A,rotated_retinanet_psc,oriented_rcnn_lsknet,23,11,1.2596,0.7632,2.5956,2.5561,0.49640000000000006,0.03950000000000031
+FAIR1M-v1.0,rotated_retinanet_psc,oriented_rcnn_lsknet,24,12,1.0825,0.8256,2.5463,2.4445,0.2569,0.10179999999999989
+DIOR-R,rotated_retinanet_psc,rotated_rtmdet_s,22,61,0.5494,0.4274,1.6638,1.7448,0.122,0.08099999999999996
+DIOR-R,rotated_rtmdet_s,oriented_rcnn_lsknet,61,10,0.4274,0.5294,1.7448,1.8226,0.10199999999999998,0.07780000000000009
+DIOR-R,rotated_retinanet_psc,oriented_rcnn_lsknet,22,10,0.5494,0.5294,1.6638,1.8226,0.020000000000000018,0.15880000000000005

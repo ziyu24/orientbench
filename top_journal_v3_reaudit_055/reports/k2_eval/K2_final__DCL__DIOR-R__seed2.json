@@ -1,0 +1,45 @@
+{
+  "run_id": "K2_final__DCL__DIOR-R__seed2",
+  "head": "DCL",
+  "dataset": "DIOR-R",
+  "n_matched": 73847,
+  "AP50": 0.4326,
+  "AP75": 0.22,
+  "native_signal": "softmax_margin",
+  "main_ar2.1": {
+    "n": 38527,
+    "NRC_score": 0.6672,
+    "angle_err_mean": 2.737,
+    "Risk70_score": 2.435,
+    "NRC_native": 0.2617,
+    "NRC_native_CI": [
+      0.2462,
+      0.2782
+    ],
+    "AURC_native": 1.3646
+  },
+  "sens_ar1.6": {
+    "n": 47542,
+    "NRC_score": 0.6232,
+    "angle_err_mean": 2.845,
+    "Risk70_score": 2.443,
+    "NRC_native": 0.2846,
+    "NRC_native_CI": [
+      0.2679,
+      0.3031
+    ],
+    "AURC_native": 1.4322
+  },
+  "sens_ar1.3": {
+    "n": 51558,
+    "NRC_score": 0.5684,
+    "angle_err_mean": 3.196,
+    "Risk70_score": 2.554,
+    "NRC_native": 0.4096,
+    "NRC_native_CI": [
+      0.3704,
+      0.4501
+    ],
+    "AURC_native": 1.8257
+  }
+}

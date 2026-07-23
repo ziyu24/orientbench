@@ -1,0 +1,45 @@
+{
+  "run_id": "K2_final__CSL__DIOR-R__seed0",
+  "head": "CSL",
+  "dataset": "DIOR-R",
+  "n_matched": 51864,
+  "AP50": 0.3146,
+  "AP75": 0.0916,
+  "native_signal": "softmax_margin",
+  "main_ar2.1": {
+    "n": 19428,
+    "NRC_score": 0.8284,
+    "angle_err_mean": 11.664,
+    "Risk70_score": 11.179,
+    "NRC_native": 0.875,
+    "NRC_native_CI": [
+      0.8447,
+      0.9062
+    ],
+    "AURC_native": 10.7279
+  },
+  "sens_ar1.6": {
+    "n": 24519,
+    "NRC_score": 0.8252,
+    "angle_err_mean": 13.491,
+    "Risk70_score": 12.971,
+    "NRC_native": 0.8709,
+    "NRC_native_CI": [
+      0.8464,
+      0.8972
+    ],
+    "AURC_native": 12.3676
+  },
+  "sens_ar1.3": {
+    "n": 28575,
+    "NRC_score": 0.8053,
+    "angle_err_mean": 16.748,
+    "Risk70_score": 16.198,
+    "NRC_native": 0.8429,
+    "NRC_native_CI": [
+      0.8194,
+      0.8661
+    ],
+    "AURC_native": 15.0026
+  }
+}

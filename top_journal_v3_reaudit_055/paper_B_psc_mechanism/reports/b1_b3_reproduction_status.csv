@@ -1,0 +1,14 @@
+check,status,detail
+frozen_hypotheses,PASS,exact H1-H4
+endpoints_separated,PASS,two frozen endpoints
+candidate_registry,PASS,four historical candidates only
+toy_three_regions,PASS,SUPPORTS_MECHANISM_SUFFICIENCY
+nine_baselines,PASS,3 datasets x 3 seeds
+intervention_coverage,PASS,BASELINE_SCORE;BOUNDARY_CROSS;FREQUENCY_CONFLICT;PRIMARY_ONLY;RADIAL;SECONDARY_ONLY;TANGENTIAL_SYNC
+identity_roles_explicit,PASS,both roles present
+confounding_endpoint_separation,PASS,both endpoints
+hypothesis_matrix,PASS,H1-H4
+decision_valid,PASS,['PROCEED_B4_EXTERNAL_VALIDATION']
+fair1m_seed0_identity,PASS,"{'score': True, 'native': True, 'error': True, 'ar': True, 'size': True, 'class_id': True, 'image_index': True, 'severe': True}"
+fair1m_seed1_identity,PASS,"{'score': True, 'native': True, 'error': True, 'ar': True, 'size': True, 'class_id': True, 'image_index': True, 'severe': True}"
+fair1m_seed2_identity,PASS,"{'score': True, 'native': True, 'error': True, 'ar': True, 'size': True, 'class_id': True, 'image_index': True, 'severe': True}"

@@ -1,0 +1,3 @@
+cell,detector,AP50,AP75,n_gt_fullval,n_masked_ar16,masked_NRC_score,masked_AURC_score,masked_Risk70,masked_Risk90,masked_angle_err_mean,checkpoint,gt_source,can_recompute,evaluator,provenance
+DOTA-v1.0/orcnn,oriented_rcnn,0.7061,0.4517,55804,39566,0.6912,1.5796,1.753,1.873,1.96,best_mAP_7061_epoch_11.pth,dota1.0/split_ss_dota10/val (full-val),yes,torch VOC-AP==DOTAMetric,"clean full-val, NOT 19-img D20"
+DOTA-v1.0/rtmdet,rotated_rtmdet_m,0.7161,0.4868,55804,41650,0.6458,1.5326,1.717,1.849,1.965,best_mAP_7161_epoch_31.pth,dota1.0/split_ss_dota10/val (full-val),yes,torch VOC-AP==DOTAMetric,"clean full-val, NOT 19-img D20"

@@ -1,0 +1,246 @@
+{
+  "status": "READY_FOR_TWO_INDEPENDENT_HUMAN_ANNOTATORS",
+  "assignment_version": "m4-v3-e6479d43f0b9",
+  "minimum_per_dataset": 200,
+  "target_per_dataset": 500,
+  "per_dataset": {
+    "DIOR-R": {
+      "candidate_count": 87224,
+      "selected_count": 500,
+      "unique_images": 483,
+      "available_size_bins": [
+        "large",
+        "medium",
+        "small"
+      ],
+      "available_ar_bins": [
+        "1.6<=ar<2.1",
+        "ar<1.6",
+        "ar>=2.1"
+      ],
+      "available_classes": [
+        "Expressway-Service-area",
+        "Expressway-toll-station",
+        "airplane",
+        "airport",
+        "baseballfield",
+        "basketballcourt",
+        "bridge",
+        "chimney",
+        "dam",
+        "golffield",
+        "groundtrackfield",
+        "harbor",
+        "overpass",
+        "ship",
+        "stadium",
+        "storagetank",
+        "tenniscourt",
+        "trainstation",
+        "vehicle",
+        "windmill"
+      ],
+      "selected_size_bins": [
+        "large",
+        "medium",
+        "small"
+      ],
+      "selected_ar_bins": [
+        "1.6<=ar<2.1",
+        "ar<1.6",
+        "ar>=2.1"
+      ],
+      "selected_classes": [
+        "Expressway-Service-area",
+        "Expressway-toll-station",
+        "airplane",
+        "airport",
+        "baseballfield",
+        "basketballcourt",
+        "bridge",
+        "chimney",
+        "dam",
+        "golffield",
+        "groundtrackfield",
+        "harbor",
+        "overpass",
+        "ship",
+        "stadium",
+        "storagetank",
+        "tenniscourt",
+        "trainstation",
+        "vehicle",
+        "windmill"
+      ]
+    },
+    "FAIR1M-v1.0": {
+      "candidate_count": 54768,
+      "selected_count": 500,
+      "unique_images": 432,
+      "available_size_bins": [
+        "large",
+        "medium",
+        "small"
+      ],
+      "available_ar_bins": [
+        "1.6<=ar<2.1",
+        "ar<1.6",
+        "ar>=2.1"
+      ],
+      "available_classes": [
+        "A220",
+        "A321",
+        "A330",
+        "A350",
+        "ARJ21",
+        "Baseball Field",
+        "Basketball Court",
+        "Boeing737",
+        "Boeing747",
+        "Boeing777",
+        "Boeing787",
+        "Bridge",
+        "Bus",
+        "C919",
+        "Cargo Truck",
+        "Dry Cargo Ship",
+        "Dump Truck",
+        "Engineering Ship",
+        "Excavator",
+        "Fishing Boat",
+        "Football Field",
+        "Intersection",
+        "Liquid Cargo Ship",
+        "Motorboat",
+        "Passenger Ship",
+        "Roundabout",
+        "Small Car",
+        "Tennis Court",
+        "Tugboat",
+        "Van",
+        "Warship",
+        "other-airplane",
+        "other-ship",
+        "other-vehicle"
+      ],
+      "selected_size_bins": [
+        "large",
+        "medium",
+        "small"
+      ],
+      "selected_ar_bins": [
+        "1.6<=ar<2.1",
+        "ar<1.6",
+        "ar>=2.1"
+      ],
+      "selected_classes": [
+        "A220",
+        "A321",
+        "A330",
+        "A350",
+        "ARJ21",
+        "Baseball Field",
+        "Basketball Court",
+        "Boeing737",
+        "Boeing747",
+        "Boeing777",
+        "Boeing787",
+        "Bridge",
+        "Bus",
+        "C919",
+        "Cargo Truck",
+        "Dry Cargo Ship",
+        "Dump Truck",
+        "Engineering Ship",
+        "Excavator",
+        "Fishing Boat",
+        "Football Field",
+        "Intersection",
+        "Liquid Cargo Ship",
+        "Motorboat",
+        "Passenger Ship",
+        "Roundabout",
+        "Small Car",
+        "Tennis Court",
+        "Tugboat",
+        "Van",
+        "Warship",
+        "other-airplane",
+        "other-ship",
+        "other-vehicle"
+      ]
+    },
+    "SODA-A": {
+      "candidate_count": 309218,
+      "selected_count": 500,
+      "unique_images": 488,
+      "available_size_bins": [
+        "medium",
+        "small"
+      ],
+      "available_ar_bins": [
+        "1.6<=ar<2.1",
+        "ar<1.6",
+        "ar>=2.1"
+      ],
+      "available_classes": [
+        "airplane",
+        "container",
+        "helicopter",
+        "large-vehicle",
+        "ship",
+        "small-vehicle",
+        "storage-tank",
+        "swimming-pool",
+        "windmill"
+      ],
+      "selected_size_bins": [
+        "medium",
+        "small"
+      ],
+      "selected_ar_bins": [
+        "1.6<=ar<2.1",
+        "ar<1.6",
+        "ar>=2.1"
+      ],
+      "selected_classes": [
+        "airplane",
+        "container",
+        "helicopter",
+        "large-vehicle",
+        "ship",
+        "small-vehicle",
+        "storage-tank",
+        "swimming-pool",
+        "windmill"
+      ]
+    }
+  },
+  "manifest": {
+    "path": "/home/rspip/cqc/pro/study/orientbench/top_journal_v3_reaudit_055/reports/m4_human_annotation_sampling_manifest.csv",
+    "sha256": "e6479d43f0b9cb486e56b9804caef080d8dd5fc81edf7ce6d724f19d70b8a7b9",
+    "rows": 1500
+  },
+  "annotator_a_task": {
+    "path": "/home/rspip/cqc/pro/study/orientbench/annotation_tools/m4_angle_annotation/annotatorA_tasks.csv",
+    "sha256": "c6dc1e43dfe56a7645c0c6c81f584f3b57aeed4f3f3cd7068b421c2d05ce0fff",
+    "rows": 1500
+  },
+  "annotator_b_task": {
+    "path": "/home/rspip/cqc/pro/study/orientbench/annotation_tools/m4_angle_annotation/annotatorB_tasks.csv",
+    "sha256": "f2a147c018ada70a13842b7868754f39337b5e8d96ecbf5f894f154f82cf958d",
+    "rows": 1500
+  },
+  "same_target_set": true,
+  "different_random_order": true,
+  "gt_or_model_angle_exported": false,
+  "gt_or_model_obb_exported_to_tasks": false,
+  "formal_strata_geometry": "matched_GT_box_nonangular",
+  "formal_class_source": "matched_GT_class_via_class_constrained_match",
+  "formal_mask_definition": "matched_GT_aspect_ratio>=2.1",
+  "locator_geometry": "matched_prediction_box_nonangular",
+  "task_schema_is_exact_allowlist": true,
+  "crops_materialized": true,
+  "crop_sha256_bound_in_manifest": true,
+  "source_record_sha256_bound_in_manifest": true
+}

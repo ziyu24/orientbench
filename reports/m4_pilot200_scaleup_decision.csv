@@ -1,0 +1,9 @@
+gate,status,evidence,decision
+matched_target_set,PASS,"200 canonical pairs; A/B identities distinct; no schema errors",PROCEED
+usable_angle_pairs,PASS,"149/200 (74.5%); DIOR-R=38, FAIR1M=60, SODA-A=51",PROCEED
+angular_agreement,PASS,"mean=2.0938 deg; image-cluster bootstrap 95% CI=[1.8016,2.3932]; median=1.7137 deg",PROCEED
+tail_agreement,PASS,"p90=4.5579 deg; p95=5.5849 deg; P(>5 deg)=7.3826%; P(>10 deg)=0/149",PROCEED
+ar21_endpoint,PASS,"n=100; mean=1.9702 deg; 95% CI=[1.6360,2.3393]; P(>10 deg)=0",PROCEED
+cross_dataset_consistency,PASS,"mean DIOR-R=1.7467, FAIR1M=2.1755, SODA-A=2.2563 deg",PROCEED
+fine_risk_noise_sensitivity,PASS_WITH_BOUNDARY,"P(>5 deg): DIOR-R=2.63%, FAIR1M=10.00%, SODA-A=7.84%; small objects and 1.6<=ar<2.1 are noisier",KEEP_NOISE_SENSITIVE_LABEL
+paper_scaleup_gate,PASS,"pilot validates protocol and reveals scientifically relevant strata; current per-dataset/class tail counts remain insufficient for final stratified claims",PROCEED_TO_FROZEN_1500_TARGET

@@ -1,0 +1,7 @@
+head,dataset,n_seeds,mean,std,min,max,all_seed_CIlo_gt1,reproducible_reverse
+CSL,DIOR-R,3,0.9749,0.1094,0.875,1.1272,False,False
+CSL,SODA-A,3,1.0222,0.0725,0.9326,1.1101,False,False
+DCL,DIOR-R,3,0.2474,0.0101,0.2392,0.2617,False,False
+DCL,SODA-A,3,0.3815,0.0029,0.3788,0.3855,False,False
+PSC,DIOR-R,3,1.2504,0.0129,1.2333,1.2645,True,True
+PSC,SODA-A,3,1.1527,0.0045,1.1476,1.1585,True,True

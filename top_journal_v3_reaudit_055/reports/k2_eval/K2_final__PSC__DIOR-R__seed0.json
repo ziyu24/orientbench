@@ -1,0 +1,45 @@
+{
+  "run_id": "K2_final__PSC__DIOR-R__seed0",
+  "head": "PSC",
+  "dataset": "DIOR-R",
+  "n_matched": 85040,
+  "AP50": 0.5339,
+  "AP75": 0.3402,
+  "native_signal": "phase_mod",
+  "main_ar2.1": {
+    "n": 48353,
+    "NRC_score": 0.6016,
+    "angle_err_mean": 1.658,
+    "Risk70_score": 1.389,
+    "NRC_native": 1.2533,
+    "NRC_native_CI": [
+      1.2169,
+      1.2958
+    ],
+    "AURC_native": 1.9633
+  },
+  "sens_ar1.6": {
+    "n": 56862,
+    "NRC_score": 0.568,
+    "angle_err_mean": 1.721,
+    "Risk70_score": 1.394,
+    "NRC_native": 1.2097,
+    "NRC_native_CI": [
+      1.1754,
+      1.2446
+    ],
+    "AURC_native": 1.9873
+  },
+  "sens_ar1.3": {
+    "n": 61340,
+    "NRC_score": 0.5491,
+    "angle_err_mean": 1.937,
+    "Risk70_score": 1.532,
+    "NRC_native": 1.1314,
+    "NRC_native_CI": [
+      1.0945,
+      1.1711
+    ],
+    "AURC_native": 2.1335
+  }
+}

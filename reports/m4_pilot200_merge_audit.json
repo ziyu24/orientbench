@@ -1,0 +1,15 @@
+{
+  "annotator_identities_distinct": true,
+  "errors": [],
+  "human_usable": 149,
+  "minimum_per_dataset": 1,
+  "pairs": 200,
+  "raw_a_exists": true,
+  "raw_b_exists": true,
+  "status": "COMPLETE_INDEPENDENT_DOUBLE_ANNOTATION",
+  "usable_counts": {
+    "DIOR-R": 38,
+    "FAIR1M-v1.0": 60,
+    "SODA-A": 51
+  }
+}

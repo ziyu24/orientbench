@@ -1,0 +1,151 @@
+canonical_anon_id,dataset,class,size_bin,aspect_ratio,ar_bin,ar21,sampling_component,high_disagreement_or_ambiguous,sampling_seed
+885f088889e15db7,DIOR-R,storagetank,small,1.076923,ar<1.6,False,boundary,True,20260722
+f85a7daeac39ebeb,DIOR-R,storagetank,small,1.2,ar<1.6,False,boundary,True,20260722
+d86f87aaf790b25f,DIOR-R,overpass,large,4.078014,ar>=2.1,True,boundary,True,20260722
+807b99eb9be9279b,DIOR-R,Expressway-Service-area,medium,1.537676,ar<1.6,False,boundary,True,20260722
+2826262db34abf4e,DIOR-R,harbor,medium,1.173616,ar<1.6,False,boundary,True,20260722
+8b99a371bfe4d287,DIOR-R,storagetank,medium,1.413793,ar<1.6,False,boundary,True,20260722
+6debc5abc56e8aeb,DIOR-R,baseballfield,small,1.272727,ar<1.6,False,boundary,True,20260722
+495ec00599149c07,DIOR-R,windmill,small,1.733333,1.6<=ar<2.1,False,boundary,True,20260722
+36398e51d6143a74,DIOR-R,storagetank,small,1.3125,ar<1.6,False,boundary,True,20260722
+1e3d8cc1e6c55d3b,DIOR-R,Expressway-toll-station,small,1.5,ar<1.6,False,boundary,True,20260722
+3f2bfa7d8e6debbc,DIOR-R,storagetank,medium,1.047619,ar<1.6,False,boundary,True,20260722
+bb54e96164aa272d,DIOR-R,bridge,small,1.647059,1.6<=ar<2.1,False,boundary,True,20260722
+fbe650b1bdf5daa4,DIOR-R,vehicle,small,2.475248,ar>=2.1,True,boundary,True,20260722
+c42c861402c080cb,DIOR-R,bridge,medium,2.636387,ar>=2.1,True,boundary,True,20260722
+e9aa2a06a31d5d39,DIOR-R,harbor,medium,1.709677,1.6<=ar<2.1,False,boundary,True,20260722
+320b6a01156fb505,DIOR-R,tenniscourt,medium,1.942119,1.6<=ar<2.1,False,random_regular,False,20260722
+6b885cd5147d59a3,DIOR-R,ship,small,2.176471,ar>=2.1,True,random_regular,False,20260722
+3221770800266275,DIOR-R,ship,medium,2.894737,ar>=2.1,True,random_regular,False,20260722
+bf3f8d9e4b2ea467,DIOR-R,basketballcourt,medium,2.535521,ar>=2.1,True,random_regular,False,20260722
+288d818b5d6c0f9f,DIOR-R,ship,small,2.0,1.6<=ar<2.1,False,random_regular,False,20260722
+239f1c7b133a86b3,DIOR-R,ship,medium,1.402085,ar<1.6,False,random_regular,False,20260722
+dbd2bb2c41304299,DIOR-R,vehicle,small,4.84841,ar>=2.1,True,random_regular,False,20260722
+24b572df6ef2d75c,DIOR-R,ship,small,2.6,ar>=2.1,True,random_regular,False,20260722
+ec4e635defc85042,DIOR-R,airplane,medium,1.067049,ar<1.6,False,random_regular,False,20260722
+8f9579cf2f7c3272,DIOR-R,ship,small,3.093248,ar>=2.1,True,random_regular,False,20260722
+29f3da55a75e96e9,DIOR-R,vehicle,medium,2.347826,ar>=2.1,True,random_regular,False,20260722
+c6c873b2be3ea780,DIOR-R,ship,small,3.111111,ar>=2.1,True,random_regular,False,20260722
+665a00b3728188ec,DIOR-R,stadium,medium,1.716924,1.6<=ar<2.1,False,random_regular,False,20260722
+8e5142c19b9f51a5,DIOR-R,dam,large,1.398501,ar<1.6,False,random_regular,False,20260722
+a3559cc1ddd6b3bf,DIOR-R,Expressway-toll-station,large,1.657955,1.6<=ar<2.1,False,random_regular,False,20260722
+0726c25ff3e6cc24,DIOR-R,vehicle,medium,2.34375,ar>=2.1,True,random_regular,False,20260722
+ced37bc8cc8e1210,DIOR-R,tenniscourt,medium,2.12736,ar>=2.1,True,random_regular,False,20260722
+c447c023a2c57d5d,DIOR-R,tenniscourt,medium,2.093023,1.6<=ar<2.1,False,random_regular,False,20260722
+5a49d9f508208d8e,DIOR-R,ship,small,2.666667,ar>=2.1,True,random_regular,False,20260722
+adf21d9d5f36829e,DIOR-R,ship,small,3.15,ar>=2.1,True,random_regular,False,20260722
+39d54d6d8c886867,DIOR-R,ship,medium,3.0,ar>=2.1,True,random_regular,False,20260722
+cf0f7b50559d0136,DIOR-R,ship,medium,2.7,ar>=2.1,True,random_regular,False,20260722
+fc5045dd9772e2e2,DIOR-R,vehicle,small,2.0,1.6<=ar<2.1,False,random_regular,False,20260722
+b7d52cf52b84be21,DIOR-R,tenniscourt,medium,1.529412,ar<1.6,False,random_regular,False,20260722
+1ce2a518edcc66a2,DIOR-R,vehicle,medium,2.364988,ar>=2.1,True,random_regular,False,20260722
+f7357de27dfb5e91,DIOR-R,vehicle,small,2.285714,ar>=2.1,True,random_regular,False,20260722
+a89cf4600ea3593a,DIOR-R,vehicle,small,2.5,ar>=2.1,True,random_regular,False,20260722
+0759559b302c658d,DIOR-R,basketballcourt,large,1.863821,1.6<=ar<2.1,False,random_regular,False,20260722
+c9e6f29e0a36851f,DIOR-R,vehicle,small,2.071896,1.6<=ar<2.1,False,random_regular,False,20260722
+7ab093b45cccf80f,DIOR-R,ship,medium,2.867949,ar>=2.1,True,random_regular,False,20260722
+c26412cc14adf60e,DIOR-R,airplane,large,1.62963,1.6<=ar<2.1,False,random_regular,False,20260722
+2248426dbd1d000b,DIOR-R,stadium,medium,1.352941,ar<1.6,False,random_regular,False,20260722
+1f45c229950a0bcd,DIOR-R,vehicle,medium,2.511628,ar>=2.1,True,random_regular,False,20260722
+703b1287f887bb6f,DIOR-R,vehicle,medium,2.206897,ar>=2.1,True,random_regular,False,20260722
+4813b884a8e9227a,DIOR-R,tenniscourt,medium,2.153132,ar>=2.1,True,random_regular,False,20260722
+b572312640da1b77,FAIR1M-v1.0,Football Field,medium,2.342428,ar>=2.1,True,boundary,True,20260722
+5086b693a70886d6,FAIR1M-v1.0,Bridge,medium,1.925926,1.6<=ar<2.1,False,boundary,True,20260722
+b04e17151c2f15be,FAIR1M-v1.0,Small Car,small,2.0,1.6<=ar<2.1,False,boundary,True,20260722
+4ec7b96a1f145ae4,FAIR1M-v1.0,Small Car,small,1.99422,1.6<=ar<2.1,False,boundary,True,20260722
+30446a2d271e3cbf,FAIR1M-v1.0,Bridge,small,2.117146,ar>=2.1,True,boundary,True,20260722
+71a053f7358963c2,FAIR1M-v1.0,Engineering Ship,medium,2.013469,1.6<=ar<2.1,False,boundary,True,20260722
+1bb2b2326864db99,FAIR1M-v1.0,Dump Truck,small,3.32,ar>=2.1,True,boundary,True,20260722
+3810e5f812230674,FAIR1M-v1.0,Small Car,small,2.370892,ar>=2.1,True,boundary,True,20260722
+129f458ad04ac8a9,FAIR1M-v1.0,other-airplane,medium,1.123067,ar<1.6,False,boundary,True,20260722
+aba88ff032184a4f,FAIR1M-v1.0,Small Car,small,2.246575,ar>=2.1,True,boundary,True,20260722
+6df46b3c38ae2c19,FAIR1M-v1.0,Small Car,small,1.5,ar<1.6,False,boundary,True,20260722
+3579202ecfa3ba24,FAIR1M-v1.0,Small Car,small,1.642857,1.6<=ar<2.1,False,boundary,True,20260722
+da86df7d3c8d12ed,FAIR1M-v1.0,Van,small,2.113924,ar>=2.1,True,boundary,True,20260722
+e81553fc128cac81,FAIR1M-v1.0,Small Car,small,3.194805,ar>=2.1,True,boundary,True,20260722
+38153dc8be349a37,FAIR1M-v1.0,Van,small,2.304348,ar>=2.1,True,boundary,True,20260722
+c4b4be0a023f7626,FAIR1M-v1.0,Bus,small,1.641148,1.6<=ar<2.1,False,random_regular,False,20260722
+e5b15ffe5d55e3f4,FAIR1M-v1.0,Van,small,2.018182,1.6<=ar<2.1,False,random_regular,False,20260722
+52653c939e4c15ed,FAIR1M-v1.0,Van,small,2.586667,ar>=2.1,True,random_regular,False,20260722
+f2c8a4b09c851efe,FAIR1M-v1.0,other-airplane,medium,2.328508,ar>=2.1,True,random_regular,False,20260722
+08a7efda2a2b21b5,FAIR1M-v1.0,Excavator,small,2.076923,1.6<=ar<2.1,False,random_regular,False,20260722
+7ea9ba6b904bcdc4,FAIR1M-v1.0,Van,small,3.2,ar>=2.1,True,random_regular,False,20260722
+151bb5ae124b28a8,FAIR1M-v1.0,Van,small,2.142857,ar>=2.1,True,random_regular,False,20260722
+606820ba91c3230c,FAIR1M-v1.0,Small Car,small,2.341772,ar>=2.1,True,random_regular,False,20260722
+d717fc0cf94ac3f1,FAIR1M-v1.0,Small Car,small,3.027211,ar>=2.1,True,random_regular,False,20260722
+2cb37ac1a7da2eeb,FAIR1M-v1.0,Small Car,small,2.877359,ar>=2.1,True,random_regular,False,20260722
+81d934df4d3acf46,FAIR1M-v1.0,Van,small,1.920245,1.6<=ar<2.1,False,random_regular,False,20260722
+a66c352023e57582,FAIR1M-v1.0,Motorboat,small,1.705882,1.6<=ar<2.1,False,random_regular,False,20260722
+03f01a2b2741d77a,FAIR1M-v1.0,Liquid Cargo Ship,medium,2.021958,1.6<=ar<2.1,False,random_regular,False,20260722
+ab6d1690b1ed918e,FAIR1M-v1.0,Small Car,small,2.424581,ar>=2.1,True,random_regular,False,20260722
+7399d5684dd06bad,FAIR1M-v1.0,Van,small,1.680851,1.6<=ar<2.1,False,random_regular,False,20260722
+28867127259fe47e,FAIR1M-v1.0,Van,small,1.7,1.6<=ar<2.1,False,random_regular,False,20260722
+bf15f8582d5576ab,FAIR1M-v1.0,Van,small,2.078431,1.6<=ar<2.1,False,random_regular,False,20260722
+cc86908a59bb0fd3,FAIR1M-v1.0,Small Car,small,3.555556,ar>=2.1,True,random_regular,False,20260722
+90d4eacc916b7079,FAIR1M-v1.0,Basketball Court,small,1.651389,1.6<=ar<2.1,False,random_regular,False,20260722
+c4d20ad458504721,FAIR1M-v1.0,A220,medium,1.229426,ar<1.6,False,random_regular,False,20260722
+daf1ad6d73b80856,FAIR1M-v1.0,Motorboat,medium,3.021739,ar>=2.1,True,random_regular,False,20260722
+9a54718857c88412,FAIR1M-v1.0,Small Car,small,1.847222,1.6<=ar<2.1,False,random_regular,False,20260722
+882736286d5514b8,FAIR1M-v1.0,Van,small,1.81982,1.6<=ar<2.1,False,random_regular,False,20260722
+e9e8c814b3ebf496,FAIR1M-v1.0,Small Car,small,2.742647,ar>=2.1,True,random_regular,False,20260722
+4aa211346a0b64c5,FAIR1M-v1.0,Boeing787,medium,1.141282,ar<1.6,False,random_regular,False,20260722
+73218fe6b3296078,FAIR1M-v1.0,Small Car,small,2.125,ar>=2.1,True,random_regular,False,20260722
+c14e7257b339d0b2,FAIR1M-v1.0,Small Car,small,2.207547,ar>=2.1,True,random_regular,False,20260722
+a2164940df30fd37,FAIR1M-v1.0,Small Car,small,3.4,ar>=2.1,True,random_regular,False,20260722
+61153cb38a3fded6,FAIR1M-v1.0,Van,small,2.721805,ar>=2.1,True,random_regular,False,20260722
+f7f0d2e1e7957d53,FAIR1M-v1.0,Van,small,1.681818,1.6<=ar<2.1,False,random_regular,False,20260722
+7fccbe2f74a4bada,FAIR1M-v1.0,Small Car,small,1.777778,1.6<=ar<2.1,False,random_regular,False,20260722
+d69040084cfc4879,FAIR1M-v1.0,Small Car,small,3.029412,ar>=2.1,True,random_regular,False,20260722
+46b9777eacdf87a2,FAIR1M-v1.0,Small Car,small,1.586207,ar<1.6,False,random_regular,False,20260722
+5668d64fa67d686b,FAIR1M-v1.0,Dump Truck,small,3.123153,ar>=2.1,True,random_regular,False,20260722
+4f3c434881c5d57f,FAIR1M-v1.0,Small Car,small,1.747036,1.6<=ar<2.1,False,random_regular,False,20260722
+489f484f9e2779ce,SODA-A,small-vehicle,small,1.673708,1.6<=ar<2.1,False,boundary,True,20260722
+ae5383f9df259c3c,SODA-A,storage-tank,small,1.044419,ar<1.6,False,boundary,True,20260722
+67b62b86c2b79a95,SODA-A,small-vehicle,small,1.836493,1.6<=ar<2.1,False,boundary,True,20260722
+97167e1b99bae76b,SODA-A,small-vehicle,small,1.723932,1.6<=ar<2.1,False,boundary,True,20260722
+4f9df17fa135e303,SODA-A,large-vehicle,small,1.068247,ar<1.6,False,boundary,True,20260722
+de5758edb422a308,SODA-A,swimming-pool,small,1.069991,ar<1.6,False,boundary,True,20260722
+905ea71752531836,SODA-A,small-vehicle,small,1.844642,1.6<=ar<2.1,False,boundary,True,20260722
+6da68bf34c562e90,SODA-A,ship,small,2.026918,1.6<=ar<2.1,False,boundary,True,20260722
+1f89a522e52cf04f,SODA-A,small-vehicle,small,2.159202,ar>=2.1,True,boundary,True,20260722
+5b508d573b886550,SODA-A,windmill,small,1.051023,ar<1.6,False,boundary,True,20260722
+48d75a16f0b27bf6,SODA-A,small-vehicle,small,2.150859,ar>=2.1,True,boundary,True,20260722
+26e8b75d028d066b,SODA-A,container,small,2.852552,ar>=2.1,True,boundary,True,20260722
+2f169f35a356eae3,SODA-A,swimming-pool,small,2.114354,ar>=2.1,True,boundary,True,20260722
+a13f3fe8d1b6401e,SODA-A,small-vehicle,small,1.433625,ar<1.6,False,boundary,True,20260722
+f251048ed7cbe7df,SODA-A,swimming-pool,small,2.026692,1.6<=ar<2.1,False,boundary,True,20260722
+f5aed09ba3b21d74,SODA-A,ship,small,2.925755,ar>=2.1,True,random_regular,False,20260722
+30afd0ef2dff8a7b,SODA-A,small-vehicle,small,1.769691,1.6<=ar<2.1,False,random_regular,False,20260722
+c06ebfc4e45c54c4,SODA-A,container,small,5.214593,ar>=2.1,True,random_regular,False,20260722
+7292316abfbde484,SODA-A,small-vehicle,small,2.125764,ar>=2.1,True,random_regular,False,20260722
+fe40095132a582a8,SODA-A,small-vehicle,small,2.492634,ar>=2.1,True,random_regular,False,20260722
+9f14b78bfb8df884,SODA-A,small-vehicle,small,1.805277,1.6<=ar<2.1,False,random_regular,False,20260722
+c0a6b7d9eb44f5cf,SODA-A,small-vehicle,small,2.23744,ar>=2.1,True,random_regular,False,20260722
+ccd55711d2a41e8b,SODA-A,small-vehicle,small,2.046002,1.6<=ar<2.1,False,random_regular,False,20260722
+1cd8cb77d734711e,SODA-A,small-vehicle,small,2.285835,ar>=2.1,True,random_regular,False,20260722
+af7a4e6539fa0c00,SODA-A,container,small,6.138348,ar>=2.1,True,random_regular,False,20260722
+c7b132d46ed2d687,SODA-A,container,small,5.145677,ar>=2.1,True,random_regular,False,20260722
+a6778f7701e629c2,SODA-A,small-vehicle,small,2.387833,ar>=2.1,True,random_regular,False,20260722
+ec093c884db655a2,SODA-A,small-vehicle,small,2.30714,ar>=2.1,True,random_regular,False,20260722
+28b456aaf83cb4d0,SODA-A,container,small,4.678839,ar>=2.1,True,random_regular,False,20260722
+dc380846a1ee5cc1,SODA-A,container,small,4.800057,ar>=2.1,True,random_regular,False,20260722
+d9d26d289ef634f9,SODA-A,container,small,4.899752,ar>=2.1,True,random_regular,False,20260722
+7d3ffb051c892632,SODA-A,small-vehicle,small,2.210519,ar>=2.1,True,random_regular,False,20260722
+e02d6626ec129ea1,SODA-A,ship,small,2.898212,ar>=2.1,True,random_regular,False,20260722
+d2c9b3fd6e29a254,SODA-A,small-vehicle,small,2.143658,ar>=2.1,True,random_regular,False,20260722
+282ec8bbf1e46398,SODA-A,small-vehicle,small,2.424067,ar>=2.1,True,random_regular,False,20260722
+e27dfec3519adc65,SODA-A,ship,small,2.181819,ar>=2.1,True,random_regular,False,20260722
+043ca8c1967538ae,SODA-A,small-vehicle,small,2.633465,ar>=2.1,True,random_regular,False,20260722
+9dee7bc7edd291c6,SODA-A,small-vehicle,small,1.90246,1.6<=ar<2.1,False,random_regular,False,20260722
+bc3f1cb52de6b28f,SODA-A,container,small,5.273803,ar>=2.1,True,random_regular,False,20260722
+f40dec08970cd145,SODA-A,small-vehicle,small,2.148478,ar>=2.1,True,random_regular,False,20260722
+034faf734f0393c8,SODA-A,container,small,5.183791,ar>=2.1,True,random_regular,False,20260722
+86e4898759bfa621,SODA-A,container,small,2.267228,ar>=2.1,True,random_regular,False,20260722
+63934fdf7f78307c,SODA-A,small-vehicle,small,2.381835,ar>=2.1,True,random_regular,False,20260722
+7bbd3cf204cf6a82,SODA-A,ship,small,2.505937,ar>=2.1,True,random_regular,False,20260722
+70957c6319149032,SODA-A,small-vehicle,small,2.325274,ar>=2.1,True,random_regular,False,20260722
+d0d34351da77ac98,SODA-A,container,small,4.395907,ar>=2.1,True,random_regular,False,20260722
+84b5e69e679eeb27,SODA-A,small-vehicle,small,1.576948,ar<1.6,False,random_regular,False,20260722
+eaf48c88ebfb165a,SODA-A,container,small,4.395289,ar>=2.1,True,random_regular,False,20260722
+7de5cfb9881a2373,SODA-A,small-vehicle,small,2.232439,ar>=2.1,True,random_regular,False,20260722
+d305a7cadaa8dcb4,SODA-A,small-vehicle,small,2.869156,ar>=2.1,True,random_regular,False,20260722

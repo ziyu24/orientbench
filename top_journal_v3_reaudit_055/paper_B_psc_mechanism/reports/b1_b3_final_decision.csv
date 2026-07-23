@@ -1,0 +1,6 @@
+condition,status,evidence
+B1 frozen endpoint-specific protocol,PASS,protocol and registries frozen before B2/B3
+B2 sufficiency,PASS,informative random and reverse regions; non-extreme reverse cells
+B3 real intervention,PASS,H1 radial full-evaluator in 2 datasets x 3 seeds; H2/H3 actual frozen-vector intervention in 9/9 units
+identity boundary,PASS_WITH_LIMITATION,candidate scores ranking-only; vector interventions changing decoded angle are mechanism-only
+final_decision,PROCEED_B4_EXTERNAL_VALIDATION,at least one repeatable real-output mechanism supported; external variant not run

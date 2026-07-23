@@ -1,0 +1,14 @@
+{
+  "run_id": "K2_pilot__direct_regression_le90__SODA-A__lr0.005",
+  "head": "direct_regression_le90",
+  "dataset": "SODA-A",
+  "seed": 0,
+  "lr": 0.005,
+  "epochs": 3,
+  "stage": "pilot",
+  "status": "failed_training",
+  "final_ap50": null,
+  "amp_mode": "amp+fp32_exhausted",
+  "checkpoint": "",
+  "eval_json": ""
+}

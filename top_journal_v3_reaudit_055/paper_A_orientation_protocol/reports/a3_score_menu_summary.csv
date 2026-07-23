@@ -1,0 +1,5 @@
+score,input_features,requires_training,uses_gt,uses_target_gt,uses_source_gt,inference_available,deployable,diagnostic_upper_bound,rows,formally_certified,nontrivial_certified,practical_success,infeasible,max_audit_instance_coverage,max_audit_nonempty_scene_rate
+detection_score,detector confidence,False,False,False,False,True,True,False,36,0,0,0,36,0.000000,0.000000
+tta_circular_consistency,negative circular variance after theta->2theta TTA,False,False,False,False,True,True,False,36,1,0,0,35,1.000000,1.000000
+source_supervised_leave_geometry,"score, log(ar), log(size), width, height",True,True,False,True,True,True,False,36,0,0,0,36,0.000000,0.000000
+target_gt_nonlinear_geometry_upper_bound,"score, log(ar), log(size), width, height",True,True,True,False,True,False,True,36,1,1,1,35,0.701369,0.781030

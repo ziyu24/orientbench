@@ -1,0 +1,18 @@
+{
+  "schema_version": "a6_confirmatory_076_v1",
+  "frozen_at": "2026-07-22T14:20:00+08:00",
+  "candidate_priority": ["ARS-DETR clean persistent full-validation unit", "other existing provenance-clean unit"],
+  "eligibility": "persistent prediction and GT, full-val identity, complete provenance, and no participation in alpha/ar/score-direction/geometry-score/coverage-grid/M1-M3 design",
+  "main_mask": "ar>=2.1",
+  "primary_event": "geometry_normalized_severe",
+  "absolute_alpha": [0.001, 0.0025, 0.005, 0.01],
+  "score_menu": ["detection_score", "tta_circular_consistency_if_available", "source_supervised_leave_geometry_if_applicable"],
+  "target_gt_upper_bound_confirmatory_success": false,
+  "eligible_scene_universe": "scenes with at least one eligible matched prediction",
+  "post_threshold_empty_scene": "abstained, not zero risk",
+  "coverage_grid": [0.01, 0.025, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "practical_thresholds": {"nonempty_scene_rate_min": 0.1, "selected_instance_coverage_min": 0.1, "selected_count_min": 100},
+  "statistics": "fixed-sequence LTT with bounded-loss Hoeffding-Bentkus UCB; scene event Clopper-Pearson",
+  "a4_metrics": ["AP50", "AP75", "NRC", "5deg", "10deg", "15deg", "geometry_normalized_severe"],
+  "no_unit_policy": "NO_ELIGIBLE_CONFIRMATORY_UNIT; do not replace after seeing results"
+}

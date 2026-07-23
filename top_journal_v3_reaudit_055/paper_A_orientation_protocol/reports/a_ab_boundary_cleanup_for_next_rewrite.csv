@@ -1,0 +1,10 @@
+asset,action,allowed_in_A,notes
+phase_mod three-dataset three-seed complete table,DELETE_FROM_NEXT_A_REWRITE,False,B-exclusive
+CSL/DCL lineage main table,DELETE_FROM_NEXT_A_REWRITE,False,B-exclusive
+negative_phase_mod,DELETE_FROM_NEXT_A_REWRITE,False,B-exclusive
+radial/tangential intervention,DELETE_FROM_NEXT_A_REWRITE,False,B-exclusive
+PSC repair scores,DELETE_FROM_NEXT_A_REWRITE,False,B-exclusive
+B mechanism and repair conclusions,DELETE_FROM_NEXT_A_REWRITE,False,B-exclusive
+one endpoint-dependent native angle-signal observation,RETAIN_WITH_BOUNDARY,True,no B main table duplication
+boundary discussion without multi-seed numbers,RETAIN_WITH_BOUNDARY,True,no B main table duplication
+citation to B only after B is publicly available,RETAIN_WITH_BOUNDARY,True,no B main table duplication

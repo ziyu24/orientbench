@@ -1,0 +1,4 @@
+nrc_value,meaning,interpretation
+0.0,oracle,perfect risk-first ordering (best)
+1.0,random,ordering equivalent to random (uninformative)
+>1.0,reverse,high-confidence predictions have WORSE angle (reverse ranking)

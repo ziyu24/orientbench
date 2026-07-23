@@ -1,0 +1,23 @@
+{
+  "run_id": "DCL__SODA-A__seed1",
+  "angle_head": "DCL",
+  "dataset": "SODA-A",
+  "seed": "1",
+  "checkpoint": "epoch_12.pth",
+  "n_matched": 278031,
+  "n_masked_ar16": 234594,
+  "native_signal": "mean_bit_margin",
+  "masked_NRC_native": 0.3656,
+  "masked_NRC_score": 0.9881,
+  "masked_AURC_native": 2.0137,
+  "masked_Risk70_native": 2.565,
+  "masked_Risk90_native": 3.076,
+  "masked_NRC_native_CI": [
+    0.352,
+    0.3792
+  ],
+  "masked_angle_error_mean": 3.4477,
+  "AP50_self": 0.537,
+  "AP75_self": 0.1804,
+  "AP50_val_log": 0.537
+}

@@ -1,0 +1,5 @@
+candidate,formula,input_tensor,inference_available,uses_gt,uses_target_domain_fit,changes_prediction,relative_cost,relation_to_phase_mod,relation_to_negative_phase_mod,origin,status
+tta_phase_direction_consistency,-circular_variance(2*theta_tta),phase directions from identity/hflip/vflip,yes,no,no,no,three forwards,directional not radial,not a sign or monotone transform,development-derived,REGISTERED
+multi_frequency_consistency,-circular_distance(theta_f1/2;theta_unwrapped_f2/2),dual-frequency phase projections,yes,no,no,no,one forward,uses direction disagreement,not a sign or monotone transform,development-derived,REGISTERED
+unwrap_candidate_energy_gap,abs(cos(theta_f1-c0)-cos(theta_f1-c1)),dual-frequency phase projections and candidates,yes,no,no,no,one forward,uses candidate alignment,not a sign or monotone transform,development-derived,REGISTERED
+phase_direction_margin,unwrap_gap*secondary_phase_norm,dual-frequency phase projections,yes,no,no,no,one forward,combines directional candidate gap and secondary norm,not negative phase_mod,development-derived,REGISTERED

@@ -1,0 +1,3 @@
+run_id,amp_mode,status,ap50,decision
+K2_final__direct_regression_le90__SODA-A__seed0,amp,nan,,nan
+K2_final__direct_regression_le90__SODA-A__seed0,fp32_fallback,nan,,nan

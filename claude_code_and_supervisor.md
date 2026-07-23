@@ -1577,3 +1577,573 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ## 2026-06-29 16:50:24 CST 来源: supervisor
 ### 038 P3 G2′ feasibility（简报 cc 👇👆；审计）
 - token 038。无 detector 训练/full matrix/Track A dump；thresholds·P1 split 未改。G2′ PASS: well-defined(ar>=1.6, near-square 排除) 上非线性 geometry-aware selector 显著优于 score+ar 线性(D_audit, 所有 cell+pooled DELTA CI>0; pooled P3 NRC 0.409 vs linear 0.626, delta 0.217[0.211,0.221]). ar>=1.3/2.0 sensitivity 一致. feature imp: box size+GV 主导, log_ar 极小→非 ar/非 near-square trivial. 诚实: P3=upper-bound post-hoc(用 GT 标签训练), 非 deployable; 未声称 P3 已成立. 下一步 pass 分支: G1/G3/G4 + Track A dump. 单文件 docs/p3_g2prime_feasibility_report.md. verifier 107 14/14; pytest 264; git 0 大文件.
+## 2026-07-02 18:44:34 CST
+
+- 指令来源: SUPERVISOR_049_CODEX_TOP_JOURNAL_EVIDENCE_UPGRADE_V2
+- 执行动作: 读取 AGENTS.md 和 项目执行文件_v2_measure_fix.md；创建 top_journal_v3；生成 P1-P5 partial evidence package、写作 patch、验证器输入产物。
+- 关键产物路径: top_journal_v3/docs/, top_journal_v3/reports/, top_journal_v3/figures/, top_journal_v3/scripts/run_049_evidence.py
+- pass/fail/partial: partial；P3 机制免费测试未达升级标准。
+- 是否触发停止条件: 是，P3 per-instance mechanism artifacts 缺失导致不得进入 PSC 重训矩阵；P1 final construct validity 受 proxy/synthetic raw predictions 限制。
+- 下一步建议: 定位非 synthetic detector raw predictions 和 per-instance PSC phase_mod dump 后复跑。
+
+## 2026-07-02 18:46:20 CST
+
+- 指令来源: SUPERVISOR_049_CODEX_TOP_JOURNAL_EVIDENCE_UPGRADE_V2
+- 执行动作: 读取 AGENTS.md 和 项目执行文件_v2_measure_fix.md；创建 top_journal_v3；生成 P1-P5 partial evidence package、写作 patch、验证器输入产物。
+- 关键产物路径: top_journal_v3/docs/, top_journal_v3/reports/, top_journal_v3/figures/, top_journal_v3/scripts/run_049_evidence.py
+- pass/fail/partial: partial；P3 机制免费测试未达升级标准。
+- 是否触发停止条件: 是，P3 per-instance mechanism artifacts 缺失导致不得进入 PSC 重训矩阵；P1 final construct validity 受 proxy/synthetic raw predictions 限制。
+- 下一步建议: 定位非 synthetic detector raw predictions 和 per-instance PSC phase_mod dump 后复跑。
+
+## 2026-07-02 18:46:44 CST
+
+- 指令来源: SUPERVISOR_049_CODEX_TOP_JOURNAL_EVIDENCE_UPGRADE_V2
+- 执行动作: 读取 AGENTS.md 和 项目执行文件_v2_measure_fix.md；创建 top_journal_v3；生成 P1-P5 partial evidence package、写作 patch、验证器输入产物。
+- 关键产物路径: top_journal_v3/docs/, top_journal_v3/reports/, top_journal_v3/figures/, top_journal_v3/scripts/run_049_evidence.py
+- pass/fail/partial: partial；P3 机制免费测试未达升级标准。
+- 是否触发停止条件: 是，P3 per-instance mechanism artifacts 缺失导致不得进入 PSC 重训矩阵；P1 final construct validity 受 proxy/synthetic raw predictions 限制。
+- 下一步建议: 定位非 synthetic detector raw predictions 和 per-instance PSC phase_mod dump 后复跑。
+
+## 2026-07-02 18:47:16 CST
+
+- 指令来源: SUPERVISOR_049_CODEX_TOP_JOURNAL_EVIDENCE_UPGRADE_V2
+- 执行动作: 读取 AGENTS.md 和 项目执行文件_v2_measure_fix.md；创建 top_journal_v3；生成 P1-P5 partial evidence package、写作 patch、验证器输入产物。
+- 关键产物路径: top_journal_v3/docs/, top_journal_v3/reports/, top_journal_v3/figures/, top_journal_v3/scripts/run_049_evidence.py
+- pass/fail/partial: partial；P3 机制免费测试未达升级标准。
+- 是否触发停止条件: 是，P3 per-instance mechanism artifacts 缺失导致不得进入 PSC 重训矩阵；P1 final construct validity 受 proxy/synthetic raw predictions 限制。
+- 下一步建议: 定位非 synthetic detector raw predictions 和 per-instance PSC phase_mod dump 后复跑。
+
+## 2026-07-02 20:09:29 CST
+
+- 指令来源: SUPERVISOR_050_CODEX_REAL_ARTIFACT_RECOVERY_AND_EVIDENCE_COMPLETION
+- 执行动作: real artifact audit；基于 verified non-synthetic artifacts 生成 partial real evidence；未启动训练/GPU inference。
+- 关键产物路径: top_journal_v3/reports/real_artifact_inventory_050.csv; outputs/persistent_artifacts/manifest_050.json; top_journal_v3/docs/top_journal_evidence_decision_050.md
+- pass/fail/partial: partial; P3 fail for escalation.
+- 是否触发停止条件: 是，DOTA #20 phase_mod 与 exact per-matched phase_mod table 缺失，不能进入 PSC 重训矩阵。
+- 下一步建议: 先补 DOTA #20 instrumented forward dump 和 exact per-pred match index persistence，再复跑 P3/P4。
+
+## 2026-07-02 20:14:33 CST
+
+- 指令来源: SUPERVISOR_050_CODEX_REAL_ARTIFACT_RECOVERY_AND_EVIDENCE_COMPLETION
+- 执行动作: real artifact audit；基于 verified non-synthetic artifacts 生成 partial real evidence；未启动训练/GPU inference。
+- 关键产物路径: top_journal_v3/reports/real_artifact_inventory_050.csv; outputs/persistent_artifacts/manifest_050.json; top_journal_v3/docs/top_journal_evidence_decision_050.md
+- pass/fail/partial: partial; P3 fail for escalation.
+- 是否触发停止条件: 是，DOTA #20 phase_mod 与 exact per-matched phase_mod table 缺失，不能进入 PSC 重训矩阵。
+- 下一步建议: 先补 DOTA #20 instrumented forward dump 和 exact per-pred match index persistence，再复跑 P3/P4。
+
+## 2026-07-02 21:03:02 CST
+
+- 指令来源: SUPERVISOR_051_CODEX_HANDOFF_AND_REAL_EVIDENCE_RECOVERY
+- 执行动作: 读取 AGENTS.md 和 项目执行文件_v2_measure_fix.md；生成 handoff map、artifact locator、cell status、gap plan；离线恢复 PSC/TTA/matched capped artifacts；未启动 GPU/inference/training。
+- 关键产物路径: top_journal_v3/docs/codex_handoff_map_051.md; top_journal_v3/reports/real_cell_artifact_status_051.csv; outputs/persistent_artifacts/manifest_051.json
+- pass/fail/partial: partial recovery; P3 final rerun still blocked by DOTA #20 phase_mod.
+- 是否触发停止条件: 未触发科学早停；触发 artifact gap stop for final P3.
+- 下一步建议: 052 先补 DOTA #20 Track A dump 与 full matched persistence，再复跑 P1-P5。
+
+## 2026-07-02 22:12:26 CST
+
+- 指令来源: SUPERVISOR_052_CODEX_FORCE_REAL_DUMP_AND_FULL_MATCHED_TABLES
+- 执行动作: 用真实 DOTA #20 PSC checkpoint/config/shadow farm 运行 4GPU instrumented forward dump；持久化 DOTA #20 phase_mod pkl；重建 7 个 full matched 17-field tables；生成 4 个 PSC cell per-matched phase_mod full table；生成 7 个 TTA cells theta->2theta circular variance full table；新增并运行 052 verifier。
+- 关键产物路径: outputs/persistent_artifacts/orientbench_real_052/; outputs/persistent_artifacts/manifest_052.json; top_journal_v3/reports/full_matched_tables_052.csv; top_journal_v3/reports/psc_phase_mod_permatched_full_052.csv; top_journal_v3/reports/tta_circular_variance_full_052.csv
+- pass/fail/partial: pass for artifact recovery/readiness; P1-P5 now have verified real-artifact inputs for rerun.
+- 是否触发停止条件: 未触发；未修改 thresholds.yaml、D_cal/D_audit、原始 dataset、pth_data；未训练 host；未补 full matrix。
+- 下一步建议: 053 复跑 P1/P2/P3/P4/P5 scientific analyses using only 052 verified real artifacts.
+## 2026-07-02 23:59:09 CST
+
+- 指令来源：SUPERVISOR_053_CODEX_REAL_EVIDENCE_P1_P5_RERUN。
+- 执行动作：接手 052 real artifacts 后复跑 P1-P5 真实证据；P1 全量 raw/schema 扰动后重新匹配；P2 frozen split conformal；P3 PSC per-matched phase_mod 免费测试；P4 TTA circular variance 强基线；P5 angle-induced rIoU drop 下游任务；更新 053 verdict/report/verifier。
+- 关键产物路径：`top_journal_v3/docs/top_journal_evidence_decision_053.md`；`top_journal_v3/docs/codex_latest_report.md`；`top_journal_v3/scripts/verify_real_evidence_p1_p5_rerun_053.py`。
+- 是否触发停止条件：未触发受保护文件/训练/矩阵扩展停止条件；证据裁决要求 claim 收缩。
+- 下一步建议：以 053 真实证据为准进入收缩版论文写作，不写 broader top-tier ready，不启动 PSC 重训矩阵。
+## 2026-07-03 11:38:06 CST
+
+- 指令来源：SUPERVISOR_054_CODEX_REDUCED_SCOPE_CHINESE_PAPER_FINALIZATION。
+- 执行动作：根据 053 真实证据裁决完成收缩版中文论文定稿包；未新增实验、未训练、未触碰受保护 split/threshold；新增 reduced-scope verifier 并准备验证。
+- 关键产物路径：`top_journal_v3/docs/orientation_reliability_reduced_scope_paper_zh.md`；`top_journal_v3/docs/final_reduced_scope_paper_plan_054.md`；`top_journal_v3/docs/negative_results_and_boundaries_054.md`；`top_journal_v3/docs/conformal_risk_control_main_claim_054.md`；`top_journal_v3/docs/final_claim_ledger_reduced_scope_054.md`；`top_journal_v3/docs/codex_latest_report.md`。
+- 是否触发停止条件：未触发工程停止条件；触发科学 claim 收缩，P2 保留为主正贡献，P3/P4/P5 不再作为主贡献。
+- 下一步建议：将中文稿交合作者审稿，后续只做文字和引用校正，不再扩实验。
+- 验证结果：`verify_reduced_scope_paper_054.py` PASS；`pytest -q tests/test_bench_core0.py` 17 passed；protected diff clean；tracked git big-file check clean。
+## 2026-07-03 12:36:14 CST
+
+- 指令来源：用户要求为后续接手者记录当前工作交接。
+- 执行动作：新增 `top_journal_v3/docs/codex_successor_handoff_054.md`，记录接手前状态、052 real artifacts、053 真实证据复跑、054 收缩版论文定稿、当前裁决、禁区、路径和后续建议。
+- 关键产物路径：`top_journal_v3/docs/codex_successor_handoff_054.md`。
+- 是否触发停止条件：否；只做文档交接，未新增实验、未训练、未触碰受保护文件。
+- 下一步建议：后来者以交接文件为入口继续做论文文字、引用和图表定稿。
+
+## [2026-07-02 23:41:35 PDT] 055 已启动 (Claude re-audit)，详细日志见 top_journal_v3_reaudit_055/claude_code_and_supervisor.md
+
+## [2026-07-03 00:15:05 PDT] 055 完成 (Claude re-audit), 见 top_journal_v3_reaudit_055/docs/cc_latest_report.md (verify 45/45)
+
+## [2026-07-03 01:10:17 PDT] 056 完成 (正式论文重写), 见 top_journal_v3_reaudit_055/docs/cc_latest_report.md (verify 28/28, pytest 17)
+
+## [2026-07-03 02:06:14 PDT] 来源: supervisor — 056 覆盖版 OR_PRE_SUBMISSION_S1S5_V1
+指令全文要点(faithful record):
+- 覆盖前一 056 论文定稿命令。论文身份=朝向可靠性测量协议+有限样本保形风险控制+PSC机制候选。S1修完前不进英文稿/不讨论投稿/不宣称TGRS-ISPRS strong candidate/不美化。
+- 输出目录: top_journal_v3_reaudit_055/{docs,reports,figures}/pre_submission_s1s5_v1/; md 带 _v1; 大文件不进git; 不改thresholds/D_cal/D_audit; 不重训; 不追DOTA public mAP; 不补full matrix; 不复活P2/C1主线; 不把NRC<1写calibrated; 不把DOTA#20当机制证据; 不复活unmasked旧反校准; 主文无PM词汇。
+- T0 startup audit. 
+- S1a: 从raw predictions全管线扰动重跑(非matched-only), full evaluator重算AP50/AP75/mAP+angle/NRC/AURC/Risk; 报ΔAP; ar-bin dose-response; FP/duplicate变化; 反向扰动进附录。禁止matched-only mAP=1.000做主证据。
+- S1b: selector-fit vs conformal-calib 独立性修复(方案B leave-*或方案A三分D_fit/D_calib/D_audit); 重出score menu/NRC/conformal; 若修复后geometry不占优则不写recommended default。
+- S1c: LTT固定序列(替代grid+Hoeffding UCB,控FWER); 均值风险按[0,90]有界严格保证(删"无界只能近似"); image-level clustered bootstrap CI。
+- S1 sync: 表7"6/6"改"5/6+1打平"(SODA#23 TTA0.228>geo0.227); 标P1 unmasked/P2 masked; cliff分位在冻结masked重列; DIOR#10/SODA#11入附录; "先前文献"改"本项目早期分析"; NRC<1不叫calibrated改better-than-random/non-reversed/informative ranking。
+- S2: PSC机制免费测试(aliasing fingerprint + class/size/ar confounding, masked); DOTA#20仅artifact limitation; 两测试均支持才议重训矩阵(本轮不启动)。
+- S3: 冻结masked重算所有provenance-clean cells(robustness, 非补matrix)。
+- S4: 角度单位下游任务(HRSC ship geometric orientation, 只报OBB long-axis, 非semantic heading)。
+- S5: 去PM词汇重写风格+真实文献(CRC/RCPS/LTT等)+NRC方向示意图+一键复算脚本+repro log。
+- S9 最终判定; S10 verifier; S11 cc_latest_report_v1(入口出口)。
+- 判定规则: S1a或S1b失败→降级测量/技术报告不投顶刊; S1稳定→可恢复TGRS/ISPRS强候选; 本轮不得宣称CVPR/TPAMI ready。
+
+## [2026-07-03 02:37:58 PDT] 056 覆盖版 (OR_PRE_SUBMISSION_S1S5_V1) 完成
+- S1a PASS: 真实 full evaluator(raw preds) 约束扰动 4/4 cell ΔAP50=0.0000 + FP 不变(DIOR#22/#3/#61+FAIR1M#24, 跨PSC/ORCNN/RTMDet); SODA#23/#4 pass 后台收尾。matched-only mAP=1.000 代理已替换为真实 AP50。
+- S1b QUALIFIED: 独立性修复(D_fit/D_calib/D_audit); geometry selector 非普遍占优(弱信息 cell 更优, 强 cell 打平), 不写 blanket default。
+- S1c QUALIFIED: LTT 二项尾部+有界均值(Hoeffding B=90 过保守不实用)+image-clustered CI; 保证 modest。
+- S2: 1/2 支持(confounding 排除, 无 aliasing 峰)->phase_mod 保持 case study, 不启动重训。
+- S3: 6 full-val provenance-clean cell 主表 + 2 附录 + DOTA#20 排除。
+- S4: 角度单位下游真实但 modest(HRSC 仅 synthetic, 改用真实方向类)。
+- S5: rewrite plan + NRC 示意图 + 一键复算脚本 + repro log。
+- 判定: S1a 通过/S1b 未失败 -> 不降级; 有条件恢复 TGRS/ISPRS 方向判断; 不宣称 CVPR/TPAMI ready。可进修订中文稿; 暂不英文/投稿。
+- 验证: verify_pre_submission_s1s5_v1.py 49/49 PASS; pytest 17; thresholds b7c4e649 未变; D_cal/D_audit clean; git 无大文件。未触发停止条件。
+- 回执: top_journal_v3_reaudit_055/docs/pre_submission_s1s5_v1/cc_latest_report_v1.md
+
+## [2026-07-03 02:37:58 PDT] 056 覆盖版完成, 见 top_journal_v3_reaudit_055/docs/pre_submission_s1s5_v1/cc_latest_report_v1.md (verify 49/49, pytest 17)
+
+## [2026-07-03 04:44:46 PDT] 057 (OR_PAPER_ZH_S1S5_V1) 完成
+- SODA S1a 收尾: SODA#23 0.6119->0.6119, SODA#4 0.7592->0.7592, ΔAP@0.5=0.0000, FP 不变 -> 6/6 cell 完成, 无 compute limitation。
+- 中文完整论文稿: docs/paper_zh_s1s5_v1/orientation_reliability_paper_zh_s1s5_v1.md (摘要+关键词+11节+8表+7图占位+附录A-H)。去项目化(正文无 P1-5/S1a-c/056/verifier/sha256/artifact path/codex/claude); NRC<1=非反序不叫calibrated; 几何打分非通用默认; 保证 modest; 机制候选; 下游 modest; DOTA#20 仅来源限制。
+- 配套: paper_zh_review_checklist_v1.md。
+- 验证: verify_paper_zh_s1s5_v1.py 26/26 PASS; pytest 17; thresholds b7c4e649 未变; D_cal/D_audit clean; git 无大文件。
+- 边界: 仍禁止英文稿/投稿; 未宣称更高档位就绪。
+- 回执: docs/paper_zh_s1s5_v1/cc_latest_report_v1.md
+
+## [2026-07-03 04:44:46 PDT] 057 完成 (中文完整论文稿), 见 top_journal_v3_reaudit_055/docs/paper_zh_s1s5_v1/cc_latest_report_v1.md (verify 26/26, pytest 17)
+
+## [2026-07-03 06:21:58 PDT] 058 (OR_PRE_SUBMISSION..v5 R1/R2/R3 启动) 完成 — 无训练
+- R1 角度编码器机制矩阵: 训练前预注册完成 (docs/r1_angle_coder_intervention_matrix.md + reports/r1_angle_coder_matrix.csv 30 runs 全 pending_preregistered, seed_variance 表). 未启动训练。5 heads(PSC/CSL/DCL/direct-reg/KLD)x2 dataset(DIOR-R,SODA-A)x3 seeds; 结局 A/B/C 预注册; direct-reg=no-native-uncertainty negative control。
+- R2 宽度审计: docs/r2_frozen_masked_recompute.md + reports/r2_cell_inclusion_exclusion_log.csv (6 clean main / 4 masked-only 附录 / 1 invalid DOTA#20 / 4 候选族需前向). blocker: 扩到12-15需新前向dump(非058)。
+- R3 文献+理论: docs/r3_related_work_completed.md (真实文献, 5核心联网核验: PSC/KLD/SODA-A/CRC/LTT; 其余真实但精确字段列 blocker, 不伪造) + docs/r3_iou_aspect_ratio_theory.md (命题+数值验证, 不硬写Fisher定理)。
+- R3 写作: docs/r3_manuscript_cleanup_plan.md (10项检查: 9通过, 唯一未过=文献待整合#8)。
+- 第三方复算: docs/third_party_reproduction_log.md (一键脚本覆盖表2/4/5/6/7+dose; 缺口=表1汇总/表3内联A0/根级固定入口; 未声称复算完备)。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit clean; git 无大文件; 未训练/未推理(server上 train1685.py 等为他项目, 非本项目)。
+- 下一条命令: 059。
+
+## [2026-07-03 07:00:53 PDT] 059 (v5 主执行) 完成 — 无训练完成(数据阻断)
+- R3 v2 审稿版单文件: docs/paper_zh_s1s5_v2_review/orientation_reliability_paper_zh_s1s5_v2_review.md (真实文献整合, 0待补, 0 PM词, forbidden 仅否定语境; 双向解耦; IoU理论+图2; 反向扰动/尾部事件附录). + references_integrated_checklist.md + text_cleanup_audit.md。
+- R2: 6 clean full-val 主表复算(masked NRC 0.41-0.91) + 4 masked-only 附录; 宽度仍6, 扩12-15需新前向dump(blocker); DOTA#20 仍 invalid。reports/r2_*.csv。
+- R1: manifest 30 runs; 尝试启动 PSC/DIOR seed0 -> 数据阻断(DIOR annfiles_dotaformat/trainval 空, 原生为 XML, 需 XML->DOTA-txt 转换); 0完成/0有效运行; 不标 failed_training; phase_mod 仍候选。
+- R3b IoU图: scripts/plot_iou_delta_theta_aspect_ratio.py + figures/*.{png,pdf,csv}; ar<=1.2 永不跌破IoU0.5。R3c 反向扰动: AP50可变角度不变(双向解耦)。R4 尾部事件: 严重误差稀有, 检测常足够 -> 附录。
+- 第三方复算: 新增 scripts/reproduce_all_main_tables.sh (root, 只读); 058缺口关闭(表1/内联A0/root入口); --fast dry-run 成功。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit clean; git 无大文件; 未重训 host; 未追 public mAP; 未写 full project complete / TPAMI-CVPR ready; phase_mod 未写成机制证明。
+- 下一条命令: 060。
+
+## [2026-07-03 08:39:04 PDT] 060 (R1 解阻+四卡训练启动) 完成
+- 数据解阻: DIOR XML->DOTA-txt 转换(scripts/convert_dior_obbxml_to_dota_txt.py; trainval 11725/68073obj, test 11738/124445obj, 0空0缺; orientbench prep 目录+图像symlink, 不污染共享数据集); SODA-A 原生 DOTA 格式可用。
+- R1 真实四卡训练启动: PSC/DIOR-R/seed0 torch.distributed.run nproc=4 训练中(~1.2GB/卡, 与外部D17共存, Epoch1 正常, ETA~1.5h)。watcher(scripts/watch_r1_oom_retry.py: 4卡强制/OOM1200s/EADDRINUSE端口重试/只清本项目/状态落盘)驱动 PSC-DIOR seed0->1->2。
+- 早期 rc=1 = 端口冲突(D17占29511), 已修端口重试, 非failed_training非机制结论。config就绪: PSC-DIOR+PSC-SODA(dota_format_tiled_ss)。CSL/DCL/KLD/reg config 待授权派生。
+- 完成0/有效运行1(PSC-DIOR seed0)/failed0/排队多。phase_mod 仍机制候选(矩阵未完成)。
+- R2: 6 clean cells masked 指标已在; 候选前向dump命令+估计已备, 未抢占R1(R1优先); DOTA#20 仍invalid。
+- R3 v2 审稿版: 复检无待补/无PM词/NRC<1非calibrated/phase_mod候选/DOTA#20不进主结论/无ready; 无需同步。
+- 合规: thresholds b7c4e649未变; D_cal/D_audit未改(只加训练输入prep+config repoint); git无大文件; 未重训host(baseline pth未动); 未追public mAP; 未写full complete/TPAMI-CVPR ready; phase_mod未写机制证明。
+- 下一条命令: 061。
+
+## 2026-07-05 07:17 PDT — 命令 061（R1 矩阵铺开 + 四卡队列续跑）
+- 指令来源: 监督员命令 061。
+- 接管发现: 060 watcher 已死; PSC/DIOR-R/seed0 已完成(epoch12, AP50=0.5310, DIOR-R test split); seed1 于 07/03 因 NCCL heartbeat(600s)崩在 epoch8(工程性挂起, 非模型失败)。
+- 执行动作:
+  1. 配置派生: gen_r1_angle_head_configs.py 由已打通 PSC 模板(DIOR nc=20/SODA nc=9)只换 head/coder/loss 派生 CSL/KLD/direct_regression + PSC seed1/2; 30 配置全量。
+  2. DCLCoder 缺失(mmrotate 1.0.0rc1 无) → 项目本地实现 orientbench_ext/dcl_coder.py(BCL 变体), custom_imports 注入, 单元测试 test_dcl_coder.py 通过(round-trip 0.50°<1° bin); DCL 标 head_impl=project_local_BCL。
+  3. smoke 测试 smoke_test_r1_configs.py: 30/30 PASS(parse+model-build+真实样本; DIOR n=11725/SODA n=23063)。
+  4. 四卡稳健化: launcher 加 TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC=3600 + auto --resume + PYTHONPATH(ext)。
+  5. 队列 watch_r1_oom_retry_061.py: 跳过已完成 seed0, seed1 自 epoch8 恢复训练中(现 epoch9 val, ETA→epoch10-12), 28 queued。首试 seed1 OOM(GPU1 被 D17 占满 2.69MiB free) → 按令等 1200s → D17 释放后四卡重试成功(mem 1181MiB/卡, 4 卡 91-99%)。全程未动 D17。
+  6. 文档/表: matrix(seed0 AP50 实填, 余 pending/queued; KLD 命名归一到 manifest)、manifest、queue_status_061、config_derivation_061、eval_spec_061、R2 §9、R3 audit_061。
+- 关键产物: top_journal_v3_reaudit_055/{configs/r1_angle_coder/(30 .py), orientbench_ext/, scripts/{gen_,smoke_}, reports/{r1_angle_coder_matrix,run_manifest,queue_status_061,r1_config_smoke_061}.csv, docs/{r1_angle_coder_config_derivation_061,r1_eval_spec_061}.md, docs/paper_zh_s1s5_v2_review/text_cleanup_audit_061.md}; scripts/{run_r1_angle_coder_queue_4gpu.sh(改),watch_r1_oom_retry_061.py}。
+- 停止条件: 未触发早停(无泄漏/无 frozen 改动/无 near-square-only)。R1 矩阵 1/30 完成, 不可写机制结论(phase_mod 仍候选)。
+- R2: clean cells 仍 10(6 主+4 附录), 未新增(R1 优先占卡); DOTA#20 仍 invalid 未转正。
+- R3 v2 审稿版: 7/7 合规通过, 无需同步新事实。
+- 复算入口: 未加 R1(0 机制表完成), reproduce_all_main_tables.sh 未改。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未改; 未重训 host; 未追 public mAP; 未补 full 9-detector; 未写 full complete/CVPR/TPAMI ready; phase_mod 未写机制证明。
+- 下一条建议命令: 062。
+
+## 2026-07-07 04:34 PDT — 命令 062（接管队列 + epoch-1 健康门控 + NaN/AMP 失败裁决）
+- 指令来源: 监督员命令 062。
+- 接管: 定位并杀掉 061 watcher(PID 124382, 我的) + 当前 NaN 负对照 run(regression_soda_seed2, 102 进程整树), 仅清本项目, D17(21 proc)未动。未新建重复 watcher。
+- 健康门控: 新增 watch_r1_oom_retry_062.py(Popen+进程组, 每30s 轮询)。修正关键 bug: has_nan 误把瞬时 AMP 溢出(grad_norm:inf/loss:inf, 健康 CSL/PSC/DCL 均有且恢复)判为发散; 改为"近25条训练行多数 loss:nan"才判 terminal。18 健康 run 判 False, 6 发散 run 判 True, 全部正确。launcher 加 PYTORCH_CUDA_ALLOC_CONF=expandable_segments。
+- 负对照裁决(主矩阵选 B): direct_regression_le90 6 run 全 NaN 发散(ep1), 从旧队列误标 complete 改为 failed_training。不改 lr/AMP/grad-clip 纳入主矩阵; rescue 仅 exploratory 附录。
+- KLD 新发现: 6 run 全在<30s 崩溃, RuntimeError linalg.inv Low precision Half —— GDLoss_v1(kld)需 fp32 但共享协议用 AMP/fp16。与 direct_regression 同等处理: failed_training(主矩阵), 非 AMP rescue 仅附录。门控快速失败, 零 12-epoch 浪费。
+- R1 主矩阵最终: PSC/CSL/DCL 18/18 健康(3 seed×2 ds), direct_regression+KLD 12 failed_training。mAP: PSC DIOR≈0.53/SODA≈0.60, CSL≈0.29-0.38, DCL DIOR≈0.33/SODA≈0.50。
+- 评测(task V): 18 健康 run AP50 已从 val log 实填矩阵; AP75/angle-error/native-uncertainty masked-NRC 待 instrumented dump(复用 run_052 matcher+angle_contract+frozen nrc_auc; 新增 per-head 原生不确定度推理 dump)。GPU 现已空(队列结束), 评测为下一步。seed variance NRC 尚不可算。可写机制结论: 否。
+- 关键产物: scripts/watch_r1_oom_retry_062.py; reports/{r1_angle_coder_queue_status_062,r1_angle_coder_matrix,r1_angle_coder_matrix_seed_variance,r1_angle_coder_eval_status_062}.csv; docs/{r1_direct_regression_failed_training_062,r1_direct_regression_exploratory_rescue_plan_062,r1_angle_coder_config_derivation_062,r1_eval_spec_062}.md; docs/paper_zh_s1s5_v2_review/text_cleanup_audit_062.md; logs/r1_angle_coder/{queue_takeover_062,health_gate_062,queue_062}.log。
+- R2: 未抢卡; 主表仍 6 clean + 4 附录; DOTA#20 仍 invalid。R3: 6/6 合规, R1 062 结果不入正文。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训 host; 未追 public mAP; 未补 full 9-detector; 未写 full complete/CVPR/TPAMI ready; phase_mod 未写机制证明。
+- 下一条建议命令: 063。
+
+## 2026-07-07 05:44 PDT — 命令 063（纠正假完成 + 真实启动评测；阶段状态，非完成）
+- 指令来源: 监督员命令 063（指出 062 假完成/后台不透明）。
+- 运行状态审计: 确认无本项目进程在跑; 062 watcher 已死但因 30-run 全终态(18 complete+12 failed)正常退出, 非 hang; 4 个 GPU 进程全是 D17(p2_foundation), 非本项目。结论: 训练队列真结束, 真正欠的是 18 有效 run 评测(062 误留 pending)。产物: logs/.../runtime_audit_063.log, reports/r1_runtime_process_audit_063.csv。
+- 真实启动评测(核心): 实现 instrumented 角度头 orientbench_ext/instrumented_heads.py(捕获 angle_encoded 过 NMS 对齐, 验证 decode vs box θ 双峰{0,90}=edge_swap, 行对齐 intact)。eval_r1_run.py: 推理+按 evaluator 同源 gt 旋转IoU匹配+canonical angle_error+per-head native uncertainty(PSC phase_mod/CSL margin/DCL bit-margin)+masked ar≥1.6 NRC(native&score)+bootstrap CI+AP50/75。冒烟 PSC-DIOR-seed0(150img): NRC_native=1.23 CI[1.05,1.40](反序), NRC_score=0.50(非反序)——单seed子集, 仅 preliminary, 不下结论。
+- 后台评测运行中(非完成): eval_driver_063.py(PID 226527), 3 并发 pin GPU, 现跑 PSC-DIOR seed0/1/2(3500/11738, ~20min/run), 18 run 需数小时; 每10min heartbeat -> logs/.../eval_063.log; OOM->1200s 重试。看到 D17 占卡仍直接跑。
+- 30-run 纠错: reports/r1_30run_status_audit_063.csv + docs 同名 md; 18 eligible_for_main_matrix=true; direct_regression 6=failed(NaN), KLD 6=failed(AMP/fp16 linalg.inv)。health gate: watch_r1_oom_retry_062.py 修正 NaN 判据(瞬时AMP溢出 vs 持续loss:nan), 0 doomed run 烧满12ep。
+- rescue(隔离, 未启动, eval优先): configs/r1_angle_coder_rescue/(KLD fp32; regression fp32+lr0.0025+clip10), 标 exploratory_rescue_not_preregistered; reports/r1_exploratory_rescue_queue_063.csv; docs/r1_exploratory_rescue_note_063.md。
+- 聚合器就绪: scripts/aggregate_r1_eval_063.py(评测完读 JSON->matrix+block seed variance); docs/r1_interim_valid_heads_results_063.md(评测中, 无结论)。
+- R2: 未抢卡(eval 用 GPU, 非训练); 主表仍 6+4; DOTA#20 仍 invalid。R3: 6/6 合规, R1 063 结果不入正文。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训 host; 未追 public mAP; 未补 full 9-detector; 未写 full complete/CVPR/TPAMI ready; phase_mod 未写机制证明。
+- 状态: 阶段状态(后台评测运行中), 非完成。下一条建议命令: 064（收集评测+block variance+interim, 或先待 eval 完成）。
+
+## 2026-07-07 18:24 PDT — 命令 063 收尾（评测已全部完成，非阶段状态）
+- GPU 停止原因: eval_driver_063 于 09:23 正常结束(EVAL DRIVER 063 END), 18/18 评测完成(~3.75h); D17 亦已结束; GPU 空闲非卡死。
+- 聚合完成: aggregate_r1_eval_063.py -> 18 run 全指标 + 6 block seed variance。AP50_self vs val_log max|diff|=0.0005(自建旋转AP已验证, AP75 可信)。matrix/seed_variance/eval_status_063 已填。
+- 6 block(masked ar>=1.6, 3 seed): PSC-DIOR native(phase_mod)NRC 1.21 CI_lo 1.17 全反序; PSC-SODA 1.15 CI_lo 1.11 全反序; score NRC 0.57/0.96 informative。CSL native≈0.89/1.00(~random)。DCL native bit-margin 0.20/0.37(强 informative)。=> angle-coder 原生置信度 head-specific(DCL 好, PSC 反序), 非普遍失灵。
+- 写法: PSC 反序为 interim/preliminary(3 seed×2 数据集一致, CI>1), 仍 mechanism candidate 非证明(5-head 矩阵未全, direct_regression/KLD failed; 无混叠指纹)。docs/r1_interim_valid_heads_results_063.md。
+- 现无本项目后台进程; thresholds b7c4e649 未变; 未重训 host/未追 public mAP/未写 complete/未写机制证明。
+- 下一条建议命令: 064。
+
+## 2026-07-07 18:39 PDT — 命令 064（R1 收口为受限机制证据 + 中文稿/复算链/审计更新）
+- 指令来源: 监督员命令 064（063 结果积极但须严格限缩写法）。纯文档/收口轮，无训练。
+- 任务1 R1 文档: 重写 docs/r1_interim_valid_heads_results_063.md 为「restricted A-like PSC-specific reproducible reverse ranking」；intervention_matrix.md §13 加最终执行状态。明写: 5-head 矩阵未全(KLD/direct_regression failed); DCL native informative 为反例(不写普遍失灵); PSC phase_mod 跨 2 数据集×3 seed 稳定反序(NRC>1, 全 seed CI 下界>1) = preliminary mechanism evidence/candidate, 非证明。
+- 任务2 表: reports/{r1_valid_head_blocks_final_064, r1_failed_training_audit_final_064, r1_claim_ledger_update_064}.csv。claim ledger 含 claim_text/support_level/supporting_artifacts/allowed_wording/forbidden_wording。
+- 任务3 中文稿: §7 加「预注册头干预矩阵的初步证据」段(受限写法, phase_mod 从单checkpoint升为PSC-specific跨数据集跨seed候选, DCL反例, failed 保留); 不重写主线。text_cleanup_audit_064.md: 6/6 合规, 待补=0, 无 forbidden claim。
+- 任务4 复算链: reproduce_all_main_tables.sh 加 R1 blocks 段(从 reports/r1_eval/*.json 聚合 + 校验 12 failed audit; rescue 不入主链; 长推理不入主链)。dry-run --fast PASS(18/18 JSON, failed audit OK, thresholds 未变); log reproduce_all_main_tables_064.log; third_party_reproduction_log.md 更新。
+- 任务5 R2: 不变(6 主 + 4 附录; DOTA#20 仍 invalid; 未抢优先级)。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训 host; 未追 public mAP; 未写 full benchmark/selector victory/complete/TPAMI-CVPR ready; phase_mod 未写通用机制证明(受限 PSC-specific 候选)。
+- 下一条建议命令: 065。
+
+## 2026-07-07 19:06 PDT — 命令 065（生成 v3 单文件中文正式论文 + 全文清理）
+- 指令来源: 监督员命令 065。纯文档轮，无训练/评测后台任务。
+- v3 生成: docs/paper_zh_s1s5_v3_review/orientation_reliability_paper_zh_s1s5_v3_review.md(325 行, 单文件正式论文, 图片仅 7 个编号占位)。从 v2 重组为正式结构(摘要/引言/相关工作/方法/主结果I&II/保形/实验设置/机制小节/下游附录/Scope/局限性/结论/参考文献/附录A-I)。单元匿名化(A-F/D20), 去所有文件路径与工程标识。
+- 全文清理至字面 grep=0: 待补=0; PM词=0(supervisor/verifier/reports//figures//.csv/056-064/P1-P5, 紧模式排除 arXiv 编号与数值误报); 刊物/投稿(CVPR/TPAMI/TGRS/ISPRS/ready/投稿)=0(参考文献改作者+年份+arXiv, 不含刊物缩写); forbidden(证明/已校准/普遍失灵/proven/full benchmark/selector victory)=0(证明→表明/成立/定论, 已校准→概率校准calibrated, 全面基准/通用默认仅否定/禁止清单)。
+- R1 同步(§8+附录E+表7): PSC phase_mod 跨2数据集×3seed 稳定反序(NRC>1,全seed CI下界>1)=PSC-specific 机制候选/初步证据; DCL informative 反例(不写普遍失效); CSL≈随机; 直接回归 NaN + KLD 半精度不兼容=failed_training 失败审计保留。受限 PSC-specific, 非通用机制定论。
+- 审计+差异文档: text_cleanup_audit_065.md(9/9 PASS), v3_change_summary_065.md。
+- 复算链 dry-run: reproduce_all_main_tables.sh --fast PASS(R1 blocks 18/18, failed audit 12, thresholds b7c4e649 未变); log 065; third_party_reproduction_log.md 更新; 无 blocker(不声称可冻结)。
+- R2 不变(6 主 + 4 附录, D20 invalid)。
+- 合规: thresholds 未变; D_cal/D_audit 未变(git diff 0); 未重训 host; 未追 public mAP; 未写 complete/刊物 ready; phase_mod 未写通用机制定论。
+- 下一条建议命令: 066。
+
+## 2026-07-07 20:30 PDT — K1 评测器法证（go/no-go 第一门，最高优先）
+- 指令来源: 监督员 K1–K4 go/no-go 执行令。本轮只做 K1（"K1 不过后面全部暂停"）。
+- 矛盾: 表1 DIOR#22 AP@0.5=0.6964(S1a) vs 表7 PSC-DIOR AP50=0.531(DOTAMetric), 同检测器/协议, 差~16点。
+- 关键事实: 表1 冻结 baseline 权重文件名 best_mAP_5368_epoch_12.pth, 其训练日志 dota/AP50=0.5370(DOTAMetric full-val)。即该权重标准口径就是 0.537。
+- 受控对照(k1_evaluator_forensics.py): 同一预测+同一 full-val GT 跑 S1a 与本项目 VOC-AP。full DIOR test: S1a AP50=0.5297, ours=0.5311, DOTAMetric=0.5310 —— 三者差≤0.0014, 逐类差 max 0.053。=> S1a 评测器代码正确, 与 DOTAMetric 一致, 无 16点评测器级 inflation。
+- 根因: 表1 DIOR#22 的 GT 路径为 /dev/shm/.../DIOR-R_fullval_gt.jsonl(已丢失, 未持久化), n_gt=35436, 而 full-val GT 实测=124445(本次确认)。表1 AP 是对~28%部分 GT 计算的, 非 full-val 口径 → 0.6964 是 partial-GT 产物, 非 evaluator bug, 且已无法精确复算。
+- 判定: 评测器代码 PASS(可解释一致, 不触发硬 FAIL/不停投稿准备); 表1 绝对 AP 锚点 FAIL-as-published(partial GT), 必须 full-val 重算。已示范 DIOR#22: 0.6964→0.530。其余5单元(ORCNN/RTMDet/FAIR1M/SODA)需各自 full-val 重算(下一步)。ΔAP@0.5=0 为同评测器不变量, 重算后仍应成立。
+- 产物: docs/k1_evaluator_forensics.md; reports/{k1_metric_protocol_alignment,k1_evaluator_diff_per_class}.csv, k1_summary.json; scripts/k1_evaluator_forensics.py; logs/.../k1_forensics.log。
+- 治理暴露: 禁止主表数值依赖 /dev/shm 未持久化 GT。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训 host(仅用已训权重推理); 未追 public mAP(自跑口径对齐)。
+- K2/K3/K4/两层修复: 未开始(按执行顺序, K1 优先; 表1 重算为 K1 收尾必做项)。
+- 下一条建议命令: 表1 全 full-val 重算 + K1 正式收尾, 然后 K2。
+
+## 2026-07-07 编号纠偏（065）
+- 最后正式完成编号 = 064。K1 评测器法证为 064 后插队任务, 未按正式编号汇报, 其建议 067 无效不接续。
+- 当前正式纠偏命令 = 065。原"065 生成 v3"暂停: 表1 AP 锚点(K1 判 FAIL-as-published, partial-GT)未解冻前不生成最终 v3。
+- 评测器 PASS ≠ 表1 PASS; 表1 需六单元 full-val 重算完成才 PASS。禁止主表数值依赖 /dev/shm GT。详见 docs/k1_numbering_correction_065.md。
+
+## 2026-07-07 21:42 PDT — 命令 065（K1 表1 full-val 重算，阶段状态非完成）
+- 编号纠偏已记(见上); 067 无效, 当前正式 065。
+- §2 GT 持久化: build_k1_fullval_gt_065.py -> outputs/persistent_artifacts/k1_table1_fullval_065/gt/。DIOR test n_gt=124445(确认 full, 旧 partial 35436); SODA val 449644(本为 full); FAIR1M BLOCKER(split_ss_fair1m1.0 缺失)。manifest+sha256。
+- 更深发现: 冻结持久化预测图像集与 full test 零重叠(预测 5863 张 trainval 段 vs test 11738 张)+DIOR#61/SODA#4 预测 /dev/shm 已丢失 → 表1 必须重新推理重算(非训练)。
+- §3 重算: recompute_table1_by_inference_065.py 后台运行(PID 875550, GPU1), 5 单元(FAIR1M 排除), 冻结 baseline 权重在正确 full-val split 推理 + K1 验证 torch VOC-AP + 约束扰动。DIOR#22 现 3000/11738。
+- 已确立: DIOR#22 full-val AP@0.5≈0.53(K1: DOTAMetric 0.531/S1a 0.5297/VOC 0.5311; baseline 自报 0.537), 取代旧 0.6964。superseded/evaluator_alignment/claim_ledger/table1_fullval_final(partial) CSV 已写。
+- §5 复算链: 加 [K1 GT] 检查(DIOR n_gt=124445 + 禁 /dev/shm 主表 GT), dry-run PASS。
+- §6 v3: 阻断(表1 未解冻), v3_blocker_note_065.md; 旧 v3 含 0.6964 不定稿。
+- 状态: 阶段状态(后台重算运行中), 非完成。评测器 PASS ≠ 表1 PASS(1/6 确立, 4 重算中, 1 数据 blocker)。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训(仅推理); 未追 public mAP; 无主表依赖 /dev/shm。
+- 下一条建议命令: 066。
+
+## 2026-07-08 01:50 PDT — 命令 065 K1 表1 full-val 重算 完成状态
+- 多GPU纠正: 重算改为 5 cell 并行(一卡一 cell), 之前单卡顺序是效率失误。
+- 表1 六单元 full-val 重算(冻结 baseline 权重在正确 full-val split 重新推理, K1 验证 torch VOC-AP==DOTAMetric, 修复 eps_max 用预测框自身中心):
+  - DIOR#22 PSC: 0.6964 -> 0.5368 (baseline 自报 0.5370 ✓), ΔAP50=0
+  - DIOR#3 ORCNN: 0.7999 -> 0.6448 (baseline 0.6448 ✓), ΔAP50=0
+  - DIOR#61 RTMDet: 0.8866 -> 0.6462 (taos setup 自报 0.5489, 差异非评测器), ΔAP50=0
+  - SODA#23 PSC: 0.6119 -> 0.5991 (baseline 0.5991 ✓, SODA GT 本 full 故几乎不变), ΔAP50=0
+  - SODA#4 ORCNN: 0.7592 -> 0.7295 (baseline 0.7295 ✓), ΔAP50=0
+  - FAIR1M#24: BLOCKER(数据集 split_ss_fair1m1.0 缺失)
+- 关键: base AP50 全部与 baseline 自报 DOTAMetric 精确吻合 → 评测器对齐确证, 旧 partial-GT 锚点(0.69-0.89)纠正为 full-val(0.54-0.73)。DIOR 掉 16-24pt(partial GT), SODA 几乎不变(full GT)——与"仅 DIOR GT partial"一致。
+- ΔAP50=0 在 full-val + 修复 eps_max 后成立(AP75 塌陷 0.45->0.05, angle 9°->40°)→ P1 headline 在 full-val 成立, 非 partial-GT artifact。
+- 修复两个 bug: eps_max 误用 GT 中心(致假 ΔAP-0.2); json 未 flush(致 DIOR#22/#3 空文件)。DIOR#22/#3 正后台重持久化(~25min)。
+- 表: table1_fullval_final_065.csv, superseded/evaluator_alignment/claim_ledger CSV。
+- 状态: 表1 5/6 单元 full-val 重算完成(FAIR1M 数据 blocker); 2 单元后台重持久化; v3 待表1 全解冻后生成。评测器 PASS; 表1 5/6 PASS。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训(仅推理); 未追 public mAP; 无 /dev/shm 主表 GT。
+- 下一条建议命令: 066。
+
+## 2026-07-08 K1 表1 full-val 重算 6/6 完成（FAIR1M 纠错）
+- 纠错: 我先前误报 FAIR1M 为数据 blocker——其实数据在(split/val_20, 5.9G), GT 为 XML 格式(非 .txt), 我只查了 .txt 才误判。已从 XML 构建 GT: 4362 图 / n_gt=78644(≈旧 78638, full GT)。
+- FAIR1M#24 重算: base_AP50=0.3462(baseline 自报 0.3462 精确吻合; 旧 Table1 0.3452)→ 与 SODA 一样本为 full GT, 从未虚高。ΔAP50=0, AP75 0.242->0.067。
+- 表1 六单元 full-val 重算全部完成:
+  DIOR#22 0.6964->0.5368; DIOR#3 0.7999->0.6448; DIOR#61 0.8866->0.6462; SODA#23 0.6119->0.5991; SODA#4 0.7592->0.7295; FAIR1M#24 0.3452->0.3462。
+  5/6 与 baseline 自报 DOTAMetric 精确吻合(DIOR#61 taos_pad32 setup 差异, 非评测器)。ΔAP50=0 全部成立, AP75 全部塌陷。
+- 结论: DIOR 三单元(partial GT)虚高 16-24pt 已纠正; SODA+FAIR1M(full GT)本未虚高。表1 6/6 解冻。P1 headline(ΔAP@0.5=0 + AP75 塌陷 + angle 飙升)在 full-val 成立。
+- 表: table1_fullval_final_065.csv(6 单元完整), superseded(6)。
+- 合规: thresholds 未变; 未重训(仅推理); 无 /dev/shm 主表 GT。
+
+## 2026-07-08 命令 065 §6 v3 完成（表1 解冻后更新）
+- 表1 6/6 full-val 重算完成 -> v3 §4 表1 换成 full-val 值(A 0.5368/B 0.6448/C 0.6462/D 0.3462/E 0.5991/F 0.7295), 删旧 partial-GT FP 计数(ΔAP50=0 -> FP 不变), 摘要/§4 角度量级更新(5-9°->34-41°)。旧 0.6964/0.7999/0.8866 已从 v3 移除。
+- v3 合规复核: 待补=0, 证明=0, 已校准=0, CVPR/TPAMI/TGRS/ISPRS=0, K1(正文)=0, 无 PM 轮次号(06X 命中均为小数 CI 值误报)。
+- v3 阻断解除。065 全部完成(§1-§7)。无后台任务。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训; 未追 public mAP; 无 /dev/shm 主表 GT。
+
+## 2026-07-08 命令 066 开始
+- **K1–K4 go/no-go 执行令已收到，并从 066 开始执行。** 编号纪律: 最新完成=065, 本条=066, 067 暂不使用。
+- 本轮: K1 最终反证收尾 + 几何/线性打分泄漏审计 + K3 GT 噪声 proxy 审计 + K4a masked 阈值原则化 + K4b DOTA full-val(后台) + K2 仅预注册修订(不训练) + 第一层可评审性文档 + 复算链。
+
+## 2026-07-08 命令 066 完成
+- K1 最终反证: 6/6 单元 new full-val AP 与 checkpoint 自评 DOTAMetric 精确吻合(≤0.0022); 旧高 AP 仅 DIOR(partial GT 35436 vs 124445)虚高, SODA/FAIR1M(full GT)未虚高。DIOR#61 残差 RESOLVED(文件名 5489=dota/mAP, 日志 AP50=0.6440 与重算 0.6462 一致)。K1 remains PASS。无 /dev/shm 主表依赖。
+- 几何打分泄漏审计: 特征[score,log ar,log√size]全预测端可得/GT-free, 但模型 fit on 目标域 GT 角度误差 -> calibration/upper-bound, 非 deployable。线性(score/+ar/+ar+size)同结构。selector-fit(D_fit)/conformal-calib(D_calib)独立。
+- K3 GT 角度噪声 proxy(2px 角点抖动重拟合): masked ar≥1.6 σ_gt≈3.5(DIOR)/5.7(FAIR1M)/7.8(SODA)°, >2° 均值预算(处处), 5° 尾部 margin 薄(SODA/FAIR1M)。判定 PARTIAL(均值预算须 label-noise-aware; 尾部随数据集)。真人双标为后续 blocker。
+- K4a masked 阈值原则化: 冻结判据 τ=0.75 下 δ*=15° -> derived-ar=2.1(1.6 对应 δθ≈19.5°更宽松)。建议正文主口径改 2.1, 1.6/1.3 sensitivity。mask 比例已算。PASS。
+- K4b DOTA full-val: ORCNN AP50=0.7061 + RTMDet-m AP50=0.7161(均与 baseline 自评一致), masked NRC_score 0.69/0.65(informative)。2 clean full-val 单元。D20 正式排除。K4 初步 PASS。
+- K2: 未训练; 预注册修订(per-head LR sweep 等预算 + FP32 fallback + 可用收敛门控 + A/B/C/D + R1 降 preliminary)。
+- 第一层文档: conformal reporting/uncertainty baselines/cell naming 已补; 未大改主稿。
+- 复算链: 加 [066] 审计段, dry-run PASS。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训(仅推理); 未追 public mAP; 未用 D20 半残; 无 /dev/shm 主表; 未写 ready/complete; phase_mod 未写通用证明。K1 PASS ≠ K1-K4 全过(K3 PARTIAL)。
+- 下一条建议命令: 067。
+
+## 2026-07-08 04:05 PDT — 命令 067 K2 全收敛矩阵：已冻结预注册 + 启动自主运行
+- K2 预注册已冻结: docs/k2_angle_coder_intervention_matrix_frozen_067.md (LR{0.0025,0.005,0.010}, pilot seed0 3ep, 选优按 val AP50; final 3 seed 12ep; AMP+FP32 fallback; 主 mask derived-ar=2.1, sensitivity 1.6/1.3; A/B/C/D)。
+- 不可变 manifest: reports/k2_run_manifest_067.csv (30 pilot + 30 final = 60 runs)。
+- 自主驱动: scripts/k2_driver_067.py (Phase1 LR pilots -> 选LR -> Phase2 finals 健康门控+FP32 fallback+OOM 1200s重试 -> Phase3 instrumented eval(k2_eval_run.py, native+score NRC @derived-ar2.1+1.6/1.3) -> Phase4 aggregate+go/no-go(k2_aggregate_go_no_go_067.py, A/B/C/D))。4卡DDP每run, resumable。
+- 验证: cfg-options override(lr/ep/fp32) OK; k2_eval_run smoke(PSC-DIOR-seed0 120img) AP50=0.6336 native NRC=1.246 score=0.4457 OK。
+- 已启动: k2_driver_067(PID 1539542) 训练中, 首 pilot PSC-DIOR lr0.0025 3ep 4卡健康(Epoch1 loss~2.67)。keeper(k2_keeper_067.sh)守护自动重启。
+- 067 纪律: 唯一任务 K2; 不做其它; 后台运行中不汇报阶段状态; 仅在 K2 全完成(go/no-go)或硬阻塞时回聊天。预计多日。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训 host(K2 是预注册干预训练, 非 host); 未追 public mAP。
+
+## 2026-07-08 命令 067-SCHEDULING-AMENDMENT：K2 改 2×4GPU 并发调度
+- 停旧顺序驱动(k2_driver_067)+清 k2 残留(仅本项目, D17 未动); 保留其 helper 供复用。
+- 新调度器: scripts/watch_k2_queue_2x4gpu_067.py(max_concurrent=2, 每 job 4-GPU DDP 共享 0,1,2,3; 相位 pilot->选LR->seed0+eval->gate->seed1/2->aggregate; 端口冲突自动换; 状态落盘可 resume) + scripts/k2_job_runner.py(单 job: 4卡训练+健康门控+FP32 fallback+OOM 1200s重试+final 后 eval) + scripts/run_k2_queue_2jobs_each_4gpu_067.sh(keeper: watcher 死自动重启, 清 orphan 后 resume)。
+- 验证: 2 并发已跑(PSC-SODA lr0.0025 + lr0.005), 均 nproc_per_node=4, 4 卡 100% util ~5.2GB/卡; resume 正确跳过顺序驱动已完成的 3 个 PSC-DIOR pilot(epoch_3.pth, ap50 0.289/0.213/0.175 -> 选 lr0.0025)。
+- 状态文件: k2_queue_status_067/k2_pilot_results_067/k2_lr_selection_067/k2_seed0_gate_results_067/k2_angle_coder_seed_results/k2_angle_coder_block_results/k2_failed_training_audit/k2_health_gate_decisions_067 + go/no-go。
+- 汇报纪律(067 amendment): 聊天仅允许最终一次【067 完成汇报】; 中间全部只写日志/CSV; OOM/端口/路径/配置/watcher死/单run失败/eval pending/GPU占用均自处理, 不回聊天。
+- 合规: thresholds b7c4e649 未变; D_cal/D_audit 未变; 未重训 host; 未追 public mAP; 未改预注册/batch/GPU 数。
+
+---
+
+## [2026-07-12] 067 完成汇报（K2 angle-coder full-converged 干预矩阵）
+
+- 指令来源：用户 067 + 067-SCHEDULING-AMENDMENT（2 并发 × 4-GPU；仅允许最终一次完成汇报）。
+- 执行动作：30 pilots(seed0,3ep,3LR) → per-(head,dataset) 选 LR → seed0 finals(12ep)+eval+gate → seed1/2 finals+eval → aggregate + go/no-go。全程 4-GPU DDP，2 并发共享 0-3；FP32 fallback + OOM 1200s retry；resumable。
+- 结束时间：2026-07-11 21:11（queue END），go/no-go 落盘 07-12 00:44。GPU 已空闲。
+- 关键产物：
+  - reports/k2_go_no_go_decision_067.csv：**PASS / 结局 A / reversing=PSC / n_complete_blocks=6 / failed_heads=KLD,direct_regression**
+  - reports/k2_angle_coder_block_results.csv、k2_angle_coder_seed_variance.csv、k2_angle_coder_seed_results.csv、k2_lr_selection_067.csv、k2_failed_training_audit.csv、k2_artifact_manifest_067.csv
+  - docs/k2_angle_coder_go_no_go_report_067.md、docs/k2_vs_r1_supersession_note_067.md
+  - reports/k2_eval/*.json（18 个可比 run 的 instrumented native+score NRC）
+- 停止条件：无触发；无硬阻塞。
+- 下一步建议：K2 属 Track A 机制支线，PASS 只加强 PSC 机制小节，不单独决定主线 venue；主线仍待 G2_double_prime / Deployable 二值门控。
+
+---
+
+## [2026-07-12 20:42] 命令 069-REPLACEMENT 启动（自主执行，仅最终汇报）
+
+- 指令来源：用户 069-REPLACEMENT（M1/M2/M3/M4/人工锚点/PSC Phase1 拆篇门控/一键复算/冻结门控；中途不得汇报）。
+- PSC Phase1 时间冻结：start=2026-07-12 20:14:39 -0700；deadline=+42d=2026-08-23 20:14:39 -0700（docs/psc_phase1_preregistration.md）。
+- 已构建并冻结：docs/psc_phase1_preregistration.md、reports/m3_image_level_protocol_frozen.json（HB UCB/delta0.1/固定序列/阈值序列冻结）、reports/m4_delta_theta_075_frozen.json（derived_ar@15°=2.150）。
+- 已构建脚本：m069_common(缓存+HB-LTT+图像bootstrap)、m1_ar21_unify、m2_g2doubleprime_ar21(固定size-bin)、m3_image_level_risk、m4_risk_events、psc_phase1(径向缩放→Branch A 已数值确证:解码角径向不变~1e-5°、phase_mod∝k²)、build_m4_human_annotation+merge+analyze、m_dota_dump(DOTA clean 逐实例)、m069_freeze_and_repro、m069_master(编排)、run_m069.sh(keeper)。
+- 已更新：scripts/reproduce_all_main_tables.sh（追加069块）、docs/third_party_reproduction_log.md、scripts/recompute_m3_image_level_risk_control.py。
+- 已启动：keeper(run_m069.sh)+m069_master.py 后台运行；当前 DOTA dump(GPU,best-effort)→M1→M2/M3/M4→PSC Phase1→人工merge/analyze(PENDING)→freeze/repro。
+- 合规：thresholds.yaml 未改(sha b7c4e649…3fae)；D_cal/D_audit 未改；未重训 host；instance-iid exact binomial 仅审计对照；proxy jitter≠σ_gt；DOTA#20 排除；negative phase_mod 不作方法。
+- 预期：人工双标需真人→保持 PENDING→冻结门控 NOT_FROZEN（诚实状态）；机器任务数小时完成。
+- 停止条件：无触发。下一步：等待全部机器任务完成 + PSC Phase1 决定后，产出唯一一次最终汇报。
+
+---
+
+## [2026-07-14 22:41 CST] Codex 接手 Claude Code（交接审计，不占正式命令编号）
+
+- 指令来源：用户交接令；本交接不占正式命令编号。
+- 正式编号口径：067 已完成；068 已由 Claude Code 执行；Codex 本轮未启动 069，且必须等待监督员单独下发 069 执行令。
+- 执行动作：只读核对 AGENTS.md、pth_data/readme、项目执行文件、历史交接/状态、Claude 会话、068 论文、K1-K4 表、冻结资产、复算入口、日志和当前进程；未启动实验、训练、推理、评估或 bootstrap。
+- 068 取证：2026-07-12 18:33:55 PDT 开始，18:44:47 PDT 完成；唯一项目产物为 `docs/paper_zh_post_k1k4_068/orientation_reliability_paper_zh.md`，SHA-256 `8104f4c059428cf7330179cc83939049c0a4ff47e37e84bf3fc107e51b0c35b0`。
+- 重要编号冲突：服务器日志证明 Claude 在 068 后实际执行过名为 `069-REPLACEMENT` 的管线（2026-07-12 20:42-21:21 PDT）。其磁盘结果为 M1 PASS、M2 FAIL、M3 PASS、PSC Phase1 PASS、human labels PENDING、NOT_FROZEN。该轮不是本次 Codex 交接启动；现标记为 post-068/unratified，等待监督员裁定，不自行采纳、覆盖、删除或重跑。
+- 冻结资产：thresholds SHA-256 仍为 `b7c4e649b1a3de6d0c985a5f20dc5ba70a8fb3e428c3c184e2f86bf96d593fae`；D_cal/D_audit 未变；RHINO/A4 checkpoint 与 lock SHA 一致；formal/exploratory 标签未变；DOTA#20 仍排除。
+- 后台进程：无 orientbench watcher/训练/推理/评估/reproduce/M069 残留；其他项目进程未处理；本轮无清理。
+- 关键产物：`docs/codex_takeover_from_claude_after_068.md`、`reports/codex_takeover_artifact_inventory.csv`、`reports/codex_takeover_process_audit.csv`、`reports/codex_takeover_authoritative_sources.csv`、`logs/codex_takeover_after_068.log`。
+- 停止条件：本轮未触发新的科学停止动作；既有未追认 M2=FAIL 若被监督员追认，将触发 G2_double_prime 失败分支。人工双标、069 编号冲突、DIOR reliability partial-GT lineage 和当前复算入口未端到端验证仍是 blocker。
+- 下一步建议：等待监督员单独下发 069；执行前先裁定既有 `069-REPLACEMENT` 的追认/废止与产物命名空间，禁止盲目运行现有 keeper/master。
+
+---
+
+<!-- CODEX_069_CONTINUATION_FINAL_START -->
+
+## [2026-07-14 20:18:18 -0700] 069-CONTINUATION Codex 续跑收口
+
+- 指令来源：用户 069-CONTINUATION；本轮续原 069，不占新编号，下一正式编号为 070。
+- 执行动作：核验并复用历史 069 产物，仅补齐缺口；实际执行 CPU-only 一键复算与严格最终审计；原路径内更新现有 068 中文稿，未新建论文版本；未训练、未运行 detector inference、未重跑 K2、未新建重复命名空间。
+- 决策：M1=PASS；M2=PASS（FAIL 时 geometry score 仅附录）；M3=PASS；PSC Phase 1=PASS；human=HUMAN_BLOCKED；freeze=NOT_FROZEN。
+- 关键产物：`reports/069_final_reproduction_status.csv`、`reports/069_submission_freeze_gate.csv`、`reports/069_takeover_task_status.csv`、`reports/069_artifact_manifest.csv`、`logs/reproduce_all_main_tables_069.log`、`logs/069_codex_continuation.log`、`docs/third_party_reproduction_log.md`。
+- 停止条件：M2 预注册门控若 FAIL 已按规则停止 geometry-specific 正文 claim；人工双标未完成时是唯一剩余 blocker，门控保持 NOT_FROZEN；PSC FAIL/DEADLINE 时停止拆篇但不阻塞主线。
+- 冻结与合规：thresholds SHA-256=`b7c4e649b1a3de6d0c985a5f20dc5ba70a8fb3e428c3c184e2f86bf96d593fae`；D_cal/D_audit 未变；host 未重训；formal/exploratory 未改；DOTA#20 排除；Phase 1 起止时间未重置。
+- 下一步建议：仅在本 069 门控状态基础上进入正式命令 070；不得把缺失人工标签伪造为完成。
+
+<!-- CODEX_069_CONTINUATION_FINAL_END -->
+
+<!-- CODEX_070_FINAL_START -->
+## [2026-07-15 18:41:38 -0700] 命令 070 完成
+
+- 指令来源：用户命令 070；只完成 M4 FAIR1M 第三数据集扩展和三数据集人工双标执行包。
+- 执行动作：9 个等预算 pilot、9 个 4-GPU final runs、full-val 原生不确定性评测、三 seed 聚合、A/B 互盲包和机器复算。
+- 决策：第三数据集 `REPLICATES_A`；人工真实结果 0，状态 `HUMAN_BLOCKED`；提交冻结门控 `NOT_FROZEN`。
+- 关键产物：`reports/m4_optional_third_dataset_results.csv`、`reports/m4_third_dataset_seed_results.csv`、`reports/m4_third_dataset_artifact_manifest.csv`、`reports/m4_human_annotation_package_validation.csv`、`reports/070_submission_freeze_gate.csv`、`logs/reproduce_all_main_tables_070.log`。
+- 合规：thresholds 与 D_cal/D_audit 未改；host/K2/PSC 未重跑；未追 public mAP；未伪造人工标注；无范围外工作。
+- 停止条件：真人双标缺失是唯一冻结 blocker。下一正式命令编号：071。
+<!-- CODEX_070_FINAL_END -->
+
+<!-- CODEX_071_FINAL_START -->
+## [2026-07-15 19:50:33 -0700] 命令 071 完成：人工双标包物理落盘纠错
+
+- 指令来源：用户命令 071；仅审计、落盘并验证人工双标执行包。
+- 070 矛盾：070 包实际生成在外层仓库 `annotation_tools/m4_angle_annotation/`，但用户检查的是权威项目子根 `top_journal_v3_reaudit_055/`；属于路径口径错误及汇报未明确实际根目录。
+- 最终落盘：`top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/`；A/B 各 1500 项，三数据集各 500 项，图像完整，内部映射隔离，正式 outputs 为空。
+- 工具验证：A/B 默认端口 17801/17802；启动、页面/图像、角度、ambiguous、skip、自动保存、重启恢复、CSV/JSON 导出、防覆盖均 PASS；隔离测试数据的 merge/analyze 1500/1500 PASS；测试进程已结束。
+- 真人结果：A=0、B=0；未伪造，状态保持 `HUMAN_BLOCKED`。
+- 关键记录：`logs/071_annotation_package_path_audit.log`、`logs/071_annotation_tool_validation.log`、`reports/071_annotation_package_path_audit.csv`、`reports/m4_human_annotation_package_validation.csv`。
+- 合规：未训练、未推理、未改论文、thresholds 或 D_cal/D_audit；下一正式命令编号 072。
+<!-- CODEX_071_FINAL_END -->
+
+## [2026-07-16 01:31:48 -0700] 071 人工标注网页交互修订
+- 指令来源：用户对 071 网页的三项修订要求。
+- 修改：备注区移至页面最下方；上一个/下一个、当前角度、图片模糊/方向不明、skip、保存和导出均移至图片右侧；移动端保持自适应。
+- 顺序核验：A/B 各自均为打乱顺序，同位置重复实例为 0，实例集合仍完全一致；未重新抽样。
+- 验证：A/B 启动、页面、图片、保存/恢复/导出、隔离 merge/analyze 再次 PASS；无后台测试进程。
+- 数据保护：检测到 annotator A 已有 3 条自动保存草稿，原样保留；正式 CSV/JSON 仍为 0，HUMAN_BLOCKED 不变。
+- 后续界面修订：在“下一个”旁增加“放大图片”按钮，使用浏览器全屏查看并支持退出放大；草稿与任务顺序未改，复验 PASS。
+- 放大交互再修订：按钮调整为“上一个｜放大图片｜下一个”；放大改为独立图片对话窗口，不触发浏览器全屏、不改变原页面布局；放大窗口内 canvas 可直接拖画角度并自动保存。正式草稿未改。
+- 放大交互最终修订：按钮顺序改为“下一个｜放大图片｜还原图片｜上一个”；取消对话窗口，图片在原有镶嵌式 viewer 内原位放大/还原，页面其余布局不弹出；放大后仍使用同一 canvas 拖画并自动保存。检测到用户继续标注，现有草稿完整保留。
+- 渐进放大修订：每次点击“放大图片”按当前宽度约 1.3 倍（至少增加 80px）逐级放大，达到镶嵌区域上限后停用；“还原图片”一次恢复原尺寸。canvas 随每一级同步重算，继续支持角度绘制。
+
+## [2026-07-17 01:40:12 PDT] 人工双标 200 条 pilot 冻结与 B 包交付
+- 指令来源：用户要求先以 A 已进行的前 200 条和 B 的相同 200 条计算指标，再决定是否扩至 1500 条。
+- 执行动作：冻结 A 前 200 条任务及当前真人草稿快照；从 B 原 1500 条清单筛出同一 canonical 集合并独立打乱，生成 B pilot 启动入口和完成后的一键合并/分析入口。
+- 数据状态：B pilot=200，DIOR-R=61、FAIR1M=77、SODA-A=62；A 快照为角度 151、ambiguous 27、skip 17、pending 5；B 真人结果仍为 0，未伪造。
+- 指标：可用配对数、圆周角差 mean/median/p90/p95、P(>5°)/P(>10°)，以及 dataset/class/size/ar-bin/ar>=2.1 分层；扩至 1500 的决定不自动作出，待 B 完成后审阅 pilot。
+- 关键产物：`top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/start_annotator_B_pilot_200.sh`、`scripts/run_m4_pilot200_analysis.sh`、`reports/m4_pilot200_package_validation.csv`。
+- 停止条件：B 真实标注尚未完成，状态 HUMAN_BLOCKED；未训练、未推理、未修改科学结果。
+
+## [2026-07-17 21:35:00 PDT] 200 条人工双标 pilot 中期核验
+- 指令来源：用户要求基于 A=200、B 当前=202 的真人工作计算结果，并从论文角度判断是否继续。
+- 发现：B 原先运行的是 1500 条 full 清单而非同集合 pilot；A/B 当前 canonical overlap 仅 24，角度均有效配对 17，不能误报为 200 对双标。
+- 初步结果：17 对的圆周角差 mean=2.1921°（image-cluster bootstrap 95% CI 1.3507°–3.1526°）、median=1.7347°、p90=4.0902°、p95=5.1923°、P(>5°)=5.88%、P(>10°)=0；ar>=2.1 的 9 对 mean=1.1396°。
+- 论文判断：信号正向，说明标注协议具有继续验证价值；但样本尤其 SODA-A 仅 2 个有效配对，尚不足以形成论文证据或直接批准扩至 1500。
+- 修复：完整保留 B 已有 202 条真人草稿；将其中与 A pilot 重合的 24 条迁入正确 pilot，B 尚需完成同集合的 176 条。错误 full B 服务已停止，正确 pilot 服务已在 17802 启动。
+- 关键产物：`reports/m4_pilot_current_overlap_key_metrics.csv`、`reports/m4_pilot_current_overlap_audit.json`、`top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/internal/pilot_200_B_resume_audit.json`。
+- 下一门控：完成同 canonical 200 后再决定是否扩至 1500；状态仍为 HUMAN_BLOCKED。
+- 界面纠错：此前正确 pilot 仍显示总数 200，是因为将已完成的 24 条预载在同一任务清单内；该设计会误导用户。现已将 24 条冻结并从界面隐藏，B 页面只显示真实剩余 176 条；完成后脚本自动合并为 200 对。端口 17802 已核验 `task_set=pilot_176_remaining`、任务数 176、初始新结果 0。
+
+## [2026-07-17 22:52:00 PDT] M4 200 对 pilot 完成分析与扩量裁决
+- 指令来源：用户要求开始计算并从论文角度回答是否继续投入 1500。
+- 完成状态：B 剩余 176 条已全部作出真人决策并导出；与冻结的 24 条合并为同 canonical 200 对。A/B 身份独立，schema/映射核验无错误；B 服务完成后已停止。
+- 有效结果：149 对角度可用（DIOR-R=38、FAIR1M=60、SODA-A=51）；mean=2.0938°（image-cluster bootstrap 95% CI 1.8016°–2.3932°），median=1.7137°，p90=4.5579°，p95=5.5849°，P(>5°)=7.38%，P(>10°)=0/149。
+- ar>=2.1：n=100，mean=1.9702°（95% CI 1.6360°–2.3393°），P(>10°)=0。小目标及 1.6<=ar<2.1 更易分歧，支持 5° noise-sensitive 标签和 ar>=2.1 主边界。
+- 论文裁决：pilot PASS，建议继续冻结的 500×3=1500 目标；当前每数据集/类别/尾部样本仍不足以支撑最终分层 claim。A 仍有 5 条 pending，正式分析前必须补齐。
+- 关键产物：`reports/m4_pilot200_key_metrics.csv`、`reports/m4_pilot200_disagreement.csv`、`reports/m4_pilot200_scaleup_decision.csv`、`docs/m4_pilot200_scaleup_decision.md`。
+- 冻结状态：真人全量仍未完成，HUMAN_BLOCKED 保持有效。
+
+## [2026-07-17 23:00:00 PDT] M4 全量剩余 A/B 执行包生成
+- 指令来源：用户询问是否需要生成 A/B 后续标注脚本，并要求需要则生成。
+- 判断：pilot 已 PASS，继续冻结的 1500 目标需要独立的“仅剩余任务”入口，以避免重复标注并保证既有真人结果可复用。
+- A：冻结 195 条有效真人决策，页面仅显示剩余 1305 条；B：合并并冻结 377 条有效真人决策，页面仅显示剩余 1123 条。pending 不计完成，已自动进入剩余清单。
+- 任务清单分别独立打乱；原始 task ID、匿名映射和图像不变；没有修改或伪造任何真人结果。
+- 启动入口：`top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation/start_annotator_A_remaining.sh`、`start_annotator_B_remaining.sh`。
+- 全量完成后一键合并分析：`scripts/run_m4_full_human_analysis.sh`；A/B 启动、任务数、空白新状态、首图加载及 1500 集合覆盖均验证 PASS，测试服务已停止。
+- 启动入口纠错：用户实际启动后 B 显示 `202/1500 · 已完成201`，确认旧的标准脚本 `start_annotator_B.sh` 仍默认加载 full 清单；A 的标准脚本存在相同风险。现已将所有 A/B 标准、remaining 和旧 pilot 启动入口统一指向 `full_remaining`，避免再进入旧清单。旧 B 服务已停止；A/B 正确服务分别在 17801/17802 启动并实时核验为 A=1305、B=1123、新任务完成数均为0。原真人草稿 sha256 未变。
+
+## [2026-07-21 20:33:04 CST] 冻结 B 当前 526 条并生成 A 匹配任务
+- 指令来源：用户要求以 B 当前已完成的 500 余条为新一轮检查集，在 A 中只提供尚未标过的相同实例，完成后按 200 对 pilot 的指标分析。
+- 冻结状态：B 三段真实草稿去重后共有 526 条有效决策，数据分布 DIOR-R=170、FAIR1M=177、SODA-A=179；B 服务已暂停，避免目标集合继续漂移。
+- A 对齐：A 在该集合已完成 195 条，尚缺 331 条（DIOR-R=112、FAIR1M=101、SODA-A=118）；只剩余 331 条的清单已独立打乱，A 服务在 17801 启动并核验显示 331、已完成0。
+- 数据保护：A/B 当前草稿均按 sha256 冻结；没有改写或伪造真人结果，已标实例不会重复展示。
+- 分析入口：A 完成并导出后运行 `scripts/run_m4_b526_analysis.sh`，输出 526 对的 mean/median/p90/p95、P(>5°)/P(>10°)、image-cluster bootstrap CI 及 dataset/class/size/ar 分层。
+
+## [2026-07-21 22:15:00 CST] M4 526 对分析与证据充分性裁决
+- A 的 331 条补标已全部完成并导出；与既有 195 条合并后，526 个同 canonical 双标目标通过身份、schema、映射和集合核验。A 服务已停止。
+- 有效角度对 393：DIOR-R=99、FAIR1M=151、SODA-A=143。总体 mean=2.3587°（image-cluster bootstrap 95% CI 2.0096°–2.8696°），median=1.6435°，p90=4.4043°，p95=5.8572°，P(>5°)=7.63%（CI 5.10%–10.41%），P(>10°)=1.02%。
+- ar>=2.1：n=275，mean=2.3356°，median=1.6108°，P(>5°)=6.91%，P(>10°)=0.73%。方向与 200 对 pilot 稳定一致。
+- 边界：4 个 >10° 分歧全部来自 SODA-A，其中一个为 84.22°；结果原样保留，不作事后剔除。小目标及 1.6<=ar<2.1 仍更易分歧。
+- 论文裁决：已足以支撑总体 human-noise anchor 和粗粒度数据集结论；尚不足以宣布预注册人工任务完成，因为目标数 DIOR-R=170、FAIR1M=177、SODA-A=179，均低于每数据集最少 200。最小合规补量为 30/23/21，共 74 对；若保留正式 class/size/tail 分层 claim，则继续至 500×3。
+- 关键产物：`reports/m4_b526_key_metrics.csv`、`reports/m4_b526_disagreement.csv`、`reports/m4_b526_evidence_gate.csv`、`docs/m4_b526_evidence_assessment.md`。冻结状态仍为 HUMAN_BLOCKED / NOT_FROZEN。
+- 有效对口径说明：526 条均已由两人作出决策，但角度差统计只纳入双方都给出数值角度的 393 对；其余 133 对包括双方 ambiguous 88、双方 skip 3、单方 ambiguous 30、单方 skip 12，无 pending。DIOR-R 困难/ambiguous 比例最高（99/170 数值可用），不是文件丢失或合并错误。
+
+## [2026-07-21 22:27:39 CST] M4 补至 600 并启动单方未标重检
+- 指令来源：用户要求将双标目标补至 600，并重新标注“一方给出角度、另一方未给角度”的实例。
+- 新目标：按冻结 sampling_rank 从未用样本中选择 DIOR-R=30、FAIR1M=23、SODA-A=21，共 74 个；A/B 使用同一 canonical 集合、独立打乱，完成后各数据集恰为 200 个目标。
+- 重检：原 526 对中单方有角度、另一方 ambiguous/skip 共 29 个；仅由原未给角度的一方重检，A=12、B=17。使用新匿名 task ID、混入新目标并打乱，不显示任务类型、原结果或对方结果；允许再次 ambiguous/skip，不强迫给角度。
+- 页面：A 共 86 条、B 共 91 条，分别在 17801/17802 启动并核验任务数、图片、空白新状态和隐私字段 PASS。
+- 统计纪律：原始标注仍是 primary，不被重检覆盖；重检作为 secondary resolution 单列。完成后运行 `scripts/run_m4_m600_analysis.sh`，同时生成正式 600 对主分析和 29 条重检结果。
+- 状态：人工任务进行中，HUMAN_BLOCKED / NOT_FROZEN 保持有效。
+
+## [2026-07-21 23:05:00 CST] M4 600 对最低协议完成与重检分析
+- A=86、B=91 本轮任务均完成并导出；600 个 primary 双标目标恰为 DIOR-R/FAIR1M/SODA-A 各 200，双方均已作出 angle/ambiguous/skip 决策，无 pending。
+- 口径纠错：`min_per_dataset=200` 应作用于独立完成的目标，而不是仅双方都有数值角度的子集；merge verifier 已据此修复，并同时保留 usable numeric counts。核验状态 `COMPLETE_INDEPENDENT_DOUBLE_ANNOTATION`。
+- Primary 有效角度对 450（DIOR-R=122、FAIR1M=169、SODA-A=159）：mean=2.3112°（cluster-bootstrap 95% CI 1.9970°–2.7854°），median=1.6359°，p90=4.4220°，p95=5.9359°，P(>5°)=8.00%，P(>10°)=0.89%。
+- ar>=2.1：n=308，mean=2.2823°，median=1.6130°，P(>5°)=6.82%，P(>10°)=0.65%；200/526/600 三个检查点方向稳定。
+- 重检：29 个单方 ambiguous/skip 中 27 个重新给出数值角度，2 个仍 ambiguous；27 对 mean=2.2126°、median=1.9302°，仅作 secondary，不覆盖 primary。
+- 论文裁决：600 已足够支撑总体 human-noise anchor、粗粒度 dataset 结论、5° noise-sensitive 和 ar>=2.1 边界；仅当保留正式 rare-class/size/extreme-tail 分层 claim 时才需继续至 1500。
+- 关键产物：`reports/m4_m600_key_metrics.csv`、`reports/m4_m600_disagreement.csv`、`reports/m4_m600_one_sided_recheck.csv`、`reports/m4_m600_evidence_gate.csv`、`docs/m4_m600_final_assessment.md`。A/B 服务完成后已停止。
+
+## [2026-07-21 23:15:00 CST] 命令 072 完成汇报归档
+- 072 归档范围：071 后的网页修订、200 对 pilot、526 对扩展、600 对最低协议及 29 条单方未标重检；最终权威结论以 600 primary 结果为准。
+- 最低人工协议 COMPLETE：三个数据集各 200 个独立双标目标，无 pending；450 对数值角度结果及重检结果通过 schema、mapping、身份和复算核验。
+- 科学结论：足以支撑 overall human-noise anchor、dataset-level、5° noise-sensitive 和 ar>=2.1 边界；1500 仅在保留正式细粒度分层 claim 时需要。
+- 关键归档：`docs/072_completion_report.md`、`reports/072_completion_status.csv`、`logs/072_completion.log`。
+- 合规：未训练、未推理、未改论文/thresholds/D_cal/D_audit/host，未伪造标注；不宣称全项目完成或 submission frozen。下一正式编号 073。
+
+## [2026-07-21 09:36:00 -0700] 命令 073 完成：真人锚点接入、最终复算、拆篇与协作者审阅冻结
+- 指令来源：用户下达正式命令 073，要求接入 072 真人双标、完成风险解释与全局复算、落实既有 PSC 拆篇判定，并仅生成拆篇后的 A 篇中文正式稿。
+- 真人复算：600 个 canonical targets（三数据集各 200），450 对数值角度；总体 mean=2.3112°（image-cluster bootstrap 95% CI 1.9970°--2.7854°），median=1.6359°，p90=4.4220°，p95=5.9359°，P(>5°)=8.00%，P(>10°)=0.89%。ar>=2.1 有 308 对，mean=2.2823°，P(>5°)=6.82%，P(>10°)=0.65%。29 个盲重检严格保持 secondary，未覆盖 primary。
+- 风险解释：1.5°--2° 均值预算仅作 label-noise-aware 解读；5° 是有意义但 noise-sensitive 的 fine-risk；10° 具有更清楚的 severe-risk 余量；SODA-A 高尾部作为限制保留；corner-jitter 仅作 proxy sensitivity。
+- 一键复算：`scripts/reproduce_all_main_tables.sh` 已实际完成 CPU 全链；最终校验器首次读取新 merge audit 字段时出现 schema 错配，修复后仅续跑最终校验，没有重复训练或推理。权威日志为 `logs/reproduce_all_main_tables_073.log`，16 项复算检查全部通过。
+- 拆篇：追认既有 PSC 拆篇判定；A 篇只保留简洁 head-specific 观察，未生成 B 篇或 B 篇提纲。唯一新论文为 `docs/paper_A_zh_post_human_073/orientation_reliability_paper_A_zh.md`。
+- 冻结：`reports/073_submission_freeze_gate.csv` 十项条件全部通过，最终状态为 `FROZEN_FOR_COLLABORATOR_REVIEW`，不表示 submission ready 或项目全部完成。
+- 资产与合规：thresholds SHA-256 仍为 `b7c4e649b1a3de6d0c985a5f20dc5ba70a8fb3e428c3c184e2f86bf96d593fae`；10 个 D_cal/D_audit 哈希、两个 host lock/checkpoint 均未变；未训练、未推理、未重跑检测器/角度编码矩阵、未修改真人原始标注、无范围外论文文件。
+- 停止条件：未触发新的科学停止条件。下一条正式命令编号为 074。
+
+## [2026-07-21 09:38:00 -0700] 命令 073 重复送达核验
+- 指令来源：用户再次发送与已完成命令 073 相同的全文。
+- 执行动作：核对既有 073 权威产物与最终门控；未建立第二套结果、未重复执行训练/推理/昂贵统计链。
+- 关键状态：`reports/073_submission_freeze_gate.csv` 仍为 `FROZEN_FOR_COLLABORATOR_REVIEW`；唯一 A 篇中文稿路径不变。
+- 停止条件：无。下一条正式命令编号仍为 074。
+
+## [2026-07-22 12:45:00 CST] 命令 074-REPLACEMENT：A/B 物理隔离与 G0 权威法证
+- 指令来源：用户以 074-REPLACEMENT 覆盖旧 074；本轮只允许建立 A/B/shared 命名空间并完成 B0/G0。
+- 执行时间：G0 于 2026-07-22 12:35 CST 启动，2026-07-22 12:45 CST 完成。
+- 物理边界：已建立 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/`、`paper_B_psc_mechanism/` 与 `shared_forensics/g0/`；共同边界和全部法证结果只写入 shared forensics。
+- G0 判定：`PASS_RISK_FUNCTIONAL_DEPENDENT`。九个 PSC detector-head-seed 单元的连续角度风险均稳定反序；geometry-normalized severe event 在数据集/种子间为 near-random、non-reversed 与 reversed 混合，禁止继续使用不区分风险对象的“phase_mod 稳定反序”。正负分数直接复算且 prediction identity、mask、coverage、paired resample 完全一致，未使用对称近似。
+- 对齐与训练披露：A 8.2/8.5 的 A-F 为同一 full-val lineage 上的合理不同估计量/子集，DOTA G-H 不进入 8.5；无 ERROR。K2 实际 LR、epoch、checkpoint、精度模式与失败单元已披露；旧聚合表存在 LR/AMP 元数据陈旧项。FAIR1M-CSL=`HEALTHY_BUT_WEAK`，不得单独支撑强三数据集 CSL 结论。
+- 关键产物：`top_journal_v3_reaudit_055/shared_forensics/AB_ASSET_BOUNDARY.md`、`shared_forensics/g0/docs/`、`shared_forensics/g0/reports/` 与 `shared_forensics/g0/scripts/run_g0_forensics.py`。
+- 合规：允许进入后续 075；未执行 A1-A6，未执行 B1-B7，未训练、未推理、未修改论文、thresholds.yaml、D_cal/D_audit 或 formal/exploratory 标签。
+
+## [2026-07-22 14:07:30 CST] 命令 075：A1-A3 风险控制重构
+- 执行时间：最终协议于 2026-07-22 14:03 CST 冻结，权威复算于 14:06--14:07 CST 完成。
+- A1=`PARTIAL_FRONTIER`：6 个 evaluation units、4 scores、4 endpoints、6 budgets 全量保留；20 个 nontrivial certifications，其中 12 个满足预注册 practical 条件。主 geometry-normalized endpoint 仅 target-GT diagnostic upper bound 在 DIOR-R RTMDet 单元获得 1 个 nontrivial practical certification，因此不能维持广泛可部署风险控制表述。
+- A2=`PASS_TILE_ONLY_WITH_LIMITATION`：eligible-scene universe 固定，阈值后空场景作为 abstention 而非零损失。DIOR-R/FAIR1M 可作 mother-scene；SODA-A 可恢复 576 个母景，但其 tiles 全部跨既有 D_cal/D_audit 角色，故正式保证仅为 tile/image-level，mother-scene 聚合只作 sensitivity。
+- A3=`PARTIAL_SCORE_MENU`：主 endpoint 下 detection、TTA、source-supervised geometry 均无 nontrivial certification；target-GT upper bound 有 1 个。形式通过不等于实用成功，旧 instance-i.i.d. 仅作审计。
+- 综合状态：`PROCEED_WITH_DOWNGRADED_RISK_CLAIM`，允许进入 076，但后续不得将单一 target-GT upper-bound 成功写成 deployable 或跨单元通用保证。
+- 关键产物：`top_journal_v3_reaudit_055/paper_A_orientation_protocol/{docs,reports,scripts,logs}/`；`reproduce_A1_A3.sh` 完整实际执行，13 项复算检查通过。
+- 合规：仅写 A 工作区和本记录；未写 B 工作区、未复制完整 PSC 主表、未修改论文、thresholds.yaml 或 D_cal/D_audit；未训练/推理 detector，未执行 A4-A6 或 B1-B7。
+
+## [2026-07-22 15:37:00 CST] 命令 076：A4-A6 确认性收口
+- 执行时间：2026-07-22 15:29--15:37 CST。
+- A4=`PARTIAL_ALIGNMENT`：K1 六单元 provenance-clean full-evaluator 基线/自适应端点继续支持 AP50 弱敏感区与 AP75 更早响应；实际 center/scale 下的 ar>=2.1 固定对经验容忍度已对 A-F 全量复算并与 ideal delta_0.50/delta_0.75 分列。因全部六单元的完整 raw prediction dumps 未持久化，固定 0/2/5/10/15/20/25/30 度 AP 网格及 AP75 knee 未伪造，matched-only/partial-GT AP 未使用。
+- A5=`PARTIAL_TWO_ANNOTATOR_WITH_GT`：annotator-1 vs official GT 为 n=468、mean=5.2721°、median=1.7639°；annotator-2 为 n=463、mean=5.1219°、median=1.7899°。这是 discrepancy 而非把 official GT 当绝对真值。第三标注员 150 项任务已冻结为每数据集 50（45 boundary + 105 random regular），工具启动/保存/恢复/测试导出通过；真人结果仍为 0，状态 HUMAN_ANNOTATOR_3_BLOCKED，未生成正式 consensus。
+- A6=`NO_ELIGIBLE_CONFIRMATORY_UNIT`：ARS-DETR DIOR-R/16 持久化 schema 实为旧 5,863-image universe 且已有 NRC；DOTA/14 仅有指向已消失 /dev/shm 的 manifest；其它候选同属 partial/已查看。未更换协议、未训练新 detector、未伪造确认数值。
+- 工具箱：独立 CLI、6 项单元/合成测试及真实持久化 artifact regression 全通过；不可行工作点显式输出，未包含 PSC/B 机制或把 target-GT score 作为默认 deployable score。
+- 综合 A 等级：`A_MEASUREMENT_ONLY`。075 的广泛 deployable risk-control 主张不得恢复；允许保留 AP75/NRC/geometry-normalized event/human audit 的 measurement protocol。
+- 关键产物：`top_journal_v3_reaudit_055/paper_A_orientation_protocol/{docs,reports,figures,annotation_tools,toolbox,scripts,logs}/`；`reproduce_A4_A6.sh` 实际完成，14 项检查通过。
+- 合规：允许进入 077；未执行 B1-B7，未写 B 工作区，未修改论文、thresholds.yaml、D_cal/D_audit，未训练或重训 host，未追 public mAP。
+
+## [2026-07-22 15:54:00 CST] 命令 077：A 篇 measurement-only 重写
+- 执行时间：2026-07-22 15:45--15:54 CST。
+- A 篇已按 `A_MEASUREMENT_ONLY` 最终裁决完整重写；唯一论文为 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`。
+- 论文保留测量协议、几何归一化风险、场景统计审计、严格认证可行性负结果、人工标注审计与工具箱；未恢复广泛 risk-control 或 deployable certification 主张，未写入 B 的机制结果。
+- 合规：未执行 B1--B7，未训练、未推理、未评测或统计重算，未修改实验资产；下一正式编号为 078。
+
+## [2026-07-22 18:56:00 CST] 命令 078：B1--B3 机制阶段
+- 执行时间：2026-07-22 16:14--18:56 CST；B1 假说、双风险端点、候选和干预网格于 16:14 CST 冻结。
+- B2=`SUPPORTS_MECHANISM_SUFFICIENCY`：729 个玩具参数单元同时出现 informative、near-random 与 reverse 区域，且反序不只来自极端参数；仅作充分性证据。
+- B3：九个 PSC detector-head-seed 单元完成端点分离的真实输出干预；H1=`SUPPORTED`、H2=`PARTIALLY_SUPPORTED`、H3=`SUPPORTED`、H4=`PARTIALLY_SUPPORTED`。径向 full-evaluator 干预会改变部分 box/NMS/AP，只作 mechanism-only；不改预测的候选排序才属于 ranking-only。
+- 阶段门控=`PROCEED_B4_EXTERNAL_VALIDATION`；FAIR1M 仅以 DIOR-R/SODA-A 冻结后的未改公式作确认，未据其结果调公式。
+- 复算：`paper_B_psc_mechanism/scripts/reproduce_B1_B3.sh` 完整执行，13 项检查全部通过。
+- 合规：未训练、未执行 B4--B7、未修改或写入 A 工作区，未修改 thresholds.yaml 或 D_cal/D_audit；下一正式编号为 079。
+
+## [2026-07-23 18:29:41 CST] Git 仓库发布
+- 指令来源：用户要求提交应提交的项目内容，并由 Codex 处理 Git 发布阻塞。
+- 执行动作：配置官方 GitHub 远端，按源码、配置、论文、可复算脚本、权威表格和标注协议整理提交范围；排除 checkpoint、原始预测、日志、缓存、标注图片、测试状态及超过 GitHub 单文件限制的逐实例持久化数据。
+- 关键路径：`paper_A_orientation_protocol/`、`paper_B_psc_mechanism/`、`shared_forensics/` 及项目根复算与治理文件。
+- 停止条件：未触发；未修改科学结果、冻结阈值或数据划分。
+- 下一步：将发布分支推送至 `ziyu24/orientbench` 并建立合并请求。

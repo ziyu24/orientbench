@@ -1,0 +1,3 @@
+run_id,amp_mode,status,ap50,decision
+K2_pilot__KLD__SODA-A__lr0.0025,amp,amp_incompat,,amp_incompat
+K2_pilot__KLD__SODA-A__lr0.0025,fp32_fallback,amp_incompat,,amp_incompat

@@ -15,3 +15,36 @@ outputs/persistent_artifacts/
 outputs/bench_core/figures/
 measure_fix_v2/artifacts/
 measure_fix_v2/logs/
+
+# Runtime products and local scientific data
+/outputs/
+/logs/
+**/logs/
+**/artifacts/
+**/work_dirs/
+**/__pycache__/
+*.npz
+*.npy
+*.jsonl
+*.jsonl.gz
+*.pklstream
+*.pt
+*.bak
+
+# Annotation media stay local; code, manifests, and tabular labels remain trackable
+annotation_tools/**/crops/
+annotation_tools/**/images/
+annotation_tools/**/test_outputs/
+annotation_tools/**/draft_state.json
+top_journal_v3_reaudit_055/**/annotation_tools/**/crops/
+top_journal_v3_reaudit_055/**/annotation_tools/**/images/
+top_journal_v3_reaudit_055/**/annotation_tools/**/test_outputs/
+top_journal_v3_reaudit_055/**/annotation_tools/**/draft_state.json
+
+# Local data preparation products and superseded scratch workspace
+top_journal_v3_reaudit_055/data_prep/
+realign_sgd_v2_20260515/
+
+# Large per-instance analysis dumps are persistent artifacts, not Git sources
+top_journal_v3/reports/tta_circular_variance_full_052.csv
+top_journal_v3/reports/psc_phase_mod_permatched_full_052.csv

@@ -1,0 +1,17 @@
+{
+  "cell": "DOTA-v1.0/rtmdet",
+  "detector": "rotated_rtmdet_m",
+  "AP50": 0.7161,
+  "AP75": 0.4868,
+  "n_gt_fullval": 55804,
+  "n_matched": 51736,
+  "n_masked_ar16": 41650,
+  "ckpt": "best_mAP_7161_epoch_31.pth",
+  "gt_source": "/home/rspip/cqc/data/dataset/dota/dota1.0/split_ss_dota10/val",
+  "can_recompute": "yes",
+  "masked_NRC_score": 0.6458,
+  "masked_AURC_score": 1.5326,
+  "masked_Risk70": 1.717,
+  "masked_Risk90": 1.849,
+  "masked_angle_err_mean": 1.965
+}

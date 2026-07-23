@@ -1,0 +1,9 @@
+condition,status,evidence,impact_on_A,impact_on_B,required_next_action
+direct positive/negative calculation,PASS,nine PSC detector-head-seed units x two endpoints; direct sorted-prefix metrics,use endpoint-qualified summary only,retain endpoint-specific motivation,none
+no symmetry approximation,PASS,symmetry_approximation=False in every metric row,none,direct baseline retained,none
+identity/mask/grid/bootstrap alignment,PASS,same identity/mask/grid hashes and paired resample IDs,none,comparisons auditable,none
+risk-functional branch,PASS,PASS_RISK_FUNCTIONAL_DEPENDENT,replace broad reverse-ranking wording,define continuous and severe endpoints separately,supersede broad old claims
+A 8.2/8.5 universe,PASS,"A-F explained subsets; G-H incomparable by design, no ERROR",do not describe 8.2 and 8.5 as same estimand,none,clarify in next A edit
+K2 schedule disclosure,PASS_WITH_DISCLOSURE,all completed units and failed KLD/regression pilots recorded; stale LR/AMP fields in the historical aggregate table exposed against launch logs/config/job records,avoid training-generalization claim,use actual-run LR/checkpoint identity,"cite actual launch/config schedule, not stale aggregate metadata"
+FAIR1M-CSL health,HEALTHY_BUT_WEAK,three nonempty completed finals; weak AP/AP75 and high angle error,CSL observation must be qualified,weak confirmation only,do not use as sole three-dataset support
+G0 final,PASS_RISK_FUNCTIONAL_DEPENDENT,all G0 outputs recomputable from frozen dumps,075 may perform later A corrections,B1-B7 remain unstarted pending next command,await 075

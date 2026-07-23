@@ -1,0 +1,9 @@
+cell,selector,protocol,n,nrc,ci_lo,ci_hi,reverse_calibrated_sig,calibrated_sig
+DOTA-v1.0/20,detection_score,masked_ar1.6,16873,0.6926,0.6718,0.7111,False,True
+DOTA-v1.0/20,intrinsic_phase_mod,masked_ar1.6,16873,0.9638,0.9292,0.998,False,True
+DIOR-R/22,detection_score,masked_ar1.6,24988,0.5424,0.5292,0.5562,False,True
+DIOR-R/22,intrinsic_phase_mod,masked_ar1.6,24988,1.1286,1.0984,1.1596,True,False
+FAIR1M-v1.0/24,detection_score,masked_ar1.6,45740,0.8848,0.8649,0.9074,False,True
+FAIR1M-v1.0/24,intrinsic_phase_mod,masked_ar1.6,45740,1.1009,1.0767,1.1206,True,False
+SODA-A/23,detection_score,masked_ar1.6,267796,0.9138,0.9028,0.9257,False,True
+SODA-A/23,intrinsic_phase_mod,masked_ar1.6,267796,1.0902,1.0806,1.1003,True,False

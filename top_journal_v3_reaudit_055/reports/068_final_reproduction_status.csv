@@ -1,0 +1,8 @@
+check,status,evidence
+thresholds.yaml unchanged,OK,b7c4e649b1a3de6d
+no /dev/shm main-table dependency,OK,checked m1/m2/m3/m4 csv
+main tables tagged ar>=2.1,OK,m1 main csv contains ar_threshold 2.1
+instance-i.i.d. not a formal guarantee,OK,m3 comparison present; labeled audit-only
+proxy jitter not sigma_gt,OK,human disagreement file separate from proxy; proxy never named sigma_gt
+DOTA#20 excluded from results,OK,no DOTA#20 in m1 main
+Phase1 deadline not extended,OK,deadline frozen 2026-08-23

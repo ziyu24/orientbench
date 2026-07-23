@@ -1,0 +1,35 @@
+{
+  "status": "PACKAGE_MATERIALIZED_HUMAN_BLOCKED",
+  "target": "/home/rspip/cqc/pro/study/orientbench/top_journal_v3_reaudit_055/annotation_tools/m4_angle_annotation",
+  "source_070": "/home/rspip/cqc/pro/study/orientbench/annotation_tools/m4_angle_annotation",
+  "counts": {
+    "A": {
+      "SODA-A": 500,
+      "DIOR-R": 500,
+      "FAIR1M-v1.0": 500
+    },
+    "B": {
+      "DIOR-R": 500,
+      "SODA-A": 500,
+      "FAIR1M-v1.0": 500
+    }
+  },
+  "tasks_per_annotator": {
+    "A": 1500,
+    "B": 1500
+  },
+  "anonymous_ids_unique": {
+    "A": true,
+    "B": true
+  },
+  "anonymous_ids_disjoint": true,
+  "same_instance_set": true,
+  "different_order": true,
+  "formal_output_files": 0,
+  "human_results": 0,
+  "human_status": "HUMAN_BLOCKED",
+  "tool_validation": "PASS",
+  "merge_analyze_test_pairs": 1500,
+  "test_outputs_isolated": true,
+  "background_test_processes": 0
+}

@@ -1,0 +1,157 @@
+{
+  "status": "pass",
+  "failures": [],
+  "checks": [
+    {
+      "check": "AGENTS.md exists/readable",
+      "pass": true
+    },
+    {
+      "check": "top_journal_v3 workspace exists",
+      "pass": true
+    },
+    {
+      "check": "required output docs/p1_constructive_decoupling_experiment.md",
+      "pass": true
+    },
+    {
+      "check": "required output reports/p1_angle_perturb_dose_response.csv",
+      "pass": true
+    },
+    {
+      "check": "required output reports/p1_reverse_perturb_decoupling.csv",
+      "pass": true
+    },
+    {
+      "check": "required output figures/iou_delta_theta_aspect_ratio_curve.csv",
+      "pass": true
+    },
+    {
+      "check": "required output figures/iou_delta_theta_aspect_ratio_curve.md",
+      "pass": true
+    },
+    {
+      "check": "required output docs/p2_conformal_orientation_risk_control.md",
+      "pass": true
+    },
+    {
+      "check": "required output reports/conformal_within_cell_risk_control.csv",
+      "pass": true
+    },
+    {
+      "check": "required output reports/conformal_shift_violation_audit.csv",
+      "pass": true
+    },
+    {
+      "check": "required output docs/p3_psc_free_mechanism_tests.md",
+      "pass": true
+    },
+    {
+      "check": "required output reports/psc_dota20_phase_mod.csv",
+      "pass": true
+    },
+    {
+      "check": "required output reports/psc_phase_mod_aliasing_hist.csv",
+      "pass": true
+    },
+    {
+      "check": "required output reports/psc_phase_mod_confounding_check.csv",
+      "pass": true
+    },
+    {
+      "check": "required output docs/p4_uncertainty_baselines_circular_stats.md",
+      "pass": true
+    },
+    {
+      "check": "required output reports/uncertainty_baselines_nrc.csv",
+      "pass": true
+    },
+    {
+      "check": "required output docs/p5_downstream_selective_orientation_task.md",
+      "pass": true
+    },
+    {
+      "check": "required output reports/downstream_selective_orientation.csv",
+      "pass": true
+    },
+    {
+      "check": "required output figures/nrc_interpretation_schematic.md",
+      "pass": true
+    },
+    {
+      "check": "required output figures/nrc_interpretation_schematic.csv",
+      "pass": true
+    },
+    {
+      "check": "required output docs/related_work_references_patch.md",
+      "pass": true
+    },
+    {
+      "check": "required output docs/top_journal_evidence_decision_049.md",
+      "pass": true
+    },
+    {
+      "check": "required output docs/codex_latest_report.md",
+      "pass": true
+    },
+    {
+      "check": "required output reports/heartbeat_049.json",
+      "pass": true
+    },
+    {
+      "check": "codex_latest_report has entrance/exit",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: TPAMI ready",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: CVPR ready",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: full project complete",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: PSC angle head finally proven broken",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: DOTA #20 validation",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: oracle_gain",
+      "pass": true
+    },
+    {
+      "check": "forbidden text absent: retained oracle",
+      "pass": true
+    },
+    {
+      "check": "conformal not written as ordinary score",
+      "pass": true
+    },
+    {
+      "check": "angle variance circular statistics documented",
+      "pass": true
+    },
+    {
+      "check": "no tracked modification to configs/thresholds.yaml",
+      "pass": true,
+      "status": ""
+    },
+    {
+      "check": "no tracked modification to outputs/bench_core/splits",
+      "pass": true,
+      "status": "?? outputs/bench_core/splits/"
+    },
+    {
+      "check": "no large files in top_journal_v3",
+      "pass": true,
+      "large_files": []
+    }
+  ]
+}

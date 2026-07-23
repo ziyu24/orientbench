@@ -1,0 +1,10 @@
+cell,detector,n,masked_NRC,AURC,R70,geometry_methodA_NRC,artifact_sha16,can_recompute,in_main_table
+DIOR#22,rotated_retinanet_psc,24988,0.5424,1.1373,1.442,0.6002,f596a441d14e82a6,True,YES (full-val provenance-clean)
+FAIR1M#24,rotated_retinanet_psc,45740,0.8848,2.2838,2.386,0.6166,d12f35c56132f86e,True,YES (full-val provenance-clean)
+SODA#23,rotated_retinanet_psc,267796,0.9138,2.2741,2.196,0.5061,a60cc90cfd733bcb,True,YES (full-val provenance-clean)
+DIOR#3,oriented_rcnn,26957,0.5258,1.2433,1.485,0.4946,c8031cfb64085d14,True,YES (full-val provenance-clean)
+DIOR#61,rotated_rtmdet_s,27382,0.4072,1.1884,1.437,0.4038,7d27907ec0150199,True,YES (full-val provenance-clean)
+SODA#4,oriented_rcnn,331575,0.7114,2.1474,2.387,0.5081,6e1248798ae6e53c,True,YES (full-val provenance-clean)
+DIOR#10,oriented_rcnn_lsknet,27097,0.5476,1.2057,1.422,,,True,"appendix (masked-only features, no full-val matched table)"
+SODA#11,oriented_rcnn_lsknet,254021,0.7313,1.8789,2.065,,,True,"appendix (masked-only features, no full-val matched table)"
+DOTA#20,rotated_retinanet_psc,486,1.0368,1.4159,1.363,,449675cdd250ab56,True,NO — invalid_pending (19-img D_cal subset)

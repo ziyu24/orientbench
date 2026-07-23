@@ -1,0 +1,5 @@
+evaluator,DIOR22_fullval_AP50,aligned_with_DOTAMetric
+S1a project full evaluator,0.5297,yes(diff 0.0013)
+project torch VOC-AP (recompute),0.5311,yes(diff 0.0001)
+"DOTAMetric (MMRotate, reference)",0.531,reference
+frozen baseline own training-val DOTAMetric,0.537,yes

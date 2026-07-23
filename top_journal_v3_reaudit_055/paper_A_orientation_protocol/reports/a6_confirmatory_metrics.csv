@@ -1,0 +1,2 @@
+confirmatory_unit,status,AP50,AP75,detection_score_NRC,TTA_NRC,source_geometry_NRC,geometry_event_rate,risk5,risk10,risk15,notes
+none,NO_ELIGIBLE_CONFIRMATORY_UNIT,,,,,,,,,,no candidate passed persistence + complete full-val identity + previously-unseen provenance

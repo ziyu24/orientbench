@@ -1,0 +1,14 @@
+{
+  "run_id": "K2_final__PSC__SODA-A__seed2",
+  "head": "PSC",
+  "dataset": "SODA-A",
+  "seed": 2,
+  "lr": 0.0025,
+  "epochs": 12,
+  "stage": "final",
+  "status": "complete",
+  "final_ap50": 0.588,
+  "amp_mode": "amp",
+  "checkpoint": "/home/rspip/cqc/pro/study/orientbench/top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed2/epoch_12.pth",
+  "eval_json": "/home/rspip/cqc/pro/study/orientbench/top_journal_v3_reaudit_055/reports/k2_eval/K2_final__PSC__SODA-A__seed2.json"
+}

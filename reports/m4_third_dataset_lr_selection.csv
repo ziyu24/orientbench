@@ -1,0 +1,4 @@
+head,dataset,selected_lr,pilot_run_id,AP50,AP75,mean_angle_error,rule
+PSC,FAIR1M-v1.0,0.005,M4_070_pilot__PSC__FAIR1M__lr0.005,0.1836799742595602,0.060871408650904804,9.894334808476028,max AP50; tie max AP75; tie min angle error; no reliability metric
+CSL,FAIR1M-v1.0,0.0025,M4_070_pilot__CSL__FAIR1M__lr0.0025,0.16021065807307772,0.019922055377299675,31.83522821065616,max AP50; tie max AP75; tie min angle error; no reliability metric
+DCL,FAIR1M-v1.0,0.0025,M4_070_pilot__DCL__FAIR1M__lr0.0025,0.1172106064613835,0.019986557961520275,12.4622638511422,max AP50; tie max AP75; tie min angle error; no reliability metric

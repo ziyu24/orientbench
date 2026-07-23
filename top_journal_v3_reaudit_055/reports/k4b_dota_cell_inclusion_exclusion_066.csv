@@ -1,0 +1,4 @@
+cell,status,reason
+DOTA-v1.0/orcnn,INCLUDED,"clean full-val (5297 tiles/55804 GT), AP50=0.7061 matches baseline"
+DOTA-v1.0/rtmdet,INCLUDED,"clean full-val, AP50=0.7161 matches baseline"
+DOTA-v1.0/20 (D20),EXCLUDED,"19-img D_cal subset, mAP anomalous, /dev/shm; formally excluded from main results (one-line exclusion note only)"

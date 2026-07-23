@@ -1,0 +1,7 @@
+cell,detector,old_partial_gt_ap,old_partial_gt_n_gt,new_full_val_ap,new_full_val_n_gt,checkpoint_self_reported_DOTAMetric,current_unified_evaluator_ap,new_vs_log_diff,difference_explanation
+DIOR-R/22,rotated_retinanet_psc,0.6964,35436,0.5368,124445,dota/AP50 0.5370 (best_mAP_5368),0.5368,0.0002,"DIOR partial GT (n_gt 35436 vs full 124445, ~28%) inflated old AP; full-val matches ckpt log -> old high AP is partial-GT artifact, NOT a new-eval error"
+DIOR-R/3,oriented_rcnn,0.7999,35436,0.6448,124445,dota/AP50 0.6448 (best_dota_mAP_ep11),0.6448,0.0,"DIOR partial GT (n_gt 35436 vs full 124445, ~28%) inflated old AP; full-val matches ckpt log -> old high AP is partial-GT artifact, NOT a new-eval error"
+DIOR-R/61,rotated_rtmdet_s,0.8866,35436,0.6462,124445,"dota/AP50 0.6440 (filename 5489 = dota/mAP, NOT AP50)",0.6462,0.0022,"DIOR partial GT (n_gt 35436 vs full 124445, ~28%) inflated old AP; full-val matches ckpt log -> old high AP is partial-GT artifact, NOT a new-eval error"
+FAIR1M-v1.0/24,rotated_retinanet_psc,0.3452,78638,0.3462,78644,dota/AP50 0.3462 (best_mAP_3462),0.3462,0.0,full GT (old n_gt == full); old AP ~ new AP ~ ckpt log -> never inflated
+SODA-A/23,rotated_retinanet_psc,0.6119,449644,0.5991,449644,dota/AP50 0.5991 (best_mAP_5991),0.5991,0.0,full GT (old n_gt == full); old AP ~ new AP ~ ckpt log -> never inflated
+SODA-A/4,oriented_rcnn,0.7592,449644,0.7295,449644,dota/AP50 0.7295 (best_mAP_7295),0.7295,0.0,full GT (old n_gt == full); old AP ~ new AP ~ ckpt log -> never inflated

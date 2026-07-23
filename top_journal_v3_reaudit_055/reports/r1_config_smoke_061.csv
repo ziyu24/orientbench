@@ -1,0 +1,7 @@
+config,parse,model_build,dataset_n,sample_gt,status,err
+dcl_dior_seed0.py,ok,ok,11725,15,PASS,
+dcl_dior_seed1.py,ok,ok,11725,15,PASS,
+dcl_dior_seed2.py,ok,ok,11725,15,PASS,
+dcl_soda_seed0.py,ok,ok,23063,4,PASS,
+dcl_soda_seed1.py,ok,ok,23063,4,PASS,
+dcl_soda_seed2.py,ok,ok,23063,4,PASS,

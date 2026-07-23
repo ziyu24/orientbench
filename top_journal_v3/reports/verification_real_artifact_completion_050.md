@@ -1,0 +1,49 @@
+# Verification 050
+
+status: pass
+
+- PASS: required docs/real_artifact_inventory_050.md
+- PASS: required reports/real_artifact_inventory_050.csv
+- PASS: required reports/real_artifact_regeneration_050.csv
+- PASS: required reports/psc_track_a_dump_050.csv
+- PASS: required docs/psc_track_a_dump_050.md
+- PASS: required reports/uncertainty_real_artifacts_050.csv
+- PASS: required docs/uncertainty_real_artifacts_050.md
+- PASS: required docs/p1_constructive_decoupling_experiment.md
+- PASS: required reports/p1_angle_perturb_dose_response.csv
+- PASS: required reports/p1_reverse_perturb_decoupling.csv
+- PASS: required docs/p2_conformal_orientation_risk_control.md
+- PASS: required reports/conformal_within_cell_risk_control.csv
+- PASS: required reports/conformal_shift_violation_audit.csv
+- PASS: required docs/p3_psc_free_mechanism_tests.md
+- PASS: required reports/psc_dota20_phase_mod.csv
+- PASS: required reports/psc_phase_mod_aliasing_hist.csv
+- PASS: required reports/psc_phase_mod_confounding_check.csv
+- PASS: required docs/p4_uncertainty_baselines_circular_stats.md
+- PASS: required reports/uncertainty_baselines_nrc.csv
+- PASS: required docs/p5_downstream_selective_orientation_task.md
+- PASS: required reports/downstream_selective_orientation.csv
+- PASS: required docs/top_journal_evidence_decision_050.md
+- PASS: required docs/codex_latest_report.md
+- PASS: required reports/heartbeat_050.json
+- PASS: manifest_050.json exists
+- PASS: manifest records no training/threshold/split modification
+- PASS: no synthetic/proxy rows in reports/p1_angle_perturb_dose_response.csv
+- PASS: no synthetic/proxy rows in reports/p1_reverse_perturb_decoupling.csv
+- PASS: no synthetic/proxy rows in reports/conformal_within_cell_risk_control.csv
+- PASS: no synthetic/proxy rows in reports/downstream_selective_orientation.csv
+- PASS: P2 uses real D_cal/D_audit
+- PASS: P3 per-instance Track A dump status recorded
+- PASS: P4 circular statistics documented
+- PASS: P5 uses real matched predictions
+- PASS: latest report entrance/exit
+- PASS: forbidden text absent: TPAMI ready
+- PASS: forbidden text absent: CVPR ready
+- PASS: forbidden text absent: full project complete
+- PASS: forbidden text absent: PSC angle head finally proven broken
+- PASS: forbidden text absent: DOTA #20 validation
+- PASS: forbidden text absent: oracle_gain
+- PASS: forbidden text absent: retained oracle
+- PASS: no tracked modification configs/thresholds.yaml
+- PASS: no tracked modification outputs/bench_core/splits
+- PASS: git no large files under top_journal_v3

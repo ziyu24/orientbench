@@ -1,0 +1,45 @@
+{
+  "run_id": "K2_final__CSL__SODA-A__seed0",
+  "head": "CSL",
+  "dataset": "SODA-A",
+  "n_matched": 101987,
+  "AP50": 0.3178,
+  "AP75": 0.0536,
+  "native_signal": "softmax_margin",
+  "main_ar2.1": {
+    "n": 48245,
+    "NRC_score": 1.0583,
+    "angle_err_mean": 18.93,
+    "Risk70_score": 19.634,
+    "NRC_native": 1.0239,
+    "NRC_native_CI": [
+      1.002,
+      1.0447
+    ],
+    "AURC_native": 19.1509
+  },
+  "sens_ar1.6": {
+    "n": 61729,
+    "NRC_score": 1.2332,
+    "angle_err_mean": 21.141,
+    "Risk70_score": 21.895,
+    "NRC_native": 1.0987,
+    "NRC_native_CI": [
+      1.0776,
+      1.1182
+    ],
+    "AURC_native": 22.1574
+  },
+  "sens_ar1.3": {
+    "n": 70051,
+    "NRC_score": 1.4334,
+    "angle_err_mean": 23.677,
+    "Risk70_score": 25.12,
+    "NRC_native": 1.1293,
+    "NRC_native_CI": [
+      1.1105,
+      1.1471
+    ],
+    "AURC_native": 25.2376
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "run_id": "PSC__SODA-A__seed1",
+  "angle_head": "PSC",
+  "dataset": "SODA-A",
+  "seed": "1",
+  "checkpoint": "epoch_12.pth",
+  "n_matched": 307142,
+  "n_masked_ar16": 264509,
+  "native_signal": "phase_mod",
+  "masked_NRC_native": 1.1519,
+  "masked_NRC_score": 0.9588,
+  "masked_AURC_native": 2.5829,
+  "masked_Risk70_native": 2.297,
+  "masked_Risk90_native": 2.271,
+  "masked_NRC_native_CI": [
+    1.1333,
+    1.1687
+  ],
+  "masked_angle_error_mean": 2.3444,
+  "AP50_self": 0.5968,
+  "AP75_self": 0.274,
+  "AP50_val_log": 0.597
+}

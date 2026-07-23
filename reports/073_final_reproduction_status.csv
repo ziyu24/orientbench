@@ -1,0 +1,17 @@
+scope,check,status,blocking,evidence
+protocol,ar>=2.1 main protocol,PASS,False,rows=62
+protocol,lower-ar sensitivity only,PASS,False,"thresholds=['1.3', '1.6']"
+science,fixed-size nonlinear comparison,PASS,False,decision=PASS; 11/15 significant bins; target-domain GT-fit remains upper-bound
+science,image-level formal guarantee,PASS,False,rows=720; bounded image loss; HB UCB
+science,geometry-normalized primary risk,PASS,False,geometry_rows=8; fixed_rows=24
+science,real independent blinded human anchor,PASS,False,600 targets; 200/dataset; 450 numeric pairs; recheck secondary
+science,PSC split decision,PASS,False,decision=PASS; deadline=2026-08-23 20:14:39 -0700
+science,FAIR1M independent replication,PASS,False,three heads x three final seeds; REPLICATES_A
+lineage,DOTA clean full-validation,PASS,False,"cells=2; AP50=0.7061,0.7161"
+lineage,DIOR full-validation replacement,PASS,False,three authoritative cells; old partial-GT rows superseded
+integrity,thresholds.yaml,PASS,False,sha256=b7c4e649b1a3de6d0c985a5f20dc5ba70a8fb3e428c3c184e2f86bf96d593fae
+integrity,D_cal and D_audit,PASS,False,all 10 split hashes unchanged
+integrity,host checkpoints,PASS,False,both host locks/checkpoints unchanged
+integrity,no /dev/shm main dependency,PASS,False,human_manifest_rows=17; persistent paths only
+reproduction,full one-click machine chain,PASS,False,completed_steps=10/10
+paper,single Chinese paper with split boundary,PASS,False,markdown_files=1; references=31

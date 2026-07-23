@@ -1,0 +1,45 @@
+{
+  "run_id": "K2_final__PSC__SODA-A__seed0",
+  "head": "PSC",
+  "dataset": "SODA-A",
+  "n_matched": 302699,
+  "AP50": 0.598,
+  "AP75": 0.2604,
+  "native_signal": "phase_mod",
+  "main_ar2.1": {
+    "n": 212113,
+    "NRC_score": 0.7814,
+    "angle_err_mean": 2.054,
+    "Risk70_score": 1.894,
+    "NRC_native": 1.1521,
+    "NRC_native_CI": [
+      1.1313,
+      1.1743
+    ],
+    "AURC_native": 2.2587
+  },
+  "sens_ar1.6": {
+    "n": 260434,
+    "NRC_score": 0.945,
+    "angle_err_mean": 2.346,
+    "Risk70_score": 2.165,
+    "NRC_native": 1.1507,
+    "NRC_native_CI": [
+      1.1327,
+      1.1678
+    ],
+    "AURC_native": 2.583
+  },
+  "sens_ar1.3": {
+    "n": 270697,
+    "NRC_score": 1.035,
+    "angle_err_mean": 2.474,
+    "Risk70_score": 2.312,
+    "NRC_native": 1.1392,
+    "NRC_native_CI": [
+      1.1211,
+      1.1576
+    ],
+    "AURC_native": 2.7102
+  }
+}

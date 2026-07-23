@@ -1,0 +1,7 @@
+source_kind,is_proxy,dataset,group_type,group_value,subset_definition,n_pairs,mean_circ_disagree_deg,median_circ_disagree_deg,p90_circ_disagree_deg,p95_circ_disagree_deg,P_gt5,P_gt10,status
+HUMAN_INDEPENDENT_DOUBLE_ANNOTATION,False,DIOR-R,dataset,all,all independently double-labeled usable instances,0,,,,,,,HUMAN_BLOCKED
+HUMAN_INDEPENDENT_DOUBLE_ANNOTATION,False,DIOR-R,ar_main,ar>=2.1,matched_GT_aspect_ratio>=2.1,0,,,,,,,HUMAN_BLOCKED
+HUMAN_INDEPENDENT_DOUBLE_ANNOTATION,False,FAIR1M-v1.0,dataset,all,all independently double-labeled usable instances,0,,,,,,,HUMAN_BLOCKED
+HUMAN_INDEPENDENT_DOUBLE_ANNOTATION,False,FAIR1M-v1.0,ar_main,ar>=2.1,matched_GT_aspect_ratio>=2.1,0,,,,,,,HUMAN_BLOCKED
+HUMAN_INDEPENDENT_DOUBLE_ANNOTATION,False,SODA-A,dataset,all,all independently double-labeled usable instances,0,,,,,,,HUMAN_BLOCKED
+HUMAN_INDEPENDENT_DOUBLE_ANNOTATION,False,SODA-A,ar_main,ar>=2.1,matched_GT_aspect_ratio>=2.1,0,,,,,,,HUMAN_BLOCKED

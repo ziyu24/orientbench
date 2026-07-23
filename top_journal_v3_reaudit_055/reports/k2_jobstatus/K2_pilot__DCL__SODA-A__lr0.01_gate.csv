@@ -1,0 +1,3 @@
+run_id,amp_mode,status,ap50,decision
+K2_pilot__DCL__SODA-A__lr0.01,amp,diverged,0.0,diverged
+K2_pilot__DCL__SODA-A__lr0.01,fp32_fallback,diverged,0.0,diverged
