@@ -2163,3 +2163,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键结果：项目目录由约 53GB 降至约 30GB，释放约 23GB；剩余非最佳 epoch 为 0，保留 best checkpoint 75 个。
 - 停止条件：未触发；未删除权威结果、冻结资产或正式复算输入。
 - 下一步建议：如需继续释放空间，再单独确认是否清除已被正式结果取代的 R1 与 K2 pilot 剩余资产。
+
+## [2026-07-24 12:03:14 PDT] 第二批低风险磁盘清理
+- 指令来源：用户要求继续清理低风险内容。
+- 执行动作：删除已被正式 K2 取代的 R1 工作目录、K2 pilot 工作目录，以及 RHINO/A4 host 的末轮 checkpoint；保留 K2 的 24 个 final best checkpoint 和两个 host best checkpoint。
+- 关键结果：释放 8,376,247,347 bytes（约 7.8GiB），项目目录降至约 22GB。
+- 停止条件：未触发；未删除持久化科学产物、正式 K2 final、B4 external、人工标注或复算依赖。
+- 下一步建议：其余大目录需要逐项确认依赖后再决定是否归档或删除。
