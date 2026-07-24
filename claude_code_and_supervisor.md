@@ -2156,3 +2156,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键路径：`paper_A_orientation_protocol/`、`paper_B_psc_mechanism/`、`shared_forensics/` 及项目根复算与治理文件。
 - 停止条件：未触发；未修改科学结果、冻结阈值或数据划分。
 - 下一步：将发布分支推送至 `ziyu24/orientbench` 并建立合并请求。
+
+## [2026-07-24 11:55:41 PDT] 保守磁盘清理
+- 指令来源：用户要求先删除目录审计中建议的保守清理项。
+- 执行动作：删除已完成训练的非最佳 `epoch_*.pth` 快照、B4 非最佳 epoch、明确标记为 preflight/superseded 的训练目录，以及本地测试与 Python 缓存；保留全部 `best*.pth`、持久化科学产物、人工标注数据和复算依赖。
+- 关键结果：项目目录由约 53GB 降至约 30GB，释放约 23GB；剩余非最佳 epoch 为 0，保留 best checkpoint 75 个。
+- 停止条件：未触发；未删除权威结果、冻结资产或正式复算输入。
+- 下一步建议：如需继续释放空间，再单独确认是否清除已被正式结果取代的 R1 与 K2 pilot 剩余资产。
