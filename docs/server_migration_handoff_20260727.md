@@ -1,10 +1,18 @@
 # OrientBench 服务器迁移与续作交接报告
 
-生成时间：2026-07-27 10:48 CST  
-源项目根目录：`/home/rspip/cqc/pro/study/orientbench`  
-Git 仓库：`git@github-ziyu24:ziyu24/orientbench.git`  
-迁移基线分支：`agent/publish-orientation-reliability`  
-迁移基线提交：`298c9cc1187fcbfa76fc65aca107c124c774c241`
+首次生成：2026-07-27 10:48 CST
+
+复核修订：2026-07-27（迁移后会话复核）
+
+源项目根目录：`/home/rspip/cqc/pro/study/orientbench`
+
+Git 仓库：`git@github-ziyu24:ziyu24/orientbench.git`
+
+迁移基线分支：`agent/publish-orientation-reliability`
+
+归档内嵌 Git 提交：`298c9cc1187fcbfa76fc65aca107c124c774c241`
+
+报告首次提交：`010f15c5c5d59f366d707852007c676af6f47959`
 
 ## 1. 交接结论
 
@@ -14,7 +22,8 @@ Git 仓库：`git@github-ziyu24:ziyu24/orientbench.git`
 - B 工作线已完成外部 PSC variant 验证，机制门控为
   `PASS_MECHANISM_BOUNDED`。
 - 下一正式任务应为 080，即 B6 修复级门控；B6/B7 尚未执行。
-- 当前没有本项目训练、推理、复算或 watcher 进程。
+- 2026-07-27 复核时没有本项目训练、推理、复算或 watcher 进程；新服务器
+  接手时仍须重新检查。
 - `thresholds.yaml`、`D_cal`、`D_audit` 均保持冻结。
 - 迁移归档包含 Git 工作区、忽略文件、持久化结果、保留 checkpoint、
   人工标注和日志；不包含外部数据集、外部 baseline 库、conda 环境和
@@ -23,6 +32,21 @@ Git 仓库：`git@github-ziyu24:ziyu24/orientbench.git`
 仅从 Git clone 不能恢复完整项目。Git 中约有 1,594 个文件、26.4 MB；
 完整工作区中不含 `.git` 和迁移分片时约为 23.1 GB，其中持久化科学产物
 约 14.6 GB、保留模型约 5.9 GB。
+
+### 1.1 接手规则优先级
+
+新会话不要只读根目录 `README.md`，它目前仅有极简项目标识。接手顺序必须是：
+
+1. `AGENTS.md`：当前项目执行规则和硬禁区；
+2. 本迁移报告：物理资产、环境和最新科学状态；
+3. `claude_code_and_supervisor.md`：按时间追溯正式命令与裁决；
+4. A/B/shared 三个 `README_SCOPE.md` 与 `AB_ASSET_BOUNDARY.md`；
+5. 各工作区最新 decision/reproduction 表。
+
+`AGENTS.md` 仍将长期科学主题定义为 measure -> diagnose -> fix；074 以后又
+建立了 A/B 物理隔离。二者的正确兼容方式是：科学问题可以保持联合主线，
+但在下一条正式命令改变边界前，文件写入、主表和结论仍必须遵守 A/B 隔离，
+不得为了“联合主线”撤销已完成的物理边界或把 B 机制表写回 A。
 
 ## 2. 迁移包状态
 
@@ -35,6 +59,9 @@ Git 仓库：`git@github-ziyu24:ziyu24/orientbench.git`
 它由 5 个分片组成，打包完成时间为 `2026-07-24T19:19:36Z`。打包发生在
 两轮低风险磁盘清理之后，因此不包含已经删除的非最佳 epoch、R1 旧工作区、
 K2 pilot、preflight 和 superseded 训练目录。
+
+归档创建早于本迁移报告，因此归档本身不包含本报告及其后续修订。解压后
+必须执行 Git pull；否则新服务器只能看到 298c9cc 时点的工作区。
 
 | 分片 | 字节数 | SHA-256 |
 |---|---:|---|
@@ -55,7 +82,7 @@ K2 pilot、preflight 和 superseded 训练目录。
 
 ```bash
 sha256sum -c SHA256SUMS
-cat orientbench.tar.zst.part-* | zstd -t
+cat orientbench.tar.zst.part-* | zstd -t -q
 mkdir -p /NEW/PROJECT/PARENT/orientbench
 cat orientbench.tar.zst.part-* \
   | zstd -dc \
@@ -77,7 +104,7 @@ Git。确认新服务器完整恢复后，迁移分片可以放到项目外的�
 
 ## 3. Git 状态
 
-迁移基线：
+归档内嵌的 Git 状态：
 
 ```text
 branch: agent/publish-orientation-reliability
@@ -89,6 +116,16 @@ origin/main: 1915340415d144222d56efd5372022866562a9b8
 `origin/main` 已包含 079 的科学产物；发布分支另外包含两次磁盘清理记录。
 本报告提交后，新服务器必须以发布分支最新提交为准，不要从旧 `master`
 或只从 `origin/main` 开始续作。
+
+报告首次存在于 `010f15c`。当前权威提交不要写死为 010f15c，而应在新服务器
+执行 `git pull --ff-only` 后以如下命令得到：
+
+```bash
+git rev-parse origin/agent/publish-orientation-reliability
+git rev-parse HEAD
+```
+
+两者必须相同。
 
 源工作区在生成本报告前除未跟踪的 `.orientbench_transfer_parts/` 外是干净的。
 
@@ -238,6 +275,18 @@ PASS_MECHANISM_BOUNDED
 
 下一正式编号为 080。080 应执行 B6，不应重做 B1--B5，也不应修改 A。
 
+### 4.4 必须保持的科学不变量
+
+- 正文主几何口径保持 `ar>=2.1`；`ar>=1.6/1.3` 仅为 sensitivity；
+- DIOR 正式结果使用 full-val lineage，旧 partial-GT 数字不得恢复；
+- DOTA#20 不进入正式结果；
+- image/scene 是风险审计的 exchangeable unit，instance-i.i.d. 仅作经验对照；
+- 空 selected scene 记为 abstained，不得以零风险稀释总体；
+- SODA-A 无严格 mother-scene guarantee；
+- target-GT-fitted nonlinear geometry 只是 diagnostic/calibration upper bound；
+- formal/exploratory 标签保持不变；
+- 正式主表不得依赖 `/dev/shm`。
+
 ## 5. A/B 资产边界
 
 必须继续遵守：
@@ -262,7 +311,7 @@ top_journal_v3_reaudit_055/shared_forensics/ab_asset_boundary_manifest.csv
 |---|---:|---|
 | `outputs/persistent_artifacts/` | 275 文件，14.58 GB | 主复算依赖，必须保留 |
 | 项目内 `.pth` | 38 个，5.95 GB | K2 final、B4、host 等保留 checkpoint |
-| `top_journal_v3_reaudit_055/work_dirs/k2/` | 24 个 final best | K2 full-converged 正式模型 |
+| `top_journal_v3_reaudit_055/work_dirs/k2/` | 24 个 final best | 18 个 PSC/CSL/DCL 正式单元，加 6 个 direct-regression 失败审计单元 |
 | `paper_B_psc_mechanism/artifacts/b4_training/` | 3 个 best | B4 外部 variant 三 seeds |
 | `paper_B_psc_mechanism/artifacts/b4_external/` | 三 seed dumps | B4/B5 复算输入 |
 | `paper_B_psc_mechanism/artifacts/b3_*` | B3 dumps/cache | B1--B3 机制复算输入 |
@@ -278,6 +327,16 @@ top_journal_v3_reaudit_055/shared_forensics/ab_asset_boundary_manifest.csv
 - RHINO/A4 host 末轮 checkpoint；
 - preflight/superseded 训练目录；
 - Python/test caches。
+
+38 个项目内 checkpoint 的主要构成为：
+
+- K2 final：24 个；
+- B4 external variant：3 个；
+- M4 FAIR1M 第三数据集：9 个；
+- RHINO/A4 host best：2 个。
+
+不得把 K2 的 6 个 direct-regression 失败审计 checkpoint 当作 native-score
+正式比较单元；它们仅用于训练披露和失败 lineage。
 
 ### 6.2 项目外、未包含在归档
 
@@ -300,6 +359,9 @@ top_journal_v3_reaudit_055/shared_forensics/ab_asset_boundary_manifest.csv
 
 `pth_data/readme.md` 是 baseline 身份、valid 状态、训练超参和 checkpoint
 短哈希的权威入口。新服务器在运行任何新推理前必须先恢复并核对该库。
+
+迁移包中的 `orientbench/pth_data/` 只是项目内占位目录，不是外部 25 GB
+baseline 库，不能据此判断 baseline 已经迁移。
 
 ## 7. 路径和软链接迁移
 
@@ -419,7 +481,19 @@ commit，再 editable install。不要让 mmrotate 0.x 与 1.x 在同一环境�
 
 - `reproduce_B1_B3.sh` 固定使用 `mr_dev1x`；
 - `reproduce_A4_A6.sh` 固定使用 `ai4rs_train`；
+- B4 训练和 instrumented dump 使用 `ai4rs_train` 与 ai4rs 1.x 源码；
 - 一些旧脚本默认当前 `python` 或固定 `/home/rspip/anaconda3/...`。
+
+环境验收至少执行：
+
+```bash
+/path/to/envs/mr/bin/python -c \
+  "import torch, mmcv, mmdet, mmrotate; print(torch.__version__, mmrotate.__version__)"
+/path/to/envs/mr_dev1x/bin/python -c \
+  "import torch, mmcv, mmengine, mmdet, mmrotate; print(torch.__version__, mmrotate.__version__)"
+/path/to/envs/ai4rs_train/bin/python -c \
+  "import torch, mmcv, mmengine, mmdet, mmrotate; print(torch.__version__, mmrotate.__version__)"
+```
 
 ## 10. 复算入口
 
@@ -470,28 +544,32 @@ top_journal_v3_reaudit_055/paper_B_psc_mechanism/scripts/reproduce_B4_B5.sh
 
 1. 校验 5 个迁移分片 SHA-256 和 zstd stream。
 2. 解压项目，checkout/pull 发布分支最新提交。
-3. 恢复或挂载 `pth_data`、third-party、ai4rs clone 和数据集。
-4. 保持旧逻辑路径，或仅重建绝对软链接。
-5. 校验 `thresholds.yaml` 与 10 个 split 哈希。
-6. 确认 24 个 K2 final best、3 个 B4 best、两个 host best 存在。
-7. 确认 `outputs/persistent_artifacts/` 有 275 个文件。
-8. 导入 `mr`、`mr_dev1x`、`ai4rs_train` 并核对核心版本。
-9. 运行 A toolbox unit/synthetic tests。
-10. 运行 `reproduce_B4_B5.sh`，确认 15 项为 PASS。
-11. 只在原始数据路径完整后运行需要 instrumented inference 的链。
-12. 验收完成后才开始 080；不要重做 075--079。
+3. 阅读 `AGENTS.md`、本报告和 A/B scope，不以极简 README 代替接手审计。
+4. 恢复或挂载 `pth_data`、third-party、ai4rs clone 和数据集。
+5. 保持旧逻辑路径，或仅重建绝对软链接。
+6. 校验 `thresholds.yaml` 与 10 个 split 哈希。
+7. 确认 24 个 K2 final best、3 个 B4 best、两个 host best 存在。
+8. 确认 `outputs/persistent_artifacts/` 有 275 个文件。
+9. 导入 `mr`、`mr_dev1x`、`ai4rs_train` 并核对核心版本。
+10. 重新审计本项目后台进程。
+11. 运行 A toolbox unit/synthetic tests。
+12. 在正确 1.x 环境运行 `reproduce_B4_B5.sh`，确认 15 项为 PASS。
+13. 只在原始数据路径完整后运行需要 instrumented inference 的链。
+14. 验收完成后才开始 080；不要重做 075--079。
 
 建议验收命令：
 
 ```bash
 git status --short
 git rev-parse HEAD
+git rev-parse origin/agent/publish-orientation-reliability
 find top_journal_v3_reaudit_055/work_dirs/k2 \
   -type f -name 'best*.pth' | wc -l
 find top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training \
   -type f -name 'best*.pth' | wc -l
 find outputs/persistent_artifacts -type f | wc -l
 find -L . -type l -print
+ps -eo pid,lstart,cmd | rg 'orientbench|torchrun|distributed|reproduce_[AB]'
 ```
 
 预期关键数量：
@@ -533,4 +611,3 @@ B 状态：PASS_MECHANISM_BOUNDED，可进入 endpoint/host-qualified B6
 
 080 之前应先完成本报告第 11 节的迁移验收。若验收失败，只修复路径、环境
 和缺失外部资产，不得借迁移重新选择数据、阈值、checkpoint 或协议。
-
