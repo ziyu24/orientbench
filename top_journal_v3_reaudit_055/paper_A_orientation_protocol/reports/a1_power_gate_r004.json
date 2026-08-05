@@ -1,0 +1,418 @@
+{
+  "cpu": {
+    "available": 48,
+    "fraction": 0.8125,
+    "limitation": "raw JSONL loading and fixed-sequence loops include serial I/O",
+    "thread_budget": 39
+  },
+  "cross_summaries": {
+    "by_alpha_label": {
+      "absolute_0.001": {
+        "attribution_counts": {
+          "STRUCTURAL_POWER_LIMIT": 92,
+          "TRIVIAL_BUDGET": 4
+        },
+        "rows": 96
+      },
+      "absolute_0.0025": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 76,
+          "STRUCTURAL_POWER_LIMIT": 12,
+          "TRIVIAL_BUDGET": 8
+        },
+        "rows": 96
+      },
+      "absolute_0.005": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 72,
+          "TRIVIAL_BUDGET": 24
+        },
+        "rows": 96
+      },
+      "absolute_0.01": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 64,
+          "TRIVIAL_BUDGET": 32
+        },
+        "rows": 96
+      },
+      "relative_0.25_r_fit": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 68,
+          "STRUCTURAL_POWER_LIMIT": 28
+        },
+        "rows": 96
+      },
+      "relative_0.5_r_fit": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 80,
+          "STRUCTURAL_POWER_LIMIT": 16
+        },
+        "rows": 96
+      }
+    },
+    "by_alpha_type": {
+      "absolute": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 212,
+          "STRUCTURAL_POWER_LIMIT": 104,
+          "TRIVIAL_BUDGET": 68
+        },
+        "rows": 384
+      },
+      "relative": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 148,
+          "STRUCTURAL_POWER_LIMIT": 44
+        },
+        "rows": 192
+      }
+    },
+    "by_evaluation_unit": {
+      "A": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 76,
+          "STRUCTURAL_POWER_LIMIT": 16,
+          "TRIVIAL_BUDGET": 4
+        },
+        "rows": 96
+      },
+      "B": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 80,
+          "STRUCTURAL_POWER_LIMIT": 16
+        },
+        "rows": 96
+      },
+      "C": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 80,
+          "STRUCTURAL_POWER_LIMIT": 16
+        },
+        "rows": 96
+      },
+      "D": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 20,
+          "STRUCTURAL_POWER_LIMIT": 48,
+          "TRIVIAL_BUDGET": 28
+        },
+        "rows": 96
+      },
+      "E": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 56,
+          "STRUCTURAL_POWER_LIMIT": 24,
+          "TRIVIAL_BUDGET": 16
+        },
+        "rows": 96
+      },
+      "F": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 48,
+          "STRUCTURAL_POWER_LIMIT": 28,
+          "TRIVIAL_BUDGET": 20
+        },
+        "rows": 96
+      }
+    },
+    "by_risk_endpoint": {
+      "angle_error_gt_10deg": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 104,
+          "STRUCTURAL_POWER_LIMIT": 36,
+          "TRIVIAL_BUDGET": 4
+        },
+        "rows": 144
+      },
+      "angle_error_gt_15deg": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 64,
+          "STRUCTURAL_POWER_LIMIT": 40,
+          "TRIVIAL_BUDGET": 40
+        },
+        "rows": 144
+      },
+      "angle_error_gt_5deg": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 116,
+          "STRUCTURAL_POWER_LIMIT": 28
+        },
+        "rows": 144
+      },
+      "geometry_normalized_severe": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 76,
+          "STRUCTURAL_POWER_LIMIT": 44,
+          "TRIVIAL_BUDGET": 24
+        },
+        "rows": 144
+      }
+    },
+    "by_score": {
+      "detection_score": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 90,
+          "STRUCTURAL_POWER_LIMIT": 37,
+          "TRIVIAL_BUDGET": 17
+        },
+        "rows": 144
+      },
+      "source_supervised_leave_geometry": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 90,
+          "STRUCTURAL_POWER_LIMIT": 37,
+          "TRIVIAL_BUDGET": 17
+        },
+        "rows": 144
+      },
+      "target_gt_nonlinear_geometry_upper_bound": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 90,
+          "STRUCTURAL_POWER_LIMIT": 37,
+          "TRIVIAL_BUDGET": 17
+        },
+        "rows": 144
+      },
+      "tta_circular_consistency": {
+        "attribution_counts": {
+          "ORACLE_DATA_OR_GRID_LIMIT": 90,
+          "STRUCTURAL_POWER_LIMIT": 37,
+          "TRIVIAL_BUDGET": 17
+        },
+        "rows": 144
+      }
+    }
+  },
+  "execution_counts": {
+    "download": 0,
+    "evidence": "STATIC_CONTROL_FLOW_AUDIT",
+    "gpu": 0,
+    "inference": 0,
+    "rsar_reads": 0,
+    "training": 0
+  },
+  "execution_head": "2ad7e0111595607983f749099c26fe6e9fdfeb3c",
+  "final_gate": "FAIL_SCORE_LIMIT_DOMINANT",
+  "formal_other_count": 0,
+  "frozen_policy": {
+    "absolute_alpha": [
+      0.001,
+      0.0025,
+      0.005,
+      0.01
+    ],
+    "coverage_grid": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "delta_primary": 0.1,
+    "delta_sensitivity": [
+      0.05,
+      0.01
+    ],
+    "main_mask": "ar>=2.1 and canonical long-side eligible",
+    "primary_endpoint": "geometry_normalized_severe"
+  },
+  "lineage": [
+    {
+      "audit_scenes": 3494,
+      "calibration_scenes": 1794,
+      "dataset": "DIOR-R",
+      "detector": "rotated_retinanet_psc",
+      "eligible_rows": 49502,
+      "evaluation_unit": "A",
+      "lineage_status": "PASS",
+      "manifest_matched_hash_match": true,
+      "manifest_sha256": "ef5971364c294a8accd47430c3ebc129fe77824f144c2e2b7e7a4279484fba77",
+      "manifest_status": "complete",
+      "manifest_universe_hash_match": true,
+      "matched_rows": 87224,
+      "matched_sha256": "00e554fbc45dfd6ab0d964800920e101411bc2ee1e218f575a0eafcfde63761e",
+      "universe_sha256": "3f1d2ef764c3f6e383e2b9e6285ed947a26f25b9707104bd8d9fb875408d4b0d"
+    },
+    {
+      "audit_scenes": 3641,
+      "calibration_scenes": 1870,
+      "dataset": "DIOR-R",
+      "detector": "oriented_rcnn",
+      "eligible_rows": 54297,
+      "evaluation_unit": "B",
+      "lineage_status": "PASS",
+      "manifest_matched_hash_match": true,
+      "manifest_sha256": "f85b8e1b80596e90b6c89e7433ba0a118f76397995cc86d472317e6addfbd1b8",
+      "manifest_status": "complete",
+      "manifest_universe_hash_match": true,
+      "matched_rows": 95169,
+      "matched_sha256": "e1772d642990fb45ee00d31a2cc62b8fd468d0e1a99e009e0430e91e51082513",
+      "universe_sha256": "644ccaa922986d3597049680924a63555975e8a61f8ac26fccf744ff41c5edee"
+    },
+    {
+      "audit_scenes": 3690,
+      "calibration_scenes": 1877,
+      "dataset": "DIOR-R",
+      "detector": "rotated_rtmdet_s",
+      "eligible_rows": 53671,
+      "evaluation_unit": "C",
+      "lineage_status": "PASS",
+      "manifest_matched_hash_match": true,
+      "manifest_sha256": "92f1da8b2c505fff6a39a6a530deb96e5dd4422738c5f6c4af36bddae64ab1a8",
+      "manifest_status": "complete",
+      "manifest_universe_hash_match": true,
+      "matched_rows": 94961,
+      "matched_sha256": "91d4b372e5340a4849af680d82a3973be0999b2778e89375116067fa6009ea2e",
+      "universe_sha256": "52c04690d415a66b59ff9d30d58f97ae836d71d62e543c8e278b707d4565bc77"
+    },
+    {
+      "audit_scenes": 1221,
+      "calibration_scenes": 646,
+      "dataset": "FAIR1M-v1.0",
+      "detector": "rotated_retinanet_psc",
+      "eligible_rows": 31801,
+      "evaluation_unit": "D",
+      "lineage_status": "PASS",
+      "manifest_matched_hash_match": true,
+      "manifest_sha256": "81b541db0afbad2465b9c7012bd4c6cb7b3dbfd496890984abfc48e27707172b",
+      "manifest_status": "complete",
+      "manifest_universe_hash_match": true,
+      "matched_rows": 54768,
+      "matched_sha256": "fe2c0b3690e12793f898c0c7a5ce100806567e39f4b3671e9b1e2af5fb8c3bbf",
+      "universe_sha256": "5cec906c601469dff58a2e6a26293d54613cc7f162c458f6a5abde0cb0f76586"
+    },
+    {
+      "audit_scenes": 4076,
+      "calibration_scenes": 1858,
+      "dataset": "SODA-A",
+      "detector": "rotated_retinanet_psc",
+      "eligible_rows": 197529,
+      "evaluation_unit": "E",
+      "lineage_status": "PASS",
+      "manifest_matched_hash_match": true,
+      "manifest_sha256": "fb228289dd1c4fe41856bc9237c38cc7d6dc1cf342a880a834e76a68d6f6b16d",
+      "manifest_status": "complete",
+      "manifest_universe_hash_match": true,
+      "matched_rows": 309218,
+      "matched_sha256": "337470223fae218aa2969ae8f974a447e6666d22f02830a7a933ea3dadbd72c9",
+      "universe_sha256": "75f874fff653e64460d6c91ce0dd07637ad68b55532976fbdca1bd01a4f8b131"
+    },
+    {
+      "audit_scenes": 4120,
+      "calibration_scenes": 1886,
+      "dataset": "SODA-A",
+      "detector": "oriented_rcnn",
+      "eligible_rows": 235428,
+      "evaluation_unit": "F",
+      "lineage_status": "PASS",
+      "manifest_matched_hash_match": true,
+      "manifest_sha256": "05c5522f003340c57a469c3960629d77af3be4851745616e8daf8404c79dd55b",
+      "manifest_status": "complete",
+      "manifest_universe_hash_match": true,
+      "matched_rows": 376754,
+      "matched_sha256": "dd7f37b067a569541140a1bad49bf6ae3a5aea7b0f9eff031ef3fe9a9a2c723f",
+      "universe_sha256": "0ce7cc5f4d56aceef57faaa85b09115309b961d4e663484ac893731330eef95c"
+    }
+  ],
+  "lineage_status": "PASS",
+  "main_gate_definition": "primary endpoint; target-GT-free scores; nontrivial; existing feasible=False",
+  "main_gate_fraction": {
+    "denominator": 90,
+    "numerator": 0,
+    "ratio": 0.0
+  },
+  "parity": {
+    "duplicate_existing": 0,
+    "duplicate_rebuilt": 0,
+    "existing_rows": 576,
+    "existing_unique_keys": 576,
+    "extra_keys": 0,
+    "field_mismatches": 0,
+    "missing_keys": 0,
+    "rebuilt_rows": 576,
+    "rebuilt_unique_keys": 576,
+    "status": "PASS"
+  },
+  "parity_mismatch_examples": [],
+  "reproduction_hash_checks": [
+    {
+      "actual_sha256": "bf50c7f5f0ecee0a4a56da8b993c7012ffd8e6666bc5d846e5c1775d729f9519",
+      "expected_sha256": "bf50c7f5f0ecee0a4a56da8b993c7012ffd8e6666bc5d846e5c1775d729f9519",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_guaranteed_frontier_all_alpha.csv",
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "b7241ffb72a4e742c1de9d07b2219ce7db6efd9b4aaa431c29be8e14b2823a78",
+      "expected_sha256": "b7241ffb72a4e742c1de9d07b2219ce7db6efd9b4aaa431c29be8e14b2823a78",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_trivial_infeasible_summary.csv",
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "ad6e678ca7a9b6cf0dd6dd2d699e1ac12d84cced0e3551194dced4f5e619df45",
+      "expected_sha256": "ad6e678ca7a9b6cf0dd6dd2d699e1ac12d84cced0e3551194dced4f5e619df45",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_eligible_scene_universe.csv",
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "82c3286eac25df4551b63545a8470811cc2583381fb86b0da0c1012856eda425",
+      "expected_sha256": "82c3286eac25df4551b63545a8470811cc2583381fb86b0da0c1012856eda425",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_scene_level_ltt_frontier.csv",
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "794714f1fd389492b48fbaaf8aefe84ccb9870ee7307cb576d50b1ce18cb876c",
+      "expected_sha256": "794714f1fd389492b48fbaaf8aefe84ccb9870ee7307cb576d50b1ce18cb876c",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_scene_event_frontier.csv",
+      "status": "PASS"
+    }
+  ],
+  "reproduction_hash_status": "PASS",
+  "round_id": "orientbench-c-r004-20260805",
+  "sanitizer_hits": [],
+  "sanitizer_status": "PASS",
+  "schema_version": "a1_power_gate_r004_v1",
+  "scientific_snapshot": "cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd",
+  "scope_summaries": {
+    "all_576": {
+      "attribution_counts": {
+        "ORACLE_DATA_OR_GRID_LIMIT": 360,
+        "STRUCTURAL_POWER_LIMIT": 148,
+        "TRIVIAL_BUDGET": 68
+      },
+      "rows": 576
+    },
+    "primary_144": {
+      "attribution_counts": {
+        "ORACLE_DATA_OR_GRID_LIMIT": 76,
+        "STRUCTURAL_POWER_LIMIT": 44,
+        "TRIVIAL_BUDGET": 24
+      },
+      "rows": 144
+    },
+    "primary_diagnostic_upper_bound_36": {
+      "attribution_counts": {
+        "ORACLE_DATA_OR_GRID_LIMIT": 19,
+        "STRUCTURAL_POWER_LIMIT": 11,
+        "TRIVIAL_BUDGET": 6
+      },
+      "rows": 36
+    },
+    "primary_target_gt_free_108": {
+      "attribution_counts": {
+        "ORACLE_DATA_OR_GRID_LIMIT": 57,
+        "STRUCTURAL_POWER_LIMIT": 33,
+        "TRIVIAL_BUDGET": 18
+      },
+      "rows": 108
+    }
+  }
+}

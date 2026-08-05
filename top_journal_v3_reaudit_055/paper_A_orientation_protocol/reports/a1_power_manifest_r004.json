@@ -1,0 +1,444 @@
+{
+  "authorized_changes": [
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_power_decomposition_r004.py",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_envelope_r004.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_oracle_feasibility_r004.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_failure_attribution_r004.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_sensitivity_r004.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_gate_r004.json",
+    "dis/server_reports/orientbench-c-r004-20260805.md",
+    "claude_code_and_supervisor.md",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_manifest_r004.json"
+  ],
+  "command": "PYTHONDONTWRITEBYTECODE=1 python top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_power_decomposition_r004.py",
+  "cpu": {
+    "available": 48,
+    "fraction": 0.8125,
+    "limitation": "raw JSONL loading and fixed-sequence loops include serial I/O",
+    "thread_budget": 39
+  },
+  "execution_counts": {
+    "download": 0,
+    "evidence": "STATIC_CONTROL_FLOW_AUDIT",
+    "gpu": 0,
+    "inference": 0,
+    "rsar_reads": 0,
+    "training": 0
+  },
+  "execution_head": "2ad7e0111595607983f749099c26fe6e9fdfeb3c",
+  "execution_source": {
+    "bytes": 43264,
+    "git_blob": "c60ea7ead3f9af6cb7154ebbb2bcd5d13656b1f3",
+    "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_power_decomposition_r004.py",
+    "sha256": "1e19264dd16164832c441a1feb0e7926f6a9bd8cefac7227680f0f13c08d8bdd"
+  },
+  "final_gate": "FAIL_SCORE_LIMIT_DOMINANT",
+  "historical_compliance_repair": {
+    "bytes": 31012,
+    "git_blob": "97e44e2dac3dd8f572e2886494598c6fcdc25277",
+    "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py",
+    "sha256": "0cf205477a08446b15ca4917d7a71f4d3b1236327556c4316de0be1ca356be4a"
+  },
+  "inputs": [
+    {
+      "bytes": 13862,
+      "git_blob": "9b1c5505784bf8835a57c050110b8c59e18bf659",
+      "logical_path": "AGENTS.md",
+      "purposes": [
+        "repository execution rules"
+      ],
+      "sha256": "421b83ddd8b326f187753795be0682974e9b99bdbeb9b0369b7f1b31fd7a4034"
+    },
+    {
+      "bytes": 10175,
+      "git_blob": "9ad513d6bbc2e07cfbf7901945a33d6c438de96a",
+      "logical_path": "dis/server_reports/orientbench-c-r003-20260805.md",
+      "purposes": [
+        "r003 report"
+      ],
+      "sha256": "634e5042de6dee72ae88ec99adb8855c3ad3d7724347db541abcdf473b5fb387"
+    },
+    {
+      "bytes": 22110,
+      "git_blob": "27211683eb17dbcc5152456069d204a9799f985b",
+      "logical_path": "docs/server_migration_handoff_20260727.md",
+      "purposes": [
+        "migration asset boundary"
+      ],
+      "sha256": "c9710110fdc783e47e367e70c7e2c976f3295d6f371fc58c884ab6977fb51417"
+    },
+    {
+      "bytes": 3132,
+      "git_blob": "4fe9ce3d1c0c60bb7aa8ee66ec4af041faef2bca",
+      "logical_path": "orientbench/data/splits.py",
+      "purposes": [
+        "frozen split implementation"
+      ],
+      "sha256": "63579eef279f58448668a093d029057a3c8a9974511ded4ef47da60d4174e5e3"
+    },
+    {
+      "bytes": 1658312,
+      "git_blob": "cc0bf643399e70fafa417d1ce9029e8006e35a50",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/A/image_universe.csv",
+      "purposes": [
+        "cell A full-val universe"
+      ],
+      "sha256": "3f1d2ef764c3f6e383e2b9e6285ed947a26f25b9707104bd8d9fb875408d4b0d"
+    },
+    {
+      "bytes": 1702,
+      "git_blob": "3fcf565853b66f0c9bc61e62360e260879efebfe",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/A/manifest.json",
+      "purposes": [
+        "cell A lineage manifest"
+      ],
+      "sha256": "ef5971364c294a8accd47430c3ebc129fe77824f144c2e2b7e7a4279484fba77"
+    },
+    {
+      "bytes": 133273156,
+      "git_blob": "46c086b4d1a6d20722fa77979fe4d055eea84ee9",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/A/matched_fullval.jsonl",
+      "purposes": [
+        "cell A full-val matched raw"
+      ],
+      "sha256": "00e554fbc45dfd6ab0d964800920e101411bc2ee1e218f575a0eafcfde63761e"
+    },
+    {
+      "bytes": 1652313,
+      "git_blob": "ab20da0be2312a54617c15d0594dc4944adebd03",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/B/image_universe.csv",
+      "purposes": [
+        "cell B full-val universe"
+      ],
+      "sha256": "644ccaa922986d3597049680924a63555975e8a61f8ac26fccf744ff41c5edee"
+    },
+    {
+      "bytes": 1698,
+      "git_blob": "088b8bb16a7782a8761278cdea6ad6b11b5c7298",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/B/manifest.json",
+      "purposes": [
+        "cell B lineage manifest"
+      ],
+      "sha256": "f85b8e1b80596e90b6c89e7433ba0a118f76397995cc86d472317e6addfbd1b8"
+    },
+    {
+      "bytes": 132369719,
+      "git_blob": "6968d29af141becbe5f7942e5f65e6d5af5e924c",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/B/matched_fullval.jsonl",
+      "purposes": [
+        "cell B full-val matched raw"
+      ],
+      "sha256": "e1772d642990fb45ee00d31a2cc62b8fd468d0e1a99e009e0430e91e51082513"
+    },
+    {
+      "bytes": 1655606,
+      "git_blob": "a86a840102630d8e264f57520ddad9168546614b",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/C/image_universe.csv",
+      "purposes": [
+        "cell C full-val universe"
+      ],
+      "sha256": "52c04690d415a66b59ff9d30d58f97ae836d71d62e543c8e278b707d4565bc77"
+    },
+    {
+      "bytes": 1701,
+      "git_blob": "045c8759d0acb5516fa001becb876fd6c5c262e6",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/C/manifest.json",
+      "purposes": [
+        "cell C lineage manifest"
+      ],
+      "sha256": "92f1da8b2c505fff6a39a6a530deb96e5dd4422738c5f6c4af36bddae64ab1a8"
+    },
+    {
+      "bytes": 132382835,
+      "git_blob": "f85e3a52c7ce2e0e23266efa566f4172805fce13",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/C/matched_fullval.jsonl",
+      "purposes": [
+        "cell C full-val matched raw"
+      ],
+      "sha256": "91d4b372e5340a4849af680d82a3973be0999b2778e89375116067fa6009ea2e"
+    },
+    {
+      "bytes": 719167,
+      "git_blob": "8845bbddac78cdbe3778a624dc5ce782223f8fbc",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/D/image_universe.csv",
+      "purposes": [
+        "cell D full-val universe"
+      ],
+      "sha256": "5cec906c601469dff58a2e6a26293d54613cc7f162c458f6a5abde0cb0f76586"
+    },
+    {
+      "bytes": 1719,
+      "git_blob": "09f0bcd8c65fdabb43990a3ff8165f1efca65169",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/D/manifest.json",
+      "purposes": [
+        "cell D lineage manifest"
+      ],
+      "sha256": "81b541db0afbad2465b9c7012bd4c6cb7b3dbfd496890984abfc48e27707172b"
+    },
+    {
+      "bytes": 86428641,
+      "git_blob": "162310fcbac8374243ec44d1c4389ce6b97e7b96",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/D/matched_fullval.jsonl",
+      "purposes": [
+        "cell D full-val matched raw"
+      ],
+      "sha256": "fe2c0b3690e12793f898c0c7a5ce100806567e39f4b3671e9b1e2af5fb8c3bbf"
+    },
+    {
+      "bytes": 3348604,
+      "git_blob": "cf31ee929ad4955e15d5fd21cd441fde7715cff0",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/E/image_universe.csv",
+      "purposes": [
+        "cell E full-val universe"
+      ],
+      "sha256": "75f874fff653e64460d6c91ce0dd07637ad68b55532976fbdca1bd01a4f8b131"
+    },
+    {
+      "bytes": 1702,
+      "git_blob": "4933bdd25bc573a387dac9d051fb99b0eed00d94",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/E/manifest.json",
+      "purposes": [
+        "cell E lineage manifest"
+      ],
+      "sha256": "fb228289dd1c4fe41856bc9237c38cc7d6dc1cf342a880a834e76a68d6f6b16d"
+    },
+    {
+      "bytes": 482776147,
+      "git_blob": "6f7fbc2ba6517758a37d45f43c068e8d7f0ae8ec",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/E/matched_fullval.jsonl",
+      "purposes": [
+        "cell E full-val matched raw"
+      ],
+      "sha256": "337470223fae218aa2969ae8f974a447e6666d22f02830a7a933ea3dadbd72c9"
+    },
+    {
+      "bytes": 3340530,
+      "git_blob": "d8847025b450804dd787f7e27e3276ba1b46842b",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/F/image_universe.csv",
+      "purposes": [
+        "cell F full-val universe"
+      ],
+      "sha256": "0ce7cc5f4d56aceef57faaa85b09115309b961d4e663484ac893731330eef95c"
+    },
+    {
+      "bytes": 1677,
+      "git_blob": "d3942e3c1e6f05a7681a38e514ef8cbef3b7dc92",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/F/manifest.json",
+      "purposes": [
+        "cell F lineage manifest"
+      ],
+      "sha256": "05c5522f003340c57a469c3960629d77af3be4851745616e8daf8404c79dd55b"
+    },
+    {
+      "bytes": 528736628,
+      "git_blob": "ee18dcdf66440b7aba7943f1db0d9e1c34b2cbc0",
+      "logical_path": "outputs/persistent_artifacts/m069_fullval_reliability/F/matched_fullval.jsonl",
+      "purposes": [
+        "cell F full-val matched raw"
+      ],
+      "sha256": "dd7f37b067a569541140a1bad49bf6ae3a5aea7b0f9eff031ef3fe9a9a2c723f"
+    },
+    {
+      "bytes": 15117,
+      "git_blob": "a4fec352cddbc11a770a5967f9bddb8377905691",
+      "logical_path": "scripts/derive_delta_theta_075.py",
+      "purposes": [
+        "geometry event implementation"
+      ],
+      "sha256": "eb87db17ba90a3724869080130fcb1cbd8b77e2e35a07c1a43502b6875eed05d"
+    },
+    {
+      "bytes": 15675,
+      "git_blob": "bf738b68f6d47b1bb859311e3ae49975127d16f8",
+      "logical_path": "scripts/m069_common.py",
+      "purposes": [
+        "raw lineage loader and frozen UCB"
+      ],
+      "sha256": "670ded5c5246610d1f2caf4aa03711eed52af1d45aeb056b50289fa02ae3a9ad"
+    },
+    {
+      "bytes": 1734,
+      "git_blob": "e1f543dc1a9348ece750ece37ecd097bcd36596c",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_a3_reproduction_status.csv",
+      "purposes": [
+        "existing reproduction hashes"
+      ],
+      "sha256": "15f35a535a38204189af1d01b600dc22c98fcb2167e20cecdb53fbc87019b946"
+    },
+    {
+      "bytes": 159989,
+      "git_blob": "941e6e6589ce00ab929a9c211f125f34873cbca8",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_guaranteed_frontier_all_alpha.csv",
+      "purposes": [
+        "existing 576-row frontier",
+        "reproduction-hash verification"
+      ],
+      "sha256": "bf50c7f5f0ecee0a4a56da8b993c7012ffd8e6666bc5d846e5c1775d729f9519"
+    },
+    {
+      "bytes": 2137,
+      "git_blob": "213772347bad1ec7429e8bc2d48ec94337b9a08d",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_protocol_frozen.json",
+      "purposes": [
+        "frozen A1 protocol"
+      ],
+      "sha256": "aa0c563e72026831c49763e89bed4dfa9eb305983f70a3d544aadca010cd74f3"
+    },
+    {
+      "bytes": 247,
+      "git_blob": "1460b81950a2189c6a72ee7afd2c471302bc2c6d",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_trivial_infeasible_summary.csv",
+      "purposes": [
+        "existing A1 summary",
+        "reproduction-hash verification"
+      ],
+      "sha256": "b7241ffb72a4e742c1de9d07b2219ce7db6efd9b4aaa431c29be8e14b2823a78"
+    },
+    {
+      "bytes": 1214,
+      "git_blob": "e422409cf65b4c854b7c174f90b6c343cd362197",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_eligible_scene_universe.csv",
+      "purposes": [
+        "existing eligible-scene universe",
+        "reproduction-hash verification"
+      ],
+      "sha256": "ad6e678ca7a9b6cf0dd6dd2d699e1ac12d84cced0e3551194dced4f5e619df45"
+    },
+    {
+      "bytes": 42297,
+      "git_blob": "8b2bc0b1f3ca6c0d466e6317dad1fa077f05dfaa",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_scene_event_frontier.csv",
+      "purposes": [
+        "existing scene-event schema",
+        "reproduction-hash verification"
+      ],
+      "sha256": "794714f1fd389492b48fbaaf8aefe84ccb9870ee7307cb576d50b1ce18cb876c"
+    },
+    {
+      "bytes": 46333,
+      "git_blob": "92aa3355a3e39cc80af2d204ef10dc7a9c622770",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_scene_level_ltt_frontier.csv",
+      "purposes": [
+        "existing scene frontier schema",
+        "reproduction-hash verification"
+      ],
+      "sha256": "82c3286eac25df4551b63545a8470811cc2583381fb86b0da0c1012856eda425"
+    },
+    {
+      "bytes": 44356,
+      "git_blob": "48b259fd8fceade6b50a7f682150a48b6c23d419",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_asset_gate_manifest_r003.json",
+      "purposes": [
+        "r003 provenance"
+      ],
+      "sha256": "791783a21bdeb98f385f6f7f92c314cbe2d178b89f94f1cce2d9264b99a10c2c"
+    },
+    {
+      "bytes": 11737,
+      "git_blob": "bd64df269afbd8d96a3660f6eb4dcfe5dd7440c5",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_asset_gate_r003.json",
+      "purposes": [
+        "r003 boundary"
+      ],
+      "sha256": "5b1d2530c3ee66a6adf7ffe42c448a61aad44f8ae5ee6808cd9b1ae4a1fe8207"
+    },
+    {
+      "bytes": 43264,
+      "git_blob": "c60ea7ead3f9af6cb7154ebbb2bcd5d13656b1f3",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_power_decomposition_r004.py",
+      "purposes": [
+        "r004 execution source"
+      ],
+      "sha256": "1e19264dd16164832c441a1feb0e7926f6a9bd8cefac7227680f0f13c08d8bdd"
+    },
+    {
+      "bytes": 26777,
+      "git_blob": "b127750748ad1502aed861e74cec547b0fac6287",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/run_a1_a3.py",
+      "purposes": [
+        "independent parity reference implementation"
+      ],
+      "sha256": "7ecee9a145c814bd4420be678d45bb62d928dad14fc65046c6fa941bcb22028f"
+    },
+    {
+      "bytes": 12986,
+      "git_blob": "757be607730b4fd9e1c5bbd28dfb94ae01201b14",
+      "logical_path": "top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json",
+      "purposes": [
+        "frozen geometry event table"
+      ],
+      "sha256": "80d86a5f72e70405fe4a49db87aad61e6aea20a26af0ad1c5745bfd646d1e5cb"
+    }
+  ],
+  "manifest_self_identity": "fixed by the result commit Git blob; no recursive self-hash",
+  "outputs": [
+    {
+      "bytes": 43264,
+      "git_blob": "c60ea7ead3f9af6cb7154ebbb2bcd5d13656b1f3",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_power_decomposition_r004.py",
+      "sha256": "1e19264dd16164832c441a1feb0e7926f6a9bd8cefac7227680f0f13c08d8bdd"
+    },
+    {
+      "bytes": 31012,
+      "git_blob": "97e44e2dac3dd8f572e2886494598c6fcdc25277",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py",
+      "sha256": "0cf205477a08446b15ca4917d7a71f4d3b1236327556c4316de0be1ca356be4a"
+    },
+    {
+      "bytes": 23154,
+      "git_blob": "292ffb30aabde76a1f891db6dbacb718ddf7ada2",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_envelope_r004.csv",
+      "sha256": "4a5d75d06eb860aa417cf8aa2a4961314342d223039a2fa1d0f1132d2b21b895"
+    },
+    {
+      "bytes": 288165,
+      "git_blob": "a4fb7479b1ea7adcec6e9ff296f34f39148033ea",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_oracle_feasibility_r004.csv",
+      "sha256": "dc8727355452d7f4089ba2bd463c9862fdea4130e348fda88077fdbea2452601"
+    },
+    {
+      "bytes": 158165,
+      "git_blob": "86e515b0b8edefcbd675b12853ae76aaa1a76e7a",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_failure_attribution_r004.csv",
+      "sha256": "980ed327ad9dcb4f455a2e9e3022caf88b19838d677da38200451b1a3b8f5e18"
+    },
+    {
+      "bytes": 49315,
+      "git_blob": "4594d94cbd630d846d78ec1235dcfa33e758aacd",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_sensitivity_r004.csv",
+      "sha256": "6f5bdbf6884e0414bdf090b1c0b7f4c63c7f2e7aed8a2618d37e5692109d99a7"
+    },
+    {
+      "bytes": 12848,
+      "git_blob": "44bdd2322bfc6ea7f083d900a6554c10c23361dd",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_gate_r004.json",
+      "sha256": "f245e1472862a8a5a9fc9de2dbd031cff6d7bff400b9994fea7d120c616d836e"
+    },
+    {
+      "bytes": 4359,
+      "git_blob": "742a1131be8d788e2eebe7968a2aef1f0e52fd5a",
+      "logical_path": "dis/server_reports/orientbench-c-r004-20260805.md",
+      "sha256": "5deb3b31f7312471c40d7c92a57197b46d3d425fe594a032df2923afeb31229e"
+    },
+    {
+      "bytes": 243511,
+      "git_blob": "fd6164dc9f82860c58cb7963ed65ab1741b993fd",
+      "logical_path": "claude_code_and_supervisor.md",
+      "sha256": "ce7d6bb9528fd56fcee268d639be70a19e1ee66b6f962933411ad23bf687a345"
+    }
+  ],
+  "round_id": "orientbench-c-r004-20260805",
+  "rows": {
+    "attribution": 576,
+    "oracle": 576,
+    "power": 144,
+    "sensitivity": 432
+  },
+  "sanitizer": {
+    "hits": [],
+    "status": "PASS"
+  },
+  "schema_version": "a1_power_manifest_r004_v1",
+  "scientific_snapshot": "cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd"
+}

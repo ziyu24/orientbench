@@ -2,11 +2,13 @@
 """Prospective A6R asset gate; metadata-only and outcome-blind by construction."""
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
 import os
 import re
+import socket
 import subprocess
 from pathlib import Path
 
@@ -29,13 +31,40 @@ AUDIT_A6 = REPORTS / "a6_confirmatory_provenance_audit.csv"
 MIGRATION = ROOT / "docs/server_migration_handoff_20260727.md"
 SCOPE = AROOT / "README_SCOPE.md"
 PTH_DATA = ROOT.parent / "pth_data"
-DATASET_ROOT = Path("/home/rspip/cqc/data/dataset")
 THIRD_PARTY = ROOT.parent / "third_party"
 
 OUTCOME_NAME_MARKERS = (
     "nrc", "risk_frontier", "certification", "candidate_external_confirmation",
     "candidate_external_bootstrap", "matched_native", "matched_phase", "matched_17field",
 )
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--dataset-root",
+        default=os.environ.get("ORIENTBENCH_DATASET_ROOT"),
+        help="Optional local dataset-store root; its resolved value is never persisted.",
+    )
+    return parser.parse_args()
+
+
+def shared_output_violations(paths: list[Path]) -> list[str]:
+    """Return logical output aliases that contain non-portable or secret text."""
+    account = os.environ.get("USER", "")
+    hostname = socket.gethostname()
+    literals = [value for value in (account, hostname) if len(value) >= 3]
+    patterns = (
+        re.compile(r"(?<![A-Za-z0-9_.-])/(?:home|Users|tmp|var|mnt|data)/"),
+        re.compile(r"(?<![A-Za-z0-9_])[A-Za-z]:[\\\\/]"),
+        re.compile(r"(?:ghp_|github_pat_|AKIA)[A-Za-z0-9_=-]+"),
+    )
+    violations = []
+    for path in paths:
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if any(pattern.search(text) for pattern in patterns) or any(value in text for value in literals):
+            violations.append(rel(path))
+    return violations
 
 
 def rel(path: Path) -> str:
@@ -391,6 +420,7 @@ TTA 完全不可得时从该单元 score menu 删除，不能切到 complete-cas
 
 
 def main() -> int:
+    args = parse_args()
     registry = InputRegistry()
     source_blob = git_blob(SCRIPT)
     registry.add(SCRIPT, "r003 execution source", source_blob)
@@ -419,10 +449,15 @@ def main() -> int:
     candidates.sort(key=lambda row: row["candidate_id"])
     overlap = overlap_rows(candidates)
 
-    dataset_files = sum(1 for path in DATASET_ROOT.rglob("*") if path.is_file()) if DATASET_ROOT.is_dir() else 0
+    dataset_root = Path(args.dataset_root).expanduser() if args.dataset_root else None
+    dataset_files = sum(1 for path in dataset_root.rglob("*") if path.is_file()) if dataset_root and dataset_root.is_dir() else 0
     pth_data_present = PTH_DATA.is_dir()
     eligible = [row for row in candidates if row["gate_status"] == "ELIGIBLE"]
-    protocol_drift = False
+    observable_preconditions = {
+        "worktree_authorized": worktree_ok,
+        "snapshot_ancestry": ancestry_ok,
+    }
+    protocol_drift = not all(observable_preconditions.values())
     if not worktree_ok or not ancestry_ok:
         final_gate = "INCONCLUSIVE_A6R_IDENTITY"
     elif protocol_drift:
@@ -443,6 +478,8 @@ def main() -> int:
             "download_count": 0, "candidate_outcome_file_open_count": 0,
             "old_personal_project_read_count": 0, "dataset_store_file_count": dataset_files,
             "external_baseline_library_present": pth_data_present,
+            "execution_counter_evidence": "STATIC_CONTROL_FLOW_AUDIT",
+            "observable_preconditions": observable_preconditions,
         },
         "frozen_policy": {
             "main_mask": "ar>=2.1", "primary_event": "geometry_normalized_severe",
@@ -470,6 +507,15 @@ def main() -> int:
     OUT_REPORT.write_text(report_text(head, candidates, overlap, gate, len(candidates)-3, len(registry.output())), encoding="utf-8")
 
     output_paths = [OUT_INVENTORY, OUT_OVERLAP, OUT_GATE, OUT_REPORT]
+    sanitizer_hits = shared_output_violations(output_paths)
+    if sanitizer_hits:
+        gate["final_gate"] = final_gate = "PROTOCOL_DRIFT"
+        gate["hard_gates"]["shared_output_sanitizer"] = {"status": "FAIL", "logical_paths": sanitizer_hits}
+        OUT_GATE.write_text(json.dumps(gate, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+        OUT_REPORT.write_text(report_text(head, candidates, overlap, gate, len(candidates)-3, len(registry.output())), encoding="utf-8")
+    else:
+        gate["hard_gates"]["shared_output_sanitizer"] = {"status": "PASS", "logical_paths": []}
+        OUT_GATE.write_text(json.dumps(gate, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
     manifest = {
         "schema_version": "a6r_asset_gate_manifest_r003_v1", "round_id": ROUND_ID,
         "scientific_snapshot": SNAPSHOT, "execution_head": head,
@@ -477,7 +523,10 @@ def main() -> int:
         "command": f"python {rel(SCRIPT)}", "inputs": registry.output(),
         "outputs": [file_record(path) for path in output_paths],
         "counts": {"training":0,"inference":0,"risk_computation":0,"download":0,
-                   "candidate_outcome_files_opened":0,"old_personal_project_results_read":0},
+                   "candidate_outcome_files_opened":0,"old_personal_project_results_read":0,
+                   "evidence":"STATIC_CONTROL_FLOW_AUDIT"},
+        "shared_output_sanitizer": {"status":"PASS" if not sanitizer_hits else "FAIL",
+                                    "logical_paths":sanitizer_hits},
         "forbidden_path_markers": list(OUTCOME_NAME_MARKERS), "candidate_count": len(candidates),
         "eligible_count": len(eligible), "selected_unit": None, "final_gate": final_gate,
         "result_commit": "transport metadata; not self-referenced by this manifest",
@@ -485,7 +534,18 @@ def main() -> int:
     temp = OUT_MANIFEST.with_suffix(".json.tmp")
     temp.write_text(json.dumps(manifest, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
     os.replace(temp, OUT_MANIFEST)
-    return 0
+    final_hits = shared_output_violations(output_paths + [OUT_MANIFEST])
+    if final_hits:
+        gate["final_gate"] = "PROTOCOL_DRIFT"
+        gate["hard_gates"]["shared_output_sanitizer"] = {"status": "FAIL", "logical_paths": final_hits}
+        OUT_GATE.write_text(json.dumps(gate, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+        OUT_REPORT.write_text(report_text(head, candidates, overlap, gate, len(candidates)-3, len(registry.output())), encoding="utf-8")
+        manifest["final_gate"] = "PROTOCOL_DRIFT"
+        manifest["shared_output_sanitizer"] = {"status": "FAIL", "logical_paths": final_hits}
+        manifest["outputs"] = [file_record(path) for path in output_paths]
+        temp.write_text(json.dumps(manifest, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+        os.replace(temp, OUT_MANIFEST)
+    return 2 if final_hits else 0
 
 
 if __name__ == "__main__":

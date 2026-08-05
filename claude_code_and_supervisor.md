@@ -2193,3 +2193,5 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键结果：GitHub 仅保留 `main` 作为项目分支；大体积忽略资产和本地迁移分片仍不进入 Git。
 - 停止条件：未触发；未改动科学资产、冻结配置或实验结果。
 - 下一步建议：其它服务器直接 checkout/pull `main`，持久化大文件仍按迁移报告恢复。
+
+[2026-08-05T08:34:45-07:00] source=C r004; action=A1 power-score attribution; gate=FAIL_SCORE_LIMIT_DOMINANT; outputs=Paper-A r004 logical namespace and dis/server_reports r004; stop=no protocol drift; next=C adjudication; training=0; inference=0; download=0.
