@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "project": "orientbench",
+  "round_id": "orientbench-c-r001-20260805",
+  "review_date": "2026-08-05",
+  "scientific_snapshot_sha": "9d9cdae1847f9c82e841f6f8b2692389cf9d9d79",
+  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md",
+  "scientific_state": {
+    "paper_a": "A_MEASUREMENT_ONLY",
+    "paper_b": "B5_PASS_MECHANISM_BOUNDED_REQUIRES_STATISTICAL_REGATE",
+    "b6_b7": "NOT_RUN",
+    "submission_readiness": "NOT_READY"
+  },
+  "evidence_index": "dis/C.md",
+  "c": {
+    "status": "ROUND_COMPLETE",
+    "report_path": "dis/C.md"
+  },
+  "cc": {
+    "status": "NOT_STARTED",
+    "recommendation": "recommended_now",
+    "user_decision_required": true,
+    "start_prompt_path": "dis/B_START_PROMPT.md",
+    "only_report_path": "dis/B.md"
+  },
+  "server": {
+    "status": "NOT_STARTED",
+    "instruction_path": "dis/sug.md",
+    "only_report_path": "dis/server_reports/orientbench-c-r001-20260805.md"
+  },
+  "collaboration_protocol": "dis/collaboration_protocol.md"
+}
