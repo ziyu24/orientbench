@@ -1,15 +1,16 @@
 {
   "schema_version": "1.0",
   "project": "orientbench",
-  "round_id": "orientbench-c-r001-20260805",
+  "round_id": "orientbench-c-r002-20260805",
   "review_date": "2026-08-05",
-  "scientific_snapshot_sha": "9d9cdae1847f9c82e841f6f8b2692389cf9d9d79",
+  "scientific_snapshot_sha": "8466602330a942c9bb8beff284aa8fc5b952a3b0",
   "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md",
   "scientific_state": {
     "paper_a": "A_MEASUREMENT_ONLY",
-    "paper_b": "B5_PASS_MECHANISM_BOUNDED_REQUIRES_STATISTICAL_REGATE",
-    "b6_b7": "NOT_RUN",
-    "submission_readiness": "NOT_READY"
+    "paper_b": "FAIL_CANDIDATE_GATE",
+    "b6_b7": "STOPPED_NOT_RUN",
+    "submission_readiness": "NOT_READY",
+    "next_scientific_gate": "B5_EVIDENCE_CHAIN_CLOSURE_BEFORE_A6R"
   },
   "evidence_index": "dis/C.md",
   "c": {
@@ -17,16 +18,18 @@
     "report_path": "dis/C.md"
   },
   "cc": {
-    "status": "NOT_STARTED",
-    "recommendation": "recommended_now",
-    "user_decision_required": true,
-    "start_prompt_path": "dis/B_START_PROMPT.md",
+    "status": "COMPLETED_R001",
+    "recommendation": "no",
+    "user_decision_required": false,
+    "historical_start_prompt_path": "dis/B_START_PROMPT.md",
     "only_report_path": "dis/B.md"
   },
   "server": {
-    "status": "NOT_STARTED",
+    "status": "READY_FOR_SERVER",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r001-20260805.md"
+    "only_report_path": "dis/server_reports/orientbench-c-r002-20260805.md",
+    "last_completed_report_path": "dis/server_reports/orientbench-c-r001-20260805.md",
+    "last_verdict": "FAIL_CANDIDATE_GATE"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }

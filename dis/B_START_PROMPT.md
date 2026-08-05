@@ -1,6 +1,6 @@
 # OrientBench CC/B 专用启动 Prompt
 
-当前建议：`recommended_now`。只有用户明确决定调用 CC 时才执行本 prompt；本文件的存在不表示 CC 已参与。
+当前建议：`no`。r001 的 CC 盲审与对抗复核已经完成并保存在 `dis/B.md`；不要重复执行本 prompt。以下内容作为 r001 启动记录保留，不适用于 r002。除非用户以后明确要求为新的 scientific snapshot 生成并启动新 prompt，否则当前不建议启动 CC。
 
 ---
 
