@@ -1,0 +1,10 @@
+condition,status,evidence,partition,impact
+direct_input_and_cache_provenance,PASS,all direct inputs locked; raw-cache and inventory checks,all,continue
+formal_and_random_tests,PASS,weighted/common-mask/37-replicate/paired/duplication/verdict tests,all,continue
+r001_r002_scientific_diff,DRIFT,numeric tolerance 1e-12; universe/resample hashes compared exactly and any changes recorded,all,STOP_B6
+development_evidence,DESCRIPTIVE_NO_SUCCESS_GATE,DIOR-R/SODA-A rows=40; supports_both=21,development,cannot authorize B6
+confirmatory_evidence,DESCRIPTIVE_NO_SUCCESS_GATE,FAIR1M rows=18; supports_both=6,confirmatory,cannot authorize B6
+external_evidence,FAIL,DOTA/RotatedFCOS supports_both=0/24,external,STOP_B6
+redundant_comparisons,DISCLOSED,exact duplicate candidate score comparisons=0,all,not counted independently
+scientific_candidate_gate,FAIL_CANDIDATE_GATE,external 0/24 retained unless drift invalidates evidence closure,external,STOP_B6
+evidence_closure_verdict,FAIL_EVIDENCE_DRIFT,"machine-derived from provenance, tests, drift, and external evidence",all,STOP_B6

@@ -1,0 +1,8 @@
+test_id,category,stage,seed,expected,observed,abs_error,tolerance,status,notes
+random_weighted_expansion_100,random_explicit_expansion,r002,20260805,max<=1e-12,1.532107773982716e-14,1.532107773982716e-14,1e-12,PASS,selected/oracle/random/NRC all use identical multiplicity weights
+nan_common_mask,common_finite_mask,r002,,1,1,,,PASS,"{""candidate_nonfinite"": 1, ""phase_mod_nonfinite"": 1, ""risk_nonfinite"": 1}"
+bootstrap_37_replicates,replicate_length,r002,,37,37,,,PASS,loop follows multiplicity matrix length
+paired_resample_shape,paired_resample,r002,,same 37 resamples,True,,,PASS,candidate and both baselines evaluated on each identical multiplicity row
+stable_tie_expansion,stable_ties,r002,,1.9385209624205368,1.938520962420535,1.7763568394002505e-15,1e-12,PASS,
+candidate_duplication_detector,candidate_duplication,r002,,True,True,,,PASS,
+machine_verdict_fixture,machine_verdict,r002,,True,True,,,PASS,"closure=('PASS_EVIDENCE_CLOSURE', 'FAIL_CANDIDATE_GATE'); drift=('FAIL_EVIDENCE_DRIFT', 'FAIL_CANDIDATE_GATE')"
