@@ -158,3 +158,92 @@ independent_review_completed_before_reading_C: true
 4. F9 判别：作者/C 对四篇新一手文献做全文级核查，确认无朝向风险认证先例（预计半天）。
 
 ——以上为阶段一盲审原文，此后不回改。
+
+---
+
+# STAGE_2_ADVERSARIAL_CROSS_REVIEW
+
+```yaml
+stage2_start_after_phase1_push: true
+phase1_commit: 36f4c4536237f1258a2da53036c0f2f049eec327
+read_after_push: [dis/C.md, dis/sug.md, dis/review_state.json]
+stage2_time: 2026-08-05 (同一会话内完成)
+```
+
+阶段一原文逐字保留于上；以下为读取 C 材料后的逐条对抗复核。所有"已验证"均指本会话内的独立复核（代码阅读、CSV 重新计数、一手网页核查），非对 C 的转述。
+
+## 5. 对 C 各实质观点的裁定
+
+### C-1｜B3/B4 cluster bootstrap 与点估计不是同一 estimand（C.md §2.2.1–2）→ **adopt**（已独立验证，证据强度：高）
+
+- 代码级确认：`run_b3_real_interventions.py` 第 168–188 行，`aggregate_image` 先取图像内 score/risk 均值，`bootstrap_delta` 对图像均值重采样并在均值序列上算 NRC 差；`run_b4_b5_analysis.py` 第 40–46 行 `boot` 对 mother-scene 均值做同样操作。而报告点估计（B3 第 255 行等、B4 第 62 行）是全实例 NRC。NRC 是 pooled ranking 的非线性泛函，cluster-mean NRC 与实例 NRC 即使在期望意义下也不同——estimand mismatch 成立，不是"百分位区间不必包含点估计"能解释的。
+- 计数独立复现：B3 `b3_intervention_metrics.csv` 中有限 CI 的候选比较 **58 个，39 个**实例级点差落在区间外；B4 `b4_candidate_external_bootstrap.csv` **24 个中 4 个**。与 C 报告的 39/58、4/24 完全一致（本机 PowerShell 重算，排除 nan-CI 行）。
+- 最强反驳已考虑并失败：若聚合是有意定义的"场景级 NRC estimand"，则点估计也应在场景均值上算——现在两者不匹配，且 `dis/sug.md` 授权的 G0 weighted-cluster 实现（multiplicity weights）才是项目内已有的正确参照。无剩余分歧。
+- 对 sug.md 修复协议的两点补充建议（供服务器执行时采纳）：
+  1. 加权 NRC 必须对三条曲线一致加权：score 降序前缀风险、oracle（按风险加权排序）、random 基线分母（加权均值），并保持冻结的 stable tie order 在权重下不变；
+  2. `b3_b4_estimand_equivalence_tests_r001.csv` 除"全 k=1 时与未加权点估计逐位相等"外，应包含一个构造性异质 cluster 合成用例，证明该测试能在旧实现上**失败**（否则测试无判别力）。
+
+### C-2｜B5 gate 硬编码、非可执行门（C.md §2.2.3）→ **adopt**（已独立验证，证据强度：高）
+
+- `run_b4_b5_analysis.py` 第 92–96 行以字面常量循环写出 H1–H4 的 REPLICATED/PARTIALLY_REPLICATED；第 110–115 行以硬编码 dict 写出含 `final_decision=PASS_MECHANISM_BOUNDED` 的全部 gate 行；另见第 101 行 `best=[12,11,11][seed]` 硬编码 best epoch。verdict 不由阈值/健康表/bootstrap 输出计算。
+- 细化（非反驳）：其底层数据表（intervention/bootstrap/nontriviality CSV）确为计算产物，且 `b4_variant_identity_ap_audit.csv` 对 post-NMS 干预已如实标注 `NOT_CLAIMED_INVARIANT` / `NMS NOT_RECOMPUTED`——问题精确地在于"结论层不可执行"，与 C 的表述一致。sug.md §3.6 的机器可检查条件是正确修复方向。
+
+### C-3｜主稿 DOTA NRC 0.6912/0.6458 为旧宽掩码值（C.md §2.2.4）→ **adopt**（双方独立发现，收敛；证据强度：高）
+
+- 与我阶段一 F1 完全一致（我在盲审中独立定位了同一冲突及 `074_…full_report.md:353` 的"不能混用"禁令）。双向独立发现使此项成为本轮最强共识：v077:286 必须改为 0.7544/0.7113 或标注 legacy 口径。
+
+### C-4｜PSC 作者错误（C.md §2.3）→ **adopt**（已一手验证；B 阶段一遗漏，如实记录）
+
+- arXiv:2211.06368 确认 PSC（CVPR 2023）作者为 **Yi Yu, Feipeng Da** 两人；v077 参考文献 [9]"Yu Y, Yang X, Li Q, et al."有误。我阶段一未做参考文献作者层核查，此项为 C 独有发现，B 采纳并自记遗漏。
+
+### C-5｜DIOR-R 出处错误（C.md §2.3）→ **adopt**（已一手验证；B 阶段一遗漏）
+
+- arXiv:2110.01931（AOPG，Gong Cheng 等，TGRS 2022）确认 DIOR-R 由该文发布。v077 [3] 用 2016 RICNN（TGRS）承担 DIOR 数据集引用不成立（2016 文早于 DIOR/DIOR-R 存在）。建议同时补 DIOR 基础数据集论文（Li Ke 等，ISPRS 2020）与 AOPG。
+
+### C-6｜novelty 定位与一手清单（C.md §2.1、§2.3）→ **adopt 并合并双方清单**（证据强度：高）
+
+- 与我阶段一 F9 结论收敛："可守 novelty 是系统测量/审计协议及其负结果"，任何"首次角度质量/首次指出 AP50 角度不敏感"表述均不可用。
+- C 清单较我更全（SeqCRC arXiv:2505.24038 精确身份、O2 TGRS 2026、OSKDet、CVPR 2024 boundary、ECCV 2024 two-step conformal、CVPRW 2020/CVPR 2023/WACV 2024 校准线）；我已独立验证 SeqCRC 身份（Andéol 等，正是主稿 [22] 同组后续，必须引用）。
+- B 补充 C 未列的三项（供合并入 correction 清单）：(a) nuScenes 的 Average Orientation Error（CVPR 2020）是"朝向误差从综合指标拆出"的驾驶域先例，宜引用防误读；(b) Conformal Risk Control under Non-Monotone Losses（arXiv:2604.01502, 2026-04）与 Probabilistic Object Detection with Conformal Prediction（arXiv:2605.07549, 2026-05）应进 §2.3 的 2026 边界；(c) UAV-OBB（Data in Brief 2026）的双标 IoU-QA 与本文度级圆周分歧审计的差异可作表 7/8 novelty 的划界证据。
+- AI4IM 2026 watchlist 项：同意仅列 watchlist，不作依据。
+
+### C-7｜"主稿当前数字与引用不可投稿"（C.md 台账第 4 行）→ **adopt，并扩充修正清单**
+
+- C 列出的三处（DOTA NRC、PSC 作者、DIOR-R 出处）全部成立。B 阶段一另发现五处 C 未提的主稿必修/应修项，请求 C 逐条裁定并入同一 correction 清单：
+  1. **表 4/5 的 D_audit 人群未披露**，且 §7.1"full-validation matched predictions"与 `m1_ar21_unify.py:157-175`（mask ∩ audit、denominator=audit.sum()、evaluation_scope=D_audit）直接冲突；同口径下表 3 n=49,502 vs 表 4 n=25,065 全文无解释（阶段一 F2）；
+  2. **认证置信参数 δ=0.1 未写入论文**（`a1_protocol_frozen.json` 有，正文无；阶段一 F3）；
+  3. **FAIR1M 实为本地冻结 train_80/val_20 划分**（官方 val annfiles 为空），§7.1"既有 trainval/test 协议"措辞不准确（阶段一 F4；无泄漏证据，整图级切分）；
+  4. **表 1 两行分别取自唯一 practical 点（unit C，target-GT 上界分数）与唯一 trivial 点（unit F，TTA，α=0.01）**，条件未标注，"417 母景"与"576 母景"并置易误读（阶段一 F5）；
+  5. 表 2 六行生成路径不对称：3 个重推理单元（DIOR-R/61、FAIR1M/24、SODA-A/4）的结果 JSON 无 GT/pred sha256（阶段一 F6）。
+- 另两项表述级建议（阶段一 F7/F8）：扰动叙事重心移到"ΔAP50=0 + 壳内角剂量"（AP75 下降部分为构造使然）；在 §6.1 或 §12 显式承认认证事件以 GT 匹配为条件、部署化需要 GT-free eligibility 代理。
+
+### C-8｜A 保持 measurement-only（台账第 1 行）→ **adopt**（收敛，无分歧）
+
+### C-9｜B5 revise、B6 暂停待统计重审（台账第 2–3 行、sug.md）→ **adopt**
+
+- 顺序正确：estimand 修复与可执行 gate 先行，B6 后议。sug.md 的前置完整性门、固定协议、三态 gate 与早停顺序设计完备；仅补充 C-1 中的两点实现建议。thresholds.yaml 冻结哈希已验证：仓库 blob SHA-256 = `b7c4e649…` 与迁移清单一致，工作树差异纯为 CRLF checkout——C 的换行警告准确且必要（sug.md §2.3 的"raw bytes"表述可直接采用 `git show HEAD:configs/thresholds.yaml | sha256sum` 作为服务器端标准命令）。
+
+### C-10｜"当前不应投稿；修复后按 TGRS 及以上重评"（C.md 头部）→ **revise**（唯一实质分歧，范围很小）
+
+- 一致部分：今天不可投（F1–F5 + 三处引用/事实错误未修，双方一致）；统计修复与主稿修订是硬前置，一致。
+- 分歧部分：**独立确认单元是否为投稿硬门**。C 把"独立确认"列入重评前置四条件之一；B 认为对一篇主结论为负结果的 measurement-only 论文，v077 §12 已如实披露 `NO_ELIGIBLE_CONFIRMATORY_UNIT`，可作为已定价风险随稿提交，确认单元是"强烈建议"而非"硬门"。
+- 最小裁决路径（转 experiment，不再语言争论）：按 C.md §3 C1 行执行一次新单元复算（未参与协议设计、full-universe、provenance-clean、持久化完整；以 SeqCRC 风格通用基线并行）。
+  - pass：新单元方向性复现协议主结论 → 确认单元入稿，分歧消失；
+  - fail：主结论方向翻转 → 不仅不能投稿，主 claim 需收缩，C 立场自动胜出；
+  - inconclusive（资产/provenance 门不过）：是否带披露投稿由作者/用户裁决，B 维持"可投但风险自担"意见，C 维持更严意见——此时为价值判断而非证据问题，按协议停止争论。
+  - 早停：若该单元成本超出一轮服务器预算，直接进入 inconclusive 分支。
+
+## 6. 双向遗漏与证据强度汇总
+
+- B 阶段一遗漏、C 发现且 B 已验证采纳：B3/B4 estimand mismatch（C-1）、B5 硬编码 gate（C-2）、PSC 作者（C-4）、DIOR-R 出处（C-5）。原因如实记录：B 阶段一把深度集中在 active manuscript A 的数字生成端与统计协议，未进入 paper_B 脚本内部与参考文献作者层。
+- C 未提、B 阶段一发现待 C 裁定：F2（D_audit 人群披露）、F3（δ）、F4（FAIR1M 措辞）、F5（表 1 条件）、F6（sha 不对称与预注册不可 Git 验证）、F7（扰动叙事）、F8（GT 条件认证语义）、F9 补充文献三项、F10 次要项（表 4 可印 CI、DOTA 不入前沿原因、a5 分层支持 ar≥2.1、δ₀.₇₅(2.1)=15.4°）。
+- 双方独立收敛（最高置信）：DOTA NRC 口径混用；novelty 只能定位为协议+负结果；A_MEASUREMENT_ONLY 维持。
+- 本轮后剩余分歧集恰为一项：C-10 的"确认单元是否投稿硬门"，已给出最小裁决实验与三态 gate。
+
+## 7. 给 C 的最终意见
+
+1. C 的统计发现（C-1/C-2）是本轮最高价值产出，B 全部独立复现，无保留采纳；sug.md 可直接执行，附 B 的两点实现建议。
+2. 请 C 对 B 独有的 F2–F5（主稿必修）与 F6–F8（应修/表述）逐项给出 adopt/revise/reject，以便合并为单一 manuscript correction 清单（本轮双方均不改主稿）。
+3. B 不是裁决者：C-10 分歧按第 5 节的 experiment 路径处理；无新证据前 B 不再重复立场。
+
+——STAGE_2 结束。
