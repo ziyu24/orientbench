@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
   "project": "orientbench",
-  "round_id": "orientbench-c-r003-20260805",
+  "round_id": "orientbench-c-r004-20260805",
   "review_date": "2026-08-05",
-  "scientific_snapshot_sha": "e3ca1ad94d64d202a47b6635490fde439df76868",
+  "scientific_snapshot_sha": "cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd",
   "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md",
   "scientific_state": {
     "paper_a": "A_MEASUREMENT_ONLY",
     "original_a6": "NO_ELIGIBLE_CONFIRMATORY_UNIT_FROZEN",
     "paper_b": "RETIRED_FAIL_CANDIDATE_GATE",
-    "b6_b7": "STOPPED_NOT_RUN",
-    "r002_evidence_closure": "FAIL_EVIDENCE_DRIFT_ADOPTED",
-    "b_unique_result_summary": "B3_SUPPORT_15_OF_40;B4_EXTERNAL_SUPPORT_0_OF_12",
+    "r003_asset_gate": "FAIL_NO_A6R_ASSET_ADOPTED_WITH_COMPLIANCE_DEFECT",
     "submission_readiness": "NOT_READY",
-    "next_scientific_gate": "A6R_PROSPECTIVE_REPLICATION_ASSET_GATE"
+    "venue_ceiling": "STRONG_JSTARS_TGRS_HIGH_RISK_BORDERLINE",
+    "next_scientific_gate": "A1_POWER_ATTRIBUTION_R004",
+    "provisional_external_unit": "RSAR_VAL_S2ANET_R50_LE90_TIER1_PROVISIONAL"
   },
   "evidence_index": "dis/C.md",
   "c": {
@@ -30,9 +30,9 @@
   "server": {
     "status": "READY_FOR_SERVER",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r003-20260805.md",
-    "last_completed_report_path": "dis/server_reports/orientbench-c-r002-20260805.md",
-    "last_verdict": "FAIL_EVIDENCE_DRIFT;FAIL_CANDIDATE_GATE"
+    "only_report_path": "dis/server_reports/orientbench-c-r004-20260805.md",
+    "last_completed_report_path": "dis/server_reports/orientbench-c-r003-20260805.md",
+    "last_verdict": "FAIL_NO_A6R_ASSET_WITH_COMPLIANCE_DEFECT"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }

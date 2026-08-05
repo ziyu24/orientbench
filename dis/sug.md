@@ -1,99 +1,140 @@
-# OrientBench 服务器任务：A6R 前瞻独立复现实物门控
+# OrientBench 服务器任务：A1 不可行性的功效—分数归因门
 
-- round: `orientbench-c-r003-20260805`
-- scientific snapshot: `e3ca1ad94d64d202a47b6635490fde439df76868`
+- round: `orientbench-c-r004-20260805`
+- scientific snapshot: `cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd`
 - active manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`
-- previous server report: `dis/server_reports/orientbench-c-r002-20260805.md`
-- 唯一服务器报告路径: `dis/server_reports/orientbench-c-r003-20260805.md`
+- previous server report: `dis/server_reports/orientbench-c-r003-20260805.md`
+- 唯一服务器报告路径: `dis/server_reports/orientbench-c-r004-20260805.md`
 
 ## 1. 单一科学问题
 
-在不读取、不生成任何候选单元 target NRC、角度风险、认证前沿或其它 outcome 的条件下，当前服务器是否已经存在至少一个可被冻结为 A6R prospective replication 的完整 detector×head×dataset×split 单元？
+主风险 `geometry_normalized_severe` 的 144 个 score-endpoint-budget rows 中有 142 个 infeasible。冻结现有协议和全部数据/阈值后，这些不可行中有多少是：
 
-本轮只做资产、身份、许可、协议暴露和可复算性门控；训练 `0`、推理 `0`、风险计算 `0`。PASS 只冻结一个候选，不能被描述为原 A6 confirmatory success，也不授权本轮继续推理。
+1. 当前 calibration scene 数下，即使零损失也不可能通过的结构性功效上限；
+2. 理想 outcome oracle 在冻结 coverage grid 上仍不能通过的事件基率/网格上限；
+3. oracle 可以通过、但实际 score 不能通过的排序限制；
+4. 形式认证后仍达不到 practical coverage/count 的限制？
 
-## 2. 不可改写的历史边界
+本轮只做既有证据的零 GPU 归因，不训练、不推理、不下载新资产、不改论文。它不新增或修改正式协议；只判断当前“现有分数导致多数不可认证”的归因能否保留。
 
-1. 原 [`a6_confirmatory_protocol_frozen.json`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6_confirmatory_protocol_frozen.json)、`NO_ELIGIBLE_CONFIRMATORY_UNIT` 及其全部既有产物保持逐字节不变。A6R 是在当前 scientific snapshot 后新注册的前瞻复现，不追溯替换原 A6。
-2. A=`A_MEASUREMENT_ONLY`；B=`RETIRED_FAIL_CANDIDATE_GATE`。不得恢复 B6/B7，不得把 B 的 common-mask 口径带入 A。
-3. A 的 missing-TTA policy 固定为：eligible universe 不变，非有限 TTA 排在全部有限 TTA 之后并披露缺失率；TTA 完全不可得时从该单元 score menu 中删除，不改用 complete-case universe。
-4. 主 mask、primary event、absolute alpha、coverage grid、practical thresholds、scene statistics、tile/mother-scene 定义均沿用现有 A1/A6 冻结协议；本轮不得修改。
+## 2. 不可改写的边界
 
-## 3. 前置与禁读边界
+1. [`a1_protocol_frozen.json`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_protocol_frozen.json)、原 A1/A6 结果、主稿、split、score direction、coverage grid、absolute alpha、`delta=0.1`、practical thresholds 和 missing-TTA policy 均逐字节不变。
+2. A=`A_MEASUREMENT_ONLY`；原 A6=`NO_ELIGIBLE_CONFIRMATORY_UNIT`；r003=`FAIL_NO_A6R_ASSET`，但带一项共享路径合规缺陷；B 永久退出主 claim。
+3. primary estimand 是 conditional matched-orientation scene risk，不得把本轮结果改称 full-output deployment guarantee。
+4. 主归因只使用冻结 `delta=0.1`；`delta=0.05`、`0.01` 只做功效敏感性，不能替代主门。
+5. target-GT-free scores 固定为 `detection_score`、`tta_circular_consistency`、`source_supervised_leave_geometry`。`target_gt_nonlinear_geometry_upper_bound` 单独列为 diagnostic upper bound，不混入主多数门。
 
-1. 只允许 fast-forward 同步；记录实际完整 HEAD，并证明 ancestry 包含 `e3ca1ad94d64d202a47b6635490fde439df76868`。tracked/index 不洁净、所有权冲突或不能 fast-forward 时停止。
-2. 完整读取 A1/A6 冻结协议、A6 provenance audit、迁移交接和现有资产 schema。只可读取候选的文件身份、schema、哈希、配置、日志元数据、许可与 official provenance。
-3. 在候选冻结前，禁止打开或计算任何潜在候选的 NRC、angle-risk、severe-event rate、certification、risk frontier 或以这些 outcome 为输入的 selection 文件。可以用路径/manifest 判断“是否已有结果暴露”；一旦确认暴露，立即排除该候选，不读取数值。
-4. 禁止下载或读取 D7/PCP-OBB、pcbobb、pcbobb_beyond、pcbobb_score_study。禁止下载新的 dataset/checkpoint 或运行模型；若当前无合格资产，只报告一个最小官方 acquisition proposal，不在本轮获取。
-5. Git 共享产物不得包含账号、机器标识、绝对路径或凭据。服务器资产使用稳定逻辑别名和相对路径；外部来源使用官方 URL、版本和公开 checksum。
+## 3. 开始与合规修复
 
-## 4. 候选单位与污染审计
+1. 只允许 fast-forward 同步；记录实际完整 HEAD 并证明 ancestry 包含 scientific snapshot。tracked/index 不洁净、远端/所有权冲突或不能 fast-forward 时停止。
+2. 先完整读取仓库规则、A1 冻结协议、`run_a1_a3.py`、A1 reproduction status、现有 frontier/schema、r003 gate/manifest/report 和迁移交接。
+3. 在任何分析前，对 `audit_a6r_assets_r003.py` 做唯一允许的历史源代码修复：删除硬编码的服务器绝对 dataset 路径及账号段，改为未解析值不会写入共享产物的 CLI 参数或环境变量逻辑别名；不得在日志、manifest、报告或异常中持久化解析后的绝对路径。旧 r003 CSV/JSON/报告不得重写或重跑。
+4. 把 `protocol_drift=False` 的硬编码改为由可观测前置条件与共享输出 sanitizer 派生；训练/推理/风险/下载计数若仍无法 instrumentation，明确标为 `STATIC_CONTROL_FLOW_AUDIT`，不得伪称运行时计数器证明。
+5. 对本轮所有新增文件、被整体修改的文件及 append-only 文件的新增 diff hunks 扫描账号模式、机器名、Unix/Windows 绝对路径和凭据；不得因历史文件中未触碰的既有文本误报。新增内容命中即 `PROTOCOL_DRIFT` 并停止提交。
 
-候选身份必须精确到：dataset/version、split、detector、angle head/coder、backbone、checkpoint、config、framework commit、evaluator、tile/merge/NMS 配置。
+## 4. 权威输入与复算前置门
 
-每个候选必须检查并报告：
+至少登记并验证以下输入的 bytes、SHA-256 与 Git blob/既有 reproduction hash；服务器侧大型原物仅用仓库相对路径或逻辑别名：
 
-1. checkpoint/config/log 的来源、选择标准、bytes、SHA-256、框架与依赖版本、许可。checkpoint 只能按与 target orientation-risk 无关的既有标准选定；不能在本轮比较 checkpoint。
-2. 完整 split 身份：所有图像数、含空 GT 图像、完整 GT、类别映射、角度约定、原图/切片/母景 ID 映射及其 aggregate hash。
-3. 可复算输出边界：能否在后续一次冻结推理中持久化 raw head output、pre-NMS、tile merge/pre-final-NMS 和 final predictions；每层保留 class、score、OBB、image/tile/mother-scene ID；完整 evaluator 可确定重跑。
-4. 既有暴露：该精确 unit 是否参与 alpha、AR、score direction、endpoint、coverage grid、M1--M3、候选设计或任何 NRC/risk/certification 计算。只要任一为是，排除。
-5. overlap：仓库中已有 checkpoint/config/prediction/risk 文件、现有 A6 候选、以及已知内部旧项目导入资产是否同 hash、同来源或同 selection lineage。未知不能写成 clean。
-6. TTA 可得性和预计缺失处理，但不得生成 TTA 数值或风险结果。
-7. 预计 GPU 小时、磁盘、数据许可和下载来源，仅作为未来 acquisition/inference 规划，不在本轮执行。
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_protocol_frozen.json`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/run_a1_a3.py`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_a3_reproduction_status.csv`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_guaranteed_frontier_all_alpha.csv`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_scene_level_ltt_frontier.csv`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_scene_event_frontier.csv`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a2_eligible_scene_universe.csv`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_trivial_infeasible_summary.csv`
+- `scripts/m069_common.py`、`orientbench/data/splits.py` 及 `M.verify_fullval_lineage()` / `M.load_cell()` 实际读取的六单元原物
 
-独立性分层：
+先独立重建 576 行的 identity key：`evaluation_unit|score|risk_endpoint|alpha_label`，并逐字段比较现有表的 alpha、trivial、feasible、practical、calibration/audit scene count、selected coverage/count 与 UCB。行集合、主字段或 lineage 任一不一致时输出 `INCONCLUSIVE_POWER_DECOMPOSITION`，不得继续给出 headline 归因。
 
-- Tier 1：新 dataset/version 且新 detector/head unit，未参与任何协议设计或 outcome 查看；优先。
-- Tier 2：既有 dataset 上的精确新 detector/head unit，未参与任何协议设计或 outcome 查看；只可称 unit-level prospective replication。
-- Excluded：partial universe、仅 matched cache、旧风险结果已存在、checkpoint 按风险选、母景身份不可恢复、来源/许可不清或与既有资产重叠。
+## 5. 冻结的功效与 oracle 定义
 
-## 5. 中性冻结顺序
+### 5.1 Zero-loss optimistic envelope
 
-不得按 AP、NRC、风险、预期“好看程度”选候选。对通过硬门的候选按以下顺序确定唯一 selected unit：
+对每个 evaluation-unit × endpoint × alpha：
 
-1. Tier 1 优于 Tier 2；
-2. official/author-released checkpoint + 完整公开来源/许可优于非官方资产；
-3. full split、empty images、GT、scene identity 与完整 evaluator 均可验证者优先；
-4. 后续 raw→final 全链可持久化者优先；
-5. 预计 GPU 小时与新增磁盘更低者优先；
-6. 仍并列时按规范化 `dataset|detector|head|checkpoint_sha256` 字典序。
+- 使用该角色中**全部 eligible calibration scenes** 作为可获得的最大 exchangeable `n`；
+- 计算 `HB_UCB(mean=0,n,delta)`；scene-event 另算 `CP_UCB(k=0,n,delta)`；
+- 这是对任何 score 最有利的结构性下界，不是经验结果；
+- 若在 `delta=0.1` 下该 optimistic HB UCB 仍大于 alpha，则该行标记 `STRUCTURAL_POWER_LIMIT`。不得把它归因于 score。
 
-所有 eligible 与 excluded 候选都保留；不得在看到任何 outcome 后换 unit。
+同时对 `delta=0.05` 与 `0.01` 重算 sensitivity，但不改变主分类。
 
-## 6. 授权写入范围
+### 5.2 Outcome-oracle envelope
 
-服务器只可新增以下文件：
+只作 diagnostic upper bound：使用真实 endpoint event 构造 larger-is-better 的完美 instance oracle。对每个完整 cell 的持久化行号 `i=0..N-1`，固定 `oracle_score=(1-event)+1e-6*(1-i/max(N-1,1))`；因此所有低风险实例严格排在高风险实例之前，同风险时只按全 cell 的持久化行号稳定排序，且同一数值定义跨 fit/calib/audit 应用。阈值仍只从 D_fit 与冻结 coverage grid 产生；calibration 仍按 fixed-sequence 从低覆盖到高覆盖，首失败即关闭；audit 不参与阈值或门选择。
 
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_candidate_asset_inventory_r003.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_overlap_registry_r003.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_asset_gate_r003.json`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_asset_gate_manifest_r003.json`
-- `dis/server_reports/orientbench-c-r003-20260805.md`
+oracle 不得覆盖或混写到四个原 score，不得形成 deployable claim。若 zero-loss 结构上可行但该 oracle 在冻结 grid/经验事件下仍不可行，标记 `ORACLE_DATA_OR_GRID_LIMIT`。
 
-不得修改任何既有 A/B 文件、主稿、配置、数据、split、checkpoint、旧报告、`dis/B.md` 或本轮 `dis/sug.md`。若需要其它写入，记为 `PROPOSED_DEVIATION` 并停止，不自行扩权。
+### 5.3 互斥归因顺序
 
-## 7. 必须生成的证据
+对 576 行按以下顺序给出一个且仅一个 attribution：
 
-1. candidate inventory：上述精确身份、逻辑路径/官方 URL、bytes/hash/license、完整 split/schema/scene identity、TTA 可得性、预计资源。
-2. overlap registry：逐候选列出仓库命中、hash/source/selection lineage、协议参与和 prior-outcome 暴露；不得把 unknown 当 clean。
-3. machine-readable gate JSON：硬门逐项状态、独立性 tier、中性排序 key、唯一 selected unit 或排除理由。
-4. manifest：scientific snapshot、execution HEAD、脚本/输入/输出 canonical Git blob hash、实际命令、训练/推理/风险计算/下载计数，所有计数必须为 `0`。
-5. 唯一报告：完整候选表、首个失败点、gate、最弱环节和下一步；若没有本地合格资产，可附一个不含 outcome 的最小官方 acquisition proposal，但不得下载。
+1. `TRIVIAL_BUDGET`：`alpha >= r_fit`；
+2. `STRUCTURAL_POWER_LIMIT`：nontrivial 且 optimistic zero-loss HB UCB `> alpha`；
+3. `ORACLE_DATA_OR_GRID_LIMIT`：结构上可行，但 outcome oracle 无 fixed-sequence certified candidate；
+4. `SCORE_RANKING_LIMIT`：oracle 可认证，实际 score 不可认证；
+5. `PRACTICAL_COVERAGE_LIMIT`：实际 score 形式非平凡认证，但 audit nonempty rate、instance coverage 或 selected count 未同时达到冻结 practical gate；
+6. `CERTIFIED_PRACTICAL`：实际 score 非平凡且 practical；
+7. `FORMAL_OTHER`：只用于捕获实际表中未被以上状态覆盖的形式结果；出现时必须解释并把主 gate 置为 inconclusive，不能静默吞掉。
 
-## 8. Pass / fail / inconclusive gate
+分类必须分别汇总：全部 576 行、主风险 144 行、主风险 target-GT-free 108 行、diagnostic upper bound 36 行；并按 unit、score、alpha 类型与 alpha 值交叉报告。
 
-- `PASS_A6R_ASSET_GATE`：至少一个候选通过全部硬门，并按中性顺序冻结唯一 selected unit；资产当前存在、哈希/许可/完整 split/scene identity/evaluator/raw→final 持久化边界全部可验证；无 prior outcome 暴露。该状态只授权 C 设计下一轮一次性推理合同。
-- `FAIL_NO_A6R_ASSET`：盘点完整，但所有候选因 partial universe、only matched cache、prior outcome、协议参与、风险选择或已知 overlap 被排除。保留原 `NO_ELIGIBLE_CONFIRMATORY_UNIT`，不得降低标准。
-- `INCONCLUSIVE_A6R_IDENTITY`：关键 hash、许可、完整 split、empty-image、母景映射、checkpoint 选择或 overlap 身份无法证明。不得把 unknown 计为 PASS。
-- `PROTOCOL_DRIFT`：读取/计算了候选 outcome，发生训练、推理、下载、旧项目读取，改动冻结协议或写出授权范围。立即停止；候选视为受污染，不得继续用作 A6R。
+## 6. 预注册主 gate
 
-早停顺序：Git/所有权 → 禁读/下载/计算计数 → prior-outcome/协议参与 → checkpoint 与许可 → full-universe/empty/scene identity → evaluator/raw→final 可复算性 → overlap → 中性排序。没有新资产证据即停止。
+主分母固定为：`geometry_normalized_severe`、target-GT-free 三类 score、nontrivial、现有表 `feasible=False` 的行。
 
-## 9. 服务器最终回复格式
+- `PASS_SCORE_LIMIT_DOMINANT`：其中严格超过 50% 被归为 `SCORE_RANKING_LIMIT`，且 576 行 parity、lineage、互斥/完备性全部通过。
+- `FAIL_SCORE_LIMIT_DOMINANT`：parity 与归因有效，但 `SCORE_RANKING_LIMIT` 占比不超过 50%。论文必须删除“现有可部署分数是多数不可认证的主因”，改成实际占多数的 power/data/grid boundary；这不是删负结果。
+- `INCONCLUSIVE_POWER_DECOMPOSITION`：主分母为 0，或原物/lineage/identity/parity 缺失，oracle 次序或 UCB 不能按冻结定义复算，或出现未解释的 `FORMAL_OTHER`。
+- `PROTOCOL_DRIFT`：修改冻结文件/split/threshold/score direction/coverage grid，读取或写入未授权资产，执行训练/推理/下载，或共享产物泄露账号、机器、凭据、绝对路径。
+
+无论 PASS 或 FAIL，都必须报告 numerator、denominator、精确比例及全部 attribution counts；不得只给标签。
+
+## 7. 早停与资源
+
+1. Git/所有权/ancestry/共享路径 sanitizer 失败：立即 `PROTOCOL_DRIFT` 停止。
+2. 六单元 lineage 或 576 行 parity 失败：立即 `INCONCLUSIVE_POWER_DECOMPOSITION` 停止，不运行 oracle。
+3. 归因不互斥、不完备或出现未解释 `FORMAL_OTHER`：inconclusive。
+4. 本轮 GPU 使用必须为 0；训练、推理、风险资产下载和 RSAR 下载均为 0。
+5. 原物装载与大表计算属于 CPU 密集任务时，按仓库规则使用不少于 80% 可用 CPU；若受 I/O 或实现串行限制，报告实测利用率与理由，不得伪造并行。
+6. 不读取或下载 D7/PCP-OBB、pcbobb、pcbobb_beyond、pcbobb_score_study。它们不能改变本门。
+
+## 8. 授权写入范围
+
+只允许：
+
+- 修改 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py`（仅第 3 节合规修复）；
+- 新增 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_power_decomposition_r004.py`；
+- 新增 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_envelope_r004.csv`；
+- 新增 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_oracle_feasibility_r004.csv`；
+- 新增 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_failure_attribution_r004.csv`；
+- 新增 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_sensitivity_r004.csv`；
+- 新增 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_gate_r004.json`；
+- 新增 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_power_manifest_r004.json`；
+- append-only 修改 `claude_code_and_supervisor.md`，只记录 r004 的逻辑路径、gate 和停止状态，不写服务器路径/账号/机器；
+- 新增唯一报告 `dis/server_reports/orientbench-c-r004-20260805.md`。
+
+不得修改旧 A1/A6 表、主稿、协议、配置、checkpoint、数据、`dis/B.md`、`dis/C.md`、`dis/sug.md`、`dis/review_state.json` 或任何旧服务器报告。需要其它写入时标记 `PROPOSED_DEVIATION` 并停止。
+
+## 9. 必须报告的证据
+
+1. 576 行 parity 比较与不一致计数；六单元 raw lineage/hash。
+2. 每行 `n_max`、zero-loss HB/CP UCB、主 delta 与 sensitivity delta。
+3. oracle 的 fit threshold、calibration fixed-sequence 过程、chosen coverage 或第一个失败点；audit 仅作描述。
+4. 互斥 attribution、四类汇总和主 gate 的精确分子/分母。
+5. 对当前 `142/144` 的正确改写建议：哪些是 trivial、structural、oracle/data/grid、score、practical；不把重叠计数写成互斥证据。
+6. manifest：scientific snapshot、execution HEAD、实际命令、输入/输出 bytes、SHA-256、Git blob、逻辑路径、CPU/GPU、训练/推理/下载计数和合规 sanitizer 结果。manifest 自身以提交 Git blob 固定，不做伪自哈希。
+7. 最弱环节、置信度、反证条件及下一步。r004 不授权获取 RSAR；只有 C 裁决后才进入独立 acquisition round。
+
+## 10. Git 与最终回复
+
+运行 JSON/CSV/schema/row-count 检查、`git diff --check`、普通与 staged diff。确认仅授权路径变化且 `dis/B.md` blob 未变。只显式暂存授权文件，以中文 commit message提交并普通 push；禁止 merge/rebase/reset/clean/force。
 
 最终回复必须恰好两行，不加代码围栏、项目符号或第三行：
 
 第一行只能是 `执行完毕` 或 `未执行完毕`。
 
-第二行只能是 `dis/server_reports/orientbench-c-r003-20260805.md`。
+第二行只能是 `dis/server_reports/orientbench-c-r004-20260805.md`。
