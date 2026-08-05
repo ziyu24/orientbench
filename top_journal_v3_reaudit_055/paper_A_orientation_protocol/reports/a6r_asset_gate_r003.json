@@ -1,0 +1,345 @@
+{
+  "candidate_count": 41,
+  "candidate_decisions": [
+    {
+      "candidate_id": "ARS-DETR_DIOR-R/16",
+      "first_failed_gate": "PRIOR_OUTCOME_EXPOSURE",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "ARS-DETR_DOTA-v1.0/14",
+      "first_failed_gate": "CHECKPOINT_AND_FULL_UNIVERSE_MISSING",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|CSL|seed0|961910ce16b8",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|CSL|seed1|fc04a60988b2",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|CSL|seed2|a85861553e52",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|DCL|seed0|719290fb5cd4",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|DCL|seed1|c7b383471580",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|DCL|seed2|ed7863c20998",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|PSC|seed0|c92af20f3d0d",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|PSC|seed1|805af3e4533c",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|PSC|seed2|dd1068986f47",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|direct_regression_le90|seed0|9121ae7940f3",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|direct_regression_le90|seed1|3ce0cd835cf9",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DIOR-R|registered|RotatedRetinaNet|direct_regression_le90|seed2|2c8a0d1a2af9",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DOTA|v1.0|RHINO|positive Hungarian classification head|seed42|55a90abbace4",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DOTA|v1.0|RotatedFCOS|PSCD dual-frequency|seed0|e2b7edcc3041",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DOTA|v1.0|RotatedFCOS|PSCD dual-frequency|seed1|c6991079cc1a",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DOTA|v1.0|RotatedFCOS|PSCD dual-frequency|seed2|f60d06dfbaa8",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "DOTA|v1.5|RotatedRTDETR|direct le90 query head|seed42|3e32fa11114c",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|CSL|seed0|b5884ea5d830",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|CSL|seed1|088ef67e666c",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|CSL|seed2|a984d18eb13c",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|DCL|seed0|fdfbcaadd376",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|DCL|seed1|acfe76992f7f",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|DCL|seed2|655503dd7f77",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|PSC|seed0|194de87e7224",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|PSC|seed1|e1e3b1ae09ac",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "FAIR1M|v1.0|RotatedRetinaNet|PSC|seed2|60d0d05b3f78",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|CSL|seed0|b777eb8fa651",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|CSL|seed1|60892eef4b9d",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|CSL|seed2|fa075ed3087b",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|DCL|seed0|cf63e803ff3e",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|DCL|seed1|76e6f54db65e",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|DCL|seed2|d7f6ab834c87",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|PSC|seed0|709dd4a3cf70",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|PSC|seed1|29b4a959cde7",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|PSC|seed2|6af6f1b924c8",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|direct_regression_le90|seed0|34c143c476d4",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|direct_regression_le90|seed1|d707407a1841",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "SODA-A|registered|RotatedRetinaNet|direct_regression_le90|seed2|2a51b7b15906",
+      "first_failed_gate": "PRIOR_OUTCOME_OR_PROTOCOL_PARTICIPATION",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    },
+    {
+      "candidate_id": "Strip-RCNN_DIOR-R/47",
+      "first_failed_gate": "PRIOR_OUTCOME_EXPOSURE",
+      "neutral_sort_key": "",
+      "status": "EXCLUDED",
+      "tier": "EXCLUDED"
+    }
+  ],
+  "eligible_count": 0,
+  "excluded_count": 41,
+  "execution_head": "7cc60c52aed3503069364184866f1bf5cada0836",
+  "final_gate": "FAIL_NO_A6R_ASSET",
+  "frozen_policy": {
+    "absolute_alpha": [
+      0.001,
+      0.0025,
+      0.005,
+      0.01
+    ],
+    "coverage_grid": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "main_mask": "ar>=2.1",
+    "missing_tta": "eligible universe unchanged; nonfinite last; remove TTA score only if wholly unavailable",
+    "primary_event": "geometry_normalized_severe"
+  },
+  "hard_gates": {
+    "candidate_outcome_file_open_count": 0,
+    "dataset_store_file_count": 0,
+    "download_count": 0,
+    "external_baseline_library_present": false,
+    "git_ancestry": "PASS",
+    "inference_count": 0,
+    "old_personal_project_read_count": 0,
+    "risk_computation_count": 0,
+    "tracked_index_and_authorized_workspace": "PASS",
+    "training_count": 0
+  },
+  "historical_boundary": {
+    "original_A6": "NO_ELIGIBLE_CONFIRMATORY_UNIT",
+    "paper_A": "A_MEASUREMENT_ONLY",
+    "paper_B": "RETIRED_FAIL_CANDIDATE_GATE"
+  },
+  "neutral_selection": "NOT_RUN_NO_ELIGIBLE_CANDIDATE",
+  "next_action": "C must freeze a separate official acquisition contract before any download or outcome access",
+  "round_id": "orientbench-c-r003-20260805",
+  "schema_version": "a6r_asset_gate_r003_v1",
+  "scientific_snapshot": "e3ca1ad94d64d202a47b6635490fde439df76868",
+  "selected_unit": null
+}

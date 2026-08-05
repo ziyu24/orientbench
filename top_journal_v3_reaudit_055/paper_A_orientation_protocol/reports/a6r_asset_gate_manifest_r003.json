@@ -1,0 +1,1099 @@
+{
+  "candidate_count": 41,
+  "command": "python top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py",
+  "counts": {
+    "candidate_outcome_files_opened": 0,
+    "download": 0,
+    "inference": 0,
+    "old_personal_project_results_read": 0,
+    "risk_computation": 0,
+    "training": 0
+  },
+  "eligible_count": 0,
+  "execution_head": "7cc60c52aed3503069364184866f1bf5cada0836",
+  "execution_source": {
+    "canonical_sha256": "3af41bf77dcddeb44285f73fed89e86c2cc7b0239b2b2bd550ec32d6a32ba13a",
+    "git_blob": "bdc2f6b10d42fa57cd88e3bc81d8d698ce42dd50",
+    "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py"
+  },
+  "final_gate": "FAIL_NO_A6R_ASSET",
+  "forbidden_path_markers": [
+    "nrc",
+    "risk_frontier",
+    "certification",
+    "candidate_external_confirmation",
+    "candidate_external_bootstrap",
+    "matched_native",
+    "matched_phase",
+    "matched_17field"
+  ],
+  "inputs": [
+    {
+      "bytes": 377,
+      "git_blob": "e2b8909c0555cf8c6cd98c4384023b0900752a55",
+      "logical_path": "configs/m4_third_dataset_070/fair1m_csl.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "a1595063c7bddb58ca389135f6b93326d8b4a7b6c46ba97fe641959503ad355a"
+    },
+    {
+      "bytes": 436,
+      "git_blob": "a63dff03831d2d883372867ed83f8e8fda0cb91e",
+      "logical_path": "configs/m4_third_dataset_070/fair1m_dcl.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "156deb0bbe65332475e6207d4c1f6abc45d29ada409e0895d5149e2ec6ad1fb5"
+    },
+    {
+      "bytes": 2361,
+      "git_blob": "50629a7ea8c545a8abd63e94b79c1b88060a3492",
+      "logical_path": "configs/m4_third_dataset_070/fair1m_psc.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "8456a0b4c3e08e706576764beb95434a3e8b62b2052a6bce5fa72cea75d2d4bf"
+    },
+    {
+      "bytes": 22110,
+      "git_blob": "27211683eb17dbcc5152456069d204a9799f985b",
+      "logical_path": "docs/server_migration_handoff_20260727.md",
+      "purposes": [
+        "server migration and asset boundary"
+      ],
+      "sha256": "c9710110fdc783e47e367e70c7e2c976f3295d6f371fc58c884ab6977fb51417"
+    },
+    {
+      "bytes": 152476178,
+      "git_blob": "55d5a6984b3714a038435e85a7d89c72da7d0b22",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__CSL__FAIR1M__seed0.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "b5884ea5d830607c72d8d33a389f59e7c7eab66cb141e8793a06b6c6a8cea712"
+    },
+    {
+      "bytes": 152476178,
+      "git_blob": "1bf6c121b0f719d7c128d2c6ead7d403cc157dc8",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__CSL__FAIR1M__seed1.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "088ef67e666cee806448f85eeb1c9fd423bd43a3f1e6e912044ae3137c40ff55"
+    },
+    {
+      "bytes": 152476178,
+      "git_blob": "b3f47c320ec0771aeb3c4b77f482fc3b48974c2f",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__CSL__FAIR1M__seed2.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "a984d18eb13c074951ae5ac73b92302aede1a0fe5dc787f5292f7357ddd1a2d1"
+    },
+    {
+      "bytes": 149405906,
+      "git_blob": "95710b4aa04a4ebe87e326bba2b3f663aaed0fc8",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__DCL__FAIR1M__seed0.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "fdfbcaadd3769b137e0249fa228b5a7686070f07b65b24308d13f35c8aa8348d"
+    },
+    {
+      "bytes": 149405906,
+      "git_blob": "bf45701ff5976ce384821911349a876c21952e37",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__DCL__FAIR1M__seed1.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "acfe76992f7f19ff9cb439be8fc56191d1a1147cc4b7e1ea58e2df495b7a31c4"
+    },
+    {
+      "bytes": 149405906,
+      "git_blob": "2fd7c1ac2b26ecaa3f068c51a0a5211aac97a32e",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__DCL__FAIR1M__seed2.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "655503dd7f7787511f185477d5b067c9c05fbd8e534658858f498c3d7838a24b"
+    },
+    {
+      "bytes": 149239826,
+      "git_blob": "7f9d7259e51e2632f37a987cc6e603ba92d3ef69",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__PSC__FAIR1M__seed0.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "194de87e72248cc15e6941e040e7d8660cdf3615685fd462deca1d7946cb75a1"
+    },
+    {
+      "bytes": 149239826,
+      "git_blob": "63ef289dc370a461fb6de4271bda61e67f979ec9",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__PSC__FAIR1M__seed1.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "e1e3b1ae09ac4acba91f76cce601d5288b4b357df2eb113793b4129bf83cda9a"
+    },
+    {
+      "bytes": 149239826,
+      "git_blob": "1b796113339ad6a2723dfbeb904a92a86f92d4ee",
+      "logical_path": "outputs/persistent_artifacts/m4_third_dataset_070/checkpoints/M4_070_final__PSC__FAIR1M__seed2.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "60d0d05b3f78755429363261414917a3d44e3f664ac5f6ae0a78cb864899de36"
+    },
+    {
+      "bytes": 2721711,
+      "git_blob": "8f67b914160ac6825f7c1f8337eed8f5dd993ee2",
+      "logical_path": "outputs/training/a4_host/20260626_121252/20260626_121252.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "76d2670c7a77fa754246f171f585c185ba27c54d24452036a213d883c1c7aadd"
+    },
+    {
+      "bytes": 250367007,
+      "git_blob": "e44d5090aa68924f531409425ef39b18132136e0",
+      "logical_path": "outputs/training/a4_host/best_dota_mAP_epoch_70.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "3e32fa11114ced82c2fb5ecdb25031ff45c1d2815b034a315b1af11ef8487e32"
+    },
+    {
+      "bytes": 16382,
+      "git_blob": "d5a6cc1aee7911a834c6bd6c101f4e83291fd3dc",
+      "logical_path": "outputs/training/a4_host/o2_rtdetr_r18vd_4xb1_72e_dotav15.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "ce01cb82d1c4363f616aeb689cfce38f233987c236dcb67468b51b3696e9e9a2"
+    },
+    {
+      "bytes": 1133214,
+      "git_blob": "106c13203299195516e1bf480db5943244c11050",
+      "logical_path": "outputs/training/rhino/20260626_121243/20260626_121243.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "f9d212d7fe1e77efb57a7bf2b0b76896fb1b00ad200ab37ff34406c21186d0d1"
+    },
+    {
+      "bytes": 226394828,
+      "git_blob": "deda47c5c24c4226245765c1f4568e7a13cdbb8b",
+      "logical_path": "outputs/training/rhino/best_dota_mAP_epoch_35.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "55a90abbace429276e593f8e4418fad002240ff1951912172367d997b474f9d9"
+    },
+    {
+      "bytes": 11485,
+      "git_blob": "e8aaa3f22628bb3acdd0136a663efb7379c761d1",
+      "logical_path": "outputs/training/rhino/rhino_phc_haus_4scale_r50_2xb4_36e_dota.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "109fecf46f52c50615c5b4193998281025db5ca01aef63549cb58d24ae226250"
+    },
+    {
+      "bytes": 11357,
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "logical_path": "third_party/ai4rs/LICENSE",
+      "purposes": [
+        "ai4rs source license"
+      ],
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 11357,
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "logical_path": "third_party/mmrotate_1x/LICENSE",
+      "purposes": [
+        "mmrotate_1x source license"
+      ],
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 908,
+      "git_blob": "e042ff34687ecd67c36726564142f4b52b462aff",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/README_SCOPE.md",
+      "purposes": [
+        "Paper A ownership and scope"
+      ],
+      "sha256": "2e6806cc0b4fccb35b2a6a629c6f022f6f0e445af8b2d7877f2a839a3da37192"
+    },
+    {
+      "bytes": 2137,
+      "git_blob": "213772347bad1ec7429e8bc2d48ec94337b9a08d",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_protocol_frozen.json",
+      "purposes": [
+        "frozen A1 protocol"
+      ],
+      "sha256": "aa0c563e72026831c49763e89bed4dfa9eb305983f70a3d544aadca010cd74f3"
+    },
+    {
+      "bytes": 1353,
+      "git_blob": "2b93ceffec5ec043ecee7122e754540915aff2bb",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6_confirmatory_protocol_frozen.json",
+      "purposes": [
+        "frozen A6 protocol"
+      ],
+      "sha256": "746901627cc3d3ab5b68ab880baa1a4642cb0a964fd3a3aaf1669fcb28405486"
+    },
+    {
+      "bytes": 1880,
+      "git_blob": "04317a65312bec0bcf155a36a1d7414b6187d0b2",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6_confirmatory_provenance_audit.csv",
+      "purposes": [
+        "historical A6 provenance audit"
+      ],
+      "sha256": "ebbd963699ece9111c794c877d1c407fdf9c7bdba521edc110814225840aff64"
+    },
+    {
+      "bytes": 27636,
+      "git_blob": "bdc2f6b10d42fa57cd88e3bc81d8d698ce42dd50",
+      "logical_path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a6r_assets_r003.py",
+      "purposes": [
+        "r003 execution source"
+      ],
+      "sha256": "3af41bf77dcddeb44285f73fed89e86c2cc7b0239b2b2bd550ec32d6a32ba13a"
+    },
+    {
+      "bytes": 179545,
+      "git_blob": "75a04da376826cbae9d49a8a2d3a4c72405c9c67",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed0/20260723_034026/20260723_034026.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "3d989487023316fb26efd9f25e66c67e90563f8438b214b013b79a56bf9cbb40"
+    },
+    {
+      "bytes": 131939020,
+      "git_blob": "ededb43e885fdcd99887aedf8281f75f1d516dc1",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed0/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "e2b7edcc30417384ada93a8cc08889c3912b710b051640b586531958ac5c965a"
+    },
+    {
+      "bytes": 8649,
+      "git_blob": "e241a8d1b6e928e9c431e02ed91bff9cab894c8d",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed0/seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "e0a64f27f63cfc1503525cf7865e0af9ea965779191e06e3cf0dcdb2164e32e8"
+    },
+    {
+      "bytes": 179540,
+      "git_blob": "ef540d0f0f57bff6acea4596726be28067b677c5",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed1/20260723_034026/20260723_034026.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "46c96103d4a5bda41254e6a02ed5c0d0ab9732b7bdcb461745859614cbc699ce"
+    },
+    {
+      "bytes": 131693516,
+      "git_blob": "01112ea90cfeb684b779ce34ad699b1dfb2655d0",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed1/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "c6991079cc1ae72bd2508349c27312b6f844d387f7987184a36f5931ab9bb0e2"
+    },
+    {
+      "bytes": 8649,
+      "git_blob": "920cfc5109bd9c261054657d44cb10251289747b",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed1/seed1.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "66fdea67b86c05a4cbbcea29ddf7e0eccae81d1da40543d7ac2554ad3a236c12"
+    },
+    {
+      "bytes": 179562,
+      "git_blob": "279c069144b71bd370d45230589c168b0fe81663",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed2/20260723_034026/20260723_034026.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "6b5a4c45ba68280f4ff00076f65185d8a1260b4e12d90a248a848b13f98648c9"
+    },
+    {
+      "bytes": 131693452,
+      "git_blob": "39107e52cd8549f027e008be876920175db2b328",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed2/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "f60d06dfbaa8db0b2b1f15497777eba50d5fd8009c7c42e6aba9ceadbd67dda7"
+    },
+    {
+      "bytes": 8649,
+      "git_blob": "5c807277ff6c94afe45c029086b6c451ff15ea8a",
+      "logical_path": "top_journal_v3_reaudit_055/paper_B_psc_mechanism/artifacts/b4_training/seed2/seed2.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "21b2e365fd556c250ce8bf5ec198220ff14de4bb2082617b4611f13295ac4a7c"
+    },
+    {
+      "bytes": 326927,
+      "git_blob": "bddc2cb08a80b9213a7b26102a09ac8fc08c8c84",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed0/20260709_093420/20260709_093420.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "c62aaf2f0d59809b5b727c8e32a995f72c24fff7ed1a14668140d0ca6798f54b"
+    },
+    {
+      "bytes": 156854186,
+      "git_blob": "491d20fb5bcccc3da3d2253706bbcffc4f0cc5e4",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed0/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "961910ce16b8af14396f5b6dac14befee5937a0e8dd5cfdd2fb7811a8d65e816"
+    },
+    {
+      "bytes": 12626,
+      "git_blob": "0779241f7ff3b9d0c38077481899d9cb1eb53cb0",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed0/csl_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "18bffad2ee5fe4f53ca874a72cea328a42e5adad2dfb9d2a5b753979e851c59c"
+    },
+    {
+      "bytes": 327919,
+      "git_blob": "1b9d98daa34b9cfd46ac4e4c62afcdc33dbeda8e",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed1/20260710_083803/20260710_083803.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "ce525e834c698a534c2c0dac3b74cd1cfd0f3bb32bf0ee2621a1662eaac8dc64"
+    },
+    {
+      "bytes": 156852842,
+      "git_blob": "675862d30a93a7cb0fce3eef6684c23ee1d00839",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed1/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "fc04a60988b2dc17bdcc30d44de9665a7a847470f9ea75345f65b17cec359875"
+    },
+    {
+      "bytes": 12626,
+      "git_blob": "e717d6b08228ab9b63425bee03050f7093c6314f",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed1/csl_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "4c71b7058f712702f1d09e604fbf31cff2447a33816c4f6cc51994323566549f"
+    },
+    {
+      "bytes": 327560,
+      "git_blob": "1c3b25049ca8b6d3bb304a0e3f94db4de4537c7d",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed2/20260710_142751/20260710_142751.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "00480c572b321371c227bf996c9261bf949ad17b31a96d4f706a8ee75287a6c8"
+    },
+    {
+      "bytes": 156851050,
+      "git_blob": "3259d11257c211b9cd045e85bef3eb54a887ab96",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed2/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "a85861553e52c55b1bf48ef41ffa2fefa89ee322e3a7b122d576c27bc6825d1f"
+    },
+    {
+      "bytes": 12626,
+      "git_blob": "f0aa6a61dcac9a63164839b9200c2732515a33bf",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__DIOR-R__seed2/csl_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "edf6d709cf008e05d72beb206e774659721538a9548e06b12507b8d9dc9d7b6d"
+    },
+    {
+      "bytes": 567381,
+      "git_blob": "bc4c2564b7293c29362de7afa7e1c92056952cac",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed0/20260709_144407/20260709_144407.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "dd068848acf7c43d7c4ae0b2fc67ec4d2bb53e57d7327ca82200f399ac940411"
+    },
+    {
+      "bytes": 161541226,
+      "git_blob": "3f94f3bc4ae999bff01810192bc054b64f5d06b7",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed0/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "b777eb8fa6516adb10acd2887d968560d85e6a0b08d32842f5af9c4f1e987241"
+    },
+    {
+      "bytes": 10981,
+      "git_blob": "fe0587f3baac9b8f47e3bf5e65854a367ffc08e1",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed0/csl_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "c7dd77f164f2767d95d8fef383ebaf297a323f781a6be9a1bebe4ac09d77a2f3"
+    },
+    {
+      "bytes": 259918,
+      "git_blob": "77a5082eeafdc5a50519ae2f1bc7e5bbdb80f060",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed1/20260710_221047/20260710_221047.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "f8be2bfe10aef6a9d6f2dcbc923ffe00dae722ec9546af64276515b4a566ea13"
+    },
+    {
+      "bytes": 161346090,
+      "git_blob": "d0c02a197e22748dca68cedc942e609dea1ce313",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed1/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "60892eef4b9d8beb8b3171359ba5d204b46d6fa80fcce446a54ec147728a1ea9"
+    },
+    {
+      "bytes": 10981,
+      "git_blob": "6487784d0eb14c59ed525f3b6b9c44e67ac386aa",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed1/csl_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "2a83fef164980b06ee6873af48ddcbcd475b29ad656b425e97bdd923b184a3dd"
+    },
+    {
+      "bytes": 567456,
+      "git_blob": "1b13f4c0307e3f5f1286b6f532f6f3da4d2f9298",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed2/20260710_221115/20260710_221115.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "e26ebb5c6abe37e835478e30acf17ad3357babb9bb8e0425529d77ee4a5744f5"
+    },
+    {
+      "bytes": 160509098,
+      "git_blob": "6d5a6ba80ffd665169c9ff08b06f18a8d9a6aa83",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed2/best_dota_mAP_epoch_10.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "fa075ed3087bcaa1d0b8bbd8664f32bdb400f1f792bac9283fdb1dcec4daee3b"
+    },
+    {
+      "bytes": 10981,
+      "git_blob": "e628abc4946cdbb6d97ff943679748218a22c12d",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__CSL__SODA-A__seed2/csl_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "04ed17bee74812af414a621b8fc7d3f340bad080ee5aebee9b9a654feba2af97"
+    },
+    {
+      "bytes": 328822,
+      "git_blob": "2cb230a0de253bd81ddc1df7f172ce5a45cfdf88",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed0/20260709_173916/20260709_173916.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "c53f020b7b57bdb7f514bc69447fce53d7cf1ed54acdfe5ee38bcc90eb75df47"
+    },
+    {
+      "bytes": 154292778,
+      "git_blob": "19ca72e1c2d5239931ab61c85da1370114b8abf5",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed0/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "719290fb5cd4041074c11e4e8c8a299405415f85a9bb7c6f5097bd2014053bda"
+    },
+    {
+      "bytes": 12647,
+      "git_blob": "6d5d7170972ccb73f1ce88d5aa7a42485f6f668a",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed0/dcl_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "3bc3dc0e10d7e3a37b3b5c5d12c3ebef47b06590177bedefa15bf42f1ed5d1ab"
+    },
+    {
+      "bytes": 328453,
+      "git_blob": "28551eaefb17e4d554324ac30cd5b109d6df7c51",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed1/20260711_055809/20260711_055809.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "9e4622623ce75eb111b530b2e9033dfbe2a38c5ce0da85f07731a6d78640c72c"
+    },
+    {
+      "bytes": 154286250,
+      "git_blob": "0e738cf0266a883f453d4afed0b80e02c8b8d199",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed1/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "c7b383471580db962b5111d6b9d4c3cbf90415c4be08918a5fab77d372b3b101"
+    },
+    {
+      "bytes": 12647,
+      "git_blob": "b2acd12780b2dfac0f59ae5a98ec6be1ac383638",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed1/dcl_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "3619c840a3225e9c51bcd3c7f2e54f84ed4b0f213e25498695e667dbe24dab42"
+    },
+    {
+      "bytes": 184273,
+      "git_blob": "2e8f6fe8f6135f805695c91573e2e0661207271d",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed2/20260711_094124/20260711_094124.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "2865a0629006b4d844b3bc1425ee23e75315f77bcfd294ce36d239371242b611"
+    },
+    {
+      "bytes": 154289898,
+      "git_blob": "8ae3f846a63eba81c66c51c4f8250c43ca147a12",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed2/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "ed7863c20998b6566dfa0c845e269d17bb76660c446b7fc688dc91569f043dc6"
+    },
+    {
+      "bytes": 12646,
+      "git_blob": "c85a0aa4ca5f3414d5eb6274118ac6f6b08783d1",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__DIOR-R__seed2/dcl_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "4a730794940b22d83e6be5c0b64cf9e56929f1c423352dd77f54c5ea3ae2f3d0"
+    },
+    {
+      "bytes": 568121,
+      "git_blob": "404d2fc1c5e2cd930e03e032f69b5e19c25e80bd",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed0/20260709_223402/20260709_223402.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "f1422395c1f1ce591dab45cdb4c9767dc5ae5b495e5ae6bbd0516a270a639526"
+    },
+    {
+      "bytes": 157394474,
+      "git_blob": "285f94278abb8ccd162830fdc2a6281d69d59698",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed0/best_dota_mAP_epoch_10.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "cf63e803ff3e26ede1c7cdfeb3347a814b77c76f1bd5c0e87705de347d35bcd1"
+    },
+    {
+      "bytes": 11003,
+      "git_blob": "55e39b6e350a0da47412893331b569a14578c116",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed0/dcl_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "954f7546b1f7f87ca7d7c77806c9a168158e0f992ab209856c8c939e2d72d445"
+    },
+    {
+      "bytes": 260207,
+      "git_blob": "9b7f26be46dbd062b922969d6c204da658b9276d",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed1/20260711_125224/20260711_125224.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "0e10077871d7eeae5c15872f25b4442c6f65777dd86fbfba8d07a85247e9a686"
+    },
+    {
+      "bytes": 159260330,
+      "git_blob": "86e39f5038c88b719c9229c4cb4caad9e3258a18",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed1/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "76e6f54db65e637b5f84a473784d21e3177c9e71f1b2203ca2e8426f8c853504"
+    },
+    {
+      "bytes": 11002,
+      "git_blob": "7c7504493fa5be988d0ca4af119fc87eaec56f28",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed1/dcl_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "cae115edab3bfd2e791ae1ff7e084aeb8ab1159c397a347f8d3fec61e3842a0d"
+    },
+    {
+      "bytes": 568492,
+      "git_blob": "5f77f9a85fbb7bd5ef2b08bc31907eddfe414fbf",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed2/20260711_124931/20260711_124931.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "0762d8b01f0b9b23f1d08e6b4fdda7ca889aba6d5ba2c1db580cf812cfbd7b40"
+    },
+    {
+      "bytes": 159453290,
+      "git_blob": "d1f5e09d02b1d501dfeba21c011e94b3da03f5e8",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed2/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "d7f6ab834c87372e1dd24906cc348eda0c335ef24f50d1bf8b61a29db4fd24b6"
+    },
+    {
+      "bytes": 11003,
+      "git_blob": "6a1eba1ec955c42938db7ae6b209fcecbae6957a",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__DCL__SODA-A__seed2/dcl_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "a8a4cb912ea10ef569362242f1b7e6141a58cceaac5c5b36f6a68de1fc12857c"
+    },
+    {
+      "bytes": 325955,
+      "git_blob": "b489aca55b6dd0e4e7cc174841b7c684a8c7afc5",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed0/20260709_002523/20260709_002523.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "381f22aa470a68f7282dc1d957c81e854fa3ea037fe5dfa5882792810335f061"
+    },
+    {
+      "bytes": 154168682,
+      "git_blob": "1e364abec4d819dde21b28cb78e59f69ebfdd046",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed0/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "c92af20f3d0dd5d736edaa6c42f73e9ff48cd587e8b696ee6608a5ba920949b9"
+    },
+    {
+      "bytes": 12528,
+      "git_blob": "b98d8f549b6949d38be4b6474d9c54cbeed05784",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed0/psc_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "53ebf7e5df3e2df8187a33ac1f6da47798b09389746a0a05334218944172eaf5"
+    },
+    {
+      "bytes": 328516,
+      "git_blob": "d418c9f8410286434af746b24d551e607c9591ec",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed1/20260709_093310/20260709_093310.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "e02892472f51736c3bdf26fbb898512b3db74f23afcfc5a49187e894bf06702a"
+    },
+    {
+      "bytes": 154169450,
+      "git_blob": "e492407adcffca1046ee5927ce41a0a375b2ed3e",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed1/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "805af3e4533cb918f9fdc7566a861182039da809f34fdb06292b204f5b41ea7a"
+    },
+    {
+      "bytes": 12528,
+      "git_blob": "35dcc96e4b2b6ad0824c86856569cc9549060a7d",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed1/psc_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "479d6c6c99edbecc9cf4e31ca268b04c3ca2e5ecd47a1862c3350f4f48ed8427"
+    },
+    {
+      "bytes": 328528,
+      "git_blob": "683971c9c9dbb5bcfc1a41c544aa1d4f737a8622",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed2/20260709_145743/20260709_145743.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "31bed29345926061d1056d08a1af845b21d16ee921eeebc848bb3152f1c734ed"
+    },
+    {
+      "bytes": 154169002,
+      "git_blob": "7adf58cf93354ecd17487d000bda04a214f5e28a",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed2/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "dd1068986f47a1e5040ac9b14b3de6332805c5e8331b867806d0084266b5ff35"
+    },
+    {
+      "bytes": 12528,
+      "git_blob": "ded4771061efc2338a1d1e174ebc7cf495f0566f",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__DIOR-R__seed2/psc_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "a184f2824e422071083f2570ff865b888117c5e6c3e2c744d1c0fe7cf500dab8"
+    },
+    {
+      "bytes": 569014,
+      "git_blob": "425221d923b819fba325797bec92cdf7d732895c",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed0/20260709_002523/20260709_002523.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "dc8e7c8116cfe1f7186ea6a2b7c94ac07e2671d82043283a5ccc9e6dca15e3c6"
+    },
+    {
+      "bytes": 158313642,
+      "git_blob": "f383f2cf796967da9497e4c5ee28cbe5cdf8897e",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed0/best_dota_mAP_epoch_11.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "709dd4a3cf70c80ff3b89f6a896f4769f47b7b50174583a8cb798aa957e9b25e"
+    },
+    {
+      "bytes": 10884,
+      "git_blob": "0daa382f6a0d10ef3edfcdfe59285ac8eb837267",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed0/psc_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "66eefa4bcb7fa8dd6b482d818a269f8642db6af61be4a4b023938f06336dc7c4"
+    },
+    {
+      "bytes": 568675,
+      "git_blob": "48c1f011f98d431c36d30d2530b4fe9a559d6384",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed1/20260709_200752/20260709_200752.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "1d3688b249ad05ea589c672c5de5cd46a0cb822eed9b4dd573f8b764545a5c5b"
+    },
+    {
+      "bytes": 159438506,
+      "git_blob": "11892840552f3b48d9dffe66933beb0778604b3a",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed1/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "29b4a959cde7ecda42f02022d4532aaa6fd2143346413082d09eaf7c8120f085"
+    },
+    {
+      "bytes": 10882,
+      "git_blob": "1570d84159dc885c0ad33f69fa38d5af85aca0b4",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed1/psc_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "94981dd59d299bcb77a637cfd19c55db5b30b6daecfd7f67e7baeb0981a04731"
+    },
+    {
+      "bytes": 524744,
+      "git_blob": "3a3a5da09e4d00466f199a2cc179e71f41e0461d",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed2/20260710_083703/20260710_083703.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "8b5f0186f0855182e6df3c9c27ceedde572a1a1868bd434044bc7c9af90d89a8"
+    },
+    {
+      "bytes": 159443754,
+      "git_blob": "6accc9a559e23e5c2b71a96d786b48a590e6260b",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed2/best_dota_mAP_epoch_12.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "6af6f1b924c8f04e8c883364384b4171be6e5d8016012dddeb4fdd18cba36731"
+    },
+    {
+      "bytes": 10883,
+      "git_blob": "f95ab4615cac914cee873796b4ec3a0161559533",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__PSC__SODA-A__seed2/psc_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "45dc30cf9cc3da27949395b7c49f06b3d45642ad62e26ca17ded3a1c773c17fa"
+    },
+    {
+      "bytes": 308136,
+      "git_blob": "ca94f024d2022766cef544f71a7732d41f9d7f2a",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed0/20260711_211523/20260711_211523.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "881433c3e4080639e749e4dc483990e6b7955c367de0702e81c2a25af0d07c7a"
+    },
+    {
+      "bytes": 150643566,
+      "git_blob": "111385ea302eaaa95fa274e13610c06ca78356fa",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed0/best_dota_mAP_epoch_7.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "9121ae7940f364a7e8db24e185c32fb9f709d61f4fc464f0d075b3ed40d6c033"
+    },
+    {
+      "bytes": 12335,
+      "git_blob": "e6cb2a780e8c801b7c2cbf866e7a12c45e5820b4",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed0/regression_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "ac24e7b1fee795d4122ea8b966d64e33c40fa05815cfcf9198609eed20b02a47"
+    },
+    {
+      "bytes": 301990,
+      "git_blob": "ec859f61d39de447a323e9f836235dc2cc2e8725",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed1/20260711_215626/20260711_215626.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "6853891c8c57096a80d1c06838fcc1509a06f17e9612fd776794e68dc26d67c3"
+    },
+    {
+      "bytes": 147830702,
+      "git_blob": "66614b67f3d44a44759a47fb2c0d0b404cafb22e",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed1/best_dota_mAP_epoch_1.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "3ce0cd835cf9f88dc6acc19bf08905f3a5b02cd1e513cb9137a9ed1767dbe28a"
+    },
+    {
+      "bytes": 12335,
+      "git_blob": "2a79f36d670add1b35ffb8baa3760b2003e35b69",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed1/regression_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "a77042ca472357054778b887e400abe9b94f1d2a298292bef2b122b249d90ae1"
+    },
+    {
+      "bytes": 302023,
+      "git_blob": "1c8ff942cc4f3da10a9c6d92cc8ececbffa71872",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed2/20260711_215756/20260711_215756.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "f0e3600ddfe8af72207dc9176ee36f09c8169f339c8817fca17b43279b5add88"
+    },
+    {
+      "bytes": 147829550,
+      "git_blob": "ec337e86248ecff165fc06647f9f2007a81d865f",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed2/best_dota_mAP_epoch_1.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "2c8a0d1a2af9221679e9c05a7fd37688ebeaac1511789255ab14e28822abb072"
+    },
+    {
+      "bytes": 12335,
+      "git_blob": "6afddd2c7425b344f6844bd91718a2f68c7c8648",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__DIOR-R__seed2/regression_dior_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "f4ad2262acefa7907b002e85b058d03ef857719cce212efdaa518c353c030596"
+    },
+    {
+      "bytes": 524201,
+      "git_blob": "f4851c4796864ae909878d99f5e7266162bd9157",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed0/20260710_015012/20260710_015012.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "3aea57dbcbd7c77811696fe65456c72574de9db7ab49bb2bde28a231a51b09cb"
+    },
+    {
+      "bytes": 148285422,
+      "git_blob": "25b5670dffd8641f7d076baccc909f2b4ac93359",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed0/best_dota_mAP_epoch_2.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "34c143c476d4a905ea6c27d2a66eab45cf97a8171fae8e48946acc81ecd18457"
+    },
+    {
+      "bytes": 10691,
+      "git_blob": "4f0b9072666fd0ebea6cee283cccb629bcad74bc",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed0/regression_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "247941578daf3c1edbdca893d7b6e450e8cc4f2af97875ce96e0291fe41283cd"
+    },
+    {
+      "bytes": 521682,
+      "git_blob": "2be6825c6d8def8d19d76c08ae6817a4a24b3f68",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed1/20260711_225639/20260711_225639.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "f734fa47fb68e94bf30b8bd237217607f12f240c534f147e70fc5f14e1924140"
+    },
+    {
+      "bytes": 147384878,
+      "git_blob": "a2770cfd3e15d778e771acede65786a83540769a",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed1/best_dota_mAP_epoch_1.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "d707407a18414c81a2839dc1104b27682104c547a4df58443f7cd19eaad7e329"
+    },
+    {
+      "bytes": 10691,
+      "git_blob": "733991c3622f9421885488526a2e5ae298c853e0",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed1/regression_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "c95c562598b8cb9f64a45b5b5fea0ab87e800258c693bcb3944eb428fab1056e"
+    },
+    {
+      "bytes": 522499,
+      "git_blob": "83137bad0f5534d3fd0ac5f9c7cbfe2bc8482d1e",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed2/20260711_232311/20260711_232311.log",
+      "purposes": [
+        "candidate training-log identity only"
+      ],
+      "sha256": "9f6e597c0ed84e87c863b7b095c88609a5a995b529fa62c6a2b8f7d8720486df"
+    },
+    {
+      "bytes": 147356014,
+      "git_blob": "720a7b9765a10d97db9f8bf7d1d3bf78bbd37a4e",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed2/best_dota_mAP_epoch_1.pth",
+      "purposes": [
+        "candidate checkpoint identity only"
+      ],
+      "sha256": "2a51b7b15906053496b5aede03de8aff42eb955c0b339dd3d354252870715240"
+    },
+    {
+      "bytes": 10691,
+      "git_blob": "d895adece7901a383029a47e0cb499c1e4e22242",
+      "logical_path": "top_journal_v3_reaudit_055/work_dirs/k2/K2_final__direct_regression_le90__SODA-A__seed2/regression_soda_seed0.py",
+      "purposes": [
+        "candidate config identity only"
+      ],
+      "sha256": "a5bcbfcb80db82c84be117f835320402b2b393787f34b06fa048dbe77e152a2a"
+    }
+  ],
+  "outputs": [
+    {
+      "bytes": 57315,
+      "git_blob": "c992e2aa0fd1fa614d77ec98ce867167d26f0595",
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_candidate_asset_inventory_r003.csv",
+      "rows": 41,
+      "schema": [
+        "candidate_id",
+        "dataset",
+        "dataset_version",
+        "split",
+        "detector",
+        "angle_head_coder",
+        "backbone",
+        "seed",
+        "checkpoint_alias",
+        "checkpoint_present",
+        "checkpoint_bytes",
+        "checkpoint_sha256",
+        "checkpoint_source",
+        "checkpoint_selection_rule",
+        "config_alias",
+        "config_bytes",
+        "config_sha256",
+        "log_alias",
+        "log_bytes",
+        "log_sha256",
+        "framework",
+        "framework_commit",
+        "code_license",
+        "code_license_sha256",
+        "dataset_license",
+        "evaluator",
+        "tile_merge_nms",
+        "full_split_present",
+        "all_image_count",
+        "empty_gt_images_verified",
+        "complete_gt_verified",
+        "class_mapping_verified",
+        "angle_convention_verified",
+        "mother_scene_mapping_verified",
+        "split_aggregate_hash",
+        "raw_to_final_persistence",
+        "tta_availability",
+        "prior_outcome_exposure",
+        "protocol_participation",
+        "outcome_exposure_evidence",
+        "protocol_evidence",
+        "independence_tier",
+        "neutral_sort_key",
+        "first_failed_gate",
+        "gate_status",
+        "estimated_gpu_hours",
+        "estimated_disk_gb",
+        "official_url",
+        "public_checksum",
+        "notes"
+      ],
+      "sha256": "dbf04c0279d9bc1de3751fdb0b7ea7c53fb1c8ab0e0a330d6597539b008bfd0f"
+    },
+    {
+      "bytes": 15884,
+      "git_blob": "36b07fe605714fcc8b93899d890e941cfb302587",
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_overlap_registry_r003.csv",
+      "rows": 41,
+      "schema": [
+        "candidate_id",
+        "checkpoint_sha256",
+        "same_hash_candidates",
+        "repository_checkpoint_hit",
+        "repository_config_hit",
+        "prior_prediction_or_result_path_hit",
+        "protocol_participation",
+        "prior_outcome_exposure",
+        "known_internal_old_project_overlap",
+        "selection_lineage",
+        "status",
+        "first_failed_gate",
+        "evidence"
+      ],
+      "sha256": "c0c8f880168efc7a7bababb1207fba5b7c56a054a77c2ef36d4e16029d6046bc"
+    },
+    {
+      "bytes": 11737,
+      "git_blob": "bd64df269afbd8d96a3660f6eb4dcfe5dd7440c5",
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6r_asset_gate_r003.json",
+      "rows": null,
+      "schema": "json",
+      "sha256": "5b1d2530c3ee66a6adf7ffe42c448a61aad44f8ae5ee6808cd9b1ae4a1fe8207"
+    },
+    {
+      "bytes": 10175,
+      "git_blob": "9ad513d6bbc2e07cfbf7901945a33d6c438de96a",
+      "path": "dis/server_reports/orientbench-c-r003-20260805.md",
+      "rows": null,
+      "schema": "markdown",
+      "sha256": "634e5042de6dee72ae88ec99adb8855c3ad3d7724347db541abcdf473b5fb387"
+    }
+  ],
+  "result_commit": "transport metadata; not self-referenced by this manifest",
+  "round_id": "orientbench-c-r003-20260805",
+  "schema_version": "a6r_asset_gate_manifest_r003_v1",
+  "scientific_snapshot": "e3ca1ad94d64d202a47b6635490fde439df76868",
+  "selected_unit": null
+}
