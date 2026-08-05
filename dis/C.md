@@ -1,83 +1,69 @@
-# OrientBench C 侧证据裁决与下一轮基线
+# OrientBench C 侧 r002 裁决与 A6R 前瞻复现基线
 
-- round: `orientbench-c-r002-20260805`
-- scientific snapshot: `8466602330a942c9bb8beff284aa8fc5b952a3b0`
-- 核查日期: `2026-08-05`
-- active manuscript: [`top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md)
-- 当前科学状态: A=`A_MEASUREMENT_ONLY`；B=`FAIL_CANDIDATE_GATE`；B6/B7=`STOPPED_NOT_RUN`；submission=`NOT_READY`。
-- 投稿上限: 当前是强 JSTARS / TGRS borderline。完成事实修订、证据链收口和一个真正未见的完整确认单元后，才适合按 TGRS 重新评估；现有证据不支持 TGRS+。
+- round: `orientbench-c-r003-20260805`
+- scientific snapshot: `e3ca1ad94d64d202a47b6635490fde439df76868`
+- evidence cutoff: `2026-08-05`
+- active manuscript: [`orientation_reliability_paper_A_zh_v077.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md)
+- 当前科学状态: A=`A_MEASUREMENT_ONLY`；原 A6=`NO_ELIGIBLE_CONFIRMATORY_UNIT`；B=`RETIRED_FAIL_CANDIDATE_GATE`；B6/B7=`STOPPED_NOT_RUN`；submission=`NOT_READY`。
+- 投稿上限: 强 JSTARS / TGRS borderline。一个真正前瞻、完整、未看风险结果的 A6R 复现单元会使 TGRS 更可信；现有证据不支持 TGRS+。
 - `cc_recommendation: no`
 
-CC 已完成 r001 的盲审和对抗复核；服务器的新证据已经裁决其关键统计分歧。当前再启动 CC 不会增加新证据，除非用户以后明确要求在 A6R 结果或投稿前做新一轮复核。
+CC 已完成 r001，新的服务器证据和可复算反例已经足以裁决 B；当前再次调用不会改变 gate。A6R 出现新科学证据后或投稿前再评估 CC。
 
-## 1. 本轮结论
+## 1. r002 服务器回执裁决
 
-服务器报告 [`orientbench-c-r001-20260805.md`](server_reports/orientbench-c-r001-20260805.md) 及本地独立复核支持以下裁决：
+服务器提交 `e3ca1ad94d64d202a47b6635490fde439df76868` 与唯一报告 [`orientbench-c-r002-20260805.md`](server_reports/orientbench-c-r002-20260805.md) 的核心失败门有效：
 
-- 38/38 完整性检查与 14/14 同估计量测试通过；本地四项正式测试也通过。
-- 旧实现中 B3 `39/58`、B4 `4/24` 个实例级点差落在所报旧区间外；修正为 cluster multiplicity 提升到实例权重后，新点差全部落在对应新区间内。
-- B3 开发证据中 `27/58` 行同时优于 phase_mod 和 detection score；B4 的外部 DOTA/RotatedFCOS 三 seed 为 `0/24`。因此没有任何冻结 candidate×endpoint 在外部单元的三个 seed 上同时击败两条基线。
-- 最终裁决为 `FAIL_CANDIDATE_GATE`，并永久停止 B6 以及事后增加 score、seed、阈值或 endpoint 的候选挽救。H1/H3 只保留为 bounded mechanism 证据，不能继承成 ranking repair。
-- A 的 measurement-only 结论不依赖 B 候选成功，因此负结果没有推翻主项目；它反而限定了论文应写成“系统测量与可认证性审计”，而不是一个成功的新 detector 或可部署 selector。
+| 事项 | C 裁决 | 证据与含义 |
+|---|---|---|
+| 333 个直接输入、9/9 raw→cache lineage、275 文件 inventory | adopt | 两项先前漏记输入哈希精确匹配；九个 cache 的 108 个数组逐元素一致；旧 r001 文件未变 |
+| `FAIL_EVIDENCE_DRIFT` | adopt | DIOR-R seed0 TTA 排除 `298/48282=0.617%`，SODA-A seed0 排除 `2104/193045=1.090%`；四个 TTA×endpoint 行的共同有限宇宙改变，最大统计差 `0.024593006944616247` |
+| `FAIL_CANDIDATE_GATE / STOP_B6` | adopt | B4 全部原始行仍不支持候选；common-mask 修复没有产生外部成功 |
+| `redundant_comparisons=0` | reject | 实现只比较原始 score 哈希，漏掉 stable-ranking 等价候选和 baseline 自比较；对应测试是同一数组与自身比较的恒真测试 |
+| “r002 是 publication-grade 全闭环” | reject | 预注册 PASS 未满足，且冗余报告口径错误；只能把它作为失败发现和 B 停止证据 |
 
-置信度：统计实现核心 `0.98`，`STOP_B6` 裁决 `0.97`，当前证据包达到 publication-grade 全链复现的置信度 `0.72`。
+独立重算后的正确描述口径是：
 
-## 2. 最致命问题与证据缺口
+- B3 的 58 个原始行包含 18 个 `multi_frequency_consistency` / `unwrap_candidate_energy_gap` rank-equivalent 重复增量；折叠后为 40 个 unique-result groups，支持为 `15/40`，而不是把相关重复项当成 `27/58` 个独立证据。
+- B4 的 24 个原始行包含 6 个 detection-score 对自身的恒等比较；其余又有 6 个 rank-equivalent 重复增量。实质外部门是 `0/12` 个 unique non-baseline comparisons，结论仍为 FAIL。
+- r002 修正后的四个 TTA 行可用于披露 common-mask 漂移；r001 的对应四行不再作为权威统计。r002 的“重复数为 0”和未经折叠的支持计数不得进入论文 headline、摘要或独立证据计数。
 
-当前最致命问题不再是 weighted NRC 数学实现，而是“主稿事实仍未修订 + 缺少真正独立的确认单元”。在此之前不能把负结果包装成普适定理或可部署认证结论。
+置信度：B 统计失败与 `STOP_B6` 为 `0.99`；provenance 包内部一致性为 `0.96`；本机缺少服务器 14.58 GB 原物，无法在本机端到端重放全部 lineage，因此对完整跨机 replay 的置信度为 `0.82`。
 
-r001 证据包还需一次不改变科学结果的 provenance 收口：
+## 2. 对主论文 A 的影响
 
-1. 两个实际参与计算/完整性判断的直接输入未进入 manifest：
-   - `top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json`，canonical SHA-256 `80d86a5f72e70405fe4a49db87aad61e6aea20a26af0ad1c5745bfd646d1e5cb`；
-   - `top_journal_v3_reaudit_055/shared_forensics/g0/reports/g0_comparison_manifest.csv`，canonical SHA-256 `e038aed06b3aff86818c8663657f074798e90de867ab48ac9d2821c61c191a86`。
-2. 九个 B3 cache 只核对行数，尚未用 raw→cache 的确定性内容 lineage 证明来源。
-3. 点估计会删除非有限 score，但 bootstrap 没有显式使用同一 common mask；本轮已报告单元看来均为有限值，所以不影响当前数字，但实现必须封死漂移入口。
-4. `bootstrap_nrc()` 隐式循环固定的 800 次，而不是传入 multiplicity 数量；生产结果不受影响，测试覆盖不足。
-5. 现有 development gate 允许 FAIR1M 混入 DIOR-R/SODA-A 的开发数据集计数，且没有预注册多 seed 和多重比较成功规则。由于外部支持是空集，本轮 FAIL 不受影响；未来任何 PASS 都不能沿用该口径。
-6. 生成物嵌入运行时 HEAD，导致在新提交上复跑时字节改变；需要把固定科学快照、执行源码哈希和 Git 结果提交的职责分开，不宣称自引用提交可 bitwise 稳定。
+r002 没有直接推翻 A。A 的冻结协议 [`a1_protocol_frozen.json`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_protocol_frozen.json) 对缺失 TTA 的定义是保持 eligible universe、把非有限 TTA 排在全部有限值之后；实现 [`run_a1_a3.py`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/run_a1_a3.py) 与该定义一致。B 为候选与两条 baseline 的公平配对比较采用 common finite mask，两者是不同 estimand，不能混表。
 
-下一台服务器只执行 [`sug.md`](sug.md) 的 r002 evidence-only 收口；不训练、不推理、不恢复 B6。
+主稿后续必须披露上述 `0.617%` 和 `1.090%` 缺失率，并明确：A 是 worst-rank imputation / full eligible universe；B 是 candidate-specific complete-case paired comparison。该事实修订不改变 A 当前“可部署分数没有 nontrivial practical certification”的负结论。
 
-## 3. 论文主张与可发表性
+原 A6 冻结协议 [`a6_confirmatory_protocol_frozen.json`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a6_confirmatory_protocol_frozen.json) 与结论 `NO_ELIGIBLE_CONFIRMATORY_UNIT` 永久保留。下一步 A6R 是在当前全部既有结果之后新注册的 prospective replication；它不能被追溯描述为原 A6 的 confirmatory success。
 
-本文主要研究：在遥感旋转目标检测中，常规 AP 尤其 AP50 是否掩盖方向错误，检测分数能否可靠排序方向风险，以及在图像/切片/母景相关性和人工角度分歧存在时，有限样本认证是否真的可行。论文的贡献应是把以下五层放入同一个可复算审计协议：
+## 3. 为什么不再修 B，而转 A6R
 
-1. le90 周期角误差与 `ar>=2.1` 几何适用域；
-2. geometry-normalized severe event 与连续角误差的分离；
-3. 完整 evaluator 下的角度扰动及 AP50/AP75 盲区；
-4. 实例 ranking 与母景级有限样本认证边界；
-5. 人工方向标注分歧作为可认证性的经验下限。
+B 的最强外部结果即使按最有利口径也为零支持，冗余折叠后只会减少独立证据数。继续修 B 的脚本只能让一个已死亡的候选包更整齐，不能提高主论文的科学上限。C 因此把 B 路线永久退出主 claim；保留其失败机制和审计教训，但不再投入服务器训练、推理或统计重跑。
 
-负结果仍有论文价值，因为它不是“方法没涨点”，而是由多数据集、多 seed、完整 evaluator、母景统计单位和人工证据共同界定：现有分数有一定 ranking 信息，但冻结修复候选不能外部确认，严格 practical certification 也没有跨单元成功。可发表性来自可复现的边界、失败机制和防止错误部署结论的协议；前提是不过度声称成功 selector。
+当前最致命问题是 A 没有一个满足 full-universe、provenance-clean、未参与协议设计且未看过风险结果的前瞻复现单元。下一服务器任务 [`sug.md`](sug.md) 只做 A6R 资产门控，不计算 NRC、风险或认证结果。
 
-截至 `2026-08-05`，可守的外部表述是：
-
-> To our knowledge, this is the first systematic remote-sensing OBB study to unify le90/AR-normalized orientation risk, reliability ranking, mother-scene finite-sample certification feasibility, full-evaluator angular perturbation, and human angular disagreement in one reproducible audit protocol.
-
-这仍需在投稿前用完整 related-work 表格逐项核对。不能声称“首个 angle uncertainty”“首个 AR-aware metric”“首个 OBB calibration/conformal”“首个指出 AP50 角度盲区”或“首个通用风险控制/可部署 selector”。主要一手边界包括 [SeqCRC](https://arxiv.org/abs/2505.24038)、[Angle Quality Estimation](https://www.nature.com/articles/s41598-025-31034-w)、[ARS-DETR](https://arxiv.org/abs/2303.04989)、[PSC](https://openaccess.thecvf.com/content/CVPR2023/html/Yu_Phase-Shifting_Coder_Predicting_Accurate_Orientation_in_Oriented_Object_Detection_CVPR_2023_paper.html) 和 [CVPR 2024 boundary-discontinuity study](https://openaccess.thecvf.com/content/CVPR2024/html/Xu_Rethinking_Boundary_Discontinuity_Problem_for_Oriented_Object_Detection_CVPR_2024_paper.html)。
-
-## 4. 可证伪候选与 gates
+## 4. 可证伪候选
 
 | 候选 | 实质差异 | 最低判别 gate | 杀死条件 |
 |---|---|---|---|
-| C1：五层统一的 OBB 朝向可靠性审计协议 | 不发明通用 CRC 或新 detector，而是把 OBB 特有几何、完整 evaluator、母景单位与人类分歧统一到可复算协议 | 先通过 r002 provenance 收口；再在一个未参与协议设计的 full-universe、provenance-clean detector×head×dataset 单元上冻结后一次性复算 | 新单元无法复算；核心结论在母景正确划分后消失；或五层增量可被既有单一协议无损覆盖 |
-| C2：母景有效样本量与人工角度噪声共同限制可认证性 | 区别于只做实例级 calibration 的工作，主张 scene dependence 和 human ambiguity 都会收紧可认证边界 | 修复 SODA 母景角色交叉，完成缺失第三标注者证据，并报告冻结敏感性分析 | 母景重分后方向反转；人工锚点不可复现；或实例级处理即可得到相同结论 |
-| C3：独立确认单元上的 measurement-only 泛化 | 不追求挽救 B，而检验 A 的负/几何结论能否跨新 host/head/dataset 保持 | A6R asset/provenance gate 先确认资产真正未见、含 empty images/tiles、完整 GT/prediction/NMS/母景 ID；通过后才允许一次推理或重分析 | 与现有 OrientBench/PCP 资产或选择过程重叠；只有 matched cache/非完整 universe；或新单元推翻关键方向 |
+| C1：五层统一 OBB 朝向可靠性审计协议 | 把 le90/AR 风险、完整 evaluator、ranking、母景认证和人工分歧统一为可复算 measurement protocol，而不是新 detector/selector | A6R 先冻结一个未看 outcome 的完整 detector×head×dataset×split 单元；之后只运行一次冻结推理与复算 | 没有合格资产；或前瞻单元使核心 AP/几何/认证边界方向消失 |
+| C2：母景有效样本量与人工角度分歧共同限制认证 | 区别于实例级 calibration，明确 scene dependence 与 human ambiguity 的共同边界 | 在 A6R 中完整保留 image/tile/mother-scene 身份和 empty scenes；投稿前统一人工证据事实状态 | 正确母景划分后边界反转；人工锚点不可复现；或普通实例级方法即可得到同等保证 |
 
-## 5. 其它个人项目的关系
+## 5. A6R 选择边界
 
-用户已确认 D7/PCP-OBB、pcbobb、pcbobb_beyond、pcbobb_score_study 均为未投稿的个人内部项目，因此不存在公开发表优先权或自我竞争问题；OrientBench 是当前主项目。其有效思想可以在本项目重新验证后吸收，也可以对外提出首创表述，但外部 novelty 仍必须相对于公开一手文献成立，不能把未公开草稿当成引用依据。
+A6R 优先新 dataset + 新 detector/head；若只能使用既有 dataset，则必须是从未参与任何 alpha、AR、score direction、endpoint、coverage grid 或候选设计的精确新 unit，并降级标为 unit-level replication。资产门不查看 target NRC/risk/certification outcome，只按 provenance 完整度和预先声明的中性规则选一个候选。
 
-当前不下载这些旧仓库到服务器：D7 和 pcbobb_beyond 的已跟踪大型结果约为 0.53 GB 和 0.93 GB，主要是与现有 checkpoint/数据/选择流程重叠的 matched/operator 资产；换一台服务器不会创造科学独立性，旧缓存也不能充当 A6R 确认。以后若确需借用一个 replayer/bootstrap 函数，只按冻结 commit 提取最小源码并单独记录 provenance，不导入旧结果作为确认性证据。
+用户的其它个人项目均未投稿，因而没有公开优先权冲突；其思想可以重新验证后吸收到 OrientBench。但 D7/PCP-OBB、pcbobb、pcbobb_beyond、pcbobb_score_study 的旧资产/结果不能创造 A6R 独立性。本轮不下载这些仓库；只有明确缺少一个最小实现函数时，才按冻结 SHA 提取源码且不得导入结果。
 
 ## 6. 决策台账
 
-| 决策 | 裁决 | 证据与理由 | 下一步 |
+| 决策 | 状态 | 理由 | 下一步 |
 |---|---|---|---|
-| 接受服务器 `FAIL_CANDIDATE_GATE` | adopt | B4 外部支持 `0/24`，结论不依赖边缘 gate 写法 | 永久 `STOP_B6` |
-| 保留 H1/H3 bounded mechanism | revise | 外部机制方向可复现，但不能证明候选排序修复 | 只作机制/附录证据 |
-| r001 已完全 publication-grade 闭环 | revise | 统计核心正确，但 direct-input manifest 和 cache lineage 有缺口 | 执行 r002 evidence-only 收口 |
-| 立即进入 A6R 新单元 | experiment-after-r002 | 是提高 TGRS 可辩护性的最小新证据，但应先封闭廉价 provenance 缺口 | r002 PASS 后发布 A6R asset gate |
-| 下载四个旧项目到服务器 | reject-now | 体量大、资产/选择重叠且不能制造独立确认 | 仅在明确最小代码依赖时提取 |
-| 再次调用 CC | reject-now | CC r001 已完成，新服务器证据已裁决主要分歧 | A6R 后或投稿前再评估 |
+| r002 evidence closure PASS | reject | gate 明确为 `FAIL_EVIDENCE_DRIFT`，且冗余检测失效 | 不伪装成 PASS |
+| B 候选继续实验 | reject | 折叠后外部仍 `0/12`，没有可挽救信号 | 永久停止 B6/B7 |
+| 再跑一轮 B 只修报表 | reject | 不改变主论文或候选结论 | 在 C 中冻结正确独立口径 |
+| 进入 A6R 资产门 | experiment | 这是唯一能明显提高 TGRS 可辩护性的最小新证据 | 执行 r003 `sug.md` |
+| 下载四个旧项目 | reject-now | 旧选择/结果暴露，不能充当前瞻复现 | A6R 本轮禁止 |
+| 再次调用 CC | reject-now | 当前争议已由代码、CSV 和 gate 裁决 | A6R 后或投稿前再评估 |
