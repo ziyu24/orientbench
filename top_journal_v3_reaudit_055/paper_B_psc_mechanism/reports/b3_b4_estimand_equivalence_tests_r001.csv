@@ -1,0 +1,15 @@
+test_id,category,stage,expected,observed,abs_error,tolerance,status,notes
+continuous_no_ties:r001_weighted,explicit_multiplicity_equivalence,synthetic,0.0,0.0,0.0,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+continuous_no_ties:g0_weighted,explicit_multiplicity_equivalence,synthetic,0.0,0.0,0.0,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+continuous_ties:r001_weighted,explicit_multiplicity_equivalence,synthetic,0.2515690031049747,0.2515690031049746,1.1102230246251565e-16,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+continuous_ties:g0_weighted,explicit_multiplicity_equivalence,synthetic,0.2515690031049747,0.2515690031049746,1.1102230246251565e-16,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+binary_event:r001_weighted,explicit_multiplicity_equivalence,synthetic,1.1062610229276897,1.1062610229276904,6.661338147750939e-16,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+binary_event:g0_weighted,explicit_multiplicity_equivalence,synthetic,1.1062610229276897,1.1062610229276904,6.661338147750939e-16,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+cluster_resample:r001_weighted,explicit_multiplicity_equivalence,synthetic,0.0740903353273698,0.0740903353273698,0.0,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+cluster_resample:g0_weighted,explicit_multiplicity_equivalence,synthetic,0.0740903353273698,0.0740903353273698,0.0,1e-12,PASS,stable original-row tie order; zero multiplicities retained as zero weights
+unit_weights_point_estimand,point_estimate_equivalence,synthetic,0.2515723270440254,0.25157232704402505,3.3306690738754696e-16,1e-12,PASS,all-one multiplicity reproduces matched-instance NRC
+heterogeneous_cluster_old_estimand_rejected,legacy_cluster_mean_discrimination,synthetic,absolute difference > 0.01,0.21802408196163336,,0.01,PASS,heterogeneous cluster sizes make old cluster-mean NRC disagree with instance-multiplicity NRC
+legacy_b3_39_of_58,legacy_estimand_mismatch_reproduction,B3,39/58,39/58,,,PASS,independent row reconstruction from old instance points and old cluster-mean intervals
+legacy_b4_4_of_24,legacy_estimand_mismatch_reproduction,B4,4/24,4/24,,,PASS,independent row reconstruction from old report
+b3_instance_point_reproduction,point_estimate_reproduction,B3,0.0,1.7763568394002505e-15,1.7763568394002505e-15,1e-12,PASS,new code independently reproduces old matched-instance point delta
+b4_instance_point_reproduction,point_estimate_reproduction,B4,0.0,6.661338147750939e-16,6.661338147750939e-16,1e-12,PASS,new code independently reproduces old matched-instance point delta
