@@ -1,0 +1,146 @@
+{
+  "breadth": {
+    "qualifying_datasets": [
+      "DIOR-R"
+    ],
+    "qualifying_rows": 14,
+    "qualifying_units": [
+      "A",
+      "B",
+      "C"
+    ],
+    "threshold": "at least 3 of 6 units and 2 of 3 datasets",
+    "unique_score_endpoint_alpha_contexts": 12
+  },
+  "candidate_rows": 7488,
+  "cpu": {
+    "available": 48,
+    "parallel_backend": "ThreadPoolExecutor for 108 frozen simulations; JSONL and fixed-grid control flow remain serial",
+    "worker_budget": 39
+  },
+  "d_fit_only_order_taint": {
+    "failures": 0,
+    "families": 576
+  },
+  "development_gate": "FAIL_NO_BROAD_TARGET_FREE_DEVELOPMENT",
+  "exact_integer_hb": {
+    "comparisons": 7488,
+    "failures": 6762
+  },
+  "execution_head": "7d067f44240b8790f5bc3cb346d6f866d09ce97e",
+  "family_rows": 576,
+  "fwer": {
+    "holm_all_pass": true,
+    "replicates": 50000,
+    "scenarios": 108,
+    "seed": 20260805,
+    "split_fst_all_pass": true
+  },
+  "historical_576_parity": {
+    "examples": [],
+    "existing_rows": 576,
+    "extra": 0,
+    "field_mismatches": 0,
+    "missing": 0,
+    "rebuilt_rows": 576,
+    "status": "PASS"
+  },
+  "lineage": [
+    {
+      "evaluation_unit": "A",
+      "matched_sha256": "00e554fbc45dfd6ab0d964800920e101411bc2ee1e218f575a0eafcfde63761e",
+      "n_gt": 124445,
+      "n_images": 11738,
+      "status": "complete",
+      "universe_sha256": "3f1d2ef764c3f6e383e2b9e6285ed947a26f25b9707104bd8d9fb875408d4b0d"
+    },
+    {
+      "evaluation_unit": "B",
+      "matched_sha256": "e1772d642990fb45ee00d31a2cc62b8fd468d0e1a99e009e0430e91e51082513",
+      "n_gt": 124445,
+      "n_images": 11738,
+      "status": "complete",
+      "universe_sha256": "644ccaa922986d3597049680924a63555975e8a61f8ac26fccf744ff41c5edee"
+    },
+    {
+      "evaluation_unit": "C",
+      "matched_sha256": "91d4b372e5340a4849af680d82a3973be0999b2778e89375116067fa6009ea2e",
+      "n_gt": 124445,
+      "n_images": 11738,
+      "status": "complete",
+      "universe_sha256": "52c04690d415a66b59ff9d30d58f97ae836d71d62e543c8e278b707d4565bc77"
+    },
+    {
+      "evaluation_unit": "D",
+      "matched_sha256": "fe2c0b3690e12793f898c0c7a5ce100806567e39f4b3671e9b1e2af5fb8c3bbf",
+      "n_gt": 78644,
+      "n_images": 4362,
+      "status": "complete",
+      "universe_sha256": "5cec906c601469dff58a2e6a26293d54613cc7f162c458f6a5abde0cb0f76586"
+    },
+    {
+      "evaluation_unit": "E",
+      "matched_sha256": "337470223fae218aa2969ae8f974a447e6666d22f02830a7a933ea3dadbd72c9",
+      "n_gt": 449644,
+      "n_images": 22994,
+      "status": "complete",
+      "universe_sha256": "75f874fff653e64460d6c91ce0dd07637ad68b55532976fbdca1bd01a4f8b131"
+    },
+    {
+      "evaluation_unit": "F",
+      "matched_sha256": "dd7f37b067a569541140a1bad49bf6ae3a5aea7b0f9eff031ef3fe9a9a2c723f",
+      "n_gt": 449644,
+      "n_images": 22994,
+      "status": "complete",
+      "universe_sha256": "0ce7cc5f4d56aceef57faaa85b09115309b961d4e663484ac893731330eef95c"
+    }
+  ],
+  "lineage_status": "PASS",
+  "operation_counts": {
+    "detector_fit": 0,
+    "detector_predict": 0,
+    "download": 0,
+    "gpu": 0,
+    "inference": 0,
+    "other_personal_project_reads": 0,
+    "rsar_reads": 0,
+    "score_regressor_fit": 12,
+    "score_regressor_predict": 12,
+    "training": 0
+  },
+  "r005_verification": {
+    "checks": 56,
+    "commit_paths": [
+      "claude_code_and_supervisor.md",
+      "dis/server_reports/orientbench-c-r005-20260805.md",
+      "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_coverage_trace_r005.csv",
+      "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_failure_bounds_r005.csv",
+      "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_r004_dominance_violations_r005.csv",
+      "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_scene_attainable_envelope_r005.csv",
+      "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_scene_oracle_gate_r005.json",
+      "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_scene_oracle_manifest_r005.json",
+      "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_scene_oracle_r005.py"
+    ],
+    "failures": 0,
+    "registered_inputs": 46,
+    "registered_nonself_outputs": 8,
+    "status": "PASS"
+  },
+  "retrospective_development_only": true,
+  "round_id": "orientbench-c-r006-20260805",
+  "sanitizer": {
+    "hits": [],
+    "scope": "bounded patterns over every new file and append diff only",
+    "status": "PASS"
+  },
+  "schema_version": "a1_split_fst_gate_r006_v1",
+  "scientific_snapshot": "60142448ff1f461531ad1eb2cd0c17785e782350",
+  "structure_gate": "PASS_SPLIT_FST_VALIDITY",
+  "theory_assumptions": {
+    "bounded_hb_pvalue_path": true,
+    "calibration_outcome_excluded_from_order": true,
+    "fit_cal_group_disjoint": true,
+    "fixed_sequence_stops_at_first_failure": true,
+    "order_threshold_alpha_conditionally_fixed_from_D_fit": true
+  }
+}
