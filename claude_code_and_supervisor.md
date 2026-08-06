@@ -2207,3 +2207,5 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 2026-08-06T05:45:23.782936-07:00 | r007 split-FST validity audit: structure=FAIL_SPLIT_FST_VALIDITY_R007; development=INCONCLUSIVE_DEVELOPMENT_R007; detector fit/predict=0/0; score-regressor fit/predict=12/12; no training/inference/download/GPU.
 
 - 2026-08-06T06:00:00-07:00 | source=C r008 claim quarantine: hygiene_gate=PASS_CLAIM_QUARANTINE_R008; measurement_core_status=SUFFICIENT_FOR_MEASUREMENT_REVISION; operations training/inference/score-regressor/GPU/download/external-data=0; outputs=v078 manuscript, claim ledger, gate, validator, server report; no historical assets modified; next=075 review.
+
+- 2026-08-06T06:20:00-07:00 | source=C r009 evidence closure: provenance=INCONCLUSIVE_PROVENANCE_R009 because FAIR1M-v1.0 full-validation GT input is empty; evaluator golden=PASS; no training/inference/bootstrap/evaluator science runs; v079 historical certification claims quarantined; next=repair missing frozen GT input without changing Core scope.

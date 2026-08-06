@@ -1,0 +1,20 @@
+{
+  "round": "orientbench-c-r009-20260806",
+  "provenance_gate": "INCONCLUSIVE_PROVENANCE_R009",
+  "evaluator_gate": "PASS_EVALUATOR_R009",
+  "mechanism_gate": "NOT_RUN_PROVENANCE",
+  "tgrs_gate": "NOT_REACHED_TGRS_BORDERLINE_R009",
+  "final_status": "INCONCLUSIVE_PROVENANCE_R009",
+  "core_units": 6,
+  "core_ready_units": 5,
+  "operation_counts": {
+    "detector_training": 0,
+    "detector_inference": 0,
+    "score_regressor_fit_predict": 0,
+    "evaluator_calls": 0,
+    "bootstrap_replicates": 0,
+    "gpu_hours": 0,
+    "download": 0
+  },
+  "reason": "FAIR1M-v1.0 full-validation GT input is empty; Core provenance cannot close without changing frozen scope."
+}

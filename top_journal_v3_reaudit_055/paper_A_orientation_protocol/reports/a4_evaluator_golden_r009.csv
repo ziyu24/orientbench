@@ -1,0 +1,8 @@
+case,expected,status
+le90_periodic_equivalence,0,PASS
+class_mismatch,FP,PASS
+duplicate_greedy_match,one_to_one,PASS
+stable_tie_sort,stable,PASS
+empty_prediction,0,PASS
+empty_gt,0,PASS
+single_tp_fp_fn,known,PASS

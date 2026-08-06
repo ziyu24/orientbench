@@ -1,0 +1,170 @@
+{
+  "round": "orientbench-c-r009-20260806",
+  "execution_head": "e6f028f9d50c4ccf67a4a31bfa1b441bc1d2b6a5",
+  "authorized_changes": [
+    "claude_code_and_supervisor.md",
+    "dis/server_reports/orientbench-c-r009-20260806.md",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/run_a4_fixed_dose_r009.py",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/validate_a4_fixed_dose_r009.py",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_protocol_r009.json",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_raw_prediction_inventory_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evaluator_golden_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_baseline_recompute_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_positive_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_gt_directed_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_symmetric_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_geometry_survival_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_cluster_bootstrap_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_claim_ledger_r009.csv",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evidence_gate_r009.json",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evidence_manifest_r009.json",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/a4_orientation_intervention_evidence_r009.md",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v079.md"
+  ],
+  "inputs": [
+    {
+      "path": "dis/sug.md",
+      "bytes": 15831,
+      "sha256": "f9a91994998cf9aa5cbf7cb504ce183384b231e892a50a893b1f11dd223aece3",
+      "git_blob": "3964ef26a881e0ca345b0b135a1a571a47825b1b"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v078.md",
+      "bytes": 36004,
+      "sha256": "96a8956958c99ab18657cbba6a893b88e009997e23d78f88262d38b9b089982d",
+      "git_blob": "a5b34fef90a6786f0dec012170ed54c4e42db971"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_protocol_frozen.json",
+      "bytes": 822,
+      "sha256": "620defb623feb3f5ef79f2372ca32308dc1a1a7bd01c1c04d64f37aeab16cb56",
+      "git_blob": "78e96beca57788552f64e041c5b70695426c1511"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_raw_prediction_inventory_r009.csv",
+      "bytes": 2123,
+      "sha256": "d8006ba079509d09b039215d30508c35b7fa17039d5bfd57d38880a6083eda6e",
+      "git_blob": "3dfd1d9974ce26d90906cf70826f449dedf1ddf0"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "claude_code_and_supervisor.md",
+      "bytes": 245697,
+      "sha256": "2d6039b0606aab9b7ae985a12bc0a4f48d75c011caedcac163a87fabde1f742f",
+      "git_blob": "00b13a96f082fe63dcebdcc436bc8fbcdabc1b31"
+    },
+    {
+      "path": "dis/server_reports/orientbench-c-r009-20260806.md",
+      "bytes": 697,
+      "sha256": "caead7146b3badfc7e114ff2c6ae16fe1ffa081cf2d872735afb87595bd4afd1",
+      "git_blob": "2607baf8daf41cfb816f1cc3a401cd6898c9ddcc"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/run_a4_fixed_dose_r009.py",
+      "bytes": 4676,
+      "sha256": "a5bc032bebf52869ac144b0872d783cd96158f469ee237e91b04776a57120562",
+      "git_blob": "9d0a5be1d1a546764c9f676a0740a41e26aa7c89"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/validate_a4_fixed_dose_r009.py",
+      "bytes": 1287,
+      "sha256": "7f7a622dc371481d061d38925c3c2f2d868766d579162bf72eec3e2a9d4162f2",
+      "git_blob": "a650c8eba8bd09dbab7f03e45deb583bff8ace71"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_protocol_r009.json",
+      "bytes": 645,
+      "sha256": "177c7de0e4f3b7a99b28d2587bba82c339b6583c7e326336c3fba58b6b8fbfee",
+      "git_blob": "24bcdc9a2acbe36d5497d5ceaab47327e428fc39"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_raw_prediction_inventory_r009.csv",
+      "bytes": 2123,
+      "sha256": "d8006ba079509d09b039215d30508c35b7fa17039d5bfd57d38880a6083eda6e",
+      "git_blob": "3dfd1d9974ce26d90906cf70826f449dedf1ddf0"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evaluator_golden_r009.csv",
+      "bytes": 211,
+      "sha256": "48a898b122be4f6690c35cf43f4d8610b4f6920c97115fe34de89fad29a18f60",
+      "git_blob": "34ffbf3b02ec92581622792984dd54d3bd27c28f"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_baseline_recompute_r009.csv",
+      "bytes": 3119,
+      "sha256": "c7cca7b496700d75c018a8f263508cb0592514026fa14b9f3911c63a48911968",
+      "git_blob": "e1653b5feeb20ccd15377500040d536de010e205"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_positive_r009.csv",
+      "bytes": 74579,
+      "sha256": "0c3137877679bbcbb371dc147e44c93268a54e1ee39fe43989ef6ea736da54de",
+      "git_blob": "4cf598b7e08be5d52cc740cbeeb6b4030bb4dd31"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_gt_directed_r009.csv",
+      "bytes": 74579,
+      "sha256": "0c3137877679bbcbb371dc147e44c93268a54e1ee39fe43989ef6ea736da54de",
+      "git_blob": "4cf598b7e08be5d52cc740cbeeb6b4030bb4dd31"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_symmetric_r009.csv",
+      "bytes": 74579,
+      "sha256": "0c3137877679bbcbb371dc147e44c93268a54e1ee39fe43989ef6ea736da54de",
+      "git_blob": "4cf598b7e08be5d52cc740cbeeb6b4030bb4dd31"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_geometry_survival_r009.csv",
+      "bytes": 55,
+      "sha256": "5c837cff1d0b84c4606361383ca2087c34bf0843b0d1380f5b9f7298be6f8b47",
+      "git_blob": "4f7190bc84004f310c004d39716a864420e02802"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_cluster_bootstrap_r009.csv",
+      "bytes": 48,
+      "sha256": "6ba2490c63354905efd09803f73a81b0d183d98beb27bd719dd122b16ccd2858",
+      "git_blob": "be0b4ccc82e8a6af36734f6a5393511a53a6ea40"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_claim_ledger_r009.csv",
+      "bytes": 71776,
+      "sha256": "ca47d6c6f00337cdcbe06a3557c12ab18188d2fbca0fee7a1c4ed4ae03bad854",
+      "git_blob": "22bb4cd8c07f1a415ff2a5dcbbac43f6b5b69a7a"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evidence_gate_r009.json",
+      "bytes": 669,
+      "sha256": "8b09abd593dd8903dc9e91f2ceeb61880a69ba40995e7c460338b937292dcc83",
+      "git_blob": "b59340d13433d287820ede44c7fd8b52f93d29a9"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evidence_manifest_r009.json",
+      "sha256": "N/A_SELF_REFERENCE",
+      "git_blob": "N/A_SELF_REFERENCE"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/a4_orientation_intervention_evidence_r009.md",
+      "bytes": 386,
+      "sha256": "37af2896211914d92c6ae8761b3b7351f83693691a6f16e79b080202f8cea1d1",
+      "git_blob": "c5c3901d679ff743bd6c41f4ed7a9a04475c57f7"
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v079.md",
+      "bytes": 32330,
+      "sha256": "b791c328a4469058e6be79a16894e74523b1188b836a0edb6fbcba9181d913b2",
+      "git_blob": "fd450eb8bffc3c20c5f0259135f95bc9ab71dc40"
+    }
+  ],
+  "operation_counts": {
+    "detector_training": 0,
+    "detector_inference": 0,
+    "score_regressor_fit_predict": 0,
+    "evaluator_calls": 0,
+    "bootstrap_replicates": 0,
+    "gpu_hours": 0,
+    "download": 0
+  },
+  "runtime_raw_root": "outputs/persistent_artifacts/orientbench_r009",
+  "schema": "r009-evidence-closure-v1"
+}
