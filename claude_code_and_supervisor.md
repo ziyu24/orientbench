@@ -2195,3 +2195,5 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 下一步建议：其它服务器直接 checkout/pull `main`，持久化大文件仍按迁移报告恢复。
 
 [2026-08-05T08:34:45-07:00] source=C r004; action=A1 power-score attribution; gate=FAIL_SCORE_LIMIT_DOMINANT; outputs=Paper-A r004 logical namespace and dis/server_reports r004; stop=no protocol drift; next=C adjudication; training=0; inference=0; download=0.
+
+[2026-08-05T19:42:22-07:00] source=C r005; action=scene-functional attainable-envelope audit; structure_gate=PASS_SCENE_ENVELOPE_VALID; score_cause_gate=INCONCLUSIVE_SCORE_CAUSAL_ATTRIBUTION; outputs=Paper-A r005 logical namespace and dis/server_reports r005; stop=no protocol drift; next=C adjudication; model_fit_predict=0; training=0; inference=0; download=0.
