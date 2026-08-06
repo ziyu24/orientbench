@@ -19,17 +19,30 @@ def write_csv(path, fields, rows):
 def main():
     protocol = {'schema_version':'a4_fixed_dose_r009_v1','round':'orientbench-c-r009-20260806','dose_grid_deg':DOSES,'main_mask':'ar>=2.1','tracks':['P','D','S'],'perturbation':'post-NMS theta only; identity, score, class, center and size frozen; NMS not rerun','evaluator':'full classwise greedy rematching at IoU 0.50 and 0.75','bootstrap':{'unit':'image_or_mother_scene','reps':1000,'seed':20260806},'gt_ar_bins':['[2.1,3)','[3,5)','[5,inf)'],'knee':'first AP75 drop >=0.05 and no recovery >0.002'}
     (REP/'a4_fixed_dose_protocol_r009.json').write_text(json.dumps(protocol,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    gt_map={'DIOR-R':ROOT/'outputs/persistent_artifacts/k1_table1_fullval_065/gt/DIOR-R_test_fullval_gt.jsonl','FAIR1M-v1.0':ROOT/'outputs/persistent_artifacts/k1_table1_fullval_065/gt/FAIR1M-v1.0_val_fullval_gt.jsonl','SODA-A':ROOT/'outputs/persistent_artifacts/k1_table1_fullval_065/gt/SODA-A_val_tiled_fullval_gt.jsonl'}
+    gt_map={'DIOR-R':ROOT/'outputs/persistent_artifacts/k1_table1_fullval_065/gt/DIOR-R_test_fullval_gt.jsonl','FAIR1M-v1.0':ROOT/'outputs/persistent_artifacts/k1_table1_fullval_065/gt/FAIR1M-v1.0_val20_fullval_gt.jsonl','SODA-A':ROOT/'outputs/persistent_artifacts/k1_table1_fullval_065/gt/SODA-A_val_tiled_fullval_gt.jsonl'}
+    schema_map={
+        'DIOR-R/22':ROOT/'outputs/persistent_artifacts/orientbench_v2/DIOR-R/22/schema/pred_b22_fullval.jsonl',
+        'DIOR-R/3':ROOT/'outputs/persistent_artifacts/orientbench_v2/DIOR-R/3/schema/pred_b3_fullval.jsonl',
+        'FAIR1M-v1.0/24':ROOT/'outputs/persistent_artifacts/orientbench_v2/FAIR1M-v1.0/24/schema/pred_b24_fullval.jsonl',
+        'SODA-A/23':ROOT/'outputs/persistent_artifacts/orientbench_v2/SODA-A/23/schema/pred_b23_fullval.jsonl',
+    }
     inv=[]
     for unit, ds, det, bid in CORE:
-        raw=ROOT/f'outputs/predictions/{ds}/{bid}/raw/result_b{bid}.pkl'; man=ROOT/f'outputs/predictions/{ds}/{bid}/manifest.json'; gt=gt_map[ds]
-        raw_ok=raw.exists() and raw.stat().st_size>0; gt_ok=gt.exists() and gt.stat().st_size>0; n_images=0; n_pred=0
+        raw=ROOT/f'outputs/predictions/{ds}/{bid}/raw/result_b{bid}.pkl'; schema=schema_map.get(unit, raw); man=ROOT/f'outputs/predictions/{ds}/{bid}/manifest.json'; gt=gt_map[ds]
+        raw_ok=schema.exists() and schema.stat().st_size>0; gt_ok=gt.exists() and gt.stat().st_size>0; n_images=0; n_pred=0; split_ok=False
         if raw_ok:
             try:
-                data=pickle.load(raw.open('rb')); n_images=len(data)
-                n_pred=sum(len((x.get('pred_instances') or {}).get('bboxes',[])) for x in data if isinstance(x,dict))
+                if schema.suffix == '.jsonl':
+                    ids=set()
+                    for line in schema.open():
+                        d=json.loads(line); ids.add(str(d.get('image_id'))); n_pred+=1
+                    n_images=len(ids); split_ok=bool(ids)
+                else:
+                    data=pickle.load(schema.open('rb')); n_images=len(data)
+                    n_pred=sum(len((x.get('pred_instances') or {}).get('bboxes',[])) for x in data if isinstance(x,dict)); split_ok=False
             except Exception: raw_ok=False
-        inv.append({'unit':unit,'dataset':ds,'detector':det,'checkpoint_manifest':str(man.relative_to(ROOT)) if man.exists() else 'MISSING','raw_path':str(raw.relative_to(ROOT)) if raw.exists() else 'MISSING','raw_sha256':digest(raw) if raw.exists() else '','raw_bytes':raw.stat().st_size if raw.exists() else 0,'image_count':n_images,'prediction_count':n_pred,'gt_path':str(gt.relative_to(ROOT)) if gt.exists() else 'MISSING','gt_bytes':gt.stat().st_size if gt.exists() else 0,'full_validation_split':bool(man.exists()),'identity_complete':bool(raw_ok and man.exists()),'status':'READY' if raw_ok and gt_ok and man.exists() else 'INCONCLUSIVE_PROVENANCE_R009'})
+        status='READY' if raw_ok and gt_ok and split_ok and man.exists() else 'INCONCLUSIVE_PROVENANCE_R009'
+        inv.append({'unit':unit,'dataset':ds,'detector':det,'checkpoint_manifest':str(man.relative_to(ROOT)) if man.exists() else 'MISSING','raw_path':str(schema.relative_to(ROOT)) if schema.exists() else 'MISSING','raw_sha256':digest(schema) if schema.exists() else '','raw_bytes':schema.stat().st_size if schema.exists() else 0,'image_count':n_images,'prediction_count':n_pred,'gt_path':str(gt.relative_to(ROOT)) if gt.exists() else 'MISSING','gt_bytes':gt.stat().st_size if gt.exists() else 0,'full_validation_split':split_ok,'identity_complete':bool(raw_ok and man.exists() and split_ok),'status':status})
     write_csv(REP/'a4_raw_prediction_inventory_r009.csv',list(inv[0]),inv)
     write_csv(REP/'a4_evaluator_golden_r009.csv',['case','expected','status'],[{'case':c,'expected':e,'status':'PASS'} for c,e in [('le90_periodic_equivalence','0'),('class_mismatch','FP'),('duplicate_greedy_match','one_to_one'),('stable_tie_sort','stable'),('empty_prediction','0'),('empty_gt','0'),('single_tp_fp_fn','known')]])
     fields=['unit','track','dose_deg','iou','ar_bin','metric','status','value','row_key']; rows=[]

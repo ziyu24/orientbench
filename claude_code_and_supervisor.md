@@ -2209,3 +2209,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 2026-08-06T06:00:00-07:00 | source=C r008 claim quarantine: hygiene_gate=PASS_CLAIM_QUARANTINE_R008; measurement_core_status=SUFFICIENT_FOR_MEASUREMENT_REVISION; operations training/inference/score-regressor/GPU/download/external-data=0; outputs=v078 manuscript, claim ledger, gate, validator, server report; no historical assets modified; next=075 review.
 
 - 2026-08-06T06:20:00-07:00 | source=C r009 evidence closure: provenance=INCONCLUSIVE_PROVENANCE_R009 because FAIR1M-v1.0 full-validation GT input is empty; evaluator golden=PASS; no training/inference/bootstrap/evaluator science runs; v079 historical certification claims quarantined; next=repair missing frozen GT input without changing Core scope.
+## [2026-08-06 08:45:00 CST] 来源: Codex
+
+### r009 continuation
+
+- 已核验 FAIR1M-v1.0 数据与标注已到位，并将非空 val_20 GT 修复到持久化 r009 GT 入口；其 3,896 图、78,638 个目标与 FAIR1M/24 full schema 对齐。
+- 已重新执行 r009 provenance preflight。DIOR-R/22、DIOR-R/3、FAIR1M-v1.0/24、SODA-A/23 有完整持久化 schema；DIOR-R/61 仅有 600 图 raw 子集，SODA-A/4 仅有 408 图 raw 子集。
+- 尝试用现有 pth 重建 SODA-A/4 full dump，但服务器当前缺少 SODA-A 图像树，未启动有效推理；未使用 matched-only 结果替代。
+- r009 判定仍为 `INCONCLUSIVE_PROVENANCE_R009`，科学 dose evaluator 未启动；未训练、未修改 thresholds/D_cal/D_audit。
+- 关键报告：`dis/server_reports/orientbench-c-r009-20260806.md`；inventory：`top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_raw_prediction_inventory_r009.csv`。
