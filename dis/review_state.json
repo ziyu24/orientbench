@@ -1,19 +1,21 @@
 {
   "schema_version": "1.0",
   "project": "orientbench",
-  "round_id": "orientbench-c-r004-20260805",
+  "round_id": "orientbench-c-r005-20260805",
   "review_date": "2026-08-05",
-  "scientific_snapshot_sha": "cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd",
+  "scientific_snapshot_sha": "6955bbc49094a09696c1025e3034f74b74910857",
   "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md",
   "scientific_state": {
     "paper_a": "A_MEASUREMENT_ONLY",
     "original_a6": "NO_ELIGIBLE_CONFIRMATORY_UNIT_FROZEN",
     "paper_b": "RETIRED_FAIL_CANDIDATE_GATE",
-    "r003_asset_gate": "FAIL_NO_A6R_ASSET_ADOPTED_WITH_COMPLIANCE_DEFECT",
+    "r004_literal_gate": "FAIL_SCORE_LIMIT_DOMINANT_LITERAL",
+    "r004_causal_attribution": "INCONCLUSIVE_ORACLE_NOT_DOMINATING",
+    "r004_compliance": "ADOPT_ARTIFACTS_REVISE_DIAGNOSTIC_OPERATION_COUNTS",
     "submission_readiness": "NOT_READY",
     "venue_ceiling": "STRONG_JSTARS_TGRS_HIGH_RISK_BORDERLINE",
-    "next_scientific_gate": "A1_POWER_ATTRIBUTION_R004",
-    "provisional_external_unit": "RSAR_VAL_S2ANET_R50_LE90_TIER1_PROVISIONAL"
+    "next_scientific_gate": "SCENE_FUNCTIONAL_ORACLE_DOMINANCE_R005",
+    "provisional_external_unit": "RSAR_VAL_S2ANET_R50_LE90_TIER1_PROVISIONAL_DEFERRED"
   },
   "evidence_index": "dis/C.md",
   "c": {
@@ -30,9 +32,9 @@
   "server": {
     "status": "READY_FOR_SERVER",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r004-20260805.md",
-    "last_completed_report_path": "dis/server_reports/orientbench-c-r003-20260805.md",
-    "last_verdict": "FAIL_NO_A6R_ASSET_WITH_COMPLIANCE_DEFECT"
+    "only_report_path": "dis/server_reports/orientbench-c-r005-20260805.md",
+    "last_completed_report_path": "dis/server_reports/orientbench-c-r004-20260805.md",
+    "last_verdict": "LITERAL_GATE_VALID_CAUSAL_ATTRIBUTION_INCONCLUSIVE"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }

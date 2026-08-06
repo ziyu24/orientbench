@@ -1,78 +1,88 @@
-# OrientBench C 侧 r003 裁决与 r004 TGRS 杀死门
+# OrientBench C 侧 r004 裁决与 r005 支配性修复门
 
-- round: `orientbench-c-r004-20260805`
-- scientific snapshot: `cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd`
+- round: `orientbench-c-r005-20260805`
+- scientific snapshot: `6955bbc49094a09696c1025e3034f74b74910857`
 - evidence cutoff: `2026-08-05`
 - active manuscript: [`orientation_reliability_paper_A_zh_v077.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md)
-- 当前科学状态: A=`A_MEASUREMENT_ONLY`；原 A6=`NO_ELIGIBLE_CONFIRMATORY_UNIT`；B=`RETIRED_FAIL_CANDIDATE_GATE`；submission=`NOT_READY`。
+- evidence index: 本文件；r004 服务器原报告为 [`orientbench-c-r004-20260805.md`](server_reports/orientbench-c-r004-20260805.md)
+- 当前科学状态: A=`A_MEASUREMENT_ONLY`；原 A6=`NO_ELIGIBLE_CONFIRMATORY_UNIT_FROZEN`；B=`RETIRED_FAIL_CANDIDATE_GATE`；r004 程序门=`FAIL_SCORE_LIMIT_DOMINANT_LITERAL`；r004 因果归因=`INCONCLUSIVE_ORACLE_NOT_DOMINATING`；submission=`NOT_READY`。
 - 当前投稿上限: **strong JSTARS；TGRS high-risk borderline，尚不 credible/ready**。
 - `cc_recommendation: no`
 
-当前缺口可以由功效分解、前瞻资产门和一手文献直接裁决。CC 已完成 r001；在新的科学包冻结前再调用不会替代实验，也不会提高证据强度。
+CC 已完成 r001。当前争议已由代码反例和可复算统计门定位；再次文字审稿不能替代 r005 的支配性检验。等 power-aware 协议与前瞻包冻结后，投稿前再考虑 CC。
 
-## 1. r003 服务器回执裁决
+## 1. 本文实际在讲什么
 
-服务器提交 `cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd`，唯一报告为 [`orientbench-c-r003-20260805.md`](server_reports/orientbench-c-r003-20260805.md)。C 的独立复核结论如下。
+本文不是新 detector，也不是对所有检测输出的部署保证。当前可守对象是：在旋转目标检测已经与 GT 匹配、且场景至少含一个 eligible matched instance 的条件下，把朝向误差、几何可辨识性、推理时可用 score、scene-level 有限样本风险界和 practical coverage 放在同一可复算协议中，测量哪些 orientation reliability claim 能或不能被认证。
 
-| 事项 | 裁决 | 证据与边界 |
-|---|---|---|
-| `FAIL_NO_A6R_ASSET` | adopt | 38 个项目 checkpoint 与原 A6 的 3 个候选共 41 个精确记录；首失败门为 38 个 prior protocol/outcome participation、2 个 prior outcome exposure、1 个 checkpoint/full-universe 缺失；eligible=0，selected=`NONE` |
-| 训练/推理/风险/下载均为 0 | revise | 静态控制流未发现上述操作或 outcome 打开，结论可信；但计数和 `protocol_drift=False` 是硬编码，不是系统调用级 instrumentation |
-| “当前服务器没有任何可用模型” | revise | 证据只覆盖已审计的项目 38 个 `.pth`、原 A6 三候选及固定外部资产根；不能外推到服务器所有目录和所有 checkpoint 扩展名 |
-| “r003 完全合规” | reject | 新脚本把带账号段的服务器绝对路径写入 Git，违反本轮共享边界；旧结果本身不因此变成可用候选，但该脚本必须先做最小合规修复 |
+负结果可发表的前提不是“失败很多”，而是失败边界能被严格定位、可复算、并改变方法设计。r004 证明现有 `142/144 infeasible` 只是状态计数，不能直接写成“现有分数质量导致 142/144 失败”；但 r004 尚未给出有效因果分解。论文潜在贡献应修订为 **power-aware scene-level selective certification 的测量与边界**，不能把当前 `0/90` 包装成分数没有 headroom。
 
-候选清单、overlap registry 与 gate JSON 的 41 个 ID 完全一致。107 个登记输入中，本机可直接取得的 9 个 tracked 输入及 4 个非自引用输出都与 SHA/Git blob 相符；其余 98 个服务器侧原物约 5.95 GB，C 不能跨机重哈希。置信度：41 候选与首失败门 `0.97`；科学 `FAIL_NO_A6R_ASSET` `0.91`；零 outcome/执行 `0.86`；全部服务器原物哈希链 `0.72`。
+## 2. r004 独立裁决
 
-因此 r003 是一个有效的“现有资产不足”负门，不是一次成功复现，也不是论文理论失败。A 仍为 measurement-only。
+服务器结果提交为 `6955bbc49094a09696c1025e3034f74b74910857`，执行基线为 `2ad7e0111595607983f749099c26fe6e9fdfeb3c`，scientific snapshot 为 `cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd`。
 
-## 2. TGRS 级最强攻击
+### 2.1 可以采纳的证据
 
-[TGRS 官方范围](https://www.grss-ieee.org/publications/transactions-on-geoscience-remote-sensing/)要求 novel methodological advancement、significant research，并要求实验数据与条件完整（核查于 `2026-08-05`）。v077 当前有六个优先于扩实验规模的问题。
+- 提交相对 parent 只改变 10 个 r004 授权路径；旧 A1/A6、r003 输出和 `dis/B.md` 均未变化。
+- 576/576 identity parity，duplicate/missing/extra/field mismatch 均为 0；六单元 lineage 与 reproduction hash 通过。
+- 9 个非自引用输出的 bytes、SHA-256 与 Git blob 和结果提交一致；36 个输入唯一。18 个本机可得 tracked 输入可直接复核，其余 18 个服务器原物身份与 r002 已登记 inventory 交叉一致。
+- zero-loss HB/CP、三档 delta sensitivity、144 个结构性功效判定和预注册 attribution 代码的字面算术成立。
+- r003 源码中的服务器绝对路径已移除，旧 r003 产物没有重跑或改写。
 
-1. **estimand 不是全检测部署风险。** 风险只在 GT-matched prediction 和“至少一个 eligible match”的场景宇宙中定义，排除了 FP、FN 和真正空场景。正文的 `deployable score` 应改为 `inference-available score`；保证应称为 conditional matched-orientation feasibility audit，而不是全输出认证。
-2. **142/144 不可行尚未完成归因。** 现有 calibration scene 数约 `646–1886`；在 `delta=0.1` 时，即使二元 scene event 零失败，`alpha=.001` 也至少需要 2302 个场景。当前负结果混合了样本量上限、事件基率/网格、分数排序和 practical coverage，不能统称“分数失败”。
-3. **AP@0.5 零下降部分由构造保证。** 自适应扰动被限制在 IoU 0.50 匹配边界内；缺少完整固定剂量 full-evaluator 曲线时，`ΔAP@0.5=0` 不能单独作为强发现。
-4. **实验完整性仍有明示缺口。** 固定剂量原始预测不全，原 A6 无合格单元，第三标注者没有完成；这与 TGRS 的完整性要求直接冲突。
-5. **近期直接工作压缩 novelty。** [AQE-Detector](https://www.nature.com/articles/s41598-025-31034-w) 已做角度质量与 NMS，[EAV-DETR](https://hub.hku.hk/handle/10722/372539) 已把 OBB 与 Mondrian conformal guarantee 结合，[SeqCRC](https://arxiv.org/abs/2505.24038) 处理目标检测匹配、空预测和联合风险控制，[航空/卫星目标检测 conformal 工作](https://proceedings.mlr.press/v230/copley24a.html) 已在 2024 年公开。本文不能声称首个角度不确定性或首个遥感 conformal；可守增量只能是 OBB-specific、scene-aware、conditional matched-orientation 的系统测量与功效边界。
-6. **TTA 事实口径冲突。** 冻结协议保持 eligible universe 并把非有限 TTA 排到末位，正文却写“NaN 不进入指标”。主稿后续必须披露 DIOR-R `298/48282=0.617%`、SODA-A `2104/193045=1.090%` 的缺失率。
+### 2.2 不能采纳的 headline 解释
 
-## 3. 可证伪候选与最低 gate
+r004 的 `SCORE_RANKING_LIMIT=0/90` 只是冻结实现的字面输出，不是可信因果结论：
 
-| 候选 | 实质差异 | 最低判别实验 | 杀死条件 |
+1. 144 个独立 `unit × endpoint × alpha` oracle 全部在 `coverage=0.01` 首点失败，故全部后续点被 fixed-sequence 关闭；但其中 105/144 在后续 coverage 的 HB 检验会通过，主 endpoint 为 25/36，主分母的 57/57 个 oracle 行全部存在后续通过点。
+2. r004 oracle 用 instance event 排序，再用持久化全局行号打破同值。它不优化 conditional scene functional，也不会优先把安全实例分散到更多场景，不能称 scene-risk upper bound。
+3. 全部 576 行里有 22 行 `actual_feasible=True` 而 `oracle_primary_feasible=False`；其中 20 行被 precedence 错标为 `ORACLE_DATA_OR_GRID_LIMIT`，12 行实际 practical，另 2 行是 trivial feasible。主 endpoint 也存在 target-GT diagnostic score 在 70% coverage practical、oracle 却失败的直接支配性反例。
+4. 因而 primary `76/44/24` 是对 144 个全部状态行的标签，不是 142 个 failure 的原因分解。正确状态分区是：75 个 oracle/sequence 未决 infeasible、44 个 structural infeasible、23 个 trivial-budget infeasible、1 个 nontrivial practical、1 个 trivial formal，共 144。
+
+结论：r004 数值资产和 literal gate 为 `adopt`；“data/grid 而非 score 是主因”为 `reject`；C2 科学方向为 `revise`，不是被杀死。主分母目前只确定 33/90 是结构性 scene-count 功效界；其余 57/90 是 1% 入场、候选顺序、policy class、scene allocation、事件支持和 score 的混合边界。
+
+### 2.3 合规计数需修订
+
+r004 没有 detector 训练、detector 推理、下载或 GPU 使用；但 parity 重建明确执行了 12 次冻结诊断回归器 `.fit` 和 12 次 `.predict`。因此报告中的统一 `training/inference=0/0` 不成立。该矛盾来自 r004 同时要求重建 geometry score 又笼统要求训练/推理为 0；本轮不据此抹掉科学产物，但记为 `DIAGNOSTIC_REPRO_FIT_PREDICT_UNCOUNTED`。以后必须分别报告 detector 操作与 diagnostic reproduction 操作。
+
+## 3. TGRS 级最强攻击
+
+[TGRS 官方范围](https://www.grss-ieee.org/publications/transactions-on-geoscience-remote-sensing/)要求 novel methodological advancement、significant research，并要求实验数据和条件完整（核查于 `2026-08-05`）。当前至少有六个硬问题：
+
+1. estimand 只覆盖 GT-matched orientation 和 eligible nonempty scenes，排除了 FP、FN 与真正空场景；不得称 full-output deployment guarantee。
+2. r004 的 oracle/fixed-sequence 设计让结论在“字面主门 0/90”和“忽略首败后的 any-grid 57/90”之间翻向，说明 headline 对候选顺序高度敏感。
+3. AP@0.5 零下降部分由 IoU 0.50 边界内的扰动构造保证；缺完整固定剂量 full-evaluator 曲线。
+4. 原 A6 无合格前瞻单元、固定剂量 raw prediction 不全、第三标注者/仲裁未完成。
+5. [SeqCRC](https://arxiv.org/abs/2505.24038)、[EAV-DETR](https://hub.hku.hk/handle/10722/372539) 与[航空/卫星检测 conformal 工作](https://proceedings.mlr.press/v230/copley24a.html)已覆盖检测中的 matching、空预测、联合/条件风险或 OBB conformal。本文不能声称首个角度不确定性或首个遥感 conformal。
+6. 冻结协议把缺失 TTA 排到末位并保留 eligible universe，正文却写“NaN 不进入指标”；后续必须披露 DIOR-R `298/48282=0.617%`、SODA-A `2104/193045=1.090%`。
+
+## 4. 可证伪候选与最低 gate
+
+| 候选 | 最近一手工作与实质差异 | 最低判别实验 | 杀死条件 |
 |---|---|---|---|
-| C1：OBB-specific conditional orientation measurement | 明确把检测正确性、朝向风险、几何可辨识性和场景相关性分层，不声称通用部署认证 | 固定 matched-only estimand；增加 full-output joint-risk 敏感性，并验证二者结论是否同向 | full-output 与 matched-only 方向冲突，或必须隐去 FP/FN 才成立 |
-| C2：scene-aware finite-sample feasibility/power boundary | 把“分数排序差”与“样本量下任何分数都不可能认证”分开，形成可复算负结果 | r004 对 576 行执行 zero-loss、oracle、score、practical 四层分解；按预先固定的多数门裁决 | target-GT-free 主风险不可行行中，`SCORE_RANKING_LIMIT` 不占多数，则删除“分数主导不可认证”的归因 |
-| C3：RSAR×S2ANet 前瞻外部复现 | 新 SAR 数据域与未参与协议设计的新 detector/head exact unit；不是从旧个人项目回收结果 | 先做官方资产 acquisition gate；通过后仅运行一次冻结综合实验 | 许可/字节身份不清、8467 个 val 图像与标注不闭环、split overlap、母景身份不可恢复、checkpoint 严格载入失败或 raw→final 不可持久化 |
+| C2-R：power-aware scene-level LTT | [SeqCRC](https://arxiv.org/abs/2505.24038)处理检测匹配、空预测和联合风险；本文只保留 OBB orientation、mother-scene grouping、finite-scene power 与候选顺序的实质差异 | r005 先构造严格支配实际 selection 的 scene-functional attainable envelope，分开 formal fixed-sequence、any-grid sensitivity 与 relaxed oracle；随后只允许用 fit-only 信息预注册新候选顺序，并在外部单元前瞻验证 | 新 oracle 仍出现 actual feasible / oracle infeasible；或改进只能用 calibration/audit outcome 调序；或错误率控制后无非平凡 practical 点 |
+| C3：RSAR × S2ANet 前瞻外部复现 | [RSAR CVPR 2025 论文](https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_RSAR_Restricted_State_Angle_Resolver_and_Rotated_SAR_Benchmark_CVPR_2025_paper.pdf)与[固定官方实现](https://github.com/zhasion/RSAR/tree/6594e685de1e592bd66bff5451763380d0d36c53)提供未参与协议设计的 SAR 域；差异是把冻结的 orientation/power 协议带到新域，不是复用旧个人项目结果 | r005 通过后做独立 acquisition/provenance gate；再只运行一次 raw/pre-NMS/final、固定剂量、NRC、conditional scene 与 full-output sensitivity | 许可/身份不清、8467 val 图像与 16860 instances 不闭环、split overlap、母景不可恢复、checkpoint 严格载入失败、raw→final 不可持久化或前瞻方向反转 |
+| C1-R：matched-only 到 full-output estimand bridge | [Copley et al.](https://proceedings.mlr.press/v230/copley24a.html)已将 conformal 用于航空/卫星检测；本文的剩余差异只能是 orientation-specific conditional risk 与全输出 joint risk 的显式桥接 | 六单元与 RSAR 同时报 matched conditional 和包含 FP/FN/空场景的 joint-risk sensitivity | 两种 estimand 方向冲突，或主结论只能靠排除 FP/FN/空场景成立 |
 
-### C3 的冻结候选身份
+RSAR 候选仍固定为 official commit `6594e685de1e592bd66bff5451763380d0d36c53`、validation × S2ANet-R50-FPN-le90；但在 r005 前不下载、不推理。RSAR val 的规模并不会自动修复 1% 首点功效问题。
 
-- official repository: [`zhasion/RSAR`](https://github.com/zhasion/RSAR/tree/6594e685de1e592bd66bff5451763380d0d36c53)，commit `6594e685de1e592bd66bff5451763380d0d36c53`
-- primary paper: [CVPR 2025 RSAR](https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_RSAR_Restricted_State_Angle_Resolver_and_Rotated_SAR_Benchmark_CVPR_2025_paper.pdf)
-- dataset object: [official Google Drive file `1v-HXUSmwBQCtrq0MlTOkCaBQ_vbz5_qs`](https://drive.google.com/file/d/1v-HXUSmwBQCtrq0MlTOkCaBQ_vbz5_qs/view?usp=sharing)，服务端元数据显示 `5,632,030,720` bytes；官方未给 checksum
-- unit: RSAR validation × S2ANet-R50-FPN-le90；[pinned config](https://github.com/zhasion/RSAR/blob/6594e685de1e592bd66bff5451763380d0d36c53/configs/s2anet/s2anet-le90_r50_fpn_1x_rsar.py)
-- checkpoint: [official Google Drive file `1xju1PGARP8h767Xr0yNpxNlan8E8hezJ`](https://drive.google.com/file/d/1xju1PGARP8h767Xr0yNpxNlan8E8hezJ/view?usp=sharing)，服务端元数据显示 `166,360,749` bytes；官方未给 checksum
-- official public facts: train/val/test images=`78,837/8,467/8,538`，val instances=`16,860`，6 classes，reported val mAP=`33.11`，repository license=`CC BY-NC 4.0`
-
-该身份目前只是 `TIER1_PROVISIONAL`。RSAR 基于十个来源组成的 SARDet-100K，部分来源被切片；官方材料没有提供完整 mother-scene 映射。缺少公开 checksum 也意味着下载后只能冻结“官方 file ID + 本地计算 hash”，不能伪称作者发布 checksum。r004 先裁决现有 headline 的归因；只有 C2 不被杀死，下一轮才获取 C3，避免用 50–60 GB 资产掩盖核心统计问题。
-
-## 4. 决策台账
+## 5. 决策台账
 
 | 决策 | 状态 | 理由 | 下一步 |
 |---|---|---|---|
-| 接受 r003 科学 gate | adopt | 41 个已知候选全部在 outcome 之前被硬门排除 | 保留 `FAIL_NO_A6R_ASSET`，不降低标准 |
-| 接受 r003 完全合规表述 | reject | 共享脚本泄露服务器绝对路径，且 drift/零操作计数为硬编码 | r004 先做最小源代码合规修复 |
-| 立即训练或推理 RSAR | reject-now | 当前 142/144 的因果归因尚未分解，先扩数据可能放大错误故事 | 先执行零 GPU r004 功效门 |
-| r004 power attribution | experiment | 最低成本且能直接杀死或保留 TGRS 叙事 | 执行 [`sug.md`](sug.md) |
-| RSAR×S2ANet acquisition | revise/defer | 官方候选明确，但 mother-scene/checksum/empty-image 仍未知 | r004 不死后进入 r005；结果出现后不得换模型 |
-| 恢复 B 或下载旧个人项目 | reject | 不能创造前瞻独立性，也不改变当前统计门 | 保持停止 |
-| 再次调用 CC | reject-now | 当前分歧由代码、功效界和实物资产裁决 | 科学包冻结后投稿前再审 |
+| r004 文件边界、hash、parity、zero-loss 数值 | adopt | 独立结构和算术复核通过 | 作为不可改写历史资产保留 |
+| `FAIL_SCORE_LIMIT_DOMINANT` | revise | 仅保留为 frozen 1%-entry fixed-sequence literal gate | 不进入论文因果 headline |
+| `ORACLE_DATA_OR_GRID_LIMIT=57/90` | reject | oracle 不支配实际 selection，57/57 后续 grid 有通过点 | r005 改为 scene-functional attainable envelope |
+| r004 统一 training/inference `0/0` | revise | detector 为 0/0，但诊断复算至少 fit/predict 12/12 | r005 分开计数并留下静态证据 |
+| 立即做 RSAR acquisition/inference | reject-now | 当前协议—功效归因未修复；扩域可能重演首点必败 | r005 通过后再开独立 acquisition round |
+| 恢复 B 或下载其它个人项目 | reject | 不创造前瞻独立性，也不修复统计门 | 保持停止 |
+| 再次调用 CC | reject-now | 当前有可执行、可证伪的统计反例 | 新协议与前瞻包冻结后投稿前再审 |
 
-## 5. TGRS 路线的顺序与停止条件
+## 6. r005 gate、置信度和最弱环节
 
-1. r004：零 GPU 功效/归因分解；若 score-limit 不占预注册多数，立刻改写为 sample-size/feasibility boundary，不再写“现有分数导致 142/144 失败”。
-2. r005：只做 RSAR 官方 acquisition/provenance gate；母景不可恢复时只允许 image-level measurement replication，不得称严格 scene-level certification。
-3. r006：仅一次综合前瞻运行，持久化 raw、pre-NMS、final，并同时跑 0/2/5/10/15/20/25/30° full evaluator、NRC、conditional scene gate 与 full-output sensitivity；看见结果后不换 unit。
-4. 完成冻结的第三标注者/仲裁，或把人工部分降为两人探索性锚点。
-5. 最后才重写主稿与补近期相关工作；治理、哈希和工作流移入补充材料。
+r005 只做已有证据的零 GPU scene-functional oracle repair，唯一任务见 [`sug.md`](sug.md)。它必须先把 r004 的支配性反例复算为机器可读证据，再构造对任意实际 selected subset 都不劣的 calibration attainable envelope。若仍出现一条 actual feasible 而 envelope infeasible，立即 inconclusive；不得继续做因果归因。
 
-即使全部通过，也只是让 TGRS 从“高风险 borderline”变为“可认真尝试”，不保证录用。若 C2、Tier-1 资产、固定剂量复现或 full-output sensitivity 中任一关键门失败，按 strong JSTARS 收敛，不通过换阈值、换 unit 或删失败行续命。
+- 置信度：提交/哈希/schema `0.99`；r004 literal 算术 `0.98`；oracle 不支配反例 `0.99`；C2-R 仍可能成为 TGRS 方法贡献 `0.72`。
+- 最弱环节：新的 power-aware 规则是在观察 A–F 后提出，存在事后设计风险；只能靠冻结规则后的 RSAR 前瞻单元消除，不能靠更多内部表格消除。
+- 反证条件：若严格 dominating envelope 仍不能稳定分开 structural、empirical-support 与 selection-protocol gap，或任何新顺序需要 calibration/audit outcome 才成立，则 C2-R 不足以支撑 TGRS，论文按 strong JSTARS 收敛。
+
+即使 r005、RSAR、full-output bridge 和实验完整性全部通过，也只是把 TGRS 从“高风险 borderline”提升为“可认真尝试”，不保证录用。

@@ -6,13 +6,13 @@
 
 当前轮：
 
-- round: `orientbench-c-r004-20260805`
-- scientific snapshot: `cb0a259f81d9d0cd3af27f514a9e94c75ddf9cbd`
+- round: `orientbench-c-r005-20260805`
+- scientific snapshot: `6955bbc49094a09696c1025e3034f74b74910857`
 - manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`
 - C report: `dis/C.md`
-- CC/B only report: `dis/B.md`（r001 已完成；r004 不启动新 CC）
-- server only report: `dis/server_reports/orientbench-c-r004-20260805.md`
-- previous server report: `dis/server_reports/orientbench-c-r003-20260805.md`
+- CC/B only report: `dis/B.md`（r001 已完成；r005 不启动新 CC）
+- server only report: `dis/server_reports/orientbench-c-r005-20260805.md`
+- previous server report: `dis/server_reports/orientbench-c-r004-20260805.md`
 
 ## 2. 角色与文件所有权
 
@@ -32,6 +32,8 @@
 ## 4. 证据与决策
 
 所有重大判断必须绑定仓库相对路径或核查过的一手链接，并记录：结论、置信度、最弱环节、反证/杀死条件。无新证据时停止争论，转最小实验、证明、反例或一手核查。
+
+服务器执行计数必须把 detector 训练/推理、诊断模型 fit/predict、数据下载和 GPU 分开报告；静态源码审计只能证明可见控制流，不能伪称系统调用级运行时计数器。
 
 C 收到 `dis/B.md` 或服务器报告后，对每项只给出：
 
