@@ -1,120 +1,203 @@
-# OrientBench 服务器任务：r008 主稿 claim 隔离与证据对账（preflight-v2）
+# OrientBench r009：Orientation Intervention Evidence Closure
 
-- round: `orientbench-c-r008-20260806`
-- scientific evidence snapshot: `426d47855eb91d5af947e8bdf9e06d035a95ebf0`
-- minimum instruction baseline: `4613142ba411c25f6a6ad06723538e877bce9403`
-- active source manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`
-- output manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v078.md`
-- unique server report: `dis/server_reports/orientbench-c-r008-20260806.md`
+- round: `orientbench-c-r009-20260806`
+- scientific snapshot: `c51c9f826028e083633edbaaa7ad32d1178a5744`
+- source manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v078.md`
+- output manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v079.md`
+- unique server report: `dis/server_reports/orientbench-c-r009-20260806.md`
+- runtime raw root: gitignored `outputs/persistent_artifacts/orientbench_r009/`
 
-服务器先 `git pull --ff-only` 当前分支。实际 execution HEAD 可以晚于 minimum instruction baseline，但必须包含该提交，且其 `dis/sug.md` 必须仍是本 round 的 preflight-v2；记录实际完整 HEAD。不得 checkout scientific snapshot，因为它是证据冻结点，不是执行指令提交。
+本任务是一次完整 evidence-closure campaign。不得拆成后续“小修轮次”，不得回到 split-FST/C2-R，不得只做文稿或 ledger。服务器先 `git pull --ff-only`，记录实际 execution HEAD；它必须包含 scientific snapshot 且工作树/index 干净。
 
-## 1. 科学问题与两个独立状态
+## 1. 唯一科学问题
 
-移除或隔离 r006/r007 中无效的 formal certification/FWER 结论后，OrientBench 的 orientation-specific measurement 主线是否仍有逐项可追溯、没有新增数字或首创包装的完整 claim 集？本轮只做 claim quarantine，不裁决期刊等级，不恢复 C2-R，不扩实验。
+在冻结的完整 post-NMS 检测输出上只干预角度、随后用完整 classwise evaluator 重新匹配时，AP@0.75 是否跨数据集与 detector head 比 AP@0.5 更早、更强响应；这种差异是否与长宽比/几何可辨识性一致，而不是 matched-only、partial-GT 或协议构造假象？同一批 raw 必须同时闭合 baseline AP、角度风险排序、固定剂量干预和主稿 headline 的生成端。
 
-必须分别输出：
+r008 的提交范围/provenance 可保留，但两个科学 gate 均被 C 拒绝：
 
-1. `hygiene_gate = PASS_CLAIM_QUARANTINE_R008 | FAIL_CLAIM_QUARANTINE_R008 | INCONCLUSIVE_CLAIM_QUARANTINE_R008`；
-2. `measurement_core_status = SUFFICIENT_FOR_MEASUREMENT_REVISION | INSUFFICIENT_AFTER_QUARANTINE | INCONCLUSIVE_CORE_EVIDENCE`。
+- `hygiene_gate = FAIL_CLAIM_QUARANTINE_R008`
+- `measurement_core_status = INCONCLUSIVE_CORE_EVIDENCE`
 
-二者不得合并。hygiene pass 不代表科学核心充分，core sufficient 也不代表达到任何期刊。
+原因是 v078 与 v077 字节相同，215-row ledger 没有 claim-level 证据语义，validator 的 sufficient 仅由 `len(ledger)>=3` 产生。r009 不修补 r008 文件，不把该失败写成论文负结果。
 
-## 2. 固定解释边界与证据规则
+## 2. 冻结矩阵与禁止替换
 
-- r007 formal gate 保持 `FAIL_SPLIT_FST_VALIDITY_R007`，原因是实现未满足契约；它不是 split-FST 理论或科学假设反例。
-- r007 的 108/108 FWER fail、96/1152 taint mismatch、2866 parity mismatch，及 r006 reported structure pass，禁止作为当前科学 claim 的支持证据。
-- 14 rows / 12 contexts / A–C / DIOR-R-only 只允许标为描述性、探索性线索，不得称 formal certification、prevalence、跨数据集广度或 deployment guarantee。
-- r004 literal gate 只允许作为历史协议结果。matched-only estimand 不覆盖 FP、FN、真空场景或完整部署输出。
-- 标准 LTT、fixed-sequence、Holm 只能作为既有组件，不得算 OrientBench 首创或独立贡献。
-- `dis/C.md`、`dis/B.md`、`dis/server_reports/**`、主稿叙述和 gate JSON 都不能作为 headline 数字的唯一事实源。
-- 一个 claim 只有在 ledger 同时给出仓库内生成端/配置、消费端结果、适用数据集/单元、estimand 和证据状态时，才可标 `VALID`；缺一项只能 `QUALIFIED` 或 `UNRESOLVED`。
+### 2.1 Core-6（主 gate，缺一不可）
 
-## 3. 两阶段执行；先清单后改稿
+| unit | dataset | detector |
+|---|---|---|
+| `DIOR-R/22` | DIOR-R | rotated RetinaNet PSC |
+| `DIOR-R/3` | DIOR-R | Oriented R-CNN |
+| `DIOR-R/61` | DIOR-R | Rotated RTMDet-S |
+| `FAIR1M-v1.0/24` | FAIR1M-v1.0 | rotated RetinaNet PSC |
+| `SODA-A/23` | SODA-A | rotated RetinaNet PSC |
+| `SODA-A/4` | SODA-A | Oriented R-CNN |
 
-### 3.1 阶段 A：冻结 claim inventory 与 validator
+不得因结果、缺资产或运行方便替换 unit/checkpoint/split。Core 缺失不能由 extension 补位。
 
-先读取 v077，不改稿。枚举摘要、贡献、方法、结果、讨论、局限、结论中满足任一条件的句子：
+### 2.2 Extension（仅 Core 完成后运行）
 
-- 含数字、百分比、比较级或显著性/保证用语；
-- 含“首次、首个、系统、证明、保证、认证、部署、普适、稳健、显著、优于”或其英文对应词；
-- 含 `LTT`、`fixed-sequence`、`Holm`、`FWER`、`certif*`、`guarantee*`、`deploy*`。
+- `FAIR1M-v1.0/5` Oriented R-CNN；
+- DOTA-v1.0 Oriented R-CNN clean unit；
+- DOTA-v1.0 Rotated RTMDet-M clean unit。
 
-每个 v077 claim 生成稳定 `claim_id`，记录原 section heading、原文、规范化文本 SHA-256 和源行号。CSV 使用 UTF-8、RFC 4180，固定列：
+仅在各自 frozen config、checkpoint、正确 full-validation split、full GT 与完整 raw identity 全部闭合时进入。DOTA 只用本地 train/val baseline，不比较公开 test mAP。extension 失败不改变 Core gate，也不得选择其它 unit 替代。
 
-`claim_id,source_section,source_line,source_text,source_text_sha256,claim_class,datasets,units,estimand,evidence_paths,evidence_status,action,target_section,target_text,target_text_sha256,reason`
+## 3. 固定资产与允许的计算
 
-固定枚举：
+1. 优先使用服务器持久化的完整 post-NMS raw predictions；必须覆盖完整评测 universe，并保留 image ID、class、score、cx、cy、w、h、theta 与 prediction identity。
+2. Core raw 缺失时，允许用仓库/只读 `pth_data` 已登记的 frozen config 与 checkpoint，对正确 full-validation split 做一次 detector inference 并持久化到 runtime raw root。先检查 `pth_data/readme.md`；不可读则停止。
+3. 禁止训练、微调、换 checkpoint、改 split、下载新权重/数据、借用其它个人项目结果、追 DOTA 公开 mAP或补 full 9-detector matrix。
+4. 记录 dataset/split、GT、class map、tile/mother-scene mapping、config、checkpoint、framework/version、raw 的 SHA-256、bytes、图像/GT/预测数与精确命令。报告使用逻辑路径或 repo-relative path，不写机器名、账号或本机绝对路径。
+5. matched-only、partial-GT、旧 partial universe、缺 prediction identity 的表不能替代 full raw；历史 K1 数字仅用于 dose=0 parity。
+6. inference 默认使用 4×A30；先每 unit 2 images smoke test，再正式 full inference。若框架/config/checkpoint 不匹配，标 INVALID 并早停，不自行迁移模型。
 
-- `evidence_status = VALID | QUALIFIED | INVALID | UNRESOLVED`
-- `action = RETAIN | QUALIFY | QUARANTINE | REMOVE`
+## 4. Phase 0：preflight、协议冻结与幂等性
 
-`evidence_paths` 是 JSON array 字符串；每个路径必须存在于 execution HEAD，并标明生成端或消费端角色。先完成 inventory，再编写 deterministic validator：
+- 所有 r009 Git 输出、runtime raw 目录和根记录 round marker 在首次运行前必须不存在；存在即停止，不覆盖、不重复 append。
+- 从 `a4_protocol_frozen.json` 继承：dose=`0,2,5,10,15,20,25,30` degree，主域 `ar>=2.1`，post-NMS 干预，NMS 不重跑，完整 evaluator 重新匹配。
+- 冻结 evaluator、class map、score tie rule、angle convention、GT aspect ratio、image/scene cluster unit、seed=`20260806`、bootstrap=`1000`。
+- 生成 `a4_fixed_dose_protocol_r009.json` 后不得修改协议。任何科学性偏离写 `PROPOSED_DEVIATION` 并停止。
 
-`top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/validate_a1_claim_reconciliation_r008.py`
+## 5. Phase 1：独立 evaluator gate
 
-validator 只实现本文件规定的集合、schema、hash、覆盖率、路径和禁词检查，不自行判断创新。记录 validator 在编辑 v078 前的 SHA-256；之后不得修改它。若 inventory 无法闭合或 validator 无法运行，停止并输出 inconclusive，不进入阶段 B。
+主生成端使用项目对应的官方 DOTAMetric/等价配置；仓库 K1 evaluator 走独立代码路径复核。不得让两个名字调用同一函数后声称独立。
 
-### 3.2 阶段 B：生成保守 v078
+Golden cases 至少覆盖：
 
-以 v077 的字节副本初始化 v078，先记录 v077 SHA-256，再只编辑 v078。逐项执行 ledger action：
+- le90 周期等价和 0/90°边界；
+- class mismatch；
+- 重复 prediction 的一对一 greedy matching；
+- 同分稳定排序；
+- 空 prediction、空 GT、空 class；
+- 单 TP、单 FP、单 FN；
+- post-NMS identity 保持。
 
-- `RETAIN` 仅用于 `VALID` 的 orientation-specific measurement claim；
-- matched-only、单数据集、探索性、retrospective 或边界不完整者必须 `QUALIFY`；
-- 依赖禁用证据者必须 `QUARANTINE` 或 `REMOVE`；
-- `UNRESOLVED` 不得保留为 headline，只能移除或在局限中明确写成未解决。
+`PASS_EVALUATOR_R009` 当且仅当全部 golden cases 符合手算 expected result，并且两个 evaluator 在每个 Core dose=0 的 AP50/AP75 绝对差均 `<=0.002`；重算 dose=0 与冻结 K1 权威端点绝对差也均 `<=0.002`。任一失败即 `FAIL_EVALUATOR_R009`，停止科学实验；仍生成全部预注册小产物，未运行表填 `NOT_RUN`，v079 只完成 formal claim 隔离。
 
-所有 v077→v078 修改 hunk 必须映射至少一个 `claim_id`；所有 v078 中满足阶段 A 抽取规则的句子也必须反向映射 ledger。任何未映射 hunk 或未映射 target claim 都是 hygiene fail。
+## 6. Phase 2：同一 raw 的 baseline 重算
 
-## 4. 必须机器执行的检查
+对全部有效 Core-6，从同一 full post-NMS raw + full GT 生成：
 
-validator 和 gate JSON 至少报告：
+- AP50、AP75，并在 evaluator 原生支持时报告 AP50:95；
+- `ar>=2.1` matched TP 的 canonical le90 angle error、geometry-normalized severe event；
+- detection-score risk–coverage、AURC、NRC、Risk@50/70/90；
+- image 或可恢复 mother-scene cluster bootstrap 1000 次；SODA-A 的母景角色交叉必须如实标记，不能伪称 confirmatory；
+- image count、GT count、prediction count、matched count、retained count 与统计单位。
 
-1. v077 hash 未变；v078、ledger、validator 的 bytes/SHA-256/Git blob；
-2. ledger schema、枚举、唯一 claim_id、路径存在性和 source/target text hash；
-3. v077 抽取集合→ledger 与 v078 抽取集合→ledger 的双向覆盖，均须 100%；
-4. v078 numeric token set、citation key/URL set、dataset name set、method/entity set 相对 v077 的差集；正文差集必须为空；
-5. 每个修改 hunk→claim_id 覆盖率 100%；
-6. 禁止肯定式表述命中：`正式认证|认证通过|保证控制|部署保证|formal certification|certified guarantee|FWER controlled|PASS_SPLIT_FST|PASS_BROAD_TARGET_FREE`。允许在历史/局限中出现，但同一句必须含 `历史|撤回|无效|未闭环|探索性|不构成|history|withdrawn|invalid|inconclusive|exploratory|not`，并逐条输出句子与裁决，不能只给计数；
-7. v078 不得新增引用条目、数据集、算法、实验数字或首创声明；
-8. operation counts：训练、检测器推理、score-regressor fit/predict、GPU、下载、外部数据访问全部为 0。
+AP 使用 full evaluator；matched TP 只用于 orientation estimand，不能代替 AP。所有结果必须有稳定 row key `unit|track|dose|iou|ar_bin|metric`。
 
-## 5. Gate
+## 7. Phase 3：三条固定剂量 full-evaluator track
 
-`PASS_CLAIM_QUARANTINE_R008` 当且仅当：阶段 A/B 均完成；双向覆盖、hunk 映射、schema、路径、hash、禁词和新增实体检查全过；无 `INVALID/UNRESOLVED` headline；无效 formal claim 全部隔离；授权路径与提交路径闭合。
+共同规则：只改 final post-NMS prediction 的 theta；score、class、cx、cy、w、h、prediction identity 全冻结；`ar<2.1` prediction 不动；NMS 不重跑；每个 dose 都用 full GT 重新 classwise greedy matching 和 AP。不得声称测量了 NMS 效应。
 
-`FAIL_CLAIM_QUARANTINE_R008`：上述任一可执行检查失败，或服务器擅自新增科学内容、把标准统计工具包装成首创、把实现错误包装成科学负结果。
+### Track P：冻结 positive-dose 主协议
 
-`INCONCLUSIVE_CLAIM_QUARANTINE_R008`：必需输入、inventory、schema、hash 或证据路径无法闭合，且不能在不猜测的前提下判定。不得用主观补写变成 pass。
+按 `a4_protocol_frozen.json`，对每个 `ar>=2.1` prediction 加正 dose。它是与历史 A4 连续的预注册主曲线，不得因结果改方向。
 
-`SUFFICIENT_FOR_MEASUREMENT_REVISION` 当且仅当：隔离后至少保留 3 个不同 `claim_class` 的实质 OBB-specific measurement claims；全部为 `VALID/QUALIFIED`；合计覆盖至少 2 个数据集和 2 个检测器单元；形成“测量定义/机制或混杂—可复算观察—边界/反证”的闭环；不依赖禁用 formal 证据或标准 LTT novelty。否则为 `INSUFFICIENT_AFTER_QUARANTINE`；必要证据不可得时为 `INCONCLUSIVE_CORE_EVIDENCE`。
+### Track D：GT-directed diagnostic intervention
 
-## 6. provenance、幂等性与早停
+仅对 dose=0 时 class-correct、IoU50 matched 且 `ar>=2.1` 的 prediction，在 `+dose/-dose` 中选择使其相对 matched GT 的 le90 error 更大的方向，tie 固定为正；其它 prediction 不动。明确标为使用 GT 的诊断上界，不是部署方法或自然扰动。
 
-- 首次运行前，v078、ledger、gate、manifest、validator、server report 必须均不存在，且根记录不得已有本 round marker；否则停止并报告，不覆盖、不重复 append。
-- 根记录只 append 一条，包含唯一 round marker、两个状态及 operation counts。运行结束验证本轮 marker 恰好出现一次。
-- manifest 的 `authorized_changes` 必须精确等于第 7 节 7 个路径；登记全部输入和除自身外全部输出的 bytes/SHA-256/Git blob。manifest 自身固定写 `sha256 = N/A_SELF_REFERENCE`、`git_blob = N/A_SELF_REFERENCE`，不得伪造自哈希。
-- 先完成 v078、ledger、validator、gate 和 server report，再 append 根记录一次；核对根记录最终 bytes/blob 后，最后生成 manifest。manifest 登记这些最终产物，唯独自身身份写 `N/A_SELF_REFERENCE`；manifest 生成后不得再修改任何输出。
-- 不训练、不推理、不拟合 score regressor、不下载、不访问外部数据、不修改历史资产。任何必需输入缺失即早停。
+### Track S：GT-free symmetric falsifier
 
-## 7. 唯一授权写入与精确提交集合
+分别完整运行全体 `ar>=2.1` prediction 的 `+dose` 与 `-dose` 两条曲线，并报告两者及预先定义的算术平均；不得挑较差方向作为结果。
 
-精确 7 个 commit 路径：
+同时计算 frozen-pair surrogate，但它只能与 full evaluator 的差异一起报告，不能写成 AP。
 
-- `claude_code_and_supervisor.md`（append-only 一条）
-- `dis/server_reports/orientbench-c-r008-20260806.md`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v078.md`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_r008.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_gate_r008.json`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_manifest_r008.json`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/validate_a1_claim_reconciliation_r008.py`
+## 8. Phase 4：几何机制与不确定性
 
-不得触碰其它路径，尤其 `dis/B.md`、`dis/C.md`、`dis/sug.md`、`dis/review_state.json`、v077 和 r004–r007 资产。需要偏离时写 `PROPOSED_DEVIATION` 并停止。
+- GT aspect-ratio bins 固定为 `[2.1,3)`、`[3,5)`、`[5,∞)`；不事后合并。
+- 对 baseline TP 报 IoU50/IoU75 survival 随 dose 的变化、每 bin 样本数和 scene-cluster paired CI。
+- 每 unit 单独计算；跨 unit meta-summary 以 unit 为层级，禁止池化实例伪造样本量。
+- 对 dose=15° 的 `drop_AP75-drop_AP50` 做 paired cluster bootstrap 95% CI；P、D、S 分开。
+- AP75 单调性仅对 Track D 判定：相邻允许数值容差 `0.002`，并报告 Spearman rho。
+- knee 固定定义为首个 `AP75 drop>=0.05` 且之后不恢复超过 `0.002` 的 dose；不满足写 `NOT_IDENTIFIED`，禁止插值。
 
-## 8. Git 与最终回复
+## 9. 预注册 gate 与 kill condition
 
-起始工作树/index 必须干净；仅 fast-forward。只显式暂存上述 7 个路径，普通中文 commit，SSH push，禁止 force。提交前运行 validator、JSON 解析、`git diff --check`、普通/staged diff，并确认 `dis/B.md` 与 v077 blob 未变。
+### 9.1 Provenance
+
+- `PASS_PROVENANCE_R009`：Core-6 全部 full raw/full GT/config/checkpoint/split/hash/命令闭合，dose=0 universe 完整。
+- `INCONCLUSIVE_PROVENANCE_R009`：允许的重新 inference 后仍缺任一 Core，或身份不能闭合。extension 不得补位，科学实验早停。
+
+### 9.2 Mechanism
+
+`PASS_STRONG_JSTARS_EVIDENCE_R009` 要求同时满足：
+
+1. provenance 与 evaluator 均 pass，Core-6 三 track×八剂量全部完成；
+2. Track D 在 15° 时至少 4/6 units 且三个数据集各至少一个 unit 的 `drop_AP75-drop_AP50>0`，paired 95% CI 下界 `>0`；
+3. Track S 的 `(+/-)/2` 在同一 4/6 与三数据集门上方向一致且 CI 下界 `>0`，证明结论不只来自 GT-directed 选方向；
+4. Track D 至少 4/6 units 的 AP75 随 dose 近似单调：Spearman `<=-0.9` 且相邻恢复不超过 `0.002`；
+5. IoU75 TP survival 满足 `[2.1,3) >= [3,5) >= [5,∞)` 的有序敏感性至少 4/6，并覆盖三个数据集；
+6. Track P 完整报告且没有某一数据集全部出现相反方向；不要求其每个 unit 单调。
+
+若主要方向一致但 CI、数量或某个次级条件不足，记 `INCONCLUSIVE_MECHANISM_R009`。若 D/S 任一主证据少于 3/6 支持，或某数据集全部稳定反向，记 `FAIL_UNIFIED_MECHANISM_R009`，从主稿删除统一 AP75 机制和统一 knee claim。
+
+### 9.3 TGRS 条件上限
+
+只有 strong-JSTARS gate pass 后才运行/解释 extension。若三 extension units 全部 provenance/evaluator/八剂量闭合，覆盖总计至少四数据集、三 detector families，且 Track S 与 Core 同方向，记 `PASS_TGRS_BORDERLINE_EVIDENCE_R009`；否则记 `NOT_REACHED_TGRS_BORDERLINE_R009`。即便 pass 也只能称 TGRS-borderline evidence，不得称 TGRS-ready；无独立 confirmatory unit 和第三标注员缺失仍是限制。
+
+### 9.4 全局 kill
+
+事后修改 unit/dose/bin/checkpoint/split/seed/gate，使用 matched-only/partial-GT 冒充 AP，把 GT-directed 写成部署，把 post-NMS 写成 NMS 效应，挑 `+/-` 较差方向，或使用其它项目结果，任一发生即 `FAIL_PROTOCOL_R009`。
+
+## 10. v079 与真实 claim ledger
+
+无论 r009 pass/fail/inconclusive，都从 v078 新建 v079，不覆盖历史文件，并先完成以下强制 quarantine：
+
+- 从摘要、贡献、主结果表、讨论和结论移除 576/20/68/554/142、formal certification/practical certification、严格风险保证和“可部署分数基本不可认证”等尚未通过独立 formal 验收的 headline；
+- 表 6 删除或替换为“历史探索性审计，formal implementation 未闭环，不作为本文证据”；
+- LTT/HB/CP 只可作为历史探索工具或局限，不能作为本稿贡献或负结果；
+- 不把 r006/r007/r008 实现失败写成科学发现。
+
+随后按 r009 gate 写结果：PASS 如实加入；FAIL 删除统一机制；INCONCLUSIVE 只增加边界。禁止补数字救故事。
+
+新 ledger 只收实质 claim，不收标题和参考文献；至少覆盖下列固定 claim families：measurement definition、full-evaluator AP、fixed-dose intervention、empirical-vs-ideal geometry、NRC/AURC、size-conditioned diagnostic、statistical-unit boundary、human annotation boundary、confirmation status、historical certification quarantine。每行必须包含：
+
+`claim_id,manuscript_section,line,text,text_sha256,claim_family,dataset,unit,estimand,result_row_keys,generator_script,input_manifest,gate,status,action,reason`
+
+每个 retained/qualified headline 必须绑定具体 CSV row key、生成脚本、input manifest 与 gate；v079 或 `dis/**` 不能作为数字的唯一证据。`status=VALID|QUALIFIED|INVALID|UNRESOLVED`；`action=RETAIN|QUALIFY|REMOVE`。
+
+## 11. 实现、validator 与资源要求
+
+- runner 与 validator 必须是独立入口；validator 默认 `--check` 绝对只读，不得创建、覆盖或格式化任何文件。需要生成 gate 只能由 runner 显式执行，validator 只比较仓库内容并 stdout 返回状态。
+- validator 必须检查协议 JSON、Core/extension 身份、golden expected results、row keys、dose/track/bin 集合、baseline parity、bootstrap seed/reps、gate 逻辑、ledger 证据角色、v078/v079 diff 和授权路径。跨平台文本身份以 Git blob/规范 LF 为准，不以 checkout CRLF bytes 作科学差异。
+- runner 先写临时文件再原子替换。CPU 密集 evaluator/bootstrap 使用至少 80% 可用 CPU；记录 worker budget 与实际利用率。inference 记录 4-GPU 资源与 smoke/full 次数。
+- operation counts 分开报告 detector training/inference、score-regressor fit/predict、evaluator calls、bootstrap replicates、GPU hours、download；不得用静态源码审计冒充运行时计数。
+- large raw 只进入 gitignored runtime raw root；Git 只提交小型代码、表、JSON、memo、v079、server report 与根记录。
+
+## 12. 精确 Git 写入集合
+
+所有状态都生成以下 18 个小型路径；未运行的表保留 schema 并写 `NOT_RUN`，不得缺文件或制造第二报告：
+
+1. `claude_code_and_supervisor.md`（append-only 恰好一条）
+2. `dis/server_reports/orientbench-c-r009-20260806.md`
+3. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/run_a4_fixed_dose_r009.py`
+4. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/validate_a4_fixed_dose_r009.py`
+5. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_protocol_r009.json`
+6. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_raw_prediction_inventory_r009.csv`
+7. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evaluator_golden_r009.csv`
+8. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_baseline_recompute_r009.csv`
+9. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_positive_r009.csv`
+10. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_gt_directed_r009.csv`
+11. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_fixed_dose_symmetric_r009.csv`
+12. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_geometry_survival_r009.csv`
+13. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_cluster_bootstrap_r009.csv`
+14. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_claim_ledger_r009.csv`
+15. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evidence_gate_r009.json`
+16. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_evidence_manifest_r009.json`
+17. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/a4_orientation_intervention_evidence_r009.md`
+18. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v079.md`
+
+禁止修改其它路径，尤其 `dis/B.md`、`dis/C.md`、`dis/sug.md`、`dis/review_state.json`、v077/v078、r004–r008 资产和 `.gitignore`。
+
+生成顺序：完成全部非 manifest 输出→根记录 append 一次→显式 stage manifest 以外的 17 个路径→用 `git hash-object --path` 记录规范 Git blob→最后生成并 stage manifest（自身 SHA/blob=`N/A_SELF_REFERENCE`）→运行只读 validator、JSON 解析、`git diff --check`、普通/staged diff。manifest `authorized_changes` 与实际 18 路径必须精确一致。
+
+普通中文 commit；SSH push；禁止 force/merge/rebase/reset/clean。push 失败保留 commit 并如实报告。
+
+## 13. 最终回复
 
 服务器最终回复首行只能是 `执行完毕` 或 `未执行完毕`。
 
-第二行必须且只能给出：`dis/server_reports/orientbench-c-r008-20260806.md`
+第二行必须且只能给出：`dis/server_reports/orientbench-c-r009-20260806.md`
