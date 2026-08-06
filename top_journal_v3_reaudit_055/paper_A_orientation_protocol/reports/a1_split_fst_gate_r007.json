@@ -1,0 +1,180 @@
+{
+  "breadth": {
+    "qualifying_datasets": [
+      "DIOR-R"
+    ],
+    "qualifying_rows": 14,
+    "qualifying_units": [
+      "A",
+      "B",
+      "C"
+    ],
+    "threshold": "at least 3 of 6 units and 2 of 3 datasets"
+  },
+  "candidate_rows": 7488,
+  "cpu": {
+    "available": 48,
+    "parallel_backend": "ThreadPoolExecutor for 108 simulations; serial fixed-grid loops remain serial",
+    "worker_budget": 39
+  },
+  "d_fit_only_order_taint": {
+    "failures": 96,
+    "families": 1152,
+    "match": 0
+  },
+  "development_gate": "INCONCLUSIVE_DEVELOPMENT_R007",
+  "exact_integer_hb": {
+    "boundary_check_pass": false,
+    "comparisons": 8352,
+    "failures": 0
+  },
+  "examples": [
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.001"
+      ],
+      "trivial_guarantee",
+      "False",
+      false
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.001"
+      ],
+      "feasible",
+      "False",
+      null
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.001"
+      ],
+      "practical",
+      "False",
+      false
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.001"
+      ],
+      "calibration_scene_count",
+      "1794",
+      null
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.001"
+      ],
+      "audit_scene_count",
+      "3494",
+      null
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.0025"
+      ],
+      "trivial_guarantee",
+      "False",
+      false
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.0025"
+      ],
+      "feasible",
+      "False",
+      null
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.0025"
+      ],
+      "practical",
+      "False",
+      false
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.0025"
+      ],
+      "calibration_scene_count",
+      "1794",
+      null
+    ],
+    [
+      [
+        "A",
+        "detection_score",
+        "angle_error_gt_10deg",
+        "absolute_0.0025"
+      ],
+      "audit_scene_count",
+      "3494",
+      null
+    ]
+  ],
+  "execution_head": "890c788682783acd652804db48840fa21158a878",
+  "existing_rows": 576,
+  "extra": 0,
+  "family_rows": 576,
+  "field_mismatches": 2866,
+  "fwer": {
+    "holm_all_pass": false,
+    "replicates": 50000,
+    "scenarios": 108,
+    "seed": 20260805,
+    "split_fst_all_pass": false
+  },
+  "missing": 0,
+  "operation_counts": {
+    "detector_fit": 0,
+    "detector_predict": 0,
+    "download": 0,
+    "gpu": 0,
+    "inference": 0,
+    "other_personal_project_reads": 0,
+    "rsar_reads": 0,
+    "score_regressor_fit": 12,
+    "score_regressor_predict": 12,
+    "training": 0
+  },
+  "rebuilt_rows": 2304,
+  "retrospective_development_only": true,
+  "round_id": "orientbench-c-r007-20260805",
+  "sanitizer": {
+    "hits": [],
+    "scope": "bounded scan over final generated files and root record append",
+    "status": "PASS"
+  },
+  "schema_version": "a1_split_fst_gate_r007_v1",
+  "scientific_snapshot": "8e93291b75b34ddfb7b74a7592e1573407603f88",
+  "status": "FAIL",
+  "structure_gate": "FAIL_SPLIT_FST_VALIDITY_R007"
+}

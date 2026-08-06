@@ -1,0 +1,12 @@
+# orientbench-c-r007 split-FST validity
+- scientific snapshot: `8e93291b75b34ddfb7b74a7592e1573407603f88`
+- execution head: `890c788682783acd652804db48840fa21158a878`
+- structure: `FAIL_SPLIT_FST_VALIDITY_R007`
+- development: `INCONCLUSIVE_DEVELOPMENT_R007`
+- validity checks: exact_integer=False, boundary_checks=False, taint=False, split-FST_sim=False, lineages=True
+- disjoint split counts: fit/calib/audit intersections are reported in a1_split_fst_split_disjoint_r007.csv
+- frontier rows: 2304 (expected 2304, split-fst 576×4)
+- exact rows: 8352
+- order taint rows: 1152
+- fwer rows: 108
+- all results are retrospective development-only and do not add deployment claims
