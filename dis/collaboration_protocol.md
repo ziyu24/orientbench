@@ -6,13 +6,13 @@
 
 当前轮：
 
-- round: `orientbench-c-r006-20260805`
-- scientific snapshot: `60142448ff1f461531ad1eb2cd0c17785e782350`
+- round: `orientbench-c-r007-20260805`
+- scientific snapshot: `8e93291b75b34ddfb7b74a7592e1573407603f88`
 - manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`
 - C report: `dis/C.md`
-- CC/B only report: `dis/B.md`（r001 已完成；r006 不启动新 CC）
-- server only report: `dis/server_reports/orientbench-c-r006-20260805.md`
-- previous server report: `dis/server_reports/orientbench-c-r005-20260805.md`
+- CC/B only report: `dis/B.md`（r001 已完成；r007 不启动新 CC）
+- server only report: `dis/server_reports/orientbench-c-r007-20260805.md`
+- previous server report: `dis/server_reports/orientbench-c-r006-20260805.md`
 
 ## 2. 角色与文件所有权
 
@@ -36,6 +36,8 @@
 服务器执行计数必须把 detector 训练/推理、诊断模型 fit/predict、数据下载和 GPU 分开报告；静态源码审计只能证明可见控制流，不能伪称系统调用级运行时计数器。
 
 同一 `unit × endpoint × alpha` 因多个 score 复制出的行必须同时报告唯一科学情境数；不得把重复行比例表述为独立任务的 prevalence。标准 LTT、fixed-sequence、Holm 等既有工具只能作为协议组件，不得因在本项目使用而声明方法首创。
+
+任何 gate 的实现检查都必须进入最终布尔条件；恒真自比较、没有实际改变输入的 taint 测试、错误方向的单侧 p-value 或仅在报告中披露却未阻断 gate 的 mismatch，一律不能支撑 pass。validity 非 pass 时，依赖它的发展 gate 必须记为 inconclusive；描述性计数应与正式 gate 分层保存。
 
 C 收到 `dis/B.md` 或服务器报告后，对每项只给出：
 
