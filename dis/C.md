@@ -6,7 +6,8 @@
 - active manuscript: [`orientation_reliability_paper_A_zh_v077.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md)
 - r007 report: [`orientbench-c-r007-20260805.md`](server_reports/orientbench-c-r007-20260805.md)
 - formal state: structure=`FAIL_SPLIT_FST_VALIDITY_R007`; development=`INCONCLUSIVE_DEVELOPMENT_R007`; C2-R method route=`KILLED`; RSAR=`FORBIDDEN`; submission=`NOT_READY`
-- venue from innovation: **JSTARS plausible；TGRS/ISPRS JPRS high-risk and not ready**
+- innovation potential / venue ceiling: **strong JSTARS；TGRS-borderline only conditionally**
+- current evidence maturity: **JSTARS plausible, NOT_READY；TGRS/ISPRS JPRS high-risk**
 - `cc_recommendation: no`：当前裁决由可定位的实现反例决定；再做意见审稿不能修复证据。投稿前全稿审查时再考虑 CC。
 
 ## 1. 结论
@@ -50,10 +51,10 @@ C2-R 不再作为 TGRS 方法贡献继续：即使修复审计器，LTT/fixed-se
 | C2-R：OBB split-FST 方法贡献 | OBB scene risk 与 matched/full-output 边界 | 标准统计工具非 novelty；formal 实现连续不可信；描述性正例仅 DIOR-R | 正确 reference unit test 只能确认复现性，不能创造 novelty | **killed**；不恢复、不启动 RSAR |
 | C4：orientation measurement + protocol failure analysis | 几何归一化风险、AP 阈值敏感性、scene-unit 纠正、人工标注边界的组合证据 | 删除 certification 后可能只剩零散观察；matched-only 部署外推过强 | r008 逐条 claim-to-generation-source 对账和保守主稿副本 | 若删掉 certification 后不能形成完整 orientation-specific 论证，降为技术报告/工具箱 |
 
-## 5. 期刊级别（只看当前创新）
+## 5. 期刊级别：创新潜力与当前成熟度分开
 
-- **TGRS / ISPRS JPRS：高风险、当前不 ready。** 现阶段没有可信的新方法贡献；标准 LTT 不能算首创，单数据集探索线索也不足以支撑广泛遥感结论。
-- **JSTARS：plausible，但尚不能称稳。** 若 r008 证明删除无效 certification 后，几何/指标/统计单位/人工审计仍组成一个可复核的 orientation measurement 故事，可按 JSTARS 方向继续打磨。
+- **创新潜力/期刊上限：strong JSTARS。** r007 淘汰的是 C2-R/LTT 方法副线，没有直接证伪原有 OBB measurement 组合创新；TGRS-borderline 只能作为满足多数据集、多架构、完整机制与部署边界后的条件上限。
+- **当前证据成熟度：JSTARS plausible、NOT_READY；TGRS/ISPRS JPRS 高风险。** 现阶段没有可信的新方法贡献；标准 LTT 不能算首创，单数据集探索线索也不足以支撑广泛遥感结论。
 - 若 r008 显示核心价值主要依赖无效 certification，期刊上限需再降，优先技术报告或工具型产物。
 
 ## 6. 下一步与决策台账

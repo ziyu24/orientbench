@@ -14,7 +14,8 @@
     "c2_power_aware_ltt": "KILLED_AS_METHOD_CONTRIBUTION",
     "external_acquisition": "RSAR_FORBIDDEN",
     "submission_readiness": "NOT_READY",
-    "venue_ceiling": "JSTARS_PLAUSIBLE_TGRS_HIGH_RISK_NOT_READY",
+    "innovation_venue_ceiling": "STRONG_JSTARS_TGRS_BORDERLINE_CONDITIONAL",
+    "current_evidence_maturity": "JSTARS_PLAUSIBLE_NOT_READY_TGRS_HIGH_RISK",
     "next_scientific_gate": "R008_MANUSCRIPT_CLAIM_QUARANTINE"
   },
   "evidence_index": "dis/C.md",
