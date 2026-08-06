@@ -1,24 +1,21 @@
 {
   "schema_version": "1.0",
   "project": "orientbench",
-  "round_id": "orientbench-c-r007-20260805",
-  "review_date": "2026-08-05",
-  "scientific_snapshot_sha": "8e93291b75b34ddfb7b74a7592e1573407603f88",
+  "round_id": "orientbench-c-r008-20260806",
+  "review_date": "2026-08-06",
+  "scientific_snapshot_sha": "426d47855eb91d5af947e8bdf9e06d035a95ebf0",
   "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md",
   "scientific_state": {
     "paper_a": "A_MEASUREMENT_ONLY",
-    "original_a6": "NO_ELIGIBLE_CONFIRMATORY_UNIT_FROZEN",
-    "paper_b": "RETIRED_FAIL_CANDIDATE_GATE",
-    "r005_score_cause_gate": "INCONCLUSIVE_SCORE_CAUSAL_ATTRIBUTION_ADOPTED",
-    "r006_reported_structure_gate": "REJECTED_FALSE_PASS",
-    "r006_c_structure_gate": "FAIL_SPLIT_FST_VALIDITY_IMPLEMENTATION",
-    "r006_formal_development_gate": "INCONCLUSIVE_DEVELOPMENT",
-    "r006_descriptive_breadth": "14_ROWS_12_CONTEXTS_3_UNITS_1_DATASET_DIOR_R_ONLY",
-    "c2_power_aware_ltt": "PENDING_MINIMAL_R007_REPAIR_KILL_IF_ONE_DATASET",
+    "r007_structure_gate": "FAIL_SPLIT_FST_VALIDITY_R007_IMPLEMENTATION_FAILURE",
+    "r007_scientific_interpretation": "INVALID_AS_PROTOCOL_OR_SCIENCE_COUNTEREXAMPLE",
+    "r007_formal_development_gate": "INCONCLUSIVE_DEVELOPMENT_R007",
+    "r007_descriptive_breadth": "14_ROWS_12_CONTEXTS_3_UNITS_1_DATASET_DIOR_R_ONLY",
+    "c2_power_aware_ltt": "KILLED_AS_METHOD_CONTRIBUTION",
+    "external_acquisition": "RSAR_FORBIDDEN",
     "submission_readiness": "NOT_READY",
-    "venue_ceiling": "STRONG_JSTARS_TGRS_NOT_CREDIBLE_YET",
-    "next_scientific_gate": "R007_ONE_SIDED_HB_REAL_TAINT_AND_FWER_REPAIR",
-    "external_acquisition": "RSAR_FORBIDDEN_PENDING_R007_AND_KILLED_IF_BREADTH_FAIL"
+    "venue_ceiling": "JSTARS_PLAUSIBLE_TGRS_HIGH_RISK_NOT_READY",
+    "next_scientific_gate": "R008_MANUSCRIPT_CLAIM_QUARANTINE"
   },
   "evidence_index": "dis/C.md",
   "c": {
@@ -35,9 +32,9 @@
   "server": {
     "status": "READY_FOR_SERVER",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r007-20260805.md",
-    "last_completed_report_path": "dis/server_reports/orientbench-c-r006-20260805.md",
-    "last_verdict": "R006_STRUCTURE_FAIL_DEVELOPMENT_INCONCLUSIVE_DESCRIPTIVE_BREADTH_ONE_DATASET"
+    "only_report_path": "dis/server_reports/orientbench-c-r008-20260806.md",
+    "last_completed_report_path": "dis/server_reports/orientbench-c-r007-20260805.md",
+    "last_verdict": "R007_IMPLEMENTATION_FAIL_SCIENCE_INCONCLUSIVE_C2_METHOD_ROUTE_KILLED"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }

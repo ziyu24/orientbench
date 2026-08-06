@@ -1,72 +1,71 @@
-# OrientBench C 侧 r006 裁决与 r007 有效性修复门
+# OrientBench C 侧 r007 验收与 r008 裁决
 
-- round: `orientbench-c-r007-20260805`
-- scientific snapshot: `8e93291b75b34ddfb7b74a7592e1573407603f88`
-- evidence cutoff: `2026-08-05`
+- round: `orientbench-c-r008-20260806`
+- scientific snapshot: `426d47855eb91d5af947e8bdf9e06d035a95ebf0`
+- evidence cutoff: `2026-08-06`
 - active manuscript: [`orientation_reliability_paper_A_zh_v077.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md)
-- r006 report: [`orientbench-c-r006-20260805.md`](server_reports/orientbench-c-r006-20260805.md)
-- current state: r006 provenance=`PASS`；reported structure pass=`REJECTED`；C structure=`FAIL_SPLIT_FST_VALIDITY_IMPLEMENTATION`；formal development=`INCONCLUSIVE_PENDING_R007`；descriptive breadth=`3 units / 1 dataset only`；submission=`NOT_READY`
-- venue ceiling: **strong JSTARS；TGRS/ISPRS JPRS 尚不 credible/ready**
-- `cc_recommendation: no`：当前分歧由确定代码反例和最小重算裁决，不需要再次意见审稿。
+- r007 report: [`orientbench-c-r007-20260805.md`](server_reports/orientbench-c-r007-20260805.md)
+- formal state: structure=`FAIL_SPLIT_FST_VALIDITY_R007`; development=`INCONCLUSIVE_DEVELOPMENT_R007`; C2-R method route=`KILLED`; RSAR=`FORBIDDEN`; submission=`NOT_READY`
+- venue from innovation: **JSTARS plausible；TGRS/ISPRS JPRS high-risk and not ready**
+- `cc_recommendation: no`：当前裁决由可定位的实现反例决定；再做意见审稿不能修复证据。投稿前全稿审查时再考虑 CC。
 
-## 1. 结论先行
+## 1. 结论
 
-r006 不能采纳 `PASS_SPLIT_FST_VALIDITY`。其来源链、提交范围、主 frontier 行数以及“合格行只来自 DIOR-R”可信，但两个预注册结构检查没有被正确实现，且错误 exact p-value 被用于 FWER simulation。因此按原 gate 必须记为 validity fail；development 正式状态随之为 inconclusive，而不是正式 breadth fail。
+r007 不能采纳为有效的 split-FST 科学检验。服务器正确报告了 formal gate fail，但其 108/108 FWER fail、96 个 taint mismatch 和 2866 个 frontier parity mismatch 主要由新审计器自身错误产生，不能解释成统计协议、理论或科学假设被证伪。
 
-即便如此，使用正确冻结 bounded-loss `hb_pvalue` 生成的描述性 frontier 仍只有 14 个 qualifying rows、12 个唯一 `unit×endpoint×alpha` context，覆盖 A/B/C 和唯一数据集 DIOR-R。FAIR1M/SODA-A 的 nominal pass 均为 `alpha>=r_fit` 的 trivial guarantee。修复后跨数据集广度仍失败的概率高，当前禁止进入 RSAR acquisition。
+可采纳的 r007 证据限于：提交路径与大部分已登记产物身份闭合；A–F 的 fit/calibration/audit 三组交集为 0；主 frontier 仍给出 14 rows、12 个唯一 context、A/B/C、DIOR-R-only 的描述性线索。后者不是 formal certification、prevalence、跨数据集广度或 deployment guarantee。
 
-## 2. r006 证据审计
+C2-R 不再作为 TGRS 方法贡献继续：即使修复审计器，LTT/fixed-sequence/Holm 仍是标准工具；现有非平凡线索又仅覆盖一个数据集。停止 RSAR acquisition，不以新增数据事后救援。项目回到 orientation-specific measurement 与协议失效分析主线。
 
-### 2.1 采纳的 provenance 与数字
+## 2. r007 证据裁决
 
-- 服务器结果提交：`8e93291b75b34ddfb7b74a7592e1573407603f88`；execution HEAD：`7d067f44240b8790f5bc3cb346d6f866d09ce97e`。
-- 9 个提交路径与 manifest 授权集合一致；8 个非自指输出的 commit bytes、size、SHA-256 与 Git blob 闭环；`dis/B.md` 未变化。
-- manifest 的 48 个输入中，30 个仓库内输入可独立核对且一致；18 个服务器 raw 资产本机不可重哈希，是 provenance 最弱环节。
-- 7,488=`576×13` order rows、2,304 frontier rows、108 simulation rows、144 witness rows，唯一键完整。
-- primary 描述性合格行 14，唯一 context 12；units=`A,B,C`，dataset=`DIOR-R`。这是 3/6 units 但仅 1/3 datasets，未达到 2 datasets。
-
-### 2.2 拒绝 reported structure pass 的确定反例
-
-1. [`audit_a1_split_fst_r006.py`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_split_fst_r006.py) 的 `hb_p_exact`/`pvec_exact` 缺少单侧条件 `k/n >= alpha => p=1`。在 7,488 行中，5,242 行满足 `k/n>=alpha` 却得到 exact `<1`，其中 4,373 行错误达到 `<=0.1`，会把高风险观测误写成“安全可拒绝”。
-2. 同一脚本的 outcome-taint 检查是 `hash(serial)==hash(serial)`，恒真；没有置换 D_cal/D_audit outcome，576/576 pass 不是执行证据。
-3. exact 对照有 6,762/7,488 mismatch，但 `valid` 条件没有包含该检查。
-4. 108 个 FWER simulation 调用错误的 vector exact p-value；其 CP upper 数值虽可重算吻合，测量的却不是合法单侧程序，不能支撑 super-uniform 或 strong FWER sanity。
-
-主 frontier 使用冻结且含正确单侧 guard 的 bounded-loss scalar `M.hb_pvalue`，所以 14 行的描述性方向大概率不受上述 bug 影响；但正式 gate 必须经 r007 重新裁决。
-
-## 3. 论文含义与最强审稿攻击
-
-split-FST/LTT 是已有统计工具，不是 OrientBench novelty。现有数据最多支持：“在 OBB matched-orientation 的场景级风险中，合法非平凡 target-free certification 可能存在，但目前只在 DIOR-R 出现；固定绝对风险预算还会在低 base-risk 数据上制造 nominal/trivial pass。”
-
-最强攻击仍是：
-
-- matched-only estimand 排除了 FP、FN 与真空场景，不是 full-output deployment guarantee；
-- A–F 已暴露，全部是 retrospective protocol development；
-- 单数据集成功不足以形成 TGRS 级普适方法贡献；
-- 统计工具已有，遥感实质增量必须来自 orientation-specific measurement、失败机制与可复核反例，而不能来自换检验顺序。
-
-主稿在 r007 前不得把 r004 的 `142/144 infeasible` 当作当前协议总括，也不得把 r006 的 reported structure pass 写入正文。最终应分层保留历史 literal gate 与修正后的协议结果。
-
-## 4. 可证伪候选
-
-| candidate | nearest primary work / material delta | minimum decisive test | kill condition |
+| item | decision | evidence | implication |
 |---|---|---|---|
-| C2-R：OBB scene-level split-FST 失败边界 | 最近工具基线是 [Learn then Test](https://arxiv.org/abs/2110.01052)；差异只可能是 OBB 场景功效、matched/full-output 边界与跨数据域反例 | r007 修正单侧 exact HB、真实 outcome permutation、split disjoint 与 108 个 FWER simulation；再按原 3 units/2 datasets 门重算 | validity 任一失败；或 validity pass 后仍只覆盖 DIOR-R。后一情况终止其 TGRS 方法贡献与 RSAR acquisition |
-| C4：measurement + protocol failure analysis | LTT 已给通用风险控制；实质差异必须是遥感旋转检测中 base-risk、scene power、coverage 和 trivial certification 的系统关系 | r007 后做一次主稿 claim-to-evidence 对账，所有 headline 同时报 base risk、相对 alpha、有效 scene 数、practical coverage 与 dataset 去重 | 删除标准 LTT 后没有 orientation-specific finding；或结论只剩单数据集案例和治理流程 |
+| 10 条 commit 路径与授权集合 | adopt | r007 commit 路径闭合；`dis/B.md` blob 未变 | 提交范围合规 |
+| 8 个 manifest 非自指输出 | adopt-with-limit | commit bytes/size/SHA-256/blob 一致 | 只证明已登记产物身份 |
+| 完整 provenance | reject | append 后根记录未作为最终 output 登记；服务器原始资产本机不可复哈希 | 不能称全链闭合 |
+| operation count `12/12` | reject | 根记录追加了两条 r007 记录，至少完整执行两次，commit 级至少 `24/24` | 单次计数不是本轮总计 |
+| exact scalar/vector gate | reject | family 行比较的是旧 bounded scalar 与 integer exact；gate 又读取不存在的 `match` 字段 | reported failures=0 无效 |
+| boundary test | reject | 混合 CSV schema 丢弃 boundary 专属字段 | 无可复核证据 |
+| 108/108 split-FST/Holm fail | reject-as-science | vector 对 `k/n>=alpha` 返回 0 而非 1；`k=0` 产生 NaN | 是实现失败，不是 FWER 反例 |
+| 96/1152 taint mismatch | reject-as-science | 扰动排序误用循环残留 `cov`，且未执行预注册三类扰动 | 不证明 outcome leakage |
+| 2866 frontier mismatch | reject-as-science | 比较旧 schema 缺失字段并使用 `bool("False")` | 不证明 primary 结果变化 |
+| split disjoint | adopt | A–F 三组两两交集均为 0 | split 前提局部通过 |
+| 14 rows / 12 contexts / DIOR-R-only | revise | 主 bounded-loss 路径未使用上述坏 vector；仅能作描述性线索 | 禁止 formal/breadth/prevalence 表述 |
 
-## 5. 决策台账
+## 3. 可定位的决定性反例
 
-| item | decision | evidence / reason | next |
-|---|---|---|---|
-| r006 commit scope、manifest、row counts、14-row descriptive breadth | adopt | commit 与 manifest 闭环；CSV 独立计数一致 | 作为 r007 输入保留，不修改历史文件 |
-| `PASS_SPLIT_FST_VALIDITY` | reject | one-sided exact p-value 错误、FWER simulation 调错程序、taint 恒真 | 执行 r007 最小修复审计 |
-| `FAIL_NO_BROAD_TARGET_FREE_DEVELOPMENT` 作为正式 gate | revise | 按预注册逻辑 validity 非 pass 时 development 应为 inconclusive | r007 validity pass 后再判 breadth；描述性 1-dataset failure 保留 |
-| 立即下载 RSAR | reject | r006 早停与描述性 breadth 都未达门；此时下载是 post-hoc rescue | r007 后若仍 1 dataset，关闭 C2-R acquisition |
-| 修改 r006 历史 script/report | reject | 破坏 provenance | r007 只新增修复资产 |
-| 再调用 CC | reject-now | 已有确定代码反例，意见不会改变 gate | 投稿前全稿审查再考虑 |
+1. [`audit_a1_split_fst_r007.py`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_split_fst_r007.py) 的 scalar `hb_p_exact` 已含正确单侧 guard；vector `pvec_exact` 却令 `r>=alpha` 的 divergence 保持 `inf`，随后得到 p=0，而非 p=1；`r=0` 还会进入 `0*log(0)`。
+2. 7,488 个 family 行实际比较不同 estimand，只有 5,968 行标为 match；gate 的 `failures=0` 来自错误字段读取。
+3. 864 个 boundary row 在内存中生成，但写入 CSV 时沿用 family schema，关键字段全部丢失。
+4. taint 的 perturbed 排序使用外层残留常量而非候选自己的 coverage，96 个 mismatch 因而不能归因于数据泄漏。
+5. parity 把 CSV 字符串 `"False"` 当作真值，并比较新表不存在的旧字段，2866 个 mismatch 没有科学含义。
 
-## 6. r007 gate 与置信度
+置信度：高。最弱环节是 18 个服务器原始输入无法在本机重哈希；但上述拒绝均由仓库代码、表结构和提交记录直接决定，不依赖这些原始输入。
 
-r007 只修复有效性实现，不新增数据、不改主稿、不扩矩阵。必须做到：合法单侧 scalar/vector exact HB 全候选零 mismatch；真实改变 D_cal/D_audit outcome 后 order bytes 不变；fit/cal/audit scene ID 交集为零；正确程序下 108 个 FWER CP95 upper 全部 `<=0.105`。
+## 4. 候选、最强攻击与 kill condition
 
-若结构通过但仍只有 DIOR-R，则 C2-R 按预注册 kill，停止 RSAR；转向 measurement-only + protocol failure analysis 的主稿对账。当前置信度：r006 structure fail `0.999`；14-row/DIOR-R-only 描述性事实 `0.99`；修复后 breadth 仍 fail `0.95`；TGRS 当前不 ready `0.97`。最弱环节是 18 个服务器 raw 输入不能在本机重哈希，以及尚无独立前瞻域。
+| candidate | 实质差异 | 最强攻击 | 最低判别证据 | kill condition / state |
+|---|---|---|---|---|
+| C2-R：OBB split-FST 方法贡献 | OBB scene risk 与 matched/full-output 边界 | 标准统计工具非 novelty；formal 实现连续不可信；描述性正例仅 DIOR-R | 正确 reference unit test 只能确认复现性，不能创造 novelty | **killed**；不恢复、不启动 RSAR |
+| C4：orientation measurement + protocol failure analysis | 几何归一化风险、AP 阈值敏感性、scene-unit 纠正、人工标注边界的组合证据 | 删除 certification 后可能只剩零散观察；matched-only 部署外推过强 | r008 逐条 claim-to-generation-source 对账和保守主稿副本 | 若删掉 certification 后不能形成完整 orientation-specific 论证，降为技术报告/工具箱 |
+
+## 5. 期刊级别（只看当前创新）
+
+- **TGRS / ISPRS JPRS：高风险、当前不 ready。** 现阶段没有可信的新方法贡献；标准 LTT 不能算首创，单数据集探索线索也不足以支撑广泛遥感结论。
+- **JSTARS：plausible，但尚不能称稳。** 若 r008 证明删除无效 certification 后，几何/指标/统计单位/人工审计仍组成一个可复核的 orientation measurement 故事，可按 JSTARS 方向继续打磨。
+- 若 r008 显示核心价值主要依赖无效 certification，期刊上限需再降，优先技术报告或工具型产物。
+
+## 6. 下一步与决策台账
+
+下一轮不是扩实验，也不是第三次修同一统计门，而是 r008 主稿 claim 隔离：从 v077 生成保守 v078，建立摘要—贡献—结果—局限—结论的 claim ledger；撤掉 r006/r007 formal pass、FWER、taint、parity 与 certification headline；保留内容逐项绑定数字生成端。r008 不训练、不推理、不下载、不改历史证据。
+
+| decision | reason | next gate |
+|---|---|---|
+| r007 formal result 不采纳为科学结论 | 审计器违反 r007 契约 | 在主稿中隔离 |
+| 不再修复 C2-R 以争 TGRS 方法线 | 修对标准工具也不构成 novelty；只有一数据集描述性广度 | kill |
+| 不下载 RSAR | 会形成 post-hoc rescue，且不解决 novelty | forbidden |
+| 保留 measurement-only 主线 | 仍可能有 OBB-specific 测量与边界价值 | r008 claim reconciliation |
+| 当前不调用 CC | 无待意见裁决的不确定代码问题 | 投稿前全稿审查再评估 |
+
+r008 gate 只判断 claim 隔离是否完整，不宣称论文已达到 TGRS。服务器唯一报告路径为 [`orientbench-c-r008-20260806.md`](server_reports/orientbench-c-r008-20260806.md)。

@@ -1,95 +1,68 @@
-# OrientBench 服务器任务：r006 有效性实现修复与 r007 最小复核
+# OrientBench 服务器任务：r008 主稿 claim 隔离与证据对账
 
-- round: `orientbench-c-r007-20260805`
-- scientific snapshot: `8e93291b75b34ddfb7b74a7592e1573407603f88`
-- active manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`
-- previous server report: `dis/server_reports/orientbench-c-r006-20260805.md`
-- 唯一服务器报告路径: `dis/server_reports/orientbench-c-r007-20260805.md`
+- round: `orientbench-c-r008-20260806`
+- scientific snapshot: `426d47855eb91d5af947e8bdf9e06d035a95ebf0`
+- active source manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`
+- output manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v078.md`
+- unique server report: `dis/server_reports/orientbench-c-r008-20260806.md`
 
-## 1. 单一科学问题
+## 1. 唯一科学问题
 
-r006 的来源链、主 frontier 与“14 个合格行只覆盖 DIOR-R 的 A/B/C”可以复核，但其 `PASS_SPLIT_FST_VALIDITY` 不可采纳：
+移除或隔离 r006/r007 中无效的 formal certification/FWER 结论后，OrientBench 的 orientation-specific measurement 主线是否仍有一套逐项可追溯、没有新增数字或首创包装的完整 claim 集？本轮不恢复 C2-R，不判断标准 LTT/fixed-sequence/Holm 为 novelty，不下载 RSAR，不增加数据、训练、推理或统计重算。
 
-1. `hb_p_exact` 与 `pvec_exact` 缺少单侧安全检验必须的 `k/n >= alpha => p=1`；错误 exact 路径被用于 108 个 FWER 模拟。
-2. outcome-taint 检查比较同一 `serial` 的哈希与自身，恒真，没有实际置换 D_cal/D_audit outcome。
-3. 7,488 个 exact 对照有 6,762 个不一致，却没有进入 `valid` 条件。
+## 2. 固定事实与解释边界
 
-本轮只回答：修正上述实现后，split-FST validity 是否真正通过；若通过，冻结口径下的发展广度是否仍不足 3/6 units 与 2/3 datasets。不得把修复称为新方法、确认性证据或 TGRS 就绪。
+- r007 服务器提交的 formal gate 保持 `FAIL_SPLIT_FST_VALIDITY_R007`，原因是实现未满足预注册契约；它不是 split-FST 理论或科学假设的反例。
+- r007 的 108/108 FWER fail、96/1152 taint mismatch、2866 parity mismatch 均不得作为科学结果引用。
+- 14 qualifying rows / 12 contexts / A–C / DIOR-R-only 只允许标为描述性、探索性线索，不得称 formal certification、prevalence、跨数据集广度或 deployment guarantee。
+- r004 的 literal gate 只允许作为历史协议结果；r006 的 reported structure pass 已撤回。
+- matched-only estimand 不覆盖 FP、FN、真空场景或完整部署输出。
+- 标准 LTT、fixed-sequence 与 Holm 只能作为既有统计组件，不得作为 OrientBench 首创。
 
-## 2. 固定边界
+## 3. 执行任务
 
-- 不修改 r006 及更早的任何 script、CSV、JSON、report、manifest、协议、split、threshold、score、endpoint、alpha、coverage grid、matching、tile/NMS、主稿或旧日志内容。
-- primary 仍使用 bounded conditional scene loss 的冻结 `M.hb_pvalue`；exact-integer Bernoulli 路径仅用于正确的独立实现核验与 FWER simulation，不得偷换 primary estimand。
-- family 固定为 `unit × score × endpoint × alpha`；target-GT-free score 固定为 `detection_score`、`tta_circular_consistency`、`source_supervised_leave_geometry`。
-- A–F 结果均为 `RETROSPECTIVE_DEVELOPMENT_ONLY`。RSAR 与其它个人项目不得读取或下载。
-- detector fit/predict、训练、推理、GPU、下载均为 0；允许复现固定 score regressor 12/12。
+1. 从 v077 逐字节复制生成 v078；只在 v078 修改，不触碰 v077。
+2. 建立 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_r008.csv`，每行至少包含：`claim_id,manuscript_section,claim_text_or_anchor,claim_class,evidence_path,evidence_status,action,reason`。覆盖摘要、贡献、方法、结果、讨论、局限和结论中的 headline/novelty/certification/deployment claim。
+3. 对每一项标为 `retain | qualify | quarantine | remove`：
+   - 只有生成端与口径闭合的 orientation measurement 结论可以 retain；
+   - matched-only、单数据集、探索性或 retrospective 结果必须 qualify；
+   - 依赖 r006/r007 formal pass、FWER、taint、parity 或 certification 的内容必须 quarantine/remove；
+   - 找不到数字事实源时不得猜测，标为 unresolved 并移除 headline 用法。
+4. 编辑 v078，使摘要、贡献、正文、表图说明、局限和结论口径一致。不得新增实验数字、引用、数据集、算法、首创声明或统计保证；不得把实现失败包装成负结果。
+5. 生成 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_gate_r008.json`，包含 ledger 总数、各 action/status 计数、未解决 claim 列表、禁止短语扫描结果、v077/v078 SHA-256、变更行统计和最终 gate。
+6. 生成 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_manifest_r008.json`，登记全部输入/输出的路径、bytes、SHA-256、Git blob（提交后可得者）、命令与 schema。报告不得伪造服务器原始资产可在 C 侧复哈希。
+7. 写唯一报告并 append-only 向 `claude_code_and_supervisor.md` 追加恰好一条本轮记录。
 
-## 3. 必做修复与证据
+## 4. Gate
 
-### 3.1 单侧 exact-integer HB
+- `PASS_CLAIM_QUARANTINE_R008`：ledger 覆盖所有 headline/novelty/certification/deployment claim；无效 formal claim 全部隔离；保留 claim 均有仓库证据路径和明确口径；v078 没有新数字/引用/数据集/方法；摘要、贡献、局限、结论一致；所有产物与授权路径闭合。
+- `FAIL_CLAIM_QUARANTINE_R008`：任何无效 certification/FWER/taint/parity claim 仍作为当前结论；任何 headline 无事实源；任何标准统计工具被包装为首创；或 v078 新增未授权科学内容。
+- `INCONCLUSIVE_CLAIM_QUARANTINE_R008`：主稿、证据路径、schema 或哈希无法闭合，且无法在不猜测的前提下裁决。
 
-实现相互独立的 scalar 与 vector 版本。对 `n<=0`、非法 alpha 或 `k/n >= alpha` 必须返回 1；仅在 `k/n < alpha` 时计算 Hoeffding–Bentkus lower-tail p-value。直接使用整数 `k`，禁止 `ceil(n*float_mean)` 恢复计数。
+即使 PASS，也只说明 claim 隔离完成，不代表论文达到 TGRS，不代表实验充分。若删除 certification 后不足以形成完整 orientation-specific 论证，在报告中明确记录 `MEASUREMENT_CORE_INSUFFICIENT_AFTER_QUARANTINE`，不得补写结论救场。
 
-对 r006 全部 7,488 个 Bernoulli scene-event 候选保存 `k,n,alpha,scalar_p,vector_p,match`；scalar/vector mismatch 必须为 0。另设定至少包含 `k/n<alpha`、`=alpha`、`>alpha`、`k=0`、`k=n`、`n=0` 的边界单元测试；任一失败即 validity fail。
+## 5. 早停与资源
 
-### 3.2 真实 outcome-taint 测试
+- 本轮禁止训练、检测器推理、score-regressor fit/predict、GPU、下载和外部数据访问；对应 operation counts 必须全部为 0。
+- 不修改现有脚本、CSV/JSON、v077、r004–r007 报告或历史记录。
+- 发现事实冲突时保留 v078 的保守表述，在 ledger 中标 unresolved；不要自行扩实验。
+- 若不能在固定证据内完成，输出 inconclusive 报告并停止。
 
-将 order builder 写成只接受 D_fit threshold 与 sufficient statistics 的纯函数。对每个 576 family：
-
-1. 生成 baseline order 的规范序列化字节；
-2. 用固定 seed 分别置换 D_cal 与 D_audit endpoint outcome，并做一次确定性反转/极端扰动；
-3. 验证扰动确实改变了至少一个 calibration/audit outcome 或 statistic；
-4. 重新走完整候选装配路径，比较 baseline 与每种 perturbed order bytes。
-
-禁止同一对象、自身哈希或未改变 outcome 的伪测试。保存 family、扰动类型、changed count、baseline/perturbed SHA-256 与 match；全部 family×扰动必须 match。
-
-### 3.3 split 与 FWER
-
-- 对 A–F 显式报告 D_fit、D_cal、D_audit scene/tile ID 集合大小及三组两两交集；交集必须为 0。
-- 按 r006 冻结的 108 scenarios、seed `20260805`、每场景 50,000 replicates 重跑模拟，但必须调用修正后的单侧 vector exact-integer p-value。
-- 每场景报告 false rejection、empirical FWER、95% Clopper–Pearson upper；全部 split-FST upper `<=0.105`。Holm 仍仅是 sensitivity。
-- 模拟只验证实现；不能替代理论前提。
-
-### 3.4 frontier 与广度
-
-用正确的 bounded-loss primary 路径重建 2,304-row frontier，并与 r006 primary/historical/Holm/any-grid 字段比较。任何变化必须逐行解释；不得为了保留 14 行而改规则。
-
-结构通过后才计算 development gate。合格条件保持：primary endpoint、nontrivial alpha、target-GT-free、split-FST certified、原 audit practical 全过、audit empirical risk `<=alpha`。同时报告行数和唯一 `unit×endpoint×alpha` context。
-
-## 4. 预注册 gate
-
-- `PASS_SPLIT_FST_VALIDITY_R007`: provenance/parity/lineage、split disjoint、全部 exact scalar/vector 与边界测试、真实 outcome-taint、理论前提和 108 个 primary FWER simulation 全部通过。
-- `FAIL_SPLIT_FST_VALIDITY_R007`: 任一实现、单侧 p-value、taint、split、FWER 或理论前提失败。
-- `INCONCLUSIVE_SPLIT_FST_R007`: 必需输入、身份、schema、hash 或重算无法闭环。
-- development 仅在 validity pass 后判定：达到 3/6 units 且 2/3 datasets 为 `PASS_BROAD_TARGET_FREE_DEVELOPMENT_R007`，否则为 `FAIL_NO_BROAD_TARGET_FREE_DEVELOPMENT_R007`；validity 非 pass 时为 `INCONCLUSIVE_DEVELOPMENT_R007`。
-
-若 validity pass 但仍只有 DIOR-R，明确停止 C2-R/RSAR acquisition，不得降门、换 endpoint、混入 diagnostic 或把 nominal/trivial pass 算入广度。
-
-## 5. 授权写入范围
+## 6. 唯一授权写入范围
 
 只允许新增：
 
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/scripts/audit_a1_split_fst_r007.py`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_split_fst_exact_hb_r007.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_split_fst_order_taint_r007.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_split_fst_split_disjoint_r007.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_split_fst_fwer_simulation_r007.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_split_fst_frontier_r007.csv`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_split_fst_gate_r007.json`
-- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_split_fst_manifest_r007.json`
-- `dis/server_reports/orientbench-c-r007-20260805.md`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v078.md`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_r008.csv`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_gate_r008.json`
+- `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a1_claim_reconciliation_manifest_r008.json`
+- `dis/server_reports/orientbench-c-r008-20260806.md`
 
-并允许 append-only 修改 `claude_code_and_supervisor.md` 一条。其它路径全部禁止；尤其不得触碰 `dis/B.md`、`dis/C.md`、`dis/sug.md`、`dis/review_state.json`、主稿及 r006 文件。需要偏离时写 `PROPOSED_DEVIATION` 并停止，不得先做后报。
+并允许 append-only 修改 `claude_code_and_supervisor.md` 恰好一条。其它路径全部禁止，尤其不得触碰 `dis/B.md`、`dis/C.md`、`dis/sug.md`、`dis/review_state.json` 和 v077。需要偏离时写 `PROPOSED_DEVIATION` 并停止。
 
-## 6. provenance、资源与早停
+## 7. Git 与最终回复
 
-- 起始 HEAD 必须包含 scientific snapshot；工作树/index 必须干净；只允许 fast-forward。
-- manifest 登记全部输入、输出 bytes/SHA-256/Git blob、命令、seed、schema、行数和 operation counts。提交路径必须与授权集合完全相同。
-- CPU 密集模拟使用至少 80% 可用 CPU 的 worker budget，并如实区分预算与实际利用率。
-- exact、taint、split 或 FWER 任一失败时立即停止广度解释；不得用 Holm 或挑场景续命。
-- 即便全通过，本轮也不下载 RSAR、不修改主稿，只返回证据供 C 裁决。
-
-## 7. 最终回复格式
+起始工作树/index 必须干净且包含精确 snapshot；仅 fast-forward。显式暂存上述授权文件，普通中文 commit，SSH push，禁止 force。提交路径必须与 manifest 授权集合完全一致。
 
 服务器最终回复首行只能是：
 
@@ -99,4 +72,4 @@ r006 的来源链、主 frontier 与“14 个合格行只覆盖 DIOR-R 的 A/B/C
 
 `未执行完毕`
 
-第二行必须且只能给出：`dis/server_reports/orientbench-c-r007-20260805.md`。
+第二行必须且只能给出：`dis/server_reports/orientbench-c-r008-20260806.md`

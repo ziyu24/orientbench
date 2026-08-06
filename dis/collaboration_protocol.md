@@ -6,13 +6,13 @@
 
 当前轮：
 
-- round: `orientbench-c-r007-20260805`
-- scientific snapshot: `8e93291b75b34ddfb7b74a7592e1573407603f88`
+- round: `orientbench-c-r008-20260806`
+- scientific snapshot: `426d47855eb91d5af947e8bdf9e06d035a95ebf0`
 - manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v077.md`
 - C report: `dis/C.md`
-- CC/B only report: `dis/B.md`（r001 已完成；r007 不启动新 CC）
-- server only report: `dis/server_reports/orientbench-c-r007-20260805.md`
-- previous server report: `dis/server_reports/orientbench-c-r006-20260805.md`
+- CC/B only report: `dis/B.md`（r001 已完成；r008 当前不启动新 CC）
+- server only report: `dis/server_reports/orientbench-c-r008-20260806.md`
+- previous server report: `dis/server_reports/orientbench-c-r007-20260805.md`
 
 ## 2. 角色与文件所有权
 
