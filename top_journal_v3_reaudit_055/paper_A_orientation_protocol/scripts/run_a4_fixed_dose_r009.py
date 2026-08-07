@@ -25,10 +25,16 @@ def main():
         'DIOR-R/3':ROOT/'outputs/persistent_artifacts/orientbench_v2/DIOR-R/3/schema/pred_b3_fullval.jsonl',
         'FAIR1M-v1.0/24':ROOT/'outputs/persistent_artifacts/orientbench_v2/FAIR1M-v1.0/24/schema/pred_b24_fullval.jsonl',
         'SODA-A/23':ROOT/'outputs/persistent_artifacts/orientbench_v2/SODA-A/23/schema/pred_b23_fullval.jsonl',
+        'DIOR-R/61':ROOT/'outputs/persistent_artifacts/orientbench_v2/DIOR-R/61/schema/pred_b61_fullval.jsonl',
+        'SODA-A/4':ROOT/'outputs/persistent_artifacts/orientbench_v2/SODA-A/4/schema/pred_b4_fullval.jsonl',
+    }
+    raw_full_map={
+        'DIOR-R/61':ROOT/'outputs/persistent_artifacts/orientbench_v2/DIOR-R/61/raw/result_b61.pkl',
+        'SODA-A/4':ROOT/'outputs/persistent_artifacts/orientbench_v2/SODA-A/4/raw/result_b4.pkl',
     }
     inv=[]
     for unit, ds, det, bid in CORE:
-        raw=ROOT/f'outputs/predictions/{ds}/{bid}/raw/result_b{bid}.pkl'; schema=schema_map.get(unit, raw); man=ROOT/f'outputs/predictions/{ds}/{bid}/manifest.json'; gt=gt_map[ds]
+        raw=raw_full_map.get(unit, ROOT/f'outputs/predictions/{ds}/{bid}/raw/result_b{bid}.pkl'); schema=schema_map.get(unit, raw); man=ROOT/f'outputs/predictions/{ds}/{bid}/manifest.json'; gt=gt_map[ds]
         raw_ok=schema.exists() and schema.stat().st_size>0; gt_ok=gt.exists() and gt.stat().st_size>0; n_images=0; n_pred=0; split_ok=False
         if raw_ok:
             try:
@@ -41,6 +47,13 @@ def main():
                     data=pickle.load(schema.open('rb')); n_images=len(data)
                     n_pred=sum(len((x.get('pred_instances') or {}).get('bboxes',[])) for x in data if isinstance(x,dict)); split_ok=False
             except Exception: raw_ok=False
+        if raw_full_map.get(unit):
+            try:
+                raw_ids={str(x.get('img_id')) for x in pickle.load(raw.open('rb'))}
+                gt_ids={str(json.loads(line).get('image_id')) for line in gt.open()}
+                split_ok = raw_ids == gt_ids
+                n_images=len(raw_ids)
+            except Exception: split_ok=False
         status='READY' if raw_ok and gt_ok and split_ok and man.exists() else 'INCONCLUSIVE_PROVENANCE_R009'
         inv.append({'unit':unit,'dataset':ds,'detector':det,'checkpoint_manifest':str(man.relative_to(ROOT)) if man.exists() else 'MISSING','raw_path':str(schema.relative_to(ROOT)) if schema.exists() else 'MISSING','raw_sha256':digest(schema) if schema.exists() else '','raw_bytes':schema.stat().st_size if schema.exists() else 0,'image_count':n_images,'prediction_count':n_pred,'gt_path':str(gt.relative_to(ROOT)) if gt.exists() else 'MISSING','gt_bytes':gt.stat().st_size if gt.exists() else 0,'full_validation_split':split_ok,'identity_complete':bool(raw_ok and man.exists() and split_ok),'status':status})
     write_csv(REP/'a4_raw_prediction_inventory_r009.csv',list(inv[0]),inv)

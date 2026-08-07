@@ -2218,3 +2218,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 尝试用现有 pth 重建 SODA-A/4 full dump，但服务器当前缺少 SODA-A 图像树，未启动有效推理；未使用 matched-only 结果替代。
 - r009 判定仍为 `INCONCLUSIVE_PROVENANCE_R009`，科学 dose evaluator 未启动；未训练、未修改 thresholds/D_cal/D_audit。
 - 关键报告：`dis/server_reports/orientbench-c-r009-20260806.md`；inventory：`top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_raw_prediction_inventory_r009.csv`。
+## [2026-08-06 19:42:00 CST] 来源: Codex
+
+### r009 provenance correction
+
+- 用户指出 SODA-A 已到位、DIOR 既有数据可用；复核确认此前是数据根路径/adapter 指向错误，不是数据缺失。
+- SODA-A val_tiled：22,994 图像与 22,994 标注文件已确认；DIOR test：11,738 图像与完整标注已确认。
+- 使用冻结 pth、4 GPU、无训练，重新生成 DIOR-R/61 与 SODA-A/4 full-val raw dump，并持久化 schema；两者 image-ID universe 与 GT 对齐。
+- r009 Core-6 provenance preflight 现为全部 READY，科学 dose evaluator 已解除 provenance 阻塞。
