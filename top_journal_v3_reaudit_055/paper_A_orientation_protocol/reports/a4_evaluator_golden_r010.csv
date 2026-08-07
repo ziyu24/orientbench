@@ -1,0 +1,7 @@
+case,expected,native,clean,status
+le90_0_90,0,0,0,PASS
+class_mismatch,FP,FP,FP,PASS
+duplicate_greedy,one_to_one,one_to_one,one_to_one,PASS
+stable_tie,stable,stable,stable,PASS
+empty_pred_gt_class,zero,zero,zero,PASS
+single_tp_fp_fn,known,known,known,PASS

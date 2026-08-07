@@ -2256,3 +2256,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - Per-match geometry-normalized severe-event outcomes and 500-replicate image-cluster bootstrap summaries are persisted in `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_risk_event_r009.csv` and `a4_cluster_bootstrap_r009.csv`.
 - Exact IoU=0.75 survival was recomputed at 0/15/30 degrees and persisted in `a4_geometry_survival_r009.csv`; all six units are provenance READY.
 - Final r009 status is `PASS_R009_EVIDENCE_CLOSED`. This closes the evidence package only; it does not establish a deployable selector. No training or threshold/split changes were made.
+
+## [2026-08-07 01:10:00 CST] 来源: Codex
+
+### r010 statistical mechanism closure
+
+- Pulled `origin/main` before execution; scientific snapshot was `73f8814`.
+- Ran the independent r010 full evaluator on four Core-6 units. SODA-A/23 and SODA-A/4 did not complete within this run and remain explicit `NOT_RUN_EVALUATOR_R010` quarantine rows.
+- Paired AP bootstrap and extension units were not run because the Core gate was incomplete. No training, detector inference, download, threshold, split, or D_cal/D_audit change occurred.
+- Final r010 gate: `FAIL_EVALUATOR_R010`. Report: `dis/server_reports/orientbench-c-r010-20260806.md`.
+- r010 only records a quarantined v080 wording and evidence package; no broad scientific closure is claimed.
