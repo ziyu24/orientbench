@@ -2240,3 +2240,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - GPU `RBboxOverlaps2D` 已完成 Core-6 的 48 个 prediction-directed 固定剂量重匹配（0/2/5/10/15/20/25/30°）。
 - AP50/AP75 与角度误差已写入 A 工作区 `a4_fixed_dose_positive_r009.csv`。
 - GT-directed 与 symmetric 两条预注册轨道尚未执行；因此 r009 仍未最终闭合。
+## [2026-08-07 02:00:00 CST] 来源: Codex
+
+### r009 GPU tracks
+
+- Core-6 三条固定剂量轨道已完成：P、D、S，各 8 剂量，共 144 次 GPU full-evaluator 重匹配。
+- 输出：`a4_fixed_dose_positive_r009.csv`、`a4_fixed_dose_gt_directed_r009.csv`、`a4_fixed_dose_symmetric_r009.csv`。
+- 当前 gate：`INCONCLUSIVE_MECHANISM_R009`；风险事件、geometry survival 与 bootstrap 汇总尚未收口。

@@ -8,4 +8,4 @@
 - v079: generated from v078 with historical certification headline quarantine; no new scientific numbers.
 - operation counts: detector training=0, detector inference=2 full-val reruns (DIOR-R/61 and SODA-A/4), score-regressor=0, evaluator=0, bootstrap=0, download=0.
 
-Continuation audit (2026-08-06): FAIR1M, SODA-A and DIOR raw data paths were verified. Full raw/schema dumps for all six Core units were persisted and their image-ID universes match the corresponding full GT files. The r009 scientific evaluator may now proceed.
+Continuation audit (2026-08-07): FAIR1M, SODA-A and DIOR raw data paths were verified. Full raw/schema dumps for all six Core units were persisted. GPU `RBboxOverlaps2D` full evaluator completed all 6 units × 3 tracks × 8 doses = 144 calls. Final mechanism aggregation remains `INCONCLUSIVE_MECHANISM_R009` until risk-event, geometry-survival and bootstrap tables are finalized.
