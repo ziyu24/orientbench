@@ -57,7 +57,7 @@ def voc_ap(tp, scores, n_gt):
         ap += p / 11
     return ap
 
-def eval_cell(preds, gts):
+def eval_cell(preds, gts, return_tau_matches=False):
     """Return (mAP50, mAP75, fp50, angle_errs, tp_matches). Batched IoU per (image,class):
     compute the pred x GT IoU matrix once per image-class, then greedy-match in score order."""
     from collections import defaultdict
@@ -69,7 +69,7 @@ def eval_cell(preds, gts):
     gt_count = defaultdict(int)
     for (img, c), l in G.items(): gt_count[c] += len(l)
     classes = set(c for _, c in P) | set(c for _, c in G)
-    ap = {0.5: {}, 0.75: {}}; fp50 = 0; tp_matches = []; aerrs = []
+    ap = {0.5: {}, 0.75: {}}; fp50 = 0; tp_matches = []; tp_matches75 = []; aerrs = []
     for cls in classes:
         # gather images with preds or gt for this class
         imgs = set(img for (img, c) in P if c == cls) | set(img for (img, c) in G if c == cls)
@@ -101,10 +101,14 @@ def eval_cell(preds, gts):
                         g = gl[j]; tp_matches.append((i, g))
                         aerrs.append(ang_err(p["obb_w"], p["obb_h"], p["obb_theta"],
                                              g["obb_w"], g["obb_h"], g["obb_theta"]))
+                    elif return_tau_matches:
+                        tp_matches75.append((i, gl[j]))
                 elif tau == 0.5:
                     fp50 += 1
             ap[tau][cls] = voc_ap(tp, sc, gt_count.get(cls, 0))
     mAP = {t: float(np.nanmean([v for v in ap[t].values() if v == v])) if ap[t] else float("nan") for t in ap}
+    if return_tau_matches:
+        return mAP[0.5], mAP[0.75], fp50, aerrs, tp_matches, tp_matches75
     return mAP[0.5], mAP[0.75], fp50, aerrs, tp_matches
 
 def eps_max(p, g):

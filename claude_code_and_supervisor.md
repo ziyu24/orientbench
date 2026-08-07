@@ -2247,3 +2247,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - Core-6 三条固定剂量轨道已完成：P、D、S，各 8 剂量，共 144 次 GPU full-evaluator 重匹配。
 - 输出：`a4_fixed_dose_positive_r009.csv`、`a4_fixed_dose_gt_directed_r009.csv`、`a4_fixed_dose_symmetric_r009.csv`。
 - 当前 gate：`INCONCLUSIVE_MECHANISM_R009`；风险事件、geometry survival 与 bootstrap 汇总尚未收口。
+
+## [2026-08-07 08:30:00 CST] 来源: Codex
+
+### r009 final evidence closure
+
+- Core-6 P/D/S fixed-dose tracks were independently re-evaluated with the K1 GPU full evaluator at 0/2/5/10/15/20/25/30 degrees (144 calls total).
+- Per-match geometry-normalized severe-event outcomes and 500-replicate image-cluster bootstrap summaries are persisted in `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/a4_risk_event_r009.csv` and `a4_cluster_bootstrap_r009.csv`.
+- Exact IoU=0.75 survival was recomputed at 0/15/30 degrees and persisted in `a4_geometry_survival_r009.csv`; all six units are provenance READY.
+- Final r009 status is `PASS_R009_EVIDENCE_CLOSED`. This closes the evidence package only; it does not establish a deployable selector. No training or threshold/split changes were made.

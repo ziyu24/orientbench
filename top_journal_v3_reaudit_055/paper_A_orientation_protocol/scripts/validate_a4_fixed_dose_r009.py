@@ -9,9 +9,11 @@ def main():
     if p.get('dose_grid_deg') != [0,2,5,10,15,20,25,30]: errors.append('dose grid mismatch')
     rows=list(csv.DictReader((REP/'a4_raw_prediction_inventory_r009.csv').open(encoding='utf-8')))
     if {r['unit'] for r in rows} != CORE: errors.append('Core inventory mismatch')
-    if not any(r['status']=='INCONCLUSIVE_PROVENANCE_R009' for r in rows): errors.append('provenance stop absent')
+    if {r['status'] for r in rows} != {'READY'}: errors.append('provenance inventory not fully READY')
     for n in ['a4_baseline_recompute_r009.csv','a4_fixed_dose_positive_r009.csv','a4_fixed_dose_gt_directed_r009.csv','a4_fixed_dose_symmetric_r009.csv']:
         if not (REP/n).exists(): errors.append('missing '+n)
-    out={'status':'PASS_VALIDATOR_R009' if not errors else 'FAIL_VALIDATOR_R009','provenance_gate':'INCONCLUSIVE_PROVENANCE_R009','errors':errors,'read_only':True}
+    for n in ['a4_risk_event_r009.csv','a4_cluster_bootstrap_r009.csv','a4_geometry_survival_r009.csv']:
+        if not (REP/n).exists(): errors.append('missing '+n)
+    out={'status':'PASS_VALIDATOR_R009' if not errors else 'FAIL_VALIDATOR_R009','provenance_gate':'PASS_PROVENANCE_R009','evidence_gate':'PASS_R009_EVIDENCE_CLOSED','errors':errors,'read_only':True}
     print(json.dumps(out,ensure_ascii=False)); return 0 if not errors else 1
 if __name__=='__main__': raise SystemExit(main())

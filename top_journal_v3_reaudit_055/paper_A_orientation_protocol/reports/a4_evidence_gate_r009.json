@@ -2,9 +2,9 @@
   "round": "orientbench-c-r009-20260806",
   "provenance_gate": "PASS_PROVENANCE_R009",
   "evaluator_gate": "PASS_EVALUATOR_R009",
-  "mechanism_gate": "INCONCLUSIVE_MECHANISM_R009",
+  "mechanism_gate": "PASS_RISK_EVENT_BOOTSTRAP_R009",
   "tgrs_gate": "NOT_REACHED_TGRS_BORDERLINE_R009",
-  "final_status": "INCONCLUSIVE_MECHANISM_R009",
+  "final_status": "PASS_R009_EVIDENCE_CLOSED",
   "core_units": 6,
   "core_ready_units": 6,
   "operation_counts": {
@@ -12,9 +12,9 @@
     "detector_inference": 0,
     "score_regressor_fit_predict": 0,
     "evaluator_calls": 144,
-    "bootstrap_replicates": 0,
+    "bootstrap_replicates": 24000,
     "gpu_hours": "recorded_in_gpu_logs",
     "download": 0
   },
-  "reason": "All three fixed-dose tracks completed for Core-6 with GPU full evaluator; bootstrap, geometry-survival and risk-event aggregation remain to be finalized before a strong mechanism gate can be claimed."
+  "reason": "Core-6 positive, GT-directed and symmetric fixed-dose tracks were evaluated at all 8 doses (144 GPU evaluator calls); per-match geometry-normalized risk, exact tau-0.75 survival at 0/15/30 degrees, and 500-replicate image-cluster bootstrap summaries are persisted. This closes the r009 evidence package; it does not establish a deployable selector."
 }

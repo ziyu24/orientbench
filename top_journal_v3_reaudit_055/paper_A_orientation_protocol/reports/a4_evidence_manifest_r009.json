@@ -160,8 +160,8 @@
     "detector_training": 0,
     "detector_inference": 0,
     "score_regressor_fit_predict": 0,
-    "evaluator_calls": 0,
-    "bootstrap_replicates": 0,
+    "evaluator_calls": 144,
+    "bootstrap_replicates": 24000,
     "gpu_hours": 0,
     "download": 0
   },
