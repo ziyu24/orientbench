@@ -1,21 +1,19 @@
 {
   "schema_version": "1.0",
   "project": "orientbench",
-  "round_id": "orientbench-c-r009-20260806",
+  "round_id": "orientbench-c-r010-20260806",
   "review_date": "2026-08-06",
-  "scientific_snapshot_sha": "c51c9f826028e083633edbaaa7ad32d1178a5744",
-  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v078.md",
+  "scientific_snapshot_sha": "73f8814b9d0345bfb6b99c1463a61bb01a555f40",
+  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v079.md",
   "scientific_state": {
     "paper_a": "A_MEASUREMENT_ONLY",
-    "r008_provenance": "ADOPT",
-    "r008_hygiene_gate": "FAIL_CLAIM_QUARANTINE_R008",
-    "r008_measurement_core": "INCONCLUSIVE_CORE_EVIDENCE",
-    "c2_power_aware_ltt": "KILLED_PERMANENTLY_AS_METHOD_CONTRIBUTION",
-    "external_acquisition": "RSAR_FORBIDDEN",
-    "innovation_venue_ceiling": "STRONG_JSTARS_TGRS_BORDERLINE_CONDITIONAL",
-    "current_evidence_maturity": "JSTARS_PLAUSIBLE_NOT_READY_TGRS_HIGH_RISK",
+    "r009_protocol": "FAIL_PROTOCOL_R009",
+    "r009_mechanism": "INCONCLUSIVE_MECHANISM_R009",
+    "r009_salvage": "DESCRIPTIVE_FIXED_DOSE_CURVES_PENDING_INDEPENDENT_VERIFICATION",
+    "innovation_venue_ceiling": "TGRS_BORDERLINE_CONDITIONAL_ON_CORE_AND_EXTENSION",
+    "current_evidence_maturity": "STRONG_JSTARS_POTENTIAL_NOT_EVIDENCE_READY",
     "submission_readiness": "NOT_READY",
-    "next_scientific_gate": "R009_ORIENTATION_INTERVENTION_EVIDENCE_CLOSURE"
+    "next_scientific_gate": "R010_STATISTICAL_MECHANISM_MANUSCRIPT_CLOSURE"
   },
   "evidence_index": "dis/C.md",
   "c": {
@@ -23,18 +21,18 @@
     "report_path": "dis/C.md"
   },
   "cc": {
-    "status": "COMPLETED_R001",
+    "status": "COMPLETED_HISTORICAL",
     "recommendation": "no",
     "user_decision_required": false,
-    "historical_start_prompt_path": "dis/B_START_PROMPT.md",
+    "start_prompt_path": "dis/B_START_PROMPT.md",
     "only_report_path": "dis/B.md"
   },
   "server": {
-    "status": "READY_FOR_SERVER",
+    "status": "READY_FOR_SERVER_LUNA_HIGH",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r009-20260806.md",
-    "last_completed_report_path": "dis/server_reports/orientbench-c-r008-20260806.md",
-    "last_verdict": "R008_PROVENANCE_ADOPT_HYGIENE_FAIL_CORE_INCONCLUSIVE"
+    "only_report_path": "dis/server_reports/orientbench-c-r010-20260806.md",
+    "last_completed_report_path": "dis/server_reports/orientbench-c-r009-20260806.md",
+    "last_verdict": "FAIL_PROTOCOL_R009_INCONCLUSIVE_MECHANISM"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }
