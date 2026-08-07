@@ -2226,3 +2226,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - SODA-A val_tiled：22,994 图像与 22,994 标注文件已确认；DIOR test：11,738 图像与完整标注已确认。
 - 使用冻结 pth、4 GPU、无训练，重新生成 DIOR-R/61 与 SODA-A/4 full-val raw dump，并持久化 schema；两者 image-ID universe 与 GT 对齐。
 - r009 Core-6 provenance preflight 现为全部 READY，科学 dose evaluator 已解除 provenance 阻塞。
+## [2026-08-06 20:20:00 CST] 来源: Codex
+
+### r009 GPU evaluator replacement
+
+- Shapely 逐框重匹配已停止，替换为 `gpu_eval_r009.py`，调用 K1 验证的 `RBboxOverlaps2D` GPU 算子。
+- DIOR-R/22 smoke：dose 0 AP50=0.53678、AP75=0.35032；dose 2 AP50=0.53835、AP75=0.34746，均完成 full re-match。
+- 未训练、未改 checkpoint、未改 GT/threshold/D_cal/D_audit。
