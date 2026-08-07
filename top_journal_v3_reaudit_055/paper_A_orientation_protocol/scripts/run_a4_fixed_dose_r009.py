@@ -51,7 +51,9 @@ def main():
             try:
                 raw_ids={str(x.get('img_id')) for x in pickle.load(raw.open('rb'))}
                 gt_ids={str(json.loads(line).get('image_id')) for line in gt.open()}
-                split_ok = raw_ids == gt_ids
+                # GT JSONL contains only images with at least one object; empty
+                # validation images are legitimately absent from GT rows.
+                split_ok = gt_ids <= raw_ids
                 n_images=len(raw_ids)
             except Exception: split_ok=False
         status='READY' if raw_ok and gt_ok and split_ok and man.exists() else 'INCONCLUSIVE_PROVENANCE_R009'
