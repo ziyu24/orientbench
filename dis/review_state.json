@@ -1,25 +1,23 @@
 {
   "schema_version": "1.0",
   "project": "orientbench",
-  "round_id": "orientbench-c-r010-20260806",
-  "review_date": "2026-08-06",
-  "scientific_snapshot_sha": "73f8814b9d0345bfb6b99c1463a61bb01a555f40",
-  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v079.md",
+  "round_id": "orientbench-c-r011-20260807",
+  "review_date": "2026-08-07",
+  "scientific_snapshot_sha": "c62ea3514e98f76baf557c22a5dd0ef812d84ee0",
+  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v080.md",
   "scientific_state": {
-    "paper_a": "A_MEASUREMENT_ONLY",
-    "r009_protocol": "FAIL_PROTOCOL_R009",
-    "r009_mechanism": "INCONCLUSIVE_MECHANISM_R009",
-    "r009_salvage": "DESCRIPTIVE_FIXED_DOSE_CURVES_PENDING_INDEPENDENT_VERIFICATION",
-    "innovation_venue_ceiling": "TGRS_BORDERLINE_CONDITIONAL_ON_CORE_AND_EXTENSION",
-    "current_evidence_maturity": "STRONG_JSTARS_POTENTIAL_NOT_EVIDENCE_READY",
+    "r010_protocol": "FAIL_PROTOCOL_R010",
+    "r010_mechanism": "INCONCLUSIVE_NOT_VALIDLY_TESTED",
+    "fixed_dose_salvage": "FULL_SAMPLE_POINT_CURVES_PENDING_INDEPENDENT_EVALUATOR",
+    "current_g2": "M2_DIAGNOSTIC_UPPER_BOUND_ADOPT",
+    "legacy_deployable": "REJECT_FOR_CURRENT_HEADLINE_PENDING_R011_REVALIDATION",
+    "current_evidence_maturity": "JSTARS_PLAUSIBLE_NOT_READY",
+    "innovation_ceiling": "STRONG_JSTARS_OR_TGRS_CONDITIONAL",
     "submission_readiness": "NOT_READY",
-    "next_scientific_gate": "R010_STATISTICAL_MECHANISM_MANUSCRIPT_CLOSURE"
+    "next_scientific_gate": "R011_FINAL_P1_STATISTICS_AND_BOUNDED_P3_REVALIDATION"
   },
   "evidence_index": "dis/C.md",
-  "c": {
-    "status": "ROUND_COMPLETE",
-    "report_path": "dis/C.md"
-  },
+  "c": {"status": "ROUND_COMPLETE", "report_path": "dis/C.md"},
   "cc": {
     "status": "COMPLETED_HISTORICAL",
     "recommendation": "no",
@@ -30,9 +28,9 @@
   "server": {
     "status": "READY_FOR_SERVER_LUNA_HIGH",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r010-20260806.md",
-    "last_completed_report_path": "dis/server_reports/orientbench-c-r009-20260806.md",
-    "last_verdict": "FAIL_PROTOCOL_R009_INCONCLUSIVE_MECHANISM"
+    "only_report_path": "dis/server_reports/orientbench-c-r011-20260807.md",
+    "last_completed_report_path": "dis/server_reports/orientbench-c-r010-20260806.md",
+    "last_verdict": "FAIL_PROTOCOL_R010"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }
