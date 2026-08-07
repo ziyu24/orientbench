@@ -2233,3 +2233,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - Shapely 逐框重匹配已停止，替换为 `gpu_eval_r009.py`，调用 K1 验证的 `RBboxOverlaps2D` GPU 算子。
 - DIOR-R/22 smoke：dose 0 AP50=0.53678、AP75=0.35032；dose 2 AP50=0.53835、AP75=0.34746，均完成 full re-match。
 - 未训练、未改 checkpoint、未改 GT/threshold/D_cal/D_audit。
+## [2026-08-07 00:00:00 CST] 来源: Codex
+
+### r009 GPU dose pass
+
+- GPU `RBboxOverlaps2D` 已完成 Core-6 的 48 个 prediction-directed 固定剂量重匹配（0/2/5/10/15/20/25/30°）。
+- AP50/AP75 与角度误差已写入 A 工作区 `a4_fixed_dose_positive_r009.csv`。
+- GT-directed 与 symmetric 两条预注册轨道尚未执行；因此 r009 仍未最终闭合。
