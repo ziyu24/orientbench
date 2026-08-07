@@ -8,15 +8,12 @@
   "operation_counts": {
     "detector_training": 0,
     "detector_inference": 0,
-    "evaluator_calls": 128,
-    "bootstrap_replicates": 0,
+    "evaluator_calls": 192,
+    "bootstrap_replicates": 6000,
     "downloads": 0,
     "gpu_hours": "recorded in runtime logs"
   },
-  "status": "FAIL_EVALUATOR_R010",
-  "completed_core_units": 4,
-  "not_run_core_units": [
-    "SODA-A/23",
-    "SODA-A/4"
-  ]
+  "status": "INCONCLUSIVE_MECHANISM_R010",
+  "completed_core_units": 6,
+  "not_run_core_units": []
 }

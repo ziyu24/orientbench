@@ -112,7 +112,13 @@ def sha(p):
  return h.hexdigest()
 def run_unit(cell):
  ds,det,pp,gp=CELLS[cell]; preds,gts=load(ROOT/pp),load(ROOT/gp); base=evaluate_native(preds,gts,details=True)
- clean=evaluate_native(preds,gts,details=False); base_m={r['pred_index']:next((g for j,g in enumerate(gts) if j==r['gt_index']),None) for r in base['m50']}; base_m={i:g for i,g in base_m.items() if g is not None}
+ # dose=0 is the unmodified prediction identity; re-running the full
+ # evaluator here is redundant.  Build the GT lookup once: the previous
+ # generator-expression lookup was quadratic for SODA-A (hundreds of
+ # thousands of matches times hundreds of thousands of GT objects).
+ clean=base
+ gt_by_index={j:g for j,g in enumerate(gts)}
+ base_m={r['pred_index']:gt_by_index.get(r['gt_index']) for r in base['m50']}; base_m={i:g for i,g in base_m.items() if g is not None}
  rows=[]; comps=[]; events=[]; survival=[]; details={'P0':base['details'],'D0':base['details'],'S0':base['details']}
  for tr in 'PDS':
   for dose in DOSES:
@@ -153,10 +159,18 @@ def aggregate():
  payloads=[json.loads(p.read_text()) for p in sorted(OUT.glob('unit_*.json'))];
  rows=[r for p in payloads for r in p['rows']]; comps=[r for p in payloads for r in p['components']]; events=[r for p in payloads for r in p['events']]
  write_csv(REP/'a4_fixed_dose_tracks_r010.csv',rows); write_csv(REP/'a4_symmetric_components_r010.csv',comps)
- er=[]
+ # Keep the tracked risk table compact: the per-match event records remain in
+ # the persistent unit payloads, while Git stores one deterministic summary
+ # row per cell/track/dose/AR stratum.
+ agg={}
  for r in events:
   for st in ['all','[2.1,3)','[3,5)','[5,+inf)']:
-   if st=='all' or r['ar_bin']==st: er.append({**r,'stratum':st})
+   if st!='all' and r['ar_bin']!=st: continue
+   k=(r['cell'],r['track'],r['dose_deg'],st); a=agg.setdefault(k,{'cell':r['cell'],'track':r['track'],'dose_deg':r['dose_deg'],'stratum':st,'matched_count':0,'severe_count':0,'angle_error_sum':0.0,'status':'COMPUTED_R010'})
+   a['matched_count']+=1; a['severe_count']+=int(r['severe']); a['angle_error_sum']+=float(r['angle_error_deg'])
+ er=[]
+ for a in agg.values():
+  n=a['matched_count']; a['severe_rate']=a['severe_count']/n if n else 0.0; a['mean_angle_error_deg']=a['angle_error_sum']/n if n else 0.0; del a['angle_error_sum']; er.append(a)
  write_csv(REP/'a4_risk_event_r010.csv',er)
  base=[{'cell':p['cell'],'dataset':p['dataset'],'detector':p['detector'],'AP50':p['native']['AP50'],'AP75':p['native']['AP75'],'AP50_clean':p['clean']['AP50'],'AP75_clean':p['clean']['AP75']} for p in payloads]; write_csv(REP/'a4_baseline_metrics_r010.csv',base)
  parity=[{'cell':p['cell'],'AP50_diff':p['parity']['AP50_diff'],'AP75_diff':p['parity']['AP75_diff'],'status':'PASS' if max(p['parity'].values())<=.002 else 'FAIL'} for p in payloads]; write_csv(REP/'a4_evaluator_parity_r010.csv',parity)
@@ -215,7 +229,7 @@ def finalize():
  ledger=[{'claim_id':'R010-AP75-AP50-dose-response','manuscript_section':'A4','line':'r010 evidence closure','text':'在冻结 post-NMS 预测上，AP75 对角度剂量的下降通常早于 AP50；D/S 统计仍以完整 evaluator 与 paired cluster bootstrap 为准。','text_sha256':hashlib.sha256('AP75 dose response'.encode()).hexdigest(),'claim_family':'descriptive_dose_response','dataset':'Core-6','unit':'unit×track×dose','estimand':'paired AP drop contrast','result_row_keys':'a4_paired_ap_bootstrap_summary_r010.csv','generator_script':'run_a4_closure_r010.py; paired_ap_bootstrap_r010.py','input_manifest':'a4_evidence_manifest_r010.json','gate':gate,'status':'QUALIFIED' if gate.startswith('PASS') else 'UNRESOLVED','action':'RETAIN' if gate.startswith('PASS') else 'QUALIFY','reason':'Post-NMS angle-only descriptive evidence; no causal/NMS/deployable claim'}]; write_csv(REP/'a4_claim_ledger_r010.csv',ledger)
  src=(WORK/'docs/orientation_reliability_paper_A_zh_v079.md').read_text(); section='\n\n## r010 固定剂量统计闭环（新增）\n\n本节基于同一套 full post-NMS 预测与完整 classwise evaluator，仅改变角度并重新匹配。剂量为 0、2、5、10、15、20、25、30 度，主分析域为 GT aspect ratio≥2.1。P 轨道固定施加正向扰动，D 轨道使用 dose=0 的固定匹配方向，仅作 GT-directed diagnostic upper bound；S 轨道独立计算正负两方向并取算术平均，因此是本节不挑方向的检验。\n\n本轮仅支持描述性结论：在若干 Core 单元中 AP75 比 AP50 对剂量更敏感，但统一 knee、因果机制、NMS 效应和可部署选择器均不由本实验得到。完整的 paired AP bootstrap、风险事件和 baseline-cohort 生存表见随附复算表；S 轨道保留正负分量，SODA-A 的 tile/mother-scene 交叉限制仍然存在。严格统计门控状态为 `'+gate+'`，因此不把该结果写成广泛风险控制方法。\n'; (WORK/'docs/orientation_reliability_paper_A_zh_v080.md').write_text(src+section)
  # lightweight manifest; final hash is intentionally self-referentially excluded.
- manifest={'round':'orientbench-c-r010-20260806','scientific_snapshot':'73f8814b9d0345bfb6b99c1463a61bb01a555f40','authorized_changes':['claude_code_and_supervisor.md','dis/server_reports/orientbench-c-r010-20260806.md'],'operation_counts':{'detector_training':0,'detector_inference':0,'evaluator_calls':128,'bootstrap_replicates':0,'downloads':0,'gpu_hours':'recorded in runtime logs'},'status':gate,'completed_core_units':len(payloads),'not_run_core_units':missing}; (REP/'a4_evidence_manifest_r010.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+ manifest={'round':'orientbench-c-r010-20260806','scientific_snapshot':'73f8814b9d0345bfb6b99c1463a61bb01a555f40','authorized_changes':['claude_code_and_supervisor.md','dis/server_reports/orientbench-c-r010-20260806.md'],'operation_counts':{'detector_training':0,'detector_inference':0,'evaluator_calls':32*len(payloads),'bootstrap_replicates':1000*len(payloads) if boot and all(int(r.get('n_reps','0'))>=1000 for r in boot) else 0,'downloads':0,'gpu_hours':'recorded in runtime logs'},'status':gate,'completed_core_units':len(payloads),'not_run_core_units':missing}; (REP/'a4_evidence_manifest_r010.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
 if __name__=='__main__':
  ap=argparse.ArgumentParser();ap.add_argument('--unit');ap.add_argument('--all',action='store_true');ap.add_argument('--aggregate',action='store_true');ap.add_argument('--protocol',action='store_true');ap.add_argument('--provenance',action='store_true');ap.add_argument('--finalize',action='store_true');a=ap.parse_args()
  if a.protocol: protocol()

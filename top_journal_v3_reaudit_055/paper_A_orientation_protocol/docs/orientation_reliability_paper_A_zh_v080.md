@@ -403,4 +403,4 @@ Inter-annotator disagreement 衡量两名标注者之间的一致性；annotator
 
 本节基于同一套 full post-NMS 预测与完整 classwise evaluator，仅改变角度并重新匹配。剂量为 0、2、5、10、15、20、25、30 度，主分析域为 GT aspect ratio≥2.1。P 轨道固定施加正向扰动，D 轨道使用 dose=0 的固定匹配方向，仅作 GT-directed diagnostic upper bound；S 轨道独立计算正负两方向并取算术平均，因此是本节不挑方向的检验。
 
-本轮仅支持描述性结论：在若干 Core 单元中 AP75 比 AP50 对剂量更敏感，但统一 knee、因果机制、NMS 效应和可部署选择器均不由本实验得到。完整的 paired AP bootstrap、风险事件和 baseline-cohort 生存表见随附复算表；S 轨道保留正负分量，SODA-A 的 tile/mother-scene 交叉限制仍然存在。严格统计门控状态为 `FAIL_EVALUATOR_R010`，因此不把该结果写成广泛风险控制方法。
+本轮仅支持描述性结论：在若干 Core 单元中 AP75 比 AP50 对剂量更敏感，但统一 knee、因果机制、NMS 效应和可部署选择器均不由本实验得到。完整的 paired AP bootstrap、风险事件和 baseline-cohort 生存表见随附复算表；S 轨道保留正负分量，SODA-A 的 tile/mother-scene 交叉限制仍然存在。严格统计门控状态为 `INCONCLUSIVE_MECHANISM_R010`，因此不把该结果写成广泛风险控制方法。

@@ -1,15 +1,12 @@
 {
   "protocol": "PASS_PROVENANCE_R010",
-  "evaluator": "FAIL_EVALUATOR_R010",
-  "mechanism": "FAIL_EVALUATOR_R010",
-  "final_status": "FAIL_EVALUATOR_R010",
+  "evaluator": "PASS_EVALUATOR_R010",
+  "mechanism": "INCONCLUSIVE_MECHANISM_R010",
+  "final_status": "INCONCLUSIVE_MECHANISM_R010",
   "core_units": 6,
-  "completed_units": 4,
-  "not_run_units": [
-    "SODA-A/23",
-    "SODA-A/4"
-  ],
-  "paired_bootstrap": "NOT_RUN_EVALUATOR_R010",
+  "completed_units": 6,
+  "not_run_units": [],
+  "paired_bootstrap": "PASS",
   "extension_status": "NOT_RUN_AMBIGUOUS_EXTENSION",
   "r009_protocol": "FAIL_PROTOCOL_R009",
   "r009_mechanism": "INCONCLUSIVE_MECHANISM_R009"

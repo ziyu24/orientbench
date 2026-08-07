@@ -2262,7 +2262,7 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 ### r010 statistical mechanism closure
 
 - Pulled `origin/main` before execution; scientific snapshot was `73f8814`.
-- Ran the independent r010 full evaluator on four Core-6 units. SODA-A/23 and SODA-A/4 did not complete within this run and remain explicit `NOT_RUN_EVALUATOR_R010` quarantine rows.
-- Paired AP bootstrap and extension units were not run because the Core gate was incomplete. No training, detector inference, download, threshold, split, or D_cal/D_audit change occurred.
-- Final r010 gate: `FAIL_EVALUATOR_R010`. Report: `dis/server_reports/orientbench-c-r010-20260806.md`.
-- r010 only records a quarantined v080 wording and evidence package; no broad scientific closure is claimed.
+- Completed the independent r010 full evaluator on all six Core-6 units and ran 1000-replicate paired image-cluster AP bootstrap per unit. SODA-A units completed after the quadratic GT lookup was removed; the two-unit execution was parallelized across GPUs. No training, detector inference, download, threshold, split, or D_cal/D_audit change occurred.
+- Extension units remain `NOT_RUN_AMBIGUOUS_EXTENSION`.
+- Final r010 gate: `INCONCLUSIVE_MECHANISM_R010`. Report: `dis/server_reports/orientbench-c-r010-20260806.md`.
+- r010 closes the evaluator/statistical package but does not establish a strong unified mechanism, causal, or deployable-selector claim.
