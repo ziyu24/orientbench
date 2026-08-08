@@ -1,0 +1,132 @@
+{
+  "schema": "orientbench_evidence_manifest_r014_preflight_stop_v1",
+  "round": "orientbench-c-r014-20260808",
+  "execution_head": "ac7a5244731a631103a4aa479e16696f5b120b99",
+  "final_head": "SELF_COMMIT_CONTAINING_THIS_MANIFEST",
+  "execution_completion": "INCOMPLETE_BLOCKED",
+  "scientific_verdict": "NOT_EVALUATED",
+  "last_completed_phase": "git_preflight",
+  "commands": [
+    "git pull --ff-only https://github.com/ziyu24/orientbench.git main",
+    "git status --porcelain=v1 --untracked-files=all",
+    "python p3_selector/deployable_proxy_r014/scripts/validate_r014.py"
+  ],
+  "counts": {
+    "training": 0,
+    "inference": 0,
+    "evaluator": 0,
+    "feature_rows": 0,
+    "model_fits": 0,
+    "target_label_attaches": 0,
+    "bootstrap": 0,
+    "hrsc": 0
+  },
+  "dirty_tree_witnesses": [
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/DIOR-R_22_P.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/DIOR-R_3_D.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/DIOR-R_61_S.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/FAIR1M-v1_0_24_P.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/SODA-A_23_D.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/SODA-A_4_S.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/surv_DIOR-R_22_P.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/surv_DIOR-R_3_D.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/surv_DIOR-R_61_S.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/surv_FAIR1M-v1_0_24_P.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/surv_SODA-A_23_D.err",
+    "top_journal_v3_reaudit_055/paper_A_orientation_protocol/risk_logs/surv_SODA-A_4_S.err"
+  ],
+  "inputs": [
+    {
+      "path": "dis/sug.md",
+      "bytes": 16544,
+      "sha256": "223711945a1669daa88fe9e19382438f04baef4f192d70c64de3b57a5b75bb42"
+    },
+    {
+      "path": "dis/sug/orientbench-c-r012-20260807-post-cc-v2.md",
+      "bytes": 19554,
+      "sha256": "7f9ae1d8d4b2e6511dd5b1c076c593072bb6bbcab6b586d7efa5acd8f086075b"
+    },
+    {
+      "path": "/home/rspip/cqc/pro/study/pth_data/readme.md",
+      "bytes": 89032,
+      "sha256": "eb9ac9a172b49cc8063b91c2332f36829d0b3cf5f3a3667f2617d64258d10c9c"
+    },
+    {
+      "path": "dis/B.md",
+      "bytes": 59418,
+      "sha256": "af92be70f73946bb4bb39c366eea44007c570086895672866927f5e6faf59ea6"
+    }
+  ],
+  "runtime": [
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/logs/validate_r014.log",
+      "bytes": 30,
+      "sha256": "73840f1c31b16a75ee8600027ae2f6fcb5ceab5b34aed5d8d973a29805b6bdc3"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "claude_code_and_supervisor.md",
+      "bytes": 252906,
+      "sha256": "0eb3e011218fda878d30d4e01db2c42a4639ef783b2d11b2c3527f47c232ebbe"
+    },
+    {
+      "path": "dis/server_reports/orientbench-c-r014-20260808.md",
+      "bytes": 4264,
+      "sha256": "0324aea51a0246bed873c6fb3211df05efa843eb8c2087bdf71704a3a0924790"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/protocol_r014.json",
+      "bytes": 786,
+      "sha256": "49960b2867f23a42bc2dd5e5f882ff4100b00480702f1b7f96e895099a8fa458"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/runtime_registry_r014.json",
+      "bytes": 425,
+      "sha256": "cb0eb4f3648c7d23afa5b89ce2ddc38606af25ac588b225f99e4dde02d6c8409"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/scripts/validate_r014.py",
+      "bytes": 2508,
+      "sha256": "c09b154163369e8b1ac20577c96f741ae767cd062d12f44de7958d23438f8588"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/completion_status_r014.json",
+      "bytes": 693,
+      "sha256": "0f93bc4ad023b0b74894fa1fa0aca9bd36a0264c11bf84dbc9edf6fb1f0fc9df"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/gate_r014.json",
+      "bytes": 284,
+      "sha256": "ea986961cefedfac520e57497a38e5f7f7245ed840d3cc9dc28f5f453fa21045"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/resource_telemetry_r014.csv",
+      "bytes": 132,
+      "sha256": "4e7003382bbe0330bebcce92af601ff6b739b7f442232d274ae7506a43dfb4bf"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/evidence_manifest_r014.json",
+      "bytes": "N/A_SELF_REFERENCE",
+      "sha256": "N/A_SELF_REFERENCE"
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.md",
+      "bytes": 838,
+      "sha256": "250f47fc1476a9501974622162b41361f2594b4cb8c308ea4f6ba3e807d8dc4e"
+    }
+  ],
+  "authorized_subset_used": [
+    "claude_code_and_supervisor.md",
+    "dis/server_reports/orientbench-c-r014-20260808.md",
+    "p3_selector/deployable_proxy_r014/protocol_r014.json",
+    "p3_selector/deployable_proxy_r014/runtime_registry_r014.json",
+    "p3_selector/deployable_proxy_r014/scripts/validate_r014.py",
+    "p3_selector/deployable_proxy_r014/reports/completion_status_r014.json",
+    "p3_selector/deployable_proxy_r014/reports/gate_r014.json",
+    "p3_selector/deployable_proxy_r014/reports/resource_telemetry_r014.csv",
+    "p3_selector/deployable_proxy_r014/reports/evidence_manifest_r014.json",
+    "p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.md"
+  ],
+  "protected_dis_B_blob": "3181a862137918f1dd41677893937c12b3c39c28"
+}

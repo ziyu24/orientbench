@@ -2287,3 +2287,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 最终触发 `FAIL_PROVENANCE_R012`；Core provenance 为 5/6。按硬门未执行 transform smoke、GPU forward、feature build、source fit、target label attach、bootstrap 或 HRSC confirmation。
 - 关键产物：`dis/server_reports/orientbench-c-r012-20260807.md`、`p3_selector/deployable_proxy_r012/` 与 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md`。
 - 未修改 thresholds、split、D_cal/D_audit 或历史 r009-r011 资产；当前 EQS 方法线关闭，后续只允许以新的正式指令处理。
+
+## [2026-08-08 16:06:58 CST] 来源: Codex
+
+### r014 Git preflight blocked
+
+- 已通过 HTTPS 核对指定 HEAD `ac7a5244731a631103a4aa479e16696f5b120b99`，index clean。
+- 工作树存在 12 个本轮前已有且未跟踪的 `paper_A_orientation_protocol/risk_logs/*.err`；冻结指令要求 dirty tree 立即停止，且这些文件不在 r014 授权写入集合内，故未删除、移动、忽略或暂存。
+- 执行分类为 `INCOMPLETE_BLOCKED`，Core/EQS/HRSC 均为 `NOT_EVALUATED`；未运行 FAIR repair、GPU forward、feature build、fit、target label attach、bootstrap 或稿件重写。
+- 报告：`dis/server_reports/orientbench-c-r014-20260808.md`。未修改 thresholds、D_cal/D_audit、历史证据或 `dis/B.md`。

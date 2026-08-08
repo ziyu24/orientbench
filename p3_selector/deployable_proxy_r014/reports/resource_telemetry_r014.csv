@@ -1,0 +1,2 @@
+phase,wall_seconds,gpu_forward_count,feature_rows,model_fits,bootstrap_replicates,status
+git_preflight,0,0,0,0,0,INCOMPLETE_BLOCKED

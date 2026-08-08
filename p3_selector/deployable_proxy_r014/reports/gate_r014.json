@@ -1,0 +1,10 @@
+{
+  "status": "NOT_EVALUATED",
+  "gate_reached": "git_preflight_only",
+  "precondition": "clean working tree and index",
+  "precondition_met": false,
+  "core_eqs": "NOT_EVALUATED",
+  "hrsc": "NOT_EVALUATED",
+  "target_labels_attached": false,
+  "scientific_result_available": false
+}

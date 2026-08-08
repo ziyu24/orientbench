@@ -1,0 +1,14 @@
+{
+  "status": "INCOMPLETE_BLOCKED_AT_GIT_PREFLIGHT",
+  "runtime_root": "outputs/persistent_artifacts/orientbench_r014",
+  "started_at": "2026-08-08T16:06:58+08:00",
+  "last_completed_phase": "git_preflight",
+  "scientific_execution_started": false,
+  "fair_repair_started": false,
+  "gpu_forward_count": 0,
+  "feature_rows": 0,
+  "model_fits": 0,
+  "target_label_attaches": 0,
+  "bootstrap_replicates": 0,
+  "hrsc_runs": 0
+}
