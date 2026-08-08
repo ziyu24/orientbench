@@ -1,45 +1,48 @@
 {
   "schema_version": "1.0",
   "project": "orientbench",
-  "round_id": "orientbench-c-r012-20260807",
-  "review_date": "2026-08-07",
-  "scientific_snapshot_sha": "c101429cebf3454b25bd62c285feffc2fea2e1c3",
+  "round_id": "orientbench-c-r013-20260808",
+  "review_date": "2026-08-08",
+  "scientific_snapshot_sha": "d76e3837c43987bfdcf134ceecc5f7ff3ab9f292",
+  "prior_scientific_snapshot_sha": "c101429cebf3454b25bd62c285feffc2fea2e1c3",
   "cc_review_head_sha": "b959a09c021ade11241aecd970c90060dbbed84f",
-  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_measure_diagnose_fix_r011.md",
-  "planned_paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md",
+  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md",
+  "planned_paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r013.md",
   "scientific_state": {
     "r011_protocol": "FAIL_PROTOCOL_R011",
-    "r011_evaluator": "FAIL_EVALUATOR_R011_VARIANT_PARITY_MISSING",
-    "r011_implementation": "FAIL_IMPLEMENTATION_R011_NONREPRODUCIBLE_GENERATION_CHAIN",
     "fixed_dose_science": "DESCRIPTIVE_CREDIBLE_CONFIRMATORY_INVALID_NO_MORE_PATCHES",
-    "current_g2": "M2_DIAGNOSTIC_UPPER_BOUND_ONLY",
-    "current_deployable": "FAIL_LEAVE_DATASET_0_OF_6",
-    "fair_universe": "COUNT_MISMATCH_CONFIRMED_CAUSE_UNRESOLVED",
+    "historical_deployable": "FAIL_LEAVE_DATASET_0_OF_6",
+    "r012_scientific_gate": "ADOPT_FAIL_PROVENANCE_R012",
+    "r012_server_acceptance": "PROTOCOL_DRIFT_MANUSCRIPT_AND_IMPLEMENTATION_DISCLOSURE",
+    "r012_eqs_performance": "NOT_EVALUATED_A0_STOP",
+    "fair_universe": "FAIL_3896_OF_4362_RAW_ROWS_M069_FULL_RAW_NOT_PERSISTED",
+    "method_route": "CLOSED_NO_RERUN_OR_GATE_SWAP",
     "current_evidence_maturity": "STRONG_JSTARS_POTENTIAL_NOT_READY",
-    "tgrs_status": "CONDITIONAL_AFTER_FOUNDATION_REPAIR_OR_R012_PASS",
-    "top_conference_status": "NOT_REACHED_R012_AND_INDEPENDENT_CONFIRMATION_REQUIRED",
-    "next_scientific_gate": "R012_EQS_UNIT_4_OF_6_AND_DATASET_3_OF_3_THEN_HRSC_CONFIRMATION"
+    "tgrs_status": "CONDITIONAL_AFTER_R013_FOUNDATION_REPAIR_AND_SUBMISSION_ATTACK",
+    "top_conference_status": "CLOSED_CURRENT_EQS_ROUTE"
   },
   "evidence_index": "dis/C.md",
   "c": {
-    "status": "ROUND_COMPLETE_READY_FOR_SERVER",
+    "status": "ROUND_COMPLETE_R012_REVIEWED_READY_FOR_R013",
     "report_path": "dis/C.md"
   },
   "cc": {
-    "status": "COMPLETED",
+    "status": "COMPLETED_R012_PRE_SERVER",
     "recommendation": "no",
+    "recommendation_reason": "repair directly verifiable manuscript violations before any repeated submission attack",
     "stage_1_commit": "a5a94dffcc4f7c1811720b39aa87a545a10d649c",
     "stage_2_commit": "b959a09c021ade11241aecd970c90060dbbed84f",
     "strict_blind_independence": false,
-    "independence_note": "minor_redundant_commit_title_exposure_detailed_reasons_remained_blind",
     "only_report_path": "dis/B.md"
   },
   "server": {
-    "status": "READY_FOR_SERVER_LUNA_HIGH_POST_CC_FREEZE",
+    "last_status": "COMPLETED_R012",
+    "last_execution_commit": "d76e3837c43987bfdcf134ceecc5f7ff3ab9f292",
+    "last_report_path": "dis/server_reports/orientbench-c-r012-20260807.md",
+    "last_scientific_verdict": "FAIL_PROVENANCE_R012",
+    "current_status": "READY_FOR_SERVER_R013_MANUSCRIPT_ONLY",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r012-20260807.md",
-    "last_completed_report_path": "dis/server_reports/orientbench-c-r011-20260807.md",
-    "last_verdict": "FAIL_PROTOCOL_R011"
+    "only_report_path": "dis/server_reports/orientbench-c-r013-20260808.md"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }
