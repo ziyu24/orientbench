@@ -247,3 +247,105 @@ stage2_time: 2026-08-05 (同一会话内完成)
 3. B 不是裁决者：C-10 分歧按第 5 节的 experiment 路径处理；无新证据前 B 不再重复立场。
 
 ——STAGE_2 结束。
+
+---
+
+# STAGE_1_BLIND_REVIEW_R012
+
+```yaml
+reviewer: B (Claude Code / CC)
+round_id: orientbench-c-r012-20260807
+scientific_snapshot_sha: c101429cebf3454b25bd62c285feffc2fea2e1c3
+worktree_head: 7a41848d4e230de2ad67a22c122cd69211a60070   # 快照后仅 dis/ 协作文件变更（name-status 核验）
+paper_entry: top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_measure_diagnose_fix_r011.md
+review_time: 2026-08-07
+independent_review_completed_before_reading_C: true   # 本轮 C.md/sug.md/sug/**/review_state.json 内容与 diff 均未读
+```
+
+独立性披露（如实，宽于必要）：拉取前查看 `git log` 提交列表时，我看到了包括本轮 C 提交在内的**提交标题**（如"否决r011协议闭环并启动r012顶刊资格终判"）。未读任何被禁文件内容或 diff。该标题所含信息（r011 被否、r012 为终判轮）与阶段一允许读取的 `dis/collaboration_protocol.md`（明载 r009/r010/r011 均 `FAIL_PROTOCOL` 及 r012 使命）完全重合，增量泄漏为零；另外我保有 r001 轮已公开推送的双方交换内容，这是协议允许的历史材料。综合自评：独立性**未受实质损害**，接触已全量披露，最终由 C 裁定。
+
+审查方式与上一轮一致：本机无 Python、`outputs/persistent_artifacts/` 不在 Git 内，为一致性/生成端/逻辑审查；所有"已核验"指论文与仓库持久化 CSV/JSON 的精确比对与脚本静态审查。用户目标为顶刊；按协议 §6，本报告不因该目标软化或抬高任何结论。
+
+## 1. 启动 prompt 四问的独立答复
+
+### Q1｜r011 parity 与预注册符合性：**证据强，但两个闭合缺口成立**
+
+**已验证为真（对 r011 有利）：**
+
+- 表 6 与 `reports/paired_ap_bootstrap_summary_r011.csv` 六单元逐数一致（D/S 点估计与 95% CI 全部对上）；Holm 实现教科书级正确（五单元 adj-p=0.005994=min(p)×6，FAIR1M D 为 0.01998，step-down 单调性正确）。
+- S 轨确为真实正/负两次完整评测的算术平均：validator 以 1e-10 核对 `S=(＋dose+−dose)/2`；`T_P≡T_plus` 自洽；96 个 ± 分量行、144 网格行、960 risk 行、90 survival 行 schema 全部由 `scripts/validate_joint_closure_r011.py` 以真实布尔条件重算（bootstrap mean/CI 以 1e-12 从 6,000 个 replicate 重算，Holm 与支持规则重推导）。这不是常量 PASS validator。
+- 42 个可执行 golden（含 20 个优化-vs-暴力 bootstrap 合成对照，容差 1e-12）通过；6 单元 dose=0 官方(mmrotate eval_rbbox_map) vs clean-room(Shapely) 差 ~1e-8，vs authority ≤4.8e-4。
+- SODA-A/23 lineage 修正成立：K1 identity dump 1,663,631 预测，官方 0.599124/0.273483 与 authority 0.5991/0.2735 一致。
+
+**缺口一（评测器）：parity 不覆盖实际剂量变体。** `reports/fixed_dose_tracks_r011.csv` 的 dose=0 AP 精确等于 parity 表的 **cleanroom** 值（0.5367777305863244 等），即 144 行全网格、96 个 ± 分量、全部 6,000 bootstrap replicate 均由 clean-room 单评测器产出；官方评测器只在 dose=0 交叉过。两套实现在基线上 1e-8 一致且 golden 覆盖 tie/greedy 边界，故缺口窄，但"官方端点确认了固定剂量结论"在快照内不成立。**最小闭合**：官方端点对 6 单元 × {P,D,＋,−} × dose∈{15,30} 的抽样 parity（≤48 次评测，阈值沿用 0.002），落盘为 r012 附件。
+
+**缺口二（provenance，本轮新发现）：FAIR1M 单元的图像宇宙不闭合。** `reports/provenance_r011.csv` 第 5 行：FAIR1M/24 的 gt_image_count=prediction_image_count=**3,896**，而 val20 全 split 为 4,362 图（`k1_table1_gt_manifest_065.csv`）；DIOR 预测覆盖 11,732–11,735/11,738、SODA 预测覆盖 19,668/18,241 个 tile（均含 GT 空图），唯独 FAIR1M 预测图像集≡GT 非空图像集，且 prediction_count=484,332 对比 k1 期 JSON 的 488,194 少 3,862（≈466 个 GT 空图上的预测被剔除）。若空图 FP 被移除，AP 存在正向偏置（官方 0.34668 vs authority 0.3462，方向一致）；对配对 T 统计的影响部分抵消但非零。§7.3"GT-only、无预测和空图像均保留"依赖 `m069_fullval_reliability/*/image_universe.csv`（Git 外，`paired_full_ap_bootstrap_r011.py:48`），快照内不可验证。**最小闭合**：落盘各单元 universe 行数与 sha；对 FAIR1M 给出空图预测的处置声明与 AP 偏置上界（或恢复 488,194 版重跑该单元）。
+
+**预注册边界**：`joint_protocol_r011.json` 覆盖 dose 网格/seed/RNG/CI 定义/S 定义/tie-break/survival bins，但 P3 的 60% 支持率门槛只存在于 `p3_cross_domain_r011.py:117`，协议 JSON 未载；且协议、脚本与结果同链提交，"先冻结后计算"依旧无法从 Git 独立验证（与 r001 F6 同类问题，跨三轮未解决）。
+
+**扩展单元**：provenance 表 7–9 行（FAIR1M/5、DOTA×2）`NOT_RUN_AMBIGUOUS_EXTENSION`——诚实，但独立确认单元数仍为 0。
+
+### Q2｜P3 的 4/11 分层后是清晰的负迁移结构，"INCONCLUSIVE" 措辞过宽
+
+`reports/p3_cross_domain_results_r011.csv` 分层重读：
+
+| 折类 | 支持/总数 | 关键事实 |
+|---|---|---|
+| leave-dataset | **0/6** | A/B/C/D 四折 ΔNRC 的 95% CI **整体为负**（如 A：−0.152 [−0.191, −0.110]），E 显著负，F≈0。非线性候选跨数据集不仅无益，多数显著**有害** |
+| leave-detector（source 含同数据集兄弟单元） | 4/4 | A、B（source 含 DIOR 兄弟）、E、F（source 含 SODA 兄弟）全部支持 |
+| leave-detector（source 不含同数据集） | 0/1 | FAIR1M 折（source=B\|C\|F，无 FAIR1M）不支持——行为等同 leave-dataset |
+| NOT_IDENTIFIABLE | 1 | RTMDet 单数据集 |
+
+结论：候选学到的是**数据集特定**的几何-风险规律；支持完全由"target 数据集是否出现在 source"决定。这不是 inconclusive，是**结构清晰的跨数据集负迁移 + 同数据集可迁移**结果，其本身有发表价值，并直接给 r012 判别实验设定了先验：同构特征（score、log a、log size）+ 跨数据集直接拟合的路线已被证伪。
+
+**泄漏检查缺陷**：fold 级 `leakage_check` 是硬编码常量（`p3_cross_domain_r011.py:83`），gate 的 `"leakage":"PASS"` 同为常量（:122）——正是协作协议判无效的"常量 PASS"。E/F 两个 supported 折的 source 含 SODA 兄弟单元，SODA 的 D_cal/D_audit 母景交叉通道未被任何计算检查覆盖。剔除这两折只会让 supported 更少（4→2），跨数据集 0/6 的负结论不受影响；但该常量必须在 r012 换成计算检查。fold 级支持判定未做多重校正——同样只会强化负结论。
+
+### Q3｜novelty 边界（截至 2026-08-07 一手核查）
+
+- 新增必须引用并划界的一手先例：**Sensitivity of Average Precision to Bounding Box Perturbations（arXiv:2206.10107, 2022）**——HBB 扰动-AP 敏感性的系统研究。r011 的固定剂量贡献（OBB 角剂量 × 双评测器 × 全图像宇宙配对 bootstrap × AR 生存分层）在检索中仍未被占据，但"扰动-AP 敏感性"范式非首创，正文需与该文及 ARS-DETR（定性角容忍）明确划界。
+- r001 已核实清单继续适用：SeqCRC（arXiv:2505.24038）、CRC 非单调（2604.01502）、CP-OD（2605.07549）、AQE（Sci Rep 2025）、O2（TGRS 2026）、OSKDet、CVPR2024 boundary、nuScenes AOE、UAV-OBB（IoU 级双标 QA vs 本文度级圆周双标）。
+- **主稿在"终判轮"仍带着 r001 已双方裁定的错误清单**（详见 §2）——参考文献停在 2023/2024，PSC 作者、DIOR-R 出处未修。novelty 防线文字层面完全没有加固。
+
+### Q4｜真实 venue 上限与最小判别实验
+
+**证据链现状**：P1 强但两缺口未闭合；P3 跨数据集显著负；认证前沿已移除（正确）；独立确认单元 0；主稿修正清单未清。
+
+**venue 判断（不软化、不抬高）**：
+- **今天投出**：JSTARS 级扎实，TGRS 边缘偏下——任何核对仓库的审稿人都会先撞上 §2 的修正清单。
+- **完成①主稿修正清单②变体 parity 抽样闭合③FAIR1M universe 闭合④P3 改为分层负迁移正面呈现之后**：TGRS 可达（三支柱：测量协议+固定剂量双评测证据、跨数据集负迁移分析、人工角度双标审计）。这四项都是天级工作量，无需新训练。
+- **顶刊/顶会方法线**（用户目标）：唯一路径是 r012 判别实验出现真正 leave-dataset 正迁移的 target-GT-free selector。当前先验很差（0/7 且多数显著负）。若实验失败，按协议关闭方法线——届时"顶刊"只能由测量/审计线在 TGRS 档承载，**证据不支持通过措辞或换 venue 话术达到更高档**。TPAMI/顶会级主张在现有证据下不成立，我不会为目标写高它。
+
+**最小、可证伪、source-supervised、target-GT-free 的判别实验（r012 mandate）**：
+
+1. 候选设计必须针对 P3 失败机理（数据集特定性）：特征改为目标域**无监督自归一化**几何量——per-dataset 分位数变换的 (score, log a, log size)（分位数只用目标域无标注预测统计，不触 GT），或 source-ensemble rank-isotonic 校准。禁止沿用原始未归一化特征直拟。
+2. 折结构：3 个 leave-dataset 折（DIOR/FAIR1M/SODA 轮流为 target；source=其余数据集全部单元的 D_cal-fit）；SODA 为 target 时，source 资产与 target 母景的 tile 交集必须为空，**以计算检查落盘**（禁止常量字符串）。
+3. 预注册 gate（读结果前单独提交冻结文件）：3 折全部 paired ΔNRC(线性基线−候选) 点估计>0 且 95% CI 下界>0（image-cluster bootstrap 1000，Holm 3 折），预注册最小效应 0.02。
+4. kill condition：任一折 CI 上界<0 → `FAIL_CLOSE_METHOD_LINE`（关闭方法线）；混合/未达 3/3 → 同样关闭（协议已禁止再开修补线，不设 INCONCLUSIVE 续命出口）。
+5. 成本：纯 CPU、既有持久化特征与 m069 生成端，无训练无推理，单机数小时。
+
+## 2. 主稿（r011 版）事实与呈现问题
+
+**r001 双方已裁定、至今未修**（终判轮仍在稿）：
+
+1. DOTA NRC 0.6912/0.6458 legacy 口径混用（r011 稿第 266 行原样保留；权威 ar2.1 值 0.7544/0.7113）；
+2. §7.1"可靠性分析基于 full-validation matched predictions"（第 203 行）与表 4/5 的 D_audit 实情冲突；表 3 n=49,502 vs 表 4 n=25,065 仍无解释；
+3. §7.1"非 DOTA 数据采用既有 trainval/test 协议"（第 201 行）对 FAIR1M 的本地 train_80/val_20 仍不实——且本轮 provenance 进一步显示其预测文件只覆盖 GT 非空图（见 Q1 缺口二），措辞离实情更远；
+4. 表 1（第 188–191 行）两行仍无条件标注；**更严重**：其 UCB 数字全部来自 §6.3 已宣布"未闭环、不作为本文证据"的历史认证审计——论文一边否认该审计的证据地位，一边在表 1 引用其数字而不加标注，自相矛盾；
+5. PSC 作者（[9] "Yu Y, Yang X, Li Q"，实为 Yi Yu, Feipeng Da）与 DIOR-R 出处（[3] RICNN 2016，应为 AOPG TGRS 2022 + DIOR ISPRS 2020）两处引用错误原样保留。
+
+**本轮新增**：
+
+6. 附录段（第 380–384 行）把内部 gate 字符串写进论文正文（"PASS_STRONG_JSTARS_EVIDENCE_R011"、"P3_CROSS_DOMAIN_INCONCLUSIVE_R011"）——投稿稿件不能出现内部门控命名，且"JSTARS"字样自贬 venue；该段无编号悬挂在结论与参考文献之间；
+7. P3 在稿中只写"4/11 folds 支持"，未给 leave-dataset/leave-detector 分层——掩盖了本轮最清晰的科学结构（见 Q2），也让"source-supervised 候选"显得比实际更有希望；
+8. §7.3"空图像均保留"与 FAIR1M 单元实情（预测只覆盖 GT 非空图）在快照内无法同时为真，至少 FAIR1M 行需加注；
+9. 表 6 的 D 轨未在表注中标"diagnostic upper bound"（协议 JSON 有此定位，§7.2 有部分披露，表注应补）。
+
+## 3. 最致命问题、置信度、最弱环节、反证
+
+- **最致命（流程）**：终判轮主稿仍未消化 r001 双方共识的修正清单——若 r012 以该稿为准做"顶刊资格终判"，判的是一份带已知错误的稿件。
+- **最致命（科学）**：P3 跨数据集显著负迁移 + 常量泄漏检查。它同时决定 r012 实验设计与"方法线是否关闭"。
+- 置信度：Q1/Q2 各项为高（代码级+CSV 级复核）；venue 判断为中高（主观成分已声明）；novelty 为摘要级核查。
+- 最弱环节：(a) clean-room 单评测器承载全部剂量数值——若其在大角度输入上有未被 golden 覆盖的缺陷，表 6 全部失效（反证条件：官方端点抽样 parity 超 0.002）；(b) FAIR1M universe 语义（反证条件：image_universe.csv 证明含 4,362 图且空图预测另有存放）；(c) 预注册顺序仍只有自述时间戳。
+- kill condition（对本报告自身）：若 `fixed_dose_tracks_r011.csv` 的 dose=0 值实为官方端点产出（即我对 0.5367777305863244=cleanroom 的比对有误），则缺口一不成立——欢迎 C 复核该比对。
+
+——STAGE_1_BLIND_REVIEW_R012 结束，此后不回改。
