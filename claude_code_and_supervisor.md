@@ -2266,3 +2266,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - Extension units remain `NOT_RUN_AMBIGUOUS_EXTENSION`.
 - Final r010 gate: `INCONCLUSIVE_MECHANISM_R010`. Report: `dis/server_reports/orientbench-c-r010-20260806.md`.
 - r010 closes the evaluator/statistical package but does not establish a strong unified mechanism, causal, or deployable-selector claim.
+
+## [2026-08-07 18:00 CST] 来源: Codex
+
+### r011 preflight
+
+- 已从 `origin/main` 拉取 r011 `sug.md`。
+- 执行在昂贵统计前置阶段停止：现有入口未调用官方 `DOTAMetric`，不能把 r010 私有 evaluator 结果冒充 r011。
+- r011 判定：`FAIL_IMPLEMENTATION_R011`；paired bootstrap、P3 cross-domain、联合稿均未执行。
+- 报告：`dis/server_reports/orientbench-c-r011-20260807.md`。
+- 未训练、未推理、未修改 thresholds、split 或 D_cal/D_audit。
