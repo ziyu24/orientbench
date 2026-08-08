@@ -1,58 +1,64 @@
-# OrientBench C 侧 r010 验收与 r011 最终统计修复/联合主线复核
+# OrientBench C 侧 r011 验收与 r012 顶刊/顶会资格判别
 
-- round: `orientbench-c-r011-20260807`
-- scientific snapshot: `c62ea3514e98f76baf557c22a5dd0ef812d84ee0`
-- active manuscript: [`orientation_reliability_paper_A_zh_v080.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_paper_A_zh_v080.md)
-- r010 report: [`orientbench-c-r010-20260806.md`](server_reports/orientbench-c-r010-20260806.md)
-- formal verdict: `FAIL_PROTOCOL_R010`；scientific mechanism remains `INCONCLUSIVE`
-- current venue: **strong-JSTARS candidate / JSTARS plausible but not ready；TGRS evidence not reached**
-- `cc_recommendation: no`：r010 的失败由提交代码和 CSV 中的直接反例充分裁决；先让服务器完成有界 r011，之后才需要投稿前全稿对抗审查。
+- round: `orientbench-c-r012-20260807`
+- scientific snapshot: `c101429cebf3454b25bd62c285feffc2fea2e1c3`
+- active manuscript: [`orientation_reliability_measure_diagnose_fix_r011.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_measure_diagnose_fix_r011.md)
+- r011 report: [`orientbench-c-r011-20260807.md`](server_reports/orientbench-c-r011-20260807.md)
+- formal verdict: `FAIL_PROTOCOL_R011`，并触发 evaluator/implementation 子失败；不得采纳仓库自报的 `PASS_STRONG_JSTARS_EVIDENCE_R011`
+- scientific status: P1 fixed-dose 信号为 **descriptive credible, confirmatory invalid**；现有 P3 geometry selector 的 leave-dataset 路线被反证
+- current venue: **JSTARS plausible、尚未 ready；完整重写后有 strong-JSTARS 潜力。TGRS/ISPRS JPRS/CVPR/ICCV 当前均未达到**
+- `cc_recommendation: recommended_now`：贡献路线已到冻结节点，服务器 PASS 与预注册契约冲突，且下一步决定是否永久关闭顶会方法线；适合独立投稿级攻击，最终仍由可复算证据裁决。
 
-## 1. 已确认事实
+## 1. r011 可采纳事实
 
-可保留：六个 Core 单元确实读取了 persistent raw/full GT，自定义 classwise evaluator 生成了 144 条 P/D/S 剂量曲线与 96 条 S 正负分量；原始 full-sample 点曲线继续显示 AP75 比 AP50 更敏感的候选信号。r010 最终没有越级声称 strong mechanism。
+1. official mmrotate baseline endpoint 与独立 Shapely clean-room evaluator 在 Core-6 的 dose=0 AP50/AP75 一致，双端差最大约 `2.45e-6`；这一项可作为 baseline evaluator parity。
+2. 6000 条 paired image-bootstrap replicate 的汇总可独立复算。代码已改用 full-GT denominator；D/S 各六单元的 point、CI、Holm 与 CSV 精确一致：D point `0.00527–0.10955`、S point `0.00860–0.10022`，D/S 均 6/6 CI 下界大于 0，Holm 最大 p 为 `0.01998`/`0.005994`。
+3. S 的 AP 与真实正负方向算术平均逐行相等；D AP75 单调点曲线及 dose15 三 AR-bin 生存率顺序均为 6/6。
+4. P3 不是空结果：11 个 eligible folds 仅 4 个支持，且全部来自 leave-detector；leave-dataset 为 **0/6**，其中五个显著反向。当前 geometry selector 不具备跨数据集 deployability。
+5. r011 累计 changed set 恰为授权的 33 路径，`git diff --check` 通过，32 个非自身输出的 Git blob 与 manifest 相符，保护文件未变化。
 
-必须拒绝：
+上述 2–3 说明科学信号不是伪造或旧 r010 错分母的重复，但不克服下述确认性前置失败。
 
-1. evaluator parity 是 `clean=base` 自比自身；golden 是常量 PASS，不是可执行测试。
-2. paired bootstrap 以 weighted TP 数而非 weighted full-GT 数作 recall 分母，并遗漏 GT-only image/class；其 DIOR-R/22 D contrast 均值约 0.203，而 full-sample 点估计仅约 0.095。
-3. Holm 未实现；gate 又把 CSV 的 `True` 与小写 `true` 比较，INCONCLUSIVE 是偶然保守 bug。
-4. survival 144 行全部 `ar_bin=all`；没有三个冻结 AR bins。S risk/survival 仍完全等于正向 P 分量。
-5. D 错误扰动 baseline 未匹配 predictions；risk 固定键应 576 行而实际 557。
-6. provenance 的集合关系和 PASS 被硬编码；DIOR prediction image 数小于 split image 数，SODA/FAIR 身份差异未用 split universe/运行记录闭合。
-7. baseline 仅六行 AP；ledger 仅一条；manifest 只列两条授权路径且无输入/输出身份。
-8. v080 只在参考文献后追加七行，没有整合摘要—贡献—方法—结果—讨论—限制—结论；正文仍称 fixed-dose raw 不完整，并残留相互矛盾的 formal certification 语言。
-9. r010 拆成两个提交并原位修改 root append；`git diff --check` 产生大量 CRLF 报错。
-10. bootstrap 默认仅 6 CPU workers、survival 单进程；GPU/CPU 日志与利用率不存在，无法证明资源纪律。
+## 2. 必须拒绝的 PASS 与最弱环节
 
-因此 `PASS_PROVENANCE_R010`、`PASS_EVALUATOR_R010`、所有 r010 CI/support 和“统计闭环”均 reject。保守的科学状态仍是 INCONCLUSIVE，不是负结果。
+1. 预注册要求 Core-6 的 dose0、D15、+15、-15 双端 full parity，共 24 个条件；实际 parity 表只有六个 dose0 baseline。144 点 fixed-dose 网格由第三套自写 evaluator 生成，未被 official/clean-room 在变体上复核。
+2. golden 没调用 official `eval_rbbox_map`；优化器只做 20 个同公式 synthetic 对照，缺每个 Core 10 个真实 draws。
+3. survival 应覆盖 `D,+,-,S × 8 doses × 3 bins × 6`，实际只算 dose15；risk 表虽有 960 键，但大量分量分层是 `NOT_AVAILABLE` 或无分母。
+4. provenance 脚本没有加载 frozen split universe，却直接写 subset/PASS；未绑定 config、checkpoint、framework、class/tile map 与生成命令。P3 的 m069 输入也不在 manifest。
+5. validator 信任已写入的 PASS/泄漏字符串并把 survival universe 弱化成 90 行，没有重算 24 parity、真实 draws、D 未匹配恒等、完整 risk/survival、真实 Git diff 或 P1 每个 gate。
+6. 生成链内部不自洽：`finalize()` 只会生成 3 行 ledger，但提交产物有 8 行且 validator 要求至少 8 行；同一命令还会覆盖当前服务器报告。公开命令无法重生提交状态。
+7. 资源表只是四行静态标签，不是每 30 秒 CPU/RAM/GPU 实测，不能证明 4×A30 和 80% CPU 纪律。
+8. 合同要求单一最终提交，实际是两个提交；首个 preflight 提交后的 root section 又被第二提交原位修改。
+9. 联合稿仍主要是 v080 measurement-only 主体。P3 只在结论后追加两段；摘要、贡献、方法、主结果、讨论、限制和结论没有整合。正文把 `4/11` 写成宽泛“跨域”，却没有正面报告 leave-dataset `0/6`。
+10. 稿内仍有内部 gate 字符串、旧 formal certification 残留及数字源漂移；ledger 哈希的是短 claim 标签而非稿件原句。
 
-## 2. P1+P3 主线同步裁决
+正式裁决因此是 `FAIL_PROTOCOL_R011`，并记录 `FAIL_EVALUATOR_R011`、`FAIL_IMPLEMENTATION_R011` 子条件。科学机制并非被证伪，但 r011 CI/PASS headline 永久 quarantine；按预注册不再开 fixed-dose 修补轮次。
 
-当前可采纳的 P3 只有权威 M2/G2_double_prime：`scripts/m2_g2doubleprime_ar21.py` 基于 m069 Core-6、`ar>=2.1`、prediction-side features、D_cal→D_audit 和 1000 次 image-cluster bootstrap；15 个有效 cell×size-bin 中 11 个支持 nonlinear，定位仅为 target-GT calibration/diagnostic upper bound。
+## 3. novelty 与顶刊攻击（核查日 2026-08-07）
 
-旧 `measure_fix_v2` 039/040/Route-C 的 PASS/STABLE-PASS 不得直接进入当前稿：它们使用旧 `ar>=1.6`/旧 matched lineage、400–500 次 instance bootstrap；039 还把 source D_audit 纳入训练，040 的全单元 retained gain 未过预设 0.5，仅排除 DOTA 后升级；真实 TTA raw 不持久且覆盖有限。r011 只在当前 Core-6 lineage 做一次有界 source-D_cal→target-D_audit 复核，不恢复“deployable method”口径。
+- ARS-DETR 已在 TGRS 2024 明确指出 AP50 对朝向偏差容忍过大并倡导 AP75（DOI `10.1109/TGRS.2024.3364713`）。因此“AP50 不足、AP75 更敏感”不能作为本文首创。
+- CVPR 2023 SAOD、MCCL 与 WACV 2024 detection calibration 已覆盖检测器自知、定位感知校准和结构化检测校准；本文必须明确 NRC/选择性风险不是概率校准。
+- CVPR 2022 OSKDet 已引入 localization-quality uncertainty；WACV 2025 Oriented Cell Dataset 已做多标注者 OBB 一致性。本文的人工标注实验只能作为遥感朝向噪声锚点，不能声称首次 OBB 标注者研究。
+- 当前仍有实质差异的候选是：`le90 + ar>=2.1` 可辨识域、几何归一化严重事件、full-image/scene 统计单位、跨三遥感数据集多检测头的朝向选择性风险审计，以及可复算的 target-GT-free selector gate。前三项足以支撑分析论文；要到 CVPR/ICCV，最后一项必须产生真正跨数据集的方法收益。
 
-## 3. 可证伪候选
+## 4. 可证伪候选与 gate
 
-| candidate | minimum decisive evidence | kill condition |
-|---|---|---|
-| P1 fixed-dose sensitivity | official-vs-clean evaluator、真实 full-GT paired AP bootstrap、D/S Holm、三 AR-bin fixed-cohort survival | 任一 evaluator 不等价；D/S 少于 3/6；正确 bootstrap 不保留方向 |
-| P3 cross-domain diagnostic | 当前 Core-6、ar>=2.1、source 仅 D_cal、target 仅 D_audit、leave-dataset/detector、image-cluster CI | 泄漏；nonlinear 对 size-linear 支持少于 60%；结果仅由单 dataset/family 驱动 |
-| joint measure→diagnose→fix paper | P1/P3 数字均绑定生成端，v081 完整重写且禁止旧 formal/伪 deployable claim | 任一 headline 只能追到旧 PASS、报告自述或不可持久化 raw |
+| candidate | substantive difference | minimum decisive evidence | kill condition |
+|---|---|---|---|
+| P1 orientation reliability audit | 不把 AP50/AP75 观察当首创，主张几何归一化风险、统计单位与人类噪声边界 | 清理 invalid CI/formal claim；数字逐行绑定；完整稿件与 2026 一手相关工作 | 仍依赖 r011 PASS 字符串或未闭合认证；正文不能从生成端复算 |
+| R12 equivariance-normalized selector | 用 hflip/vflip 轴向一致性并按理论 `delta_0.75(pred_AR)` 归一化；仅 source D_cal 拟合，target D_audit 一次性评估，因而是 target-GT-free 而非无监督 | Core-6 leave-dataset；相对 score+AR+size linear 在至少 4/6 单元 CI/Holm 通过，覆盖三数据集和两 family，无数据集全反向 | target GT/target audit 参与特征或选择；少于 3/6；任一数据集整体显著反向；无法持久化 forward dump |
+| top-venue joint paper | measure + diagnose + genuinely deployable selection，而非 target-GT upper bound | R12 PASS、独立确认单元/复算链、全文整合和投稿级攻击 | R12 FAIL/INCONCLUSIVE；收益只来自同数据集/同场景泄漏或近方形样本 |
 
-## 4. 决策台账
+## 5. 决策台账
 
-| item | decision | confidence | next |
+| item | decision | confidence | action |
 |---|---|---:|---|
-| r010 144 点曲线 | revise/adopt descriptive | medium | r011 独立 evaluator 复核后才能进稿 |
-| r010 parity/bootstrap/survival/provenance | reject | 0.99 | r011 从 raw 重算，不修历史文件 |
-| r010 INCONCLUSIVE | revise | high | 保留科学保守性，但正式状态为 `FAIL_PROTOCOL_R010` |
-| v080 | reject as completed manuscript | high | 新建 v081，参考文献前整合全文 |
-| current M2/G2DP | adopt as diagnostic upper bound | medium-high | 保留，不称部署方法 |
-| old 039/040/Route-C PASS | reject for current headline | high | r011 当前 lineage 有界复核 |
-| detector training/inference/download | reject | high | r011 全部复用现有 raw/features |
+| r011 baseline dual parity | adopt, baseline only | high | 可证明两 evaluator 在原始预测一致，禁止外推为变体 parity |
+| r011 D/S 6×1000 数值 | revise/adopt descriptive | medium-high | 保留点估计与“候选信号”；删除 confirmatory PASS/CI headline |
+| r011 provenance/gate/validator | reject | 0.99 | 记录 protocol/implementation failure，不修 r011 |
+| current P3 nonlinear geometry | reject as deployable | high | 正面报告 leave-dataset 0/6，保留 target-GT upper bound 诊断定位 |
+| old TTA reports | experiment input only | medium | 先核验 current lineage/raw；不得继承旧 PASS |
+| r011 joint manuscript | reject as submission draft | high | r012 无论 PASS/FAIL 都要完整重写，不得结论后追加 |
+| next server work | experiment once | medium | 只做 R12 target-GT-free leave-dataset gate；失败即关闭顶会方法线 |
 
-r011 是固定剂量机制的最后一次实现修复。若仍不能通过 executable evaluator/bootstrap preflight，则永久删除统一机制 CI claim，停止 r012 式补丁循环，转描述性结果和联合稿其它可靠证据。
-
-唯一服务器报告路径：[`orientbench-c-r011-20260807.md`](server_reports/orientbench-c-r011-20260807.md)。
+唯一服务器报告路径：[`orientbench-c-r012-20260807.md`](server_reports/orientbench-c-r012-20260807.md)。
