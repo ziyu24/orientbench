@@ -2306,3 +2306,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - r015 的 six-unit / three-dataset EQS 数值为 `EXPLORATORY_CORE_SUPPORT_R015`；SODA-A 使用 mother-scene 主抽样。HRSC 保持 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`。
 - 新稿已降级为探索性 post-audit evidence；未训练、未推理、未重拟合 selector、未改 thresholds、D_cal/D_audit、r014、`dis/B.md` 或冻结资产。
 - 关键产物：`dis/server_reports/orientbench-c-r015-20260808.md` 与 `p3_selector/deployable_proxy_r015/`；下一步仅可在新正式指令下决定。
+
+## [2026-08-08 21:00--21:08 CST] 来源: Codex
+
+### r016 r015 独立验证器闭合
+
+- 完成 r015 的独立 Git/manifest、raw score-label-universe、同步 bootstrap、集合/schema/seal、稿件/claim 与资源复核；`VALID_R015_CLOSURE_R016`。
+- r015 数值接受为 `EXPLORATORY_CORE_SUPPORT_R015`，但 r015 历史验收仍为 `FAIL_AUDIT_IMPLEMENTATION_R015`；r014 保持 `FAIL_PROTOCOL_R014`，HRSC 保持不确定。
+- 未训练、未推理、未重拟合或重打分，未改 r015 及更早资产、threshold、split、D_cal/D_audit 或 `dis/B.md`。关键报告：`dis/server_reports/orientbench-c-r016-20260808.md`。

@@ -1,0 +1,8 @@
+{
+  "round": "orientbench-c-r016-20260808",
+  "execution_base": "9f906fb3bfb07bd276d380a009cd95e2dc57c36a",
+  "mode": "cpu_only_independent_validator_closure",
+  "r015_historical_acceptance": "FAIL_AUDIT_IMPLEMENTATION_R015",
+  "bootstrap": {"seed_base": 20260807, "replicates": 1000, "workers": 38, "blas_threads": 1},
+  "prohibited": ["training", "detector_forward", "selector_refit", "new_target_score", "gate_change"]
+}
