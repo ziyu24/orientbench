@@ -1,3 +1,53 @@
+# OrientBench C：r014 用户授权后的恢复执行裁决
+
+- decision date: `2026-08-08`
+- control parent: `61eb65ea4c56e15829031f79e57773b1a370269f`
+- immutable r012 server commit: `d76e3837c43987bfdcf134ceecc5f7ff3ab9f292`
+- immutable r012 report: [`orientbench-c-r012-20260807.md`](server_reports/orientbench-c-r012-20260807.md)
+- current instruction: [`sug.md`](sug.md)
+- next unique report: `dis/server_reports/orientbench-c-r014-20260808.md`
+- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 取决于 r014 基础修复与固定 EQS/HRSC 新证据；CVPR/ICCV 尚无证据支撑**
+- `cc_recommendation: no`：先取得 r014 服务器证据，不重复调用 CC。
+
+## 0. 本节优先级与用户授权
+
+本节是用户看到 r012 早停、并报告 HRSC 资产现已具备后的新决定；它取代下方旧节中“r013 manuscript-only / 当前方法线永久关闭”的下一步，但不改写任何历史证据或 r012 结论。当前 `dis/sug.md` 已将 r013 manuscript-only 逐字节归档，并开放新的 r014：先修复 FAIR 全总体来源，再按 r012 原冻结设计完整执行 EQS；不换 gate、不换候选、不用 HRSC 替代 Core。
+
+## 1. r012 到底“完成”了什么
+
+r012 的 A0 来源门按预注册规则合法触发，但这只表示**早停决策执行正确**，不表示 `sug.md` 全部执行完毕：
+
+| 维度 | r012 正确分类 | 不得表述为 |
+|---|---|---|
+| 执行完整性 | `INCOMPLETE_EARLY_STOP` | 全部任务执行完毕 |
+| 科学结论 | `FAIL_PROVENANCE_R012` | EQS性能失败 |
+| EQS | `NOT_EVALUATED` | 0/6、无收益或已证伪 |
+| HRSC | `NOT_EVALUATED` | HRSC失败 |
+| 原因 | FAIR raw只有3,896/4,362 image rows，完整raw未闭合 | 当时没有HRSC |
+
+“早停”是控制流；其科学含义由 trigger 决定。来源早停=`FAIL_PROVENANCE`，实现缺失=`FAIL_IMPLEMENTATION`，越权/泄漏=`FAIL_PROTOCOL`；只有 estimand、fit、target evaluation、bootstrap与预注册 gate 全部有效完成，才可给 `FAIL_DEPLOYABLE_EQS` 或 `INCONCLUSIVE_DEPLOYABLE_EQS`。因此 r012 不能被包装成性能负结果，也不能仅因触发预注册停止条件就称“真的把 sug 全搞完”。
+
+## 2. HRSC 现在有了意味着什么
+
+用户报告使 HRSC 状态变为 `USER_REPORTED_AVAILABLE_TO_VERIFY`，服务器仍须从 `pth_data/readme.md` 与实际资产绑定 config/checkpoint/split/class map/framework/SHA。HRSC 是 Core PASS 后的预指定独立确认；它不造成也不修复 FAIR A0 失败，不能越过 Core，不能用来给 Core 续命。
+
+若 r014 Core PASS，HRSC 必须实际执行，未执行则整轮为 `INCOMPLETE_BLOCKED`。若 Core 完整有效但非 PASS，按条件分支不运行 HRSC并记 `NOT_RUN_CORE_NOT_PASS`；在稿件、manifest、validator与push均完成时，这属于完整分支执行，而不是资产缺失。
+
+## 3. r014 决策与 falsifier
+
+唯一下一步是执行 `dis/sug.md`。FAIR 缺失 raw 优先穷尽查找；若不存在，用冻结 config/checkpoint/split/threshold/NMS 做 identity/h/v full forward 补全4,362-image universe。六单元闭合后执行固定 EQS：unit至少4/6且每项 `Delta_NRC>=0.02`、CI lower>0、Holm-6通过；dataset aggregate 3/3通过；FAIR必须support；SODA按mother scene。主门通过后才允许HRSC2016/LSKNet确认。
+
+| item | decision | confidence | falsifier / action |
+|---|---|---:|---|
+| r012 execution completeness | incomplete early stop | high | 无fit/label/bootstrap/HRSC，不能改称full completion |
+| r012 scientific meaning | provenance fail; EQS not evaluated | high | 只有新的完整有效执行才能产生性能结论 |
+| FAIR recovery | experiment | medium | 4,362-row raw或冻结forward可闭合则继续；否则未执行完毕 |
+| HRSC availability | user-reported, verify | medium | config/checkpoint/split/class/SHA任一不闭合即不可确认 |
+| EQS gate | unchanged r012 gate | high | 任一阈值/selector/split改变即protocol drift |
+| submission ceiling | strong-JSTARS potential, not ready | high | 仅r014基础修复和新证据可重新评估TGRS/ISPRS |
+
+---
+
 # OrientBench C：r012 服务器证据裁决与方法线关闭
 
 - round reviewed: `orientbench-c-r012-20260807`
