@@ -1,0 +1,25 @@
+{
+  "status": "FAIL_PROVENANCE_R012",
+  "phase_reached": "A0",
+  "core_provenance_clean": 5,
+  "core_required": 6,
+  "blocking_unit": "FAIR1M-v1.0/24",
+  "blocking_evidence": {
+    "frozen_split_images": 4362,
+    "frozen_gt_instances": 78644,
+    "r011_raw_images": 3896,
+    "r011_raw_predictions": 484332,
+    "missing_raw_image_rows": 466,
+    "m069_registered_images": 4362,
+    "m069_registered_predictions": 488194,
+    "m069_raw_prediction_dump_persisted": false
+  },
+  "gpu_started": false,
+  "transform_smoke_started": false,
+  "features_built": false,
+  "source_models_fit": false,
+  "target_labels_attached": false,
+  "target_gate_evaluated": false,
+  "independent_confirmation_started": false,
+  "method_route": "closed"
+}

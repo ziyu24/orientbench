@@ -1,0 +1,2 @@
+scope,identity_rows,associated_rows,feature_schema,status,reason
+Core-6,0,0,r012_eqs_feature_v1_no_gt,NOT_RUN_PROVENANCE_GATE,Phase A0 failed before feature construction

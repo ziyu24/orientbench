@@ -1,0 +1,2 @@
+scope,unit,selector,risk_floor_deg,risk_cap,nrc,delta_nrc,ci_low,ci_high,support,status,reason
+Core-6,NA,EQS,1.0,3.0,NA,NA,NA,NA,false,NOT_RUN_PROVENANCE_GATE,Target D_audit labels were not attached

@@ -2277,3 +2277,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 完成有界 P3 跨域复核：4/11 eligible folds 支持，P3=`P3_CROSS_DOMAIN_INCONCLUSIVE_R011`；联合门控=`TGRS_NOT_REACHED_R011`。
 - 关键产物：`dis/server_reports/orientbench-c-r011-20260807.md`、A 工作区全部 r011 reports/scripts 和联合稿；read-only validator 通过 130 项检查。
 - 未训练、未执行 detector inference、未下载、未修改 thresholds、split 或 D_cal/D_audit；下一步由后续正式指令决定。
+
+## [2026-08-08 14:19:31 CST] 来源: Codex
+
+### r012 A0 provenance closure
+
+- 拉取并在 `ebf8c27eb4ff9c225be920454b7a5f013fbc5099` 执行冻结 r012；`pth_data/readme.md` 可读。
+- FAIR1M frozen val 为 4,362 images / 78,644 GT；持久化 r011 identity/hflip/vflip raw 仅 3,896 image rows / identity 484,332 predictions，缺 466 行。m069 只登记 4,362 / 488,194，未持久化对应完整 raw dump，无法闭合相同 prediction universe。
+- 最终触发 `FAIL_PROVENANCE_R012`；Core provenance 为 5/6。按硬门未执行 transform smoke、GPU forward、feature build、source fit、target label attach、bootstrap 或 HRSC confirmation。
+- 关键产物：`dis/server_reports/orientbench-c-r012-20260807.md`、`p3_selector/deployable_proxy_r012/` 与 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md`。
+- 未修改 thresholds、split、D_cal/D_audit 或历史 r009-r011 资产；当前 EQS 方法线关闭，后续只允许以新的正式指令处理。

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
+  <title id="title">Cross-dataset equivariance selector audit</title>
+  <desc id="desc">The proposed evaluation stopped before selector fitting because the FAIR1M raw prediction universe omitted 466 validation images.</desc>
+  <rect width="960" height="300" fill="#fff"/>
+  <g font-family="sans-serif">
+    <text x="45" y="45" font-size="24" font-weight="700" fill="#202124">跨数据集等变性选择器：来源审计结论</text>
+    <rect x="45" y="85" width="230" height="100" rx="5" fill="#e7f1ea" stroke="#4c7a59"/>
+    <text x="70" y="120" font-size="17" fill="#24412c">DIOR-R：3 个单元</text><text x="70" y="150" font-size="17" fill="#24412c">SODA-A：2 个单元</text><text x="70" y="174" font-size="14" fill="#24412c">原始视图总体闭合</text>
+    <rect x="365" y="85" width="230" height="100" rx="5" fill="#f8d7da" stroke="#a5313b"/>
+    <text x="390" y="120" font-size="17" fill="#6c1d25">FAIR1M：1 个单元</text><text x="390" y="150" font-size="17" fill="#6c1d25">3896 / 4362 图像</text><text x="390" y="174" font-size="14" fill="#6c1d25">完整 raw 未持久化</text>
+    <line x1="605" y1="135" x2="680" y2="135" stroke="#5f6368" stroke-width="2"/><polygon points="674,127 690,135 674,143" fill="#5f6368"/>
+    <rect x="690" y="85" width="225" height="100" rx="5" fill="#f1f3f4" stroke="#5f6368"/>
+    <text x="719" y="122" font-size="17" font-weight="700" fill="#202124">方法评价未执行</text><text x="719" y="151" font-size="14" fill="#4a4f55">不报告 EQS 收益</text><text x="719" y="174" font-size="14" fill="#4a4f55">不加载目标角度标签</text>
+    <text x="45" y="245" font-size="15" fill="#4a4f55">AP 近似对齐不能替代逐图 prediction-universe equality；该停止结论不等同于选择器性能结论。</text>
+  </g>
+</svg>

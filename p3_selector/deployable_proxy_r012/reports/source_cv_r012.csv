@@ -1,0 +1,2 @@
+outer_target,fold,train_source,validation_source,delta_nrc,ci_low,ci_high,holm_p,status,reason
+Core-6,NA,NA,NA,NA,NA,NA,NA,NOT_RUN_PROVENANCE_GATE,Source-only fitting prohibited after A0 failure

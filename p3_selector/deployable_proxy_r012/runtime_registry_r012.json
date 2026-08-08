@@ -1,0 +1,16 @@
+{
+  "status": "STOPPED_AT_A0_PROVENANCE_GATE",
+  "execution_head": "ebf8c27eb4ff9c225be920454b7a5f013fbc5099",
+  "runtime_root": "outputs/persistent_artifacts/orientbench_r012",
+  "python": "/home/rspip/anaconda3/envs/mr_dev1x/bin/python",
+  "feature_registry_schema": "r012_eqs_feature_v1_no_gt",
+  "label_registry_schema": "r012_label_attach_v1",
+  "model_registry_schema": "r012_source_only_v1",
+  "a0_result": "FAIL_PROVENANCE_R012",
+  "a0_blocker": "FAIR1M split has 4362 images, while persisted identity/hflip/vflip raw registries contain only 3896; the m069 4362-image/488194-prediction raw dump was not persisted",
+  "gpu_forward_count": 0,
+  "feature_build_count": 0,
+  "fit_count": 0,
+  "bootstrap_replicates": 0,
+  "target_label_attach_count": 0
+}
