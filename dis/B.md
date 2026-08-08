@@ -349,3 +349,99 @@ independent_review_completed_before_reading_C: true   # 本轮 C.md/sug.md/sug/*
 - kill condition（对本报告自身）：若 `fixed_dose_tracks_r011.csv` 的 dose=0 值实为官方端点产出（即我对 0.5367777305863244=cleanroom 的比对有误），则缺口一不成立——欢迎 C 复核该比对。
 
 ——STAGE_1_BLIND_REVIEW_R012 结束，此后不回改。
+
+---
+
+# STAGE_2_ADVERSARIAL_REVIEW_R012
+
+```yaml
+stage2_start_after_phase1_push: true
+phase1_commit_r012: a5a94dffcc4f7c1811720b39aa87a545a10d649c
+read_after_push: [dis/C.md, dis/sug.md, dis/review_state.json, dis/sug/orientbench-c-r011-20260807.md]
+stage2_time: 2026-08-07
+```
+
+阶段一原文逐字保留。以下逐条裁定均基于本会话内的独立复核（代码行级阅读、CSV 重算、r011 预注册原文比对、一手网页核查），标注每项的验证方式。
+
+## 4. 对 C r012 各实质观点的裁定
+
+### C§1 r011 可采纳事实 1–5 → **adopt**（1–4 已独立验证；5 无法本地验证，如实标注）
+
+- 事实 1（baseline parity，最大差 2.45e-6）：与 `evaluator_parity_r011.csv` 一致（SODA-A/4 AP50 行）✓，但见 C§2.2 裁定中的**列身份保留意见**。
+- 事实 2（6000 replicate 可复算、D/S 点与 CI/Holm 精确一致、full-GT 分母）：我阶段一已独立逐数核对表 6 与 summary CSV，Holm 实现正确 ✓。
+- 事实 3（S=真实 ± 算术平均、D 单调 6/6、dose15 生存有序 6/6）：validator 1e-10/1e-12 重算覆盖 + 我的 CSV 复核 ✓。
+- 事实 4（P3 4/11 全部来自 leave-detector；leave-dataset 0/6 含五折显著反向）：与我阶段一 Q2 独立分层完全一致；B 补充两点更锐的结构证据——4 个 supported 折的 source 全部含同数据集兄弟单元；FAIR1M 的 leave-detector 折（source 无 FAIR1M）行为等同 leave-dataset 且不支持。**支持由"target 数据集是否在 source 中"完全决定**。
+- 事实 5（33 路径 changed set 与 manifest 相符）：需要 r011 两次提交的逐文件比对与服务器端 blob 验证，B 本地未复算，接受 C 的核验记录，标注 `unverified-by-B`。
+
+### C§2 必须拒绝的 PASS（10 项）→ **全部 adopt，其中第 5 项 revise 措辞**；并记录 B 阶段一的三处自我修正
+
+逐项验证结果：
+
+1. **24 条件变体 parity 缺失**：r011 预注册原文 `dis/sug/orientbench-c-r011-20260807.md:43`"在全部 Core dose0、D15、+15、-15 上做双端 full parity"= 6×4=24 条件；实际 `evaluator_parity_r011.csv` 仅 6 个 dose0。**verified, adopt**。
+2. **golden 未调官方 `eval_rbbox_map`、缺每 Core 10 个真实 draws**：`run_joint_closure_r011.py:55` 的 `evaluate_native` 是脚本内第三套实现（torch RBboxOverlaps2D+自写贪心/AP），golden 的"official"列即它；真正官方端点只在 `official_evaluator_adapter_r011.py` 为 6 个 dose0 基线运行。预注册 `sug r011:37` 明确要求"每个 Core 10 个真实小规模 draws"，实际只有 20 个合成对照。**verified, adopt**。
+3. **survival 只算 dose15、risk 表大量空分层**：预注册 `sug r011:51` 要求 `D,+,-,S × 8 doses × 3 bins`；提交 CSV 为 90 行（仅 dose15）。`risk_event_r011.csv` 960 键中 593 行 NOT_AVAILABLE/无分母。**verified, adopt**。
+4. **provenance 未加载 frozen split universe、未绑定 config/checkpoint/framework、P3 输入不在 manifest**：与我阶段一独立发现的 FAIR1M 缺口互相印证（预测图像集≡GT 非空图像集 3,896<4,362，prediction_count 484,332 vs k1 期 488,194，差 3,862；空图 FP 缺失方向与官方 AP50 偏高 +0.0005 一致）。B 的这组数字证据 C 未列，请求并入 r012 修复清单。**adopt+B 补强**。
+5. **validator 弱化**：revise 措辞——validator 对其覆盖面内的算术是**真实重算**（bootstrap mean/CI 1e-12、Holm/支持规则重推导、S 均值 1e-10、网格 schema），这点应保留，否则会把真问题说错位置；真问题是**覆盖面对预注册的系统性收缩**（未查 24 parity、真实 draws、D 未匹配恒等、完整 risk/survival、真实 Git diff、P1 每 gate）加**信任 P3 泄漏常量**（`p3_cross_domain_r011.py:83,122` 硬编码，我阶段一已独立指出）。预注册 `sug r011:92` 本要求全部重算。**adopt（范围批评）+revise（不否认已做算术的真实性）**。
+6. **finalize() 生成 3 行 ledger vs 提交 8 行、公开命令会覆盖报告与主稿**：`run_joint_closure_r011.py:369-374` ledger 常量恰 3 项，提交 `claim_ledger_r011.csv` 为 8 行；finalize 还会从 v080 重写 r011 主稿并重写遥测表。生成链不可复现。**verified, adopt**。
+7. **遥测为 4 行静态标签**：`resource_telemetry_r011.csv` 全文 4 行常量，finalize 内联写死。**verified, adopt**。
+8. **两次提交违反单一 commit 预注册**：`sug r011:94`"只做一个最终中文 commit"；r011 实际为 1be39b5+c101429 两次（提交列表元数据）。**verified, adopt**。
+9–10. **主稿未整合、gate 字符串入稿、表 1 数字源漂移**：与我阶段一 §2 第 6–9 项收敛。B 补充一项 C 未列的自相矛盾：表 1 的 UCB 数字全部来自 §6.3 已宣布"未闭环、不作证据"的历史认证审计，论文一边否认其证据地位一边引用其数字。**adopt+B 补强**。
+
+**B 阶段一自我修正（如实记录）**：
+- (a) 我阶段一写"144 网格由 clean-room 单评测器产出"——实为 `evaluate_native` 第三套实现；且网格 dose0 值与 parity 表"cleanroom"列**位级一致**（0.5367777305863244），跨 Shapely/torch 后端位级一致不可信，故 parity 表 cleanroom 列的引擎身份在快照内无法确立（`run_unit` 内还存在 `clean=base` 的重贴标签先例，:131）。结论从"缺口窄"上调为：**FAIL_EVALUATOR_R011 成立**——不仅变体无 parity，连基线"独立 Shapely"对照的身份都未闭合，唯一可确证的是官方 adapter 与 evaluate_native 在 dose0 的 ~1e-8 一致。
+- (b) 我阶段一称 validator"不是常量 PASS validator"——对其算术为真，但未同时给出"覆盖面对预注册收缩"的定性，C 的批评补齐了这半边。
+- (c) 我阶段一称人工双标"仍是本文最接近单件 novelty 的部分"——WACV 2025 Oriented Cell Dataset（已核实：含 OBB 多标注者 IAA 变异性评估与 IoU 阈值建议）构成 OBB 域先例，本文只能主张**遥感朝向、度级圆周、与 official GT 分离报告**的差异定位，与 C§3 口径一致。
+
+### C 正式裁决 `FAIL_PROTOCOL_R011`（含 evaluator/implementation 子失败）→ **adopt**
+
+我以阶段一的独立证据（变体 parity 缺失、FAIR1M universe、常量泄漏）加上本阶段验证的 C 十项，无保留采纳：r011 的 confirmatory PASS/CI headline 必须 quarantine；固定剂量数值仅可作 descriptive candidate。"descriptive credible, confirmatory invalid" 的双面定性准确——数据不假（validator 算术、bootstrap 可复算），资格不足（预注册违约+生成链断裂）。
+
+### C§3 novelty → **adopt**，合并双方清单后差异候选收敛为四项
+
+C 的 SAOD/MCCL/OSKDet/OCD/O2-DFINE/Fourier 清单与我 r001+r012 的 ARS-DETR/AQE/SeqCRC/CRC-非单调/CP-OD/nuScenes AOE/UAV-OBB/**arXiv:2206.10107（HBB 扰动-AP 敏感性，B 独有，需并入 novelty matrix）**合并后，仍站得住的差异候选与 C§3 第四条一致：`le90+ar>=2.1` 可辨识域、几何归一化严重事件、image/scene 统计单位审计、跨三数据集朝向选择性风险审计（+遥感朝向人工噪声锚点）。前者支撑分析论文；顶会须 R12 真赢。
+
+### C§4 候选表与 sug R12 设计 → **adopt，附四点技术保留**（不构成反对）
+
+R12（equivariance-normalized selector）比我阶段一草案（分位数自归一化）更强：TTA 等变一致性是**新增信息源**而非既有特征的重参数化，且理论 `delta_0.75(pred_AR)` 归一化直击 P3 死因（数据集特定性）。裁定 adopt，保留意见：
+
+1. **FAIR1M 单点脆弱性**：PASS 要求覆盖三数据集，而 FAIR1M 仅 1 个单元——该单元单独失败即封顶 INCONCLUSIVE。这是设计的固有约束（无第二 FAIR1M 单元可用），建议在 gate 文档里预先写明"FAIR1M 失败时的归因分析义务"（区分 域差 vs 单检测器噪声），避免事后争论。
+2. **SODA 母景前置**：主结论要求 mother-scene cluster，而母景可恢复性历史上有 408 断链（迁移报告）；若恢复失败 SODA 降敏感性并丧失 dataset coverage → 同样封顶 INCONCLUSIVE。建议 Phase A 把母景映射核验提到最前，尽早暴露。
+3. **泄漏门必须计算化**：sug §9 已要求 validator 实检 overlap——鉴于 r011 恰在此处用了常量，建议 r012 validator 对"source/target image 与 mother-scene 交集为空"输出实际集合大小而非布尔，审计者可复算。
+4. **标签定义中 `max(delta_0.75(GT_AR),1°)` 的 1° 下限**：对 GT_AR 极大目标（delta_0.75→0.5° 级）该下限会压缩风险分辨率，属可接受的稳健化，但应在 protocol_r012.json 里写明理由，防审稿人视为随意常数。
+
+### C 决策台账逐行 → adopt×5、revise×1、experiment×1
+
+| C 行 | B 裁定 | 备注 |
+|---|---|---|
+| baseline dual parity adopt-baseline-only | **revise** | 采纳方向，但按上文 (a)：连"cleanroom"列身份都未闭合，建议措辞降为"official vs 至少一套独立实现的 dose0 一致性" |
+| D/S 数值 descriptive | **adopt** | 与我阶段一一致 |
+| provenance/gate/validator reject | **adopt** | 十项全验证 |
+| P3 reject-as-deployable | **adopt** | B 的分层证据更锐，建议正面写入稿件 |
+| 旧 TTA 仅 experiment input | **adopt** | 与 sug Phase A 的 lineage 前置一致 |
+| r011 稿 reject-as-draft | **adopt** | 叠加 B 的表 1 自相矛盾项与 r001 未清清单 |
+| 下一步只做 R12 | **adopt** | 附上述四点保留 |
+
+### venue 判断 → **revise 后收敛，残余分歧一项转 experiment**
+
+- 收敛部分：B 撤回阶段一"今天 TGRS 边缘"的模糊表述，采纳 C 的 **STRONG_JSTARS_NOW（尚未 ready）**——r011 FAIL 十项与主稿未整合状态下，"边缘"高估了。
+- 残余分歧（与 r001 C-10 同源，现予收窄）：**无 R12 PASS 时，修复后的 measurement/analysis 稿能否达 TGRS**。C 的 review_state 写"TGRS 仅当 R012 PASS"，但 C 自己的 sug §7 写 FAIL 后 venue 为"strong-JSTARS/**TGRS-conditional** measurement/analysis"——两处不一致，说明 C 内部也未定死。B 立场：满足以下五条件时 TGRS-conditional 成立——①r001+r012 修正清单全清；②24 条件 parity 补做或固定剂量降级为"单评测器描述性"并明示；③FAIR1M universe 闭合；④P3 以分层负迁移作为主发现正面呈现；⑤至少一个 provenance-clean 独立确认单元（r011 三个候选均 NOT_RUN_AMBIGUOUS_EXTENSION，现实路径是 HRSC2016 或重建 DOTA 身份），或明示无确认单元限制并接受审稿风险。
+- 最小裁决：⑤是唯一实质分歧点（B 认为"明示限制"可替代，C 倾向硬门）。转 experiment：r012 后追加一次**确认单元身份重建尝试**（只做身份/provenance 核验与一次前向，不训练；HRSC2016 资产在迁移清单中存在）。可行→分歧消失；不可行→按协议由 C/用户在"带限制投 TGRS"与"投 strong-JSTARS"间裁决，B 不再争论。
+
+### 对用户目标"必须搞到顶刊"的证据结论（如实，不软化）
+
+顶刊/顶会的**唯一**证据路径是 R12 target-GT-free selector 在 leave-dataset 上真实 PASS 并经独立确认；当前先验不利（旧候选 0/6 且五折显著反向），但 R12 的等变信号是真正的新信息源，值得按 sug 一次性判别。若 R12 非 PASS，按预注册关闭方法线，最高可辩护定位为 strong-JSTARS（TGRS-conditional 视上述五条件）。任何绕过该实验的"顶刊"措辞都会在数据可得的评审下失败——B 不会背书。
+
+## 5. 双向遗漏汇总
+
+- **B 阶段一遗漏、C 发现且 B 已验证**：24-parity 预注册违约、golden 未调官方、survival/risk 网格收缩、ledger 3vs8 生成链断裂、双 commit 违约、遥测静态（其中 golden/ledger/遥测三项我完全没查）。
+- **B 独有、C 未列**：FAIR1M 预测子集数字链（3,896/484,332/488,194/+0.0005）；表 1 引用已否认审计的自相矛盾；arXiv:2206.10107；P3 支持折的"同数据集兄弟单元"精确结构与 FAIR1M leave-detector 等价性；parity cleanroom 列位级一致性疑点（连带把 FAIL_EVALUATOR 的证据面扩大到基线对照本身）。
+- **双方独立收敛**：leave-dataset 0/6 显著负迁移；常量泄漏字符串无效；r011 主稿不可投；固定剂量 descriptive-only。
+
+## 6. 给 C 的最终意见
+
+1. `FAIL_PROTOCOL_R011` 全部采纳，B 的独立验证把其中 8 项钉到了行号级；另有 5 项 B 独有证据请并入 r012 修复与 novelty matrix。
+2. R12 按 sug 执行，附四点技术保留（FAIR1M 单点、SODA 母景前置、泄漏门集合化、1° 下限说明）。
+3. 残余分歧仅一项（无 R12 PASS 时 TGRS-conditional 的第⑤条件），已转最小实验（HRSC/DOTA 确认单元身份重建尝试）；无新证据前 B 停止争论。
+4. B 不是裁决者；本报告所有行号与数字可复核。
+
+——STAGE_2_ADVERSARIAL_REVIEW_R012 结束。
