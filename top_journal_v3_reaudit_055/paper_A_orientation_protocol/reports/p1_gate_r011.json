@@ -1,4 +1,21 @@
 {
-  "status": "FAIL_IMPLEMENTATION_R011",
-  "reason": "official evaluator preflight not satisfied"
+  "status": "PASS_STRONG_JSTARS_EVIDENCE_R011",
+  "provenance_pass": true,
+  "evaluator_pass": true,
+  "D_support_units": 6,
+  "S_support_units": 6,
+  "D_dataset_coverage": [
+    "DIOR-R",
+    "FAIR1M-v1.0",
+    "SODA-A"
+  ],
+  "S_dataset_coverage": [
+    "DIOR-R",
+    "FAIR1M-v1.0",
+    "SODA-A"
+  ],
+  "D_AP75_monotonic_units": 6,
+  "AR_survival_ordered_units": 6,
+  "P_no_dataset_all_reverse": true,
+  "bootstrap_reps_per_unit": 1000
 }

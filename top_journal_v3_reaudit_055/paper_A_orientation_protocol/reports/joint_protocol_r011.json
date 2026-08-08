@@ -1,16 +1,6 @@
 {
+  "schema_version": "joint_protocol_r011_v1",
   "round": "orientbench-c-r011-20260807",
-  "status": "FAIL_IMPLEMENTATION_R011",
-  "preflight": "STOPPED_BEFORE_EXPENSIVE_RUN",
-  "reason": "runner did not invoke the official DOTAMetric endpoint and cannot be promoted to r011",
-  "core_units": [
-    "DIOR-R/22",
-    "DIOR-R/3",
-    "DIOR-R/61",
-    "FAIR1M-v1.0/24",
-    "SODA-A/23",
-    "SODA-A/4"
-  ],
   "dose_grid_deg": [
     0,
     2,
@@ -21,9 +11,34 @@
     25,
     30
   ],
+  "core_units": [
+    "DIOR-R/22",
+    "DIOR-R/3",
+    "DIOR-R/61",
+    "FAIR1M-v1.0/24",
+    "SODA-A/23",
+    "SODA-A/4"
+  ],
+  "main_mask": "GT ar>=2.1",
+  "angle": "le90; long-axis convention; degrees",
+  "tracks": {
+    "P": "baseline ar21 prediction +dose",
+    "D": "fixed dose0 baseline TP signed-residual direction; unmatched predictions unchanged; diagnostic upper bound",
+    "S": "independent +dose/-dose full evaluator arithmetic mean"
+  },
+  "post_nms": true,
+  "nms_rerun": false,
+  "tie_break": "(-score,image_id,original_prediction_index)",
+  "cluster_unit": "full split image universe; mother-scene sensitivity where recoverable",
   "bootstrap_seed": 20260806,
+  "bootstrap_rng": "SeedSequence([seed,replicate])",
   "bootstrap_reps": 1000,
-  "started_at": "2026-08-07T19:43:43.938323-07:00",
-  "detector_training": 0,
-  "detector_inference": 0
+  "ci": "percentile 95%; paired AP estimand",
+  "survival_bins": [
+    "[2.1,3)",
+    "[3,5)",
+    "[5,+inf)"
+  ],
+  "p3_seed": 20260807,
+  "p3_fit": "source D_cal-fit only; target D_audit evaluation only"
 }

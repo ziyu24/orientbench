@@ -1,2 +1,5 @@
-phase,status,reason
-preflight,STOPPED,official evaluator prerequisite
+phase,cpu_worker_budget,gpu_count,status
+official_parity,8,0,COMPLETE
+fixed_dose,1,4,COMPLETE_GPU_IOU
+paired_bootstrap,38,0,COMPLETE_38_WORKER_SHARDS
+p3,38,0,COMPLETE

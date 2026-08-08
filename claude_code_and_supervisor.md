@@ -2267,12 +2267,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - Final r010 gate: `INCONCLUSIVE_MECHANISM_R010`. Report: `dis/server_reports/orientbench-c-r010-20260806.md`.
 - r010 closes the evaluator/statistical package but does not establish a strong unified mechanism, causal, or deployable-selector claim.
 
-## [2026-08-07 18:00 CST] 来源: Codex
+## [2026-08-07 18:00--21:00 CST] 来源: Codex
 
-### r011 preflight
+### r011 final closure
 
-- 已从 `origin/main` 拉取 r011 `sug.md`。
-- 执行在昂贵统计前置阶段停止：现有入口未调用官方 `DOTAMetric`，不能把 r010 私有 evaluator 结果冒充 r011。
-- r011 判定：`FAIL_IMPLEMENTATION_R011`；paired bootstrap、P3 cross-domain、联合稿均未执行。
-- 报告：`dis/server_reports/orientbench-c-r011-20260807.md`。
-- 未训练、未推理、未修改 thresholds、split 或 D_cal/D_audit。
+- 已从 `origin/main` 拉取 r011 `sug.md`；前置阶段发现官方 evaluator 与 SODA-A/23 prediction lineage 错配后在本轮修复，没有沿用错误停止结论。
+- 官方 mmrotate endpoint 与独立 Shapely clean-room evaluator 的 Core-6 AP50/AP75 parity 为 6/6 PASS；SODA-A/23 改用 K1 的 1,663,631-prediction identity dump。
+- 完成 144 个 P/D/S 固定剂量单元、96 个正负分量、每单元 1000 次 full-split image paired bootstrap，以及 fixed baseline-IoU75 cohort survival。P1=`PASS_STRONG_JSTARS_EVIDENCE_R011`。
+- 完成有界 P3 跨域复核：4/11 eligible folds 支持，P3=`P3_CROSS_DOMAIN_INCONCLUSIVE_R011`；联合门控=`TGRS_NOT_REACHED_R011`。
+- 关键产物：`dis/server_reports/orientbench-c-r011-20260807.md`、A 工作区全部 r011 reports/scripts 和联合稿；read-only validator 通过 130 项检查。
+- 未训练、未执行 detector inference、未下载、未修改 thresholds、split 或 D_cal/D_audit；下一步由后续正式指令决定。

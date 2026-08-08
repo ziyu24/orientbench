@@ -1,3 +1,6 @@
-# r011 执行记录
+# r011 联合证据
 
-本轮在正式计算前停止：现有执行入口未调用仓库官方 `DOTAMetric`，不能把私有 evaluator 的结果冒充 r011。故所有昂贵统计均未运行，状态为 `FAIL_IMPLEMENTATION_R011`。
+- P1: `PASS_STRONG_JSTARS_EVIDENCE_R011`
+- P3: `P3_CROSS_DOMAIN_INCONCLUSIVE_R011` (4/11 supported folds)
+- Joint: `TGRS_NOT_REACHED_R011`
+- SODA-A/23 corrected K1 identity: 1,663,631 predictions; official AP50=0.599124, AP75=0.273483.
