@@ -1,0 +1,9 @@
+{
+  "r014_formal_verdict": "FAIL_PROTOCOL_R014",
+  "r015_numeric_status": "EXPLORATORY_CORE_SUPPORT_R015",
+  "unit_support": 6,
+  "dataset_support": 3,
+  "synchronized": true,
+  "soda_primary": "mother_scene",
+  "elapsed_seconds": 2.3875114917755127
+}

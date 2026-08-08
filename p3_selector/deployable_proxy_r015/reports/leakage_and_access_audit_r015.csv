@@ -1,0 +1,49 @@
+outer_target,target_dataset,physical_labels_read_before_score_seal,target_label_read_before_own_score,fit_uses_target_labels,finding,feature_score_schema_forbidden_fields_absent,interpretation,unit,dataset,set_name,row_count,image_count,mother_scene_count,set_sha256,source_audit_intersection,target_label_intersection,status
+A,DIOR-R,FAIR1M-v1.0|SODA-A,False,False,source_data loads full matched JSONL before role filtering,True,physical access and fit use are separately reported,,,,,,,,,,
+B,DIOR-R,FAIR1M-v1.0|SODA-A,False,False,source_data loads full matched JSONL before role filtering,True,physical access and fit use are separately reported,,,,,,,,,,
+C,DIOR-R,FAIR1M-v1.0|SODA-A,False,False,source_data loads full matched JSONL before role filtering,True,physical access and fit use are separately reported,,,,,,,,,,
+D,FAIR1M-v1.0,DIOR-R|FAIR1M-v1.0|SODA-A,True,False,source_data loads full matched JSONL before role filtering,True,physical access and fit use are separately reported,,,,,,,,,,
+E,SODA-A,DIOR-R|FAIR1M-v1.0|SODA-A,True,False,source_data loads full matched JSONL before role filtering,True,physical access and fit use are separately reported,,,,,,,,,,
+F,SODA-A,DIOR-R|FAIR1M-v1.0|SODA-A,True,False,source_data loads full matched JSONL before role filtering,True,physical access and fit use are separately reported,,,,,,,,,,
+,,,,,,,,A,DIOR-R,source_Dcal_fit,130275,4215,4215,e2c7e9620dad122b27332c092105d1081f0151499089fb4fc6508a92a9def65d,0,0,AUDITED
+,,,,,,,,A,DIOR-R,source_Dcal_calib,30887,1006,1006,6823fe606bc2ef844854cd906de795cfb0de2b7a801dfc71e12cb144d5c955f5,0,0,AUDITED
+,,,,,,,,A,DIOR-R,source_Daudit,169496,5387,5387,8c0132945d97464e0b77b6e2a1636afd943fa302abd77350f7cae2ca4c23e6b5,169496,0,AUDITED
+,,,,,,,,A,DIOR-R,target_Dcal,24447,3469,3469,f10b01a31a0ab80a27fd88a8a8303443e4e42cae3a408cb6d7e4fce12012933a,0,24447,AUDITED
+,,,,,,,,A,DIOR-R,target_Daudit,25080,3497,3497,eec95599dcc4cc99b38ce5eaecf17146e032517583403d2dd7936e1be308358f,0,25080,AUDITED
+,,,,,,,,A,DIOR-R,target_feature_prelabel,556660,11734,11734,9a4659de54d4bbc896735f240520a85353fd69b016ff923371ea3075fc1028e4,0,49527,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,A,DIOR-R,target_scores_prelabel,556660,11734,11734,9a4659de54d4bbc896735f240520a85353fd69b016ff923371ea3075fc1028e4,0,49527,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,B,DIOR-R,source_Dcal_fit,130275,4215,4215,e2c7e9620dad122b27332c092105d1081f0151499089fb4fc6508a92a9def65d,0,0,AUDITED
+,,,,,,,,B,DIOR-R,source_Dcal_calib,30887,1006,1006,6823fe606bc2ef844854cd906de795cfb0de2b7a801dfc71e12cb144d5c955f5,0,0,AUDITED
+,,,,,,,,B,DIOR-R,source_Daudit,169496,5387,5387,8c0132945d97464e0b77b6e2a1636afd943fa302abd77350f7cae2ca4c23e6b5,169496,0,AUDITED
+,,,,,,,,B,DIOR-R,target_Dcal,26635,3622,3622,07a5914476b053e73307c621f05478e777feed43f58c44661c12c5de2c619ab9,0,26635,AUDITED
+,,,,,,,,B,DIOR-R,target_Daudit,27682,3643,3643,9f72683c1049c57abc8d1d45d036f457e135d4b2bb527e2f72ce5d79255958f2,0,27682,AUDITED
+,,,,,,,,B,DIOR-R,target_feature_prelabel,177967,11732,11732,f88775a1dea996ac91577ce9b3c2a545d6b4c3bdc3d08184fbaa520d089d8bb1,0,54317,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,B,DIOR-R,target_scores_prelabel,177967,11732,11732,f88775a1dea996ac91577ce9b3c2a545d6b4c3bdc3d08184fbaa520d089d8bb1,0,54317,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,C,DIOR-R,source_Dcal_fit,130275,4215,4215,e2c7e9620dad122b27332c092105d1081f0151499089fb4fc6508a92a9def65d,0,0,AUDITED
+,,,,,,,,C,DIOR-R,source_Dcal_calib,30887,1006,1006,6823fe606bc2ef844854cd906de795cfb0de2b7a801dfc71e12cb144d5c955f5,0,0,AUDITED
+,,,,,,,,C,DIOR-R,source_Daudit,169496,5387,5387,8c0132945d97464e0b77b6e2a1636afd943fa302abd77350f7cae2ca4c23e6b5,169496,0,AUDITED
+,,,,,,,,C,DIOR-R,target_Dcal,26314,3608,3608,c480f25247623edee3d26aa907586349b264ddb8e765587ae88e3d4ccedbab0d,0,26314,AUDITED
+,,,,,,,,C,DIOR-R,target_Daudit,27410,3697,3697,84a9313a48a1f9d33e82715fe4d9920a8ef0993b912e07891da52c5e0fd58e12,0,27410,AUDITED
+,,,,,,,,C,DIOR-R,target_feature_prelabel,358782,11735,11735,85c3f4f14586f7b09be5035006c625069d9e64836c5a91f10369625033eb960d,0,53724,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,C,DIOR-R,target_scores_prelabel,358782,11735,11735,85c3f4f14586f7b09be5035006c625069d9e64836c5a91f10369625033eb960d,0,53724,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,D,FAIR1M-v1.0,source_Dcal_fit,144269,6276,6276,cc437ae1eec673baa66f086e6e457eb82280fc69eddb15a93dac034ed9434800,0,0,AUDITED
+,,,,,,,,D,FAIR1M-v1.0,source_Dcal_calib,35124,1520,1520,1be384986f3b7b2b1eaca70260cf2377d172e18b6432e11b6cc621facd739179,0,0,AUDITED
+,,,,,,,,D,FAIR1M-v1.0,source_Daudit,190805,8069,8069,8368549618b15752ffa9b038e65bbc4026dc12c115e517d5d6436324da964969,190805,0,AUDITED
+,,,,,,,,D,FAIR1M-v1.0,target_Dcal,16700,1285,1285,caa9f1441b63c5e42a076e31560172d4d4310f15c8bc01909a0b1b4cd38c23b7,0,16700,AUDITED
+,,,,,,,,D,FAIR1M-v1.0,target_Daudit,15132,1222,1222,74ffd2879a7af7bf6cb9534764db87e0d16b7c0554dd449354a12a659164a0c8,0,15132,AUDITED
+,,,,,,,,D,FAIR1M-v1.0,target_feature_prelabel,488194,4238,4238,6c143a7ec8dcb991d1bef3f7904b0062a60599c39a65eda4a71975a5810b64d7,0,31832,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,D,FAIR1M-v1.0,target_scores_prelabel,488194,4238,4238,6c143a7ec8dcb991d1bef3f7904b0062a60599c39a65eda4a71975a5810b64d7,0,31832,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,E,SODA-A,source_Dcal_fit,41400,4111,3925,f826bd682537c709ac495ae9b510be272e1ba100a9c137519966d85aa37c9576,0,0,AUDITED
+,,,,,,,,E,SODA-A,source_Dcal_calib,10231,1034,1013,02b9c0ab51992780248989dbd6d9c19a4880669326a5cf2bc511071015231cef,0,0,AUDITED
+,,,,,,,,E,SODA-A,source_Daudit,51573,5126,4891,b3e29150d3fc9b91776fb7f12960b187845852b300e511b369c36cd0e12d756c,51573,0,AUDITED
+,,,,,,,,E,SODA-A,target_Dcal,96486,3831,413,13b429631eec5f73d373b88aa03d9008fd9ae04cfe3008f9512d8eee69719c20,0,96486,AUDITED
+,,,,,,,,E,SODA-A,target_Daudit,101160,4077,415,c4263f9e1f47f9380e9cdb6a870bac2ea65a5c775ce837a1e6ab7c970f45812a,0,101160,AUDITED
+,,,,,,,,E,SODA-A,target_feature_prelabel,1663631,19668,576,88c581bf5bb70c3e47dc76797638bc4f1d0e392ea4719fb038a2b74cc27e9d64,0,197646,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,E,SODA-A,target_scores_prelabel,1663631,19668,576,88c581bf5bb70c3e47dc76797638bc4f1d0e392ea4719fb038a2b74cc27e9d64,0,197646,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,F,SODA-A,source_Dcal_fit,41400,4111,3925,f826bd682537c709ac495ae9b510be272e1ba100a9c137519966d85aa37c9576,0,0,AUDITED
+,,,,,,,,F,SODA-A,source_Dcal_calib,10231,1034,1013,02b9c0ab51992780248989dbd6d9c19a4880669326a5cf2bc511071015231cef,0,0,AUDITED
+,,,,,,,,F,SODA-A,source_Daudit,51573,5126,4891,b3e29150d3fc9b91776fb7f12960b187845852b300e511b369c36cd0e12d756c,51573,0,AUDITED
+,,,,,,,,F,SODA-A,target_Dcal,114522,3898,412,79533cb9aac1f0ee6a615347831d3d04ac5737d462ed98f2cf45732768a76bcc,0,114522,AUDITED
+,,,,,,,,F,SODA-A,target_Daudit,120947,4122,417,b9c3c4b2bca4b4e815c469d9f79207773bd3235c2bdbc846602ef66021cc06c8,0,120947,AUDITED
+,,,,,,,,F,SODA-A,target_feature_prelabel,749109,18241,576,6e6a2bd43438a40e3fcb95e540e162fa67cf12afec408c7406a9e8b6981b88cf,0,235469,EXPECTED_IDENTITY_OVERLAP
+,,,,,,,,F,SODA-A,target_scores_prelabel,749109,18241,576,6e6a2bd43438a40e3fcb95e540e162fa67cf12afec408c7406a9e8b6981b88cf,0,235469,EXPECTED_IDENTITY_OVERLAP

@@ -1,0 +1,18 @@
+{
+  "round": "orientbench-c-r015-20260808",
+  "execution_base": "b60dee50cefd8dee055bef166d2165b22c4490a8",
+  "mode": "cpu_only_protocol_closure",
+  "r014_formal_verdict": "FAIL_PROTOCOL_R014",
+  "bootstrap": {
+    "datasets": ["DIOR-R", "FAIR1M-v1.0", "SODA-A"],
+    "seed_base": 20260807,
+    "replicates": 1000,
+    "unit": "full D_audit image cluster; SODA-A mother scene",
+    "aggregation": "unit-equal within each synchronized dataset replicate"
+  },
+  "immutable_inputs": [
+    "outputs/persistent_artifacts/orientbench_r014",
+    "outputs/persistent_artifacts/m069_fullval_reliability"
+  ],
+  "prohibited": ["training", "detector_inference", "selector_refit", "new_target_scores", "split_change", "gate_change"]
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "r015_validator_v1",
+  "token": "VALID_PROTOCOL_CLOSURE_R015",
+  "checks": {
+    "git_parent_chain": true,
+    "r014_two_commits": true,
+    "protected_dis_B_blob": true,
+    "prelabel_missing_protocol_code": true,
+    "r014_manifest_hashes": true,
+    "universe_equal_DIOR-R": true,
+    "zero_eligible_universe_A": true,
+    "zero_eligible_universe_B": true,
+    "zero_eligible_universe_C": true,
+    "universe_equal_FAIR1M-v1.0": true,
+    "zero_eligible_universe_D": true,
+    "universe_equal_SODA-A": true,
+    "zero_eligible_universe_E": true,
+    "zero_eligible_universe_F": true,
+    "replicate_row_count": true,
+    "fixed_multiplicity_vectors": true,
+    "raw_recompute_unit_A": true,
+    "raw_recompute_unit_B": true,
+    "raw_recompute_unit_C": true,
+    "raw_recompute_unit_D": true,
+    "raw_recompute_unit_E": true,
+    "raw_recompute_unit_F": true,
+    "raw_recompute_dataset_DIOR-R": true,
+    "raw_recompute_dataset_FAIR1M-v1.0": true,
+    "raw_recompute_dataset_SODA-A": true,
+    "leakage_sets_present": true,
+    "paper_exploratory_boundary": true,
+    "paper_dior_psc_citations": true,
+    "paper_no_r014_bad_dataset_ci": true,
+    "ledger_present_and_hashed": true,
+    "manifest_scope_and_self_reference": true,
+    "report_header_statuses": true,
+    "authorized_diff_only": true
+  },
+  "witness": {
+    "datasets": {
+      "DIOR-R": {
+        "count": 5900,
+        "sha256": "29c4f734fce1fc1c16ed4957be4e7495a477bc099d864acc2fd1e131f549b2c7"
+      },
+      "FAIR1M-v1.0": {
+        "count": 2142,
+        "sha256": "d8172d15e8a90cde832721f541fa072aba2c1c86aa42d6d88b8055a2565e090a"
+      },
+      "SODA-A": {
+        "count": 576,
+        "sha256": "76ac8199a3faaffc5d713e0d8c43879f45ace7267aa7b797b9932e9e74410ba7"
+      }
+    },
+    "r014_formal_verdict": "FAIL_PROTOCOL_R014"
+  }
+}

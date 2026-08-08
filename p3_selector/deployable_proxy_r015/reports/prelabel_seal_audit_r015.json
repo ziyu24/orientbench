@@ -1,0 +1,592 @@
+{
+  "schema": "r015_prelabel_seal_audit_v1",
+  "conclusion": "FAIL_PROTOCOL_R014_UNRECOVERABLE_PRELABEL_SEAL",
+  "git_chain": [
+    {
+      "commit": "ac7a5244731a631103a4aa479e16696f5b120b99",
+      "parent": "",
+      "timestamp": "2026-08-08T01:00:13-07:00",
+      "paths": [
+        "dis/B_START_PROMPT.md",
+        "dis/C.md",
+        "dis/collaboration_protocol.md",
+        "dis/review_state.json",
+        "dis/sug.md",
+        "dis/sug/orientbench-c-r013-20260808-manuscript-only-superseded.md"
+      ],
+      "path_count": 6,
+      "dis_B_blob": "3181a862137918f1dd41677893937c12b3c39c28"
+    },
+    {
+      "commit": "e0b91ea83974ce6259149df02f1705e8f5421c39",
+      "parent": "ac7a5244731a631103a4aa479e16696f5b120b99",
+      "timestamp": "2026-08-08T01:10:19-07:00",
+      "paths": [
+        "claude_code_and_supervisor.md",
+        "dis/server_reports/orientbench-c-r014-20260808.md",
+        "p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.md",
+        "p3_selector/deployable_proxy_r014/protocol_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/completion_status_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/evidence_manifest_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/gate_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/resource_telemetry_r014.csv",
+        "p3_selector/deployable_proxy_r014/runtime_registry_r014.json",
+        "p3_selector/deployable_proxy_r014/scripts/validate_r014.py"
+      ],
+      "path_count": 10,
+      "dis_B_blob": "3181a862137918f1dd41677893937c12b3c39c28"
+    },
+    {
+      "commit": "b60dee50cefd8dee055bef166d2165b22c4490a8",
+      "parent": "e0b91ea83974ce6259149df02f1705e8f5421c39",
+      "timestamp": "2026-08-08T04:18:18-07:00",
+      "paths": [
+        "claude_code_and_supervisor.md",
+        "dis/server_reports/orientbench-c-r014-20260808.md",
+        "p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.md",
+        "p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.svg",
+        "p3_selector/deployable_proxy_r014/protocol_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/bootstrap_replicates_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/completion_status_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/dataset_results_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/evidence_manifest_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/fair_universe_join_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/feature_summary_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/gate_r014.json",
+        "p3_selector/deployable_proxy_r014/reports/hrsc_results_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/provenance_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/resource_telemetry_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/source_cv_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/transform_sanity_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/tta_inventory_r014.csv",
+        "p3_selector/deployable_proxy_r014/reports/unit_results_r014.csv",
+        "p3_selector/deployable_proxy_r014/runtime_registry_r014.json",
+        "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+        "p3_selector/deployable_proxy_r014/scripts/evaluate_eqs_r014.py",
+        "p3_selector/deployable_proxy_r014/scripts/evaluate_hrsc_r014.py",
+        "p3_selector/deployable_proxy_r014/scripts/inventory_and_repair_provenance_r014.py",
+        "p3_selector/deployable_proxy_r014/scripts/run_tta_forward_r014.py",
+        "p3_selector/deployable_proxy_r014/scripts/validate_r014.py",
+        "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/equivariance_selector_r014.svg",
+        "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md",
+        "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/claim_ledger_r014.csv",
+        "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/novelty_matrix_r014.csv"
+      ],
+      "path_count": 30,
+      "dis_B_blob": "3181a862137918f1dd41677893937c12b3c39c28"
+    }
+  ],
+  "prelabel_seal_entries": [
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/A.parquet",
+      "bytes": 106414303,
+      "sealed_sha256": "1680039b73ea6419143621ac5776713f2232b1f1bca953d22ba452dae3990800",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/B.parquet",
+      "bytes": 76778217,
+      "sealed_sha256": "a4a56429d092ae5f2b99eae5bdbad6033b2bc1d3e9db3cd205534903ccdbabb5",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/C.parquet",
+      "bytes": 90348339,
+      "sealed_sha256": "79b8b9299b7e758bbad663f4a55e94eaca186de14337212f8f1542c02fd38e44",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/D.parquet",
+      "bytes": 56298120,
+      "sealed_sha256": "3d88592b74e3b6ee51515ab530c9020f07518f26ca74c69a84b90ca408d104af",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/E.parquet",
+      "bytes": 235374169,
+      "sealed_sha256": "00e690cd03d5ff00cdd73b87a0c0bec1ad0d1e22889c2da3693975f203252f0b",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/F.parquet",
+      "bytes": 161849746,
+      "sealed_sha256": "c3875f572b6c909b39ab4b5797d60963cf097969aca9ca4eb68a3f50c2caad75",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/models/A.joblib",
+      "bytes": 758393,
+      "sealed_sha256": "4d61e4dc8c0c6d2f37bd41d608d7944f2857a4ae71fa928eb5cbb6aea0d58b2b",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/models/B.joblib",
+      "bytes": 758393,
+      "sealed_sha256": "4d61e4dc8c0c6d2f37bd41d608d7944f2857a4ae71fa928eb5cbb6aea0d58b2b",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/models/C.joblib",
+      "bytes": 758393,
+      "sealed_sha256": "4d61e4dc8c0c6d2f37bd41d608d7944f2857a4ae71fa928eb5cbb6aea0d58b2b",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/models/D.joblib",
+      "bytes": 754473,
+      "sealed_sha256": "e7d23210425c032ffa2f2fd16d950b99a481350df29ac19754b8ea23a554cad0",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/models/E.joblib",
+      "bytes": 760409,
+      "sealed_sha256": "62b93c8d2ec394f4a174e85e73b8537a6fef9c167379a489aea5387757679241",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/models/F.joblib",
+      "bytes": 760409,
+      "sealed_sha256": "62b93c8d2ec394f4a174e85e73b8537a6fef9c167379a489aea5387757679241",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/A.parquet",
+      "bytes": 14113964,
+      "sealed_sha256": "65a38d8dc6e8818f459cb248a9cf90949157010dce2bb11469f5f5b5c161181a",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/B.parquet",
+      "bytes": 5147240,
+      "sealed_sha256": "a7b16608a3495d466de005e998e8ee83803d35bc0222c6c2b398caac9c3b4285",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/C.parquet",
+      "bytes": 9067953,
+      "sealed_sha256": "1724d7bda74542d6f4b02d1ea29e9e1eb19a3880a4c3c2b826acbbeab74e9d67",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/D.parquet",
+      "bytes": 11574260,
+      "sealed_sha256": "1807dc207596f2a26aaee992dd96efd972da36f4bcf7ce82edf1a434c83c8d4a",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/E.parquet",
+      "bytes": 40344077,
+      "sealed_sha256": "e3ef91a92370cbd3cfd2e76fae46f430c8024b73ec9dd56e64c274c531d3e4bd",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "prelabel_sealed",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/F.parquet",
+      "bytes": 19765066,
+      "sealed_sha256": "fa27f7fed94c410d8bd27a106e96587d6b330d1c38e3f4f0c10986ee3f2367db",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "missing_prelabel_code",
+      "path": "p3_selector/deployable_proxy_r014/protocol_r014.json",
+      "bytes": "",
+      "sealed_sha256": "",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "missing_prelabel_code",
+      "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "bytes": "",
+      "sealed_sha256": "",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "missing_prelabel_code",
+      "path": "p3_selector/deployable_proxy_r014/scripts/run_tta_forward_r014.py",
+      "bytes": "",
+      "sealed_sha256": "",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "missing_prelabel_code",
+      "path": "p3_selector/deployable_proxy_r014/scripts/evaluate_eqs_r014.py",
+      "bytes": "",
+      "sealed_sha256": "",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "missing_prelabel_code",
+      "path": "p3_selector/deployable_proxy_r014/scripts/evaluate_hrsc_r014.py",
+      "bytes": "",
+      "sealed_sha256": "",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    },
+    {
+      "kind": "missing_prelabel_code",
+      "path": "p3_selector/deployable_proxy_r014/scripts/validate_r014.py",
+      "bytes": "",
+      "sealed_sha256": "",
+      "current_hash_matches": true,
+      "prelabel_protocol_or_code": false
+    }
+  ],
+  "missing_protocol_and_code": [
+    "p3_selector/deployable_proxy_r014/protocol_r014.json",
+    "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+    "p3_selector/deployable_proxy_r014/scripts/run_tta_forward_r014.py",
+    "p3_selector/deployable_proxy_r014/scripts/evaluate_eqs_r014.py",
+    "p3_selector/deployable_proxy_r014/scripts/evaluate_hrsc_r014.py",
+    "p3_selector/deployable_proxy_r014/scripts/validate_r014.py"
+  ],
+  "final_manifest_checks": [
+    {
+      "path": "claude_code_and_supervisor.md",
+      "bytes_expected": 253268,
+      "sha_expected": "870fe9fbe05cdef5193b649761f6e81da30cf121c505bdf81b52d953c74564ed",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "dis/server_reports/orientbench-c-r014-20260808.md",
+      "bytes_expected": 5812,
+      "sha_expected": "0d2c3e1cb1e69cf192e2014118c477b1ab783428c5ac0ed29af8ad0b36cc5804",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/protocol_r014.json",
+      "bytes_expected": 1117,
+      "sha_expected": "3fd3b3d49122e09cf6a5da03cc6c7045c122b2b9b8f5ac75ca8426407fda474b",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/runtime_registry_r014.json",
+      "bytes_expected": 810,
+      "sha_expected": "6666f28bab788d562f52cfea6bf7bf19bed24de2a44c2059e234cda19771712f",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/scripts/inventory_and_repair_provenance_r014.py",
+      "bytes_expected": 12816,
+      "sha_expected": "ac62d0509c43e17e6ae2ffb5dbbee3b5f3b8342bf6976152bf89db0e0c0016c4",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/scripts/run_tta_forward_r014.py",
+      "bytes_expected": 13531,
+      "sha_expected": "14726bd5550033ab7d7486e20e3ba2df31d291cb206e70ee7662a41f71b87e21",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "bytes_expected": 12773,
+      "sha_expected": "1832dca06571e270255d06cee565e378b73f7fcc392ffb043e6a22e871c81cd1",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/scripts/evaluate_eqs_r014.py",
+      "bytes_expected": 16259,
+      "sha_expected": "88d7086fa9de7f1575c5166adcc4f9b22527731c349502982c7907b09b33e10b",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/scripts/evaluate_hrsc_r014.py",
+      "bytes_expected": 8441,
+      "sha_expected": "27358450eb79c90309e18f5f4858edbaf764c0318ba7f3814221472005776dfb",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/scripts/validate_r014.py",
+      "bytes_expected": 9746,
+      "sha_expected": "768d747ae6e484009a5949d759e91b5a53417e0e8c3761c60632b0a5d88b9ad0",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/completion_status_r014.json",
+      "bytes_expected": 558,
+      "sha_expected": "a059458b3ca9d2b20c28d88d0ea4fbefa3efaee783c219cc2e3aad8421265a2a",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/provenance_r014.csv",
+      "bytes_expected": 4935,
+      "sha_expected": "2c2b3abee4ef7aba21c2bb277cdddc64d275ef5cc1d61e3caf24be4592fd9416",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/fair_universe_join_r014.csv",
+      "bytes_expected": 166213,
+      "sha_expected": "24d67f8c58efd414fb64751a0f85113c66a79c1a28a51c1478006201aeb5b791",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/tta_inventory_r014.csv",
+      "bytes_expected": 5037,
+      "sha_expected": "5ab742f1d524ef522f66111e8204450ba20daa90b4c9c8bcc5667c50b57d800e",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/transform_sanity_r014.csv",
+      "bytes_expected": 150,
+      "sha_expected": "fc5b5c63aca878e4278f08e1e633649fc444d49ca1f83be7e39275798620a970",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/feature_summary_r014.csv",
+      "bytes_expected": 1894,
+      "sha_expected": "d070c1a4bbd4ec3481e308a2d96a90c8c1b06ed74004d295859c5535a87d9dfd",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/source_cv_r014.csv",
+      "bytes_expected": 1654,
+      "sha_expected": "065e0a2b52d117af9d4d2eaaa61b14a5e77cfd8164eba578222943460a1c965f",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/unit_results_r014.csv",
+      "bytes_expected": 3902,
+      "sha_expected": "2c2d7702f49d4d35c48c6f3ead98ecf42d688e9a3800714786b67201bd9b9312",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/dataset_results_r014.csv",
+      "bytes_expected": 516,
+      "sha_expected": "7a993ad03c4faa63e626dad2e1cdf487434c4df5b7f125e65eaa7f06eaf7de72",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/bootstrap_replicates_r014.csv",
+      "bytes_expected": 355094,
+      "sha_expected": "f5f739366e0e17b2c0a14fdb8fdc0f2f6036aaf035dcb6ade408fb5199a9c65c",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/hrsc_results_r014.csv",
+      "bytes_expected": 650,
+      "sha_expected": "d4d8ee1b2f71792dcb469c418dbe65bbd3c833474647116e9cd666cceeb55c7d",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/gate_r014.json",
+      "bytes_expected": 465,
+      "sha_expected": "0d9207672c043433646a2646083b3562ebfcfad47a61646f609291f6b4ebc8ff",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/reports/resource_telemetry_r014.csv",
+      "bytes_expected": 978,
+      "sha_expected": "bd21c5b1ca283232e2fd62d1b6dc81f9d60cdd85d54e3f69d6105af4cfa48694",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.md",
+      "bytes_expected": 1593,
+      "sha_expected": "16427063002a8f75ac11b5de498dafdf8a01d85a99b3f7fafacb44b994eeb6bd",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.svg",
+      "bytes_expected": 1730,
+      "sha_expected": "6daf93daa0a97f774939b05eba619eff656721064ebd944c8f725b26c4b4945d",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md",
+      "bytes_expected": 26515,
+      "sha_expected": "5149ee1eafa231564cbe26ba4743abefe60cab9753f9b467bee3e915119ae72a",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/equivariance_selector_r014.svg",
+      "bytes_expected": 2336,
+      "sha_expected": "64e7910d622b70fdbc0c10ab62e961af0cf368225447a1ad2fef7d2b5bdcfc35",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/claim_ledger_r014.csv",
+      "bytes_expected": 2893,
+      "sha_expected": "77bad6c318ece146af53de040a3b2ef8079b3f50df72422fbdd9d579082c5cc4",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    },
+    {
+      "path": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/novelty_matrix_r014.csv",
+      "bytes_expected": 4473,
+      "sha_expected": "0b3087c8a5ee846f09818a083bf8912fa638cceeb09a05355a203d7dffb88e30",
+      "exists": true,
+      "hash_matches": true,
+      "final_present_not_prelabel": true
+    }
+  ],
+  "physical_label_access_order": [
+    {
+      "outer_target": "A",
+      "target_dataset": "DIOR-R",
+      "physical_labels_read_before_score_seal": "FAIR1M-v1.0|SODA-A",
+      "target_label_read_before_own_score": false,
+      "fit_uses_target_labels": false,
+      "finding": "source_data loads full matched JSONL before role filtering"
+    },
+    {
+      "outer_target": "B",
+      "target_dataset": "DIOR-R",
+      "physical_labels_read_before_score_seal": "FAIR1M-v1.0|SODA-A",
+      "target_label_read_before_own_score": false,
+      "fit_uses_target_labels": false,
+      "finding": "source_data loads full matched JSONL before role filtering"
+    },
+    {
+      "outer_target": "C",
+      "target_dataset": "DIOR-R",
+      "physical_labels_read_before_score_seal": "FAIR1M-v1.0|SODA-A",
+      "target_label_read_before_own_score": false,
+      "fit_uses_target_labels": false,
+      "finding": "source_data loads full matched JSONL before role filtering"
+    },
+    {
+      "outer_target": "D",
+      "target_dataset": "FAIR1M-v1.0",
+      "physical_labels_read_before_score_seal": "DIOR-R|FAIR1M-v1.0|SODA-A",
+      "target_label_read_before_own_score": true,
+      "fit_uses_target_labels": false,
+      "finding": "source_data loads full matched JSONL before role filtering"
+    },
+    {
+      "outer_target": "E",
+      "target_dataset": "SODA-A",
+      "physical_labels_read_before_score_seal": "DIOR-R|FAIR1M-v1.0|SODA-A",
+      "target_label_read_before_own_score": true,
+      "fit_uses_target_labels": false,
+      "finding": "source_data loads full matched JSONL before role filtering"
+    },
+    {
+      "outer_target": "F",
+      "target_dataset": "SODA-A",
+      "physical_labels_read_before_score_seal": "DIOR-R|FAIR1M-v1.0|SODA-A",
+      "target_label_read_before_own_score": true,
+      "fit_uses_target_labels": false,
+      "finding": "source_data loads full matched JSONL before role filtering"
+    }
+  ],
+  "validator_evidence_level": {
+    "provenance": "recompute/static",
+    "AP": "consume existing full-evaluator report",
+    "transform": "recompute sanity from dumps",
+    "bootstrap": "r014 recomputed unit CSV generation but validator consumed final CSV evidence",
+    "gate": "CSV-consume",
+    "scope": "static/recompute"
+  },
+  "r014_final_path_count": 30,
+  "r014_commit_count": 2,
+  "protected_dis_B_blob_current": "3181a862137918f1dd41677893937c12b3c39c28",
+  "feature_contract_checks": {
+    "doubled_angle_axial_dispersion": false,
+    "u_axis": true,
+    "association_margin": true,
+    "single_zero_candidate_handling": false,
+    "sentinel": false,
+    "deterministic_tie_break": true,
+    "width_height_swap": true,
+    "zero_ninety_boundary": true
+  },
+  "implementation_deviations": [
+    "doubled_angle_axial_dispersion",
+    "single_zero_candidate_handling",
+    "sentinel"
+  ],
+  "worktree_clean_before_r015": true
+}

@@ -1,0 +1,2 @@
+phase,workers,blas_threads,quota_percent,elapsed_seconds,samples
+synchronized_cluster_bootstrap,38,1,3840,2.3875114917755127,start/end; CPU-intensive pool

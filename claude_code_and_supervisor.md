@@ -2297,3 +2297,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 完成 prediction-only EQS：source-only nested CV 未早停；目标 score 先封存后接 D_audit；1,000 次配对 image/mother-scene bootstrap。Core 判定 `PASS_DEPLOYABLE_EQS_R014`，unit 6/6、dataset 3/3 支持。
 - 按条件完成 HRSC2016/LSKNet 独立确认：Delta NRC=0.0602，95% CI=[-0.0143,0.1438]，判定 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`；Core 结果不回改，跨 host 强主张禁止。
 - 关键产物：`dis/server_reports/orientbench-c-r014-20260808.md`、`p3_selector/deployable_proxy_r014/`、`orientation_reliability_submission_r014.md`。未训练 detector，未修改 thresholds、D_cal/D_audit 或 `dis/B.md`。
+
+## [2026-08-08 20:40--20:45 CST] 来源: Codex
+
+### r015 协议闭合
+
+- 执行 r015 CPU-only 只读法证与同步 full-universe cluster bootstrap；r014 的 formal verdict 固定为 `FAIL_PROTOCOL_R014`，预标签封存缺少协议和完整执行代码，不能由最终 manifest 补回。
+- r015 的 six-unit / three-dataset EQS 数值为 `EXPLORATORY_CORE_SUPPORT_R015`；SODA-A 使用 mother-scene 主抽样。HRSC 保持 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`。
+- 新稿已降级为探索性 post-audit evidence；未训练、未推理、未重拟合 selector、未改 thresholds、D_cal/D_audit、r014、`dis/B.md` 或冻结资产。
+- 关键产物：`dis/server_reports/orientbench-c-r015-20260808.md` 与 `p3_selector/deployable_proxy_r015/`；下一步仅可在新正式指令下决定。
