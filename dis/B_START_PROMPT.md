@@ -1,6 +1,8 @@
 # OrientBench CC/B 专用启动 Prompt
 
-当前建议：`recommended_now`。r011 的服务器 PASS 与预注册契约发生实质冲突，且下一轮决定是否永久关闭顶会方法线；建议用户在另一台电脑启动一次新的独立投稿级复核。本文件不表示 CC 已参与本轮。
+当前建议：`no`。本轮 CC 已完成：阶段一 `a5a94dffcc4f7c1811720b39aa87a545a10d649c`，阶段二 `b959a09c021ade11241aecd970c90060dbbed84f`，只修改 `dis/B.md`。现阶段必须先执行冻结的 r012 服务器实验；没有新证据时不得重复启动 CC。
+
+独立性记录：B 在阶段一接触了本 prompt 禁止读取的 C commit title，因此严格状态为 `strict_blind_independence=false / minor_redundant_exposure`；详细科学理由仍在阶段一独立核查。以下内容保留为已经执行的历史启动 prompt，**当前不建议再次启动，除非用户在新服务器证据出现后明确要求**。
 
 ---
 
