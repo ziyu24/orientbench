@@ -1,168 +1,177 @@
-# OrientBench r014：FAIR 全总体修复、EQS 完整执行与 HRSC 独立确认
+# OrientBench r015：r014 协议闭合、同步场景重算与投稿稿降级修订
 
-- round: `orientbench-c-r014-20260808`
-- control parent: `61eb65ea4c56e15829031f79e57773b1a370269f`
-- frozen scientific design: `dis/sug/orientbench-c-r012-20260807-post-cc-v2.md`
-- r012 immutable server evidence: `d76e3837c43987bfdcf134ceecc5f7ff3ab9f292`
-- input manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md`
-- output manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md`
-- unique report: `dis/server_reports/orientbench-c-r014-20260808.md`
-- runtime root: gitignored `outputs/persistent_artifacts/orientbench_r014/`
+- round: `orientbench-c-r015-20260808`
+- execution base: `b60dee50cefd8dee055bef166d2165b22c4490a8`
+- immutable r014 report: `dis/server_reports/orientbench-c-r014-20260808.md`
+- archived r014 instruction: `dis/sug/orientbench-c-r014-20260808-executed.md`
+- input manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md`
+- output manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md`
+- unique report: `dis/server_reports/orientbench-c-r015-20260808.md`
+- read-only input runtime: `outputs/persistent_artifacts/orientbench_r014/`
+- new runtime root: gitignored `outputs/persistent_artifacts/orientbench_r015/`
+- mode: **CPU-only protocol closure；不重新创造 confirmatory PASS**
 
-用户已明确报告 HRSC 资产现在可用，并授权在新一轮修复 FAIR 来源后执行原冻结 EQS 与条件式 HRSC 确认。r012 历史结论不得改写：它是来源门触发的预注册早停，不是 EQS 性能失败；本轮是新的证据轮次，不是把 r012 改判为 PASS，也不允许换 selector、换 gate 或用 HRSC 替代 Core。
+本轮不再训练、不做 detector inference、不重建 TTA、不重新拟合 selector，也不换数据集、selector、阈值或 gate。唯一问题是：在 r014 已经看过 Core/HRSC target 结果后，能否把现有数值链按冻结统计单位重新审计，并把不可恢复的预标签封存缺口与稿件事实错误诚实闭合？
 
-开始前完整读取所有上级/当前 `AGENTS.md` 与 `pth_data/readme.md`。使用 HTTPS；核对 origin、当前/默认/upstream、完整 HEAD、工作树与 index，只允许 `git pull --ff-only`，禁止 merge/rebase/reset/clean/force。若树不干净、远端不符或不能 fast-forward，按第 1 节报告 `未执行完毕` 后停止。
+r014 的 FAIR 4,362-row修复、六单元点估计和 HRSC 实际运行可作为待复核证据；但服务器提交的 `FULL_COMPLETION/PASS_DEPLOYABLE_EQS_R014` 当前不被 C 接受。r015 不能把同一批已揭盲 D_audit 重新称为独立确认，也不能通过补写当前时间的 hash 伪造过去已封存。
 
-## 1. “执行完毕”与“早停”的强制语义
+开始前完整读取所有上级/当前 `AGENTS.md`、`pth_data/readme.md`、本文件、r014报告/代码/manifest和当前协作状态。只用 HTTPS；核对 origin、当前/默认/upstream、完整 HEAD、工作树与 index，只允许 `git pull --ff-only`。execution HEAD 必须包含 `b60dee50...` 与当前控制提交。工作树或 index 不干净、不能 fast-forward、授权路径冲突即首行 `未执行完毕` 并停止；不得 stash、reset、clean、checkout、删除未跟踪文件或触碰既有 `stash@{0}`。
 
-进程退出、产生 commit 或触发预注册门，均不自动等于“把 `sug.md` 搞完了”。最终对话第一行只能二选一：
+## 1. 固定裁决，不得反向漂移
 
-- `执行完毕`：所有无条件任务和实际分支要求的任务均已完成；实现不是 guard/placeholder；Core 已得到可判定科学结论；若 Core PASS，HRSC 已实际完成；若 Core 非 PASS，HRSC 按预注册条件明确记为 `NOT_RUN_CORE_NOT_PASS`；稿件、manifest、validator、报告、范围检查、commit 与 push 均完成。
-- `未执行完毕`：在可判定 Core 科学结果前因 provenance、实现、环境、资源、异常、协议漂移或其它原因停下；或者 Core PASS 后未完成 HRSC；或者稿件/validator/commit/push 任一必需步骤未完成。合法早停也必须用这一行，不能把“按规则停了”写成“执行完毕”。
+以下 r014 审计事实直接冻结：
 
-最终对话第二行必须且只能是：`dis/server_reports/orientbench-c-r014-20260808.md`。
+1. `prelabel_seal.json` 只登记 `features/*.parquet`、`models/*.joblib`、`scores/*.parquet`；未登记 `protocol_r014.json` 与五个执行脚本。
+2. r014 实现脚本首次进入 Git 的提交为 `b60dee50...`，晚于服务器报告记录的 target 执行；前一提交 `e0b91ea...` 只有协议、占位报告和validator等10条路径。
+3. 因此“协议及全部代码在首次 target label access 前封存”没有可恢复的密码学证据。文件mtime、口头说明、最终manifest、当前Git blob或事后新增hash均不能补回历史 seal。
+4. r014从 `ac7a524...` 到 `b60dee50...` 有两个commit，不符合单一最终commit契约；CPU telemetry全轮均值 `688.997%`、峰值 `4290.200%`，也不符合固定 `3840%` 配额。
+5. r014 Core 数值不能据此改判为性能失败；正式状态固定为 `FAIL_PROTOCOL_R014`，数值最多进入 r015 的 exploratory evidence。
+6. HRSC 固定为 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`：Delta_NRC=`0.060167...`，95% CI=`[-0.014323,0.143800]`。不得改写成 PASS/FAIL，不得用另一单元替补。
 
-唯一报告开头必须逐项给出：
+若发现真正的、在 target label access 前由不可改写外部日志锚定且包含协议与全部代码 SHA/bytes 的已有 seal，只能在报告中列为 `PROPOSED_COUNTEREVIDENCE`，不得由服务器自行推翻上述裁决。
+
+## 2. Phase A：只读 provenance 与 seal 法证
+
+新增独立 `audit_r014_protocol_r015.py`，不得 import r014 validator 的 PASS 逻辑。它必须从 Git、r014 runtime与原始输入动态输出：
+
+- `ac7a524... -> e0b91ea... -> b60dee50...` 的父链、每个commit路径集合、时间与 `dis/B.md` blob；
+- r014 prelabel seal 的逐项 path/SHA/bytes及缺失的 protocol/code清单；
+- final manifest 29个tracked blob与runtime entries的hash核对，区分“最终存在”与“揭盲前已封存”；
+- r014代码真实 label I/O 顺序：`source_data()` 调用 `load_labels()` 时先解析完整 matched file再按role过滤；按 outer target 列出哪些目标数据集标签文件在该目标 scores seal 前已被物理读取；
+- r014 validator是重算还是消费CSV：逐项记录 provenance/AP/transform/bootstrap/gate/范围检查的真实证据层级；
+- r014全30条最终写入集合、两个commit、受保护blob与工作树状态。
+
+`prelabel_seal_audit_r015.json` 的结论必须为 `FAIL_PROTOCOL_R014_UNRECOVERABLE_PRELABEL_SEAL`；不能因最终hash一致写 PASS。
+
+## 3. Phase B：冻结的同步 full-universe cluster bootstrap 重算
+
+新增 `recompute_shared_cluster_bootstrap_r015.py`。只读取 r014 sealed target scores、原 matched labels、冻结 split/image universe与SODA tile→mother map；禁止修改 r014 runtime，禁止重fit或生成新selector scores。
+
+### 3.1 完整 cluster universe
+
+- DIOR-R与FAIR1M：从冻结 full image universe及既有split role构建全部 `D_audit` image IDs，包括0个eligible matched row的图像。
+- SODA-A：先取全部 `D_audit` tiles，再用 r014 的22,994/22,994唯一映射构建 mother-scene universe；含0个eligible matched row的母景。
+- 同dataset各unit的完整 audit cluster set必须完全相同；输出set size、sorted-set SHA、missing/extra与最多20个witness。不同即 `FAIL_PROVENANCE_R015`，不得计算dataset gate。
+
+### 3.2 同步抽样
+
+三个dataset分别按固定顺序 `DIOR-R, FAIR1M-v1.0, SODA-A`。第 `d` 个dataset使用 `numpy.random.RandomState(20260807+d)`；每个replicate从其 sorted full audit cluster universe抽取与universe同长度的有放回cluster multiset。恰好1,000 replicates。
+
+同一dataset、同一replicate的cluster multiplicity必须同时施加到全部units和所有selectors；禁止像r014那样给unit使用不同seed再按列平均。unit Delta_NRC仍为 `NRC(linear)-NRC(EQS)`；dataset aggregate在每个同步replicate内对units等权平均。SODA只用mother scene为主结果，tile只允许附带sensitivity且不进gate。
+
+点估计、percentile 95% CI、centered one-sided p与Holm-6/Holm-3公式保持r012/r014不变；0.02最小效应不变。输出全部9,000行replicates及unit/dataset结果。validator必须从原始scores/labels/universe以独立实现重算并逐值比对，不能只数CSV行。
+
+### 3.3 r015 数值状态
+
+即使重算仍满足原门，也只能标：
+
+- `EXPLORATORY_CORE_SUPPORT_R015`：unit support至少4/6、覆盖三数据集/至少两families、FAIR support、dataset 3/3；
+- `EXPLORATORY_CORE_INCONCLUSIVE_R015`：完整重算但未满足上述支持，且无明确负门；
+- `EXPLORATORY_CORE_NEGATIVE_R015`：少于2/6或任一dataset aggregate CI upper<=0。
+
+禁止输出 `PASS_DEPLOYABLE_EQS_R015`，因为同一 target D_audit 已揭盲，r015不能恢复 confirmatory independence。
+
+## 4. Phase C：集合泄漏与实现偏差审计
+
+对每个outer target从原row keys重建并报告 `source_Dcal_fit, source_Dcal_calib, source_Daudit, target_Dcal, target_Daudit, target_feature_prelabel, target_scores_prelabel` 的row/image/mother set size与SHA。明确区分预期身份重合（target prediction features与其后attached target rows）和禁止重合：
+
+- fit/calib不得包含source D_audit；
+- outer fit/calib不得包含target dataset任一label row；
+- target feature/score schema不得含GT、angle_error、risk、GT_AR或split role；
+- seal后feature/model/score bytes/SHA必须与r014 manifest一致；
+- 物理文件读取发生在何时与真正参与fit是两个字段，不得用“过滤后没用”掩盖提前读取。
+
+同时动态检查 r014 feature实现与冻结r012特征契约，包括 doubled-angle axial circular dispersion、`u_axis`、association margin单/零候选、sentinel、tie-break、w/h swap与0/90边界。缺项记 `IMPLEMENTATION_DEVIATION`，不允许事后增加特征并重新评分。
+
+## 5. Phase D：r015 投稿稿
+
+创建新稿，不覆盖r014。必须：
+
+1. 将Core EQS表和同步重算结果明确称为 `exploratory post-audit evidence`，不得写confirmatory、formally validated、deployable proved或跨host普遍迁移。
+2. HRSC保留正点估计与跨零CI，称外部检查不确定；不得称独立确认通过。
+3. 保留FAIR 18,505/4,362、DOTA 0.7544/0.7113、旧leave-dataset 0/6、identifiable leave-detector 4/5、fixed-dose descriptive-only和target-GT geometry upper bound。
+4. 修正DIOR来源：基础DIOR使用 Ke Li, Gang Wan, Gong Cheng, Liqiu Meng, Junwei Han, *Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark*, ISPRS JPRS 159 (2020) 296–307, DOI `10.1016/j.isprsjprs.2019.11.023`；DIOR-R使用AOPG一手论文 `arXiv:2110.01931`或其准确期刊记录。2016 RICNN不得承担DIOR/DIOR-R出处。
+5. PSC作者保持 Yi Yu、Feipeng Da；删除或标unknown/excluded所有只有期刊首页、会议首页、arXiv根页的“verified source”。
+6. 披露同步full-universe scene/image bootstrap，且不得继续消费r014错误dataset aggregate CI。
+7. 正文不得出现内部round ID、`PASS_*`/`FAIL_*`、validator/authorized path或venue-ready措辞；协议失败只在可复现限制中用学术语言说明“实现未在目标审计前获得完整代码级时间锁，因此结果按探索性证据解释”，不写内部治理流水账。
+
+claim ledger必须绑定r015精确原句SHA、同步重算row keys、生成脚本与gate action。novelty matrix中不准确的一手身份不得以“verified”呈现。
+
+## 6. Phase E：真正独立的 validator
+
+`validate_r015.py` 必须只读、与生成脚本独立实现，并实际完成：
+
+1. Git父链、两个r014 commits、30条r014集合与 `dis/B.md` blob；
+2. r014 prelabel seal缺失protocol/code，且不得被final manifest替代；
+3. r014 runtime/manifest输入hash；
+4. full D_audit cluster universe和同dataset set equality；
+5. 用固定seed重新产生1,000个同步multiplicity vectors；
+6. 从scores/labels重算全部unit/dataset Delta、CI、p、Holm与状态，逐值比对r015 CSV；
+7. SODA mother-scene主抽样、零eligible cluster仍在universe；
+8. feature schema、set intersections、seal前后hash与实现偏差；
+9. r015稿的exploratory边界、DIOR/DIOR-R/PSC引用、失效UCB与ledger hash；
+10. manifest、唯一报告、真实Git diff、单commit要求、授权集合及受保护blob。
+
+不得import生成脚本中的gate函数，不得信任CSV/JSON的PASS字符串，不得只查文件存在。验证日志和每项bool/witness写入 `validator_r015.json`；成功token只能是 `VALID_PROTOCOL_CLOSURE_R015`，它只证明审计闭合，不证明deployable selector PASS。
+
+## 7. 资源与早停
+
+- GPU使用=0，detector inference=0，training=0，selector refit=0，new target score=0。
+- CPU密集阶段aggregate quota固定 `3840%`（48核的80%），总worker/BLAS线程计入；无法设置则 `未执行完毕/INCOMPLETE_BLOCKED_R015`，不得用38 workers字符串代替真实利用率。
+- 每30秒按phase记录CPU/RAM/worker；只统计CPU密集phase，不能用全轮I/O/GPU均值稀释。
+- 任一r014 runtime hash不符、完整cluster universe不可重建、同dataset universe不一致、需要改split/gate/selector/score、或需要重新读取checkpoint/GPU forward，立即早停并报告 `未执行完毕`。
+- 发现新缺陷可以追加witness，但不得扩大为新方法、新数据集或新确认门。
+
+## 8. 合法终态与完成语义
+
+本轮唯一审计成功状态是 `PASS_PROTOCOL_CLOSURE_R015`，要求协议法证、同步重算、集合审计、稿件、validator、manifest、单commit和push全部完成。它必须同时保存：
+
+- `r014_formal_verdict=FAIL_PROTOCOL_R014`；
+- `r015_numeric_status=EXPLORATORY_CORE_SUPPORT_R015 | EXPLORATORY_CORE_INCONCLUSIVE_R015 | EXPLORATORY_CORE_NEGATIVE_R015`；
+- `hrsc_status=INCONCLUSIVE_INDEPENDENT_HRSC_R014`。
+
+若任一必需阶段未完成，使用 `FAIL_AUDIT_IMPLEMENTATION_R015 | FAIL_PROVENANCE_R015 | PROTOCOL_DRIFT_R015 | INCOMPLETE_BLOCKED_R015`，首行 `未执行完毕`。
+
+进程结束不等于完成。最终对话首行只能是 `执行完毕` 或 `未执行完毕`；第二行必须且只能是 `dis/server_reports/orientbench-c-r015-20260808.md`。
+
+唯一报告顶部必须给出：
 
 ```text
 execution_completion: FULL_COMPLETION | INCOMPLETE_EARLY_STOP | INCOMPLETE_BLOCKED | PROTOCOL_DRIFT
-scientific_verdict: PASS_DEPLOYABLE_EQS_R014 | INCONCLUSIVE_DEPLOYABLE_EQS_R014 | FAIL_DEPLOYABLE_EQS_R014 | FAIL_PROVENANCE_R014 | FAIL_TRANSFORM_R014 | FAIL_IMPLEMENTATION_R014 | FAIL_PROTOCOL_R014 | NOT_EVALUATED
+audit_verdict: PASS_PROTOCOL_CLOSURE_R015 | FAIL_AUDIT_IMPLEMENTATION_R015 | FAIL_PROVENANCE_R015 | PROTOCOL_DRIFT_R015
+r014_formal_verdict: FAIL_PROTOCOL_R014
+r015_numeric_status: EXPLORATORY_CORE_SUPPORT_R015 | EXPLORATORY_CORE_INCONCLUSIVE_R015 | EXPLORATORY_CORE_NEGATIVE_R015 | NOT_EVALUATED
+hrsc_status: INCONCLUSIVE_INDEPENDENT_HRSC_R014
 last_completed_phase: ...
-early_stop_trigger: NONE | <精确门、命令、退出码与 witness>
+early_stop_trigger: NONE | ...
 unrun_required_phases: [] | [...]
-core_status: PASS | INCONCLUSIVE | FAIL | NOT_EVALUATED
-hrsc_status: PASS | FAIL | INCONCLUSIVE | NOT_RUN_CORE_NOT_PASS | NOT_RUN_PROVENANCE | NOT_EVALUATED
 push_status: PUSHED | FAILED
 ```
 
-分类规则不可混淆：
+## 9. 精确写入集合（19）
 
-- `FAIL_PROVENANCE` 是数据/模型/split/config/raw lineage 未闭合，不是 selector 性能失败；EQS 必须写 `NOT_EVALUATED`。
-- `FAIL_IMPLEMENTATION` 是代码缺失、placeholder、运行异常或复算不一致，不是性能失败。
-- `FAIL_PROTOCOL` 是越权、泄漏、改 gate/split/阈值/selector、seal 后改版等。
-- `FAIL_DEPLOYABLE_EQS` 只允许在完整有效 estimand 与预注册统计检验已实际完成后使用。
-- `INCONCLUSIVE_DEPLOYABLE_EQS` 只允许在完整有效执行后使用，不得用来包装前置失败。
+只允许创建/修改：
 
-r012 的既有事实应在报告历史栏明确写成：`execution_completion=INCOMPLETE_EARLY_STOP`、`scientific_verdict=FAIL_PROVENANCE_R012`、`r012_eqs=NOT_EVALUATED`、`r012_hrsc=NOT_EVALUATED`。当时没有 HRSC 不是 FAIR A0 失败原因；现在有 HRSC 也不能修复 FAIR 或越过 Core。
+1. `claude_code_and_supervisor.md`（恰好append一个r015 section）
+2. `dis/server_reports/orientbench-c-r015-20260808.md`
+3. `p3_selector/deployable_proxy_r015/protocol_r015.json`
+4. `p3_selector/deployable_proxy_r015/scripts/audit_r014_protocol_r015.py`
+5. `p3_selector/deployable_proxy_r015/scripts/recompute_shared_cluster_bootstrap_r015.py`
+6. `p3_selector/deployable_proxy_r015/scripts/validate_r015.py`
+7. `p3_selector/deployable_proxy_r015/reports/prelabel_seal_audit_r015.json`
+8. `p3_selector/deployable_proxy_r015/reports/leakage_and_access_audit_r015.csv`
+9. `p3_selector/deployable_proxy_r015/reports/unit_results_r015.csv`
+10. `p3_selector/deployable_proxy_r015/reports/dataset_results_r015.csv`
+11. `p3_selector/deployable_proxy_r015/reports/bootstrap_replicates_r015.csv`
+12. `p3_selector/deployable_proxy_r015/reports/gate_r015.json`
+13. `p3_selector/deployable_proxy_r015/reports/validator_r015.json`
+14. `p3_selector/deployable_proxy_r015/reports/resource_telemetry_r015.csv`
+15. `p3_selector/deployable_proxy_r015/reports/evidence_manifest_r015.json`
+16. `p3_selector/deployable_proxy_r015/docs/protocol_closure_r015.md`
+17. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md`
+18. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/claim_ledger_r015.csv`
+19. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/novelty_matrix_r015.csv`
 
-## 2. 冻结问题、协议与禁止漂移
+新中间日志/缓存只能进入 `outputs/persistent_artifacts/orientbench_r015/`。禁止修改r014及更早的代码、报告、稿件、runtime、dataset、split、threshold、config、checkpoint、`.gitignore`和任何其它路径，尤其不得触碰 `dis/B.md`。
 
-科学问题仍是：selector 不使用 target D_cal/D_audit angle labels 时，按 OBB 几何容忍度归一化的真实 TTA 等变性信号，能否跨数据集改善方向风险排序？
-
-Core-6 固定为 `DIOR-R/22, DIOR-R/3, DIOR-R/61, FAIR1M-v1.0/24, SODA-A/23, SODA-A/4`。主 estimand、source 排除整个 target dataset、D_cal-fit/D_cal-calib/D_audit 角色、dataset/unit 权重、views=`identity,hflip,vflip`、association、特征、label attach、seal、五个 selector、EQS 超参、1000 次 cluster bootstrap、Holm-6/Holm-3、`ar>=2.1`、risk floor=1/cap=3、unit 最小效应 0.02 和所有 tie-break 均严格沿用冻结 r012 §2–§9。
-
-禁止修改 dataset、split、threshold、NMS、class map、checkpoint、Core unit、selector、超参、minimum effect、bootstrap 数、显著性阈值或 PASS 条件；禁止训练 detector、下载替代资产、使用 target label 选特征/模型/版本；禁止从旧 P3、r011 fixed-dose 或 HRSC 结果反向改 Core。必要科学变更只能写 `PROPOSED_DEVIATION` 并以 `未执行完毕/PROTOCOL_DRIFT` 停止，等待授权。
-
-## 3. Phase A：先修 FAIR 完整总体，不允许再次用硬编码结论结束
-
-FAIR 冻结 val20 必须为 `4,362 images / 78,644 GT`，每个 view registry 恰有 4,362 image rows，包含 `n_pred=0`。现存 r011 raw 为 3,896 rows/484,332 predictions；m069 只证实 4,362-image/488,194-prediction manifest，不能把缺失 raw 当作存在。
-
-先对 `pth_data/readme.md`、全部历史 manifest、raw 路径、bytes/SHA、schema 与逐图计数做穷尽审计并保存搜索命令、命中/未命中清单和 witness，不能使用 `m069_raw_available=false` 常量代替搜索。若找到与 4,362 split 完整绑定且可逐图重算的既有 raw，做 official evaluator AP50/AP75 parity 后使用。
-
-若完整 raw 不存在，则用冻结 FAIR/24 config、checkpoint、split、threshold/NMS/class map 重新做 identity/h/v 三视图 full forward，生成持久化 runtime raw。允许 4×A30 推理，不训练 detector、不改变任何科学设置。必须完成：
-
-1. full split/GT/r011 raw/m069 manifest/new raw 的 sorted image-ID set size、SHA-256、missing/extra 与最多 20 个 witness；
-2. 4,362-row 逐图 prediction count join及 identity 总预测数；
-3. new identity 与权威 baseline 的 official AP50/AP75，绝对差均 `<=0.002`；
-4. h/v 50-image transform smoke：inverse 后 IoU `>=1-1e-7`、le90 `<=1e-7 degree`；
-5. exact config/checkpoint/framework/command/log/raw 的 SHA-256、bytes、schema与 `can_recompute=true`。
-
-本轮目标是修复可修来源，而不是重复证明旧缺失。只有 dataset/config/checkpoint/split 或 official evaluator 确实不可用，且穷尽审计与实际命令已证明无法恢复时，才可 `未执行完毕 + FAIL_PROVENANCE_R014/INCOMPLETE_BLOCKED`。这不是 EQS 性能失败，也不是完整执行。
-
-同时复核 SODA `22,994` tiles 到 mother scene 唯一映射，要求 `unmapped=ambiguous=duplicate=0`；六个 Core unit 的 full universe、split、D_cal/D_audit、config/checkpoint/framework、raw和official AP parity必须全部闭合。任一前置失败都按第 1 节报告，禁止伪称 6/6。
-
-## 4. Phase B：实现与完整执行，不接受 guard/placeholder
-
-可以复用 r012 已验证的来源审计代码，但不得把 r012 三个“通过 A0 即抛出 `implementation is unavailable`”的 guard 当作实现。新 `r014` namespace 必须真正实现并由 validator 动态导入/运行：
-
-1. inverse transform 与 deterministic prediction-only association；
-2. 冻结无 GT feature generator；
-3. source-only nested CV 与 early-stop 统计；
-4. seal 后独立 target label attach；
-5. 五 selector fit/score；
-6. image/mother cluster bootstrap、Holm-6/Holm-3与 unit/dataset gate；
-7. HRSC 条件确认；
-8. manifest、稿件数字与 Git 范围复算。
-
-source-only 两折若都满足 `CI upper<0`，记录 `INCOMPLETE_EARLY_STOP + FAIL_DEPLOYABLE_EQS_R014`，target labels 不得 attach；`unrun_required_phases` 必须列出 target/HRSC/manuscript最终化等实际未运行项，首行仍是 `未执行完毕`。混合结果不得调模型。
-
-若 source early stop 未触发，必须继续完成一次性 target D_audit。SODA 主统计以 mother scene bootstrap，tile 仅 sensitivity。必须恰有 1000 个有效 paired replicates，replicate 内跨 selector 同步抽样，禁止 pooled detector 排序。
-
-## 5. Core 双层终判
-
-unit support 当且仅当 `Delta_NRC=NRC(size-linear)-NRC(EQS)` point `>=0.02`、95% CI lower `>0`、centered one-sided Holm-6 p `<0.05`。
-
-dataset aggregate 必须在每个 replicate 内先重算各 unit Delta，再在 dataset 内 units 等权平均；三个 dataset 分别要求 point `>=0.02`、CI lower `>0`、Holm-3 `<0.05`。
-
-- `PASS_DEPLOYABLE_EQS_R014`：6/6 provenance/transform/leakage/implementation 通过；unit support `>=4/6`，覆盖三数据集和至少两 detector families；FAIR/24 support；dataset aggregate `3/3` support；SODA mother-scene；selector 对 target angle labels 零访问。
-- `INCONCLUSIVE_DEPLOYABLE_EQS_R014`：完整有效执行且至少 2 个 unit support，但未满足任一 PASS 条件。
-- `FAIL_DEPLOYABLE_EQS_R014`：完整有效 target 执行后少于 2/6，或任一 dataset aggregate `CI upper<0`；source-only合法早停另按第 4 节标记未完整执行。
-
-不得另造 PASS。旧 P3 leave-dataset `0/6` 必须保留为负证据；r011 fixed-dose只可描述性使用。
-
-## 6. Phase F：HRSC2016/LSKNet 资产现在可用，但只作独立确认
-
-在 Phase A 只核对 HRSC 资产身份，不读取结果做 Core 决策。必须从 `pth_data/readme.md` 绑定唯一既有 HRSC2016/LSKNet config、checkpoint、frozen split、class map、threshold/NMS、framework与哈希；用户口头“有了”只把状态从 unavailable 改成 `USER_REPORTED_AVAILABLE_TO_VERIFY`，不能代替服务器实证。
-
-仅当 Core=`PASS_DEPLOYABLE_EQS_R014` 时实际运行 HRSC。禁止按结果换 detector/dataset/split；不得用 DOTA 或其它单元替补。必要时 4×A30 做 identity/h/v fixed forward；用全部 Core 数据集 D_cal-fit 训练冻结 EQS/linear，各 dataset 总权 `1/3`，HRSC feature/scores seal 后一次 attach GT。matching、`ar>=2.1`、风险与 1000 次 image-cluster bootstrap沿用 Core。
-
-- `PASS_INDEPENDENT_HRSC_R014`：Delta_NRC point `>=0.02`、CI lower `>0`、EQS不弱于 standalone equivariance，且 provenance/leakage/implementation 全过。
-- `FAIL_INDEPENDENT_HRSC_R014`：CI upper `<=0`，或收益依赖 target label/同数据集 source；杀死 general-transfer/顶会 claim。
-- 其它完整有效混合结果为 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`。
-
-若 Core 非 PASS，HRSC 不运行，`hrsc_status=NOT_RUN_CORE_NOT_PASS`；这是预注册分支完成，不是“HRSC 缺失”，可在所有其它分支任务完成时归入 `FULL_COMPLETION`。若 Core PASS 而 HRSC 身份/运行未闭合，必须 `未执行完毕 + INCOMPLETE_BLOCKED`。HRSC 永不回流 Core gate。
-
-## 7. 资源与恢复
-
-GPU 推理默认 4×A30，一卡一 shard；小进程也先用 4 卡。只有连续两次有命令、时间、显存证据的真实 OOM 才能减卡。SODA 重单元分卡，完成一个 unit 三视图并验真后立即并行 CPU feature build。
-
-CPU 密集阶段把 aggregate quota 固定为 `3840%`（48核的80%）；这是同时满足上级“不得超过80%”与项目“必须使用>=80%”的唯一交集。总 worker/BLAS线程都计入，不得持续低于或高于该配额；设置 `OMP_NUM_THREADS=MKL_NUM_THREADS=OPENBLAS_NUM_THREADS=1`。若运行环境不能设置该精确配额，先记录能力探测并按 `未执行完毕/INCOMPLETE_BLOCKED` 汇报，不得自行选择39 workers越过80%。每 30 秒记录 phase、wall、CPU、RAM、每卡 utilization/memory、worker 与异常，汇总 mean/p10/p90、峰值和日志哈希。
-
-长任务必须可按 manifest/shard 原子恢复。恢复前核对 code/config/checkpoint/input SHA；不相同则不得混用旧 shard。每次异常必须保存命令、退出码、stderr与已完成 shard；不允许吞错后写 PASS。
-
-## 8. 投稿稿、事实门与 validator
-
-无论 Core 科学结果如何，只要执行分支走到可判定结论，就完成 r014 稿与 claim ledger/novelty matrix。PASS 才写 measure→diagnose→select；非 PASS 只写 measurement→diagnose，EQS如实作为负/不确定结果。
-
-必须同时修复 r012 已知基础问题：删除失效 instance/tile/mother UCB 表与认证消费；在 NRC/size-bin 明示 `D_audit` 并区分 full-validation；PSC 作者为 Yi Yu、Feipeng Da；DIOR 与 AOPG/DIOR-R 使用准确一手来源；保留 FAIR `18,505/4,362`、DOTA `0.7544/0.7113`、leave-dataset `0/6` 与 identifiable leave-detector `4/5`。不得伪造首创、TGRS/CVPR-ready或用 HRSC 包装 Core。
-
-只读 validator 必须从 raw/代码/Git 动态复算：FAIR/SODA universe、official AP、transform/association tests、feature schema无GT、层级权重、seal顺序、source early stop、1000 replicates、Holm/minimum effect、unit/dataset/HRSC gate、稿件数字、ledger text hash、manifest、completion分类、授权集合与 `dis/B.md` blob。信任 CSV 中的 PASS、硬编码布尔、只查文件存在或 guard 返回零退出码均无效。
-
-## 9. 精确写入集合（30）
-
-runtime raw、shard、日志与 checkpoint 只进入 gitignored `outputs/persistent_artifacts/orientbench_r014/`。Git 只允许创建/修改以下路径：
-
-1. `claude_code_and_supervisor.md`（恰好 append 一个 r014 section）
-2. `dis/server_reports/orientbench-c-r014-20260808.md`
-3. `p3_selector/deployable_proxy_r014/protocol_r014.json`
-4. `p3_selector/deployable_proxy_r014/runtime_registry_r014.json`
-5. `p3_selector/deployable_proxy_r014/scripts/inventory_and_repair_provenance_r014.py`
-6. `p3_selector/deployable_proxy_r014/scripts/run_tta_forward_r014.py`
-7. `p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py`
-8. `p3_selector/deployable_proxy_r014/scripts/evaluate_eqs_r014.py`
-9. `p3_selector/deployable_proxy_r014/scripts/evaluate_hrsc_r014.py`
-10. `p3_selector/deployable_proxy_r014/scripts/validate_r014.py`
-11. `p3_selector/deployable_proxy_r014/reports/completion_status_r014.json`
-12. `p3_selector/deployable_proxy_r014/reports/provenance_r014.csv`
-13. `p3_selector/deployable_proxy_r014/reports/fair_universe_join_r014.csv`
-14. `p3_selector/deployable_proxy_r014/reports/tta_inventory_r014.csv`
-15. `p3_selector/deployable_proxy_r014/reports/transform_sanity_r014.csv`
-16. `p3_selector/deployable_proxy_r014/reports/feature_summary_r014.csv`
-17. `p3_selector/deployable_proxy_r014/reports/source_cv_r014.csv`
-18. `p3_selector/deployable_proxy_r014/reports/unit_results_r014.csv`
-19. `p3_selector/deployable_proxy_r014/reports/dataset_results_r014.csv`
-20. `p3_selector/deployable_proxy_r014/reports/bootstrap_replicates_r014.csv`
-21. `p3_selector/deployable_proxy_r014/reports/hrsc_results_r014.csv`
-22. `p3_selector/deployable_proxy_r014/reports/gate_r014.json`
-23. `p3_selector/deployable_proxy_r014/reports/resource_telemetry_r014.csv`
-24. `p3_selector/deployable_proxy_r014/reports/evidence_manifest_r014.json`
-25. `p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.md`
-26. `p3_selector/deployable_proxy_r014/docs/deployable_proxy_r014.svg`
-27. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md`
-28. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/equivariance_selector_r014.svg`
-29. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/claim_ledger_r014.csv`
-30. `top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/novelty_matrix_r014.csv`
-
-不得修改 `dis/B.md`、r009/r010/r011/r012/r013历史资产、`.gitignore`、dataset/split/threshold/config/checkpoint或任何其它路径。受保护 `dis/B.md` blob 必须保持 `3181a862137918f1dd41677893937c12b3c39c28`。
-
-只做一个最终中文 commit，只显式暂存上述 30 条，LF，`git diff --check` 零输出。manifest 最后生成并登记 input/output/runtime SHA/bytes/schema、命令、真实训练/inference/evaluator/bootstrap counts；self-reference=`N/A_SELF_REFERENCE`。使用 HTTPS 普通 push 当前分支，不修改 origin、不 force；push 失败必须保留本地 commit，第一行仍为 `未执行完毕`，报告 `push_status=FAILED`。
+只做一个最终中文commit，不得中间commit/push。只显式暂存上述19条；LF；`git diff --check`零输出。manifest最后生成，登记Git blobs与全部r014只读输入/r015 runtime输出SHA/bytes/schema，self=`N/A_SELF_REFERENCE`。使用HTTPS普通push当前分支，不改origin、不force；push失败保留本地commit并首行报告 `未执行完毕`。

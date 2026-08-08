@@ -1,3 +1,46 @@
+# OrientBench C：r014 服务器证据裁决与 r015 协议闭合
+
+- review date: `2026-08-08`
+- r014 server head: `b60dee50cefd8dee055bef166d2165b22c4490a8`
+- r014 intermediate commit: `e0b91ea83974ce6259149df02f1705e8f5421c39`
+- execution base: `ac7a5244731a631103a4aa479e16696f5b120b99`
+- r014 report: [`orientbench-c-r014-20260808.md`](server_reports/orientbench-c-r014-20260808.md)
+- current instruction: [`sug.md`](sug.md)
+- next report: `dis/server_reports/orientbench-c-r015-20260808.md`
+- overall r014 acceptance: **`protocol_drift / FAIL_PROTOCOL_R014`；数值保留为强 exploratory candidate**
+- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS等待r015协议闭合后重评；CVPR/ICCV当前不成立**
+- `cc_recommendation: no`：先闭合可机械复算的协议/统计/引用问题，不重复调用CC。
+
+## 1. 已采纳的 r014 新证据
+
+- FAIR1M val20已真实闭合为4,362/4,362 image rows、78,644 GT、488,194 identity predictions；逐图prediction count与m069 universe一致，official AP parity通过。
+- 六个Core unit报告的Delta_NRC均为正且unit bootstrap表内自洽；这支持EQS存在有价值的正向信号，但不自动构成confirmatory PASS。
+- HRSC2016/LSKNet已实际执行：Delta_NRC=`0.06017`，95% CI=`[-0.01432,0.14380]`，采纳 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`。
+- r014最终30条路径符合授权总集合，`dis/B.md` blob保持 `3181a862137918f1dd41677893937c12b3c39c28`，远端main准确为 `b60dee50...`。
+
+## 2. 拒绝 r014 正式 PASS 的决定性证据
+
+1. `prelabel_seal.json`只封存features/models/scores，没有protocol和全部执行代码；实现脚本直到target运行后的最终commit才进入Git。历史“代码在target label前冻结”不可事后补证，按冻结规则触发 `FAIL_PROTOCOL_R014`。
+2. r014 dataset aggregate把各unit用不同seed产生的bootstrap数组按replicate index平均；DIOR同index相关约 `[-0.044,0.029]`、SODA约`0.052`，证明不是同一cluster multiplicity。正式3/3 aggregate CI无效，必须同步重算。
+3. r014 validator主要读取provenance/transform/unit/dataset CSV并检查状态或行数，没有从raw/scores/labels独立重算这些门；它也只检查当前dirty status，未发现两个r014 commits。
+4. r014稿仍用2016 RICNN承担DIOR来源；基础DIOR一手论文缺失。CPU telemetry与单commit要求同样未满足。
+
+因此服务器的 `FULL_COMPLETION/PASS_DEPLOYABLE_EQS_R014` 为 `reject`。这不是EQS性能FAIL；当前正确分层是 `formal=FAIL_PROTOCOL_R014`、`numeric=exploratory positive candidate`、`HRSC=inconclusive`。
+
+## 3. 唯一下一步
+
+执行r015 CPU-only protocol closure：不重跑GPU、不重fit、不生成新scores；从完整D_audit image/mother universe用同dataset共享cluster multiplicity重算1,000次bootstrap，独立审计seal/access/leakage与validator，修正DIOR/DIOR-R引用，并把新稿Core表降为exploratory。即使数值仍通过原阈值，也只能给 `EXPLORATORY_CORE_SUPPORT_R015`，不能重新包装成confirmatory PASS。
+
+| item | decision | confidence | falsifier / next action |
+|---|---|---:|---|
+| FAIR provenance repair | adopt | high | runtime hash或逐图join不一致才推翻 |
+| r014 formal Core PASS | reject: protocol fail | high | 只有揭盲前外部不可改写的完整code/protocol seal可提出反证 |
+| r014 numeric signal | experiment / exploratory | medium-high | 同步full-universe重算决定保留或降级 |
+| HRSC confirmation | inconclusive | high | 固定CI跨零，不换单元续命 |
+| manuscript foundation | reject r014 | high | r015修正DIOR来源与证据语气后再评 |
+
+---
+
 # OrientBench C：r014 用户授权后的恢复执行裁决
 
 - decision date: `2026-08-08`

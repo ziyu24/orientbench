@@ -1,57 +1,59 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "project": "orientbench",
-  "round_id": "orientbench-c-r014-20260808",
+  "round_id": "orientbench-c-r015-20260808",
   "review_date": "2026-08-08",
-  "scientific_snapshot_sha": "61eb65ea4c56e15829031f79e57773b1a370269f",
+  "scientific_snapshot_sha": "b60dee50cefd8dee055bef166d2165b22c4490a8",
   "prior_scientific_snapshot_sha": "c101429cebf3454b25bd62c285feffc2fea2e1c3",
   "cc_review_head_sha": "b959a09c021ade11241aecd970c90060dbbed84f",
-  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md",
-  "planned_paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md",
+  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md",
+  "planned_paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
   "scientific_state": {
-    "r011_protocol": "FAIL_PROTOCOL_R011",
-    "fixed_dose_science": "DESCRIPTIVE_CREDIBLE_CONFIRMATORY_INVALID",
+    "r011_fixed_dose": "DESCRIPTIVE_ONLY",
     "historical_deployable": "FAIL_LEAVE_DATASET_0_OF_6",
-    "r012_execution_completion": "INCOMPLETE_EARLY_STOP",
-    "r012_scientific_gate": "FAIL_PROVENANCE_R012",
-    "r012_eqs_performance": "NOT_EVALUATED",
-    "r012_hrsc": "NOT_EVALUATED",
-    "fair_universe": "RECOVERY_REQUIRED_3896_OF_4362_RAW_ROWS",
-    "hrsc_assets": "USER_REPORTED_AVAILABLE_TO_VERIFY",
-    "r014_route": "USER_AUTHORIZED_REPAIR_AND_RERUN_WITH_UNCHANGED_R012_GATE",
+    "r012_execution": "INCOMPLETE_EARLY_STOP_FAIL_PROVENANCE_EQS_NOT_EVALUATED",
+    "r014_fair_repair": "ADOPT_COMPLETE_4362_OF_4362",
+    "r014_reported_core": "REJECT_PASS_DEPLOYABLE_EQS_R014",
+    "r014_formal_verdict": "FAIL_PROTOCOL_R014",
+    "r014_numeric_evidence": "EXPLORATORY_POSITIVE_PENDING_SHARED_CLUSTER_RECOMPUTE",
+    "r014_hrsc": "INCONCLUSIVE_INDEPENDENT_HRSC_R014",
+    "r014_package": "PROTOCOL_DRIFT_TWO_COMMITS_INCOMPLETE_PRELABEL_SEAL_UNPAIRED_DATASET_BOOTSTRAP",
     "current_evidence_maturity": "STRONG_JSTARS_POTENTIAL_NOT_READY",
-    "tgrs_isprs_status": "CONDITIONAL_ON_R014_FOUNDATION_EQS_AND_HRSC_EVIDENCE",
-    "top_conference_status": "NOT_CURRENTLY_SUPPORTED"
+    "tgrs_isprs_status": "PENDING_R015_PROTOCOL_CLOSURE",
+    "top_conference_status": "NOT_SUPPORTED"
   },
-  "completion_contract": {
-    "full_completion": "ALL_UNCONDITIONAL_AND_ACTUAL_BRANCH_TASKS_COMPLETE",
-    "early_stop": "MUST_REPORT_INCOMPLETE_EARLY_STOP",
-    "provenance_stop_is_performance_failure": false,
-    "core_non_pass_hrsc_status": "NOT_RUN_CORE_NOT_PASS",
-    "core_pass_requires_hrsc": true
+  "r015_contract": {
+    "gpu": 0,
+    "detector_inference": 0,
+    "selector_refit": 0,
+    "new_target_scores": 0,
+    "r014_runtime": "READ_ONLY",
+    "confirmatory_pass_recoverable": false,
+    "maximum_numeric_status": "EXPLORATORY_CORE_SUPPORT_R015"
   },
   "evidence_index": "dis/C.md",
   "c": {
-    "status": "READY_FOR_SERVER_R014",
+    "status": "READY_FOR_SERVER_R015",
     "report_path": "dis/C.md"
   },
   "cc": {
     "status": "COMPLETED_R012_PRE_SERVER",
     "recommendation": "no",
-    "recommendation_reason": "obtain new r014 server evidence before another CC review",
+    "recommendation_reason": "close directly reproducible r014 protocol and statistics defects before any further review",
     "stage_1_commit": "a5a94dffcc4f7c1811720b39aa87a545a10d649c",
     "stage_2_commit": "b959a09c021ade11241aecd970c90060dbbed84f",
     "strict_blind_independence": false,
     "only_report_path": "dis/B.md"
   },
   "server": {
-    "last_status": "INCOMPLETE_EARLY_STOP_R012",
-    "last_execution_commit": "d76e3837c43987bfdcf134ceecc5f7ff3ab9f292",
-    "last_report_path": "dis/server_reports/orientbench-c-r012-20260807.md",
-    "last_scientific_verdict": "FAIL_PROVENANCE_R012",
-    "current_status": "READY_FOR_SERVER_R014_FULL_EXECUTION",
+    "last_status": "REPORTED_R014_REJECTED_AS_FORMAL_PASS",
+    "last_execution_commit": "b60dee50cefd8dee055bef166d2165b22c4490a8",
+    "last_report_path": "dis/server_reports/orientbench-c-r014-20260808.md",
+    "last_formal_verdict": "FAIL_PROTOCOL_R014",
+    "last_hrsc_verdict": "INCONCLUSIVE_INDEPENDENT_HRSC_R014",
+    "current_status": "READY_FOR_SERVER_R015_CPU_PROTOCOL_CLOSURE",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r014-20260808.md"
+    "only_report_path": "dis/server_reports/orientbench-c-r015-20260808.md"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }
