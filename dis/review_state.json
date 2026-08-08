@@ -1,12 +1,12 @@
 {
   "schema_version": "1.2",
   "project": "orientbench",
-  "round_id": "orientbench-c-r015-20260808",
+  "round_id": "orientbench-c-r016-20260808",
   "review_date": "2026-08-08",
-  "scientific_snapshot_sha": "b60dee50cefd8dee055bef166d2165b22c4490a8",
+  "scientific_snapshot_sha": "9f906fb3bfb07bd276d380a009cd95e2dc57c36a",
   "prior_scientific_snapshot_sha": "c101429cebf3454b25bd62c285feffc2fea2e1c3",
   "cc_review_head_sha": "b959a09c021ade11241aecd970c90060dbbed84f",
-  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r014.md",
+  "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
   "planned_paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
   "scientific_state": {
     "r011_fixed_dose": "DESCRIPTIVE_ONLY",
@@ -15,45 +15,51 @@
     "r014_fair_repair": "ADOPT_COMPLETE_4362_OF_4362",
     "r014_reported_core": "REJECT_PASS_DEPLOYABLE_EQS_R014",
     "r014_formal_verdict": "FAIL_PROTOCOL_R014",
-    "r014_numeric_evidence": "EXPLORATORY_POSITIVE_PENDING_SHARED_CLUSTER_RECOMPUTE",
+    "r014_numeric_evidence": "SUPERSEDED_BY_R015_SYNCHRONIZED_EXPLORATORY_RECOMPUTE",
     "r014_hrsc": "INCONCLUSIVE_INDEPENDENT_HRSC_R014",
     "r014_package": "PROTOCOL_DRIFT_TWO_COMMITS_INCOMPLETE_PRELABEL_SEAL_UNPAIRED_DATASET_BOOTSTRAP",
+    "r015_execution": "REJECT_FULL_COMPLETION_FAIL_AUDIT_IMPLEMENTATION_R015",
+    "r015_git_manifest": "ADOPT_SINGLE_COMMIT_19_PATHS_B_PROTECTED_BLOBS_MATCH",
+    "r015_manifest_completeness": "REJECT_ONLY_3_INPUTS_RUNTIME_BYTES_SHA_MISSING",
+    "r015_numeric_evidence": "PROVISIONAL_EXPLORATORY_CORE_SUPPORT_PENDING_R016_INDEPENDENT_VALIDATOR",
+    "r015_hrsc": "INCONCLUSIVE_INDEPENDENT_HRSC_R014",
     "current_evidence_maturity": "STRONG_JSTARS_POTENTIAL_NOT_READY",
-    "tgrs_isprs_status": "PENDING_R015_PROTOCOL_CLOSURE",
+    "tgrs_isprs_status": "PENDING_R016_VALIDATOR_CLOSURE",
     "top_conference_status": "NOT_SUPPORTED"
   },
-  "r015_contract": {
+  "r016_contract": {
     "gpu": 0,
     "detector_inference": 0,
     "selector_refit": 0,
     "new_target_scores": 0,
-    "r014_runtime": "READ_ONLY",
+    "r014_R015_assets": "READ_ONLY",
     "confirmatory_pass_recoverable": false,
-    "maximum_numeric_status": "EXPLORATORY_CORE_SUPPORT_R015"
+    "maximum_numeric_status": "EXPLORATORY_CORE_SUPPORT_R015",
+    "purpose": "INDEPENDENT_VALIDATOR_CLOSURE_ONLY"
   },
   "evidence_index": "dis/C.md",
   "c": {
-    "status": "READY_FOR_SERVER_R015",
+    "status": "READY_FOR_SERVER_R016",
     "report_path": "dis/C.md"
   },
   "cc": {
     "status": "COMPLETED_R012_PRE_SERVER",
     "recommendation": "no",
-    "recommendation_reason": "close directly reproducible r014 protocol and statistics defects before any further review",
+    "recommendation_reason": "close the mechanically reproducible r015 validator omissions before any further review",
     "stage_1_commit": "a5a94dffcc4f7c1811720b39aa87a545a10d649c",
     "stage_2_commit": "b959a09c021ade11241aecd970c90060dbbed84f",
     "strict_blind_independence": false,
     "only_report_path": "dis/B.md"
   },
   "server": {
-    "last_status": "REPORTED_R014_REJECTED_AS_FORMAL_PASS",
-    "last_execution_commit": "b60dee50cefd8dee055bef166d2165b22c4490a8",
-    "last_report_path": "dis/server_reports/orientbench-c-r014-20260808.md",
-    "last_formal_verdict": "FAIL_PROTOCOL_R014",
+    "last_status": "REPORTED_R015_REJECTED_AS_FULL_COMPLETION",
+    "last_execution_commit": "9f906fb3bfb07bd276d380a009cd95e2dc57c36a",
+    "last_report_path": "dis/server_reports/orientbench-c-r015-20260808.md",
+    "last_formal_verdict": "FAIL_AUDIT_IMPLEMENTATION_R015",
     "last_hrsc_verdict": "INCONCLUSIVE_INDEPENDENT_HRSC_R014",
-    "current_status": "READY_FOR_SERVER_R015_CPU_PROTOCOL_CLOSURE",
+    "current_status": "READY_FOR_SERVER_R016_VALIDATOR_CLOSURE",
     "instruction_path": "dis/sug.md",
-    "only_report_path": "dis/server_reports/orientbench-c-r015-20260808.md"
+    "only_report_path": "dis/server_reports/orientbench-c-r016-20260808.md"
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }

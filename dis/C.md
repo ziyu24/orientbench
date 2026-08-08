@@ -1,3 +1,46 @@
+# OrientBench C：r015 服务器证据裁决与 r016 验证器闭合
+
+- review date: `2026-08-08`
+- r015 server head: `9f906fb3bfb07bd276d380a009cd95e2dc57c36a`
+- execution base: `b1fb7dfadbba04747731dfc4db603a5d159c6dbf`
+- r015 report: [`orientbench-c-r015-20260808.md`](server_reports/orientbench-c-r015-20260808.md)
+- current instruction: [`sug.md`](sug.md)
+- next report: `dis/server_reports/orientbench-c-r016-20260808.md`
+- overall r015 acceptance: **`fail / FAIL_AUDIT_IMPLEMENTATION_R015`；同步数值暂保留为待独立闭合的 exploratory support**
+- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 等待 r016 真独立验证；CVPR/ICCV 当前不成立**
+- `cc_recommendation: no`：先完成可机械复核的 r016，不让 CC 替代缺失的 validator。
+
+## 1. 已核实的 r015 证据
+
+- `9f906fb...` 是 `b1fb7df...` 之后恰好一个提交，最终差分恰好 19 条授权路径，`dis/B.md` blob 未变；工作树干净。
+- evidence manifest 的 18 个非自引用 tracked outputs 与 Git blob bytes/SHA-256 全部一致；Windows checkout 的 CRLF 差异不构成 blob hash 失败。但 manifest 只列 3 个 read-only inputs，且唯一 runtime output 没有 bytes/SHA，完整性不合格。
+- 9,000 行同步 bootstrap 与 committed unit/dataset summaries 自洽到 `2.78e-17`；六个 unit 与三个 dataset 均报告 support。r015 稿已把它们限定为 exploratory post-audit evidence，并保留 HRSC 跨零。
+
+## 2. 拒绝 r015 FULL_COMPLETION 的决定性证据
+
+1. `validate_r015.py` 独立重算了 9,000 个 replicate 值，但没有重算/核对 point estimate、CI、centered p、Holm、support 和最终 gate，违反 r015 Phase E 第6项。
+2. `authorized_diff_only` 实际检查的是提交前 `b1fb7df..HEAD` 空差分；validator 没有验证 r015 最终单 commit 与 19 条真实授权 diff。
+3. `zero_eligible_universe_*` 只检查 universe 非空；集合审计只检查 set-name 是否出现，没有复核禁止交集、Parquet schema、seal hashes 和实现偏差。
+4. claim ledger 只检查 `claim_sha256` 列存在，没有重算 hash；稿件/引用检查也只是少量 token。
+5. manifest 未登记全部实际读取的 scores/labels/universes，runtime output 也缺 bytes/SHA；telemetry 只有 worker/quota 字符串，没有实际 CPU/RAM 采样。这两项都违反 r015 明文要求。
+
+因此 r015 不是合法早停，而是**必做 Phase E/资源验收未完成却误报 FULL_COMPLETION**。这也不是 EQS 性能失败：当前正确分层是 `r015 package=FAIL_AUDIT_IMPLEMENTATION_R015`、`numeric=provisional exploratory support`、`r014 formal=FAIL_PROTOCOL_R014`、`HRSC=inconclusive`。
+
+## 3. 唯一下一步
+
+执行 r016 validator-only closure：不重跑训练/推理/selector，只从 raw scores、labels、universe 和固定 seeds 真正独立复算全部 summary/gate，补齐集合/schema/seal/claim/Git/资源检查。服务器回执必须明确是“全部必做阶段完成（非早停）”还是“未完成并列出 trigger 与未运行阶段”。
+
+| item | decision | confidence | falsifier / next action |
+|---|---|---:|---|
+| r015 Git/manifest scope | adopt | high | 仅 Git blob 或路径集合反证可推翻 |
+| r015 manifest completeness | reject | high | 仅 3 个 inputs，runtime 无 bytes/SHA |
+| r015 numeric self-consistency | adopt provisional | high | r016 raw 独立复算不一致即拒绝 |
+| r015 FULL_COMPLETION | reject | high | 缺失验证不能由 PASS token 抵消 |
+| r015 scientific meaning | exploratory only | high | prelabel seal 不可事后恢复 |
+| next work | r016 validator closure | high | 只补验收，不换 gate 或重做方法 |
+
+---
+
 # OrientBench C：r014 服务器证据裁决与 r015 协议闭合
 
 - review date: `2026-08-08`
