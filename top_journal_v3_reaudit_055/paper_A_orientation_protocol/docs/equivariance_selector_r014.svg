@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340" role="img" aria-labelledby="title desc">
+  <title id="title">Cross-dataset equivariance selector results</title>
+  <desc id="desc">All six Core units support EQS; independent HRSC confirmation is positive but inconclusive.</desc>
+  <rect width="960" height="340" fill="#fff"/>
+  <g font-family="sans-serif" fill="#202124">
+    <text x="45" y="43" font-size="24" font-weight="700">跨数据集等变性选择器</text>
+    <rect x="45" y="76" width="245" height="172" rx="5" fill="#e8f0fe" stroke="#446a9c"/>
+    <text x="67" y="109" font-size="17" font-weight="700">预测侧特征</text>
+    <text x="67" y="141" font-size="15">identity / hflip / vflip</text>
+    <text x="67" y="169" font-size="15">确定性一对一关联</text>
+    <text x="67" y="197" font-size="15">无目标域角标签拟合</text>
+    <text x="67" y="225" font-size="15">目标分数先封存后审计</text>
+    <line x1="300" y1="162" x2="355" y2="162" stroke="#5f6368" stroke-width="2"/><polygon points="349,154 365,162 349,170" fill="#5f6368"/>
+    <rect x="365" y="76" width="245" height="172" rx="5" fill="#e7f1ea" stroke="#4c7a59"/>
+    <text x="387" y="109" font-size="17" font-weight="700">Core-6</text>
+    <text x="387" y="141" font-size="15">unit support：6 / 6</text>
+    <text x="387" y="169" font-size="15">dataset support：3 / 3</text>
+    <text x="387" y="197" font-size="15">Delta NRC：0.084–0.267</text>
+    <text x="387" y="225" font-size="15">Holm 校正后均支持</text>
+    <line x1="620" y1="162" x2="675" y2="162" stroke="#5f6368" stroke-width="2"/><polygon points="669,154 685,162 669,170" fill="#5f6368"/>
+    <rect x="685" y="76" width="230" height="172" rx="5" fill="#fff4e5" stroke="#a96b16"/>
+    <text x="707" y="109" font-size="17" font-weight="700">独立 HRSC</text>
+    <text x="707" y="141" font-size="15">Delta NRC：0.060</text>
+    <text x="707" y="169" font-size="15">95% CI：[-0.014, 0.144]</text>
+    <text x="707" y="197" font-size="15">正点估计，区间跨零</text>
+    <text x="707" y="225" font-size="15">外部确认：不确定</text>
+    <text x="45" y="292" font-size="15" fill="#4a4f55">结论边界：Core 选择证据成立；不宣称跨 host 的普遍迁移或分布无关保证。</text>
+  </g>
+</svg>

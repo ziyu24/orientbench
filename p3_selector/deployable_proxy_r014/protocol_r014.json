@@ -1,15 +1,19 @@
 {
   "round": "orientbench-c-r014-20260808",
   "control_parent": "61eb65ea4c56e15829031f79e57773b1a370269f",
-  "execution_head": "ac7a5244731a631103a4aa479e16696f5b120b99",
   "frozen_design": "dis/sug/orientbench-c-r012-20260807-post-cc-v2.md",
   "core_units": ["DIOR-R/22", "DIOR-R/3", "DIOR-R/61", "FAIR1M-v1.0/24", "SODA-A/23", "SODA-A/4"],
   "views": ["identity", "hflip", "vflip"],
-  "main_mask": "matched identity TP at rIoU>=0.5 and GT_AR>=2.1",
+  "association": "same-class deterministic one-to-one rotated-IoU>=0.3",
+  "main_mask": "identity TP at rotated-IoU>=0.5 and GT_AR>=2.1",
   "risk": "min(le90(pred,GT)/max(delta_0.75(GT_AR),1 degree),3)",
+  "selectors": ["detection_score", "score_ar_size_linear", "nonlinear_geometry", "standalone_equivariance", "EQS"],
+  "source_policy": "exclude the complete target dataset; fit only D_cal-fit",
+  "target_policy": "seal features/models/scores before one-shot D_audit label attach",
   "bootstrap_replicates": 1000,
+  "bootstrap_unit": "image; SODA-A mother scene",
   "minimum_effect_nrc": 0.02,
-  "preflight_policy": "working tree and index must be clean before Phase A",
-  "execution_authorized": false,
-  "blocking_reason": "pre-existing untracked risk_logs files made the working tree non-clean"
+  "multiple_testing": ["Holm-6 units", "Holm-3 datasets"],
+  "hrsc_confirmation": "all Core datasets D_cal-fit with equal dataset weight; 1000 image-cluster replicates",
+  "protocol_frozen": true
 }

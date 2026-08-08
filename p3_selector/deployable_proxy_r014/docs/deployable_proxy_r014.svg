@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img" aria-labelledby="title desc">
+  <title id="title">r014 gate summary</title>
+  <desc id="desc">FAIR provenance and Core gate pass, HRSC confirmation is inconclusive.</desc>
+  <rect width="900" height="260" fill="#fff"/>
+  <g font-family="sans-serif" fill="#202124">
+    <text x="35" y="40" font-size="22" font-weight="700">r014 evidence chain</text>
+    <rect x="35" y="75" width="220" height="105" rx="5" fill="#e7f1ea" stroke="#4c7a59"/>
+    <text x="57" y="110" font-size="16" font-weight="700">FAIR full universe</text><text x="57" y="140" font-size="14">4,362 images / 78,644 GT</text><text x="57" y="164" font-size="14">AP parity passed</text>
+    <line x1="265" y1="128" x2="320" y2="128" stroke="#555" stroke-width="2"/><polygon points="314,120 330,128 314,136" fill="#555"/>
+    <rect x="330" y="75" width="220" height="105" rx="5" fill="#e7f1ea" stroke="#4c7a59"/>
+    <text x="352" y="110" font-size="16" font-weight="700">Core EQS</text><text x="352" y="140" font-size="14">6/6 units; 3/3 datasets</text><text x="352" y="164" font-size="14">PASS</text>
+    <line x1="560" y1="128" x2="615" y2="128" stroke="#555" stroke-width="2"/><polygon points="609,120 625,128 609,136" fill="#555"/>
+    <rect x="625" y="75" width="240" height="105" rx="5" fill="#fff4e5" stroke="#a96b16"/>
+    <text x="647" y="110" font-size="16" font-weight="700">HRSC / LSKNet</text><text x="647" y="140" font-size="14">Delta NRC=0.060</text><text x="647" y="164" font-size="14">CI crosses zero: inconclusive</text>
+    <text x="35" y="222" font-size="14" fill="#4a4f55">No target angle labels were used to fit or choose EQS.</text>
+  </g>
+</svg>

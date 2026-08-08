@@ -2288,11 +2288,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`dis/server_reports/orientbench-c-r012-20260807.md`、`p3_selector/deployable_proxy_r012/` 与 `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md`。
 - 未修改 thresholds、split、D_cal/D_audit 或历史 r009-r011 资产；当前 EQS 方法线关闭，后续只允许以新的正式指令处理。
 
-## [2026-08-08 16:06:58 CST] 来源: Codex
+## [2026-08-08 16:06:58--19:05:00 CST] 来源: Codex
 
-### r014 Git preflight blocked
+### r014 完整执行
 
-- 已通过 HTTPS 核对指定 HEAD `ac7a5244731a631103a4aa479e16696f5b120b99`，index clean。
-- 工作树存在 12 个本轮前已有且未跟踪的 `paper_A_orientation_protocol/risk_logs/*.err`；冻结指令要求 dirty tree 立即停止，且这些文件不在 r014 授权写入集合内，故未删除、移动、忽略或暂存。
-- 执行分类为 `INCOMPLETE_BLOCKED`，Core/EQS/HRSC 均为 `NOT_EVALUATED`；未运行 FAIR repair、GPU forward、feature build、fit、target label attach、bootstrap 或稿件重写。
-- 报告：`dis/server_reports/orientbench-c-r014-20260808.md`。未修改 thresholds、D_cal/D_audit、历史证据或 `dis/B.md`。
+- 前置阻塞：用户授权删除 12 个 warning-only、未跟踪 `risk_logs/*.err`；对应科学 JSONL 未删除。用户既有一行空白变更单独保存在 `stash@{0}`，未混入 r014。
+- 修复 FAIR1M frozen val 完整 raw：4,362 images / 78,644 GT / 488,194 identity predictions；official AP50/AP75 parity 通过。Core-6 provenance 与 transform 6/6 通过。
+- 完成 prediction-only EQS：source-only nested CV 未早停；目标 score 先封存后接 D_audit；1,000 次配对 image/mother-scene bootstrap。Core 判定 `PASS_DEPLOYABLE_EQS_R014`，unit 6/6、dataset 3/3 支持。
+- 按条件完成 HRSC2016/LSKNet 独立确认：Delta NRC=0.0602，95% CI=[-0.0143,0.1438]，判定 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`；Core 结果不回改，跨 host 强主张禁止。
+- 关键产物：`dis/server_reports/orientbench-c-r014-20260808.md`、`p3_selector/deployable_proxy_r014/`、`orientation_reliability_submission_r014.md`。未训练 detector，未修改 thresholds、D_cal/D_audit 或 `dis/B.md`。

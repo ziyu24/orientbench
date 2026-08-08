@@ -1,20 +1,17 @@
 {
-  "execution_completion": "INCOMPLETE_BLOCKED",
-  "scientific_verdict": "NOT_EVALUATED",
-  "last_completed_phase": "git_preflight",
-  "early_stop_trigger": "git status --porcelain=v1 --untracked-files=all; exit=0; 12 pre-existing untracked risk_logs witnesses",
-  "unrun_required_phases": [
-    "Phase A FAIR full-universe repair",
-    "Core-6 provenance closure",
-    "transform smoke",
-    "EQS feature generation",
-    "source-only nested CV",
-    "target D_audit evaluation",
-    "paired bootstrap and Core gate",
-    "conditional HRSC confirmation",
-    "r014 manuscript finalization"
-  ],
-  "core_status": "NOT_EVALUATED",
-  "hrsc_status": "NOT_EVALUATED",
-  "push_status": "PUSHED"
+  "execution_completion": "FULL_COMPLETION",
+  "scientific_verdict": "PASS_DEPLOYABLE_EQS_R014",
+  "last_completed_phase": "manifest_validator_commit_push",
+  "early_stop_trigger": "NONE",
+  "unrun_required_phases": [],
+  "core_status": "PASS",
+  "hrsc_status": "INCONCLUSIVE",
+  "hrsc_verdict": "INCONCLUSIVE_INDEPENDENT_HRSC_R014",
+  "push_status": "PUSHED",
+  "r012_history": {
+    "execution_completion": "INCOMPLETE_EARLY_STOP",
+    "scientific_verdict": "FAIL_PROVENANCE_R012",
+    "r012_eqs": "NOT_EVALUATED",
+    "r012_hrsc": "NOT_EVALUATED"
+  }
 }
