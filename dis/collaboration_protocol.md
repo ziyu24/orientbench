@@ -2,49 +2,41 @@
 
 ## 当前锚点
 
-- round: `orientbench-c-r018-20260808`
-- r018 execution base: `b349dcbd44685eae66bdabbdf7a795493ccdc08e`
-- r017 execution base: `942a5a2cb7e78e8b8ef9d447a6bcd449c590c017`
-- r017 report: `dis/server_reports/orientbench-c-r017-20260808.md`
-- archived r017 instruction: `dis/sug/orientbench-c-r017-20260808-server-returned.md`
+- state: `WAITING_USER_DECISION`
+- evidence cutoff: `8ce84331a14c12a5ac41e46cb354ca712286626e`
+- r018 control parent: `40679c9e3a5a94de61f4e078e1fad437b2b461b7`
+- r018 report: `dis/server_reports/orientbench-c-r018-20260808.md`
+- archived r018 instruction: `dis/sug/orientbench-c-r018-20260808-server-returned.md`
 - current manuscript: `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md`
-- planned manuscript: unchanged；r018 禁止改稿
 - C: `dis/C.md`
 - B only: `dis/B.md`
 - protected B blob: `3181a862137918f1dd41677893937c12b3c39c28`
-- current server instruction: `dis/sug.md`
-- unique r018 report: `dis/server_reports/orientbench-c-r018-20260808.md`
+- server status: `NO_ACTIVE_SERVER_TASK`
+- server hold marker: `dis/sug.md`
 
 跨机器共享只通过仓库 `dis/`，不写账号、机器标识、凭据、本地绝对路径或私有 prompt。
 
 ## 角色、所有权与 Git
 
-C 审固定 SHA 并裁决；CC 不是最终裁决者。`dis/B.md` 由 CC/B 独占，C 与服务器均不得创建、修改、格式化、移动、删除、暂存、恢复或提交。服务器只写当轮 `dis/sug.md` 精确授权路径。
+C 审固定 SHA 并裁决；CC 不是最终裁决者。`dis/B.md` 由 CC/B 独占，C 与服务器均不得创建、修改、格式化、移动、删除、暂存、恢复或提交。服务器只能写被有效 `dis/sug.md` 明确授权的路径；当前 hold 文件不提供任何写入授权。
 
-开始读取所有适用规则，核对 HTTPS 远端、分支/upstream、完整 SHA、工作树和 index，只允许 fast-forward。禁止 force、merge、rebase、reset、clean、checkout、stash 及无差别暂存；既有 stash 保持不动。冲突或失败立即报告，不能用中间 commit 占位。
+开始前读取所有适用规则，核对 HTTPS 远端、分支/upstream、完整 SHA、工作树和 index，只允许 fast-forward。禁止 force、merge、rebase、reset、clean、checkout、stash 及无差别暂存；冲突或失败立即报告。
 
-## r017 C 侧裁决
+## r018 C 侧裁决
 
-- r017 的脚本、产物、commit 和 push 确实完成；它不是早停，也不是 EQS 性能失败。
-- 采纳单 commit、13 条授权路径、B blob 不变、12 个非自引用输出和 tracked input blobs。
-- 采纳当前表内 unit 6/6、dataset 3/3 为 `EXPLORATORY_CORE_SUPPORT_R015`；仍非 confirmatory/deployable。
-- 采纳 claim/novelty/稿件边界索引；不改正文和科学数字。
-- 拒绝 `FULL_COMPLETION/PASS_STATIC_RECEIPT_R017`；正式状态为 `PROTOCOL_DRIFT_R017 / FAIL_AUDIT_IMPLEMENTATION_R017`。
-- 决定性缺口是三元 key 未验、support/gate 不独立、source metadata 冒充已比较、feature sentinel witness 自相矛盾，以及 manifest wrapper bypass 后只比较路径。
+- 执行轨迹采纳：Phase A–C、10 项产物、单 commit 与 push 完成；不是早停或性能失败。
+- Git/provenance 采纳：r017 full records/Git blobs、r018 snapshot/output hashes 和 B blob 全部闭合。
+- 数值采纳为实际 sealed implementation 的 `EXPLORATORY_CORE_SUPPORT_R015`：unit 6/6、dataset 3/3；仍非 confirmatory/deployable。
+- 拒绝 `VALID_STATIC_ADJUDICATION_R018`；正式状态为 `PROTOCOL_DRIFT_R018 / FAIL_AUDIT_IMPLEMENTATION_R018`。
+- 冻结 single-candidate margin 应为 1，r018 的 expected=0 是假偏差；真实偏差是 sealed schema 缺少独立 doubled-angle axial dispersion；w/h+90 角等价仍 unknown。
+- claim/novelty/稿件边界的当前内容经独立复核可采纳。
 
-## 当前服务器任务
+## 当前服务器与投稿状态
 
-r018 是终结型 static/low-CPU adjudication：
+服务器暂停，不得自行创建 r019、修 validator、重跑实验或改稿。机械收据循环结束。
 
-1. 验证 `(level,key,dataset,replicate)` 全域，并从 Delta/CI/Holm 重新判 support 与完整 gate；缺失的 r016 summary metadata 必须写 `SOURCE_FIELD_ABSENT`，不能硬补。
-2. 保存 canonical set/intersection count+SHA；以可执行微测试核对 sentinel、w/h+90°、0/90、tie-break 等 feature contract，并做逐文件 schema/seal witness。
-3. 把 r017 manifest 当普通输入，逐条全字段核对 access records；从 Git blob 核对 r017 范围与输出。
-4. 明确区分 r018 是否完整执行、r017 历史负裁决、探索性数值采纳和早停意义。负验证结果也可以在全部阶段完成时诚实回报 `执行完毕`。
+当前为 strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 转入投稿级贡献/相关工作/实际实现边界攻击。HRSC 跨零、leave-dataset 0/6、fixed-dose descriptive-only、r014 formal failure 不变；CVPR/ICCV 不成立。
 
-禁止重跑 bootstrap、GPU、训练、推理、refit、新 scores、改稿、换 gate 或覆盖历史。r018 成功 token 只表示裁决收据有效；服务器不得自行生成 r019。
+## CC 状态
 
-## 当前投稿上限与 CC
-
-当前仍为 strong-JSTARS potential、尚未 ready。TGRS/ISPRS JPRS 尚需 r018 后的一次投稿级贡献攻击；HRSC 跨零、leave-dataset 0/6、formal seal 失败使 CVPR/ICCV 不成立。
-
-`cc_recommendation: no`。r018 是有明确反证条件的本地静态修复；在新服务器证据出现前不重复调用 CC。
+`cc_recommendation: recommended_now`。主要证据与贡献边界已经冻结，且真实 implementation deviation 需要独立投稿级对抗审查。是否启动完全由用户决定；当前为 `RECOMMENDED_NOT_STARTED`，不得提前修改 `dis/B.md` 或伪造任何 CC 阶段完成。

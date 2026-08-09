@@ -1,13 +1,13 @@
 # OrientBench CC/B 专用启动状态
 
-当前建议：`no`。
+当前建议：`recommended_now`。
 
-r017 服务器提交 `b349dcbd44685eae66bdabbdf7a795493ccdc08e` 已由 C 读取。服务器确实运行、commit 并 push，不是早停，也不是 EQS 性能失败；但其 `FULL_COMPLETION/PASS_STATIC_RECEIPT_R017` 因三元 key、独立 gate、feature witness 与 exact access manifest 的必做验证缺失而被拒绝。历史裁决固定为 `PROTOCOL_DRIFT_R017 / FAIL_AUDIT_IMPLEMENTATION_R017`。
+当前状态：`RECOMMENDED_NOT_STARTED / WAITING_USER_DECISION`。本文件只记录建议，不构成启动授权，也不是可执行 CC 提示词。用户明确决定前不得开始新 B 阶段、不得修改 `dis/B.md`。
 
-当前保留的正证据是 `EXPLORATORY_CORE_SUPPORT_R015` 以及已通过的 claim/novelty/稿件边界索引。它们不构成 confirmatory/deployable 或 venue PASS。r014 仍为 `FAIL_PROTOCOL_R014`，HRSC 仍跨零，leave-dataset 仍为 0/6，fixed-dose 仍只作描述性使用。
+r018 服务器提交 `8ce84331a14c12a5ac41e46cb354ca712286626e` 已由 C 验收。服务器确实完整运行并 push，不是早停或 EQS 性能失败；Git/provenance 与当前探索性 6/6 unit、3/3 dataset 数值分支可采纳。但 `VALID_STATIC_ADJUDICATION_R018` 因冻结 feature 期望错误、Phase B 动态门控缺失和负结果映射错误被拒绝，历史状态固定为 `PROTOCOL_DRIFT_R018 / FAIL_AUDIT_IMPLEMENTATION_R018`。
 
-当前先执行 `dis/sug.md` 的 r018 终结型静态裁决：不重跑 bootstrap、不做 GPU/训练/推理/refit、不改稿，只修正 key/gate、source metadata 语义、feature 微测试和 full-record provenance。即使裁决为负，只要所有无条件阶段与 push 完成，也必须诚实区分“执行完毕”和“验证不通过”；不得自行生成 r019。
+当前正确 feature 边界：冻结 single-candidate association margin 为 1，r018 的 expected=0 是假偏差；实际 sealed schema 缺少独立 doubled-angle axial dispersion，这是真实 implementation deviation；w/h+90 的角等价仍为 unknown。探索性数值只描述实际 sealed implementation，不得解释为完整 frozen feature contract、deployable 或 venue PASS。
 
-等待唯一报告 `dis/server_reports/orientbench-c-r018-20260808.md` 与服务器 commit，经 C 核验后再决定是否进入投稿级对抗审查。用户未明确决定再次调用 CC 前，不得启动 B 阶段、不得修改 `dis/B.md`，也不得把历史 r012 CC 当作 r018 证据。
+当前 strong-JSTARS potential、尚未 ready。TGRS/ISPRS JPRS 的下一判别动作应是投稿级贡献、最近工作、可证伪性、负迁移、外部不确定性与实际实现边界的独立对抗审查，而不是继续服务器 validator 循环。CVPR/ICCV 当前不成立。
 
-历史 r012 CC 阶段一为 `a5a94dffcc4f7c1811720b39aa87a545a10d649c`，阶段二为 `b959a09c021ade11241aecd970c90060dbbed84f`，只修改 `dis/B.md`；独立性记录保持 `strict_blind_independence=false / minor_redundant_exposure`。
+若用户决定启动新的 CC/B 审查，C 将先更新本文件为明确的阶段状态与允许读取边界；在此之前不得自行沿用历史 r012 指令。历史 r012 CC 阶段一为 `a5a94dffcc4f7c1811720b39aa87a545a10d649c`，阶段二为 `b959a09c021ade11241aecd970c90060dbbed84f`，独立性记录保持 `strict_blind_independence=false / minor_redundant_exposure`。

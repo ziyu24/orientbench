@@ -1,68 +1,93 @@
-# OrientBench C：r017 服务器终判与 r018 终结型静态裁决
+# OrientBench C：r018 服务器最终验收与投稿阶段切换
 
 - review date: `2026-08-08`
-- r017 server head: `b349dcbd44685eae66bdabbdf7a795493ccdc08e`
-- execution base: `942a5a2cb7e78e8b8ef9d447a6bcd449c590c017`
-- r017 report: [`orientbench-c-r017-20260808.md`](server_reports/orientbench-c-r017-20260808.md)
-- archived r017 instruction: [`orientbench-c-r017-20260808-server-returned.md`](sug/orientbench-c-r017-20260808-server-returned.md)
-- current instruction: [`sug.md`](sug.md)
-- next report: `dis/server_reports/orientbench-c-r018-20260808.md`
-- overall r017 acceptance: **`PROTOCOL_DRIFT_R017 / FAIL_AUDIT_IMPLEMENTATION_R017`；数值与合格稿件索引部分继续采纳**
-- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 仍需完成 r018 终结收据与一次投稿级贡献攻击；CVPR/ICCV 不成立**
-- `cc_recommendation: no`：当前缺口是可直接验证的静态验收器实现问题；新的服务器证据出现前不重复调用 CC。
+- evidence cutoff: `8ce84331a14c12a5ac41e46cb354ca712286626e`
+- r018 control parent: `40679c9e3a5a94de61f4e078e1fad437b2b461b7`
+- r018 scientific base: `b349dcbd44685eae66bdabbdf7a795493ccdc08e`
+- r018 report: [`orientbench-c-r018-20260808.md`](server_reports/orientbench-c-r018-20260808.md)
+- archived r018 instruction: [`orientbench-c-r018-20260808-server-returned.md`](sug/orientbench-c-r018-20260808-server-returned.md)
+- server status: `NO_ACTIVE_SERVER_TASK`
+- overall r018 acceptance: **执行轨迹采纳；`VALID_STATIC_ADJUDICATION_R018` 拒绝，正式记为 `PROTOCOL_DRIFT_R018 / FAIL_AUDIT_IMPLEMENTATION_R018`**
+- numeric acceptance: **`EXPLORATORY_CORE_SUPPORT_R015`**
+- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 转入投稿级贡献攻击；CVPR/ICCV 不成立**
+- `cc_recommendation: recommended_now`：主要证据已冻结，且真实 feature-contract 偏差需要独立投稿级对抗审查；是否启动由用户决定。
 
-## 1. 回答“服务器到底搞完还是早停”
+## 1. “执行完毕”与“结果通过”
 
-服务器确实把 r017 脚本、产物、commit 和 push 做完了，远端 `main` 已到 `b349dcbd...`；它**不是早停**，也没有发生 EQS 性能失败。
+r018 服务器确实完整运行 Phase A–C、生成精确 10 项授权产物、单 commit 并通过 HTTPS 推送。远端 `main`、本地 HEAD 均为 `8ce84331...`，工作树干净；因此它**不是早停**，也不是 EQS 性能失败。
 
-但“脚本跑完”不等于“完成 `dis/sug.md` 的全部必做验证”。r017 在缺少若干强制验证的情况下仍报告 `ALL_REQUIRED_PHASES_COMPLETED/FULL_COMPLETION/PASS_STATIC_RECEIPT_R017`。按任务预注册语义，这必须记为 `PROTOCOL_DRIFT_R017`，底层为 `FAIL_AUDIT_IMPLEMENTATION_R017`。因此：
+但 r018 收据自身仍没有忠实实现预注册验证，故 `FULL_COMPLETION` 只适用于执行轨迹，不能推出 `VALID_STATIC_ADJUDICATION_R018`。正式分层为：
 
-- execution trace：确实跑完并推送；
-- contract fulfillment：未完成；
-- early stop：否；
-- scientific performance failure：否；
-- numeric status：仍为 `EXPLORATORY_CORE_SUPPORT_R015`。
+- execution trace：`FULL_COMPLETION`，采纳；
+- receipt fidelity：`PROTOCOL_DRIFT_R018 / FAIL_AUDIT_IMPLEMENTATION_R018`；
+- scientific performance：未出现新性能失败；
+- numeric evidence：保留高置信探索性，不升级为 confirmatory/deployable。
 
 ## 2. 可采纳证据
 
-1. Git：r017 是 `942a5a2...` 后恰好一个 commit，精确 13 条授权路径；`dis/B.md` 两端 blob 均为 `3181a862137918f1dd41677893937c12b3c39c28`；工作树与 `git diff --check` 通过。12 个非自引用输出及 15 个 tracked inputs 的 bytes/SHA 与 Git blob 匹配。
-2. 数值：C 从现有 unit/dataset 字段独立按 `Delta_NRC>=0.02`、CI lower>0、Holm<0.05 重算，六个 unit 与三个 dataset 均支持；覆盖三数据集、三 detector families，FAIR unit D 支持。该结果只支持高置信探索性 Core 证据，不修复揭盲前 seal，也不升级为 confirmatory/deployable。
-3. zero sets：六个 zero-eligible 集合均非空，count 与 sorted SHA 已生成，SODA 按 mother scene；canonical split 的历史 SHA256/实际 MD5 parity 差异已披露。
-4. 稿件索引：claim ledger 8/8 SHA、唯一命中和标题绑定通过；O2-DFINE、Fourier Angle Alignment 及其它弱根页已标 `UNKNOWN_EXCLUDED`；正文 exploratory、HRSC 跨零、leave-dataset 0/6、fixed-dose descriptive-only、旧 CI/UCB 排除和核心引用扫描通过。
+### 2.1 Git 与 provenance
 
-## 3. 拒绝 PASS 的决定性证据
+- `8ce84331...` 是 `40679c9e...` 后恰好一个 commit，精确 10 条授权路径；唯一 r018 报告存在；`dis/B.md` 父/子 blob 均为 `3181a862137918f1dd41677893937c12b3c39c28`。
+- manifest 含 10 个 tracked outputs、35 个 actual inputs、3 个 executed-code records、12 个 r017 Git blobs、9 个 output-hash reads、0 个 runtime outputs；self 明确为 `N/A_SELF_REFERENCE`。
+- r017 manifest/validator 的 47 条记录按 path、bytes、SHA256、schema、read_only 全字段一致；12 个 r017 非 self blobs 与 Git 匹配。
+- frozen input snapshot SHA `1b4b61e45361ece2006275b8d8a50321c7c6b9ac9d758ec8c2f37c574c951018` 在 manifest/provenance/validator 一致；9 个 r018 非 self 输出与最终 Git blobs 匹配。
 
-### 3.1 gate 与 summary 没有按合约独立验证
+### 2.2 当前正向数值分支
 
-- validator 只检查 `(level,key)`，未检查 bootstrap 的 `(level,key,dataset)` 三元域。
-- 它只比较 point/CI/p/Holm/support；r017 要求的 audit rows、cluster count/SHA、bootstrap reps、身份和 detector family 没有从 r016 summary 逐字段比较。r016 summary 本身没有其中多数字段，r017 却没有写 `SOURCE_FIELD_ABSENT`。
-- gate 直接筛选 r015 的旧 `supported=True` 后计数，而不是从 Delta/CI/Holm 重新判 support。当前数值恰好通过只能保留探索性事实，不能挽救 validator 的独立性。
+- 既有 bootstrap 恰为 9,000 行，九个 `(level,key,dataset)` 三元组各覆盖 replicate `0..999`，无额外、缺失、重复或非有限值；故意错 dataset 负例可被检测。
+- support 确实从 `Delta_NRC>=0.02`、CI lower>0、Holm<0.05 重算为 unit 6/6、dataset 3/3，覆盖三数据集、三 detector families，FAIR unit D 支持；冻结 gate 全条件一致。
+- r016 summary 缺少的 audit rows、cluster count/SHA、bootstrap reps、detector metadata 被标为 `SOURCE_FIELD_ABSENT / RECONSTRUCTED_NOT_SUMMARY_COMPARED`，没有冒充已比较。
+- 六个 canonical source/forbidden/intersection 集合保存 count 与 sorted SHA，当前交集均为零。
 
-### 3.2 feature witness 自相矛盾
+### 2.3 稿件索引的实际内容
 
-冻结 sentinel 契约是 `(u_axis,IoU_loss,center,wdisp,hdisp,score_disp,margin)=(3,1,3,3,3,10,0)`；源码逐值实现了该向量，r017 JSON 却把 sentinel 写成 `false/IMPLEMENTATION_DEVIATION`，validator 又把该 false 硬编码为“预期偏差”并据此通过。w/h swap 只引用 `pred_ar=max/min`，没有行为微测试；0/90 boundary、schema prefix/contains 与逐文件 seal 也未充分验证。
+独立复核确认当前 claim ledger 8/8 hash、唯一正文命中与标题绑定通过；novelty matrix 的弱根页均为 `UNKNOWN_EXCLUDED`；稿件 exploratory、HRSC 跨零、leave-dataset 0/6、fixed-dose descriptive-only、旧 CI/UCB 排除和核心引用边界仍成立。r018 没有修改稿件。
 
-### 3.3 manifest 的 exact closure 为假
+## 3. 拒绝 VALID 收据的决定性证据
 
-`validate_r016_receipt_r017.py` 第 335 行直接 `manifest_path.read_text()`，绕过统一 access wrapper；第 337 行仅比较 path set 与空 runtime，不比较 bytes/SHA/schema，却签发 `manifest_access_exact=true`。报告据此宣称 exact access closure 和 FULL_COMPLETION，直接触发协议漂移。
+1. **错误的冻结期望。** r012 冻结指令明确规定 association margin“只有一个候选时为 1，无候选时为 0”；r018 脚本却把单候选 expected 写成 0，并用 perfect-IoU actual=1 制造假失败。该项不是 implementation deviation。
+2. **混淆两个 feature。** 冻结契约把 doubled-angle axial circular dispersion 与 `u_axis` 并列为两个量。r018 用 `u_axis` 的 actual 对比无来源的 `0.05` 来代替 axial-dispersion 测试；实际六个 sealed feature schema 均没有独立 axial-dispersion 字段。真实偏差是“独立 axial feature 缺失”，不是该 `u_axis` 数值测试。
+3. **w/h+90 测试没有覆盖角行为。** 它只比较 `log_pred_ar`，未验证等价框的 angle/`u_axis` 行为；该边界保持 `unknown`。
+4. **VALID 没有门控 Phase B 审计质量。** `phase_b_complete` 被无条件写为 true，`receipt_valid` 也不要求 schema/seal/claim/novelty/manuscript 检查有效；即使 Phase B 关键检查失败仍可签 VALID。production contract 可得到负结果，但审计器本身必须正确，这两者被混淆。
+5. **负结果完成语义仍写反。** 合约规定被审计对象的 numeric/gate mismatch 可与有效收据并存；实际 `receipt_valid` 直接依赖 `numeric_ok`，负数字分支会错误返回 `FAIL_VALIDATION_R018`。
+6. **canonical parity witness 不完整。** 收据只登记 `m069_common.py` 的 MD5 摘要行，漏掉下一行真正定义 `%2` parity 的分支，却签发完整 witness。
 
-## 4. 科学与投稿裁决
+因此报告中的 `feature_contract_result=IMPLEMENTATION_DEVIATION` 方向上仍有一个真实依据，但列出的两个失败项只有“独立 doubled-angle axial feature 未实现”成立；single-candidate margin 失败必须撤销。缺必做动态验证且仍签 VALID，满足 r018 自身定义的 protocol drift。
 
-- r014 正式状态继续是 `FAIL_PROTOCOL_R014`；r015/r016/r017 不能追认 deployable PASS。
-- `EXPLORATORY_CORE_SUPPORT_R015` 是当前最强正证据，但 HRSC `0.0602` 的 CI `[-0.0143,0.1438]` 跨零，leave-dataset 仍为 0/6，fixed-dose 仅描述性。CVPR/ICCV 线不成立。
-- strong-JSTARS potential 仍可信但未 ready。TGRS/ISPRS JPRS 不能靠换 gate 或修辞升级；先把最后一轮静态裁决诚实闭合，再做投稿级贡献/相关工作/可证伪性攻击。
+## 4. 对科学 claim 的影响
 
-## 5. 唯一下一步
+- 当前 6/6、3/3 来自实际 sealed features/scores，故经验性探索结果不因意图契约缺项而消失；但它只描述**实际实现的 selector**。
+- 不得宣称实现了完整 r012 frozen feature contract，不得用 doubled-angle axial dispersion 解释收益；w/h+90 的角等价性仍未知。
+- 当前主稿只把 EQS 写成探索性预测等变性信号，没有消费上述细粒度机制，因此不需要在本轮仓促改稿；投稿方法节必须按实际 schema/代码重写或明确限制。
+- r014 formal failure、HRSC `0.0602` 且 CI `[-0.0143,0.1438]` 跨零、leave-dataset 0/6、fixed-dose descriptive-only 均不变。CVPR/ICCV 路线继续关闭。
 
-执行 r018 **static final adjudication**：不重跑 bootstrap、不训练、不推理、不改稿，只修复三元 key、support/gate、source metadata 缺失语义、canonical set witness、feature 微测试和 full-record provenance。r018 成功 token 只表示“裁决收据有效”，可以伴随对 r017 的负裁决；不得再伪装为科学或 venue PASS，也不得自行生成 r019。
+## 5. 投稿候选与最小杀死条件
 
-## 6. 决策台账
+```text
+candidate:
+  problem: 面向遥感 OBB 的 orientation reliability 测量、诊断与受限选择
+  material_delta: 以 NRC/risk-coverage、跨 detector/dataset 诊断和实际 sealed EQS 探索证据连接 measure→diagnose→fix，但不宣称 deployable 或完整 frozen feature contract
+  minimum_decisive_test: 一次投稿级对抗审查，逐条攻击贡献显著性、最近工作差异、实际实现边界、负迁移与外部不确定性
+  kill_condition: 去掉 deployability、HRSC 确认和缺失 axial feature 后，若剩余贡献仅是治理流程或已有 calibration/selective-prediction 的重包装，则降为 strong-JSTARS/benchmark
+  expected_paper_value: 通过攻击才保留 TGRS/ISPRS JPRS；否则采用 strong-JSTARS fallback
+```
+
+本轮采用三个视角：统计/gate、实现/provenance、稿件/创新。当前集体盲区不是更多 hash，而是审稿人是否认可实际科学贡献和读者价值。审计事实置信度高；TGRS/ISPRS 可达性置信度中等，最弱环节是贡献攻击尚未发生。
+
+## 6. 唯一下一步
+
+停止服务器机械验收循环，状态设为 `WAITING_USER_DECISION`。建议现在启动一次投稿级 CC/B 对抗审查；用户明确同意前不启动 CC、不修改 `dis/B.md`、不生成新的服务器任务。
+
+## 7. 决策台账
 
 | item | decision | confidence | falsifier / next action |
 |---|---|---:|---|
-| r017 Git scope | adopt | high | 任一非授权路径或 B blob 变化会推翻；当前未见 |
-| r017 FULL_COMPLETION/PASS | reject as protocol drift | high | 只有逐项实现缺失验证且证据一致才可另立新收据，不能回改历史 |
-| exploratory numeric core | adopt | high | 三元 key、独立 support/gate 或原始数值复核出现不一致则降级 |
-| claim/novelty/manuscript index | adopt | high | r018 动态复核发现 hash、弱来源或边界回归则推翻 |
-| early stop / performance | neither | high | r017 已运行和推送；缺陷属于 audit implementation |
-| next work | r018 final static adjudication | high | 只允许 `dis/sug.md` 的 10 条写入路径 |
+| r018 execution trace | adopt FULL_COMPLETION | high | 远端、父链、10 路径或 push 反证可推翻 |
+| r018 Git/provenance | adopt | high | 任一最终 blob/snapshot/full-record 不一致可推翻 |
+| r018 VALID receipt | reject as protocol drift | high | 多项冻结契约和动态 gate 实现反证已定位 |
+| exploratory 6/6 + 3/3 | adopt for actual sealed implementation | high | 原始数值或同步 bootstrap 反证可降级 |
+| single-candidate margin deviation | reject | high | 冻结契约明确 expected=1 |
+| missing doubled-angle axial feature | adopt implementation deviation | high | actual sealed schema/生成代码出现独立 axial 字段可推翻 |
+| w/h+90 angle equivalence | unknown | medium | 需正确调用 production angle path 的微测试 |
+| current paper index | adopt | high | 投稿攻击发现 claim/novelty/边界错误则修订 |
+| next work | user decision on CC submission attack | high | 不再下发 r019 静态收据 |
