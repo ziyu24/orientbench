@@ -1,15 +1,15 @@
 # OrientBench 顶刊可行性纠偏验收与简洁回报设计
 
 ```yaml
-document_status: AWAITING_USER_WRITTEN_SPEC_APPROVAL
+document_status: APPROVED_WRITTEN_SPEC
 date: 2026-08-09
 review_base: cdf764c5a974030739a9992079bedb8b970fb2a7
 dispatch_commit: cb84b950ec5b94d89d0b13327a529e5712885111
 scientific_data_cutoff: a9067fb16d2bbd747dfe69789ac33a5911eb15fe
 protected_B_blob: c0c2571f3a5c828673b39e6458ceaed5f14c5a6a
 user_conceptual_approval: true
-user_written_spec_approval: false
-server_execution_authorized: false
+user_written_spec_approval: true
+server_execution_authorized: true
 cc_recommendation: no
 ```
 
