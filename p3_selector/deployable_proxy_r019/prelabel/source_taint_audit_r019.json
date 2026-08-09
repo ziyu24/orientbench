@@ -1,0 +1,38 @@
+[
+  {
+    "unit": "A",
+    "D_audit_lines_routed_before_materialization": 43848,
+    "D_audit_objects_materialized": 0,
+    "status": "PASS"
+  },
+  {
+    "unit": "B",
+    "D_audit_lines_routed_before_materialization": 47887,
+    "D_audit_objects_materialized": 0,
+    "status": "PASS"
+  },
+  {
+    "unit": "C",
+    "D_audit_lines_routed_before_materialization": 47881,
+    "D_audit_objects_materialized": 0,
+    "status": "PASS"
+  },
+  {
+    "unit": "D",
+    "D_audit_lines_routed_before_materialization": 26108,
+    "D_audit_objects_materialized": 0,
+    "status": "PASS"
+  },
+  {
+    "unit": "E",
+    "D_audit_lines_routed_before_materialization": 157586,
+    "D_audit_objects_materialized": 0,
+    "status": "PASS"
+  },
+  {
+    "unit": "F",
+    "D_audit_lines_routed_before_materialization": 192249,
+    "D_audit_objects_materialized": 0,
+    "status": "PASS"
+  }
+]

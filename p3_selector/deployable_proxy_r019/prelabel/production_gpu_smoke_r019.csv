@@ -1,0 +1,3 @@
+unit,images,identity_records,hflip_records,vflip_records,total_records,target_label_access_count,status,summary_sha256
+orcnn,50,50,50,50,150,0,PASS,80979ea4e66224d9833ffe57a63f50ad4e10d77d4e3fce84d4d1d2a735ded7af
+rtmdet,50,50,50,50,150,0,PASS,69efc28da7fdcc5e9424e6b1b1401182b82efd65cad2f9a0babebde188f4b8cb

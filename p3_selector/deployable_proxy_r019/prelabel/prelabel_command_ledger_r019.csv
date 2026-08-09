@@ -1,0 +1,11 @@
+phase,command,exit_code
+pull,git pull --ff-only https://github.com/ziyu24/orientbench.git main,0
+microtests,mr_dev1x python tests/test_eqs_rc_r019.py,0
+preflight,mr_dev1x python run_prelabel_r019.py preflight,0
+smoke_orcnn,mr_dev1x python run_forward_orchestrator_r019.py --unit orcnn --mode smoke --limit 50,0
+smoke_rtmdet,mr_dev1x python run_forward_orchestrator_r019.py --unit rtmdet --mode smoke --limit 50,0
+source,mr_dev1x python run_prelabel_r019.py source,0
+forward_orcnn,mr_dev1x python run_forward_orchestrator_r019.py --unit orcnn --mode full,0
+forward_rtmdet,mr_dev1x python run_forward_orchestrator_r019.py --unit rtmdet --mode full,0
+target_features_scores,mr_dev1x python run_prelabel_r019.py target,0
+draws,mr_dev1x python run_prelabel_r019.py draws,0

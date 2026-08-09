@@ -1,0 +1,229 @@
+{
+  "schema": "r019_production_microtests_v1",
+  "seed": 20260809,
+  "production_module": "p3_selector/deployable_proxy_r019/scripts/eqs_rc_r019.py",
+  "tests": [
+    {
+      "name": "horizontal_inverse_roundtrip",
+      "expected": 0.0,
+      "actual": 0.0,
+      "tolerance": 1e-05,
+      "pass": true
+    },
+    {
+      "name": "vertical_inverse_roundtrip",
+      "expected": 0.0,
+      "actual": 0.0,
+      "tolerance": 1e-05,
+      "pass": true
+    },
+    {
+      "name": "width_height_plus_90_canonical",
+      "expected": 0.0,
+      "actual": 1.6653345369377348e-16,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "zero_ninety_boundary",
+      "expected": 90.0,
+      "actual": 90.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "axial_same",
+      "expected": 0.0,
+      "actual": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "axial_pi_equivalent",
+      "expected": 0.0,
+      "actual": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "axial_orthogonal",
+      "expected": 1.0,
+      "actual": 0.9999999999999999,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "axial_no_aux",
+      "expected": 1.0,
+      "actual": 1.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "margin_zero_candidate",
+      "expected": [
+        {},
+        {
+          "0": 0.0
+        }
+      ],
+      "actual": [
+        {},
+        {
+          "0": 0.0
+        }
+      ],
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "margin_one_candidate",
+      "expected": 1.0,
+      "actual": 1.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "margin_wrong_top1_iou_negative",
+      "expected": false,
+      "actual": false,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "margin_two_candidate_range",
+      "expected": true,
+      "actual": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "dense_stable_unique",
+      "expected": [
+        0,
+        1
+      ],
+      "actual": [
+        0,
+        1
+      ],
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "stable_tie",
+      "expected": 0,
+      "actual": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "class_mismatch",
+      "expected": {},
+      "actual": {},
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "missing_sentinel",
+      "expected": [
+        1.0,
+        3.0,
+        1.0,
+        3.0,
+        3.0,
+        3.0,
+        10.0,
+        0.0
+      ],
+      "actual": [
+        1.0,
+        3.0,
+        1.0,
+        3.0,
+        3.0,
+        3.0,
+        10.0,
+        0.0
+      ],
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "all_13_width_height_equivalence",
+      "expected": [
+        1.3862944356256983,
+        0.9162907318741551,
+        1.8444397270569681,
+        0.0,
+        1.0,
+        1.0,
+        3.0,
+        1.0,
+        3.0,
+        3.0,
+        3.0,
+        10.0,
+        0.0
+      ],
+      "actual": [
+        1.3862944356256983,
+        0.9162907318741551,
+        1.8444397270569681,
+        0.0,
+        1.0,
+        1.0,
+        3.0,
+        1.0,
+        3.0,
+        3.0,
+        3.0,
+        10.0,
+        0.0
+      ],
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "schema_forbidden_prefix_contains",
+      "expected": {},
+      "actual": {},
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "fail_closed_suite",
+      "expected": true,
+      "actual": true,
+      "tolerance": 0,
+      "pass": true,
+      "cases": [
+        {
+          "name": "missing_image",
+          "nonzero_equivalent": true
+        },
+        {
+          "name": "duplicate_image",
+          "nonzero_equivalent": true
+        },
+        {
+          "name": "wrong_unit",
+          "nonzero_equivalent": true
+        },
+        {
+          "name": "non_finite",
+          "nonzero_equivalent": true
+        },
+        {
+          "name": "unknown_view",
+          "nonzero_equivalent": true
+        },
+        {
+          "name": "schema_drift",
+          "nonzero_equivalent": true
+        }
+      ]
+    }
+  ],
+  "all_pass": true
+}

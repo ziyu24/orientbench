@@ -2331,3 +2331,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 三元 bootstrap、support/gate、canonical split 集合、feature production 微测试、稿件索引和 r017 Git/provenance 全部完成；裁决为 `VALID_STATIC_ADJUDICATION_R018`，数值仅保留 `EXPLORATORY_CORE_SUPPORT_R015`。
 - r017 历史状态固定为 `PROTOCOL_DRIFT_R017 / FAIL_AUDIT_IMPLEMENTATION_R017`。r016 summary metadata 为 `SOURCE_FIELD_ABSENT`；sentinel 纠正为通过，association-margin single-candidate 与 doubled-angle 保留真实实现偏差。
 - 关键产物：`dis/server_reports/orientbench-c-r018-20260808.md` 与 `p3_selector/static_adjudication_r018/`。未触发停止条件；下一步仅等待新正式指令。
+
+## 2026-08-09 02:06:18 PDT — r019 prelabel 时间锁（Codex 执行）
+
+- 指令来源：远端 `main` 的 `dis/sug.md`，round `orientbench-c-r019-20260809`。
+- 执行动作：HTTPS fast-forward；完成无标签 preflight、production 微测、两单元 50-image smoke、Core source-only LODO/功效/唯一模型拟合、DOTA 两单元顺序 4-GPU 三视图全量前向、prediction-only feature/score、完整 mother draws 与 prelabel seal。
+- 关键产物：`p3_selector/deployable_proxy_r019/prelabel/` 与 Git-ignored `outputs/persistent_artifacts/orientbench_r019/prelabel/`。
+- DOTA target label access count：0；停止条件：未触发。
+- 下一步：仅在 prelabel commit 经 HTTPS 推送且远端 `main` 精确确认后，执行唯一 label attach、统计与独立 validator。
