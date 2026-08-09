@@ -1,0 +1,1556 @@
+{
+  "schema": "r018_feature_contract_audit_v1",
+  "parquet_files": [
+    {
+      "unit": "A",
+      "kind": "features",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/A.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\nclass_id: int64\ndetection_score: double\nlogit_score: double\nlog_pred_ar: double\nhalf_log_pred_area: double\nsupport_fraction: double\nmissing_fraction: double\nu_axis: double\niou_loss: double\ncenter_dispersion: double\nwidth_dispersion: double\nheight_dispersion: double\nscore_dispersion: double\nassociation_margin: double",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "class_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "logit_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "log_pred_ar",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "half_log_pred_area",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "support_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "missing_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "u_axis",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "iou_loss",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "center_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "width_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "height_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "association_margin",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "A",
+      "kind": "scores",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/A.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\ndetection_score: double\nscore_ar_size_linear: double\nnonlinear_geometry: double\nstandalone_equivariance: double\nEQS: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 965",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_ar_size_linear",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "nonlinear_geometry",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "standalone_equivariance",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "EQS",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "B",
+      "kind": "features",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/B.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\nclass_id: int64\ndetection_score: double\nlogit_score: double\nlog_pred_ar: double\nhalf_log_pred_area: double\nsupport_fraction: double\nmissing_fraction: double\nu_axis: double\niou_loss: double\ncenter_dispersion: double\nwidth_dispersion: double\nheight_dispersion: double\nscore_dispersion: double\nassociation_margin: double",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "class_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "logit_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "log_pred_ar",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "half_log_pred_area",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "support_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "missing_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "u_axis",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "iou_loss",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "center_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "width_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "height_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "association_margin",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "B",
+      "kind": "scores",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/B.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\ndetection_score: double\nscore_ar_size_linear: double\nnonlinear_geometry: double\nstandalone_equivariance: double\nEQS: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 965",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_ar_size_linear",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "nonlinear_geometry",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "standalone_equivariance",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "EQS",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "C",
+      "kind": "features",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/C.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\nclass_id: int64\ndetection_score: double\nlogit_score: double\nlog_pred_ar: double\nhalf_log_pred_area: double\nsupport_fraction: double\nmissing_fraction: double\nu_axis: double\niou_loss: double\ncenter_dispersion: double\nwidth_dispersion: double\nheight_dispersion: double\nscore_dispersion: double\nassociation_margin: double",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "class_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "logit_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "log_pred_ar",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "half_log_pred_area",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "support_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "missing_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "u_axis",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "iou_loss",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "center_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "width_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "height_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "association_margin",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "C",
+      "kind": "scores",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/C.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\ndetection_score: double\nscore_ar_size_linear: double\nnonlinear_geometry: double\nstandalone_equivariance: double\nEQS: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 965",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_ar_size_linear",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "nonlinear_geometry",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "standalone_equivariance",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "EQS",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "D",
+      "kind": "features",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/D.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\nclass_id: int64\ndetection_score: double\nlogit_score: double\nlog_pred_ar: double\nhalf_log_pred_area: double\nsupport_fraction: double\nmissing_fraction: double\nu_axis: double\niou_loss: double\ncenter_dispersion: double\nwidth_dispersion: double\nheight_dispersion: double\nscore_dispersion: double\nassociation_margin: double",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "class_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "logit_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "log_pred_ar",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "half_log_pred_area",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "support_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "missing_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "u_axis",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "iou_loss",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "center_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "width_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "height_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "association_margin",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "D",
+      "kind": "scores",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/D.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\ndetection_score: double\nscore_ar_size_linear: double\nnonlinear_geometry: double\nstandalone_equivariance: double\nEQS: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 965",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_ar_size_linear",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "nonlinear_geometry",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "standalone_equivariance",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "EQS",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "E",
+      "kind": "features",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/E.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\nclass_id: int64\ndetection_score: double\nlogit_score: double\nlog_pred_ar: double\nhalf_log_pred_area: double\nsupport_fraction: double\nmissing_fraction: double\nu_axis: double\niou_loss: double\ncenter_dispersion: double\nwidth_dispersion: double\nheight_dispersion: double\nscore_dispersion: double\nassociation_margin: double",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "class_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "logit_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "log_pred_ar",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "half_log_pred_area",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "support_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "missing_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "u_axis",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "iou_loss",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "center_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "width_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "height_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "association_margin",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "E",
+      "kind": "scores",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/E.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\ndetection_score: double\nscore_ar_size_linear: double\nnonlinear_geometry: double\nstandalone_equivariance: double\nEQS: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 965",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_ar_size_linear",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "nonlinear_geometry",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "standalone_equivariance",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "EQS",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "F",
+      "kind": "features",
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/F.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\nclass_id: int64\ndetection_score: double\nlogit_score: double\nlog_pred_ar: double\nhalf_log_pred_area: double\nsupport_fraction: double\nmissing_fraction: double\nu_axis: double\niou_loss: double\ncenter_dispersion: double\nwidth_dispersion: double\nheight_dispersion: double\nscore_dispersion: double\nassociation_margin: double",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "class_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "logit_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "log_pred_ar",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "half_log_pred_area",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "support_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "missing_fraction",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "u_axis",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "iou_loss",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "center_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "width_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "height_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_dispersion",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "association_margin",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    },
+    {
+      "unit": "F",
+      "kind": "scores",
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/F.parquet",
+      "arrow_schema": "image_id: string\npred_id: int64\ndetection_score: double\nscore_ar_size_linear: double\nnonlinear_geometry: double\nstandalone_equivariance: double\nEQS: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 965",
+      "fields": [
+        {
+          "name": "image_id",
+          "type": "string",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "pred_id",
+          "type": "int64",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "detection_score",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "score_ar_size_linear",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "nonlinear_geometry",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "standalone_equivariance",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        },
+        {
+          "name": "EQS",
+          "type": "double",
+          "nullable": true,
+          "forbidden_hits": []
+        }
+      ],
+      "forbidden_fields": [],
+      "forbidden_scan_case_insensitive_prefix_contains": true,
+      "pass": true
+    }
+  ],
+  "prelabel_and_final_seals": [
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/A.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/A.parquet",
+        "bytes": 106414303,
+        "sha256": "1680039b73ea6419143621ac5776713f2232b1f1bca953d22ba452dae3990800"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/A.parquet",
+        "bytes": 106414303,
+        "sha256": "1680039b73ea6419143621ac5776713f2232b1f1bca953d22ba452dae3990800",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 106414303,
+        "sha256": "1680039b73ea6419143621ac5776713f2232b1f1bca953d22ba452dae3990800"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/A.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/A.parquet",
+        "bytes": 14113964,
+        "sha256": "65a38d8dc6e8818f459cb248a9cf90949157010dce2bb11469f5f5b5c161181a"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/A.parquet",
+        "bytes": 14113964,
+        "sha256": "65a38d8dc6e8818f459cb248a9cf90949157010dce2bb11469f5f5b5c161181a",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 14113964,
+        "sha256": "65a38d8dc6e8818f459cb248a9cf90949157010dce2bb11469f5f5b5c161181a"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/B.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/B.parquet",
+        "bytes": 76778217,
+        "sha256": "a4a56429d092ae5f2b99eae5bdbad6033b2bc1d3e9db3cd205534903ccdbabb5"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/B.parquet",
+        "bytes": 76778217,
+        "sha256": "a4a56429d092ae5f2b99eae5bdbad6033b2bc1d3e9db3cd205534903ccdbabb5",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 76778217,
+        "sha256": "a4a56429d092ae5f2b99eae5bdbad6033b2bc1d3e9db3cd205534903ccdbabb5"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/B.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/B.parquet",
+        "bytes": 5147240,
+        "sha256": "a7b16608a3495d466de005e998e8ee83803d35bc0222c6c2b398caac9c3b4285"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/B.parquet",
+        "bytes": 5147240,
+        "sha256": "a7b16608a3495d466de005e998e8ee83803d35bc0222c6c2b398caac9c3b4285",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 5147240,
+        "sha256": "a7b16608a3495d466de005e998e8ee83803d35bc0222c6c2b398caac9c3b4285"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/C.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/C.parquet",
+        "bytes": 90348339,
+        "sha256": "79b8b9299b7e758bbad663f4a55e94eaca186de14337212f8f1542c02fd38e44"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/C.parquet",
+        "bytes": 90348339,
+        "sha256": "79b8b9299b7e758bbad663f4a55e94eaca186de14337212f8f1542c02fd38e44",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 90348339,
+        "sha256": "79b8b9299b7e758bbad663f4a55e94eaca186de14337212f8f1542c02fd38e44"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/C.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/C.parquet",
+        "bytes": 9067953,
+        "sha256": "1724d7bda74542d6f4b02d1ea29e9e1eb19a3880a4c3c2b826acbbeab74e9d67"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/C.parquet",
+        "bytes": 9067953,
+        "sha256": "1724d7bda74542d6f4b02d1ea29e9e1eb19a3880a4c3c2b826acbbeab74e9d67",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 9067953,
+        "sha256": "1724d7bda74542d6f4b02d1ea29e9e1eb19a3880a4c3c2b826acbbeab74e9d67"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/D.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/D.parquet",
+        "bytes": 56298120,
+        "sha256": "3d88592b74e3b6ee51515ab530c9020f07518f26ca74c69a84b90ca408d104af"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/D.parquet",
+        "bytes": 56298120,
+        "sha256": "3d88592b74e3b6ee51515ab530c9020f07518f26ca74c69a84b90ca408d104af",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 56298120,
+        "sha256": "3d88592b74e3b6ee51515ab530c9020f07518f26ca74c69a84b90ca408d104af"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/D.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/D.parquet",
+        "bytes": 11574260,
+        "sha256": "1807dc207596f2a26aaee992dd96efd972da36f4bcf7ce82edf1a434c83c8d4a"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/D.parquet",
+        "bytes": 11574260,
+        "sha256": "1807dc207596f2a26aaee992dd96efd972da36f4bcf7ce82edf1a434c83c8d4a",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 11574260,
+        "sha256": "1807dc207596f2a26aaee992dd96efd972da36f4bcf7ce82edf1a434c83c8d4a"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/E.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/E.parquet",
+        "bytes": 235374169,
+        "sha256": "00e690cd03d5ff00cdd73b87a0c0bec1ad0d1e22889c2da3693975f203252f0b"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/E.parquet",
+        "bytes": 235374169,
+        "sha256": "00e690cd03d5ff00cdd73b87a0c0bec1ad0d1e22889c2da3693975f203252f0b",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 235374169,
+        "sha256": "00e690cd03d5ff00cdd73b87a0c0bec1ad0d1e22889c2da3693975f203252f0b"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/E.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/E.parquet",
+        "bytes": 40344077,
+        "sha256": "e3ef91a92370cbd3cfd2e76fae46f430c8024b73ec9dd56e64c274c531d3e4bd"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/E.parquet",
+        "bytes": 40344077,
+        "sha256": "e3ef91a92370cbd3cfd2e76fae46f430c8024b73ec9dd56e64c274c531d3e4bd",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 40344077,
+        "sha256": "e3ef91a92370cbd3cfd2e76fae46f430c8024b73ec9dd56e64c274c531d3e4bd"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/features/F.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/F.parquet",
+        "bytes": 161849746,
+        "sha256": "c3875f572b6c909b39ab4b5797d60963cf097969aca9ca4eb68a3f50c2caad75"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/features/F.parquet",
+        "bytes": 161849746,
+        "sha256": "c3875f572b6c909b39ab4b5797d60963cf097969aca9ca4eb68a3f50c2caad75",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 161849746,
+        "sha256": "c3875f572b6c909b39ab4b5797d60963cf097969aca9ca4eb68a3f50c2caad75"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_r014/scores/F.parquet",
+      "expected_prelabel": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/F.parquet",
+        "bytes": 19765066,
+        "sha256": "fa27f7fed94c410d8bd27a106e96587d6b330d1c38e3f4f0c10986ee3f2367db"
+      },
+      "expected_final": {
+        "path": "outputs/persistent_artifacts/orientbench_r014/scores/F.parquet",
+        "bytes": 19765066,
+        "sha256": "fa27f7fed94c410d8bd27a106e96587d6b330d1c38e3f4f0c10986ee3f2367db",
+        "schema": "parquet",
+        "can_recompute": true
+      },
+      "actual": {
+        "bytes": 19765066,
+        "sha256": "fa27f7fed94c410d8bd27a106e96587d6b330d1c38e3f4f0c10986ee3f2367db"
+      },
+      "prelabel_match": true,
+      "final_match": true,
+      "pass": true
+    }
+  ],
+  "schema_all_pass": true,
+  "seal_all_pass": true,
+  "production_microtests": [
+    {
+      "name": "sentinel",
+      "input": "identity one; hflip/vflip zero candidates",
+      "expected": [
+        3,
+        1,
+        3,
+        3,
+        3,
+        10,
+        0
+      ],
+      "actual": [
+        3.0,
+        1.0,
+        3.0,
+        3.0,
+        3.0,
+        10.0,
+        0.0
+      ],
+      "tolerance": 0.0,
+      "pass": true,
+      "production_source": {
+        "line": 171,
+        "short_witness": "u_axis, iou_loss, center, wdisp, hdisp, score_disp, margin = 3.0, 1.0, 3.0, 3.0, 3.0, 10.0, 0.0",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    },
+    {
+      "name": "u_axis",
+      "input": "two matched 10 degree views; frozen synthetic delta=20",
+      "expected": 0.5,
+      "actual": 0.499999985454646,
+      "tolerance": 1e-06,
+      "pass": true,
+      "production_source": {
+        "line": 163,
+        "short_witness": "u_axis = float(np.clip(med(\"angle\") / dth, 0.0, 3.0))",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    },
+    {
+      "name": "association_margin_single_candidate",
+      "input": "one identity and one perfect candidate",
+      "expected": 0.0,
+      "actual": 1.0,
+      "tolerance": 1e-12,
+      "pass": false,
+      "production_source": {
+        "line": 106,
+        "short_witness": "margins[global_i] = float(np.clip(values[0] - (values[1] if len(values) > 1 else 0.0), 0.0, 1.0))",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    },
+    {
+      "name": "association_margin_zero_candidate",
+      "input": "one identity and zero candidates",
+      "expected": [
+        {},
+        {}
+      ],
+      "actual": [
+        {},
+        {}
+      ],
+      "tolerance": 0.0,
+      "pass": true,
+      "production_source": {
+        "line": 106,
+        "short_witness": "margins[global_i] = float(np.clip(values[0] - (values[1] if len(values) > 1 else 0.0), 0.0, 1.0))",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    },
+    {
+      "name": "deterministic_tie_break",
+      "input": "two equal IoU and score candidates",
+      "expected": 0,
+      "actual": 0,
+      "tolerance": 0.0,
+      "pass": true,
+      "production_source": {
+        "line": 113,
+        "short_witness": "for neg_iou, _, global_i, global_v in sorted(candidates):",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    },
+    {
+      "name": "width_height_plus_90_equivalence",
+      "input": "10x4@0 versus 4x10@90",
+      "expected": 0.9162907318741551,
+      "actual": 0.9162907318741551,
+      "tolerance": 1e-12,
+      "pass": true,
+      "production_source": {
+        "line": 138,
+        "short_witness": "pred_ar = max(width, height) / max(min(width, height), 1e-6)",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    },
+    {
+      "name": "zero_ninety_boundary",
+      "input": "0 versus 90 degrees",
+      "expected": 90.0,
+      "actual": 90.0,
+      "tolerance": 1e-12,
+      "pass": true,
+      "production_source": {
+        "line": 87,
+        "short_witness": "def le90_deg(a: float, b: float) -> float:",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    },
+    {
+      "name": "doubled_angle_axial_dispersion",
+      "input": "axially adjacent +89/-89 views around 90 degree boundary",
+      "expected": 0.05,
+      "actual": 3.0,
+      "tolerance": 1e-06,
+      "pass": false,
+      "production_source": {
+        "line": 151,
+        "short_witness": "\"angle\": le90_deg(float(base[4]), float(other[4])),",
+        "path": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py"
+      }
+    }
+  ],
+  "microtest_failures": [
+    "association_margin_single_candidate",
+    "doubled_angle_axial_dispersion"
+  ],
+  "sentinel_frozen_expectation_pass": true,
+  "claim_ledger": {
+    "rows": 8,
+    "checks": [
+      {
+        "claim_id": "C01",
+        "hash_expected": "141801ab7b5fefc037b76fdca278cbd40dd29f05fc3dd24943e25d7b92074941",
+        "hash_actual": "141801ab7b5fefc037b76fdca278cbd40dd29f05fc3dd24943e25d7b92074941",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "3.2 可辨识域与容忍角",
+        "expected_heading": "3.2 可辨识域与容忍角",
+        "heading_match": true,
+        "line": 68
+      },
+      {
+        "claim_id": "C02",
+        "hash_expected": "6fff46e4626899b97f5abf961756dfe78b2a4764b14ace9c2baf841c17be9c02",
+        "hash_actual": "6fff46e4626899b97f5abf961756dfe78b2a4764b14ace9c2baf841c17be9c02",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "6.1 Full-validation AP 与约束扰动",
+        "expected_heading": "6.1 Full-validation AP 与约束扰动",
+        "heading_match": true,
+        "line": 136
+      },
+      {
+        "claim_id": "C03",
+        "hash_expected": "d1f7fa26d673ea5e2690ef61b25606a89f3420731054e09040611192ce265187",
+        "hash_actual": "d1f7fa26d673ea5e2690ef61b25606a89f3420731054e09040611192ce265187",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "6.3 `ar>=2.1` 连续角风险排序",
+        "expected_heading": "6.3 `ar>=2.1` 连续角风险排序",
+        "heading_match": true,
+        "line": 166
+      },
+      {
+        "claim_id": "C04",
+        "hash_expected": "cca6618e16c9080ee3c84d8cab199a44d3e9fb90f6364cb2eae1a19ce26915fe",
+        "hash_actual": "cca6618e16c9080ee3c84d8cab199a44d3e9fb90f6364cb2eae1a19ce26915fe",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "6.4 固定尺寸分箱与诊断上界",
+        "expected_heading": "6.4 固定尺寸分箱与诊断上界",
+        "heading_match": true,
+        "line": 170
+      },
+      {
+        "claim_id": "C05",
+        "hash_expected": "ae7c51367c94a20fb6777a65361f0d3d085120f3ecb884ed4799274f55331695",
+        "hash_actual": "ae7c51367c94a20fb6777a65361f0d3d085120f3ecb884ed4799274f55331695",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "6.6 跨数据集预测等变性选择的探索性审计",
+        "expected_heading": "6.6 跨数据集预测等变性选择的探索性审计",
+        "heading_match": true,
+        "line": 178
+      },
+      {
+        "claim_id": "C06",
+        "hash_expected": "1b47c055cba4aaa928ddef273aae8a04555a34e3976d962a076fadc0aaead933",
+        "hash_actual": "1b47c055cba4aaa928ddef273aae8a04555a34e3976d962a076fadc0aaead933",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "6.6 跨数据集预测等变性选择的探索性审计",
+        "expected_heading": "6.6 跨数据集预测等变性选择的探索性审计",
+        "heading_match": true,
+        "line": 197
+      },
+      {
+        "claim_id": "C07",
+        "hash_expected": "e8d7246ff25d1c59c9b9ca039b8548326939e5dfa0561d19d265f71a4ffb5dba",
+        "hash_actual": "e8d7246ff25d1c59c9b9ca039b8548326939e5dfa0561d19d265f71a4ffb5dba",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "7 人工标注不确定性",
+        "expected_heading": "7 人工标注不确定性",
+        "heading_match": true,
+        "line": 201
+      },
+      {
+        "claim_id": "C08",
+        "hash_expected": "0aba6250139a33c0f5090cca625031be63b0529fee477d943a2f809f7c23a8b2",
+        "hash_actual": "0aba6250139a33c0f5090cca625031be63b0529fee477d943a2f809f7c23a8b2",
+        "hash_match": true,
+        "manuscript_occurrences": 1,
+        "unique_occurrence": true,
+        "nearest_heading": "6.6 跨数据集预测等变性选择的探索性审计",
+        "expected_heading": "6.6 跨数据集预测等变性选择的探索性审计",
+        "heading_match": true,
+        "line": 197
+      }
+    ],
+    "pass": true
+  },
+  "novelty": {
+    "unknown_excluded_rows": [
+      {
+        "work": "Detection Calibration WACV line",
+        "year": "2024",
+        "verified_source": "UNKNOWN_EXCLUDED",
+        "closest_scope": "post-hoc/object-detection calibration",
+        "relation_to_this_work": "bibliographic identity not closed from a primary paper record",
+        "novelty_action": "exclude from novelty evidence",
+        "checked_on": "2026-08-08"
+      },
+      {
+        "work": "Angle Quality Estimation for oriented object detection",
+        "year": "2025",
+        "verified_source": "UNKNOWN_EXCLUDED",
+        "closest_scope": "model-side angle quality score",
+        "relation_to_this_work": "journal homepage is not a closed primary record",
+        "novelty_action": "exclude from novelty evidence",
+        "checked_on": "2026-08-08"
+      },
+      {
+        "work": "O2-DFINE",
+        "year": "2026",
+        "verified_source": "UNKNOWN_EXCLUDED",
+        "closest_scope": "recent detector/calibration work named in external review",
+        "relation_to_this_work": "identity not sufficiently closed from local primary records",
+        "novelty_action": "exclude from novelty claims pending bibliographic closure",
+        "checked_on": "2026-08-08"
+      },
+      {
+        "work": "Fourier Angle Alignment",
+        "year": "2026",
+        "verified_source": "UNKNOWN_EXCLUDED",
+        "closest_scope": "recent Fourier angle work named in external review",
+        "relation_to_this_work": "future/current proceeding identity unavailable in local snapshot",
+        "novelty_action": "exclude from novelty claims pending official record",
+        "checked_on": "2026-08-08"
+      }
+    ],
+    "all_unknown_excluded": true
+  },
+  "manuscript_scan": {
+    "exploratory": {
+      "探索性 post-audit evidence": 4
+    },
+    "hrsc_crosses_zero": {
+      "区间跨零": 3
+    },
+    "leave_dataset_0_of_6": {
+      "leave-dataset 设计中为 0/6": 1
+    },
+    "fixed_dose_descriptive_only": {
+      "固定剂量配对 AP 只保留为描述性候选": 1
+    },
+    "stale_ci": {
+      "[0.1530, 0.1936]": 0,
+      "[0.2043, 0.2845]": 0,
+      "[0.1190, 0.2150]": 0
+    },
+    "old_ucb": {
+      "0.0040 → 0.0188": 0,
+      "0.0061 → 0.0090 → 0.0180": 0
+    },
+    "internal_terms": {
+      "PASS_": 0,
+      "FAIL_": 0,
+      "validator": 0,
+      "authorized path": 0,
+      "venue-ready": 0,
+      "r014": 0,
+      "r015": 0,
+      "r016": 0,
+      "r017": 0
+    },
+    "citations": {
+      "10.1016/j.isprsjprs.2019.11.023": 1,
+      "arXiv:2110.01931": 1,
+      "Yi Yu, Feipeng Da": 1
+    },
+    "named_scopes": {
+      "DIOR": 20,
+      "AOPG": 1,
+      "PSC": 1
+    }
+  },
+  "manuscript_scan_pass": true,
+  "feature_contract_result": "IMPLEMENTATION_DEVIATION",
+  "phase_b_complete": true
+}

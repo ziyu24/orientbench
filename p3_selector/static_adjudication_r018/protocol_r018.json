@@ -1,0 +1,25 @@
+{
+  "schema": "r018_static_adjudication_protocol_v1",
+  "round": "orientbench-c-r018-20260808",
+  "frozen_at": "2026-08-08T21:14:11-07:00",
+  "execution_base": "b349dcbd44685eae66bdabbdf7a795493ccdc08e",
+  "mode": "static_low_cpu_final_adjudication",
+  "bootstrap_recomputed": false,
+  "support_formula": "delta_nrc >= 0.02 and ci_low > 0 and Holm-adjusted p < 0.05",
+  "expected_bootstrap_domain": "six unit triples plus three dataset triples, each replicates 0..999",
+  "canonical_split": "MD5 parity from scripts/m069_common.py",
+  "frozen_historical_status": {
+    "r017_historical_verdict": "PROTOCOL_DRIFT_R017",
+    "r017_underlying_failure": "FAIL_AUDIT_IMPLEMENTATION_R017",
+    "numeric_acceptance": "EXPLORATORY_CORE_SUPPORT_R015",
+    "r014_formal_verdict": "FAIL_PROTOCOL_R014"
+  },
+  "resource_declaration": {
+    "cpu_intensive_phases": [],
+    "bootstrap_recomputed": false,
+    "telemetry_required": false,
+    "process_pool_used": false,
+    "thread_pool_used": false,
+    "gpu_used": false
+  }
+}

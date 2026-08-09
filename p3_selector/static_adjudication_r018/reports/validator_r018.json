@@ -1,0 +1,39 @@
+{
+  "schema": "r018_static_adjudication_validator_v1",
+  "task_execution": "FULL_COMPLETION",
+  "r018_receipt_verdict": "VALID_STATIC_ADJUDICATION_R018",
+  "r017_historical_verdict": "PROTOCOL_DRIFT_R017",
+  "r017_underlying_failure": "FAIL_AUDIT_IMPLEMENTATION_R017",
+  "numeric_acceptance": "EXPLORATORY_CORE_SUPPORT_R015",
+  "numeric_gate_result": "CONSISTENT_EXPLORATORY",
+  "source_metadata_result": "SOURCE_FIELD_ABSENT",
+  "feature_contract_result": "IMPLEMENTATION_DEVIATION",
+  "last_completed_phase": "Phase C provenance closure",
+  "executed_required_phases": [
+    "Phase A",
+    "Phase B",
+    "Phase C"
+  ],
+  "early_stop_trigger": "NONE",
+  "early_stop_meaning": "NOT_APPLICABLE",
+  "unrun_required_phases": [],
+  "all_required_work_completed": true,
+  "push_status": "PUSHED",
+  "checks": {
+    "independent_validator_no_r015_r017_import": true,
+    "bootstrap_direct_triple_audit": true,
+    "wrong_dataset_negative_detected": true,
+    "support_and_gate_recomputed": true,
+    "source_metadata_absence_explicit": true,
+    "canonical_set_witnesses": true,
+    "full_schema_and_seals": true,
+    "sentinel_corrected_true": true,
+    "claim_novelty_manuscript": true,
+    "r017_manifest_full_fields": true,
+    "r017_git_receipt": true,
+    "manifest_generated_from_frozen_snapshot": true
+  },
+  "receipt_limit": "VALID token evaluates r018 receipt fidelity, not r017/deployable/venue performance",
+  "canonical_input_record_snapshot_sha256": "1b4b61e45361ece2006275b8d8a50321c7c6b9ac9d758ec8c2f37c574c951018",
+  "manifest_generated_from_frozen_snapshot": true
+}

@@ -1,0 +1,1659 @@
+{
+  "schema": "r018_gate_metadata_receipt_v1",
+  "bootstrap": {
+    "rows": 9000,
+    "expected_rows": 9000,
+    "expected_triples": [
+      [
+        "dataset",
+        "DIOR-R",
+        "DIOR-R"
+      ],
+      [
+        "dataset",
+        "FAIR1M-v1.0",
+        "FAIR1M-v1.0"
+      ],
+      [
+        "dataset",
+        "SODA-A",
+        "SODA-A"
+      ],
+      [
+        "unit",
+        "DIOR-R/22",
+        "DIOR-R"
+      ],
+      [
+        "unit",
+        "DIOR-R/3",
+        "DIOR-R"
+      ],
+      [
+        "unit",
+        "DIOR-R/61",
+        "DIOR-R"
+      ],
+      [
+        "unit",
+        "FAIR1M-v1.0/24",
+        "FAIR1M-v1.0"
+      ],
+      [
+        "unit",
+        "SODA-A/23",
+        "SODA-A"
+      ],
+      [
+        "unit",
+        "SODA-A/4",
+        "SODA-A"
+      ]
+    ],
+    "actual_triples": [
+      [
+        "dataset",
+        "DIOR-R",
+        "DIOR-R"
+      ],
+      [
+        "dataset",
+        "FAIR1M-v1.0",
+        "FAIR1M-v1.0"
+      ],
+      [
+        "dataset",
+        "SODA-A",
+        "SODA-A"
+      ],
+      [
+        "unit",
+        "DIOR-R/22",
+        "DIOR-R"
+      ],
+      [
+        "unit",
+        "DIOR-R/3",
+        "DIOR-R"
+      ],
+      [
+        "unit",
+        "DIOR-R/61",
+        "DIOR-R"
+      ],
+      [
+        "unit",
+        "FAIR1M-v1.0/24",
+        "FAIR1M-v1.0"
+      ],
+      [
+        "unit",
+        "SODA-A/23",
+        "SODA-A"
+      ],
+      [
+        "unit",
+        "SODA-A/4",
+        "SODA-A"
+      ]
+    ],
+    "missing_triples": [],
+    "extra_triples": [],
+    "invalid_numeric_rows": [],
+    "triple_receipts": [
+      {
+        "level": "dataset",
+        "key": "DIOR-R",
+        "dataset": "DIOR-R",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "dataset",
+        "key": "FAIR1M-v1.0",
+        "dataset": "FAIR1M-v1.0",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "dataset",
+        "key": "SODA-A",
+        "dataset": "SODA-A",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "unit",
+        "key": "DIOR-R/22",
+        "dataset": "DIOR-R",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "unit",
+        "key": "DIOR-R/3",
+        "dataset": "DIOR-R",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "unit",
+        "key": "DIOR-R/61",
+        "dataset": "DIOR-R",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "unit",
+        "key": "FAIR1M-v1.0/24",
+        "dataset": "FAIR1M-v1.0",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "unit",
+        "key": "SODA-A/23",
+        "dataset": "SODA-A",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      },
+      {
+        "level": "unit",
+        "key": "SODA-A/4",
+        "dataset": "SODA-A",
+        "rows": 1000,
+        "replicates_0_999": true,
+        "duplicate_replicates": 0,
+        "legal_triple": true
+      }
+    ]
+  },
+  "wrong_dataset_negative_test": {
+    "detected": true,
+    "expected": true
+  },
+  "support_recomputation": [
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "dataset": "DIOR-R",
+      "formula_inputs": {
+        "delta_nrc": 0.1607810798699552,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.1251068207552687,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.005994005994005994,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "dataset": "DIOR-R",
+      "formula_inputs": {
+        "delta_nrc": 0.09253667509003127,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.05899576645956859,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.005994005994005994,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "dataset": "DIOR-R",
+      "formula_inputs": {
+        "delta_nrc": 0.26665363943666615,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.23269880210908747,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.005994005994005994,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "dataset": "FAIR1M-v1.0",
+      "formula_inputs": {
+        "delta_nrc": 0.24356009203274098,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.20484935590392198,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.005994005994005994,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "dataset": "SODA-A",
+      "formula_inputs": {
+        "delta_nrc": 0.24499019978132064,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.17019399398811577,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.005994005994005994,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "dataset": "SODA-A",
+      "formula_inputs": {
+        "delta_nrc": 0.08393958773571564,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.03571877134423407,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.005994005994005994,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "dataset": "DIOR-R",
+      "formula_inputs": {
+        "delta_nrc": 0.17332379813221754,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.14579713078002077,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.002997002997002997,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "dataset": "FAIR1M-v1.0",
+      "formula_inputs": {
+        "delta_nrc": 0.24356009203274098,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.20484935590392198,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.002997002997002997,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "dataset": "SODA-A",
+      "formula_inputs": {
+        "delta_nrc": 0.16446489375851814,
+        "minimum_delta_nrc": 0.02,
+        "ci_low": 0.10618142994867227,
+        "minimum_ci_low_exclusive": 0.0,
+        "holm_p": 0.002997002997002997,
+        "maximum_holm_p_exclusive": 0.05
+      },
+      "computed_support": true,
+      "old_supported": true,
+      "support_matches": true
+    }
+  ],
+  "summary_numeric_comparisons": [
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "delta_nrc",
+      "r015": 0.1607810798699552,
+      "r016_summary": 0.1607810798699552,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "ci_low",
+      "r015": 0.1251068207552687,
+      "r016_summary": 0.1251068207552687,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "ci_high",
+      "r015": 0.19625934131407521,
+      "r016_summary": 0.19625934131407521,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "holm6_p",
+      "r015": 0.005994005994005994,
+      "r016_summary": 0.005994005994005994,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "identity.level",
+      "r015": "unit",
+      "r016_summary": "unit",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "identity.key",
+      "r015": "DIOR-R/22",
+      "r016_summary": "DIOR-R/22",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "identity.dataset",
+      "r015": "DIOR-R",
+      "r016_summary": "DIOR-R",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "delta_nrc",
+      "r015": 0.09253667509003127,
+      "r016_summary": 0.09253667509003127,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "ci_low",
+      "r015": 0.05899576645956859,
+      "r016_summary": 0.05899576645956859,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "ci_high",
+      "r015": 0.1280699456777285,
+      "r016_summary": 0.1280699456777285,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "holm6_p",
+      "r015": 0.005994005994005994,
+      "r016_summary": 0.005994005994005994,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "identity.level",
+      "r015": "unit",
+      "r016_summary": "unit",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "identity.key",
+      "r015": "DIOR-R/3",
+      "r016_summary": "DIOR-R/3",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "identity.dataset",
+      "r015": "DIOR-R",
+      "r016_summary": "DIOR-R",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "delta_nrc",
+      "r015": 0.26665363943666615,
+      "r016_summary": 0.26665363943666615,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "ci_low",
+      "r015": 0.23269880210908747,
+      "r016_summary": 0.23269880210908747,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "ci_high",
+      "r015": 0.3014617501894402,
+      "r016_summary": 0.3014617501894402,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "holm6_p",
+      "r015": 0.005994005994005994,
+      "r016_summary": 0.005994005994005994,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "identity.level",
+      "r015": "unit",
+      "r016_summary": "unit",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "identity.key",
+      "r015": "DIOR-R/61",
+      "r016_summary": "DIOR-R/61",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "identity.dataset",
+      "r015": "DIOR-R",
+      "r016_summary": "DIOR-R",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "delta_nrc",
+      "r015": 0.24356009203274098,
+      "r016_summary": 0.24356009203274098,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "ci_low",
+      "r015": 0.20484935590392198,
+      "r016_summary": 0.20484935590392198,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "ci_high",
+      "r015": 0.2848349287224365,
+      "r016_summary": 0.2848349287224365,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "holm6_p",
+      "r015": 0.005994005994005994,
+      "r016_summary": 0.005994005994005994,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "identity.level",
+      "r015": "unit",
+      "r016_summary": "unit",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "identity.key",
+      "r015": "FAIR1M-v1.0/24",
+      "r016_summary": "FAIR1M-v1.0/24",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "identity.dataset",
+      "r015": "FAIR1M-v1.0",
+      "r016_summary": "FAIR1M-v1.0",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "delta_nrc",
+      "r015": 0.24499019978132064,
+      "r016_summary": 0.24499019978132064,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "ci_low",
+      "r015": 0.17019399398811577,
+      "r016_summary": 0.17019399398811577,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "ci_high",
+      "r015": 0.32336870435617326,
+      "r016_summary": 0.32336870435617326,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "holm6_p",
+      "r015": 0.005994005994005994,
+      "r016_summary": 0.005994005994005994,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "identity.level",
+      "r015": "unit",
+      "r016_summary": "unit",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "identity.key",
+      "r015": "SODA-A/23",
+      "r016_summary": "SODA-A/23",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "identity.dataset",
+      "r015": "SODA-A",
+      "r016_summary": "SODA-A",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "delta_nrc",
+      "r015": 0.08393958773571564,
+      "r016_summary": 0.08393958773571564,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "ci_low",
+      "r015": 0.03571877134423407,
+      "r016_summary": 0.03571877134423407,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "ci_high",
+      "r015": 0.1441737272117919,
+      "r016_summary": 0.1441737272117919,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "p_centered_one_sided",
+      "r015": 0.002997002997002997,
+      "r016_summary": 0.002997002997002997,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "holm6_p",
+      "r015": 0.005994005994005994,
+      "r016_summary": 0.005994005994005994,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "identity.level",
+      "r015": "unit",
+      "r016_summary": "unit",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "identity.key",
+      "r015": "SODA-A/4",
+      "r016_summary": "SODA-A/4",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "identity.dataset",
+      "r015": "SODA-A",
+      "r016_summary": "SODA-A",
+      "status": "MATCH"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "delta_nrc",
+      "r015": 0.17332379813221754,
+      "r016_summary": 0.17332379813221754,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "ci_low",
+      "r015": 0.14579713078002077,
+      "r016_summary": 0.14579713078002077,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "ci_high",
+      "r015": 0.20199871550547385,
+      "r016_summary": 0.20199871550547385,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "holm3_p",
+      "r015": 0.002997002997002997,
+      "r016_summary": 0.002997002997002997,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "identity.level",
+      "r015": "dataset",
+      "r016_summary": "dataset",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "identity.key",
+      "r015": "DIOR-R",
+      "r016_summary": "DIOR-R",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "identity.dataset",
+      "r015": "DIOR-R",
+      "r016_summary": "DIOR-R",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "delta_nrc",
+      "r015": 0.24356009203274098,
+      "r016_summary": 0.24356009203274098,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "ci_low",
+      "r015": 0.20484935590392198,
+      "r016_summary": 0.20484935590392198,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "ci_high",
+      "r015": 0.2848349287224365,
+      "r016_summary": 0.2848349287224365,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "holm3_p",
+      "r015": 0.002997002997002997,
+      "r016_summary": 0.002997002997002997,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "identity.level",
+      "r015": "dataset",
+      "r016_summary": "dataset",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "identity.key",
+      "r015": "FAIR1M-v1.0",
+      "r016_summary": "FAIR1M-v1.0",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "identity.dataset",
+      "r015": "FAIR1M-v1.0",
+      "r016_summary": "FAIR1M-v1.0",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "delta_nrc",
+      "r015": 0.16446489375851814,
+      "r016_summary": 0.16446489375851814,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "ci_low",
+      "r015": 0.10618142994867227,
+      "r016_summary": 0.10618142994867227,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "ci_high",
+      "r015": 0.2300109807486877,
+      "r016_summary": 0.2300109807486877,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "p_centered_one_sided",
+      "r015": 0.000999000999000999,
+      "r016_summary": 0.000999000999000999,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "holm3_p",
+      "r015": 0.002997002997002997,
+      "r016_summary": 0.002997002997002997,
+      "absolute_error": 0.0,
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "identity.level",
+      "r015": "dataset",
+      "r016_summary": "dataset",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "identity.key",
+      "r015": "SODA-A",
+      "r016_summary": "SODA-A",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "identity.dataset",
+      "r015": "SODA-A",
+      "r016_summary": "SODA-A",
+      "status": "MATCH"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "supported",
+      "r015": true,
+      "r016_summary": true,
+      "status": "MATCH"
+    }
+  ],
+  "source_metadata_comparisons": [
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "25080",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "5900",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "29c4f734fce1fc1c16ed4957be4e7495a477bc099d864acc2fd1e131f549b2c7",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "unit_key",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "A",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/22",
+      "field": "detector",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "rotated_retinanet_psc",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "27682",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "5900",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "29c4f734fce1fc1c16ed4957be4e7495a477bc099d864acc2fd1e131f549b2c7",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "unit_key",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "B",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/3",
+      "field": "detector",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "oriented_rcnn",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "27410",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "5900",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "29c4f734fce1fc1c16ed4957be4e7495a477bc099d864acc2fd1e131f549b2c7",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "unit_key",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "C",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "DIOR-R/61",
+      "field": "detector",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "rotated_rtmdet_s",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "15132",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "2142",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "d8172d15e8a90cde832721f541fa072aba2c1c86aa42d6d88b8055a2565e090a",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "unit_key",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "D",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "FAIR1M-v1.0/24",
+      "field": "detector",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "rotated_retinanet_psc",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "101160",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "576",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "76ac8199a3faaffc5d713e0d8c43879f45ace7267aa7b797b9932e9e74410ba7",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "unit_key",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "E",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/23",
+      "field": "detector",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "rotated_retinanet_psc",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "120947",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "576",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "76ac8199a3faaffc5d713e0d8c43879f45ace7267aa7b797b9932e9e74410ba7",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "unit_key",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "F",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "unit",
+      "key": "SODA-A/4",
+      "field": "detector",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 unit_results",
+      "supplemental_value": "oriented_rcnn",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": null,
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "5900",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "29c4f734fce1fc1c16ed4957be4e7495a477bc099d864acc2fd1e131f549b2c7",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "units",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "DIOR-R/22|DIOR-R/3|DIOR-R/61",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "DIOR-R",
+      "field": "detector_family",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": null,
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": null,
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "2142",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "d8172d15e8a90cde832721f541fa072aba2c1c86aa42d6d88b8055a2565e090a",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "units",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "FAIR1M-v1.0/24",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "FAIR1M-v1.0",
+      "field": "detector_family",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": null,
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "audit_rows",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": null,
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "audit_clusters_full",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "576",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "cluster_set_sha256",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "76ac8199a3faaffc5d713e0d8c43879f45ace7267aa7b797b9932e9e74410ba7",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "bootstrap_reps",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "1000",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "units",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": "SODA-A/23|SODA-A/4",
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    },
+    {
+      "level": "dataset",
+      "key": "SODA-A",
+      "field": "detector_family",
+      "status": "SOURCE_FIELD_ABSENT",
+      "supplemental_source": "r015 dataset_results",
+      "supplemental_value": null,
+      "supplemental_status": "RECONSTRUCTED_NOT_SUMMARY_COMPARED"
+    }
+  ],
+  "source_metadata_result": "SOURCE_FIELD_ABSENT",
+  "gate_recomputed_from_formula": {
+    "unit_support": 6,
+    "dataset_support": 3,
+    "unit_at_least_4_of_6": true,
+    "unit_dataset_coverage_3": true,
+    "detector_families_at_least_2": true,
+    "fair_unit_D_supported": true,
+    "dataset_3_of_3": true,
+    "overall": true
+  },
+  "gate_r015_all_field_comparison": {
+    "r015_numeric_status": true,
+    "unit_support": true,
+    "dataset_support": true,
+    "synchronized": true,
+    "soda_primary": true,
+    "elapsed_seconds_present_finite_nonsemantic": true
+  },
+  "canonical_split_witness": {
+    "status": "R015_SET_AUDIT_ROLE_DRIFT",
+    "historical_source": "p3_selector/deployable_proxy_r015/scripts/audit_r014_protocol_r015.py",
+    "historical_uses_sha256_80_20": true,
+    "canonical_source": "scripts/m069_common.py",
+    "canonical_line_numbers": [
+      263
+    ],
+    "canonical_short_witness": [
+      "hh = hashlib.md5(f\"{seed}:{img_id}\".encode()).hexdigest()"
+    ]
+  },
+  "canonical_set_receipts": [
+    {
+      "target_unit": "A",
+      "dataset": "DIOR-R",
+      "canonical_source_set": {
+        "count": 227708,
+        "sorted_sha256": "422cd28a9ec2d86553ff584ad91344916569a702ad6f7f4f0ca8924d4e338493"
+      },
+      "forbidden_target_set": {
+        "count": 286766,
+        "sorted_sha256": "dc6442e3cf8fb7b8a77b4390712b1017d9d8c543d095dd61233a8aa2a20daa18"
+      },
+      "intersection": {
+        "count": 0,
+        "sorted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "intersection_zero": true
+    },
+    {
+      "target_unit": "B",
+      "dataset": "DIOR-R",
+      "canonical_source_set": {
+        "count": 227708,
+        "sorted_sha256": "422cd28a9ec2d86553ff584ad91344916569a702ad6f7f4f0ca8924d4e338493"
+      },
+      "forbidden_target_set": {
+        "count": 291556,
+        "sorted_sha256": "bb6ed7af6a78962d9f0d7fedb677efbde1ce85bede705db7ab0e2498a698a168"
+      },
+      "intersection": {
+        "count": 0,
+        "sorted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "intersection_zero": true
+    },
+    {
+      "target_unit": "C",
+      "dataset": "DIOR-R",
+      "canonical_source_set": {
+        "count": 227708,
+        "sorted_sha256": "422cd28a9ec2d86553ff584ad91344916569a702ad6f7f4f0ca8924d4e338493"
+      },
+      "forbidden_target_set": {
+        "count": 290963,
+        "sorted_sha256": "5170af4da898fe989893c37798e7ea276e35cc9fa821b8f21b7f3cf90e07d393"
+      },
+      "intersection": {
+        "count": 0,
+        "sorted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "intersection_zero": true
+    },
+    {
+      "target_unit": "D",
+      "dataset": "FAIR1M-v1.0",
+      "canonical_source_set": {
+        "count": 288404,
+        "sorted_sha256": "09912ac7f8653b2f54fe3eb231d11b984b5684fc354635ba3872bbce563e851b"
+      },
+      "forbidden_target_set": {
+        "count": 334111,
+        "sorted_sha256": "94666c0c1e48d801a07b84996daa123acb47fec788e4f386d4513c68e5fadb98"
+      },
+      "intersection": {
+        "count": 0,
+        "sorted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "intersection_zero": true
+    },
+    {
+      "target_unit": "E",
+      "dataset": "SODA-A",
+      "canonical_source_set": {
+        "count": 94096,
+        "sorted_sha256": "1aefa2ec266d688d766a5d0d95078c4af1ff504dbb5ba9b9463d5203dae48fd8"
+      },
+      "forbidden_target_set": {
+        "count": 292950,
+        "sorted_sha256": "fe4cf7cea03748cab69c9b915b1a7adf10adb39d5ce47d3fa702cf9989da40e0"
+      },
+      "intersection": {
+        "count": 0,
+        "sorted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "intersection_zero": true
+    },
+    {
+      "target_unit": "F",
+      "dataset": "SODA-A",
+      "canonical_source_set": {
+        "count": 94096,
+        "sorted_sha256": "1aefa2ec266d688d766a5d0d95078c4af1ff504dbb5ba9b9463d5203dae48fd8"
+      },
+      "forbidden_target_set": {
+        "count": 330773,
+        "sorted_sha256": "b8275cf37f66dff9dbbde5bf32e67118b3787448902a77226ea2232b006211e3"
+      },
+      "intersection": {
+        "count": 0,
+        "sorted_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "intersection_zero": true
+    }
+  ],
+  "numeric_acceptance": "EXPLORATORY_CORE_SUPPORT_R015",
+  "numeric_gate_result": "CONSISTENT_EXPLORATORY",
+  "phase_a_complete": true,
+  "phase_a_valid": true
+}

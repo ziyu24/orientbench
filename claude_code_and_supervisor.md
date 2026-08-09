@@ -2322,3 +2322,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 未重跑 bootstrap；静态核验 9,000 行 key/replicate 全集、全部 summary 字段与冻结 gate，重建并持久化六单元 zero-eligible cluster count/SHA。
 - 记录 `R015_SET_AUDIT_ROLE_DRIFT`，按 canonical MD5 parity 重建集合；schema、seal、源码 witness、稿件、claim 与 novelty 索引完成复核，`VALID_STATIC_RECEIPT_R017`。
 - r016 历史状态仍为 `PROTOCOL_DRIFT_R016`；数值仅接受为 `EXPLORATORY_CORE_SUPPORT_R015`。未训练、推理、重拟合、重打分或修改 r014-r016、活动稿及 `dis/B.md`。报告：`dis/server_reports/orientbench-c-r017-20260808.md`。
+
+## [2026-08-08 21:14--21:19 PDT] 来源: Codex
+
+### r018 静态终结裁决
+
+- 从 `origin/main` fast-forward 拉取控制提交后执行 r018；未重跑 bootstrap、训练、推理、重拟合、重打分或修改稿件。
+- 三元 bootstrap、support/gate、canonical split 集合、feature production 微测试、稿件索引和 r017 Git/provenance 全部完成；裁决为 `VALID_STATIC_ADJUDICATION_R018`，数值仅保留 `EXPLORATORY_CORE_SUPPORT_R015`。
+- r017 历史状态固定为 `PROTOCOL_DRIFT_R017 / FAIL_AUDIT_IMPLEMENTATION_R017`。r016 summary metadata 为 `SOURCE_FIELD_ABSENT`；sentinel 纠正为通过，association-margin single-candidate 与 doubled-angle 保留真实实现偏差。
+- 关键产物：`dis/server_reports/orientbench-c-r018-20260808.md` 与 `p3_selector/static_adjudication_r018/`。未触发停止条件；下一步仅等待新正式指令。
