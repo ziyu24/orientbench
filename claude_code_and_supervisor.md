@@ -2348,3 +2348,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 标签阶段发生两次不改变冻结 estimand/bytes 的工程重试：默认 annotation 路径不存在；随后 BaseDataset 序列化清空 `data_list`。最终仅以 manifest 路径和 `serialize_data=false` runtime adapter 复放同一封存程序。
 - 关键产物：`p3_selector/deployable_proxy_r019/results/`、`p3_selector/deployable_proxy_r019/docs/protocol_closure_r019.md`、`dis/server_reports/orientbench-c-r019-20260809.md`。
 - 未训练、未修改 thresholds 或 D_cal/D_audit、未改 `dis/B.md`、未启动 r020；下一步等待 C 拉取验收并据实收缩定位。
+
+## 2026-08-09 20:51--21:33 CST — 顶刊可行性审计（Codex 执行）
+
+- 指令来源：远端 `main` 的活动 `dis/sug.md`；round `orientbench-c-topjournal-feasibility-20260809`。HTTPS fast-forward 后完成启动预检，runtime 起始不存在，`dis/B.md` blob 保持固定。
+- Track M 完整盘点 Core A-F、固定 score、unique-threshold AUGRC/risk-coverage 和 10,000 次同步 cluster bootstrap；最终为 `METRIC_REVERSAL`。
+- Track D 四候选全部穷尽：AI-TOD-R=`LICENSE_BLOCKED`、UAV-OBB=`MISSING_ASSET`、ShipRSImageNet=`LICENSE_BLOCKED`、ICDAR-MLT=`CONTAMINATED`；联合 gate=`FAIL_TO_MEASUREMENT_ONLY`。
+- 独立 validator 从 raw sealed inputs 重算通过；score byte、cluster delete、fake prior hit、manifest hash 四项隔离 mutation 均被 nonzero exit 拒绝。关键报告：`dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`；runtime：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/`。
+- 完成分类为 `FULL_COMPLETION`，无 omitted phase、无技术早停。未使用 GPU，未下载数据集/模型，未训练、推理或产生新目标域 outcome；未修改 thresholds、D_cal/D_audit 或 `dis/B.md`。下一步按 gate 仅进入 measurement-only writing。
