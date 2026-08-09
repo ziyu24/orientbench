@@ -1,3 +1,46 @@
+# OrientBench C：r016 服务器证据裁决与 r017 静态收据闭合
+
+- review date: `2026-08-08`
+- r016 server head: `097f5829abd0159e38dd3312dae84833ca36ade1`
+- execution base: `beffd3046ec13ca21bc729534b96602c3b0f5390`
+- r016 report: [`orientbench-c-r016-20260808.md`](server_reports/orientbench-c-r016-20260808.md)
+- current instruction: [`sug.md`](sug.md)
+- next report: `dis/server_reports/orientbench-c-r017-20260808.md`
+- overall r016 acceptance: **`protocol_drift / FAIL_AUDIT_IMPLEMENTATION_R016`；raw 数值复算采纳为 exploratory support**
+- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 尚需 r017 证据索引闭合与投稿级攻击；CVPR/ICCV 不成立**
+- `cc_recommendation: no`：r017 是可机械修复的静态验收，不让 CC 替代执行证据。
+
+## 1. 采纳的 r016 新证据
+
+- `097f582...` 为 `beffd304...` 后恰好一个 commit，精确 10 条授权路径，`dis/B.md` blob 未变；9 个非自引用输出 Git blob bytes/SHA 全匹配。
+- r016 确实从 raw labels、完整 image/mother universe 与 r014 sealed scores 重新生成 6,000 unit + 3,000 dataset replicates；固定 seed、同步 multiplicity、SODA mother-scene、point/CI/p/Holm 与 r015 匹配到约 `1e-16`。
+- 因而 `EXPLORATORY_CORE_SUPPORT_R015` 的数值一致性可采纳为高置信探索性证据：6/6 unit、3/3 dataset。它仍受揭盲前 code/protocol seal 缺失约束，不是 confirmatory/deployable PASS。
+- r015 稿正文的 exploratory、HRSC 跨零、0/6 负迁移、fixed-dose descriptive-only、核心引用和 8/8 exact claim hashes基本合格。
+
+## 2. 拒绝 r016 FULL_COMPLETION 的证据
+
+1. validator 从未读取或语义核对 `gate_r015.json`，只硬编码 `support==6 && dataset_support==3`；没有验证冻结的 ≥4/6、三数据集、两 families、FAIR、status、synchronized 与 SODA mother gate。
+2. zero-eligible check 是恒真 `zero>=0`，保存的是完整 universe SHA 而非 zero-set SHA；也未验证 9,000 key/replicate 全集、summary metadata和逐项 expected/actual witness。
+3. manifest 漏至少 10 个真实间接/直接输入，并把未读取 gate/runtime列成实际输入。telemetry 是全机 CPU×核数、父进程 RSS和硬编码 worker=38，不是进程树实测。
+4. novelty matrix 仍把 `https://arxiv.org/` 根页和 `https://openaccess.thecvf.com/CVPR2026` 占位页留在 `verified_source`；validator 的两个特定正则没有发现。
+5. r015 leakage audit 的 SHA256 80/20 role 与 r014 实际 canonical MD5 parity 不同；r016实际集合使用MD5是正确的，但没有披露并裁决该历史差异。
+
+因此服务器确实“跑完脚本并推送”，但没有“完成 `dis/sug.md` 全部必做验证”。按预注册语义，r016 必须是 `PROTOCOL_DRIFT_R016`，底层为 `FAIL_AUDIT_IMPLEMENTATION_R016`；不是合法早停，也不是方法性能失败。
+
+## 3. 唯一下一步
+
+执行 r017 低 CPU 静态收据：不重跑 bootstrap；补齐 gate/zero-set/metadata/manifest 真检查，修正 novelty 与 ledger 索引，并明确把 r016 历史状态保留为 protocol drift。r017 后停止机械验证循环，转入稿件贡献与投稿级对抗审查。
+
+| item | decision | confidence | falsifier / next action |
+|---|---|---:|---|
+| r016 Git/输出 blob | adopt | high | 仅父链、路径或blob反证可推翻 |
+| r016 raw numeric recompute | adopt exploratory | high | r017静态key/gate收据不一致则降级 |
+| r016 FULL_COMPLETION | reject | high | 缺必做gate/manifest/novelty检查 |
+| current paper claim | exploratory measurement only | high | 不可恢复的prelabel seal限制 |
+| next work | r017 static receipt | high | 不再运行昂贵bootstrap |
+
+---
+
 # OrientBench C：r015 服务器证据裁决与 r016 验证器闭合
 
 - review date: `2026-08-08`
