@@ -61,7 +61,7 @@ C 冻结科学问题、状态映射、joint gate 和服务器证据契约；维�
 
 服务器执行健康与科学 outcome 是两条独立轴。科学状态分三层，由 independent validator 从 raw/official/search evidence 重建，不得消费 generator 的状态布尔值：
 
-1. **Track M：** `INSUFFICIENT_ASSETS`、`METRIC_REVERSAL`、`NULL_OR_NEGATIVE`、`SENSITIVITY_UNSTABLE`、`ROBUST_CANDIDATE`，按 active `dis/sug.md` 的固定 precedence 互斥求值。
+1. **Track M：** `INSUFFICIENT_ASSETS`、`METRIC_REVERSAL`、`BASELINE_DOMINATED`、`SENSITIVITY_UNSTABLE`、`ROBUST_CANDIDATE`，按 active `dis/sug.md` 的固定 precedence 互斥求值；它是 deterministic point-estimate screen，paired bootstrap CI 必须完整重算与报告，但不驱动本次 feasibility state。资产齐全却因数学退化或 executable-audit failure 无法唯一取五态时，不增设科学状态，记录 `scientific_gate: NOT_ADJUDICATED` 并执行异常。
 2. **Track D：** 每个候选在 `CONTAMINATED`、`LICENSE_BLOCKED`、`INCOMPATIBLE_ANGLE_CONTRACT`、`MISSING_ASSET`、`ELIGIBLE_CANDIDATE` 中取唯一状态；所有较低优先级事实仍须保留。
 3. **Joint gate：** `FAIL_TO_MEASUREMENT_ONLY`、`INCONCLUSIVE_FEASIBILITY`、`PASS_TO_METHOD_DESIGN`。PASS 必须同时满足 Track M robust、两个独立遥感 OBB 候选、共同至少三 detector family、至少一个 old Core 外新 family，以及无需 target-label tuning；INCONCLUSIVE 只允许 Track M 缺资产且 Track D 没有独立负条件。
 

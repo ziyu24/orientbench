@@ -202,7 +202,9 @@ denom = AURC_random - AURC_oracle
 NRC = (AURC_model - AURC_oracle) / denom
 ```
 
-所有中间量用 float64，unit 内不提前 round；AURC/NRC 越低越好且 NRC 不 clip 到 `[0,1]`。`n=0` 时四个 AURC/NRC 值均为 NaN、`degenerate=true`，并使 Track M=`INSUFFICIENT_ASSETS`。`abs(denom)<1e-12` 且 `n>0` 时 NRC=NaN、`degenerate=true`，并在无更高优先级状态时使 Track M=`NULL_OR_NEGATIVE`；不得把 NaN 当作不反转。其它边界 `degenerate=false`。逐值比较固定为 `atol=1e-12, rtol=0`。unit 结果仍按 unit-equal arithmetic mean 聚合；禁止 pooled rows。AUGRC 与 Risk@70/90 继续严格采用上一节的 whole-tie unique-threshold 规则，不受此处 row-wise stable-tie 定义影响。
+所有中间量用 float64，unit 内不提前 round；AURC/NRC 越低越好且 NRC 不 clip 到 `[0,1]`。`n=0` 时四个 AURC/NRC 值均为 NaN、`degenerate=true`；`abs(denom)<1e-12` 且 `n>0` 时 NRC=NaN、`degenerate=true`；其它边界 `degenerate=false`。逐值比较固定为 `atol=1e-12, rtol=0`。unit 结果仍按 unit-equal arithmetic mean 聚合；禁止 pooled rows。AUGRC 与 Risk@70/90 继续严格采用上一节的 whole-tie unique-threshold 规则，不受此处 row-wise stable-tie 定义影响。
+
+退化不得产生或替换 Track M 第六状态。若 `n=0`、NRC denominator 退化或必需 metric NaN 是因为所需 byte-exact row/score/cluster/fixed-algorithm/replicate evidence 缺失，才适用 `INSUFFICIENT_ASSETS`。若上述证据完整但数学上仍退化、相等边界导致五态无法唯一判定，或 production/validator 无法按冻结定义得到唯一状态，则不得输出任何 Track M 科学状态，必须写 `track_m_state: NOT_EMITTED`、`scientific_gate: NOT_ADJUDICATED`、`receipt_execution: ABNORMAL_EXECUTABLE_AUDIT_FAILURE`；这属于“无法唯一状态=executable-audit failure”，必须异常结束，不得洗成正常、借 CI 判负或更换 gate。
 
 既有 sealed implementation 身份同时固定为：
 
@@ -246,17 +248,23 @@ CI = percentile 95%
 
 validator 必须独立生成 replicate `0..9999`，逐 replicate 比较 source runtime 中保存的全部字段，包括 replicate id、unit/dataset、score/baseline、cluster-multiplicity witness/hash、metric/delta 值和适用状态字段；整数/字符串/hash 精确相等，浮点以 `atol=1e-12, rtol=0`。随后独立重算并比较全部 point estimate、percentile CI、Track M 唯一状态和 joint gate。只比较最终 CI、抽样几行或自生成文件自身哈希不算完成。
 
+```text
+bootstrap_ci_role: REPORT_ONLY_NOT_STATE_DRIVER
+```
+
+paired cluster bootstrap 的全部 replicate、CI 与 source evidence 必须完整重算、逐字段比较并报告；它们是 uncertainty evidence，不参与下节 deterministic feasibility state 的触发、优先级或升级。CI 跨零、CI upper bound 非负或 CI 显著本身都不得自动产生负/正状态。
+
 ### 5.5 五个互斥状态
 
-定义所有 loss/risk 指标均为越低越好，固定 nonlearned baseline 集合为 `raw_confidence`、`linear_source_frozen`、`tta_angle`、`tta_localization`。对每个 Core dataset aggregate、baseline 和指标保存 `delta=S0-baseline` 及 paired 95% CI。Track M 必须按下列优先级只输出一个状态：
+定义所有 loss/risk 指标均为越低越好，固定 equal-budget nonlearned baseline 集合为 `raw_confidence`、`linear_source_frozen`、`tta_angle`、`tta_localization`。对每个 Core dataset aggregate `d`、baseline `b` 和指标 `m` 固定 `delta_m(d,b)=m(S0)-m(b)`；因此 `delta<0` 表示 S0 更好，`delta>0` 表示 baseline 更好，`delta=0` 表示相等。paired 95% CI 另行保存但不进入状态谓词。Track M 必须按下列优先级只输出一个状态：
 
-1. `INSUFFICIENT_ASSETS`：任一 A–F unit 的既有 sealed manifest、byte-exact raw rows、全部固定 score 输入、完整 row keys/cluster universe、固定抽样算法或逐 replicate source evidence不足以完成规定重放。
-2. `METRIC_REVERSAL`：无更高优先级状态，且 S0 在 source headline 或 AURC/NRC 方向看似优于某一 baseline，但同一预指定比较在任一 Core dataset aggregate 的 AUGRC、`Risk@70%` 或 `Risk@90%` 上 `delta>=0`。
-3. `NULL_OR_NEGATIVE`：无更高优先级状态，且任一 Core dataset aggregate × nonlearned baseline 的 nominal AUGRC、`Risk@70%` 或 `Risk@90%` 不满足 `delta<0`，或其 paired 95% CI 不满足 upper bound `<0`。这同时覆盖零效应、区间跨零和 baseline 匹配/优于 S0，不得用点估计正向掩盖 null。
-4. `SENSITIVITY_UNSTABLE`：无更高优先级状态，nominal 主指标及其 paired CI 已满足上一项的严格正向条件，但 S0 相对任一 baseline 的方向在 AURC/NRC，或 sealed assets 可直接推导且在源协议预先规定的 matching、unmatched、near-square、canonicalization sensitivity 中出现 `delta>=0` 或 paired CI upper bound `>=0`。
-5. `ROBUST_CANDIDATE`：资产与 reference 全部闭合；每个 Core dataset aggregate 上 S0 相对四个 baseline 的 AUGRC、`Risk@70%`、`Risk@90%` 均有 `delta<0` 且 paired 95% CI upper bound `<0`；AURC/NRC 与全部预先规定 sensitivities 均不反转；`learned_EQS` 未参与决定；不需要 target-label tuning。
+1. `INSUFFICIENT_ASSETS`：且仅当任一 A–F unit 缺少所需的既有 sealed manifest、byte-exact raw row/score、完整 row keys/cluster universe、固定抽样算法或逐 replicate source evidence，因而无法完成规定重放。资产齐全但 metric 数学退化不属于本状态。
+2. `METRIC_REVERSAL`：无更高优先级状态，且存在某个 Core dataset aggregate `d` 与某个 baseline `b`，使 `delta_NRC(d,b)<0 OR delta_AURC(d,b)<0`，同时 `delta_AUGRC(d,b)>0 OR delta_Risk@70(d,b)>0 OR delta_Risk@90(d,b)>0`。即 S0 在 NRC/AURC 看似更好，但同一 equal-budget nonlearned baseline 在至少一个预定主指标上严格更好；相等不算 reversal。
+3. `BASELINE_DOMINATED`：无 metric reversal，且存在某个 Core dataset aggregate `d` 与某个 baseline `b` 满足 `delta_AUGRC(d,b)>0`，即该 baseline 的 AUGRC 严格低于 S0；相等不算 dominated。
+4. `SENSITIVITY_UNSTABLE`：无以上状态，且在任一源协议预先规定、可由 sealed assets 直接推导的 matching、unmatched、near-square 或 canonicalization sensitivity 中，S0 相对同一 baseline 的 deterministic point-estimate 方向由严格更好 `delta_m(d,b)<0` 翻为严格更差 `delta_m(d,b)>0`。CI 不参与方向或状态判定。
+5. `ROBUST_CANDIDATE`：全部 Core 资产完整；对每个 Core dataset aggregate 与四个 baseline 均有 `delta_AUGRC(d,b)<0`；`Risk@70%` 与 `Risk@90%` 从不反转；AURC/NRC 和全部预先规定 sensitivities 从不反转；`learned_EQS` 不参与决定。bootstrap CI 只报告，不参与本状态。
 
-必须用真实或确定性合成的最小 fixture 覆盖五个分支，并证明每个 fixture 只命中一个状态；测试调用实际 production state function，expected 由上述规则独立声明，禁止复制 production 分支或写恒真断言。实际资产缺失时诚实输出 `INSUFFICIENT_ASSETS`，仍继续完成所有可执行的 Track M 盘点、Track D、gate、validator 和报告，不补造资产。
+必须用真实或确定性合成的最小 fixture 覆盖上述五个且仅五个分支，并证明每个 fixture 只命中一个状态；测试调用实际 production state function，expected 由上述规则独立声明，禁止复制 production 分支或写恒真断言。实际证据缺失时诚实输出 `INSUFFICIENT_ASSETS`，仍继续完成所有可执行的 Track M 盘点、Track D、gate、validator 和报告，不补造资产。若完整证据无法按上述 deterministic point-estimate predicates得到唯一状态，则按 executable-audit failure 处理，禁止增设状态、用 bootstrap CI 补洞或事后改 gate。
 
 ## 6. Track D：official evidence 与资产/污染 receipt
 
@@ -324,11 +332,11 @@ CONTAMINATED > LICENSE_BLOCKED > INCOMPATIBLE_ANGLE_CONTRACT > MISSING_ASSET
 
 validator 必须从 Track M raw 重算状态与 Track D raw evidence 派生事实，不得读取 generator 的 joint gate token。三个科学 gate 按以下顺序互斥求值，禁止换 gate、降低门槛或用 execution status 代替科学状态：
 
-1. `FAIL_TO_MEASUREMENT_ONLY`：只要有证据证明任一预指定 negative condition 即成立。negative conditions 为：Track M 是 `METRIC_REVERSAL`、`NULL_OR_NEGATIVE` 或 `SENSITIVITY_UNSTABLE`；少于两个彼此独立的遥感 OBB 候选是 `ELIGIBLE_CANDIDATE`；两个合格数据集不存在同一组至少三个 detector family；该公共集合没有至少一个未参与 old Core 开发的 family；任一所需 license/angle contract 不闭合；或未来需要任何 target-label tuning。任一 negative 都优先于 inconclusive，并完整记录其它条件的 true/false/evidence path。
+1. `FAIL_TO_MEASUREMENT_ONLY`：只要有证据证明任一预指定 negative condition 即成立。negative conditions 为：Track M 是 `METRIC_REVERSAL`、`BASELINE_DOMINATED` 或 `SENSITIVITY_UNSTABLE`；少于两个彼此独立的遥感 OBB 候选是 `ELIGIBLE_CANDIDATE`；两个合格数据集不存在同一组至少三个 detector family；该公共集合没有至少一个未参与 old Core 开发的 family；任一所需 license/angle contract 不闭合；或未来需要任何 target-label tuning。任一 negative 都优先于 inconclusive，并完整记录其它条件的 true/false/evidence path。
 2. `INCONCLUSIVE_FEASIBILITY`：仅当 Track M=`INSUFFICIENT_ASSETS`，且 Track D 没有独立证明上列任何 negative condition。它不授权方法研究，默认进入 measurement-only writing。
 3. `PASS_TO_METHOD_DESIGN`：当且仅当 Track M=`ROBUST_CANDIDATE`，至少两个彼此独立的遥感 OBB 数据集为 `ELIGIBLE_CANDIDATE`，二者支持同一组至少三个 detector family，该集合至少一个 family 不在 old Core，且不需要任何 target-label tuning。
 
-`PASS_TO_METHOD_DESIGN` 也只允许未来另起协议并再次取得用户批准；不授权下载、训练、推理、label access、改稿或方法实验。若 mandatory evidence/validator 执行失败导致条件本身不可判定，应如实报告 execution abnormal，不得发明第四个科学 gate 或把不可判定包装为 PASS。
+`PASS_TO_METHOD_DESIGN` 也只允许未来另起协议并再次取得用户批准；不授权下载、训练、推理、label access、改稿或方法实验。若 Track M 因资产齐全但数学退化或其它 executable-audit failure 未能输出五态之一，则三个 joint gate 均不得求值，必须记录 `scientific_gate: NOT_ADJUDICATED` 并 execution abnormal；不得把它改写为 `INCONCLUSIVE_FEASIBILITY`、发明第四个科学 gate 或包装为 PASS。
 
 ## 8. 独立 validator 与四个真实 mutation
 
