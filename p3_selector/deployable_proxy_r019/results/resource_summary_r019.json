@@ -1,0 +1,25 @@
+{
+  "schema": "r019_resource_summary_v1",
+  "gpu_forward": {
+    "units_sequential": true,
+    "gpus_per_unit": 4,
+    "views": 3,
+    "telemetry_interval_seconds": 10,
+    "aggregate_method": "r019 process roots via procfs; GPU utilization and memory via nvidia-smi",
+    "orcnn_samples": 50,
+    "orcnn_peak_process_tree_rss_bytes": 6952992768,
+    "rtmdet_samples": 13,
+    "rtmdet_peak_process_tree_rss_bytes": 6864461824
+  },
+  "cpu": {
+    "configured_workers": 38,
+    "source_elapsed_seconds": 327.28,
+    "source_average_cpu_percent": 1739,
+    "label_attach_elapsed_seconds": 161.13,
+    "label_attach_average_cpu_percent": 709,
+    "validator_elapsed_seconds": 75.52,
+    "note": "serial file parsing and model-fit intervals reduce whole-phase average CPU below the configured 38-worker parallel sections"
+  },
+  "training_performed": false,
+  "dev_shm_dependency": false
+}

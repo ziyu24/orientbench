@@ -2339,3 +2339,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`p3_selector/deployable_proxy_r019/prelabel/` 与 Git-ignored `outputs/persistent_artifacts/orientbench_r019/prelabel/`。
 - DOTA target label access count：0；停止条件：未触发。
 - 下一步：仅在 prelabel commit 经 HTTPS 推送且远端 `main` 精确确认后，执行唯一 label attach、统计与独立 validator。
+
+## 2026-08-09 02:16:10 PDT — r019 完整执行结果（Codex 执行）
+
+- prelabel commit `7601852f5527b6feaee306bddd21c1784dbc0f95` 已经 HTTPS 推送并与远端 `main` 精确一致后，才读取 DOTA 标签。
+- 完成 fresh GT attach、official AP parity、两个 evaluation units 的 10,000 次同步 mother-scene bootstrap、standalone guard、独立 raw/GT/score/draw 重算及负例。
+- 科学裁决：`FAIL_EXTERNAL_DOTA_EQS_RC_R019`。EQS 相对 linear 的 aggregate Delta_NRC 为正且区间过零门槛，但 EQS 明确弱于 standalone guard，因此触发预注册科学 FAIL；这属于完整执行，不是早停。
+- 标签阶段发生两次不改变冻结 estimand/bytes 的工程重试：默认 annotation 路径不存在；随后 BaseDataset 序列化清空 `data_list`。最终仅以 manifest 路径和 `serialize_data=false` runtime adapter 复放同一封存程序。
+- 关键产物：`p3_selector/deployable_proxy_r019/results/`、`p3_selector/deployable_proxy_r019/docs/protocol_closure_r019.md`、`dis/server_reports/orientbench-c-r019-20260809.md`。
+- 未训练、未修改 thresholds 或 D_cal/D_audit、未改 `dis/B.md`、未启动 r020；下一步等待 C 拉取验收并据实收缩定位。

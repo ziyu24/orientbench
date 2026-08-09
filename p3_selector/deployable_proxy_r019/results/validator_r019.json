@@ -1,0 +1,375 @@
+{
+  "schema": "r019_independent_validator_v1",
+  "status": "PASS",
+  "gate_recomputed": "FAIL_EXTERNAL_DOTA_EQS_RC_R019",
+  "comparisons": [
+    {
+      "item": "orcnn:gt_id",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "orcnn:match_iou",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "orcnn:gt_ar",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "orcnn:angle_error",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "orcnn:risk",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "orcnn:linear_score",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "orcnn:eqs_rc_score",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "orcnn:standalone_score",
+      "expected_rows": 33030,
+      "actual_rows": 33030,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:gt_id",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:match_iou",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:gt_ar",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:angle_error",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:risk",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:linear_score",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:eqs_rc_score",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "rtmdet:standalone_score",
+      "expected_rows": 34385,
+      "actual_rows": 34385,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "all_10000_replicates",
+      "expected_rows": 10000,
+      "actual_rows": 10000,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "gate",
+      "expected": "FAIL_EXTERNAL_DOTA_EQS_RC_R019",
+      "actual": "FAIL_EXTERNAL_DOTA_EQS_RC_R019",
+      "max_abs_error": 0,
+      "atol": 0,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_delta:point",
+      "expected": 0.08440391782806311,
+      "actual": 0.08440391782806311,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_delta:ci_low",
+      "expected": 0.04142933630182387,
+      "actual": 0.04142933630182387,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_delta:ci_high",
+      "expected": 0.12796527164935217,
+      "actual": 0.12796527164935217,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_delta:p_one_sided",
+      "expected": 0.00029997000299970003,
+      "actual": 0.00029997000299970003,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_delta:p_holm2",
+      "expected": 0.0005999400059994001,
+      "actual": 0.0005999400059994001,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_delta:point",
+      "expected": 0.049967284557427716,
+      "actual": 0.049967284557427716,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_delta:ci_low",
+      "expected": 0.004090511374317003,
+      "actual": 0.004090511374317003,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_delta:ci_high",
+      "expected": 0.10123601298773659,
+      "actual": 0.10123601298773659,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_delta:p_one_sided",
+      "expected": 0.027297270272972702,
+      "actual": 0.027297270272972702,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_delta:p_holm2",
+      "expected": 0.027297270272972702,
+      "actual": 0.027297270272972702,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_delta:point",
+      "expected": 0.06718560119274541,
+      "actual": 0.06718560119274541,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_delta:ci_low",
+      "expected": 0.02797364435288703,
+      "actual": 0.02797364435288703,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_delta:ci_high",
+      "expected": 0.11179384328416342,
+      "actual": 0.11179384328416342,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_delta:p_one_sided",
+      "expected": 0.0024997500249975004,
+      "actual": 0.0024997500249975004,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_guard:point",
+      "expected": -0.0159119594961451,
+      "actual": -0.0159119594961451,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_guard:ci_low",
+      "expected": -0.027594693664093537,
+      "actual": -0.027594693664093537,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_guard:ci_high",
+      "expected": -0.0042115303122353155,
+      "actual": -0.0042115303122353155,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:orcnn_guard:p_one_sided",
+      "expected": 0.9949005099490051,
+      "actual": 0.9949005099490051,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_guard:point",
+      "expected": -0.03520394089927803,
+      "actual": -0.03520394089927803,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_guard:ci_low",
+      "expected": -0.05058179914280195,
+      "actual": -0.05058179914280195,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_guard:ci_high",
+      "expected": -0.021215245487865447,
+      "actual": -0.021215245487865447,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:rtmdet_guard:p_one_sided",
+      "expected": 1.0,
+      "actual": 1.0,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_guard:point",
+      "expected": -0.025557950197711565,
+      "actual": -0.025557950197711565,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_guard:ci_low",
+      "expected": -0.03780776499997524,
+      "actual": -0.03780776499997524,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_guard:ci_high",
+      "expected": -0.01412681248322784,
+      "actual": -0.01412681248322784,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    },
+    {
+      "item": "summary:aggregate_guard:p_one_sided",
+      "expected": 0.9999000099990001,
+      "actual": 0.9999000099990001,
+      "max_abs_error": 0.0,
+      "atol": 1e-12,
+      "pass": true
+    }
+  ],
+  "negative_tests": {
+    "mutated_draw_detected": true,
+    "deleted_zero_mother_detected": true,
+    "swapped_unit_detected": true,
+    "mutated_score_detected": true,
+    "fake_pass_detected": true,
+    "mutated_prelabel_byte_detected": true,
+    "zero_eligible_mothers_present": true
+  },
+  "prelabel_commit": "7601852f5527b6feaee306bddd21c1784dbc0f95",
+  "remote_main_before_final": "7601852f5527b6feaee306bddd21c1784dbc0f95",
+  "sealed_runtime_files_verified": 78,
+  "zero_eligible_mothers": 102,
+  "atol": 1e-12,
+  "rtol": 0,
+  "generation_result_imported": false
+}

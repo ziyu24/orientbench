@@ -1,0 +1,12 @@
+phase,command,exit_code,log,status,notes
+prelabel_pull,git pull --ff-only https://github.com/ziyu24/orientbench.git main,0,prelabel_command_ledger_r019.csv,PASS,fast-forward to ef1b2cd
+production_microtests,mr_dev1x python test_eqs_rc_r019.py,0,/tmp/r019_micro_final.log,PASS,19 production-path tests
+source_phase,mr_dev1x python run_prelabel_r019.py source,0,outputs/persistent_artifacts/orientbench_r019/prelabel/source_phase.log,PASS,38-worker compute phases
+orcnn_full_forward,mr_dev1x python run_forward_orchestrator_r019.py --unit orcnn --mode full,0,outputs/persistent_artifacts/orientbench_r019/prelabel/raw/orcnn/,PASS,4 GPUs sequential unit 1
+rtmdet_full_forward,mr_dev1x python run_forward_orchestrator_r019.py --unit rtmdet --mode full,0,outputs/persistent_artifacts/orientbench_r019/prelabel/raw/rtmdet/,PASS,4 GPUs sequential unit 2
+target_features_scores,mr_dev1x python run_prelabel_r019.py target,0,outputs/persistent_artifacts/orientbench_r019/prelabel/target_phase.log,PASS,prediction only
+prelabel_commit_push,git commit and HTTPS push,0,runtime post_commit_receipt.json,PASS,remote main exact
+label_attach_attempt1,sealed label attach default runtime path,1,outputs/persistent_artifacts/orientbench_r019/label_attach_attempt1_path_error.log,ENGINEERING_RETRY,nonexistent annotation directory; no label file opened
+label_attach_attempt2,sealed label attach with manifest DOTA path,1,outputs/persistent_artifacts/orientbench_r019/label_attach_attempt2_serialization_error.log,ENGINEERING_RETRY,labels parsed but BaseDataset serialized data_list; no outcome computed
+label_attach_final,sealed label attach with manifest path and serialize_data false runtime adapter,0,outputs/persistent_artifacts/orientbench_r019/label_attach_results.log,PASS,no frozen estimand or sealed byte changed
+independent_validator,mr_dev1x python validate_r019.py,0,outputs/persistent_artifacts/orientbench_r019/validator_final.log,PASS,raw GT score draw recomputation and negative tests
