@@ -1,11 +1,12 @@
 {
   "schema_version": "1.4",
   "project": "orientbench",
-  "round_id": "orientbench-c-post-r018-20260808",
-  "review_date": "2026-08-08",
+  "round_id": "orientbench-cc-post-r018-20260809",
+  "review_date": "2026-08-09",
+  "review_base_sha": "48a770327919aaf3270f802962501689a969653d",
   "scientific_snapshot_sha": "8ce84331a14c12a5ac41e46cb354ca712286626e",
   "prior_scientific_snapshot_sha": "b349dcbd44685eae66bdabbdf7a795493ccdc08e",
-  "cc_review_head_sha": "b959a09c021ade11241aecd970c90060dbbed84f",
+  "cc_review_head_sha": "48a770327919aaf3270f802962501689a969653d",
   "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
   "planned_paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
   "scientific_state": {
@@ -37,21 +38,38 @@
     "r018_performance_failure": "NO",
     "current_numeric_acceptance": "EXPLORATORY_CORE_SUPPORT_R015_FOR_ACTUAL_SEALED_IMPLEMENTATION",
     "current_evidence_maturity": "STRONG_JSTARS_POTENTIAL_NOT_READY",
-    "tgrs_isprs_status": "PENDING_SUBMISSION_LEVEL_CONTRIBUTION_ATTACK",
+    "tgrs_isprs_status": "PENDING_AUTHORIZED_CC_SUBMISSION_LEVEL_ATTACK",
     "top_conference_status": "NOT_SUPPORTED"
   },
   "evidence_index": "dis/C.md",
   "c": {
-    "status": "WAITING_USER_DECISION",
+    "status": "WAITING_CC_STAGE_1",
     "report_path": "dis/C.md"
   },
   "cc": {
-    "status": "RECOMMENDED_NOT_STARTED",
+    "status": "READY_FOR_CC_STAGE_1",
     "recommendation": "recommended_now",
+    "user_authorized": true,
+    "authorization_date": "2026-08-09",
     "recommendation_reason": "core evidence is frozen and the confirmed feature-contract deviation now requires submission-level adversarial review of contribution, implementation boundaries, and venue fit",
-    "stage_1_commit": "a5a94dffcc4f7c1811720b39aa87a545a10d649c",
-    "stage_2_commit": "b959a09c021ade11241aecd970c90060dbbed84f",
-    "strict_blind_independence": false,
+    "round_id": "orientbench-cc-post-r018-20260809",
+    "review_base_sha": "48a770327919aaf3270f802962501689a969653d",
+    "stage_1_status": "READY",
+    "stage_2_status": "BLOCKED_PENDING_STAGE_1_PUSH",
+    "stage_1_commit": null,
+    "stage_2_commit": null,
+    "historical_stage_1_commit_r012": "a5a94dffcc4f7c1811720b39aa87a545a10d649c",
+    "historical_stage_2_commit_r012": "b959a09c021ade11241aecd970c90060dbbed84f",
+    "strict_blind_independence": null,
+    "strict_blind_required": true,
+    "forbidden_until_stage_1_push": [
+      "dis/C.md",
+      "dis/review_state.json",
+      "dis/collaboration_protocol.md",
+      "dis/sug.md",
+      "dis/sug/**",
+      "dis/server_reports/**"
+    ],
     "only_report_path": "dis/B.md"
   },
   "server": {
@@ -68,8 +86,8 @@
     "only_report_path": "dis/server_reports/orientbench-c-r018-20260808.md"
   },
   "next_action": {
-    "status": "WAITING_USER_DECISION",
-    "decision": "START_CC_SUBMISSION_LEVEL_ADVERSARIAL_REVIEW_OR_CONTINUE_WITH_C_ONLY",
+    "status": "READY_FOR_CC_STAGE_1",
+    "decision": "CC_STAGE_1_BLIND_SUBMISSION_REVIEW_THEN_STAGE_2_ADVERSARIAL_RECONCILIATION",
     "server_work_authorized": false,
     "self_authorized_r019": false
   },

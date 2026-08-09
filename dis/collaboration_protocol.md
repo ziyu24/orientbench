@@ -2,7 +2,10 @@
 
 ## 当前锚点
 
-- state: `WAITING_USER_DECISION`
+- state: `READY_FOR_CC_STAGE_1`
+- CC round: `orientbench-cc-post-r018-20260809`
+- user authorization: `true` (`2026-08-09`)
+- CC review base: `48a770327919aaf3270f802962501689a969653d`
 - evidence cutoff: `8ce84331a14c12a5ac41e46cb354ca712286626e`
 - r018 control parent: `40679c9e3a5a94de61f4e078e1fad437b2b461b7`
 - r018 report: `dis/server_reports/orientbench-c-r018-20260808.md`
@@ -39,4 +42,10 @@ C 审固定 SHA 并裁决；CC 不是最终裁决者。`dis/B.md` 由 CC/B 独�
 
 ## CC 状态
 
-`cc_recommendation: recommended_now`。主要证据与贡献边界已经冻结，且真实 implementation deviation 需要独立投稿级对抗审查。是否启动完全由用户决定；当前为 `RECOMMENDED_NOT_STARTED`，不得提前修改 `dis/B.md` 或伪造任何 CC 阶段完成。
+用户已明确授权，当前为 `READY_FOR_CC_STAGE_1`。唯一启动入口是 `dis/B_START_PROMPT.md`，唯一可写路径是 `dis/B.md`；C、服务器及其他角色继续不得触碰 `dis/B.md`。
+
+阶段一先完成投稿级独立盲审，在形成完整文本和判断前禁读当前 C、review state、collaboration protocol、sug、server reports 与这些材料的 Git 历史；冻结文字后才可为追加保护读取既有 B，并必须披露任何先验 exposure。阶段一单独 commit 且成功推送后，阶段二才可读取 C，逐条以 `adopt | revise | reject | experiment` 对抗复核，再以第二个只含 `dis/B.md` 的 commit 推送。CC 不是最终裁决者。
+
+负面科学裁决、venue 降级或“贡献不成立”均可为 `FULL_COMPLETION`，不是早停。只有必做阶段未做完、证据/仓库状态不安全或 push 未完成时才可报 `EARLY_STOP/FAILED`，并必须列明完成项、停止点和未完成项。
+
+服务器仍为 `NO_ACTIVE_SERVER_TASK`，不得自行创建 r019，也不得把 CC 碰撞改造成新的 validator 或训练轮次。

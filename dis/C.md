@@ -1,16 +1,19 @@
-# OrientBench C：r018 服务器最终验收与投稿阶段切换
+# OrientBench C：r018 最终验收与 CC 投稿碰撞启动
 
-- review date: `2026-08-08`
+- review date: `2026-08-09`
 - evidence cutoff: `8ce84331a14c12a5ac41e46cb354ca712286626e`
 - r018 control parent: `40679c9e3a5a94de61f4e078e1fad437b2b461b7`
 - r018 scientific base: `b349dcbd44685eae66bdabbdf7a795493ccdc08e`
 - r018 report: [`orientbench-c-r018-20260808.md`](server_reports/orientbench-c-r018-20260808.md)
 - archived r018 instruction: [`orientbench-c-r018-20260808-server-returned.md`](sug/orientbench-c-r018-20260808-server-returned.md)
 - server status: `NO_ACTIVE_SERVER_TASK`
+- CC round: `orientbench-cc-post-r018-20260809`
+- CC status: `READY_FOR_CC_STAGE_1`
+- CC review base: `48a770327919aaf3270f802962501689a969653d`
 - overall r018 acceptance: **执行轨迹采纳；`VALID_STATIC_ADJUDICATION_R018` 拒绝，正式记为 `PROTOCOL_DRIFT_R018 / FAIL_AUDIT_IMPLEMENTATION_R018`**
 - numeric acceptance: **`EXPLORATORY_CORE_SUPPORT_R015`**
 - current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 转入投稿级贡献攻击；CVPR/ICCV 不成立**
-- `cc_recommendation: recommended_now`：主要证据已冻结，且真实 feature-contract 偏差需要独立投稿级对抗审查；是否启动由用户决定。
+- `cc_recommendation: recommended_now`；`cc_authorization: user_authorized`：用户已明确授权，按 `dis/B_START_PROMPT.md` 立即启动两阶段投稿级对抗审查。
 
 ## 1. “执行完毕”与“结果通过”
 
@@ -76,7 +79,7 @@ candidate:
 
 ## 6. 唯一下一步
 
-停止服务器机械验收循环，状态设为 `WAITING_USER_DECISION`。建议现在启动一次投稿级 CC/B 对抗审查；用户明确同意前不启动 CC、不修改 `dis/B.md`、不生成新的服务器任务。
+服务器机械验收循环保持关闭，不生成 r019。用户已经授权；当前唯一下一步是 CC/B 按 `dis/B_START_PROMPT.md` 先完成并推送阶段一独立盲审，再读取 C 完成阶段二对抗复核。C 等待 `dis/B.md` 两个独立 commit，不触碰该文件。
 
 ## 7. 决策台账
 
@@ -90,4 +93,4 @@ candidate:
 | missing doubled-angle axial feature | adopt implementation deviation | high | actual sealed schema/生成代码出现独立 axial 字段可推翻 |
 | w/h+90 angle equivalence | unknown | medium | 需正确调用 production angle path 的微测试 |
 | current paper index | adopt | high | 投稿攻击发现 claim/novelty/边界错误则修订 |
-| next work | user decision on CC submission attack | high | 不再下发 r019 静态收据 |
+| next work | authorized CC stage 1 then stage 2 | high | 两阶段必须分别只提交并推送 `dis/B.md`；不下发 r019 |
