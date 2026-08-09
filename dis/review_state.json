@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "project": "orientbench",
-  "round_id": "orientbench-c-r019-20260809",
+  "round_id": "orientbench-c-topjournal-feasibility-20260809",
   "review_date": "2026-08-09",
-  "review_base_sha": "f53bb670dea92dca9c0056e20c0cd338d0e52c14",
-  "scientific_snapshot_sha": "f53bb670dea92dca9c0056e20c0cd338d0e52c14",
-  "scientific_data_cutoff_sha": "8ce84331a14c12a5ac41e46cb354ca712286626e",
+  "review_base_sha": "f2aeeb2edd177f6eb62c390042ea74068316570d",
+  "scientific_snapshot_sha": "a9067fb16d2bbd747dfe69789ac33a5911eb15fe",
+  "scientific_data_cutoff_sha": "a9067fb16d2bbd747dfe69789ac33a5911eb15fe",
   "paper_entry": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
   "paper_blob": "07c4f2c1b65488d5a6b780962ea8e1e15a5cd9a3",
   "protected_b_blob": "c0c2571f3a5c828673b39e6458ceaed5f14c5a6a",
@@ -23,13 +23,22 @@
     "actual_axial_dispersion": "MISSING_IN_SEALED_SCHEMA",
     "actual_width_height_angle_equivalence": "UNKNOWN",
     "cc_post_r018": "FULL_COMPLETION_VALID_ADVERSARIAL_NOT_STRICT_BLIND",
-    "current_evidence_maturity": "STRONG_JSTARS_POTENTIAL_NOT_READY",
-    "tgrs_isprs_status": "CONDITIONAL_PENDING_R019_AND_MANUSCRIPT_REWRITE",
+    "r019_execution": "COMPUTATION_REACHED_TARGET_AND_10000_BOOTSTRAP",
+    "r019_formal_verdict": "INVALIDATED_R019_PROTOCOL_DRIFT_FAIL_IMPLEMENTATION_FAIL_TIMELOCK",
+    "r019_numbers": "INVALIDATED_DESCRIPTIVE_ONLY",
+    "r019_learned_eqs_vs_linear": "POSITIVE_INVALIDATED_DESCRIPTIVE_ONLY",
+    "r019_standalone_guard": "NEGATIVE_INVALIDATED_DESCRIPTIVE_ONLY",
+    "r019_efficiency_early_stop": "FALSE",
+    "learned_eqs_role": "APPENDIX_FAILED_MIGRATION_ONLY",
+    "current_evidence_maturity": "MEASUREMENT_DIAGNOSTIC_ROUTE_METHOD_UPGRADE_UNPROVEN",
+    "current_route": "ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC",
+    "tgrs_isprs_status": "ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC_TGRS_CONDITIONAL_ON_FUTURE_METHOD_UPGRADE",
+    "tgrs_status": "CONDITIONAL_ON_FUTURE_METHOD_UPGRADE",
     "top_conference_status": "NOT_SUPPORTED"
   },
   "evidence_index": "dis/C.md",
   "c": {
-    "status": "READY_FOR_SERVER_R019",
+    "status": "READY_FOR_SERVER_FEASIBILITY_GATE",
     "report_path": "dis/C.md"
   },
   "cc": {
@@ -42,26 +51,37 @@
     "stage_2_commit": "f53bb670dea92dca9c0056e20c0cd338d0e52c14",
     "strict_blind_independence": false,
     "exposure_disclosed": true,
-    "only_report_path": "dis/B.md"
+    "only_report_path": "dis/B.md",
+    "new_round_authorized": false
   },
   "server": {
-    "last_status": "REPORTED_R018_EXECUTION_COMPLETE_RECEIPT_REJECTED",
-    "last_execution_commit": "8ce84331a14c12a5ac41e46cb354ca712286626e",
-    "last_report_path": "dis/server_reports/orientbench-c-r018-20260808.md",
-    "current_status": "READY_FOR_SERVER_R019",
-    "round_id": "orientbench-c-r019-20260809",
+    "status": "READY_FOR_SERVER_FEASIBILITY_GATE",
+    "last_status": "R019_REPORTED_THEN_INVALIDATED_PROTOCOL_IMPLEMENTATION_TIMELOCK",
+    "last_execution_commit": "a9067fb16d2bbd747dfe69789ac33a5911eb15fe",
+    "last_report_path": "dis/server_reports/orientbench-c-r019-20260809.md",
+    "current_status": "READY_FOR_SERVER_FEASIBILITY_GATE",
+    "round_id": "orientbench-c-topjournal-feasibility-20260809",
     "instruction_path": "dis/sug.md",
-    "report_path": "dis/server_reports/orientbench-c-r019-20260809.md",
-    "runtime_root": "outputs/persistent_artifacts/orientbench_r019",
-    "requires_prelabel_remote_commit": true,
-    "planned_final_state": "FULL_COMPLETION_OR_EXPLICIT_EARLY_STOP_OR_FAILED"
+    "report_path": "dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md",
+    "runtime_root": "outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809",
+    "gpu_authorized": false,
+    "download_authorized": false,
+    "training_authorized": false,
+    "inference_authorized": false,
+    "new_target_outcome_authorized": false,
+    "execution_status": "NOT_STARTED",
+    "planned_completion_classes": [
+      "FULL_COMPLETION",
+      "EARLY_STOP_TECHNICAL",
+      "FAILED_EXECUTION"
+    ]
   },
   "next_action": {
-    "status": "READY_FOR_SERVER",
-    "decision": "EXECUTE_SINGLE_PROSPECTIVE_DOTA_EQS_RC_R019",
-    "user_authorized_r019": true,
+    "status": "READY_FOR_SERVER_FEASIBILITY_GATE",
+    "decision": "EXECUTE_NO_GPU_TOPJOURNAL_FEASIBILITY_GATE",
     "server_work_authorized": true,
-    "self_authorized_r020": false
+    "new_protocol_after_pass_requires_user_approval": true,
+    "method_experiment_authorized": false
   },
   "collaboration_protocol": "dis/collaboration_protocol.md"
 }

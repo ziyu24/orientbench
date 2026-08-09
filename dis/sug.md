@@ -1,260 +1,343 @@
-# OrientBench r019：修正型 EQS 在 DOTA 上的单次前瞻外部端点验证
+# OrientBench 顶刊可行性审计服务器执行合约
 
-- `round_id`: `orientbench-c-r019-20260809`
-- `control_base`: `f53bb670dea92dca9c0056e20c0cd338d0e52c14`
-- `scientific_data_cutoff`: `8ce84331a14c12a5ac41e46cb354ca712286626e`
-- `status`: `READY_FOR_SERVER_EXECUTION`
-- `server_report_path`: `dis/server_reports/orientbench-c-r019-20260809.md`
-- `runtime_root`: `outputs/persistent_artifacts/orientbench_r019`
-- `prelabel_remote_commit_required`: `true`
-- `final_response_first_line`: `执行完毕` 或 `未执行完毕`
+本文件是本轮服务器唯一有效的活动指令。服务器必须以可复核证据回答一个问题：在不产生任何新目标域结果的前提下，现有密封资产是否同时支持稳定的 Track M 候选和可执行的 Track D 数据集组合，从而仅允许起草下一轮方法协议。任何口头推断、摘要数字或事后改写 gate 都不能替代本合约。
 
-## 0. 任务身份与唯一问题
+## 固定身份
 
-本轮只回答一个问题：在 r019 模型/selector 与全部 target scores 封存前不读取 DOTA 标签、全程不用 DOTA 结果选模型的前提下，仅用 Core-6 三个源数据集的 `D_cal-fit` 拟合，修正后的 `EQS-RC-R019` 能否在固定的 DOTA-v1.0 Oriented R-CNN 与 Rotated RTMDet-M 两个单元上，优于固定的 `score + AR + size` 线性基线？
+以下值必须逐字保留在协议、报告和证据清单中：
 
-这不是 r012 HRSC 的替补，不是对 r015 的追溯性确认，也不是两个独立数据集确认。DOTA 在本项目别处已有 detection/angle 描述性结果；本轮的新信息仅是此前未计算、且须在揭示标签前封存的 `EQS-RC-R019 vs linear` 端点。两个单元共享同一 DOTA 数据集、同一 5,297 个 tile 和同一 mother-scene universe，只能称为“一个外部数据集上的两个 detector-family 单元”。两个 family 在源数据中均已出现，因此不能写成 unseen-family transfer。
-
-r015 的 Core 6/6、dataset 3/3 只保留为开发期 exploratory evidence。r014 HRSC `Delta_NRC=0.0602, 95% CI [-0.0143, 0.1438]` 已揭盲且跨零，只能原样引用为历史 sensitivity；严禁重跑、扩样、换 bootstrap 或进入 r019 gate。旧 DOTA `33,029/34,383` 是另一过滤口径的 matched rows，不是独立样本量、功效依据或 r019 eligible 数。
-
-## 1. 开始前的硬停止条件
-
-服务器先完整读取仓库根及上级所有适用 `AGENTS.md`、仓库适用 `CLAUDE.md`、`dis/collaboration_protocol.md`、本文件，以及 `/home/rspip/cqc/pro/study/pth_data/readme.md`。后者缺失、不可读或与资产冲突即停止；不得猜测 checkpoint、config、数据集或环境。
-
-随后逐项完成并落盘 preflight：
-
-1. 使用 HTTPS 拉取 `main`，确认包含本轮 `dis/sug.md`；记录完整 HEAD、origin、默认/当前分支、upstream、工作树。已有仓库只允许 `git pull --ff-only`。工作树脏、不能 fast-forward、远端不符或规则冲突即停止。
-2. 确认 `dis/B.md` 的 Git blob 仍为 `c0c2571f3a5c828673b39e6458ceaed5f14c5a6a`；只读，绝不能修改、暂存、恢复或提交。
-3. `outputs/persistent_artifacts/orientbench_r019` 必须尚不存在。若已存在，不删除、不覆盖、不另起同义目录，按 `FAIL_PROVENANCE_R019` 停止并报告。
-4. 读取并逐字段核验 `reports/069_dota_clean_artifact_manifest.csv`。固定单元只有：
-   - `DOTA-v1.0/orcnn`：config SHA256 `5076fefbcdb8763e68888abff9f9c39efa2b49881b4450c3f6240446a7898792`，checkpoint SHA256 `f988b9a6b3d3662b22f2499679269bb00164417801957017082f6acdc9cf314c`；
-   - `DOTA-v1.0/rtmdet`：config SHA256 `d764820e7934f97ac1ab2a0f8e09a24ea3a126cd25e38bf5c2230bb59786fbe7`，checkpoint SHA256 `fba480d7bd1172ee41fd2b89b314fb48a4e5c0e3b455815c838781b0127954ee`。
-   固定 full-val 身份是 5,297 tiles、55,804 GT、DOTA#20 excluded。路径必须以 readme 和 manifest 的实际值为准；不得自动找“相近”权重代替。
-5. 核验 r014 Core A–F 的 identity/hflip/vflip 原始预测、label、cluster universe 及其哈希，来源以 `p3_selector/deployable_proxy_r014/reports/tta_inventory_r014.csv` 和 `provenance_r014.csv` 为准。本机缺失任一必需服务器资产时停止，不能用汇总 CSV 或重构伪原始资产代替。
-6. 在服务器持久化目录和仓库中搜索这两个精确 DOTA 单元既有的 identity/hflip/vflip raw、修正型 feature、修正型 score、`EQS-RC-R019 vs linear` 数值或 gate。搜索只能读取仓库代码/报告及明确非标签的 prediction-only 路径；必须排除真实 `val/annfiles/**`、旧 matched JSONL 和任何标签承载文件的内容。对已知标签路径只复制 committed manifest 中的既有记录，prelabel 前不得 open/stat/hash/decode/grep；对发现但标签身份不明的文件只记父目录与 basename 后即 fail closed，不得为分类而打开。明确非标签文件才可记录 path/bytes/SHA256/mtime。若本协议提交前已有相同端点数值被生成或消费，记 `FAIL_PRIOR_OUTCOME_EXPOSURE_R019`，DOTA 不得称为前瞻确认，也不得继续揭示标签。
-
-## 2. 冻结的算法、数据和 estimand
-
-### 2.1 固定目标单元与数据
-
-- `DOTA-v1.0/orcnn`：manifest 指定 Oriented R-CNN config/checkpoint。
-- `DOTA-v1.0/rtmdet`：manifest 指定 Rotated RTMDet-M config/checkpoint。
-- 输入只能是固定的 DOTA-v1.0 `split_ss_dota10/val` 全部 5,297 tiles。不得训练 detector、改权重、改 split、改测试尺度、改 score threshold、删困难图、加入 DOTA#20 或换数据集。
-- 首次接触标签前，用全部 5,297 个 image stem 生成 image-only registry 和 mother map。候选规则为 `stem.split('__', 1)[0]`，但必须用全量文件名与 split 元数据实证闭合：5,297/5,297 唯一映射，unmapped=0、ambiguous=0、duplicate tile=0；两个单元的 sorted tile set 和 sorted mother set/count/SHA256 完全相同。零 eligible 的 mother 也必须保留。若该规则不能闭合，技术早停；禁止把 5,297 tiles 偷换成主 bootstrap cluster。
-
-### 2.2 修正型 `EQS-RC-R019`
-
-本轮 primary 是明确修正过的 selector，不是 r014 实际实现。修正项在读 DOTA 标签前固定；不得在 target 结果出现后回退、换版或双候选择优。
-
-每个 OBB 先唯一规范化为：
-
-```text
-long = max(w, h)
-short = min(w, h)
-theta_long = wrap_mod_pi(theta + pi/2 if h > w else theta)
+```yaml
+round_id: orientbench-c-topjournal-feasibility-20260809
+control_base: f2aeeb2edd177f6eb62c390042ea74068316570d
+scientific_data_cutoff: a9067fb16d2bbd747dfe69789ac33a5911eb15fe
+status: READY_FOR_SERVER_EXECUTION
+server_report_path: dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md
+runtime_root: outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809
+gpu_authorized: false
+download_authorized: false
+training_authorized: false
+inference_authorized: false
+new_target_outcome_authorized: false
+cc_recommendation: no
 ```
 
-全部角度、宽高和尺度相关特征均使用这一 long-side canonical 表示。identity 与每个逆变换回 identity 坐标系的 auxiliary view，在同类候选间以 rotated IoU 全局贪心一对一匹配，接受阈值固定 `rIoU >= 0.3`；稳定排序固定为 `(-IoU, -view_score, identity_original_index, view_original_index)`。任何并列必须由该顺序唯一解开。
+`cc_recommendation: no` 的理由是本轮只执行预注册的资产与可行性审计，不需要新的模型意见。
 
-association margin 的唯一语义按 `identity prediction × auxiliary view` 分开计算：在 global greedy 之前，收集该 identity 在该 view 的全部同类 `rIoU>=0.3` 候选；0 个候选时 margin=0，恰好 1 个时 margin=1，至少 2 个时为 `clip(top1_IoU - top2_IoU, 0, 1)`。global greedy 完成后，只为该 identity 实际取得 match 的 view 保留对应 pre-greedy margin；两个 view 都 matched 时取两者 median，仅一个 matched 时取该值，两个都未 matched 时总 sentinel=0。不得在 greedy 后把“至多一个 match”误当候选集合，也不得沿用 r014 “单候选返回 top1 IoU”的实际偏差。
-
-独立 doubled-angle axial dispersion 固定为：
+本轮不是 `r020`，不是对 `r019` 的修复，也不是新的科学终点。`r019` 的固定判定为：
 
 ```text
-clip(1 - abs(mean(exp(2j * theta_long_k))), 0, 1)
+INVALIDATED_R019 / PROTOCOL_DRIFT_R019 / FAIL_IMPLEMENTATION_R019 / FAIL_TIMELOCK_R019
 ```
 
-角集合包含 identity 与所有已接受 auxiliary matches。没有 auxiliary match 时 sentinel 固定为 1，同时 `missing_fraction=1`。该字段必须独立存在；不得拿 `u_axis` 改名或复制公式替代。
+`r019` 的所有数字只能标记为 `INVALIDATED_R019_DESCRIPTIVE_ONLY`。不得把它们恢复为正式结果、gate 证据或新目标域 outcome；本轮不得修复、续跑或重解释 `r019`。
 
-其余逐 view 与跨 view 聚合也固定如下，不能由服务器自行解释：score 先 clip `[1e-6,1-1e-6]`，logit 后 clip `[-13.815511,13.815511]`；`pred_ar=long/max(short,1e-6)`，`log_pred_ar=clip(log(max(pred_ar,1+1e-6)),0,4.605170)`；`area=max(long*short,1e-6)`，`half_log_pred_area=clip(0.5*log(area),-6.907755,9.210340)`。`support_fraction=matched_view_count/2`，`missing_fraction=1-support_fraction`。对每个已匹配 view，angle 是 canonical `theta_long` 的 mod-pi 最小夹角（degree）；`iou_loss=1-rIoU`；center 是中心欧氏距离除以 identity `sqrt(area)`；long/short dispersion 分别是对应 canonical 边长比的 absolute log；score dispersion 是 clipped-logit 的 absolute difference。跨 matched views 全部取 median；`u_axis=clip(median(angle)/max(delta_theta_0.75(pred_ar),1 degree),0,3)`，`iou_loss` clip `[0,1]`，center/long/short clip `[0,3]`，score dispersion clip `[0,10]`。没有 matched view 时固定 `(u_axis,iou_loss,center,long_disp,short_disp,score_disp,margin)=(3,1,3,3,3,10,0)`。除本节明确修正的 long-side canonicalization、axial dispersion 和 margin 外，其余数值语义沿用并动态调用 r014 production 定义；r019 protocol 必须保存对应 source path/line 与代码 SHA256。
+## 授权边界与禁止事项
 
-固定 13 维 feature 顺序：
+`gpu_authorized`、`download_authorized`、`training_authorized`、`inference_authorized` 和 `new_target_outcome_authorized` 均为 `false`，没有隐含例外。不得使用 GPU，不得下载数据集归档或模型，不得安装包，不得训练或推断，不得打开目标标注来计算 outcome，也不得用目标标签调参。为核验 Track D 而读取官方 HTML、README 或 license 文本是允许的证据检索，不构成数据集下载；其取证要求见 Track D。
+
+服务器只可写入以下四类路径，除此之外一律只读：
+
+1. `top_journal_v3_reaudit_055/feasibility_gate_20260809/**`
+2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/**`
+3. `dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`
+4. `claude_code_and_supervisor.md`，仅可 append-only
+
+不得创建第二份报告、临时旁路目录或未登记的日志。进程调度、内部文件名和表格格式可以自行决定；数据、split、seed、baseline、matching、unmatched 处理、canonicalization、near-square 定义、NMS、score、cluster、metric、bootstrap、状态映射和 joint gate 不得漂移。确有必要的变更只能记为 `PROPOSED_DEVIATION`；任何会改变科学含义的变更都必须停手并等待用户授权，不能先执行后补批。
+
+## 启动预检与可完成语义
+
+服务器必须先完成并记录以下预检，未通过时不得进入科学审计：
+
+1. 完整读取所有适用的 `AGENTS.md`、`CLAUDE.md` 和 `pth_data/readme.md`，记录实际读取路径、字节数与 SHA256。
+2. Git 只允许通过 HTTPS 执行 `git pull --ff-only`。核验当前分支（current branch）、默认分支、upstream、完整 HEAD、remote main、origin URL，以及 index/worktree 均干净；不得用 merge、rebase、reset、clean、checkout 或 stash 消除问题。
+3. 核验受保护文件 `dis/B.md` 的 blob 严格等于 `c0c2571f3a5c828673b39e6458ceaed5f14c5a6a`。不得创建、修改、格式化、移动、删除、暂存、恢复或提交该文件。
+4. 核验 `runtime_root` 尚不存在。若已存在，禁止删除、清空、覆盖、复用或改名旧目录；该碰撞属于技术早停。
+5. 核验本合约四类写路径、只读科学资产、执行程序和访问控制均可审计。
+
+只有仓库/规则冲突、受保护文件异常、runtime collision、访问控制失败或 executable-audit failure 可以触发 `EARLY_STOP_TECHNICAL`。以下情况必须作为已经完成审计的负面可行性发现继续收集证据，不能技术早停：资产缺失、数据污染、指标反转、被基线支配、角度语义不兼容、license 阻塞。负结果或缺资产仍可能构成 `FULL_COMPLETION`。
+
+## Track M：密封测量资产审计
+
+### Core 单元与逐字节资产账本
+
+先做 inventory，再计算任何指标。Core 固定为六个单元：
 
 ```text
-[logit_score, log_pred_ar, half_log_pred_area,
- support_fraction, missing_fraction, axial_dispersion,
- u_axis, iou_loss, center_dispersion,
- long_side_dispersion, short_side_dispersion, score_dispersion,
- association_margin]
+A: DIOR-R
+B: DIOR-R
+C: DIOR-R
+D: FAIR1M
+E: SODA-A
+F: SODA-A
 ```
 
-固定 HGB：构造器只传 `max_iter=200, learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1.0, min_samples_leaf=50, random_state=20260807` 与 `monotonic_cst`，其余参数使用被 seal 的 sklearn 版本默认值；固定 monotonic vector 为 `[-1,0,0,-1,1,1,1,1,1,1,1,1,0]`。拟合 target 是 source risk，EQS reliability score 固定为 regression prediction 的负值。若当前 sklearn 不支持该合约，技术早停，不能静默换 estimator。
+可同时盘点 `r019` 的 DOTA 单元，但它们必须始终标记为 descriptive-only，不能进入 Core gate。
 
-固定 linear baseline：只用前三项 `[logit_score, log_pred_ar, half_log_pred_area]`，无额外 constructor kwargs 的 `StandardScaler + LinearRegression`，拟合 source risk，reliability score 同样为 prediction 的负值。固定 standalone sensitivity：`-(u_axis + missing_fraction + iou_loss)`；它不是替代 primary 的第二次机会。
+每个实际消费的 artifact 都必须登记：路径、角色、source commit 或 manifest、字节数、SHA256、schema、row count、unique row-key witness、cluster count、cluster set SHA，以及 actual access log。不得从汇总表、图或报告反推 row-level 数据。如果任一 Core A-F 单元缺少逐字节一致的 row-level risk，或缺少下列全部必要 score 列，则 Track M 必须返回 `INSUFFICIENT_ASSETS`；仍须完成其余可执行盘点与 Track D，不得虚构或拟合缺失行。
 
-### 2.3 源端拟合与泄漏隔离
+固定英文账本字段为：`path, role, source commit/manifest, bytes, SHA256, schema, row count, unique row-key witness, cluster count/set SHA, and actual access log`。
 
-- 训练源仅限 Core 三数据集 DIOR-R、FAIR1M-v1.0、SODA-A 的 canonical `D_cal-fit` rows；复用 `m069_common.split_role` 的 MD5 parity。必须动态调用实际 production function/code path并保存 source path、line witness、row keys/count/sorted SHA256。
-- 总权重按 dataset 各 `1/3`，dataset 内 unit 等权、unit 内 row 等权。不得因行数让某 dataset 或 detector 支配。
-- 严禁使用 Core `D_audit` 的 feature/label/risk、r014/r015 target score、bootstrap、unit/dataset result 或 gate 来训练、归一化、调参、选择 feature、选 seed 或选 early stop。若 D_cal 与 D_audit 物理共存于同一 JSONL，允许流式读取 routing key/image_id 并先按冻结 MD5 role 丢弃 D_audit；D_audit row object 的 feature/label/risk 不得 materialize、缓存、聚合或进入任何模型/功效计算，须由 taint/access audit 证明。
-- 在 prelabel 阶段完成三折 leave-one-source-dataset-out：每折仅用另两个 dataset 的 `D_cal-fit` 拟合，在 held-out dataset 的完整 `D_cal-calib` 上评估，dataset 内 unit 等权、禁止 pooled rows；DIOR/FAIR 用完整 image cluster，SODA 用完整 mother-scene cluster，零 eligible cluster 保留。同一 fold 内各 unit 使用同步 multiplicity，固定 `B=10,000`、seed=`20260806 + fold_ordinal`（fold ordinal 按 DIOR-R、FAIR1M-v1.0、SODA-A 为 0、1、2）、95% percentile CI。LODO 只作方向诊断，任何结果都没有早停、换模型、调参或换 gate 的权力。
-- 同一 prelabel 阶段做盲态功效/MDE 审计：仅使用上述三个 source `D_cal-calib` LODO aggregate 的 centered cluster-bootstrap 标准差，取三者最大值 `se_worst`；固定 one-sided alpha=0.05，`power_at_Delta_0.02 = Phi(0.02/se_worst - 1.6448536269514722)`，`MDE80=(1.6448536269514722+0.8416212335729143)*se_worst`。报告每 fold 的 cluster/unit/row 数、SE、最坏 fold、假设与公式。不得读取 DOTA label/旧 matched risk，不得因此改变 B、selector、unit、gate 或是否执行 DOTA；低预测功效只预警 INCONCLUSIVE 风险，禁止 target 后报告 post-hoc achieved power。
+### 固定 score
 
-### 2.4 标签附着后的固定 estimand
+只允许下列 reliability score；定义与方向不得改变：
 
-- identity raw 与 DOTA GT 进行同类一对一贪心匹配，固定 `rIoU >= 0.5`：prediction 按 `(-prediction_score, prediction_original_index)` 依次处理；对当前 prediction 的尚未使用同类 GT 候选按 `(-rIoU, gt_original_index)` 取唯一第一名，低于阈值则不匹配。必须从封存的 identity raw 新鲜重建，不能把旧 matched JSONL 当 raw。
-- eligible 仅为 matched identity TP 且 `GT_AR >= 2.1`。不再使用旧口径的 pred-AR near-square 排除；不得加任何 target 后过滤。
-- risk 定义、`delta_theta_0.75`、floor=1°、cap=3 沿用冻结 m069/r014 production 定义并动态调用；不得手抄近似公式。
-- 单元主 estimand：`Delta_u = NRC(linear) - NRC(EQS-RC-R019)`，正值表示修正 EQS 更好。
-- DOTA 主 estimand：`Delta_DOTA = (Delta_orcnn + Delta_rtmdet) / 2`，两个 unit 等权；禁止 pooled-row aggregate。
-- standalone guard：`G = NRC(standalone) - NRC(EQS-RC-R019)`，正值表示 learned EQS 不弱于 standalone。
+```text
+raw_confidence = identity detection score
+linear_source_frozen = existing sealed score+AR+size linear output; no refit
+tta_angle = -u_axis
+tta_localization = -(missing_fraction + iou_loss)
+S0 = -(u_axis + missing_fraction + iou_loss)
+learned_EQS = descriptive-only comparator, never candidate driver
+```
 
-## 3. 两阶段时间锁：标签前必须先推远端
+`raw_confidence` 必须是 identity detection score。`linear_source_frozen` 必须直接使用已经密封的 score+AR+size linear 输出，禁止 refit。任何缺失 score 都不得通过模型拟合重生；如果逐字节输入列已存在，可以按上述代数式计算 `tta_angle`、`tta_localization` 或 `S0`，但必须记录输入哈希、计算命令、输出哈希和行级一致性核验。`learned_EQS` 只能作 descriptive-only comparator，永远不能驱动候选状态。
 
-### Phase A：实现、动态微测和无标签前向
+### 固定 risk、coverage 与 AUGRC
 
-新建独立目录 `p3_selector/deployable_proxy_r019/`；禁止修改 r014/r015/r016/r017/r018。所有测试必须动态调用 r019 的实际 production function/code path，禁止在 validator 中复制公式后自测。
+只可使用 `r014/r019` 已冻结的连续 orientation severity，并仅作下列缩放；不得改变样本排序、eligibility 或角度定义：
 
-在 r019 受控进程/actual-input manifest 首次访问任何 DOTA GT、annotation 内容或旧 matched JSONL 前，必须让 production microtests 全部通过并保存 expected/actual/tolerance/seed/trace。项目历史上已经使用过这些标签，报告只能声称“r019 受控访问为零”，不得声称项目首次读取：
+```text
+risk_cap3 = clip(angle_error / max(delta_theta_0.75(GT_AR), 1 degree), 0, 3)
+residual = risk_cap3 / 3
+```
 
-1. horizontal/vertical inverse 及 double-flip roundtrip；
-2. 0°/90°、`(w,h,theta)` 与 `(h,w,theta+90°)` 的全 13 字段等价；
-3. doubled-angle axial dispersion 的同向、轴向等价、分散与 no-aux sentinel；
-4. association margin 的 0/1/2/multi-candidate 正例和错误 top1-IoU 负例；
-5. missing、duplicate、ambiguous、dense candidate、stable tie 与 class mismatch；
-6. transformed coordinate inverse 后 box/angle/score/identity index roundtrip；
-7. feature/score schema 逐字段无 `GT`、`ground_truth`、`angle_error`、`risk`、`GT_AR`、`split`、`role` 或其大小写/前缀/contains 变体；
-8. fail-closed 测试：任一非 finite、重复 key、未知 view、缺 image、错误 unit 或 schema drift 必须非零退出。
+用于 AUGRC 的 `residual` 固定在 `[0,1]`。同时必须报告原始 `risk_cap3`，以便与旧结果作 backward comparison。
 
-随后每单元先跑固定 50-image、identity/hflip/vflip 的 production GPU smoke。DOTA forward 必须使用由 5,297 个 image filenames 生成的 runtime image-only registry 与自定义 image-only loader，或 runtime 空 annotation dataset；禁止实例化会解析真实 annotation 的 DOTADataset。prelabel file-access guard 必须拦截 `open/openat/stat/scandir/glob/hash` 对真实 `val/annfiles/**`、旧 matched JSONL 和其它 DOTA label-bearing paths 的任何访问，命中一次即 `FAIL_TIMELOCK_R019`。config 中出现 annotation path 字符串不等于访问，但不得触发 dataset initialization。只允许在未生成 full target scores 且 r019 target-label access count 仍为 0 时，修正“实现未满足本节冻结语义”的代码错误；每次修正必须写入 changelog并重跑全部微测与 smoke。不得依据预测分布、source LODO 好坏或任何 target label 修改设计。
+阈值 `t` 的 generalized risk 固定为：
 
-微测与 smoke 通过后：
+```text
+GR(t) = (1/N) * sum_i residual_i * I(score_i >= t)
+```
 
-1. 在 Core A–F 原始三视图资产上重建修正型 features，做冻结的源端 LODO 与盲态 power/MDE，随后仅用全部 Core `D_cal-fit` 按固定权重拟合唯一 HGB 与 linear；保存 source row sets、weights、model bytes/SHA256、环境和 deterministic replay witness。
-2. 使用固定 config/checkpoint，对两个 DOTA 单元各做全 5,297 images 的 identity/hflip/vflip 新鲜前向。可用 4×A30，但两个单元顺序执行；不得训练 detector。原始输出必须保存 score、class、canonical/raw box、original index 和 view，不能只存 matched rows。
-3. 仅用预测和 image-only registry 构建 DOTA features、两个冻结 selector scores 与 mother map。此时 target-label access count 必须为 0。
-4. 固定 bootstrap `B=10,000`、seed=`20260809`，在完整 mother universe 上预生成恰好 10,000 组 mother multiplicity；同一 replicate 的同一 multiplicity 将同步用于两个 detector、linear/EQS/standalone。保存 draw file 的 bytes、SHA256、replicate/mother 完整性。
+AUGRC 必须对 unique-threshold generalized-risk/coverage 曲线做未缩放的 trapezoidal integration，并包含 `(coverage=0, risk=0)`。所有同分 tie group 必须整体进入，严禁拆分。binary residual 的 AUGRC 范围是 `[0,0.5]`。
 
-### Phase B：prelabel seal commit/push
+实现必须在 binary toy vector 和 continuous toy vector 上，以 `atol=1e-12, rtol=0` 复现固定官方参考：
 
-在 r019 受控进程/actual-input manifest 第一次允许访问 DOTA GT 前，必须生成机器可验的 prelabel seal，至少封存：本协议 blob；全部 r019 代码/测试；production microtest 与 smoke；源 row universe/MD5 roles/weights；LODO 与 power/MDE；唯一 HGB/linear model；DOTA 5,297-tile 与 mother universe；六份 raw view inventories；prediction-only features/scores；bootstrap draws；config/checkpoint/data/readme/env；实际 file-access log；所有文件 bytes/SHA256/schema/row count/key uniqueness。
+```text
+IML-DKFZ/fd-shifts@c4467aec134e99691359da209f811d91283fc1e3
+rc_stats.py
+rc_stats_utils.py
+```
 
-原始预测、Parquet、model bytes 和 draw arrays 等大资产必须只存入 Git-ignored `outputs/persistent_artifacts/orientbench_r019/**` 并保持只读；prelabel commit 只提交其逐文件 inventory/bytes/SHA256/schema/count/key witness 和可复放代码，禁止把大二进制塞入 Git。远端 commit 中的 canonical prelabel manifest SHA256 是这些 runtime bytes 的时间锁；final validator 必须再次从同一 runtime bytes 重算并逐项相等。
+运行时不得导入、安装或依赖 floating network package；固定参考只能被本地、可审计地复现。
 
-prelabel seal 只能写入：
+每个 score、unit 和 dataset aggregate 都必须输出：AUGRC、AURC/NRC sensitivity、完整 risk-coverage 数据、`Risk@70%`、`Risk@90%` 与 nonempty coverage。固定 coverage `q` 只在 unique score thresholds 上求值，选择阈值诱导 coverage 中最小的 `coverage >= q`，报告这个实际 coverage，并以 accepted-set mean residual 计算 selective risk。不得拆分 tie group，也不得看到 outcome 后挑选最低 risk 阈值。
 
-- `p3_selector/deployable_proxy_r019/protocol_r019.json`
-- `p3_selector/deployable_proxy_r019/scripts/**`
-- `p3_selector/deployable_proxy_r019/tests/**`
-- `p3_selector/deployable_proxy_r019/prelabel/**`
-- `claude_code_and_supervisor.md`（仅 append r019 命令与结果）
+cluster 固定为：DIOR/FAIR 使用 image cluster；SODA/DOTA 使用 original mother-scene cluster；zero-eligible cluster 也必须保留。dataset aggregation 必须先按 unit 计算、再对 unit 等权聚合，禁止 pooled rows。
 
-显式暂存上述精确路径，形成独立 prelabel commit，并通过 HTTPS push 到 `main`。再从远端 HTTPS 获取并确认 remote `main` 精确等于该 commit；记录 commit、parent、remote SHA、精确 changed paths、`dis/B.md` parent/head blob equality、工作树。由于 commit SHA 不能自引用，prelabel manifest 内固定写 `prelabel_commit_sha=POST_COMMIT_RUNTIME_RECEIPT`；push 后的只读 receipt 只写 runtime，最终 result commit 再收录并由 validator 核验。若 push 或远端确认失败，记 `FAIL_TIMELOCK_R019` 并停止。
+任何 10,000-replicate paired cluster bootstrap 都必须满足：
 
-从 prelabel commit 形成到最终报告期间，协议、代码、测试、source sets、models、raw、features、scores、mother map 和 draws 不得改变一个字节。若改变，记 `FAIL_TIMELOCK_R019`，DOTA 结果不得进入科学裁决；禁止重新 seal 一个有利版本。
+```text
+seed = 20260809
+replicates = 0..9999 exactly
+CI = percentile 95%
+```
 
-### Phase C：唯一一次标签揭示、复算和统计
+同一 unit/dataset 内各 score 必须使用 synchronized multiplicities。必须保存 replicate 级精确清单，或保存能逐字节验证该清单的哈希与生成证据。CPU-intensive 实现必须使用 48 核中的至少 39 核，并记录实际 child-process CPU、RSS 和 affinity；非密集型串行 inventory 不得伪造利用率。
 
-只有远端 prelabel seal 已确认后，独立 label-attach 程序才可成为 r019 actual-input manifest 中第一个访问 DOTA GT 或旧 matched JSONL 的受控进程。先从封存 identity raw 新鲜匹配并附着 label/risk。旧 `DOTA_orcnn.jsonl` 与 `DOTA_rtmdet.jsonl` 只能在此后做 secondary lineage/parity，不得决定 inclusion、模型或 gate。这里的“first access”只约束 r019 受控执行；不得抹去项目历史上已经访问 DOTA 标签的事实。
+### Track M 唯一状态
 
-先做 official detection parity：两个单元均为 5,297 images/55,804 GT；AP50 分别对 0.7061、0.7161，AP75 分别对 0.4517、0.4868，绝对差各 `<=0.002`。任何不通过均为 `FAIL_PROVENANCE_R019`，主端点无效；不能改 threshold 后再试。
+Track M 必须且只能输出下列一个状态，并按列出顺序应用前置条件；不得追加自创状态或多标签代替最终状态：
 
-主 bootstrap 必须：
+- `INSUFFICIENT_ASSETS`：任一 Core A-F 单元缺少所需的 byte-exact row/score/cluster 证据。
+- `METRIC_REVERSAL`：在不存在更高优先级状态时，`S0` 在 NRC/AURC 看似更好，但在任一 dataset aggregate 的 AUGRC、`Risk@70%` 或 `Risk@90%` 上，比任一 equal-budget nonlearned baseline 更差。
+- `BASELINE_DOMINATED`：在没有 metric reversal 时，任一 equal-budget nonlearned baseline 在任一 Core dataset aggregate 上具有低于 `S0` 的 AUGRC。
+- `SENSITIVITY_UNSTABLE`：在没有以上状态时，`S0` 相对 baseline 的方向在任一预先规定、且可由 sealed assets 直接推导的 matching、unmatched、near-square 或 canonicalization sensitivity 下翻转。
+- `ROBUST_CANDIDATE`：全部 Core 资产完整；`S0` 在每个 Core dataset aggregate 上的 AUGRC 都严格低于 `raw_confidence`、`linear_source_frozen`、`tta_angle` 和 `tta_localization`；`Risk@70%` 与 `Risk@90%` 从不反转；NRC/AURC 和所有预先规定的 sensitivities 从不反转；`learned_EQS` 不参与此决策。
 
-- 在完整 DOTA mother universe 有放回抽取与 universe 等长的 mother multiset；零 eligible mother 保留在 universe；
-- 每个 replicate 用封存的同一 mother multiplicity 同步作用于两 unit 及 linear/EQS/standalone；先分别重算 NRC/Delta，再做 unit 等权 aggregate；
-- 恰好 10,000 个 finite replicate，replicate id 完整为 0…9999，不得丢坏 replicate 后补抽；
-- 95% percentile CI；one-sided centered p 固定为 `(1 + count((Delta_b - Delta_point) >= Delta_point)) / 10001`；
-- 两个 unit p 做 Holm-2；唯一 DOTA aggregate 使用 raw p、不做 Holm；
-- tile/image bootstrap、旧 r014 actual selector、旧 matched-only 口径只能列为明确标注的 secondary sensitivity，不能替换主结果或进入 gate。
+上述状态是 deterministic no-reversal screen。paired cluster bootstrap CI 必须完整报告，但它只是证据，不把本次 feasibility state 升格为 formal scientific confirmation。若实现无法按固定定义得到唯一状态，必须作为 executable-audit failure 如实技术早停，不能改定义补洞。
 
-## 4. 唯一科学 gate 与失败语义
+## Track D：新数据集可行性审计
 
-### 4.1 硬前提
+### 四个固定候选
 
-Git/provenance、readme/asset hashes、prior-exposure search、production microtests、source/target 隔离、target-label-zero-access、remote prelabel seal、time lock、5,297-tile mother map、official AP parity、10,000 同步 replicates 和独立 validator 必须全部通过。任一失败分别归类 `FAIL_PROTOCOL_R019`、`FAIL_PROVENANCE_R019`、`FAIL_IMPLEMENTATION_R019`、`FAIL_PRIOR_OUTCOME_EXPOSURE_R019` 或 `FAIL_TIMELOCK_R019`；此时写 `DOTA_EQS=NOT_EVALUATED` 或 `INVALIDATED`，不能写科学性能 FAIL/INCONCLUSIVE。
+无论前一个候选是否失败，必须把四个候选全部审计完：
 
-### 4.2 `PASS_EXTERNAL_DOTA_EQS_RC_R019`
+```text
+1. AI-TOD-R
+2. UAV-OBB
+3. ShipRSImageNet (backup)
+4. ICDAR-MLT (auxiliary only; cannot satisfy the remote-sensing two-dataset gate)
+```
 
-当且仅当以下全部成立：
+`ShipRSImageNet` 是 backup；`ICDAR-MLT` 仅为 auxiliary，不能满足 remote-sensing two-dataset gate。
 
-1. `Delta_DOTA >= 0.02`、aggregate `CI_low > 0`、aggregate one-sided `p < 0.05`；
-2. 两个 unit 2/2 各自 `Delta_u >= 0.02`、`CI_low > 0`、Holm-2 adjusted `p < 0.05`；
-3. standalone guard 的 aggregate 与两个 unit 点估计均 `G >= 0`。
+每个候选必须提供：official source URL 与 retrieval date；license/use terms；精确 version、split、image 和 annotation metadata；OBB、angle 与 ignore semantics；local path/stat-only presence；以及完全兼容的 config/checkpoint/environment/hash inventory。还必须说明至少三个 detector family 的公共集合能否逐一由精确资产复现。
 
-### 4.3 `FAIL_EXTERNAL_DOTA_EQS_RC_R019`
+不得下载 dataset archive，不得安装 package，不得运行 model，不得打开 target annotation 来计算 outcome。允许检索官方 HTML、README 和 license；每次检索必须保存 URL、HTTP status、bytes、SHA256 与 source date。`download_authorized: false` 始终不变。
 
-完成全部有效执行后，若 aggregate `Delta` 的 `CI_high <= 0`，或任一 unit 的 `Delta` `CI_high <= 0`，或 aggregate standalone guard `G` 的 `CI_high < 0`，则为明确科学失败。
+### 真实 prior-outcome 搜索
 
-### 4.4 `INCONCLUSIVE_EXTERNAL_DOTA_EQS_RC_R019`
+必须真实搜索下列范围，而不是只声明“未发现”：
 
-完成全部有效执行但既不满足 PASS、也没有上述明确负证据时，一律为 INCONCLUSIVE；包括仅 1/2 unit 支持、CI 跨零、point `<0.02` 但仍不能排除正效应、Holm 未通过、或 standalone guard 只有不精确的点值失败。禁止把 INCONCLUSIVE 包装成 PASS。
+- Git-tracked text；
+- OrientBench persistent-artifact tree；
+- 已登记的 project manifests/reports；
+- `pth_data/readme.md`；
+- dataset root 下仅 filename/stat-only 的视图。
 
-完整揭示后跑出 PASS、FAIL 或 INCONCLUSIVE，均是 `experimental_execution=FULL_COMPLETION`，不是早停。只有第 1 节、Phase A 或 Phase B 的硬阻塞可记 `EARLY_STOP`；source LODO/功效结果没有早停权。见 target 标签后没有 efficacy early stop，必须算完两 unit、aggregate、guard 和 validator。
+搜索词必须覆盖每个候选名称与 aliases，并与 prediction、feature、score、risk、metric、bootstrap、report、endpoint 等术语组合。对每次搜索保存 exact command、cwd、roots、excludes、start/end、exit code、stdout/stderr hashes，并逐条记录 hit adjudication。不得对候选 annotation 内容做 hash、decode 或 outcome 计算。
 
-r019 后禁止自行改 gate、换 selector、换 cluster、换 unit、用 HRSC 救场、加入第三个 target、重抽 seed 或发起 r020 续命。PASS 只证明一个 DOTA 外部数据集上两个已见 family 的新 `EQS-RC-R019` 前瞻端点，能显著增强 TGRS/ISPRS JPRS/strong-journal 路线，但不自动等于 venue-ready，更不能追溯修复 r014/r015 的时间锁。严禁把 r015 actual-EQS 的 6/6 与 r019 合池、meta-analysis，或包装成同一算法的“发现—确认”；旧 Core 结果只能是开发证据。FAIL/INCONCLUSIVE 后停止服务器实验循环，转入如实改稿和定位收缩。
+### Track D 候选状态与 precedence
 
-## 5. 独立 validator
+每个候选必须保留全部事实，并依据下列定义给出状态：
 
-生成端与 pre-final scientific/artifact validator 必须是两个独立入口。validator 不得 import 生成端的 gate 布尔值、汇总表或 PASS token；必须从封存 raw、GT、scores、mother map 和 draws 重算：
+- `ELIGIBLE_CANDIDATE`：license 清晰、local assets 可复现、angle contract 可独立验证、没有 prior outcome，并且一个至少包含三个 detector families 的公共集合具备精确资产。
+- `CONTAMINATED`：存在任何真实 prediction、metric、risk、bootstrap 或 same-endpoint consumption。
+- `MISSING_ASSET`：data、公共三-family 集合中的任一 config/checkpoint，或 compatible environment 缺失。
+- `INCOMPATIBLE_ANGLE_CONTRACT`：conversion 无法被独立且无歧义地验证。
+- `LICENSE_BLOCKED`：research use、redistribution 或 access terms 不清晰或不兼容。
 
-1. 两个完整 tile/mother universes、零 eligible mothers、eligible keys、matching、risk；
-2. 每个 unit 与 aggregate 的全部 10,000 replicates、point/CI/p/Holm/guard/gate；
-3. prelabel/final manifest 中每个输入输出的 bytes、SHA256、schema、row/key/replicate 完整性；
-4. r019 target-label first-access 相对 remote prelabel commit 的时间顺序；
-5. prelabel commit 的 Git DAG、精确 changed paths、remote `main` 与 `dis/B.md` blob equality；
-6. 生成端结果逐字段 expected/actual/max_abs_error，数值 tolerance 固定 `atol=1e-12, rtol=0`。
+多个失败状态同时成立时不得丢弃事实，最终状态 precedence 固定为：
 
-validator 必须含真正的负例：改一个 draw multiplicity、删一个零 eligible mother、交换一个 unit、改一个 score、伪造一行 PASS、改一个 prelabel byte，均应非零退出。不得硬编码“当前结果应 PASS”，也不得把 production feature 的负结果当 validator 失败；审计是否正确与科学结果正负是两个维度。
+```text
+CONTAMINATED > LICENSE_BLOCKED > INCOMPATIBLE_ANGLE_CONTRACT > MISSING_ASSET
+```
 
-final commit SHA/remote 状态不能由将被该 commit 收录的 validator 或 report 自证。全部 tracked 产物完成后先运行 pre-final validator，再显式 stage 并用只读命令检查 final staged path whitelist、parent=prelabel commit、B blob 不变和 `git diff --cached --check`。final commit/push 后另运行**不写仓库**的 external Git receipt，核验 final 单父 DAG、精确 changed paths、remote `main == final HEAD`、B blob parent/head equality、工作树/index clean。该 receipt 只进入服务器对用户的最终回复并由 C 拉取后独立复核；validator/report 不得声称已经在自身字节内验证未来 commit。
+## 联合 gate
 
-## 6. 资源、遥测与运行纪律
+联合 gate 必须逐字实现为：
 
-- 允许使用 4×A30 做固定 detector 三视图前向；两个 unit 顺序跑，避免资源争抢。CPU worker 数依据 readme/服务器实际安全上限，建议不超过 38。
-- 不训练 detector，不请求新标注，不下载新数据，不修改全局环境。优先使用既有 `/home/rspip/anaconda3/envs/mr_dev1x/bin/python`，但必须以实际 config 可加载和 smoke 为准。
-- 每个阶段记录命令、cwd、开始/结束时间、exit code、stdout/stderr 日志 SHA256。每 30 秒以内采样 r019 进程及全部子进程 aggregate CPU/RSS、GPU utilization/memory、真实 worker count；不得用全机 CPU、父进程 RSS 或硬编码 worker 冒充。
-- BLAS/OpenMP 限制必须在 import numpy/pandas/sklearn 前设置并验证。记录 affinity 及每个子进程观察值。
-- 禁止覆盖任何既有目录；临时文件只放 `runtime_root`，保留到 C 验收。不得用 `/dev/shm` 作为唯一证据位置。
+```text
+PASS_TO_METHOD_DESIGN iff Track M=ROBUST_CANDIDATE AND at least two independent remote-sensing OBB datasets are ELIGIBLE_CANDIDATE AND both support the same >=3 detector-family set AND >=1 family was absent from old Core development AND no future target-label tuning is needed.
 
-## 7. 授权写路径与 Git 合约
+FAIL_TO_MEASUREMENT_ONLY iff Track M is METRIC_REVERSAL, BASELINE_DOMINATED, or SENSITIVITY_UNSTABLE; OR fewer than two remote-sensing candidates are ELIGIBLE_CANDIDATE; OR no common >=3-family set exists; OR license/angle contracts do not close; OR target-label tuning would be required.
 
-除下列路径外，服务器一律只读：
+INCONCLUSIVE_FEASIBILITY only when Track M=INSUFFICIENT_ASSETS and Track D has not independently triggered FAIL_TO_MEASUREMENT_ONLY. It never authorizes a method study and defaults to measurement-only writing.
+```
 
-- `p3_selector/deployable_proxy_r019/**`
-- `outputs/persistent_artifacts/orientbench_r019/**`（Git ignored runtime，只登记，不提交大文件）
-- `dis/server_reports/orientbench-c-r019-20260809.md`
-- `claude_code_and_supervisor.md`（只允许 append r019 命令、阶段状态与结果）
+`PASS_TO_METHOD_DESIGN` 只授权未来起草一份协议，并再次取得用户批准。它不授权下载、训练、推断、label access 或任何 experiment。不得把 `INCONCLUSIVE_FEASIBILITY` 当成继续方法研究的许可；它默认进入 measurement-only writing。
 
-严禁修改或暂存：`dis/B.md`、`dis/C.md`、`dis/sug.md`、`dis/review_state.json`、`dis/collaboration_protocol.md`、`dis/B_START_PROMPT.md`、任何主稿、r014–r018、旧报告/数据/模型、阈值和 split。
+## 解释与 novelty 边界
 
-正常路径必须恰好两个服务器 commit：
+正向 feasibility gate is not a scientific confirmation；它不是 venue readiness，也不是 CVPR/ICCV 的证据，至多支持起草未来协议。任务、产物和报告不得宣称首次使用 TTA uncertainty、angle quality、selective prediction、multi-pass angular dispersion 或 cross-detector reliability evaluation。
 
-1. prelabel seal commit：只含第 3 节 Phase B 授权路径；
-2. final result commit：只含 `p3_selector/deployable_proxy_r019/results/**`、`p3_selector/deployable_proxy_r019/docs/**`、唯一 server report，以及对 `claude_code_and_supervisor.md` 的追加。
+固定 score 可以称为 `training-free` 或 `no learned parameters`，绝不能称为 `parameter-free`。measurement contribution 仍限定为 detector-agnostic、angle-specific、geometry-equivalence-aware、scene-aware 的 OBB reliability protocol；`learned_EQS` 仅能留在 appendix。
 
-若在允许的标签前条件早停，允许单一 failure commit，内容仅为已实现 protocol/scripts/tests/prelabel diagnostics、唯一 report 和 supervisor log 追加；不得制造空 PASS 文件。每个 commit 均显式暂存精确文件，通过 HTTPS 正常 push，禁止 force、merge、rebase、reset、clean、覆盖式 checkout 或全量 `git add`。
+AUGRC 概念来源固定为 Traub et al., *Overcoming Common Flaws in the Evaluation of Selective Classification Systems*, NeurIPS 2024 / arXiv:2407.01032；精确实现参考固定为 `IML-DKFZ/fd-shifts@c4467aec134e99691359da209f811d91283fc1e3` 的 `rc_stats.py` 与 `rc_stats_utils.py`。本轮不授权额外 novelty search，也不授权 manuscript edit。
 
-evidence manifest 必须逐条列出 tracked outputs、actual read-only inputs、executed code、Git blob reads、runtime outputs。manifest 自身使用 `bytes=N/A_SELF_REFERENCE, sha256=N/A_SELF_REFERENCE`，最后一次写出且同一 validator 不回读自证；输出 hash read 与科学输入 read 必须分类型记录。
+## generator、validator 与 mutation 合约
 
-## 8. 必交产物与唯一服务器报告
+generator 与 validator 必须是两个独立 entry point。generator 可以生成审计产物；validator 必须从 raw sealed inputs 独立读取并核验 inventory、hash、row/cluster 证据、metrics、states 和 joint gate，绝不能读取或信任 generator 写出的 gate token 来决定通过。
 
-`p3_selector/deployable_proxy_r019/` 至少提交：
+必须在隔离副本上做真实 mutation test，绝不能修改 sealed source。下列四种 mutation 必须分别单独执行，并且每一次都必须使 validator 以 nonzero exit 退出：
 
-- `protocol_r019.json`；
-- production scripts 与 tests；
-- preflight、prior-exposure、microtest、smoke、source universe/LODO/model、DOTA raw/feature/score inventories、mother map、bootstrap draw 与 prelabel seal；
-- label attach、official parity、unit/dataset/guard results、10,000 replicate inventory、independent validator、resource telemetry、evidence manifest；
-- 一份 protocol closure 文档，逐项映射本文件 0–8 节。
+1. 改变一个 score byte；
+2. 删除一个 cluster；
+3. 插入一个 fake prior-outcome hit；
+4. 改变一个 manifest hash。
 
-唯一仓库内回执必须是 `dis/server_reports/orientbench-c-r019-20260809.md`。它记录截至 final commit 前已可验证的执行事实；最终 commit/push 由不自引用的 external Git receipt 补齐。报告至少逐字段给出：
+每个 mutation 都必须记录原始/变异对象哈希、命令、cwd、开始/结束时间、exit code 与 stdout/stderr hash。只写“已测试”或用 mock gate token 触发失败不算真实 mutation。
 
-1. `experimental_execution = FULL_COMPLETION | EARLY_STOP | FAILED`；
-2. `all_precommit_required_work_completed = true | false`；
-   同时固定写 `git_publish_status=PENDING_EXTERNAL_RECEIPT` 与 `all_required_work_completed=DETERMINED_BY_EXTERNAL_RECEIPT`，禁止预填 PUSHED/true；
-3. `early_stop = true | false`，若 true 列出发生阶段、第一失败条件和未执行项；
-4. `scientific_verdict = PASS_EXTERNAL_DOTA_EQS_RC_R019 | FAIL_EXTERNAL_DOTA_EQS_RC_R019 | INCONCLUSIVE_EXTERNAL_DOTA_EQS_RC_R019 | DOTA_NOT_EVALUATED | INVALIDATED`；
-5. 是否真的完成本文件每个 Phase，而不是“脚本退出 0”；
-6. source LODO、盲态 power/MDE、两 unit 和 aggregate 的 eligible rows/mothers、linear/EQS/standalone NRC、Delta/G、CI、raw/adjusted p、每条 gate predicate；
-7. 5,297 tile/mother counts/SHA、零 eligible mother、10,000 replicate completeness、AP parity；
-8. r019 target-label first-access 时间、prelabel commit/remote SHA 与 changed paths；final 两字段必须原样写 `final_commit_sha=POST_COMMIT_EXTERNAL_RECEIPT`、`final_remote_main=POST_COMMIT_EXTERNAL_RECEIPT`，并列 expected final path whitelist 和 B blob expected equality；
-9. 全部 commands、exit codes、日志、资源实际峰值/聚合方式；
-10. 未做事项、协议偏离和是否触发 fail-closed。
+## 必需证据产物
 
-报告中的 `experimental_execution=FULL_COMPLETION` 只有在全部科学/审计阶段和 pre-final validator 都完成时才能写；它本身不声称未来 final push 已完成。服务器最终回复首行只有在 external Git receipt 也全部通过后才可写 `执行完毕`。缺必做验证却声称完成，一律 `PROTOCOL_DRIFT_R019`。完整科学 FAIL/INCONCLUSIVE 不得写成 early stop；标签前硬失败也不得写成科学性能失败。
+除唯一 tracked server report 外，下列产物都必须置于 `runtime_root`。`evidence_manifest.json` 仍是必需产物，并必须登记除自身与该唯一报告之外的全部 runtime 必需产物的实际 path、bytes 和 SHA256。
 
-最终 Git push 后运行 external Git receipt。服务器与用户对话首行必须严格为 `执行完毕` 或 `未执行完毕`，第二行必须是 `dis/server_reports/orientbench-c-r019-20260809.md`；随后用一句话明确“是真的完成全部阶段，还是在哪个阶段早停/失败”，并给出 final commit、remote `main` SHA、精确 changed-path count、B blob equality 与 clean-worktree 结果。只有 `experimental_execution=FULL_COMPLETION` 且 external receipt 全过才可写 `执行完毕`；科学 FAIL/INCONCLUSIVE 仍可满足此条件。除此之外不要粘贴长日志。
+本轮固定保留一条 `evidence_manifest.json` self entry，但它只能使用 `path=evidence_manifest.json`、`bytes=N/A_SELF_REFERENCE`、`sha256=N/A_SELF_REFERENCE`；不得在同一个被验证 manifest 内填写或声称证明 manifest 自身的实际 bytes/SHA256。validator 必须核验这两个固定 N/A token，并且不能把 self entry 当作 manifest 自身完整性的证据。
 
-## 9. 停止条件
+```text
+protocol.json
+preflight.json
+track_m_asset_inventory.csv
+track_m_metrics.csv
+track_m_bootstrap.csv or an exact replicate inventory plus hash
+track_m_status.json
+track_d_candidate_inventory.csv
+track_d_official_sources.csv
+track_d_prior_outcome_hits.csv
+track_d_status.json
+joint_gate.json
+execution_ledger.csv
+resource_telemetry.csv/json
+evidence_manifest.json
+validator.json
+protocol_closure.md
+```
 
-提交并推送唯一报告后立即停止，等待 C 验收。不得自行改稿、宣布投稿、声称“顶刊已达成”、调用 CC、启动 r020 或继续搜索有利 gate。
+`evidence_manifest.json` 完成写入后，唯一 tracked server report 必须独立记录该 manifest 的实际 path、bytes 和 SHA256。post-push external Git receipt 必须再次从已发布对象独立计算 manifest hash，并核验它与报告记录一致；该回执不得回写 `evidence_manifest.json` 或服务器报告，不得追加第二个 commit，也不得制造新的自引用循环。
+
+唯一报告必须写到：
+
+```text
+dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md
+```
+
+`execution_ledger.csv` 必须能恢复实际命令、cwd、输入、开始/结束、exit code 和日志哈希；`resource_telemetry.csv/json` 必须支持核验 CPU/RSS/affinity；`protocol_closure.md` 必须逐条说明本合约是否已被真正穷尽，而不只是脚本退出成功。
+
+## 报告与完成分类
+
+报告必须且只能从下列三种完成分类中选择一个，并显式回答用户最关心的三个问题：到底是否全做完、是否技术早停、是否执行失败。
+
+- `FULL_COMPLETION`：Track M 与 Track D 已按合约穷尽，四个 Track D 候选均被审计，generator/validator/四项 mutation 和全部可判定 gate 均完成，所有必要证据均落盘。缺资产或负面科学发现可以是 `FULL_COMPLETION`，不得因此伪装成早停。
+- `EARLY_STOP_TECHNICAL`：只允许由仓库/规则/受保护文件/runtime collision/access-control/executable-audit failure 触发；必须写明准确触发点、已完成阶段、未执行阶段与最小证据。
+- `FAILED_EXECUTION`：执行因不属于允许技术早停的错误而未能按合约完成，或结果/证据无法由 validator 复核；不得把它改写成科学负结果。
+
+报告必须逐项列出每个 completed phase 与 omitted phase、每项 omitted reason，并明确写出 `dis/sug.md` 是否 `genuinely_exhausted`。还必须分别给出以下字段，不能只给一个笼统结论：
+
+```text
+completion_class: FULL_COMPLETION | EARLY_STOP_TECHNICAL | FAILED_EXECUTION
+all_contract_work_finished: true | false
+technical_early_stop: true | false
+technical_early_stop_reason: <reason-or-none>
+execution_failed: true | false
+execution_failure_reason: <reason-or-none>
+completed_phases: <explicit list>
+omitted_phases: <explicit list>
+sug_genuinely_exhausted: true | false
+```
+
+报告还必须包含起止 commit、工作树状态、所有实际命令/配置、协议偏差及授权状态、指标与预注册 gate、失败/负结果/缺失证据、产物/日志/checkpoint 路径及必要哈希、计划外观察，以及范围和受保护文件核验。
+
+## Git 发布与外部回执
+
+服务器结果必须形成且仅形成一个 result commit。只能显式 stage 本合约授权的四类路径，不得无差别暂存；`dis/B.md` 不得出现在 unstaged diff、staged diff 或 commit 中。push 必须使用 HTTPS；禁止 force、merge、rebase、reset、clean、checkout、stash。发布前后都必须验证受保护 B blob 仍严格等于 `c0c2571f3a5c828673b39e6458ceaed5f14c5a6a`。
+
+被跟踪的服务器报告必须写入以下占位值，因为验证该 commit 的回执发生在 commit 之后：
+
+```text
+final_commit_sha=POST_COMMIT_EXTERNAL_RECEIPT
+git_publish_status=PENDING_EXTERNAL_RECEIPT
+```
+
+push 后必须从远端取得 post-push external Git receipt，核验 remote SHA 与本地 final SHA 相等。该回执不得再写入它所验证的 commit，也不得通过第二个 commit 回填；应在服务器最终回复中提供实际值和核验结果。
+
+## 服务器最终回复的唯一格式
+
+只有 Track M、Track D、独立 validator、四项 mutation、唯一 result commit、HTTPS push 和 post-push external Git receipt 全部完成，最终回复第 1 行才可以严格为：
+
+```text
+执行完毕
+```
+
+否则第 1 行必须严格为：
+
+```text
+未执行完毕
+```
+
+第 2 行必须且只能是唯一报告路径：
+
+```text
+dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md
+```
+
+从第 3 行开始，最终回复必须逐项给出，而不能让用户自行推断：
+
+```text
+completion_class: FULL_COMPLETION | EARLY_STOP_TECHNICAL | FAILED_EXECUTION
+all_contract_work_finished: true | false
+technical_early_stop: true | false
+technical_early_stop_reason: <reason-or-none>
+execution_failed: true | false
+execution_failure_reason: <reason-or-none>
+completed_phases: <explicit list>
+omitted_phases: <explicit list>
+sug_genuinely_exhausted: true | false
+actual_final_sha: <40-hex>
+actual_remote_sha: <40-hex>
+changed_path_count: <integer>
+protected_B_blob_equal: true | false
+clean_worktree: true | false
+```
+
+科学负结果、缺资产、污染、metric reversal、baseline domination、angle incompatibility 或 license blockage，只要两条 track、validator、证据、Git 发布和外部回执均按本合约穷尽，仍可报告 `FULL_COMPLETION` 与 `执行完毕`。任何技术早停或执行失败都必须报告 `未执行完毕`，并把“全做完 / 技术早停 / 执行失败”三项分别说清楚。

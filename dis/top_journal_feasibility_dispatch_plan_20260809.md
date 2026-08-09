@@ -4,7 +4,7 @@
 
 **Goal:** Convert the approved top-journal feasibility design into one auditable, no-GPU server instruction and synchronized C-side state without touching protected or scientific assets.
 
-**Architecture:** Treat the dispatch as one atomic state transition. First preserve the r019 instruction byte-for-byte, then replace the active instruction with a non-numbered feasibility audit contract, synchronize `C.md`, `review_state.json`, `collaboration_protocol.md`, `B_START_PROMPT.md`, and the approved design status, and finally validate and publish the exact C-side diff. The server audit has two independent tracks: metric robustness on already-consumed evidence and pristine-dataset asset/provenance screening; neither track authorizes a new experiment.
+**Architecture:** Treat the dispatch as one atomic state transition. First preserve the r019 instruction with identical Git-canonical blob content, then replace the active instruction with a non-numbered feasibility audit contract, synchronize `C.md`, `review_state.json`, `collaboration_protocol.md`, `B_START_PROMPT.md`, and the approved design status, and finally validate and publish the exact C-side diff. The server audit has two independent tracks: metric robustness on already-consumed evidence and pristine-dataset asset/provenance screening; neither track authorizes a new experiment.
 
 **Tech Stack:** Markdown evidence contracts, JSON state, PowerShell validation, Git/HTTPS publication.
 
@@ -12,7 +12,7 @@
 
 ## File map
 
-- Create: `dis/sug/orientbench-c-r019-20260809-invalidated.md` — immutable byte-for-byte archive of the r019 instruction.
+- Create: `dis/sug/orientbench-c-r019-20260809-invalidated.md` — immutable Git-canonical blob-identical archive of the r019 instruction.
 - Replace: `dis/sug.md` — active no-GPU feasibility audit instruction.
 - Modify: `dis/top_journal_feasibility_gate_design_20260809.md` — record written approval and dispatch authorization.
 - Modify: `dis/C.md` — C-side post-r019 adjudication and current venue/next-action decision.
@@ -40,7 +40,7 @@ $head = git rev-parse HEAD
 $remoteMain = (git ls-remote https://github.com/ziyu24/orientbench.git refs/heads/main).Split("`t")[0]
 $status = git status --porcelain=v1
 $bBlob = git rev-parse 'HEAD:dis/B.md'
-if ($head -ne '26e1bf8b2b9099a670081b658932cbef167c70ba') { throw "Unexpected HEAD: $head" }
+if ($head -ne 'f2aeeb2edd177f6eb62c390042ea74068316570d') { throw "Unexpected HEAD: $head" }
 if ($remoteMain -ne $head) { throw "HTTPS main mismatch" }
 if ($status) { throw "Dirty worktree" }
 if ($bBlob -ne 'c0c2571f3a5c828673b39e6458ceaed5f14c5a6a') { throw "Protected B mismatch" }
@@ -52,16 +52,17 @@ Expected: no exception.
 
 ```powershell
 $oldSug = Get-Item -LiteralPath 'dis/sug.md'
-$oldHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $oldSug.FullName).Hash.ToLowerInvariant()
-$oldBytes = $oldSug.Length
-"$oldBytes $oldHash"
+$oldRawHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $oldSug.FullName).Hash.ToLowerInvariant()
+$oldRawBytes = $oldSug.Length
+$oldCanonicalBlob = (git rev-parse 'HEAD:dis/sug.md').Trim()
+"$oldRawBytes $oldRawHash $oldCanonicalBlob"
 ```
 
-Expected: one byte count and one 64-character SHA256; retain both for Step 4.
+Expected: one raw working-tree byte count, one raw SHA256, and one 40-character Git canonical blob ID. Retain the blob ID for Step 4; raw size and SHA256 are cross-platform newline diagnostics only.
 
 - [ ] **Step 3: Archive through `apply_patch` and update approval metadata**
 
-Use `apply_patch` to move the complete current `dis/sug.md` text to `dis/sug/orientbench-c-r019-20260809-invalidated.md` without editing a byte of its logical content. In the design YAML header, set exactly:
+Use `apply_patch` to move the complete current `dis/sug.md` text to `dis/sug/orientbench-c-r019-20260809-invalidated.md` without changing its Git-canonical content. Working-tree newline normalization is acceptable only when the filter-aware blob identity in Step 4 matches. In the design YAML header, set exactly:
 
 ```yaml
 document_status: APPROVED_WRITTEN_SPEC
@@ -76,12 +77,14 @@ Do not change the frozen scientific design sections.
 
 ```powershell
 $archive = Get-Item -LiteralPath 'dis/sug/orientbench-c-r019-20260809-invalidated.md'
-$archiveHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $archive.FullName).Hash.ToLowerInvariant()
-if ($archive.Length -ne $oldBytes) { throw "Archive byte-count mismatch" }
-if ($archiveHash -ne $oldHash) { throw "Archive SHA256 mismatch" }
+$archiveRawHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $archive.FullName).Hash.ToLowerInvariant()
+$archiveRawBytes = $archive.Length
+$archiveCanonicalBlob = (git hash-object --filters --path='dis/sug.md' $archive.FullName).Trim()
+if ($archiveCanonicalBlob -ne $oldCanonicalBlob) { throw "Archive canonical blob mismatch" }
+"$archiveRawBytes $archiveRawHash $archiveCanonicalBlob"
 ```
 
-Expected: no exception. Any mismatch stops the transition; do not normalize or reconstruct the archive.
+Expected: no exception and equal Git canonical blob IDs. Raw byte count or SHA256 may differ only because of working-tree newline normalization and remain diagnostic; any canonical mismatch stops the transition and must not be reconstructed around.
 
 ### Task 2: Write the active feasibility audit contract
 
@@ -99,7 +102,7 @@ Create `dis/sug.md` with these exact identity values:
 
 ```yaml
 round_id: orientbench-c-topjournal-feasibility-20260809
-control_base: 26e1bf8b2b9099a670081b658932cbef167c70ba
+control_base: f2aeeb2edd177f6eb62c390042ea74068316570d
 scientific_data_cutoff: a9067fb16d2bbd747dfe69789ac33a5911eb15fe
 status: READY_FOR_SERVER_EXECUTION
 server_report_path: dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md
@@ -269,7 +272,7 @@ The document must bind:
 
 ```yaml
 round_id: orientbench-c-topjournal-feasibility-dispatch-20260809
-control_base: 26e1bf8b2b9099a670081b658932cbef167c70ba
+control_base: f2aeeb2edd177f6eb62c390042ea74068316570d
 scientific_data_cutoff: a9067fb16d2bbd747dfe69789ac33a5911eb15fe
 r019_formal_status: INVALIDATED_R019
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
@@ -281,7 +284,7 @@ State the decisive r019 audit witnesses, keep its positive linear contrast and n
 
 - [ ] **Step 2: Update `review_state.json` with valid JSON**
 
-Use `schema_version: 1.5`, `round_id: orientbench-c-topjournal-feasibility-20260809`, `review_base_sha: 26e1bf8...`, `scientific_snapshot_sha: a9067fb...`, protected B blob unchanged, and these key states:
+Use `schema_version: 1.5`, `round_id: orientbench-c-topjournal-feasibility-20260809`, `review_base_sha: f2aeeb2...`, `scientific_snapshot_sha: a9067fb...`, protected B blob unchanged, and these key states:
 
 ```json
 {
@@ -355,10 +358,10 @@ $changed = @(git status --short | ForEach-Object { $_.Substring(3).Replace('\','
 if (Compare-Object $allowed $changed) { throw "Changed-path scope mismatch" }
 if (git diff -- 'dis/B.md') { throw 'Protected B changed' }
 if ((git rev-parse 'HEAD:dis/B.md') -ne 'c0c2571f3a5c828673b39e6458ceaed5f14c5a6a') { throw 'Protected B blob mismatch' }
-git diff --check
+git -c core.safecrlf=false diff --check
 ```
 
-Expected: no exception and no diff-check output.
+Expected: no exception, exit code zero, and no diff-check output. This command checks genuine whitespace errors while suppressing Windows `core.safecrlf` line-ending warnings.
 
 - [ ] **Step 3: Self-review against the approved design**
 
@@ -403,7 +406,7 @@ Expected: one commit containing only the validated C-side transition.
 - [ ] **Step 3: Push over HTTPS and independently verify**
 
 ```powershell
-git push https://github.com/ziyu24/orientbench.git main
+git push https://github.com/ziyu24/orientbench.git HEAD:main
 $head = git rev-parse HEAD
 $remoteMain = (git ls-remote https://github.com/ziyu24/orientbench.git refs/heads/main).Split("`t")[0]
 if ($head -ne $remoteMain) { throw 'Push verification failed' }

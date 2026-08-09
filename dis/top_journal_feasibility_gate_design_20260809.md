@@ -1,11 +1,12 @@
 # OrientBench 顶刊路线可行性门设计（书面审阅稿）
 
 ```yaml
-document_status: AWAITING_WRITTEN_SPEC_REVIEW
+document_status: APPROVED_WRITTEN_SPEC
 date: 2026-08-09
 base_commit: a9067fb16d2bbd747dfe69789ac33a5911eb15fe
 user_conceptual_approval: true
-server_execution_authorized: false
+user_written_spec_approval: true
+server_execution_authorized: true
 r019_formal_status: INVALIDATED_R019
 target_route:
   primary: ISPRS_JPRS_measurement_diagnostic
