@@ -445,3 +445,93 @@ R12（equivariance-normalized selector）比我阶段一草案（分位数自归
 4. B 不是裁决者；本报告所有行号与数字可复核。
 
 ——STAGE_2_ADVERSARIAL_REVIEW_R012 结束。
+
+---
+
+# CC_POST_R018_STAGE_1_BLIND_REVIEW
+
+```yaml
+round_id: orientbench-cc-post-r018-20260809
+review_base_sha: 48a770327919aaf3270f802962501689a969653d
+scientific_evidence_cutoff: 8ce84331a14c12a5ac41e46cb354ca712286626e
+worktree_head: 5f7dc78dc39706e41823db7ea6933c432091bf7e
+paper_entry: top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md
+strict_blind_independence: false
+review_time: 2026-08-09
+```
+
+`prior_material_exposure`（逐项，如实）：
+
+1. 历史授权轮（r001/r012 阶段二）已读当时的 `dis/C.md`、`dis/sug.md`、`dis/sug/orientbench-c-r011-20260807.md`、`dis/server_reports/orientbench-c-r011-20260807.md`。
+2. 本轮授权前的上一会话回合，我读过**当前版** `dis/collaboration_protocol.md` 与旧版 `dis/B_START_PROMPT.md`——其中含 C 对 r018 的裁决摘要（PROTOCOL_DRIFT_R018、margin=1 vs expected=0、缺 doubled-angle axial dispersion、w/h+90 unknown、strong-JSTARS-not-ready）。当时该两文件不在任何激活禁读清单内，但它们构成对本轮 C 结论的实质预暴露。
+3. 多次 ff-pull 前查看过 r012–r018 的提交标题（判决级信息）。
+4. `dis/B.md` 历史内容为我本人撰写，天然在上下文中；本阶段未重新读取该文件，追加前仅以 blob 哈希校验保护（HEAD:dis/B.md = 3181a862…，与协议钉值一致）。
+
+因此依合约 §1.1 设 `strict_blind_independence: false`。处理方式：凡与预暴露重叠的判断（下文标 `[E]`），一律从快照内代码/CSV **重新独立验证**后才写入；未标注项为本阶段独立形成。
+
+本阶段实际读取材料：`AGENTS.md` 全文、主稿 `submission_r015.md` 全文、`p3_selector/deployable_proxy_r014/{reports,scripts}`（gate/unit/hrsc/fair_universe_join/feature_summary/transform_sanity/build_equivariance_features）、`p3_selector/deployable_proxy_r015/reports`（unit/dataset/gate）、历史科学产物（r001/r012 已核对者沿用）。未读：本轮 `dis/C.md`、`dis/review_state.json`、`dis/collaboration_protocol.md` 当前 diff、`dis/sug*`、`dis/server_reports/**`。
+
+## 1. 修正清单落实审计（r001/r012 遗留 → submission_r015 状态）
+
+先记录一个积极事实：**两轮双方共识的修正清单在这份投稿稿中绝大部分已落实**，逐项核对：
+
+| 遗留项 | r015 状态 |
+|---|---|
+| DOTA NRC legacy 混用 | 已修（:166，0.7544/0.7113） |
+| 表 4/5 的 D_audit 人群未披露 | 已修（:155 显式声明两种总体） |
+| FAIR1M "既有协议"措辞 | 已修（:119 冻结本地 train_80/val_20） |
+| 表 1 UCB 条件不透明 | 已删表并声明失效（:174），处理方式诚实 |
+| PSC 作者、DIOR-R 出处 | 已修（[9]=Yi Yu, Feipeng Da；[3]=ISPRS 2020 + [34]=AOPG） |
+| 相关工作 2022–2025 缺口 | 已补（Borji [32]、OCD [33]、SeqCRC [31]、SAOD [29]、MCCL [28]、OCC [30]、CVPR24 boundary [26]、OSKDet [27]），并显式放弃三处首创声明（:33、:45） |
+| 内部 gate 字符串入稿 | 已清除 |
+| FAIR1M 宇宙不闭合 | 已修：恢复 4,362 images/488,194 predictions 全总体（:178），`fair_universe_join_r014.csv` 提供逐图对账，AP 0.34616/0.24224 与 full evaluator 一致；§8（:216）把"registry 必须含 n_pred=0 图像"上升为复现原则 |
+| P3 只写 4/11 | 已修：正面写 leave-dataset 0/6 + leave-detector 4/5 含 sibling 警告（:178） |
+| 固定剂量单评测器 | 已降级为"single-evaluator descriptive candidates"（:136），不再消费 CI |
+
+## 2. 数字核验（本阶段独立）
+
+- EQS 单元表与数据集聚合表（:182–195）与 `p3_selector/deployable_proxy_r015/reports/unit_results_r015.csv`、`dataset_results_r015.csv` **逐数一致**（六单元 ΔNRC 与 CI 下界、三数据集 0.1733/0.2436/0.1645、Holm p 0.0060/0.0030）；SODA 主单位为 mother scene、576 簇，三数据集同步簇多重集有共享 `cluster_set_sha256` 佐证"同步"声明。
+- HRSC 行（:197）与 `hrsc_results_r014.csv` 一致（453 images、1,217 matched、AP 0.9052/0.8945、ΔNRC 0.0602 [−0.0143, 0.1438]）。
+- `gate_r015.json` 将 `FAIL_PROTOCOL_R014` 与 `EXPLORATORY_CORE_SUPPORT_R015` 显式分离，主稿口径与之一致，未消费 r014 的 `PASS_DEPLOYABLE_EQS_R014` 字符串。
+- 6.1/6.2/6.3/6.4/7 各表与 r001 轮已验证的生成端一致（数字未变）。
+
+## 3. 发现（按严重度）
+
+### P1｜EQS 的"探索性"封顶是结构性的，且它此刻占据主结果版面（最致命）
+
+时间锁已失，任何改写都不能把 :182–195 两张表升回 confirmatory——这不是措辞问题，是证据资格问题。而当前它们坐在 §6.6 主结果里，带 95% CI、Holm p 与"支持=是"决策列。审稿人二选一：要么视为未确认结果要求删除，要么质疑"既然只是探索性，为何做 Holm 并给支持判定"。**修复**：(i) 移至明确标注 exploratory 的附录，或保留正文但删去"支持"列与 Holm 决策语义，只留点估计+CI；(ii) 摘要中"在同步 full-universe…仍为正"之后紧跟的资格限定保留。置信度：高。反证条件：若 TGRS/ISPRS 审稿惯例接受主表探索性标注（部分领域可），severity 降为中。
+
+### P2｜§6.5 一边宣布 UCB 证据失效一边消费其结论（自相矛盾残留）
+
+:174 "此前 instance/tile/mother UCB 表因总体与 split 条件不一致而失效，本文不再报告或消费其中数值"，同段随后写"严格绝对风险预算下…未形成稳定非平凡认证；**唯一 practical point 来自 target-GT 上界**"——后半句正是失效前沿（a1_guaranteed_frontier）的结论性输出。负向使用降低了风险，但"唯一 practical point"是可被追问生成端的具体事实主张，其生成端已被自家宣布未闭合。**修复**（择一）：闭合一次前沿重算入附录；或把该句削为"在该未闭合的历史审计中，我们也未观察到可部署分数的非平凡认证；该审计不构成本文证据"。置信度：高。
+
+### P3｜sealed schema 与 r012 冻结特征契约的偏差未在稿中显式披露 `[E]`（本阶段代码级重验）
+
+`build_equivariance_features_r014.py:163–188` 的 sealed 特征只有 `u_axis`（median le90/δ₀.₇₅ 归一）而**无独立 doubled-angle axial circular dispersion**；r012 冻结契约两者都要求。主稿 :178 的特征描述与实际实现一致（诚实），§9 只披露了时间锁缺失，未披露 schema-契约偏差本身。**修复**：§9 限制第一条加半句"且 sealed schema 相对预注册特征契约缺少独立 doubled-angle axial dispersion，数值仅描述实际实现"。置信度：高（代码级）。
+
+### P4｜w/h+90 角等价在 view 逆变换链路无测试覆盖 `[E]`（本阶段独立确认覆盖面）
+
+`transform_sanity_r014.csv` 仅含 synthetic_50_horizontal / synthetic_50_vertical 两类用例；若某 detector 输出以 w<h+θ+90° 表示同一框，逆变换后的 `u_axis` 可能系统性偏移。六单元+HRSC 同用一条变换链，故该风险是"整体有效性"型而非"选择性偏置"型，但在任何 confirmatory 重跑前必须补 w/h-swap 合成用例。**修复**：作为限制写明 + 列入后续确认实验的前置测试。置信度：中高（风险存在性确定，实际影响未知——如实写 unknown）。
+
+### P5｜单候选 association margin 的实现语义 `[E]`（代码已定，稿件无需改，档案需正名）
+
+`build_equivariance_features_r014.py:106`：单候选时 margin=clip(top1_IoU−0,0,1)，完美 IoU 合成用例下恰为 1。若任何审计以 expected=0 判定此处为偏差，那是对冻结代码的误读；真实偏差只有 P3 一项。此项写入档案供阶段二对照。置信度：高（代码级）。
+
+### P6｜次要
+
+1. §6.6 的 leave-detector "4/5 支持" 建议补一句括号说明第 5 折（RTMDet）不可识别的原因，防止读者误算分母；
+2. HRSC 跨零建议补功效说明：n=1,217 时 CI 半宽约 0.079，若效应真值≈0.06，需约 4 倍实例才可能收窄到显著——这直接支撑"外部不确定"的措辞并为后续实验定标；
+3. 摘要较长（两段近 500 字），TGRS 格式下建议压缩第二段；
+4. 治理/封存细节已按 AGENTS.md §7.6 收进 §8，边界合规。
+
+## 4. 合约 §1.2 四问的正面回答
+
+**最致命问题**：P1——EQS 被时间锁失效永久封顶为探索性，而它是全稿唯一的正向方法信号；其余支柱（测量协议、负迁移、人工噪声）都已干净，但都不是"方法赢"。
+
+**当前主稿可投吗、投哪**：可投。剔除 deployability、HRSC 确认与缺失特征后，剩余不可替代贡献 =（i）几何归一化朝向风险测量协议及六单元扰动证据（ΔAP50=0 与容忍角分布，生成端 r001 轮已验证）；（ii）可部署分数的跨数据集**负迁移**结论（leave-dataset 0/6 且多数显著有害）；（iii）遥感域度级圆周双标与 official-GT 分离审计（OCD 之后为域限定新颖性）；（iv）统计单位/abstention 纪律。这不是治理流程或校准文献的重包装——它回答"哪些分数能排序朝向风险、AP 为何看不见角剂量"这一具体科学问题，正负证据齐备。**今天即可投 strong-JSTARS**（P2/P3 两处行级修改后）；**TGRS/ISPRS JPRS 达标条件见下**；CVPR/ICCV 不成立（无 sealed 方法胜利）。
+
+**TGRS/ISPRS 的最小充分修正**：P1（EQS 降位或去决策化）+ P2（删句或附录闭合）+ P3/P4（两句限制披露）+ P6.1/6.2。全部为文字与一次 CPU 级重算，无 GPU 需求。**最小杀死条件**：若审稿共识要求分析型论文必须携带已确认的方法增益（venue 口味风险，无法从证据侧消除），则 TGRS 线死、回落 strong-JSTARS——该风险应通过强调协议+工具箱+负结果的读者价值来对冲，而不是通过升格 EQS 措辞。
+
+**是否存在唯一能改变 venue 的后续证据**：存在，且只有一个——**一次全新时间锁、预注册的 leave-dataset EQS 确认**：在 DOTA 两个 clean full-validation 单元（ar≥2.1 匹配 33k/34k，功效充足，真正 Core-6 之外）上做 hflip/vflip 前向 + 封存特征 + 一次性揭盲，HRSC 可作第二外部点（现有 n 功效不足，见 P6.2）。sealed-PASS ⇒ Deployable 门过 ⇒ 按 AGENTS.md §12 进入 CVPR/ICCV/strong-journal 线；FAIL/跨零 ⇒ 停止实验转写，按上述最小修正投稿。除此之外的一切服务器循环都不再改变 venue，应停。
+
+——CC_POST_R018_STAGE_1_BLIND_REVIEW 结束，此后不回改。
