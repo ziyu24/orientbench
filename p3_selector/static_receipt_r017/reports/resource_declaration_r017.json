@@ -1,0 +1,12 @@
+{
+  "cpu_intensive_phases": [],
+  "bootstrap_recomputed": false,
+  "telemetry_required": false,
+  "process_pool_used": false,
+  "thread_pool_used": false,
+  "gpu_used": false,
+  "training": false,
+  "detector_inference": false,
+  "selector_refit": false,
+  "new_target_scores": false
+}

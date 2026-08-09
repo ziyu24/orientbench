@@ -1,0 +1,356 @@
+{
+  "schema": "r017_schema_feature_manuscript_audit_v1",
+  "parquet_schemas": [
+    {
+      "unit": "A",
+      "kind": "features",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "class_id",
+        "detection_score",
+        "logit_score",
+        "log_pred_ar",
+        "half_log_pred_area",
+        "support_fraction",
+        "missing_fraction",
+        "u_axis",
+        "iou_loss",
+        "center_dispersion",
+        "width_dispersion",
+        "height_dispersion",
+        "score_dispersion",
+        "association_margin"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "A",
+      "kind": "scores",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "detection_score",
+        "score_ar_size_linear",
+        "nonlinear_geometry",
+        "standalone_equivariance",
+        "EQS"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "B",
+      "kind": "features",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "class_id",
+        "detection_score",
+        "logit_score",
+        "log_pred_ar",
+        "half_log_pred_area",
+        "support_fraction",
+        "missing_fraction",
+        "u_axis",
+        "iou_loss",
+        "center_dispersion",
+        "width_dispersion",
+        "height_dispersion",
+        "score_dispersion",
+        "association_margin"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "B",
+      "kind": "scores",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "detection_score",
+        "score_ar_size_linear",
+        "nonlinear_geometry",
+        "standalone_equivariance",
+        "EQS"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "C",
+      "kind": "features",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "class_id",
+        "detection_score",
+        "logit_score",
+        "log_pred_ar",
+        "half_log_pred_area",
+        "support_fraction",
+        "missing_fraction",
+        "u_axis",
+        "iou_loss",
+        "center_dispersion",
+        "width_dispersion",
+        "height_dispersion",
+        "score_dispersion",
+        "association_margin"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "C",
+      "kind": "scores",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "detection_score",
+        "score_ar_size_linear",
+        "nonlinear_geometry",
+        "standalone_equivariance",
+        "EQS"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "D",
+      "kind": "features",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "class_id",
+        "detection_score",
+        "logit_score",
+        "log_pred_ar",
+        "half_log_pred_area",
+        "support_fraction",
+        "missing_fraction",
+        "u_axis",
+        "iou_loss",
+        "center_dispersion",
+        "width_dispersion",
+        "height_dispersion",
+        "score_dispersion",
+        "association_margin"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "D",
+      "kind": "scores",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "detection_score",
+        "score_ar_size_linear",
+        "nonlinear_geometry",
+        "standalone_equivariance",
+        "EQS"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "E",
+      "kind": "features",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "class_id",
+        "detection_score",
+        "logit_score",
+        "log_pred_ar",
+        "half_log_pred_area",
+        "support_fraction",
+        "missing_fraction",
+        "u_axis",
+        "iou_loss",
+        "center_dispersion",
+        "width_dispersion",
+        "height_dispersion",
+        "score_dispersion",
+        "association_margin"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "E",
+      "kind": "scores",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "detection_score",
+        "score_ar_size_linear",
+        "nonlinear_geometry",
+        "standalone_equivariance",
+        "EQS"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "F",
+      "kind": "features",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "class_id",
+        "detection_score",
+        "logit_score",
+        "log_pred_ar",
+        "half_log_pred_area",
+        "support_fraction",
+        "missing_fraction",
+        "u_axis",
+        "iou_loss",
+        "center_dispersion",
+        "width_dispersion",
+        "height_dispersion",
+        "score_dispersion",
+        "association_margin"
+      ],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "unit": "F",
+      "kind": "scores",
+      "columns": [
+        "image_id",
+        "pred_id",
+        "detection_score",
+        "score_ar_size_linear",
+        "nonlinear_geometry",
+        "standalone_equivariance",
+        "EQS"
+      ],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "seal_hashes_ok": true,
+  "feature_witnesses": [
+    {
+      "name": "doubled_angle_axial_dispersion",
+      "status": false,
+      "source": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "line": 151,
+      "witness": "\"angle\": le90_deg(float(base[4]), float(other[4])),",
+      "classification": "IMPLEMENTATION_DEVIATION"
+    },
+    {
+      "name": "u_axis",
+      "status": true,
+      "source": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "line": 163,
+      "witness": "u_axis = float(np.clip(med(\"angle\") / dth, 0.0, 3.0))",
+      "classification": "IMPLEMENTED"
+    },
+    {
+      "name": "association_margin_single_zero",
+      "status": false,
+      "source": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "line": 106,
+      "witness": "margins[global_i] = float(np.clip(values[0] - (values[1] if len(values) > 1 else 0.0), 0.0, 1.0))",
+      "classification": "IMPLEMENTATION_DEVIATION"
+    },
+    {
+      "name": "sentinel",
+      "status": false,
+      "source": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "line": 171,
+      "witness": "u_axis, iou_loss, center, wdisp, hdisp, score_disp, margin = 3.0, 1.0, 3.0, 3.0, 3.0, 10.0, 0.0",
+      "classification": "IMPLEMENTATION_DEVIATION"
+    },
+    {
+      "name": "deterministic_tie_break",
+      "status": true,
+      "source": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "line": 113,
+      "witness": "for neg_iou, _, global_i, global_v in sorted(candidates):",
+      "classification": "IMPLEMENTED"
+    },
+    {
+      "name": "width_height_swap",
+      "status": true,
+      "source": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "line": 138,
+      "witness": "pred_ar = max(width, height) / max(min(width, height), 1e-6)",
+      "classification": "IMPLEMENTED"
+    },
+    {
+      "name": "zero_ninety_boundary",
+      "status": true,
+      "source": "p3_selector/deployable_proxy_r014/scripts/build_equivariance_features_r014.py",
+      "line": 87,
+      "witness": "def le90_deg(a: float, b: float) -> float: /     return min(delta, 180.0 - delta)",
+      "classification": "IMPLEMENTED"
+    }
+  ],
+  "claim_checks": [
+    {
+      "claim_id": "C01",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    },
+    {
+      "claim_id": "C02",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    },
+    {
+      "claim_id": "C03",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    },
+    {
+      "claim_id": "C04",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    },
+    {
+      "claim_id": "C05",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    },
+    {
+      "claim_id": "C06",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    },
+    {
+      "claim_id": "C07",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    },
+    {
+      "claim_id": "C08",
+      "hash_ok": true,
+      "text_ok": true,
+      "heading_ok": true
+    }
+  ],
+  "novelty_weak_verified_rows": [],
+  "manuscript": {
+    "manuscript_boundaries": true,
+    "manuscript_no_stale_values": true,
+    "manuscript_no_internal_terms": true,
+    "manuscript_citations": true
+  },
+  "proposed_corrections": []
+}

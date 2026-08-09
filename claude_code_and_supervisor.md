@@ -2314,3 +2314,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 完成 r015 的独立 Git/manifest、raw score-label-universe、同步 bootstrap、集合/schema/seal、稿件/claim 与资源复核；`VALID_R015_CLOSURE_R016`。
 - r015 数值接受为 `EXPLORATORY_CORE_SUPPORT_R015`，但 r015 历史验收仍为 `FAIL_AUDIT_IMPLEMENTATION_R015`；r014 保持 `FAIL_PROTOCOL_R014`，HRSC 保持不确定。
 - 未训练、未推理、未重拟合或重打分，未改 r015 及更早资产、threshold、split、D_cal/D_audit 或 `dis/B.md`。关键报告：`dis/server_reports/orientbench-c-r016-20260808.md`。
+
+## [2026-08-08 21:20--21:24 CST] 来源: Codex
+
+### r017 静态收据与投稿证据索引闭合
+
+- 未重跑 bootstrap；静态核验 9,000 行 key/replicate 全集、全部 summary 字段与冻结 gate，重建并持久化六单元 zero-eligible cluster count/SHA。
+- 记录 `R015_SET_AUDIT_ROLE_DRIFT`，按 canonical MD5 parity 重建集合；schema、seal、源码 witness、稿件、claim 与 novelty 索引完成复核，`VALID_STATIC_RECEIPT_R017`。
+- r016 历史状态仍为 `PROTOCOL_DRIFT_R016`；数值仅接受为 `EXPLORATORY_CORE_SUPPORT_R015`。未训练、推理、重拟合、重打分或修改 r014-r016、活动稿及 `dis/B.md`。报告：`dis/server_reports/orientbench-c-r017-20260808.md`。

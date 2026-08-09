@@ -1,0 +1,9 @@
+{
+  "round": "orientbench-c-r017-20260808",
+  "execution_base": "097f5829abd0159e38dd3312dae84833ca36ade1",
+  "mode": "static_low_cpu_receipt_closure",
+  "bootstrap_recomputed": false,
+  "cpu_intensive_phases": [],
+  "r016_historical_acceptance": "PROTOCOL_DRIFT_R016",
+  "numeric_candidate": "EXPLORATORY_CORE_SUPPORT_R015"
+}
