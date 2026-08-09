@@ -2,63 +2,101 @@
 
 ## 当前锚点
 
-- state：`READY_FOR_SERVER_FEASIBILITY_GATE`
-- round：`orientbench-c-topjournal-feasibility-20260809`
-- control/review base：`f2aeeb2edd177f6eb62c390042ea74068316570d`
+- state：`READY_FOR_SERVER_FEASIBILITY_RECEIPT`
+- round：`orientbench-c-topjournal-feasibility-receipt-20260809`
+- planning base：`3a4e86cf435af8b29e63b1668af92a1add7c6dbf`
+- receipt control base：`bc27506f7d7c0e47c4d67b202b9157bd4016a87a`
+- source execution：`cdf764c5a974030739a9992079bedb8b970fb2a7`
+- source completion：`ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`
+- source numbers：`DESCRIPTIVE_UNVERIFIED`
+- source reported gate：`FAIL_TO_MEASUREMENT_ONLY_UNVERIFIED`
 - scientific data cutoff：`a9067fb16d2bbd747dfe69789ac33a5911eb15fe`
 - protected B blob：`c0c2571f3a5c828673b39e6458ceaed5f14c5a6a`
 - active instruction：`dis/sug.md`
-- unique future report：`dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`
-- runtime root：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809`
-- CC：`COMPLETED`；`cc_recommendation: no`
+- source report：`dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`
+- future receipt report：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`
+- source runtime：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809`
+- receipt code root：`top_journal_v3_reaudit_055/feasibility_receipt_20260809`
+- receipt runtime：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt_20260809`
+- current route：`ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC`
+- CC：`COMPLETED / CLOSED`；`cc_recommendation: no`
 
-跨机器共享只通过仓库，不写账号、机器标识、凭据、本地绝对路径或 C 侧私有规则。两个 SHA 的职责不同：control/review base 固定本次 C 侧派发基线；scientific data cutoff 固定已审计科学证据的最晚提交，二者不得互换。
+跨机器共享只通过 Git 仓库，不写账号、机器标识、凭据、本地绝对路径或 C 侧私有规则。planning base、receipt control base、source execution、scientific cutoff 与 protected B blob 各有独立职责，不得互换。未来 receipt report 当前必须不存在；`READY_FOR_SERVER_FEASIBILITY_RECEIPT` 只表示可以交给服务器，不表示 receipt 已开始、已执行或已发布。
 
-## 当前科学状态
+## 源执行裁决
 
-`r019` 的计算到达两个 target 单元并完成 10,000 次 bootstrap，但 prior-outcome/hard-precondition witness、独立 validator 与真实 mutation、zero-label-access、postseal adapter/首次标签访问时间以及 manifest/ledger 闭环均失效。其正式判定为 `INVALIDATED_R019_PROTOCOL_DRIFT_FAIL_IMPLEMENTATION_FAIL_TIMELOCK`；数字只能是 `INVALIDATED_DESCRIPTIVE_ONLY`，不是科学 PASS、正式科学 FAIL 或 INCONCLUSIVE。
+源执行的 tracked 提交只包含六个授权路径：
 
-失效实现中的 learned EQS 相对 linear 对比为正，standalone guard 为负；两者都只能作 appendix failed-migration 描述，不能驱动 gate。当前路线固定为 `ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC`，TGRS 为 `CONDITIONAL_ON_FUTURE_METHOD_UPGRADE`，顶会为 `NOT_SUPPORTED`。
+1. `claude_code_and_supervisor.md`
+2. `dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`
+3. `top_journal_v3_reaudit_055/feasibility_gate_20260809/finalize_evidence.py`
+4. `top_journal_v3_reaudit_055/feasibility_gate_20260809/generate_feasibility.py`
+5. `top_journal_v3_reaudit_055/feasibility_gate_20260809/protocol.json`
+6. `top_journal_v3_reaudit_055/feasibility_gate_20260809/validate_feasibility.py`
 
-不得用 DOTA、HRSC、Core-6、同一数据集的新 detector 或其它旧结果救场；不得修复/重跑 r019 来恢复前瞻身份，不得启用 r020 或替换 gate，不得重复调用 CC。
+该源执行永久为 `ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`：ledger 使用 mtime 与硬编码完成/退出状态；Track D 由生成器布尔值自证且 prior-outcome 搜索没有证明覆盖 Git-ignored persistent artifacts；bootstrap 没有从 raw rows 与完整 cluster universe 独立逐 replicate 全重算；joint gate 漏硬条件且未实现 `SENSITIVITY_UNSTABLE`。因此全部源数字只是 `DESCRIPTIVE_UNVERIFIED`；所报 measurement-only 方向是保守选择，但不是正式科学 `FAIL`。
 
-## 角色与所有权
+## 角色、所有权与写入边界
 
-C 负责冻结科学问题、状态映射和 joint gate；服务器只执行 `dis/sug.md`，按唯一报告回传证据；服务器回报后仍由 C 审计证据并裁决。CC/B 不是最终裁决者，本轮 CC 已完成且关闭。
+### C
 
-`dis/B.md` 由 CC/B 独占。C 与服务器均不得创建、读取内容、修改、格式化、移动、删除、暂存、恢复或提交；只可核验其普通/staged diff 为零及 blob 等于上列值。
+C 冻结科学问题、状态映射、joint gate 和服务器证据契约；维护 `dis/C.md`、`dis/review_state.json`、本协议与 `dis/B_START_PROMPT.md`。服务器回报后仍由 C 从 tracked report 与发布对象审计证据；C 不以聊天状态或源数字直接裁定科学结论。
 
-服务器只可写：
+### 服务器
 
-1. `top_journal_v3_reaudit_055/feasibility_gate_20260809/**`
-2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/**`
-3. `dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`
+服务器只执行 active `dis/sug.md`。receipt 的唯一写范围是：
+
+1. `top_journal_v3_reaudit_055/feasibility_receipt_20260809/**`
+2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt_20260809/**`
+3. `dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`
 4. `claude_code_and_supervisor.md`，仅 append-only
 
-服务器不得修改 C/review state/本协议/B start/主稿/旧报告/旧 runtime 或其它科学资产。当前权限必须逐项解释为：
+源 feasibility code/runtime、sealed Core、既有 manifests、官方取证、C 状态文件、主稿和旧报告全部只读；不得删除、覆盖、重命名、patch、补写或 backfill。receipt 不使用 GPU，不下载、不安装依赖、不训练、不 forward/inference、不读取候选 annotation 内容、不产生新 target outcome、不用 target label 调参，也不改稿。
 
-```yaml
-gpu_authorized: false
-download_authorized: false
-training_authorized: false
-inference_authorized: false
-new_target_outcome_authorized: false
+### B / CC
+
+`dis/B.md` 由 B/CC 独占；C 与服务器不得创建、读取内容、修改、格式化、移动、删除、暂存、恢复或提交，只可核验普通/staged diff 为零和 Git blob 等于固定值。上轮 CC 已完成并关闭；本轮不是新邀请。用户未来明确重授权前，CC/B 不执行服务器 receipt、不追加或改写 `dis/B.md`，也不成为最终裁决者。
+
+## Receipt-only 科学状态
+
+服务器执行健康与科学 outcome 是两条独立轴。科学状态分三层，由 independent validator 从 raw/official/search evidence 重建，不得消费 generator 的状态布尔值：
+
+1. **Track M：** `INSUFFICIENT_ASSETS`、`METRIC_REVERSAL`、`NULL_OR_NEGATIVE`、`SENSITIVITY_UNSTABLE`、`ROBUST_CANDIDATE`，按 active `dis/sug.md` 的固定 precedence 互斥求值。
+2. **Track D：** 每个候选在 `CONTAMINATED`、`LICENSE_BLOCKED`、`INCOMPATIBLE_ANGLE_CONTRACT`、`MISSING_ASSET`、`ELIGIBLE_CANDIDATE` 中取唯一状态；所有较低优先级事实仍须保留。
+3. **Joint gate：** `FAIL_TO_MEASUREMENT_ONLY`、`INCONCLUSIVE_FEASIBILITY`、`PASS_TO_METHOD_DESIGN`。PASS 必须同时满足 Track M robust、两个独立遥感 OBB 候选、共同至少三 detector family、至少一个 old Core 外新 family，以及无需 target-label tuning；INCONCLUSIVE 只允许 Track M 缺资产且 Track D 没有独立负条件。
+
+源执行所报 `FAIL_TO_MEASUREMENT_ONLY` 在 receipt 前固定为 `FAIL_TO_MEASUREMENT_ONLY_UNVERIFIED`。receipt 的科学负结果、真实缺资产或 measurement-only gate 不自动等于执行异常；相反，科学正向也不能弥补执行证据缺项。即使将来为 `PASS_TO_METHOD_DESIGN`，也只允许 C 起草未来协议并再次请求用户批准。
+
+## Receipt 执行完成与异常
+
+`正常执行完毕` 当且仅当 active `dis/sug.md` genuinely exhausted、独立 validator 通过、四项真实 isolated mutation 均被拒绝、tracked 内容封存后恰好一个提交、HTTPS push 成功且仓库外 external receipt 闭合。科学结论为负仍可正常执行完毕。
+
+任一必做 phase 缺失、source runtime 不可用、provenance gap 没有按合约落为可判定证据、validator 或 mutation 失败、越界写入、提交数不等于一、HTTPS 发布失败或 external receipt 缺失，均为 `异常结束`。tracked report、generator/validator 的 PASS 或 `PENDING_EXTERNAL_RECEIPT` 都不能单独决定聊天状态。
+
+详细命令、证据、路径、SHA、科学状态、缺失项和异常只能写入唯一 tracked receipt report；聊天不得承载这些字段。
+
+## 服务器聊天唯一格式
+
+服务器最终聊天只能在以下两个完整模板中二选一。只能有一对 wrapper 和一个状态短语；不得添加路径、SHA、解释、列表、前后缀或其它字符。
+
+```text
+👇👇👇👇👇👇
+
+正常执行完毕
+
+👆👆👆👆👆👆
 ```
 
-不得使用 GPU、下载数据或模型、安装依赖、训练、运行 forward/inference、打开候选 target 标签计算 outcome，或用 target 标签调参。Track M 仅可重算已消费且 byte-exact/provenance 闭合的旧资产；Track D 仅可做官方来源、许可、角度合约、本地 stat 和真实 prior-outcome 搜索。
+或：
 
-## Joint gate
+```text
+👇👇👇👇👇👇
 
-- `PASS_TO_METHOD_DESIGN`：当且仅当 Track M=`ROBUST_CANDIDATE`，至少两个相互独立的遥感 OBB 候选为 `ELIGIBLE_CANDIDATE`，二者共享同一组至少三个 detector family、其中至少一个 family 未参与旧 Core 开发，并且未来不需要 target-label tuning。
-- `FAIL_TO_MEASUREMENT_ONLY`：Track M 为 `METRIC_REVERSAL`、`BASELINE_DOMINATED` 或 `SENSITIVITY_UNSTABLE`；或少于两个遥感候选合格；或共同三-family 集合不存在；或许可/角度合约不闭合；或必须 target-label tuning。
-- `INCONCLUSIVE_FEASIBILITY`：仅在 Track M=`INSUFFICIENT_ASSETS` 且 Track D 没有独立触发 `FAIL_TO_MEASUREMENT_ONLY` 时成立；默认仍走 measurement-only，不授权方法研究。
+异常结束
 
-`PASS_TO_METHOD_DESIGN` 只授权未来起草新的前瞻协议，并再次请求用户明确批准；它不授权下载、训练、推理、label access、新 outcome 或任何方法实验。
+👆👆👆👆👆👆
+```
 
-## 完成语义与报告
+## 当前唯一动作与禁区
 
-- `FULL_COMPLETION`：Track M、Track D 四候选、generator、独立 validator、四项真实 mutation、所有可判定 gate 和必需证据均按完整 `dis/sug.md` 穷尽。缺资产、污染、metric reversal、baseline domination、角度不兼容、license 阻塞或其它负面可行性发现仍可属于完整执行。
-- `EARLY_STOP_TECHNICAL`：只允许仓库/规则冲突、受保护文件异常、runtime collision、访问控制或 executable-audit failure 触发；必须列出已完成与未执行阶段及准确原因。
-- `FAILED_EXECUTION`：非允许技术早停的执行错误，或结果/证据无法由 validator 复核；不得包装为科学负结果。
-
-唯一报告必须逐项写出 `all_contract_work_finished`、`technical_early_stop`、`execution_failed`、completed/omitted phases 及原因，并用 `sug_genuinely_exhausted: true|false` 明确回答整份 `dis/sug.md` 是否真正穷尽。只有全部合同工作、唯一 result commit、HTTPS push 和 post-push external receipt 完成，服务器才可回复 `执行完毕`；否则必须回复 `未执行完毕`。
+当前唯一动作是 receipt-only validation。禁止新实验、`r020`、gate substitution、DOTA/HRSC/Core rescue、同数据集新 detector 救场、修改主稿或重复调用 CC。receipt 尚未开始；服务器必须先按 `dis/sug.md` 完成 preflight，再决定执行聊天状态。

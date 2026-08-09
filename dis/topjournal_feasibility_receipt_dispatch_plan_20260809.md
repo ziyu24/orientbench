@@ -18,17 +18,17 @@
 - Modify: `dis/review_state.json` — machine recovery state and receipt authorization.
 - Modify: `dis/collaboration_protocol.md` — generic one-status-line server dialogue policy.
 - Modify: `dis/B_START_PROMPT.md` — keep CC closed and point ownership to the receipt.
-- Modify: `dis/topjournal_feasibility_receipt_design_20260809.md` — record written approval.
+- Preserve: `dis/topjournal_feasibility_receipt_design_20260809.md` — written approval already published in planning commit `3a4e86cf435af8b29e63b1668af92a1add7c6dbf`.
 - Create: `dis/topjournal_feasibility_receipt_dispatch_plan_20260809.md` — this plan.
 - Preserve exactly: `dis/B.md`.
 
-The eight C-owned paths are one atomic transition. The future server report is not created by C.
+The seven final implementation paths are one atomic transition. The approved design is already published in planning commit `3a4e86cf435af8b29e63b1668af92a1add7c6dbf`; the future server report is not created by C.
 
 ### Task 1: Preserve the executed round and approval
 
 **Files:**
 - Create: `dis/sug/orientbench-c-topjournal-feasibility-20260809-executed.md`
-- Modify: `dis/topjournal_feasibility_receipt_design_20260809.md`
+- Preserve: `dis/topjournal_feasibility_receipt_design_20260809.md` (approval already published in planning commit `3a4e86cf435af8b29e63b1668af92a1add7c6dbf`)
 
 - [ ] **Step 1: Verify the clean base**
 
@@ -37,7 +37,7 @@ Run from the repository root:
 ```powershell
 $head = (git rev-parse HEAD).Trim()
 $remote = ((git ls-remote https://github.com/ziyu24/orientbench.git refs/heads/main) -split [char]9)[0]
-if ($head -ne 'bc27506f7d7c0e47c4d67b202b9157bd4016a87a') { throw 'HEAD mismatch' }
+if ($head -ne '3a4e86cf435af8b29e63b1668af92a1add7c6dbf') { throw 'HEAD mismatch' }
 if ($remote -ne $head) { throw 'HTTPS main mismatch' }
 if (git status --porcelain=v1) { throw 'Dirty worktree' }
 if ((git rev-parse 'HEAD:dis/B.md').Trim() -ne 'c0c2571f3a5c828673b39e6458ceaed5f14c5a6a') { throw 'B mismatch' }
@@ -66,7 +66,7 @@ if ($archiveBlob -ne $oldSugBlob) { throw 'Archive mismatch' }
 
 Expected: no exception.
 
-- [ ] **Step 4: Freeze approval metadata**
+- [ ] **Step 4: Verify the already-published approval metadata**
 
 The design header must contain exactly:
 
@@ -77,7 +77,7 @@ user_written_spec_approval: true
 server_execution_authorized: true
 ```
 
-Do not change the scientific design sections.
+Do not modify the approved design or its scientific sections; its approval is already part of planning commit `3a4e86cf435af8b29e63b1668af92a1add7c6dbf`.
 
 ### Task 2: Write the receipt-only active instruction
 
@@ -208,7 +208,7 @@ The protocol must preserve the same state, hashes, ownership, receipt-only scope
 
 ### Task 4: Validate the atomic transition
 
-**Files:** Test all eight C-owned paths; preserve `dis/B.md`.
+**Files:** Test all seven final implementation paths; preserve `dis/B.md`. The approved design remains unchanged from planning commit `3a4e86cf435af8b29e63b1668af92a1add7c6dbf`.
 
 - [ ] **Step 1: Parse and scan**
 
@@ -224,7 +224,6 @@ $allowed = @(
   'dis/review_state.json',
   'dis/sug.md',
   'dis/sug/orientbench-c-topjournal-feasibility-20260809-executed.md',
-  'dis/topjournal_feasibility_receipt_design_20260809.md',
   'dis/topjournal_feasibility_receipt_dispatch_plan_20260809.md'
 ) | Sort-Object
 $changed = @(git status --short | ForEach-Object { $_.Substring(3).Replace('\','/') } | Sort-Object)
@@ -234,7 +233,7 @@ if ((git rev-parse 'HEAD:dis/B.md').Trim() -ne 'c0c2571f3a5c828673b39e6458ceaed5
 git -c core.safecrlf=false diff --check
 ```
 
-Expected: exact eight-path scope, no B diff, exit 0 and no whitespace output.
+Expected: exact seven-path scope, no B diff, exit 0 and no whitespace output; the approved design has no diff from the planning commit.
 
 - [ ] **Step 3: Verify archive and future paths**
 
@@ -242,17 +241,17 @@ Require archive canonical blob equality with `HEAD:dis/sug.md`, exactly one acti
 
 ### Task 5: Commit and publish
 
-**Files:** Stage exactly the eight paths listed in Task 4.
+**Files:** Stage exactly the seven paths listed in Task 4. Do not stage the approved design already published in the planning commit.
 
 - [ ] **Step 1: Stage explicitly and verify**
 
 ```powershell
-git add -- dis/B_START_PROMPT.md dis/C.md dis/collaboration_protocol.md dis/review_state.json dis/sug.md dis/sug/orientbench-c-topjournal-feasibility-20260809-executed.md dis/topjournal_feasibility_receipt_design_20260809.md dis/topjournal_feasibility_receipt_dispatch_plan_20260809.md
+git add -- dis/B_START_PROMPT.md dis/C.md dis/collaboration_protocol.md dis/review_state.json dis/sug.md dis/sug/orientbench-c-topjournal-feasibility-20260809-executed.md dis/topjournal_feasibility_receipt_dispatch_plan_20260809.md
 git diff --cached --name-status
 git diff --cached --check
 ```
 
-Expected: exactly eight paths and no cached whitespace error.
+Expected: exactly seven paths and no cached whitespace error.
 
 - [ ] **Step 2: Commit**
 
