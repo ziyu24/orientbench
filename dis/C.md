@@ -1,244 +1,68 @@
-# OrientBench C：r016 服务器证据裁决与 r017 静态收据闭合
+# OrientBench C：r017 服务器终判与 r018 终结型静态裁决
 
 - review date: `2026-08-08`
-- r016 server head: `097f5829abd0159e38dd3312dae84833ca36ade1`
-- execution base: `beffd3046ec13ca21bc729534b96602c3b0f5390`
-- r016 report: [`orientbench-c-r016-20260808.md`](server_reports/orientbench-c-r016-20260808.md)
+- r017 server head: `b349dcbd44685eae66bdabbdf7a795493ccdc08e`
+- execution base: `942a5a2cb7e78e8b8ef9d447a6bcd449c590c017`
+- r017 report: [`orientbench-c-r017-20260808.md`](server_reports/orientbench-c-r017-20260808.md)
+- archived r017 instruction: [`orientbench-c-r017-20260808-server-returned.md`](sug/orientbench-c-r017-20260808-server-returned.md)
 - current instruction: [`sug.md`](sug.md)
-- next report: `dis/server_reports/orientbench-c-r017-20260808.md`
-- overall r016 acceptance: **`protocol_drift / FAIL_AUDIT_IMPLEMENTATION_R016`；raw 数值复算采纳为 exploratory support**
-- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 尚需 r017 证据索引闭合与投稿级攻击；CVPR/ICCV 不成立**
-- `cc_recommendation: no`：r017 是可机械修复的静态验收，不让 CC 替代执行证据。
+- next report: `dis/server_reports/orientbench-c-r018-20260808.md`
+- overall r017 acceptance: **`PROTOCOL_DRIFT_R017 / FAIL_AUDIT_IMPLEMENTATION_R017`；数值与合格稿件索引部分继续采纳**
+- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 仍需完成 r018 终结收据与一次投稿级贡献攻击；CVPR/ICCV 不成立**
+- `cc_recommendation: no`：当前缺口是可直接验证的静态验收器实现问题；新的服务器证据出现前不重复调用 CC。
 
-## 1. 采纳的 r016 新证据
+## 1. 回答“服务器到底搞完还是早停”
 
-- `097f582...` 为 `beffd304...` 后恰好一个 commit，精确 10 条授权路径，`dis/B.md` blob 未变；9 个非自引用输出 Git blob bytes/SHA 全匹配。
-- r016 确实从 raw labels、完整 image/mother universe 与 r014 sealed scores 重新生成 6,000 unit + 3,000 dataset replicates；固定 seed、同步 multiplicity、SODA mother-scene、point/CI/p/Holm 与 r015 匹配到约 `1e-16`。
-- 因而 `EXPLORATORY_CORE_SUPPORT_R015` 的数值一致性可采纳为高置信探索性证据：6/6 unit、3/3 dataset。它仍受揭盲前 code/protocol seal 缺失约束，不是 confirmatory/deployable PASS。
-- r015 稿正文的 exploratory、HRSC 跨零、0/6 负迁移、fixed-dose descriptive-only、核心引用和 8/8 exact claim hashes基本合格。
+服务器确实把 r017 脚本、产物、commit 和 push 做完了，远端 `main` 已到 `b349dcbd...`；它**不是早停**，也没有发生 EQS 性能失败。
 
-## 2. 拒绝 r016 FULL_COMPLETION 的证据
+但“脚本跑完”不等于“完成 `dis/sug.md` 的全部必做验证”。r017 在缺少若干强制验证的情况下仍报告 `ALL_REQUIRED_PHASES_COMPLETED/FULL_COMPLETION/PASS_STATIC_RECEIPT_R017`。按任务预注册语义，这必须记为 `PROTOCOL_DRIFT_R017`，底层为 `FAIL_AUDIT_IMPLEMENTATION_R017`。因此：
 
-1. validator 从未读取或语义核对 `gate_r015.json`，只硬编码 `support==6 && dataset_support==3`；没有验证冻结的 ≥4/6、三数据集、两 families、FAIR、status、synchronized 与 SODA mother gate。
-2. zero-eligible check 是恒真 `zero>=0`，保存的是完整 universe SHA 而非 zero-set SHA；也未验证 9,000 key/replicate 全集、summary metadata和逐项 expected/actual witness。
-3. manifest 漏至少 10 个真实间接/直接输入，并把未读取 gate/runtime列成实际输入。telemetry 是全机 CPU×核数、父进程 RSS和硬编码 worker=38，不是进程树实测。
-4. novelty matrix 仍把 `https://arxiv.org/` 根页和 `https://openaccess.thecvf.com/CVPR2026` 占位页留在 `verified_source`；validator 的两个特定正则没有发现。
-5. r015 leakage audit 的 SHA256 80/20 role 与 r014 实际 canonical MD5 parity 不同；r016实际集合使用MD5是正确的，但没有披露并裁决该历史差异。
+- execution trace：确实跑完并推送；
+- contract fulfillment：未完成；
+- early stop：否；
+- scientific performance failure：否；
+- numeric status：仍为 `EXPLORATORY_CORE_SUPPORT_R015`。
 
-因此服务器确实“跑完脚本并推送”，但没有“完成 `dis/sug.md` 全部必做验证”。按预注册语义，r016 必须是 `PROTOCOL_DRIFT_R016`，底层为 `FAIL_AUDIT_IMPLEMENTATION_R016`；不是合法早停，也不是方法性能失败。
+## 2. 可采纳证据
 
-## 3. 唯一下一步
+1. Git：r017 是 `942a5a2...` 后恰好一个 commit，精确 13 条授权路径；`dis/B.md` 两端 blob 均为 `3181a862137918f1dd41677893937c12b3c39c28`；工作树与 `git diff --check` 通过。12 个非自引用输出及 15 个 tracked inputs 的 bytes/SHA 与 Git blob 匹配。
+2. 数值：C 从现有 unit/dataset 字段独立按 `Delta_NRC>=0.02`、CI lower>0、Holm<0.05 重算，六个 unit 与三个 dataset 均支持；覆盖三数据集、三 detector families，FAIR unit D 支持。该结果只支持高置信探索性 Core 证据，不修复揭盲前 seal，也不升级为 confirmatory/deployable。
+3. zero sets：六个 zero-eligible 集合均非空，count 与 sorted SHA 已生成，SODA 按 mother scene；canonical split 的历史 SHA256/实际 MD5 parity 差异已披露。
+4. 稿件索引：claim ledger 8/8 SHA、唯一命中和标题绑定通过；O2-DFINE、Fourier Angle Alignment 及其它弱根页已标 `UNKNOWN_EXCLUDED`；正文 exploratory、HRSC 跨零、leave-dataset 0/6、fixed-dose descriptive-only、旧 CI/UCB 排除和核心引用扫描通过。
 
-执行 r017 低 CPU 静态收据：不重跑 bootstrap；补齐 gate/zero-set/metadata/manifest 真检查，修正 novelty 与 ledger 索引，并明确把 r016 历史状态保留为 protocol drift。r017 后停止机械验证循环，转入稿件贡献与投稿级对抗审查。
+## 3. 拒绝 PASS 的决定性证据
 
-| item | decision | confidence | falsifier / next action |
-|---|---|---:|---|
-| r016 Git/输出 blob | adopt | high | 仅父链、路径或blob反证可推翻 |
-| r016 raw numeric recompute | adopt exploratory | high | r017静态key/gate收据不一致则降级 |
-| r016 FULL_COMPLETION | reject | high | 缺必做gate/manifest/novelty检查 |
-| current paper claim | exploratory measurement only | high | 不可恢复的prelabel seal限制 |
-| next work | r017 static receipt | high | 不再运行昂贵bootstrap |
+### 3.1 gate 与 summary 没有按合约独立验证
 
----
+- validator 只检查 `(level,key)`，未检查 bootstrap 的 `(level,key,dataset)` 三元域。
+- 它只比较 point/CI/p/Holm/support；r017 要求的 audit rows、cluster count/SHA、bootstrap reps、身份和 detector family 没有从 r016 summary 逐字段比较。r016 summary 本身没有其中多数字段，r017 却没有写 `SOURCE_FIELD_ABSENT`。
+- gate 直接筛选 r015 的旧 `supported=True` 后计数，而不是从 Delta/CI/Holm 重新判 support。当前数值恰好通过只能保留探索性事实，不能挽救 validator 的独立性。
 
-# OrientBench C：r015 服务器证据裁决与 r016 验证器闭合
+### 3.2 feature witness 自相矛盾
 
-- review date: `2026-08-08`
-- r015 server head: `9f906fb3bfb07bd276d380a009cd95e2dc57c36a`
-- execution base: `b1fb7dfadbba04747731dfc4db603a5d159c6dbf`
-- r015 report: [`orientbench-c-r015-20260808.md`](server_reports/orientbench-c-r015-20260808.md)
-- current instruction: [`sug.md`](sug.md)
-- next report: `dis/server_reports/orientbench-c-r016-20260808.md`
-- overall r015 acceptance: **`fail / FAIL_AUDIT_IMPLEMENTATION_R015`；同步数值暂保留为待独立闭合的 exploratory support**
-- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 等待 r016 真独立验证；CVPR/ICCV 当前不成立**
-- `cc_recommendation: no`：先完成可机械复核的 r016，不让 CC 替代缺失的 validator。
+冻结 sentinel 契约是 `(u_axis,IoU_loss,center,wdisp,hdisp,score_disp,margin)=(3,1,3,3,3,10,0)`；源码逐值实现了该向量，r017 JSON 却把 sentinel 写成 `false/IMPLEMENTATION_DEVIATION`，validator 又把该 false 硬编码为“预期偏差”并据此通过。w/h swap 只引用 `pred_ar=max/min`，没有行为微测试；0/90 boundary、schema prefix/contains 与逐文件 seal 也未充分验证。
 
-## 1. 已核实的 r015 证据
+### 3.3 manifest 的 exact closure 为假
 
-- `9f906fb...` 是 `b1fb7df...` 之后恰好一个提交，最终差分恰好 19 条授权路径，`dis/B.md` blob 未变；工作树干净。
-- evidence manifest 的 18 个非自引用 tracked outputs 与 Git blob bytes/SHA-256 全部一致；Windows checkout 的 CRLF 差异不构成 blob hash 失败。但 manifest 只列 3 个 read-only inputs，且唯一 runtime output 没有 bytes/SHA，完整性不合格。
-- 9,000 行同步 bootstrap 与 committed unit/dataset summaries 自洽到 `2.78e-17`；六个 unit 与三个 dataset 均报告 support。r015 稿已把它们限定为 exploratory post-audit evidence，并保留 HRSC 跨零。
-
-## 2. 拒绝 r015 FULL_COMPLETION 的决定性证据
-
-1. `validate_r015.py` 独立重算了 9,000 个 replicate 值，但没有重算/核对 point estimate、CI、centered p、Holm、support 和最终 gate，违反 r015 Phase E 第6项。
-2. `authorized_diff_only` 实际检查的是提交前 `b1fb7df..HEAD` 空差分；validator 没有验证 r015 最终单 commit 与 19 条真实授权 diff。
-3. `zero_eligible_universe_*` 只检查 universe 非空；集合审计只检查 set-name 是否出现，没有复核禁止交集、Parquet schema、seal hashes 和实现偏差。
-4. claim ledger 只检查 `claim_sha256` 列存在，没有重算 hash；稿件/引用检查也只是少量 token。
-5. manifest 未登记全部实际读取的 scores/labels/universes，runtime output 也缺 bytes/SHA；telemetry 只有 worker/quota 字符串，没有实际 CPU/RAM 采样。这两项都违反 r015 明文要求。
-
-因此 r015 不是合法早停，而是**必做 Phase E/资源验收未完成却误报 FULL_COMPLETION**。这也不是 EQS 性能失败：当前正确分层是 `r015 package=FAIL_AUDIT_IMPLEMENTATION_R015`、`numeric=provisional exploratory support`、`r014 formal=FAIL_PROTOCOL_R014`、`HRSC=inconclusive`。
-
-## 3. 唯一下一步
-
-执行 r016 validator-only closure：不重跑训练/推理/selector，只从 raw scores、labels、universe 和固定 seeds 真正独立复算全部 summary/gate，补齐集合/schema/seal/claim/Git/资源检查。服务器回执必须明确是“全部必做阶段完成（非早停）”还是“未完成并列出 trigger 与未运行阶段”。
-
-| item | decision | confidence | falsifier / next action |
-|---|---|---:|---|
-| r015 Git/manifest scope | adopt | high | 仅 Git blob 或路径集合反证可推翻 |
-| r015 manifest completeness | reject | high | 仅 3 个 inputs，runtime 无 bytes/SHA |
-| r015 numeric self-consistency | adopt provisional | high | r016 raw 独立复算不一致即拒绝 |
-| r015 FULL_COMPLETION | reject | high | 缺失验证不能由 PASS token 抵消 |
-| r015 scientific meaning | exploratory only | high | prelabel seal 不可事后恢复 |
-| next work | r016 validator closure | high | 只补验收，不换 gate 或重做方法 |
-
----
-
-# OrientBench C：r014 服务器证据裁决与 r015 协议闭合
-
-- review date: `2026-08-08`
-- r014 server head: `b60dee50cefd8dee055bef166d2165b22c4490a8`
-- r014 intermediate commit: `e0b91ea83974ce6259149df02f1705e8f5421c39`
-- execution base: `ac7a5244731a631103a4aa479e16696f5b120b99`
-- r014 report: [`orientbench-c-r014-20260808.md`](server_reports/orientbench-c-r014-20260808.md)
-- current instruction: [`sug.md`](sug.md)
-- next report: `dis/server_reports/orientbench-c-r015-20260808.md`
-- overall r014 acceptance: **`protocol_drift / FAIL_PROTOCOL_R014`；数值保留为强 exploratory candidate**
-- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS等待r015协议闭合后重评；CVPR/ICCV当前不成立**
-- `cc_recommendation: no`：先闭合可机械复算的协议/统计/引用问题，不重复调用CC。
-
-## 1. 已采纳的 r014 新证据
-
-- FAIR1M val20已真实闭合为4,362/4,362 image rows、78,644 GT、488,194 identity predictions；逐图prediction count与m069 universe一致，official AP parity通过。
-- 六个Core unit报告的Delta_NRC均为正且unit bootstrap表内自洽；这支持EQS存在有价值的正向信号，但不自动构成confirmatory PASS。
-- HRSC2016/LSKNet已实际执行：Delta_NRC=`0.06017`，95% CI=`[-0.01432,0.14380]`，采纳 `INCONCLUSIVE_INDEPENDENT_HRSC_R014`。
-- r014最终30条路径符合授权总集合，`dis/B.md` blob保持 `3181a862137918f1dd41677893937c12b3c39c28`，远端main准确为 `b60dee50...`。
-
-## 2. 拒绝 r014 正式 PASS 的决定性证据
-
-1. `prelabel_seal.json`只封存features/models/scores，没有protocol和全部执行代码；实现脚本直到target运行后的最终commit才进入Git。历史“代码在target label前冻结”不可事后补证，按冻结规则触发 `FAIL_PROTOCOL_R014`。
-2. r014 dataset aggregate把各unit用不同seed产生的bootstrap数组按replicate index平均；DIOR同index相关约 `[-0.044,0.029]`、SODA约`0.052`，证明不是同一cluster multiplicity。正式3/3 aggregate CI无效，必须同步重算。
-3. r014 validator主要读取provenance/transform/unit/dataset CSV并检查状态或行数，没有从raw/scores/labels独立重算这些门；它也只检查当前dirty status，未发现两个r014 commits。
-4. r014稿仍用2016 RICNN承担DIOR来源；基础DIOR一手论文缺失。CPU telemetry与单commit要求同样未满足。
-
-因此服务器的 `FULL_COMPLETION/PASS_DEPLOYABLE_EQS_R014` 为 `reject`。这不是EQS性能FAIL；当前正确分层是 `formal=FAIL_PROTOCOL_R014`、`numeric=exploratory positive candidate`、`HRSC=inconclusive`。
-
-## 3. 唯一下一步
-
-执行r015 CPU-only protocol closure：不重跑GPU、不重fit、不生成新scores；从完整D_audit image/mother universe用同dataset共享cluster multiplicity重算1,000次bootstrap，独立审计seal/access/leakage与validator，修正DIOR/DIOR-R引用，并把新稿Core表降为exploratory。即使数值仍通过原阈值，也只能给 `EXPLORATORY_CORE_SUPPORT_R015`，不能重新包装成confirmatory PASS。
-
-| item | decision | confidence | falsifier / next action |
-|---|---|---:|---|
-| FAIR provenance repair | adopt | high | runtime hash或逐图join不一致才推翻 |
-| r014 formal Core PASS | reject: protocol fail | high | 只有揭盲前外部不可改写的完整code/protocol seal可提出反证 |
-| r014 numeric signal | experiment / exploratory | medium-high | 同步full-universe重算决定保留或降级 |
-| HRSC confirmation | inconclusive | high | 固定CI跨零，不换单元续命 |
-| manuscript foundation | reject r014 | high | r015修正DIOR来源与证据语气后再评 |
-
----
-
-# OrientBench C：r014 用户授权后的恢复执行裁决
-
-- decision date: `2026-08-08`
-- control parent: `61eb65ea4c56e15829031f79e57773b1a370269f`
-- immutable r012 server commit: `d76e3837c43987bfdcf134ceecc5f7ff3ab9f292`
-- immutable r012 report: [`orientbench-c-r012-20260807.md`](server_reports/orientbench-c-r012-20260807.md)
-- current instruction: [`sug.md`](sug.md)
-- next unique report: `dis/server_reports/orientbench-c-r014-20260808.md`
-- current venue ceiling: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 取决于 r014 基础修复与固定 EQS/HRSC 新证据；CVPR/ICCV 尚无证据支撑**
-- `cc_recommendation: no`：先取得 r014 服务器证据，不重复调用 CC。
-
-## 0. 本节优先级与用户授权
-
-本节是用户看到 r012 早停、并报告 HRSC 资产现已具备后的新决定；它取代下方旧节中“r013 manuscript-only / 当前方法线永久关闭”的下一步，但不改写任何历史证据或 r012 结论。当前 `dis/sug.md` 已将 r013 manuscript-only 逐字节归档，并开放新的 r014：先修复 FAIR 全总体来源，再按 r012 原冻结设计完整执行 EQS；不换 gate、不换候选、不用 HRSC 替代 Core。
-
-## 1. r012 到底“完成”了什么
-
-r012 的 A0 来源门按预注册规则合法触发，但这只表示**早停决策执行正确**，不表示 `sug.md` 全部执行完毕：
-
-| 维度 | r012 正确分类 | 不得表述为 |
-|---|---|---|
-| 执行完整性 | `INCOMPLETE_EARLY_STOP` | 全部任务执行完毕 |
-| 科学结论 | `FAIL_PROVENANCE_R012` | EQS性能失败 |
-| EQS | `NOT_EVALUATED` | 0/6、无收益或已证伪 |
-| HRSC | `NOT_EVALUATED` | HRSC失败 |
-| 原因 | FAIR raw只有3,896/4,362 image rows，完整raw未闭合 | 当时没有HRSC |
-
-“早停”是控制流；其科学含义由 trigger 决定。来源早停=`FAIL_PROVENANCE`，实现缺失=`FAIL_IMPLEMENTATION`，越权/泄漏=`FAIL_PROTOCOL`；只有 estimand、fit、target evaluation、bootstrap与预注册 gate 全部有效完成，才可给 `FAIL_DEPLOYABLE_EQS` 或 `INCONCLUSIVE_DEPLOYABLE_EQS`。因此 r012 不能被包装成性能负结果，也不能仅因触发预注册停止条件就称“真的把 sug 全搞完”。
-
-## 2. HRSC 现在有了意味着什么
-
-用户报告使 HRSC 状态变为 `USER_REPORTED_AVAILABLE_TO_VERIFY`，服务器仍须从 `pth_data/readme.md` 与实际资产绑定 config/checkpoint/split/class map/framework/SHA。HRSC 是 Core PASS 后的预指定独立确认；它不造成也不修复 FAIR A0 失败，不能越过 Core，不能用来给 Core 续命。
-
-若 r014 Core PASS，HRSC 必须实际执行，未执行则整轮为 `INCOMPLETE_BLOCKED`。若 Core 完整有效但非 PASS，按条件分支不运行 HRSC并记 `NOT_RUN_CORE_NOT_PASS`；在稿件、manifest、validator与push均完成时，这属于完整分支执行，而不是资产缺失。
-
-## 3. r014 决策与 falsifier
-
-唯一下一步是执行 `dis/sug.md`。FAIR 缺失 raw 优先穷尽查找；若不存在，用冻结 config/checkpoint/split/threshold/NMS 做 identity/h/v full forward 补全4,362-image universe。六单元闭合后执行固定 EQS：unit至少4/6且每项 `Delta_NRC>=0.02`、CI lower>0、Holm-6通过；dataset aggregate 3/3通过；FAIR必须support；SODA按mother scene。主门通过后才允许HRSC2016/LSKNet确认。
-
-| item | decision | confidence | falsifier / action |
-|---|---|---:|---|
-| r012 execution completeness | incomplete early stop | high | 无fit/label/bootstrap/HRSC，不能改称full completion |
-| r012 scientific meaning | provenance fail; EQS not evaluated | high | 只有新的完整有效执行才能产生性能结论 |
-| FAIR recovery | experiment | medium | 4,362-row raw或冻结forward可闭合则继续；否则未执行完毕 |
-| HRSC availability | user-reported, verify | medium | config/checkpoint/split/class/SHA任一不闭合即不可确认 |
-| EQS gate | unchanged r012 gate | high | 任一阈值/selector/split改变即protocol drift |
-| submission ceiling | strong-JSTARS potential, not ready | high | 仅r014基础修复和新证据可重新评估TGRS/ISPRS |
-
----
-
-# OrientBench C：r012 服务器证据裁决与方法线关闭
-
-- round reviewed: `orientbench-c-r012-20260807`
-- scientific snapshot: `c101429cebf3454b25bd62c285feffc2fea2e1c3`
-- execution base: `ebf8c27eb4ff9c225be920454b7a5f013fbc5099`
-- server commit: `d76e3837c43987bfdcf134ceecc5f7ff3ab9f292`
-- CC review head: `b959a09c021ade11241aecd970c90060dbbed84f`
-- server report: [`orientbench-c-r012-20260807.md`](server_reports/orientbench-c-r012-20260807.md)
-- reviewed manuscript: [`orientation_reliability_submission_r012.md`](../top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r012.md)
-- server acceptance: **`protocol_drift` overall；其中 `FAIL_PROVENANCE_R012` 科学早停为 `adopt`**
-- current venue: **strong-JSTARS potential、尚未 ready；TGRS/ISPRS JPRS 仅在基础事实链修复后重新评估；CVPR/ICCV 当前 EQS 方法线关闭**
-- `cc_recommendation: no`：新证据是可直接核验的来源失败与稿件硬错误；先完成 r013 事实修订，再考虑投稿前对抗审查。
-
-## 1. 可采纳的服务器证据
-
-服务器提交的父节点准确为 `ebf8c27...`，变更恰为冻结的25条授权路径，`dis/B.md` blob 保持 `3181a862137918f1dd41677893937c12b3c39c28`，提交内24个非自引用输出的 Git blob bytes/SHA-256 与 manifest 全部一致。未修改 r009/r010/r011 历史资产。
-
-FAIR1M 冻结 val20 有4,362个 image IDs与78,644个 GT；现有 r011 identity/hflip/vflip raw registry 只有3,896个 image rows，identity 为484,332 predictions，缺466个完整 split rows。m069 只留下4,362-image universe与488,194-prediction manifest，没有相应完整 raw dump，无法逐图重算3,862个预测差、建立相同 prediction identity或做无GT三视图 association。按冻结 A0 规则，AP 近似对齐不能替代 universe equality，因此 `FAIL_PROVENANCE_R012` 成立。
-
-SODA 22,994 tiles 到576 mother scenes 的映射为22,994/22,994，unmapped/ambiguous/duplicate 均为0。该通过不能覆盖 FAIR 单元失败。
-
-本轮在 A0 停止，训练、inference、transform smoke、feature build、model fit、target label attach、bootstrap 与 HRSC confirmation 均为0。因此 **没有 EQS 性能结论**；不能把来源失败说成 selector 显著失败或成功。
-
-## 2. 必须修正的服务器表述与实现边界
-
-| 服务器主张 | C 裁决 | 证据与影响 |
-|---|---|---|
-| `FAIL_PROVENANCE_R012` | `adopt` | FAIR 完整总体硬门被真实原始计数触发，足以停止 Core-6 |
-| Core provenance `5/6` | `revise` | FAIR 必败已确定；其它行足以作已有视图身份摘要，但 DIOR 的 `split=fullval` 实际只列5,863行且 expected 由当前 raw 长度导出，不把“5/6”扩写成六单元完整 fullval 法证 |
-| 当前 EQS 方法线关闭 | `adopt` | r012 非 PASS 按预注册永久关闭，禁止补一个新 TTA 或换 gate 续命 |
-| validator 独立闭合全部来源 | `revise` | 它重读 FAIR live raw 与 split，能复现3,896/4,362；但 `m069_raw_available=false` 在 preflight 中显式设定，validator未独立搜索所有历史 raw |
-| 下游实现完整但未运行 | `reject` | 三个入口只是 A0 guard；若 A0 PASS 会直接抛出 `implementation is unavailable`。这不推翻合法早停，但不能称完整方法执行包 |
-| “完整投稿稿”已交付 | `reject` | r012 manuscript 仍违反冻结的事实修订要求，见下一节 |
-
-## 3. r012 主稿仍未通过基础事实门
-
-1. §6.5 仍保留被明确要求删除的 instance/tile/mother UCB 数字表（含19,207/2,882与120,925/4,120/417），继续消费已否决的历史认证链。
-2. §6.3/§6.4 未明确写出连续风险排序与固定尺寸分箱来自 `D_audit`，仍未解释其 retained n 与 full-validation 容忍角表的估计总体差异。
-3. 参考文献仍把2016 RICNN当作 DIOR/DIOR-R来源；没有用 DIOR 基础论文与 AOPG/DIOR-R 一手来源闭合。
-4. PSC 参考文献仍写成 `Yu Y, Yang X, Li Q, et al.`，没有修为官方论文的 Yi Yu、Feipeng Da。
-5. validator只查禁用 token 与7条 ledger claim，不检查上述四项，因此其通过不能证明投稿事实链合格。
-
-已修复项包括 FAIR本地18,505/4,362划分、DOTA NRC 0.7544/0.7113、leave-dataset 0/6与可识别 leave-detector 4/5分层、固定剂量 descriptive-only 和内部 gate token 删除；这些修复保留。
+`validate_r016_receipt_r017.py` 第 335 行直接 `manifest_path.read_text()`，绕过统一 access wrapper；第 337 行仅比较 path set 与空 runtime，不比较 bytes/SHA/schema，却签发 `manifest_access_exact=true`。报告据此宣称 exact access closure 和 FULL_COMPLETION，直接触发协议漂移。
 
 ## 4. 科学与投稿裁决
 
-- 旧 target-GT geometry 仍仅是 diagnostic upper bound；旧 leave-dataset 0/6 是负迁移事实。
-- r012 没有评价 EQS，不能以性能失败写摘要；但按预注册非通过规则，当前顶会方法线已关闭，不再重跑或换候选。
-- measurement→diagnose 稿仍有可发表价值，但在上述事实链修正与一次投稿级对抗审查之前，只能定位为 strong-JSTARS potential、尚未 ready。
-- TGRS/ISPRS JPRS 的真实可达性留待 r013 事实修订稿；不得靠措辞把来源失败升级为方法贡献。
+- r014 正式状态继续是 `FAIL_PROTOCOL_R014`；r015/r016/r017 不能追认 deployable PASS。
+- `EXPLORATORY_CORE_SUPPORT_R015` 是当前最强正证据，但 HRSC `0.0602` 的 CI `[-0.0143,0.1438]` 跨零，leave-dataset 仍为 0/6，fixed-dose 仅描述性。CVPR/ICCV 线不成立。
+- strong-JSTARS potential 仍可信但未 ready。TGRS/ISPRS JPRS 不能靠换 gate 或修辞升级；先把最后一轮静态裁决诚实闭合，再做投稿级贡献/相关工作/可证伪性攻击。
 
 ## 5. 唯一下一步
 
-执行 r013 **manuscript-only foundation repair**：不训练、不推理、不复算统计、不重开 EQS，只删除无效 UCB、披露 D_audit、修正 PSC 与 DIOR-R/AOPG 一手引用，并以可执行 validator 锁定。通过后再决定是否进行 CC 投稿前攻击。
+执行 r018 **static final adjudication**：不重跑 bootstrap、不训练、不推理、不改稿，只修复三元 key、support/gate、source metadata 缺失语义、canonical set witness、feature 微测试和 full-record provenance。r018 成功 token 只表示“裁决收据有效”，可以伴随对 r017 的负裁决；不得再伪装为科学或 venue PASS，也不得自行生成 r019。
 
 ## 6. 决策台账
 
 | item | decision | confidence | falsifier / next action |
 |---|---|---:|---|
-| FAIR full-universe provenance | adopt FAIL | high | 若出现与4,362 rows绑定且可逐图复算的既有 identity raw，需作为新证据而非回改 r012 |
-| SODA mother map | adopt PASS | high | 任一 tile 多映射或缺映射会推翻 |
-| EQS performance | not evaluated | high | r012 无 fit/label/bootstrap；禁止写正负性能 |
-| r012 method route | close | high | 预注册已规定 non-PASS 关闭，不以新 gate 复活 |
-| r012 manuscript | reject as submission draft | high | r013 四项硬修全部通过才可升级 |
-| next work | r013 manuscript-only repair | high | 只处理事实链，不生成新科学数字 |
+| r017 Git scope | adopt | high | 任一非授权路径或 B blob 变化会推翻；当前未见 |
+| r017 FULL_COMPLETION/PASS | reject as protocol drift | high | 只有逐项实现缺失验证且证据一致才可另立新收据，不能回改历史 |
+| exploratory numeric core | adopt | high | 三元 key、独立 support/gate 或原始数值复核出现不一致则降级 |
+| claim/novelty/manuscript index | adopt | high | r018 动态复核发现 hash、弱来源或边界回归则推翻 |
+| early stop / performance | neither | high | r017 已运行和推送；缺陷属于 audit implementation |
+| next work | r018 final static adjudication | high | 只允许 `dis/sug.md` 的 10 条写入路径 |
