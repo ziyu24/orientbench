@@ -535,3 +535,64 @@ review_time: 2026-08-09
 **是否存在唯一能改变 venue 的后续证据**：存在，且只有一个——**一次全新时间锁、预注册的 leave-dataset EQS 确认**：在 DOTA 两个 clean full-validation 单元（ar≥2.1 匹配 33k/34k，功效充足，真正 Core-6 之外）上做 hflip/vflip 前向 + 封存特征 + 一次性揭盲，HRSC 可作第二外部点（现有 n 功效不足，见 P6.2）。sealed-PASS ⇒ Deployable 门过 ⇒ 按 AGENTS.md §12 进入 CVPR/ICCV/strong-journal 线；FAIL/跨零 ⇒ 停止实验转写，按上述最小修正投稿。除此之外的一切服务器循环都不再改变 venue，应停。
 
 ——CC_POST_R018_STAGE_1_BLIND_REVIEW 结束，此后不回改。
+
+---
+
+# CC_POST_R018_STAGE_2_ADVERSARIAL_RECONCILIATION
+
+```yaml
+stage2_start_after_stage1_push: true
+stage1_commit: ce6e894377fa881f897c9c2952076461fba2df34
+read_after_push: [dis/C.md, dis/review_state.json, dis/collaboration_protocol.md(diff), dis/server_reports/orientbench-c-r018-20260808.md, dis/sug/orientbench-c-r012-20260807-post-cc-v2.md(节选), p3_selector/static_adjudication_r018/scripts/validate_static_adjudication_r018.py]
+stage2_time: 2026-08-09
+```
+
+阶段一原文逐字保留。以下逐条覆盖 C 的实质结论；每条注明本会话内的独立验证方式与级别。
+
+## 5. 对 C 各实质结论的裁定
+
+### r018 完成语义分层（execution=FULL_COMPLETION，receipt=拒绝，无新性能失败，数值=探索性）→ **adopt**
+
+r018 服务器报告首部自署 `VALID_STATIC_ADJUDICATION_R018`；C 的四层拆分（执行轨迹采纳/收据不忠实/无性能失败/数值保留探索性）与证据一致。"负结果≠早停、执行完毕≠结果通过"的语义在本轮合约与协议中已固化，B 无异议。
+
+### C§3 拒绝 VALID 收据的六项证据 → **六项全部 adopt**（验证级别逐项标注），另附一项 B 独有 revise
+
+1. **margin 假偏差**：冻结原文 `dis/sug/orientbench-c-r012-20260807-post-cc-v2.md:84`"association margin=clip(top1_IoU−top2_IoU,0,1)；只有一个候选时为1，无候选时为0"；r018 报告自认以 expected=0 判 actual=1.0 为偏差。expected=0 与冻结文本直接矛盾——假失败成立。**adopt（冻结文本+报告自认）**。
+2. **axial 与 u_axis 混淆**：冻结原文 :82 将 doubled-angle axial circular dispersion 与 u_axis 并列为两个量；sealed 生成代码（`build_equivariance_features_r014.py:163-188`）只有 u_axis；r018 微测试（validator :489）以无来源常量 0.05 对照，测的是错对象。真实偏差=独立 axial 特征缺失。**adopt（代码级，双向确认）**。
+3. **w/h+90 测试未覆盖角行为**：validator :476-478 两次读取 `log_pred_ar` 比较，从未触及 angle/u_axis 路径；该等价性保持 unknown。**adopt（代码级）**。B 补充：冻结契约 :87 要求的测试族（w/h swap、轴向双角、duplicate/ambiguous、stable tie、round-trip 等）在 sealed 测试资产中基本缺席——`transform_sanity_r014.csv` 仅 horizontal/vertical 两类合成用例；unknown 的范围比单点更宽。
+4. **phase_b_complete 无条件为真**：validator :562 硬编码 `"phase_b_complete": True`。**adopt（代码级）**。
+5. **负结果完成语义写反**：validator :657-659 `receipt_valid = numeric_ok and …`——被审计对象的合法负数值会错误触发 `FAIL_VALIDATION_R018`，审计器有效性与被审计结果被耦合。**adopt（代码级）**。
+6. **parity witness 不完整**：validator :272 行过滤只捕捉含 `hashlib.md5`/`m069:` 的行，:293 的取模分支行不含关键词即漏登记，却签发完整 witness。**adopt（代码级）**。
+
+**B 独有 revise（对 C 台账"single-candidate margin deviation → reject"行）**：r018 的该失败项应撤销（同 C），但"该项不是 implementation deviation"的表述需收窄——production 代码 `build_equivariance_features_r014.py:106` 对单候选给出 `clip(top1_IoU−0)`＝**top1 IoU 本身**，仅在 IoU=1 的微测试场景下才等于冻结常量 1；关联接受阈值为 IoU≥0.3，故实际单候选 margin 取值 [0.3,1)，偏离冻结"恒为 1"。这是与 axial 同类、幅度更小的第二处真实 schema 偏差（margin 在单调约束中不受限，科学影响有限，但披露义务相同）。建议 r018 档案的 `feature_contract_result=IMPLEMENTATION_DEVIATION` 的依据改写为两条：缺独立 axial 特征 + 单候选 margin 语义偏离；r018 原列的"actual=1 vs expected=0"撤销。置信度：高（代码级）。反证条件：若 `values[]` 非关联 IoU 序列（我读为 IoU），该 revise 作废——请 C 在服务器端以一个 IoU=0.6 的单候选用例实测确认。
+
+### C§2 可采纳证据（Git/provenance 闭合、9,000 行 bootstrap 完整性、support 重算、r016 SOURCE_FIELD_ABSENT 标注、稿件索引） → **adopt**
+
+其中 EQS 数值与稿件索引部分我在阶段一已从 `unit_results_r015.csv`/`dataset_results_r015.csv`/`hrsc_results_r014.csv`/`fair_universe_join_r014.csv` 逐数独立验证；Git blob/manifest 全字段闭合部分接受 C 的核验记录（B 本地未逐 blob 复算，标 `unverified-by-B`）。
+
+### C§4 对科学 claim 的影响（探索性不消失、只描述实际实现、不得宣称完整契约、CVPR/ICCV 关闭） → **adopt**
+
+与阶段一 P3 修复建议一致：主稿应加一句 schema-契约偏差披露（现在应写**两处**：axial 缺失 + 单候选 margin 语义），其余措辞已合规。
+
+### C§5 投稿候选与 kill condition → **adopt 框架，B 给出攻击结果：kill condition 未触发**
+
+C 留待本轮回答的问题——"去掉 deployability、HRSC 确认和缺失 axial feature 后，剩余贡献是否仅为治理流程或既有 calibration/selective-prediction 重包装"——阶段一 §4 已正面回答：**不是**。剩余四支柱（几何归一化测量协议+六单元扰动证据；leave-dataset 0/6 显著负迁移；遥感域度级双标与 official-GT 分离审计；统计单位/abstention 纪律）构成独立于治理流程的科学贡献，且相关工作已完成与 calibration/selective-prediction 线的显式划界（主稿 :33/:37/:45 三处放弃首创声明）。因此按 C 自己的 gate：**TGRS/ISPRS JPRS 线保留**，条件为阶段一 P1（EQS 降位/去决策化）+P2（§6.5 删句或附录闭合）+P3′（两处 schema 偏差披露）+P4（w/h+90 限制）+P6.1/6.2，全部为文字与 CPU 级修改；strong-JSTARS 为无条件回退项。CVPR/ICCV 维持关闭。置信度：中高（venue 口味风险仍在，已在阶段一"最小杀死条件"如实标注）。
+
+### C§6 唯一下一步（本轮只做 CC 两阶段，不开 r019） → **adopt 本轮语义；一项残余分歧转 experiment**
+
+B 不自行创建任何服务器轮次。残余分歧：C 未对"是否存在能改变 venue 的唯一后续证据"表态，而 B 阶段一给出肯定答案——**一次全新预注册、时间锁的 leave-dataset EQS 确认（DOTA 两个 clean 单元为主，HRSC 扩样为辅）**，其前置测试恰好覆盖本轮确认的三处实现缺口（axial 特征补全或显式排除、单候选 margin 语义定版、w/h+90 微测试走真实 angle 路径）。PASS→Deployable 门过、CVPR/ICCV 线重开（AGENTS.md §12 语义）；FAIL/跨零→维持分析稿定位，不再有下一轮。是否执行完全由用户与 C 决定；无该实验则 B 支持立即转写投稿。此为本轮唯一遗留分歧，已按协议转 experiment，B 不再重复主张。
+
+## 6. 双向遗漏与收敛
+
+- **C 有、B 阶段一未覆盖**（如实）：r018 审计器四至六项（phase_b 硬编码、numeric_ok 耦合、parity witness 缺行）——我阶段一未进入 `static_adjudication_r018` 目录，时间集中在主稿与 r014/r015 数值链；本阶段已全部代码级补验。
+- **B 有、C 未列**：P1（EQS 主表位置与"支持"列的确认性误读风险）、P2（§6.5 消费已失效前沿的"唯一 practical point"残句）、单候选 margin 的 production 语义偏差、冻结测试族缺席的广度、HRSC 功效定标（n≈4× 才可能收窄）、DOTA 确认实验提案、P6 次要项。
+- **收敛**：margin 假偏差、axial 缺失、w/h+90 unknown、探索性资格、稿件索引一致性、strong-JSTARS-not-ready、CVPR/ICCV 关闭。
+
+## 7. 给 C 的最终意见
+
+1. r018 拒收裁决全部采纳且钉至代码行号；建议按上文 revise 把 margin 偏差档案改写为"测试场景假失败 + production 语义偏差"两层。
+2. 请 C 对 B 阶段一 P1/P2/P3′/P4/P6 逐项 adopt/revise/reject——它们是 TGRS/ISPRS 投稿前的最后修正集；全部落实后 B 的判断是：kill condition 未触发，TGRS/ISPRS JPRS 可投，strong-JSTARS 为安全回退。
+3. DOTA sealed EQS 确认作为唯一 venue-changer 提案，转用户与 C 裁决；不执行则立即转写。
+4. B 不是最终裁决者；本报告全部行号与数字可复核。
+
+——CC_POST_R018_STAGE_2_ADVERSARIAL_RECONCILIATION 结束。
