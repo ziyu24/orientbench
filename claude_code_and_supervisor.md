@@ -2489,3 +2489,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/preflight.json`、`claude_code_and_supervisor.md`。
 - 是否触发停止条件：是，Git synchronization method 与 CPU topology/resource-contract 双重 preflight defect；没有触发或裁决科学早停。
 - 下一步建议：监督端/C 必须基于迁移后 112-logical-CPU 现场签发全新 round id 与全新路径，并显式协调 N、worker 数和 telemetry 门槛；同时将“先拉取才能看到新合同”的同步现实纳入 Git 规则。r020 路径已消费，不得复用。
+
+## 2026-08-11 22:36 CST — r020 异常原因说明与修正请求（Codex 汇报）
+
+- 指令来源：用户追问“什么异常”。
+- 原因说明：异常发生在科学输入打开前。第一项是 Codex 在读取新合同前以 `git fetch origin main` 加 `git merge --ff-only origin/main` 完成同步，而新合同事后要求唯一使用显式 HTTPS literal 的 `git pull --ff-only`；这是执行端流程偏差。第二项是新服务器实际暴露 112 logical CPUs 与 affinity `0-111`，合同却固定要求 `N=48`、39 workers 且 job CPU 60%–80%；按合同公式，39/112 最大仅 34.82%，无法同时满足。
+- 影响边界：不是科学失败，也不是数据、软链接、Conda、GPU 或 receipt3 资产损坏；r020 未读取 26 个科学输入，未运行 A/B、bootstrap、mutation 或 gate，正式状态只能是 `NOT_ADJUDICATED`。
+- 关键产物：`dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/preflight.json`。
+- 停止条件：已触发技术/审计早停；本轮路径不可复用。
+- 下一步建议：C/监督端下发全新 round 与路径；Git 规则应允许服务器先用显式 HTTPS literal 拉取再读取合同，CPU 规则应改为实际 `N=112` 并重算 worker/利用率，或明确授权在任务入口固定 48-CPU cpuset 并以 48 为审计分母。
