@@ -2356,3 +2356,82 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - Track D 四候选全部穷尽：AI-TOD-R=`LICENSE_BLOCKED`、UAV-OBB=`MISSING_ASSET`、ShipRSImageNet=`LICENSE_BLOCKED`、ICDAR-MLT=`CONTAMINATED`；联合 gate=`FAIL_TO_MEASUREMENT_ONLY`。
 - 独立 validator 从 raw sealed inputs 重算通过；score byte、cluster delete、fake prior hit、manifest hash 四项隔离 mutation 均被 nonzero exit 拒绝。关键报告：`dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`；runtime：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/`。
 - 完成分类为 `FULL_COMPLETION`，无 omitted phase、无技术早停。未使用 GPU，未下载数据集/模型，未训练、推理或产生新目标域 outcome；未修改 thresholds、D_cal/D_audit 或 `dis/B.md`。下一步按 gate 仅进入 measurement-only writing。
+
+## 2026-08-10 10:36 CST — 项目删除候选只读审计（Codex 执行）
+
+- 指令来源：用户要求审核当前项目中可删除内容；本轮只读盘点，未删除、移动或覆盖任何文件。
+- 项目占用约 34 GiB，其中 `outputs/` 约 27 GiB、`top_journal_v3_reaudit_055/` 约 5.7 GiB、Git objects 约 567 MiB。
+- 可直接清理的仅为约 0.9 MiB Python caches、空 `.dist_test`、约 29 KiB 旧备份/根日志、521 个失效 FAIR1M 图片软链接及若干空目录，实际回收空间很小。
+- `orientbench_r010` 与 `orientbench_r011` 有约 2.349 GiB 字节一致的大文件，但 r010 是历史可复算输入且受旧冻结资产保留规则约束；仅列为经用户批准后可归档/删除的候选。K2 direct-regression 失败 checkpoint 约 0.828 GiB，同样需批准后处理。
+- `risk_logs`、052 两个大表、K2 正式 checkpoint、m069、r014、r019 法证和本轮 feasibility runtime 均仍被脚本、manifest 或科学 lineage 引用，不建议删除。未触发停止条件；下一步等待用户指定清理等级。
+
+## 2026-08-10 14:18 CST — `/dev/shm` 同名项目删除可行性审计（Codex 执行）
+
+- 指令来源：用户要求核查 `/dev/shm/cqc/pro/study` 中同名项目是否可删除；本轮只读，不删除、不移动、不停止进程。
+- 实际对象为 `/dev/shm/cqc/pro/study/GeoStructDOTA`，约 50 GiB，不是 OrientBench。其代码仓库停在旧 `master` 初始提交，而持久化 `/home/.../GeoStructDOTA` 是更新的 `main`，两者不能按完整副本处理。
+- 对比发现 shm 中约 3.228 GiB data 和 23.008 GiB logs 在持久化项目没有同相对路径文件；另有 3 个同路径文件尺寸不同。持久化副本尚不完整，直接删除会丢失约 26.236 GiB 唯一资产。
+- PID 2196475 为从 shm 目录发送数据的远端 rsync，已运行约 1 天 4 小时；5 秒内文件偏移继续增长，确认仍在活动。删除会破坏正在进行的迁移。
+- 结论：当前整个 shm GeoStructDOTA **不可删除**。只有 rsync 结束、目标端完成 HEAD/硬链接/软链接/关键 hash/文件全集验收后才能重新裁定；此时也只允许先删 caches，科学 data/logs 需逐项确认。
+
+## 2026-08-10 14:38 CST — `/dev/shm/cqc/orientbench` 精确路径审计纠正（Codex 执行）
+
+- 指令来源：用户纠正目标路径为 `/dev/shm/cqc/orientbench`；上一条 GeoStructDOTA 审计不是本次所问对象，本条以精确路径重新核查。
+- 该目录约 88 MiB，不含 Git 仓库，仅含预测 scratch：3 个 DIOR-R raw pickle 及指向持久化 GT/schema/data 的有效软链接；无断链。
+- 3 个 raw pickle 已逐文件与 `outputs/persistent_artifacts/orientbench_v2/DIOR-R/{22,61,3}/raw/` 比对，大小与 SHA-256 全部一致，持久化副本齐全；最新项目文档也将该目录定义为非持久 scratch。
+- 未发现读取该路径的训练、推理或评估进程；仅 PID 2594937 的交互式 VS Code shell 以该目录为当前工作目录。
+- 结论：科学资产层面可删除整个 `/dev/shm/cqc/orientbench`，预计释放约 88 MiB；删除前仅需让 PID 2594937 对应终端离开该目录或关闭终端。本轮未执行删除。
+
+## 2026-08-10 17:45 CST — 迁移前清理审计与新服务器 Codex 交接（Codex 执行）
+
+- 指令来源：用户要求先审计项目内可删除内容，未授权前不得操作；同时要求生成迁移到相近服务器后的 Codex 接手文档。
+- 本轮未删除、移动、覆盖或压缩任何项目资产，未训练、推理、评估或重算科学结果；仅完成 34 GiB 工作区、Git/ignored 资产、外部数据、环境、软链接和最新科学裁决的只读盘点。
+- 新权威交接文档：`docs/server_migration_handoff_20260810.md`；它取代 2026-07-27 旧报告作为当前迁移入口，并记录低风险清理候选、约 6.5 GiB 条件冷归档候选、必须迁移资产、恢复/校验步骤和 Codex 接手顺序。
+- 关键 blocker：远端 main 与本地引用需 fetch 后闭合；外部 `pth_data/readme.md` 当前缺失；`mr_dev1x` 实体位于 `/dev/shm` 且 editable ai4rs source 当前缺失；522 条 FAIR1M 派生图片链接失效。
+- 最新科学 gate 保持 `FAIL_TO_MEASUREMENT_ONLY`；当前 `dis/sug.md` 已执行完，不得在新服务器重跑。未触发科学停止条件；迁移放行需先解决上述物理/Git/环境 blocker，并等待用户授权清理级别。
+
+## 2026-08-10 23:23 CST — 新服务器 Codex 接管验收（Codex 执行）
+
+- 指令来源：用户说明项目由硬件配置基本相同的其它服务器迁入，要求 Codex 接手；若缺少 Conda 环境，优先复用现有环境。
+- 执行动作：按 `AGENTS.md` 和 `docs/server_migration_handoff_20260810.md` 仅做 Git、文件、冻结哈希、数据路径、baseline、环境、硬件、后台进程和最新 sealed evidence 的只读审计；未启动训练、推理、bootstrap、下载或新目标标签访问。
+- 科学状态：重新确认最新权威结果为 Track M=`METRIC_REVERSAL`、joint gate=`FAIL_TO_MEASUREMENT_ONLY`；使用 `pcp-obb` 对 `top_journal_v3_reaudit_055/feasibility_gate_20260809/validate_feasibility.py --no-write` 执行独立复核，结果 `PASS`，未改 sealed evidence。
+- 冻结资产：`AGENTS.md`、`configs/thresholds.yaml`、`dis/sug.md`、最新 server report、feasibility evidence manifest、10 个 D_cal/D_audit split 的 SHA-256 均与迁移报告一致。项目约 34 GiB，43,486 个普通文件、3,841 条软链接；五个登记数据集根目录和 `third_party/ai4rs` 均可读。
+- Baseline：`/home/rspip/cqc/pro/study/pth_data/readme.md` 为 89,032 bytes，SHA-256=`eb9ac9a172b49cc8063b91c2332f36829d0b3cf5f3a3667f2617d64258d10c9c`。74 条记录（68 valid）的 pth/log/config 均存在；74 个 pth 和 log 的登记哈希前缀全部匹配。54 个 active config 与 readme 中历史 config 哈希不同，但 `PORTABILITY.md` 已登记 2026-05-24 的可移植性改写，因此使用 baseline 时必须记录当前 config 实际 SHA，不能把 readme 的旧 config hash 当作当前文件哈希。
+- 环境复用：不新建 Conda 环境。新框架统计/只读验证暂用持久化 `pcp-obb`（Python 3.10.20、torch 2.4.1、mmrotate 1.1.1；本次 validator 已通过）；精确 ai4rs 框架可用持久化 `cqc-good-be` 加只读源码 `PYTHONPATH=/home/rspip/cqc/pro/study/third_party/ai4rs`，已核验 Python 3.10.20、torch 2.4.0+cu121、mmengine 0.10.7、mmcv 2.2.0、mmdet 3.3.0、mmrotate 1.0.0rc1，源码 commit=`6095d3a3155570324e9e01c88cd2e4a3b55ae7c3` 且工作树干净；legacy 0.x 资产保留使用持久化 `mr`。未安装或修改任何包。
+- 迁移未闭合项：外部 `pth_data` 实际是指向 `/dev/shm/cqc/pro/study/pth_data` 的 25 GiB 软链接，尚非持久化资产；522 条已知失效链接仍存在（521 条 FAIR1M prediction image 链接、1 条 top-journal data-prep 链接）；原 `mr_dev1x` 未持久化恢复。Git 为本地 `main` HEAD `cdf764c5a974030739a9992079bedb8b970fb2a7`、缓存 `origin/main` `ef1b2cd93cfb2ebcb8625befd15bf561add2c10e`，显示 ahead 6；SSH alias 无法解析且 HTTPS 凭证不可用，故未 fetch/pull/push。保留既有 `claude_code_and_supervisor.md` 修改和未跟踪 `docs/server_migration_handoff_20260810.md`，未覆盖或清理。
+- 资源状态：4×A30 24 GiB 可识别，但当前均被其它项目占用约 2.4 GiB 且 GPU 利用率约 52%–76%；本轮未占用 GPU。主盘剩余约 40 GiB（92% used），不足以在未规划空间的情况下直接把 25 GiB `pth_data` 从 `/dev/shm` 复制回持久盘。
+- 是否触发停止条件：未触发新的科学早停；维持既有 `FAIL_TO_MEASUREMENT_ONLY` 裁决。迁移层面尚不满足“可无缝启动新实验”，因此在 `pth_data` 持久化、Git 关系闭合及具体任务授权前，不启动训练、推理、Deployable、Track A 或新数据集工作。
+- 关键产物路径：`docs/server_migration_handoff_20260810.md`、`dis/server_reports/orientbench-c-topjournal-feasibility-20260809.md`、`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/`、`/home/rspip/cqc/pro/study/pth_data/PORTABILITY.md`。
+- 下一步建议：优先由用户/运维决定 `pth_data` 的持久化落点并恢复 Git 凭证/远端关系；在相关复放任务真正需要前，不新建 Conda 环境，也不为 522 条历史失效链接擅自改 split 或重定向。
+
+## 2026-08-10 23:43 CST — Git 闭合与迁移历史软链接影响审计（Codex 执行）
+
+- 指令来源：用户要求暂不处理 `pth_data` 持久化，只要当前可用；继续连接 Git、判断是否闭合，并完整调研历史软链接是否影响项目。
+- Git 执行动作与结果：GitHub connector 无法读取 private repo，改用服务器既有 `gh` HTTPS 凭证；将仓库级 `origin` 从失效 SSH alias 改为 `https://github.com/ziyu24/orientbench.git`，未改全局凭证。远端 `main` 是本地旧 HEAD 的严格后代，无分叉，执行 `git pull --ff-only origin main` 后由 `cdf764c5a974030739a9992079bedb8b970fb2a7` 快进 4 commits 到 `9588a095cc459acbd5de54d756343ad7db945956`。当前 `HEAD == origin/main == HTTPS ls-remote main`，branch/upstream/remote 拓扑已闭合；保留迁移前既有 `claude_code_and_supervisor.md` 修改与未跟踪 `docs/server_migration_handoff_20260810.md`，未 stash/reset/clean/覆盖。
+- 远端科学状态纠正：新拉取的 `dis/sug.md` 将 2026-08-09 feasibility 执行定性为 `ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`，其数值为 `DESCRIPTIVE_UNVERIFIED`，原 `FAIL_TO_MEASUREMENT_ONLY` 仅为 `UNVERIFIED`；新的 receipt-only round 尚未执行。本轮没有擅自启动 receipt；其合同要求启动时 worktree/index 干净，而当前保留有上述既有改动。
+- 软链接盘点：项目内恰有 522 条失效软链接。521 条是 `outputs/predictions/FAIR1M-v1.0/_root/images/*.png` 的历史 521-image partial farm；1 条是 `top_journal_v3_reaudit_055/data_prep/FAIR1M_val20/images` 的整目录链接。它们都指向已不存在的 `/home/rspip/cqc/data/dataset/fair1m1.0/split/val_20/images`；当前整个 FAIR1M 派生 `split/` 为空，不只是链接目标改名。
+- 恢复性核验：冻结 `annfiles_dotaformat` 保留 4,362 个 tile stems，覆盖 3,298 个 raw image IDs；对应 raw TIFF 与 XML 均为 3,298/3,298 存在。按历史 `p1024_o200`（1024 window、200 overlap、824 step）和 BGR padding `[104,116,124]` 从 raw 数据只读重建时，生成的 tile stem 集合与冻结 4,362 个 annfile 集合完全一致（missing=0、unexpected=0）；在人工标注 manifest 的 177 个 FAIR1M 样本上，重建 PNG SHA-256 与 crop SHA-256 均为 177/177 精确匹配。因此 val_20 的身份、坐标和像素字节可精确恢复，不需要修改 frozen split 或替换数据集。
+- 影响判断：断链不阻塞当前 stored matched predictions / GT / parquet / score 等只读测量证据，也不进入当前禁止 inference 的 receipt-only 流程；因此它们不是当前 receipt blocker。它们会阻塞任何新的 FAIR1M dataset inventory、forward/inference、TTA、AP/fullval 重算、人工标注 crop 再生成，以及 train_80/val_20 训练复放；其中 4,362-image 目录链接是实际 replay 依赖，不能当作纯装饰。结论为“当前证据消费不受影响，但 FAIR1M 图像级复算尚未闭合”。
+- 边界与产物：按用户要求不再把 `pth_data` 持久化作为本轮 blocker；未修链、未生成 4,362 张图片、未训练/推理/评估、未修改 thresholds、D_cal/D_audit、formal 标签或 frozen 资产。关键记录为本文件、`dis/sug.md`、`top_journal_v3_reaudit_055/data_prep/FAIR1M_val20/annfiles_dotaformat/` 与 raw 根 `/home/rspip/cqc/data/dataset/fair1m1.0/raw/train/`。
+- 是否触发停止条件：未触发新的科学早停。Git 闭合完成；软链接问题被定级为可精确修复的 FAIR1M replay blocker，而非当前 sealed evidence blocker。
+- 下一步建议：保留现有断链作为历史 lineage；只有在明确授权新的 FAIR1M 图像级复放时，才依据冻结 4,362 stem 集合原位重建 `val_20/images` 并做全量 manifest/SHA 验收，禁止静默改指向其它 split。当前先处理用户下一项任务，不自动执行新 receipt 或数据重建。
+
+## 2026-08-11 09:35 CST — feasibility receipt 拉取与 preflight 异常停止（Codex 执行）
+
+- 指令来源：用户要求“现在拉取，执行sug.md”。
+- 执行动作：完整读取 `AGENTS.md`、迁移交接、`pth_data/readme.md` 和活动 `dis/sug.md`；通过 HTTPS 执行唯一允许的 `git pull --ff-only origin main`，结果 already up to date。冻结的 pre-pull/post-pull、upstream 和 HTTPS remote main 均为 `9588a095cc459acbd5de54d756343ad7db945956`；`dis/B.md` blob/diff 与固定祖先链检查通过。
+- 停止条件：pull 后工作树仍有本轮前既存的 `M claude_code_and_supervisor.md` 与 `?? docs/server_migration_handoff_20260810.md`，违反 receipt 强制 clean preflight，且合同禁止 stash/clean/restore/隐藏；既有 source runtime 对当前用户仍可写，又违反不可写 preflight。两项均不得在本轮修复绕过，因此科学验收异常停止。
+- 未执行：Track M/Track D、bootstrap、pinned reference、validator、四项 mutation、joint gate、训练、推理、GPU、下载、安装、新 target outcome、annotation 内容读取或改稿。
+- 关键产物路径：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`；没有创建新 code root 或 runtime root。
+- 是否触发停止条件：是，`ABNORMAL_PREFLIGHT_FAILURE`；不是科学 `INSUFFICIENT_ASSETS`，没有发出 Track M 状态或 joint gate。
+- 下一步建议：本轮路径不得复用。仅能在本轮之外先由用户/监督员处置既有工作树变化及 source runtime 权限，再下发新 round id 和全新路径的正式 receipt 合同；不得自动重跑本轮。
+
+## 2026-08-11 10:17 CST — 迁移现场 housekeeping 授权与监督端通知（Codex 执行）
+
+- 指令来源：用户明确授权处置迁移后的 dirty worktree 与旧 source runtime 权限，并要求向监督端说明项目已经迁移。
+- 给监督端的迁移事实：当前执行现场已经是迁移后的新服务器，项目仍位于 `/home/rspip/cqc/pro/study/orientbench`；GitHub 通过既有 `gh` HTTPS 凭证可用，`main`、`origin/main` 与 HTTPS remote main 在整理前均为 `9588a095cc459acbd5de54d756343ad7db945956`。本次 receipt 启动失败来自迁移遗留的未提交日志/交接文档及旧 runtime 可写权限，不是新的科学失败；Track M、Track D、bootstrap、validator、mutation 与 joint gate 均未运行。
+- housekeeping 边界：这是失败 receipt 之外的迁移整理，不修复、不覆盖、不复用 `orientbench-c-topjournal-feasibility-receipt-20260809`。保留异常报告原始字节；将监督日志、迁移交接和异常报告作为一次 housekeeping commit 发布，使下一轮可以从干净工作树启动。
+- 历史报告发布说明：`git diff --cached --check` 仅对已封存异常报告末尾的新增空行给出 1 项 warning；这正是旧 receipt 在 seal 后停止提交/推送的 post-seal 失败。housekeeping 不修改该报告字节，以原样保留失败证据；其它两项提交内容没有 whitespace error。
+- source runtime 权限闭合：精确目标为 `outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/`，约 302 MiB，含 74 个文件、5 个目录、0 条软链接，执行前无打开文件。经用户授权原位执行 `chmod -R a-w`；可写对象由 79 降为 0，74/74 文件仍可读，根目录 mode 由 `775` 变为 `555`。内容树 SHA-256 聚合值前后均为 `2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43`，只改变权限，未改变科学字节。
+- 关键产物路径：`docs/server_migration_handoff_20260810.md`、`dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`、`claude_code_and_supervisor.md`、`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/`。
+- 是否触发停止条件：未触发新的科学早停；旧 receipt 保持 `ABNORMAL_PREFLIGHT_FAILURE`，不得改写为完整执行。
+- 对监督端的下一步请求：在本 housekeeping commit 成为远端新 `main` 后，请基于该新 SHA 下发全新的 `dis/sug.md`，必须使用新的 `round_id`、code root、runtime root 和 server-report path；不得复用已失败轮次或其路径。新合同还应明确把本迁移服务器和已只读 source runtime 作为启动现场。
