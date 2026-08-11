@@ -1,516 +1,386 @@
 ---
-round_id: orientbench-c-topjournal-feasibility-receipt3-20260811
-retry_of: orientbench-c-topjournal-feasibility-receipt2-20260810
-housekeeping_commit: 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc
-dispatch_base: 35358b5fef838b178aff0e16470ebe0117cab687
-receipt2_report_publication_commit: a2da27559dc6eb005f02efb9b3b34584ebed57b8
-control_base: bc27506f7d7c0e47c4d67b202b9157bd4016a87a
-source_execution_commit: cdf764c5a974030739a9992079bedb8b970fb2a7
-source_execution_status: ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809
-source_numbers_status: DESCRIPTIVE_UNVERIFIED
-source_reported_gate: FAIL_TO_MEASUREMENT_ONLY_UNVERIFIED
-scientific_data_cutoff: a9067fb16d2bbd747dfe69789ac33a5911eb15fe
+round_id: orientbench-c-r020-measurement-validity-20260811
+route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
+risk_class: L1_EXISTING_ASSET_CPU_ANALYSIS
+planning_base: 594654a95d50b1f14b87252698911cc3fc583b03
+user_conceptual_approval: true
+server_execution_authorized: true
+specification_authorship: C_AUTHORED_UNDER_USER_ROUTE_APPROVAL
 protected_B_blob: c0c2571f3a5c828673b39e6458ceaed5f14c5a6a
-source_runtime: outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809
-source_runtime_tree_sha256: 2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43
-receipt1_report: dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md
-receipt1_report_blob: 4fe331a6a683313150a4fb21cbabd432ffde0f6b
-receipt1_contract_archive: dis/sug/orientbench-c-topjournal-feasibility-receipt-20260809-abnormal-preflight.md
-receipt1_contract_archive_blob: 11553a92b05b692a14bf9c4f21898a5c9e10d144
-prior_receipt_report: dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md
-prior_receipt_report_blob: 8e1407d90f5a7247816c457eddcb60a704291951
-prior_contract_archive: dis/sug/orientbench-c-topjournal-feasibility-receipt2-20260810-abnormal-reference.md
-prior_contract_archive_blob: 25ee36ec83db92364134a66bb44b349ac5f34cf9
-previous_receipt_status: ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE
-previous_receipt_scientific_gate: NOT_ADJUDICATED
-previous_receipt_non_reusable: true
-receipt_code_root: top_journal_v3_reaudit_055/feasibility_receipt3_20260811
-runtime_root: outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811
-reference_root: outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811/references/fd-shifts
-server_report_path: dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md
-status: READY_FOR_SERVER_FEASIBILITY_RECEIPT
-receipt_execution_status: NOT_STARTED
-receipt_only: true
-receipt_only_retry: true
-pinned_reference_fetch_authorized: true
-pinned_reference_fetch_max_attempts: 3
-pinned_reference_remote: https://github.com/IML-DKFZ/fd-shifts.git
-pinned_reference_commit: c4467aec134e99691359da209f811d91283fc1e3
+receipt3_execution_commit: 594654a95d50b1f14b87252698911cc3fc583b03
+receipt3_report_path: dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md
+receipt3_report_blob: 498dd8094f713a4a76339890ffd3a9ec45352344
+receipt3_execution_status: ABNORMAL_EXECUTABLE_AUDIT_FAILURE
+receipt3_formal_completion_mode: PROTOCOL_DRIFT
+receipt3_scientific_gate: NOT_ADJUDICATED
+receipt3_track_m: NOT_EMITTED
+receipt3_reported_track_m: METRIC_REVERSAL_DESCRIPTIVE_UNVERIFIED
+receipt3_reported_gate: FAIL_TO_MEASUREMENT_ONLY_DESCRIPTIVE_UNVERIFIED
+receipt3_non_reusable: true
+design_path: dis/jprs_measurement_validity_gate_design_20260811.md
+plan_path: dis/jprs_measurement_validity_dispatch_plan_20260811.md
+code_root: top_journal_v3_reaudit_055/measurement_validity_r020_20260811
+runtime_root: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811
+postseal_receipt_root: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt
+postfreeze_command_log_path: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt/postfreeze_command_log.jsonl
+postseal_receipt_path: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt/postseal_receipt.json
+postseal_receipt_hash_path: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt/postseal_receipt.sha256
+post_server_required_action: C_POSTPULL_ADJUDICATION
+server_report_path: dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md
+supervisor_log: claude_code_and_supervisor.md
+status: READY_FOR_SERVER_EXECUTION
+execution_status: NOT_STARTED
+existing_core_measurement_reanalysis_authorized: true
+new_protocol_authorized: true
+new_experiment_authorized: true
+new_target_dataset_outcome_authorized: false
 gpu_authorized: false
-download_authorized: false
+general_download_authorized: false
 installation_authorized: false
 training_authorized: false
 forward_authorized: false
 inference_authorized: false
-new_target_outcome_authorized: false
-annotation_content_authorized: false
+annotation_root_authorized: false
 manuscript_edit_authorized: false
+method_experiment_authorized: false
+pinned_reference_fetch_authorized: true
+pinned_reference_fetch_max_attempts: 1
+cc_status: COMPLETED_CLOSED
 cc_recommendation: 'no'
 ---
 
-# OrientBench 顶刊可行性纠偏验收服务器合约（receipt3 受限 reference 重试）
+# r020 JPRS measurement-validity 终门服务器合同
 
-## 1. 唯一问题与不可改写的源状态
+## 0. 唯一任务与裁决边界
 
-本轮是对 `orientbench-c-topjournal-feasibility-receipt2-20260810` 的一次 **receipt-only 受限 reference 重试**，不是新科学实验，也不产生新科学 outcome；除第 5.3 节新增精确 pinned reference 获取权限外，科学问题、指标、cohort、bootstrap、Track M/Track D 状态、联合 gate、validator 与 mutation 规范均不变。唯一问题仍是：能否从既有只读 feasibility runtime、既有 sealed Core 资产、既有官方取证和精确 pinned reference 中，独立重建并验证全部证据链。
+只执行本合同，不选择其它计划。用户已批准 JPRS-first measurement-validity 路线并授权服务器执行；本扩展技术规格由 C 在该路线授权下制定，不声称用户逐行审阅。目标是用冻结 Core A-F 原始资产，CPU-only 地裁决 OBB measurement validity 是否存在可复现、跨数据集的正式 witness。本轮不是训练、方法实验、新 target 实验或改稿，也不自动产生 JPRS/TGRS ready 结论。
 
-receipt1 已永久终止为：
+learned EQS 永久为 APPENDIX_FAILED_ONLY。EQS_FORBIDDEN_SCIENTIFIC_INPUT：不得读取、推断、重建或使用 learned EQS 列、EQS 输出或任何 EQS gate。S0 只可描述；r011 fixed-dose 只可历史描述。receipt3 的 rows、metrics、bootstrap、manifest、state、gate 和代码 checkout 全部禁止成为本轮科学输入。receipt3 正式状态是 ABNORMAL_EXECUTABLE_AUDIT_FAILURE / PROTOCOL_DRIFT / NOT_ADJUDICATED / non_reusable；其 METRIC_REVERSAL 与 FAIL_TO_MEASUREMENT_ONLY 只可标为 DESCRIPTIVE_UNVERIFIED。
 
-```text
-receipt_execution: ABNORMAL_PREFLIGHT_FAILURE
-scientific_gate: NOT_ADJUDICATED
-reusable: false
-Track M: NOT_RUN
-Track D: NOT_RUN
-```
+正常全量结果恰为 PASS_TO_EXTERNAL_CONFIRMATION、FAIL_GENERIC_OR_NULL、INCONCLUSIVE_MIXED 三者之一；任一技术、provenance、独立性、审计或 Git 闭包失败均为 NOT_ADJUDICATED。PASS 只授权未来另行设计独立确认；FAIL 关闭顶刊实验循环并收口 JSTARS scope；INCONCLUSIVE 不得换 gate、换 target 或复活 EQS。
 
-它不是科学失败，也不是 `INSUFFICIENT_ASSETS`。其唯一报告为 `dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`，Git blob 为 `4fe331a6a683313150a4fb21cbabd432ffde0f6b`；旧 active 合同已按 filter-aware canonical bytes 归档到 `dis/sug/orientbench-c-topjournal-feasibility-receipt-20260809-abnormal-preflight.md`，归档 blob 为 `11553a92b05b692a14bf9c4f21898a5c9e10d144`。receipt1 的 round、code/runtime/report 路径均永久消费且不可复用。
+## 1. 写入范围、只读范围与禁止项
 
-用户在 receipt1 之外另行授权迁移 housekeeping；已发布提交 `2a70303e9d74313a15b71e1767b0b6ecdc05d2cc` 只闭合 dirty-tree 迁移记录并把既有 source runtime 原位改为只读。housekeeping 前后 source runtime 科学字节树聚合 SHA-256 均为 `2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43`。该 housekeeping 不追溯改写 receipt1，不补跑任何 Track，不验证任何旧数字，也不授予本轮之外的新权限。
+唯一允许新增或修改：
 
-receipt2 已永久终止为：
+1. top_journal_v3_reaudit_055/measurement_validity_r020_20260811/**
+2. outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/**
+3. dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md
+4. claude_code_and_supervisor.md，仅 append-only
+5. outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt/**，仅按 §11 在 scientific runtime freeze 后写固定三个持久 external-receipt 文件及 atomic rename 所需同目录 O_EXCL 临时文件
 
-```text
-receipt_execution: ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE
-scientific_gate: NOT_ADJUDICATED
-reusable: false
-Track M: NOT_EMITTED_NOT_RUN
-Track D: NOT_RUN
-```
+除上述五项外仓库与旧 persistent artifacts 全部只读。不得读取 dis/B.md 内容；只允许核验其 Git blob 与 staged/unstaged diff 元数据。禁止 GPU、一般下载、安装、训练、forward、inference、新 target、dataset annotation root、主稿、方法实验、旧结果覆盖、threshold/split/formal 标签变化。不得写 receipt3 的 code/runtime/report 路径。
 
-receipt2 完成了强制 preflight，但服务器允许根内不存在 `IML-DKFZ/fd-shifts@c4467aec134e99691359da209f811d91283fc1e3` 的本地 Git object/checkout；当轮又没有下载权限，因此在 mandatory reference provenance 阶段异常停止。它不是科学失败，也不是 `INSUFFICIENT_ASSETS`。唯一报告为 `dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`，Git blob 为 `8e1407d90f5a7247816c457eddcb60a704291951`，由提交 `a2da27559dc6eb005f02efb9b3b34584ebed57b8` 发布；该提交只是 report publication commit，不是 receipt2 正常执行提交。receipt2 active 合同归档为 `dis/sug/orientbench-c-topjournal-feasibility-receipt2-20260810-abnormal-reference.md`，filter-aware blob 为 `25ee36ec83db92364134a66bb44b349ac5f34cf9`。receipt2 的 round、code/runtime/report 路径永久消费且不可复用。
+未来报告在开始前必须不存在。code_root、runtime_root 与 postseal_receipt_root 均必须不存在，且 `git check-ignore` 必须证明两个 outputs roots 不会进入 Git；若任一存在或未 ignored，FAILURE_EARLY_STOP / NOT_ADJUDICATED，不清理、不覆盖、不续跑。本 round、code/runtime/report/postseal-receipt paths 一次消费，正常或异常后均不可复用。
 
-receipt3 的 dispatch base 为 `35358b5fef838b178aff0e16470ebe0117cab687`。用户只新增一次窄授权：在新 runtime 内最多三次通过 HTTPS 获取上述精确 pinned reference；这不改变 receipt1/receipt2、源执行、源数字或任何科学 gate，也不授权一般下载、安装或新实验。
+## 2. Git preflight、执行基线与唯一结果提交
 
-源执行的永久状态为：
+开始前记录 configured origin（只作迁移元数据）、当前/默认分支、upstream 是否存在及其值、完整 pre-pull HEAD、worktree/index、ahead/behind 与 HTTPS remote main。唯一权威远端固定为显式 `https://github.com/ziyu24/orientbench.git`；所有 network Git 命令只能使用该 HTTPS literal。configured origin 即使仍为 SSH 或 upstream 缺失/陈旧也只记录、不修改、不调用，不能单独造成失败；当前分支和 HTTPS remote default branch 必须都是 `main`。只允许 `git pull --ff-only https://github.com/ziyu24/orientbench.git main`。pull 后 local HEAD 必须等于显式 HTTPS remote main，以两端 40-hex 直接计算 ahead/behind=0/0，index/worktree clean，且 planning base 594654a95d50b1f14b87252698911cc3fc583b03 是其祖先；否则异常停止。
 
-```text
-ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809
-```
+核验 protected B blob 精确为 c0c2571f3a5c828673b39e6458ceaed5f14c5a6a，且 B 普通/staged diff 均为空。只核验元数据，不读取内容。核验 receipt3 report Git blob 为 498dd8094f713a4a76339890ffd3a9ec45352344。
 
-源执行中的全部数字永久标记为：
+把通过 preflight 的 post_pull_head 原值冻结为 execution_base。执行期间不得 pull/merge/rebase/reset/clean/checkout/amend/force。final result commit 前再次查询 HTTPS remote main，必须仍等于 execution_base；否则异常停止且不 commit/push。
 
-```text
-DESCRIPTIVE_UNVERIFIED
-```
+最终服务器结果必须是 execution_base 的唯一直接子提交、恰一个 non-merge commit，只含 code_root、唯一报告和 supervisor append；runtime_root 是持久化审计现场，不进入 Git。显式暂存获准路径，确认 B 与其它路径不在普通或 staged diff，运行 git diff --check 后只 commit 一次并 HTTPS push main。禁止 amend 或第二 commit。push 后外部 receipt 闭合前不得声称完成。
 
-无论 receipt 得到正向、负向或缺资产结果，都不得把源执行洗成正常、完整、已验证或正式科学结果。receipt 只裁定本次纠偏验收是否完整闭合，以及既有数字在独立重算后对应哪个预注册可行性状态。
+## 3. 前数据代码封印与访问审计
 
-`cc_recommendation: no`，因为本轮只执行已冻结的证据验收，不需要新的模型意见。不得调用 CC，不得把 CC/B 当最终裁决者。
+在打开任何科学输入前，必须完成实现 B、实现 A、Comparator C、closure checker、synthetic fixtures 与六项 mutation harness。synthetic pristine 必须通过、synthetic corrupted 必须被拒绝。然后冻结 code-tree 的逐文件 bytes/SHA 与 aggregate SHA；此后任何代码变化均使本轮 NOT_ADJUDICATED，不能看过科学结果后修代码重跑。
 
-## 2. 权限、只读边界与唯一写范围
+执行顺序 token 为 B_BEFORE_A：
 
-服务器在仓库内外只能写入以下四类全新路径：
+1. B 先运行，且 A output 必须不存在。
+2. B 封存后再运行 A。
+3. A/B 均封存后 Comparator C 才能读取二者。
 
-1. `top_journal_v3_reaudit_055/feasibility_receipt3_20260811/**`
-2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811/**`
-3. `dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md`
-4. `claude_code_and_supervisor.md`，仅 append-only
+A/B 只能共享冻结 protocol constants 与原始输入，禁止共享 helper、metric、gate、replicate multiplicity 或历史实现。B trace 不得出现 A，A trace 不得出现 B；两者均不得读取 receipt3 或彼此 output。
 
-除此之外全部只读。尤其禁止创建、读取内容、修改、格式化、移动、删除、暂存、恢复或提交 `dis/B.md`；只允许核验其 Git blob/diff 元数据。禁止修改主稿、`dis/C.md`、`dis/sug.md`、`dis/review_state.json`、协作协议、旧报告、原 feasibility 代码 `top_journal_v3_reaudit_055/feasibility_gate_20260809/**`、`source_runtime`、r014/m069 sealed 资产、checkpoint、数据、split、阈值、matching、canonicalization、cluster、seed、score、metric 或 gate。
+在首个 scientific input open 前启动已封印的独立 tracer，并先在 synthetic fixture 证明 strace 存在、ptrace 权限正常且能捕获子进程；失败即 NOT_ADJUDICATED。每次应用层读取必须先 append 并 flush+fsync 下列事件，再把 bytes 交给消费者：
 
-`source_runtime` 以及全部既有科学资产严格只读：不得删除、清空、覆盖、复用、改名、移动、patch、补写、backfill、chmod、write-probe、copy 替代，或借 hard link/符号链接间接修改。receipt1/receipt2 的异常报告和旧 code/runtime/report 路径也严格只读且不可复用。新代码和新 runtime 必须从上述不存在的新路径创建；发生路径碰撞时不得清理或换旁路路径。
+sequence, phase, pid, path, declared_role, bytes, sha256, monotonic_ns, prev_event_sha, event_sha
 
-禁止使用 GPU、下载数据集/模型/包、安装依赖、训练、forward、推理、打开候选 annotation 内容、计算新 target outcome 或用 target label 调参。一般 `download_authorized` 仍为 `false`；唯一例外是 `pinned_reference_fetch_authorized: true`，只允许第 5.3 节定义的精确 HTTPS Git 获取。网络只允许 HTTPS Git；不得使用 SSH。已存在主仓库只允许 `git pull --ff-only`，禁止 merge、rebase、reset、clean、checkout、stash、remote-edit、force push 或改写历史。本轮全部 `gpu/download/installation/training/forward/inference/new_target_outcome/annotation_content/manuscript_edit` 授权仍为 `false`。
+固定 genesis、连续 sequence、逐事件 hash-chain；禁止结束后批量补写。全程并行保存 strace -ff -e trace=open,openat,statx 的 OS-level 路径记录。
 
-## 3. Preflight、失败闭环与真实事件记录
+OS trace 归一化固定为：只把返回值 >=0 且 flags 为 read-capable 的 open/openat 计作 read event；按记录时 PID 的 cwd/dirfd 解析绝对路径，再做 symlink-resolved realpath；statx 只作路径旁证，不计 read。OS_scientific_relevant 只含 normalized realpath 精确命中上述 26 个科学输入的事件；A 与 B 各自必须覆盖全部 26 个输入。
 
-任何科学验收前必须完成以下 preflight；不得在 receipt 内修复、隐藏或替代启动现场使其通过：
+每个应用事件须在同 phase/process tree/path 至少有一个 OS relevant open；每个 OS relevant open 须映射到恰一个 declared application path/phase，允许同一应用事件对应多次底层 open。对 m069/r014/frozen-delta roots 的任何其它 read-capable open，以及任何 receipt3 read，均为 forbidden。其它事件必须按互斥 SEALED_CODE、RULE_OR_GIT_PREFLIGHT、RUNTIME_READ、OUTPUT_WRITE、SYSTEM_LIBRARY 分类并保存，不能进入 scientific-set 等值比较。
 
-1. 完整读取所有适用的 `AGENTS.md`、`CLAUDE.md`、本合约、协作/交接规则和 `/home/rspip/cqc/pro/study/pth_data/readme.md`。对每个实际读取文件记录规范路径、bytes、SHA256、真实读取开始/结束时间和读取结果；规则或 readme 缺失/不可读即失败。
-2. 核验 `origin` 为 `https://github.com/ziyu24/orientbench.git`，记录当前分支、远端默认分支、upstream、完整 pre-pull HEAD 和 HTTPS remote current branch。只运行 HTTPS `git pull --ff-only`；不能 fast-forward 即失败。pull 后立即冻结 `post_pull_head = git rev-parse HEAD`，并分别解析 `upstream_sha = git rev-parse @{upstream}` 与 `https_remote_current_branch_sha = git ls-remote https://github.com/ziyu24/orientbench.git refs/heads/<current_branch>`；必须满足 `post_pull_head == upstream_sha == https_remote_current_branch_sha`，且此时 index/worktree 干净。任一不等、upstream 缺失或 remote current branch 不存在即失败；不得携带 pre-existing ahead commit 进入本轮。preflight 内不得 fix、stash、clean、chmod、remote-edit、恢复、隐藏或提交既有变化。
-3. 核验 index 与 worktree 在执行前干净；不得删除、隐藏或恢复任何现有变化。核验 `dis/B.md` 的 Git blob 严格为 `c0c2571f3a5c828673b39e6458ceaed5f14c5a6a`，且其普通 diff、staged diff 均为空；不得读取文件内容。
-4. 核验 `post_pull_head` 包含本合约。对 `scientific_data_cutoff`、`source_execution_commit`、`control_base`、`housekeeping_commit`、`receipt2_report_publication_commit`、`dispatch_base` 和 `post_pull_head` 分别运行 `git cat-file -e <sha>^{commit}` 并要求 exit 0；`housekeeping_commit` 必须精确等于 `2a70303e9d74313a15b71e1767b0b6ecdc05d2cc`，`receipt2_report_publication_commit` 必须精确等于 `a2da27559dc6eb005f02efb9b3b34584ebed57b8`，`dispatch_base` 必须精确等于 `35358b5fef838b178aff0e16470ebe0117cab687`。再按下列固定方向运行 ancestry 检查并要求每条 exit 0：
+closure 对 relevant set 做上述双向 coverage，再将应用事件、A/B traces 与 manifest 的 path/bytes/SHA/phase 全字段核对。token ACCESS_EVENT_MANIFEST_EXACT 表示 scientific event 与 manifest 必须全字段等值；任何未通过 tracer 的 scientific open、链断裂、unclassified open、forbidden open 或双向 coverage 失败均为 NOT_ADJUDICATED。
 
-   ```text
-   git merge-base --is-ancestor a9067fb16d2bbd747dfe69789ac33a5911eb15fe cdf764c5a974030739a9992079bedb8b970fb2a7
-   git merge-base --is-ancestor cdf764c5a974030739a9992079bedb8b970fb2a7 bc27506f7d7c0e47c4d67b202b9157bd4016a87a
-   git merge-base --is-ancestor bc27506f7d7c0e47c4d67b202b9157bd4016a87a 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc
-   git merge-base --is-ancestor 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc a2da27559dc6eb005f02efb9b3b34584ebed57b8
-   git merge-base --is-ancestor a2da27559dc6eb005f02efb9b3b34584ebed57b8 35358b5fef838b178aff0e16470ebe0117cab687
-   git merge-base --is-ancestor 35358b5fef838b178aff0e16470ebe0117cab687 post_pull_head
-   ```
+## 4. 冻结总体、membership 与 26 个科学输入
 
-   最后一条执行时必须用已冻结的 40-hex `post_pull_head` 实值替换字面 token。由此固定且只接受 `scientific_data_cutoff -> source_execution_commit -> control_base -> housekeeping_commit -> receipt2_report_publication_commit -> dispatch_base -> post_pull_head` 的祖先链；任何 object 缺失、方向相反或非祖先均失败。housekeeping/report publication 不得当成 receipt1/receipt2 的正常执行提交或科学证据。上述 SHA 不是展示字段，还必须与所引用既有 manifests/资产的 source identity 交叉核验。未经验证的事实写 `unknown`，不得套用其它项目路径或状态。
-5. 核验 receipt1 与 receipt2 的异常报告均已存在。receipt1 仍按既有 blob/archive 规则闭合。对 receipt2，要求 `git rev-parse a2da27559dc6eb005f02efb9b3b34584ebed57b8:dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md` 精确为 `8e1407d90f5a7247816c457eddcb60a704291951`；要求 `git hash-object --filters --path=dis/sug.md dis/sug/orientbench-c-topjournal-feasibility-receipt2-20260810-abnormal-reference.md` 精确为 `25ee36ec83db92364134a66bb44b349ac5f34cf9`。receipt2 报告必须仍声明 `ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE`、`NOT_ADJUDICATED`、Track M=`NOT_EMITTED_NOT_RUN` 且 Track D 未运行；不得覆盖、修订或把 publication commit 冒充 execution commit。
-6. 核验 `source_runtime` 全树是已存在且可读的真实目录：对象总数、相对路径、类型、bytes 与内容 SHA 必须闭合；符号链接数必须为 0；对实际执行用户，根目录与每个对象均不可写；每个对象 mode 均不得含任何 write bit；按 housekeeping 使用的同一 canonical content-tree 聚合算法重算 SHA-256，必须精确等于 `2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43`。不得在 receipt 内 chmod、做会写入字节的 write-probe、复制到替代目录或用容器/root 身份掩盖 actual-user 可写性；任一 symlink、不可读、可写、write bit 或聚合 SHA 不符即失败。
-7. 核验 `runtime_root`、`receipt_code_root`、`reference_root` 和新 `server_report_path` 在启动时全部不存在。任一新路径已存在即 collision，禁止删、覆、复用、改名或改用另一目录；失败报告、reference checkout 或任一新对象一旦写入，新 round/code/runtime/report/reference 路径永久消费。核验四类授权写范围可以精确执行，且任何临时文件、日志、reference Git object、mutation 副本均能留在 `runtime_root` 内；不得使用未登记的 `/tmp`、`/dev/shm` 或仓库旁路目录。
+正式 units 恰为：
 
-tracked `execution_ledger.csv` 的边界固定为 `tracked_ledger_cutoff: PRE_SEAL_SCIENTIFIC_AUDIT_CLOSURE`：它只登记 preflight 至 tracked seal 之前的 scientific/audit 真实命令（包括失败命令），字段为 `phase, command, cwd, inputs, started_at, ended_at, exit_code, stdout_path, stdout_bytes, stdout_sha256, stderr_path, stderr_bytes, stderr_sha256`。旧称 `PRE_COMMIT_CLOSURE_ONLY` 在本合约中严格等价于这一更早的 pre-seal 截止点，绝不授权记录 seal 后但 commit 前的 Git 命令。时间来自命令 wrapper 在事件发生时记录的墙钟；退出码来自真实子进程。receipt 新事件不得使用文件 mtime、常量、猜测、事后重构或硬编码 `PASS/true/0` 代替。源执行中不存在或无法恢复的旧事件字段必须逐字段写 `SOURCE_FIELD_ABSENT`；不得用 mtime、当前时间、默认零、摘要文本或推断值 backfill。
+- A = DIOR-R / PSC
+- B = DIOR-R / Oriented R-CNN
+- C = DIOR-R / RTMDet
+- D = FAIR1M / PSC
+- E = SODA-A / PSC
+- F = SODA-A / Oriented R-CNN
 
-final `git add`、staged name-status/diff-check、post-seal B/HEAD checks、`git commit`、`git push`、post-commit topology checks、HTTPS `git ls-remote` 和 published-object checks 全部发生在 tracked 内容封存之后，严禁写入或回填 `execution_ledger.csv`、access log、tracked report、runtime、validator、manifest 或 append-only 仓库日志。外层 wrapper 必须把这些事件的真实 command/cwd/start/end/exit/stdout/stderr bytes/SHA256 暂存在仓库外，并且只在 push attempt 结束后形成 `EXTERNAL_RECEIPT_OUTSIDE_REPOSITORY_ONLY`；具体 schema 见第 9 节。
+membership 只能由各 unit image_universe.csv 中 d_cal_daudit_split_flag == "D_audit" 决定。matched row 只有 image_id 属于该显式 set 才能进入。禁止 MD5/SHA fallback、fullval 代替、旧表反推。DIOR A/B/C 的 D_audit image universe 必须完全相同；SODA E/F 的 D_audit mother universe 必须完全相同。
 
-任何 preflight 或后续必做阶段失败都使本次聊天状态为 `异常结束`。只要仓库、受保护文件和报告路径仍可安全写入，就必须先在唯一 tracked `server_report_path` 写入异常报告，列出失败点、已完成/未完成阶段、真实命令与证据；不得仅在聊天说明。新报告或任一新 code/runtime 对象一经创建，本轮所有新路径永久消费，不得清理后重跑。若 Git/所有权冲突使报告无法安全落盘或发布，应保持现场不变，并在允许的 append-only 日志中记录失败；绝不能伪造报告、commit、push 或外部回执。
+DIOR/FAIR cluster universe 为全部 D_audit image_id。SODA cluster universe 为全部 D_audit tiles 通过冻结 soda_tile_to_mother_r014.csv 唯一映射得到的 mother scenes。universe 在 eligibility 前形成并保留 zero-eligible clusters；zero-cluster universe、membership flag 缺失/冲突、unmapped/ambiguous/duplicate mother mapping 均异常。dataset aggregate 只做 equal-unit mean，禁止 pooled rows。
 
-## 4. Receipt 固定产物
+科学输入只能是下表 26 个 literal identities；必须按实际 bytes、SHA 与 schema 逐项核验。规则、design、Git metadata 与固定 pinned reference 只能作 audit input。旧 manifest 只可定位，不能覆盖本表或提供 gate/pass token；不得用 reports/069_artifact_manifest.csv 或 r014 evidence/provenance/TTA inventories 补写、替代或裁决科学值。
 
-实现可自行组织函数与并行方式，但 generator 与 validator 必须是两个独立 entry point。以下 receipt 产物必须全部位于新的 `runtime_root`，文件名固定：
+path|bytes|sha256
+outputs/persistent_artifacts/m069_fullval_reliability/A/image_universe.csv|1658312|3f1d2ef764c3f6e383e2b9e6285ed947a26f25b9707104bd8d9fb875408d4b0d
+outputs/persistent_artifacts/m069_fullval_reliability/A/matched_fullval.jsonl|133273156|00e554fbc45dfd6ab0d964800920e101411bc2ee1e218f575a0eafcfde63761e
+outputs/persistent_artifacts/m069_fullval_reliability/B/image_universe.csv|1652313|644ccaa922986d3597049680924a63555975e8a61f8ac26fccf744ff41c5edee
+outputs/persistent_artifacts/m069_fullval_reliability/B/matched_fullval.jsonl|132369719|e1772d642990fb45ee00d31a2cc62b8fd468d0e1a99e009e0430e91e51082513
+outputs/persistent_artifacts/m069_fullval_reliability/C/image_universe.csv|1655606|52c04690d415a66b59ff9d30d58f97ae836d71d62e543c8e278b707d4565bc77
+outputs/persistent_artifacts/m069_fullval_reliability/C/matched_fullval.jsonl|132382835|91d4b372e5340a4849af680d82a3973be0999b2778e89375116067fa6009ea2e
+outputs/persistent_artifacts/m069_fullval_reliability/D/image_universe.csv|719167|5cec906c601469dff58a2e6a26293d54613cc7f162c458f6a5abde0cb0f76586
+outputs/persistent_artifacts/m069_fullval_reliability/D/matched_fullval.jsonl|86428641|fe2c0b3690e12793f898c0c7a5ce100806567e39f4b3671e9b1e2af5fb8c3bbf
+outputs/persistent_artifacts/m069_fullval_reliability/E/image_universe.csv|3348604|75f874fff653e64460d6c91ce0dd07637ad68b55532976fbdca1bd01a4f8b131
+outputs/persistent_artifacts/m069_fullval_reliability/E/matched_fullval.jsonl|482776147|337470223fae218aa2969ae8f974a447e6666d22f02830a7a933ea3dadbd72c9
+outputs/persistent_artifacts/m069_fullval_reliability/F/image_universe.csv|3340530|0ce7cc5f4d56aceef57faaa85b09115309b961d4e663484ac893731330eef95c
+outputs/persistent_artifacts/m069_fullval_reliability/F/matched_fullval.jsonl|528736628|dd7f37b067a569541140a1bad49bf6ae3a5aea7b0f9eff031ef3fe9a9a2c723f
+outputs/persistent_artifacts/orientbench_r014/features/A.parquet|106414303|1680039b73ea6419143621ac5776713f2232b1f1bca953d22ba452dae3990800
+outputs/persistent_artifacts/orientbench_r014/features/B.parquet|76778217|a4a56429d092ae5f2b99eae5bdbad6033b2bc1d3e9db3cd205534903ccdbabb5
+outputs/persistent_artifacts/orientbench_r014/features/C.parquet|90348339|79b8b9299b7e758bbad663f4a55e94eaca186de14337212f8f1542c02fd38e44
+outputs/persistent_artifacts/orientbench_r014/features/D.parquet|56298120|3d88592b74e3b6ee51515ab530c9020f07518f26ca74c69a84b90ca408d104af
+outputs/persistent_artifacts/orientbench_r014/features/E.parquet|235374169|00e690cd03d5ff00cdd73b87a0c0bec1ad0d1e22889c2da3693975f203252f0b
+outputs/persistent_artifacts/orientbench_r014/features/F.parquet|161849746|c3875f572b6c909b39ab4b5797d60963cf097969aca9ca4eb68a3f50c2caad75
+outputs/persistent_artifacts/orientbench_r014/scores/A.parquet|14113964|65a38d8dc6e8818f459cb248a9cf90949157010dce2bb11469f5f5b5c161181a
+outputs/persistent_artifacts/orientbench_r014/scores/B.parquet|5147240|a7b16608a3495d466de005e998e8ee83803d35bc0222c6c2b398caac9c3b4285
+outputs/persistent_artifacts/orientbench_r014/scores/C.parquet|9067953|1724d7bda74542d6f4b02d1ea29e9e1eb19a3880a4c3c2b826acbbeab74e9d67
+outputs/persistent_artifacts/orientbench_r014/scores/D.parquet|11574260|1807dc207596f2a26aaee992dd96efd972da36f4bcf7ce82edf1a434c83c8d4a
+outputs/persistent_artifacts/orientbench_r014/scores/E.parquet|40344077|e3ef91a92370cbd3cfd2e76fae46f430c8024b73ec9dd56e64c274c531d3e4bd
+outputs/persistent_artifacts/orientbench_r014/scores/F.parquet|19765066|fa27f7fed94c410d8bd27a106e96587d6b330d1c38e3f4f0c10986ee3f2367db
+outputs/persistent_artifacts/orientbench_r014/soda_tile_to_mother_r014.csv|1418786|7bf9cc5698b0af2796fbb990e387603f3284231e541b1d711fd35c576e8b787f
+top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json|12986|80d86a5f72e70405fe4a49db87aad61e6aea20a26af0ad1c5745bfd646d1e5cb
 
-```text
-protocol.json
-preflight.json
-execution_ledger.csv
-access_log.csv
-resource_telemetry.csv
-track_m_source_inventory.csv
-track_m_reference_check.json
-track_m_metrics.csv
-track_m_risk_coverage.csv
-track_m_bootstrap_replicates.csv
-track_m_bootstrap_comparison.csv
-track_m_status.json
-track_d_official_sources.csv
-track_d_search_runs.csv
-track_d_prior_outcome_hits.csv
-track_d_asset_inventory.csv
-track_d_status.json
-joint_gate.json
-validator.json
-mutations/mutation_index.csv
-evidence_manifest.json
-protocol_closure.md
-```
-
-日志和四个 mutation 的 witness 可在 `runtime_root/logs/**` 与 `runtime_root/mutations/**` 下增加。`access_log.csv` 的定义固定为：
-
-```text
-access_log_cutoff: PRE_SEAL_SCIENTIFIC_AUDIT_ONLY
-access_log_excludes_self == true
-access_log_excludes_evidence_manifest == true
-access_log_excludes_tracked_report == true
-access_log_excludes_post_seal_external_outputs == true
-```
-
-它只登记 seal 前实际 scientific/audit inputs、实际 executed code、已经产生的 runtime outputs 和真实读取事件的规范 path、role、access mode、bytes、SHA256、schema、row keys/row count（适用时）、开始/结束时间与调用阶段。annotation 只能登记 filename/stat，不得打开或 hash 内容。`access_log.csv` 不记录自身的生成/读取，不记录随后生成的 `evidence_manifest.json` 与 tracked report，也不记录 final `git add`、staged checks、B/HEAD checks、commit、push、`ls-remote` 或任何 post-seal/external 输出；这些排除项必须显式写入 manifest classification，不能伪装成未访问。
-
-全部 scientific/audit 计算、独立 validator 和 mutation 完成且文件句柄关闭后，冻结一个只读 snapshot。snapshot 必须把每个对象分类为 `PRE_SEAL_SCIENTIFIC_AUDIT_INPUT`、`PRE_SEAL_EXECUTED_CODE` 或 `PRE_SEAL_RUNTIME_OUTPUT`，并固定实际 path/bytes/SHA256/schema/keys；`access_log.csv` 作为已完成的 runtime output 进入 snapshot。`evidence_manifest.json` 只能从该 frozen snapshot 确定性生成并负责保存这些分类；不得扫描后来变化的 live tree 来补项。manifest 必须包含固定 self entry：
-
-```text
-manifest_self_path: evidence_manifest.json
-manifest_self_bytes: N/A_SELF_REFERENCE
-manifest_self_sha256: N/A_SELF_REFERENCE
-manifest_self_classification: SELF_REFERENCE_NOT_INDEPENDENTLY_VALIDATED
-```
-
-manifest 还必须显式列出 `access_log.csv` 已覆盖与排除的类别、tracked report 为 `POST_MANIFEST_TRACKED_OUTPUT_EXTERNAL_VALIDATION`、post-seal artifacts 为 `EXTERNAL_RECEIPT_ONLY_NOT_REPOSITORY_EVIDENCE`。不得声称 manifest 预知或证明自身 bytes/SHA256，也不得把 tracked report 或 external receipt 的未来 hash 回填其中。
-
-pre-seal validator 的闭合范围固定为 `pre_seal_validator_scope: FROZEN_SNAPSHOT_AND_PLANNED_OUTPUT`：它必须验证 frozen snapshot 的实际内容，以及由该 snapshot 确定生成的 manifest/report 计划 schema、必需字段、分类、N/A self token、科学状态和 pending external token；不能因 access-log 排除而漏验 manifest/report 的计划内容。随后实际写出的 tracked report 必须声明 `tracked_report_source: FROZEN_SNAPSHOT` 和 `tracked_report_self_validation: EXTERNAL_GIT_BLOB_ONLY`，记录 manifest 的实际 bytes/SHA256，但不得声称对自己的最终 on-disk/Git blob 做了独立验证。最终 tracked report 与其它实际 tracked outputs 由 post-seal external receipt 从发布后的 Git blobs 复核。
-
-## 5. Track M：sealed measurement receipt
-
-### 5.1 固定 Core、来源与字节身份
-
-Core 固定为六个 unit：
-
-```text
-A: DIOR-R
-B: DIOR-R
-C: DIOR-R
-D: FAIR1M
-E: SODA-A
-F: SODA-A
-```
+每个实现从 pred_obb/gt_obb 独立重算 long-side canonical angle、AR 和风险，并逐行核对历史 angle_error；不得信任旧 gate、旧汇总或旧 risk 列。
 
-对 A–F 每个实际消费的 raw row、score、label/risk、cluster universe 和映射文件，逐项记录 bytes、SHA256、实际 schema、row count、sealed 物理顺序的 ordered row-key sequence SHA、排序后的完整 row-key set SHA、完整 cluster set（包括 zero-eligible cluster）及其排序 SHA。每项身份必须独立对照 **本轮 receipt 创建之前已存在** 的 r014/m069 sealed manifests，包括 `p3_selector/deployable_proxy_r014/reports/tta_inventory_r014.csv`、`provenance_r014.csv`、`evidence_manifest_r014.json` 以及 `outputs/persistent_artifacts/m069_fullval_reliability/{A,B,C,D,E,F}/manifest.json` 中适用的既有记录。还必须核对这些 manifests 自身的 bytes/SHA256 与来源身份。
+## 5. strict cohort join 与 schema
 
-receipt 生成的 inventory、源 feasibility runtime 的汇总表、服务器报告或 generator 输出都不能作为源资产自证。若既有 manifest 缺字段，写 `SOURCE_FIELD_ABSENT`；若任一 Core unit 的 byte-exact rows、全部固定 score 输入、完整 row keys 或完整 cluster universe不能由既有 sealed manifests 闭合，Track M 必须是 `INSUFFICIENT_ASSETS`。缺失必须用实际 stat/read/hash 错误和访问日志证明，不能从摘要、文件名或预期常量推断。
+STRICT_JOIN_MODE: MATCHED_DAUDIT_BASE_COHORT_SEMISELECT_RHS_ONE_TO_ONE_LEFT。
 
-### 5.2 从 raw sealed rows 独立重算
+唯一 row key 为 (image_id,pred_id)。matched、features、scores 三份源表各自全表 key 必须唯一。
 
-只允许以下固定 score；不得 refit、替换、挑选或增加候选：
+每个 unit 先按 matched 原始文件顺序，仅用 image_universe 显式 D_audit membership 筛出完整 matched base cohort，冻结其完整 key sequence、sorted-key set 及两者 SHA。五个 eligibility 只从该 base cohort 派生。
 
-```text
-raw_confidence = identity detection score
-linear_source_frozen = existing sealed score+AR+size linear output; no refit
-tta_angle = -u_axis
-tta_localization = -(missing_fraction + iou_loss)
-S0 = -(u_axis + missing_fraction + iou_loss)
-learned_EQS = descriptive-only comparator; never drives a state or gate
-```
+features 与 scores 各自先对 base-cohort keys 做 semi-select，再以 validate=one_to_one 分别 left join。base cohort 的 missing=0、duplicate=0、drop=0；连接前后 row count 与 key sequence 必须完全相同。features/scores 全表中不属于 base cohort 的合法 RHS extras 允许存在，但各自必须记录 count 与 sorted-key SHA，且绝不进入 endpoint。
 
-从 raw sealed rows 重算，禁止从旧汇总表抄数字。risk 固定为：
+detection_score 只在 features 与 scores 的对应 cohort rows 中逐行 finite 且精确相等；matched 不要求存在 detection_score。正式 probes、GT OBB、membership、cluster、eligibility 所需真实字段必须 schema 完整且 finite。禁止 inner join、drop、impute 或各 probe 自行缩小 cohort；任一断言失败均为 NOT_ADJUDICATED。
 
-```text
-risk_cap3 = clip(angle_error / max(delta_theta_0.75(GT_AR), 1 degree), 0, 3)
-residual = risk_cap3 / 3
-```
+## 6. probes、风险、消融与端点
 
-不得改变 row eligibility、排序、angle 语义或风险缩放。每个 unit 必须先从 sealed eligibility 与完整 row keys 冻结唯一的 `unit_complete_eligible_row_key_sequence`，再按该序列对 residual 和全部必需 score 做 exact one-to-one join；禁止任一 score 自行定义 cohort。计算前必须同时满足：
+正式 probes 恰为：
 
-```text
-cohort_key_alignment_exact == true
-cohort_nonfinite_count == 0
-all_scores_paired_bootstrap_same_cohort == true
-row_drop_policy = NO_ROW_DROP_ALLOWED
-```
+- raw_confidence = detection_score
+- linear_source_frozen = score_ar_size_linear
+- tta_angle = -u_axis
+- tta_localization = -(missing_fraction + iou_loss)
 
-任一 residual/必需 score 出现 NaN 或 infinity，或任一 key 缺失、重复、额外、错位，Track M 立即为 `INSUFFICIENT_ASSETS`；不得按 score 单独 mask、drop、impute 或缩小 cohort。若底层文件/解析代码损坏到无法安全完成 stat/hash/schema/key 取证，则 execution abnormal，但仍禁止 drop 后继续。所有 score 的 AUGRC、AURC、NRC、完整 generalized risk-coverage curve、`Risk@70%`、`Risk@90%`、paired comparison 与 synchronized bootstrap 必须使用完全相同的 `unit_complete_eligible_row_key_sequence`、行数和 cluster membership。每个 unit、score 和 dataset aggregate 都必须重算并保存这些字段及实际 nonempty coverage。
+正式 contrasts 恰为后三者各自减 raw_confidence，共 3 个。S0=-(u_axis+missing_fraction+iou_loss) 只作描述，不进入 family/gate。
 
-AUGRC 固定使用 unique score threshold、整组 tie 同时进入、包含 `(coverage=0, generalized_risk=0)` 的未缩放 trapezoidal integration，其中 `GR(t)=(1/N)*sum_i residual_i*I(score_i>=t)`。固定 coverage `q` 只能选择 unique thresholds 中最小的实际 `coverage>=q`，并以该 accepted set 的 mean residual 报 selective risk；不得拆 tie 或看 outcome 后选阈值。DIOR/FAIR cluster 为完整 image；SODA 为 original mother scene；zero-eligible cluster 必须保留。dataset aggregate 必须先逐 unit 计算再 unit-equal 平均，禁止 pooled rows。
+预测和 GT 均 canonicalize 为 long-side；角差按 180 degree 周期。AR=max(gt_w,gt_h)/min(gt_w,gt_h)，主域 AR>=2.1。主风险：
 
-### 5.2.1 AURC/NRC 的唯一公式、tie、normalization 与边界
+r_geo = clip(e_can / max(delta_0.75(AR), 1 degree), 0, 3) / 3
 
-AURC/NRC 与 AUGRC/Risk@70/90 是不同的 sensitivity。AURC/NRC 固定使用下列离散 row-wise 定义，不能改成 trapezoid、unique-threshold curve、tie-group average 或其它 normalization。输入必须是同一 `unit_complete_eligible_row_key_sequence` 上、同 shape 且逐项 finite 的 `score` 与上文 `residual`；shape、key 或 finite precondition 不满足时按上一段 fail closed，绝不清洗或 drop。初始顺序就是已核验 ordered row-key sequence；不得重排来优化 tie。调用既有 sealed implementation 时必须断言并保存 `n_dropped=0`；任何非零值都是 `INSUFFICIENT_ASSETS`，不能消费其输出。
+固定五个单因素 geometry/AR ablations：
 
-```text
-n = number of rows in unit_complete_eligible_row_key_sequence
-pi = stable_argsort(-score, kind=stable); equal-score ties retain sealed raw-row order
-SR_k = (1/k) * sum_{j=1..k} residual_{pi_j}
-AURC_model = (1/n) * sum_{k=1..n} SR_k
+1. NO_LONGSIDE_AR21：仍 AR>=2.1 且同一 delta_0.75(AR)，只把 e_can 换为未长短边交换的 180-degree raw-theta 差。
+2. NO_GEONORM_AR21：仍 canonical 且 AR>=2.1，只把风险换为 clip(e_can/90,0,1)。
+3. NORMALIZED_ALL_AR：仍 canonical 与同一 geonorm，只取消 AR cutoff。
+4. NORMALIZED_AR16：仍 canonical 与同一 delta/r_geo，唯一改变 eligibility 为 AR>=1.6。
+5. NORMALIZED_AR13：仍 canonical 与同一 delta/r_geo，唯一改变 eligibility 为 AR>=1.3。
 
-r_(j) = residual sorted ascending with stable sort
-OR_k = (1/k) * sum_{j=1..k} r_(j)
-AURC_oracle = (1/n) * sum_{k=1..n} OR_k
-AURC_random = (1/n) * sum_{i=1..n} residual_i
-denom = AURC_random - AURC_oracle
-NRC = (AURC_model - AURC_oracle) / denom
-```
+SCENE_MACRO 是 family 外纯描述诊断：固定 coverage 下非空 image/mother 等权，空 scene 只进 nonempty-rate 分母。只报告 scene-macro point、nonempty rate 与正式 scene-cluster CI；禁止另造 instance-IID bootstrap、material flag、category-change 主张或单独形成 OBB-specific witness。
 
-所有中间量用 float64，unit 内不提前 round；AURC/NRC 越低越好且 NRC 不 clip 到 `[0,1]`。`n=0` 时四个 AURC/NRC 值均为 NaN、`degenerate=true`；`abs(denom)<1e-12` 且 `n>0` 时 NRC=NaN、`degenerate=true`；其它边界 `degenerate=false`。逐值比较固定为 `atol=1e-12, rtol=0`。unit 结果仍按 unit-equal arithmetic mean 聚合；禁止 pooled rows。AUGRC 与 Risk@70/90 继续严格采用上一节的 whole-tie unique-threshold 规则，不受此处 row-wise stable-tie 定义影响。
+主端点恰为 unscaled continuous-loss AUGRC、Risk@70、Risk@90。每个 whole-tie unique threshold：
 
-退化不得产生或替换 Track M 第六状态。若 `n=0`、NRC denominator 退化或必需 metric NaN 是因为所需 byte-exact row/score/cluster/fixed-algorithm/replicate evidence 缺失，才适用 `INSUFFICIENT_ASSETS`。若上述证据完整但数学上仍退化、相等边界导致五态无法唯一判定，或 production/validator 无法按冻结定义得到唯一状态，则不得输出任何 Track M 科学状态，必须写 `track_m_state: NOT_EMITTED`、`scientific_gate: NOT_ADJUDICATED`、`receipt_execution: ABNORMAL_EXECUTABLE_AUDIT_FAILURE`；这属于“无法唯一状态=executable-audit failure”，必须异常结束，不得洗成正常、借 CI 判负或更换 gate。
+- coverage = k/n。
+- generalized risk = accepted risk sum / fixed total n。
+- selective risk = accepted risk sum / k。
+- AUGRC 在包含 origin (0,0) 的 unique-threshold generalized-risk curve 上 trapezoid integration。
+- Risk@70/90 使用第一个 actual coverage >= q 的 whole-tie threshold并报告 actual coverage。
 
-既有 sealed implementation 身份同时固定为：
+coverage intervals 固定为 [0,.70]、(.70,.90]、(.90,1]；crossing/best interval 仅描述。AURC/NRC 用 (score desc,row_key asc) 冻结兼容实现，仅 legacy diagnostic，不驱动 gate。
 
-```text
-orientbench/metrics/risk_coverage.py
-git_blob=566a3a84b6fffa3315faec606edf20ee9bf3843b
-git_blob_bytes=3165
-git_blob_sha256=ae9ab7e3c8b745f24b3cc60048dbd143cafd8da89b6a8e779fab37326d2f6aaa
+## 7. bootstrap、effect bands、p、Holm 与 accepted-set swap
 
-orientbench/metrics/nrc_auc.py
-git_blob=fcd55fd7bd99d55d3dc889ae0100c2e99913787c
-git_blob_bytes=2774
-git_blob_sha256=e99206475b4015b563ccc5107991d326d85c330de346dc2452c4f1738afc52a0
-```
+固定 seed=20260809、replicates=0..9999、dataset index DIOR-R=0, FAIR1M=1, SODA-A=2。cluster id 按 UTF-8 byte order 排序。dataset d 使用 numpy.random.RandomState(20260809+d)，按 replicate id 顺序恰调用一次 randint(0,n_clusters,size=n_clusters)，再 bincount(minlength=n_clusters)。同 dataset 全部 units/probes/losses/endpoints 共用该 multiplicity，保存每个 replicate multiplicity SHA。
 
-服务器必须对 `scientific_data_cutoff`、`source_execution_commit`、`control_base` 和 `post_pull_head` 分别用 `git rev-parse <sha>:<path>`、`git cat-file blob` 动态核验上述两个 blob identity、raw Git bytes 与 SHA256；不得只抄常量。generator implementation A 从 raw sealed rows 调用身份已核验的 sealed implementation；validator implementation B 从 raw sealed rows按上列公式独立实现，禁止 import generator、implementation A 或其 summary。两套实现逐 unit、dataset aggregate 和适用 bootstrap 字段比较；任一差异或 identity 不符均失败，不能自由选择较有利实现。
+固定 39 worker processes，replicate-to-worker=replicate_id % 39，只按 replicate id 确定性合并。zero-eligible clusters 保留；zero-cluster universe 异常。
 
-### 5.3 动态核验 pinned AUGRC reference
+完整 hypothesis key H=(level,key,contrast,endpoint,ablation_id)，lower is better：
 
-唯一新增权限是把下列精确 Git identity 获取到 `reference_root = outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811/references/fd-shifts`：
+Delta_main(H)=M_probe_main(H)-M_raw_main(H)
+Delta_ablation(H)=M_probe_ablation(H)-M_raw_ablation(H)
+DoD(H)=Delta_main(H)-Delta_ablation(H)
 
-```text
-remote = https://github.com/IML-DKFZ/fd-shifts.git
-commit = c4467aec134e99691359da209f811d91283fc1e3
-required basenames = rc_stats.py, rc_stats_utils.py
-maximum clone/fetch attempts = 3
-```
+每个 operand 只能来自 H 对应 level、unit/dataset、contrast、endpoint、ablation、eligibility 的同一 cohort，禁止复用或跨层借数。
 
-`reference_root` 只作不可复用的现场容器；先在其中创建空目录 `empty-hooks/` 与 `empty-template/`，再按顺序使用全新的 `attempt-01/`、`attempt-02/`、`attempt-03/`。失败 attempt 必须原样保留，禁止删除、清理、覆盖或复用。每个 attempt 可以先在自己的新目录本地执行 `git init` 与 `git remote add origin`，随后只允许一次对上述 HTTPS remote、精确 SHA 的网络 `git fetch`；等价的 clone/fetch 流程也必须保持一个 attempt 只有一次网络命令。三个 attempt 合计最多三条网络命令。首个完整身份核验成功的目录冻结为 `verified_reference_path`，立即停止后续网络尝试；不得因后续路径更方便而继续获取或换目录。
+epsilon_AUGRC = max(5e-4, 0.02 * max(abs(M_probe),abs(M_raw)))
+epsilon_Risk = max(1e-3, 0.02 * max(abs(M_probe),abs(M_raw)))
 
-所有获取与身份核验 Git 命令必须显式使用 `GIT_CONFIG_NOSYSTEM=1`、`GIT_CONFIG_GLOBAL=/dev/null`、`GIT_LFS_SKIP_SMUDGE=1`，并带 `-c core.hooksPath=<reference_root>/empty-hooks -c init.templateDir=<reference_root>/empty-template -c submodule.recurse=false -c protocol.file.allow=never`；checkout 还必须禁用 recurse-submodules。由此隔离 system/global template、hook、filter/LFS 与 submodule 副作用。不得用镜像、缓存替代源、其它 remote、替代 commit、GitHub archive、网页正文、submodule、Git LFS、hooks、setup、editable install、`pip`、`conda` 或任何依赖安装。获取与身份核验阶段不得执行任何 checkout 代码、setup、hook、smudge/filter 或网络侧脚本。一般 download 权限仍为 false，此窄授权不得用于其它文件或仓库。
+epsilon_main 只由 main point estimates 计算一次；epsilon_ablation 只由 ablation point estimates 计算一次；bootstrap 内不重算。CI 为排序后 linear quantile 0.025/0.975。
 
-获取后必须 fail closed 地核验：origin URL 精确等于上述 HTTPS remote；commit object 存在且类型为 commit；checkout 是 detached HEAD 且 `HEAD` 精确等于 `c4467aec134e99691359da209f811d91283fc1e3`；index/worktree clean；没有 submodule/LFS materialization 或额外 remote。必须从 `git ls-tree -r --full-tree c4467aec134e99691359da209f811d91283fc1e3` 的真实输出按 basename 查找，要求 `rc_stats.py` 与 `rc_stats_utils.py` 各恰好命中一个 blob。分别保存 repo-relative path、blob OID、`git cat-file` raw bytes、bytes count 与 SHA256，并核对 checkout bytes 与 blob bytes精确一致。文件缺失、多义、OID/type/bytes 不符或 checkout 不洁净均为 mandatory provenance failure。
+DoD 双侧 centered-bootstrap p：
 
-remote/commit/detached HEAD/clean/tree/blob/bytes 身份全部闭合并冻结 `verified_reference_path` 后，才允许在禁网、无安装、隔离进程中从两份固定 blob 完整 import 并调用目标 reference functions；不得执行 setup、hook 或其它 checkout 代码。若完整 import 仅因未安装依赖失败，可以使用无安装隔离适配器，但适配器只能对上述两个已核验 blob 的 raw source 做 AST 解析，抽取所需函数及其闭包依赖；不得改写公式、复制手抄实现或注入 expected 常数。必须保存 AST node 类型与源 span、每段 raw source bytes/SHA256、依赖闭包、编译后的 adapter bytes/SHA256，并证明每个执行片段逐字节来自固定 blob；若 AST 闭包不能唯一、完整、安全抽取则失败。
+p = (1 + count(abs(DoD_b-DoD_hat) >= abs(DoD_hat))) / 10001
 
-核验后的 reference 入口固定为 `fd_shifts/analysis/rc_stats.py` 与 `fd_shifts/analysis/rc_stats_utils.py`；上述 basename 的唯一 `git ls-tree` 命中必须精确对应这两个 repo-relative path，否则属于 mandatory provenance failure。真实 import 或合规 AST adapter 都必须从这两个固定 blob 构造 `RiskCoverageStats(confids=score,residuals=residual)`，并动态调用 `RiskCoverageStats(confids=score,residuals=residual).curve_stats_generalized_risk` 与 `RiskCoverageStats(confids=score,residuals=residual).augrc`。同时必须从固定 blob 动态读取实际 `AUC_DISPLAY_SCALE`，把其 source span、raw source bytes/SHA256、实际值和读取方式落盘；`reference_auc_display_scale` 必须精确为 `1000`。缺失、多义、无法从固定 blob 动态读取或值不精确等于 `1000`，均为 mandatory provenance failure。
+Holm 按 (raw_p,hypothesis_key) 排序，计算 (m-rank+1)*p，取 prefix max 并 clip 1。NaN/Inf、missing/duplicate key 均异常。主/消融 contrast CI 是保守稳定过滤；正式 multiplicity 只由 DoD p 的 Holm 调整承担。
 
-receipt 的 AUGRC 定义仍是第 5.2 节冻结的未缩放积分，禁止修改公式或给 receipt 实现乘 `1000`。pinned reference 的 `.augrc` 是 display-scaled 值，必须且只能按 `reference_augrc_unscaled = reference_augrc_display / reference_auc_display_scale` 归一化；禁止把 `reference_augrc_display` 直接与 receipt AUGRC 比较。对含 tie、binary、continuous、boundary 的每组 vector 都必须执行上述同一固定入口，现场取得 `curve_stats_generalized_risk` 的 coverages/risks、`reference_augrc_display`、动态 scale 与 `reference_augrc_unscaled`；只有 reference curve 的 coverages/risks 和 `reference_augrc_unscaled` 才能与 receipt 的未缩放 curve/AUGRC 以 `atol=1e-12, rtol=0` 比较。reference vectors、全部实际 reference outputs、调用入口、stdout/stderr、scale provenance、归一化中间量和比较明细必须落盘；expected 必须来自本次动态执行，禁止 generator 常量、手抄答案、旧 derived toy JSON、字符串引用或恒真布尔。完整 import 与 adapter 尝试都必须记录，不能隐藏失败后只报成功路径。
+whole-tie accepted set：
 
-三次网络尝试均失败，或 remote/commit/tree/blob/bytes/dynamic behavior 任一无法闭合时，本轮必须写唯一异常报告并选择 `异常结束`；`scientific_gate: NOT_ADJUDICATED`，Track M 不得发出，Track D 不得用于 gate。receipt3 round/code/runtime/report/reference 路径永久消费，不得换源、换 commit、补装依赖、清理后重跑或把该失败映射为 `INSUFFICIENT_ASSETS`。
+A_score,q = {row: score >= first unique threshold whose actual coverage >= q}
+swap_q = |A_probe,q symmetric_difference A_raw,q| / |A_probe,q union A_raw,q|
 
-### 5.4 完整 bootstrap 重放
+对 main 与对应 ablation 分别算 swap。Risk@70/90 witness 要求对应 q 的 main 和 ablation swap 都 >=0.05。AUGRC 的 q=.70/.90 四个 swaps 都报告但不驱动 AUGRC witness。dataset swap operand 为 constituent unit swap fractions 的 equal-unit mean，禁止 pooled set。
 
-bootstrap 固定为：
+## 8. formal witness、families 与唯一四态
 
-```text
-seed = 20260809
-replicates = 0..9999 exactly
-CI = percentile 95%
-```
+每个 formal OBB-specific witness 必须同时满足：
 
-每个 unit/dataset 必须从 sealed 完整 cluster universe（含 zero-eligible cluster）重放；同一 replicate 内所有 score 使用完全相同的 synchronized cluster multiplicities。抽样 RNG、cluster 顺序、worker 合并顺序和序列化算法必须从既有 sealed protocol/code 与 source runtime 证据动态恢复并记录 SHA，禁止根据旧数字猜算法。无法唯一恢复时写 `SOURCE_FIELD_ABSENT` 并判 `INSUFFICIENT_ASSETS`，不得另选能接近汇总 CI 的算法。
+1. main 与指定 ablation 的 supported order 符号相反，且 CI 条件按 direction 精确判定：
+   - PROBE_BETTER_MAIN__RAW_BETTER_ABLATION 要求 Delta_main<0<Delta_ablation、main_CI_high < -epsilon_main、ablation_CI_low > epsilon_ablation。
+   - RAW_BETTER_MAIN__PROBE_BETTER_ABLATION 要求 Delta_ablation<0<Delta_main、main_CI_low > epsilon_main、ablation_CI_high < -epsilon_ablation。
+2. DoD Holm-adjusted p<0.05、95% cluster CI 排除 0，且 abs(DoD)>=epsilon_main+epsilon_ablation。
+3. Risk endpoint 同时满足对应 main/ablation whole-tie swap>=0.05。
+4. 不依赖 S0/EQS，且不是只有 AURC/NRC-vs-AUGRC generic reversal。
 
-validator 必须独立生成 replicate `0..9999`，逐 replicate 比较 source runtime 中保存的全部字段，包括 replicate id、unit/dataset、score/baseline、cluster-multiplicity witness/hash、metric/delta 值和适用状态字段；整数/字符串/hash 精确相等，浮点以 `atol=1e-12, rtol=0`。随后独立重算并比较全部 point estimate、percentile CI、Track M 唯一状态和 joint gate。只比较最终 CI、抽样几行或自生成文件自身哈希不算完成。
+unit family 恰为 6*3*3*5=270；dataset family 恰为 3*3*3*5=135。两个 family 分开 Holm，禁止事后拆 family、挑 coverage/probe/ablation。effect class：
 
-```text
-bootstrap_ci_role: REPORT_ONLY_NOT_STATE_DRIVER
-```
+- NO_LONGSIDE_AR21 -> ANGLE_EQUIVALENCE
+- NO_GEONORM_AR21 -> GEOMETRY_NORMALIZATION
+- NORMALIZED_ALL_AR/NORMALIZED_AR16/NORMALIZED_AR13 -> AR_DOMAIN
 
-paired cluster bootstrap 的全部 replicate、CI 与 source evidence 必须完整重算、逐字段比较并报告；它们是 uncertainty evidence，不参与下节 deterministic feasibility state 的触发、优先级或升级。CI 跨零、CI upper bound 非负或 CI 显著本身都不得自动产生负/正状态。
+full signature 恰为 (effect_class,ablation_id,contrast,endpoint,supported_direction)。supported_direction 只能是 PROBE_BETTER_MAIN__RAW_BETTER_ABLATION 或 RAW_BETTER_MAIN__PROBE_BETTER_ABLATION；不得跨 ablation 或相反方向合并。
 
-### 5.5 五个互斥状态
+四态与 precedence：
 
-定义所有 loss/risk 指标均为越低越好，固定 equal-budget nonlearned baseline 集合为 `raw_confidence`、`linear_source_frozen`、`tta_angle`、`tta_localization`。对每个 Core dataset aggregate `d`、baseline `b` 和指标 `m` 固定 `delta_m(d,b)=m(S0)-m(b)`；因此 `delta<0` 表示 S0 更好，`delta>0` 表示 baseline 更好，`delta=0` 表示相等。paired 95% CI 另行保存但不进入状态谓词。Track M 必须按下列优先级只输出一个状态：
+1. NOT_ADJUDICATED：任一 input identity、schema/join、实现独立性、A/B parity、bootstrap、mutation、manifest、scope、Git、push 或 external receipt 失败。
+2. PASS_TO_EXTERNAL_CONFIRMATION：全部审计闭合；同一个 full signature 在至少 2 个 dataset aggregates 形成 witness；同 signature unique unit witnesses >=4/6 且覆盖至少 2 个 detector families；SODA dataset aggregate 与至少 1 个 SODA unit 都有该 signature；effect class 为三种 OBB classes 之一。
+3. FAIL_GENERIC_OR_NULL：valid full execution 且 unit 和 dataset formal OBB witness 均为 0。generic_only 定义为存在 legacy AURC/NRC-vs-AUGRC supported reversal、但 formal witness 总数仍为 0，也归此态。
+4. INCONCLUSIVE_MIXED：valid full execution，至少 1 个 formal witness，但不满足 PASS。
 
-1. `INSUFFICIENT_ASSETS`：且仅当任一 A–F unit 缺少所需的既有 sealed manifest、byte-exact raw row/score、完整 row keys/cluster universe、固定抽样算法或逐 replicate source evidence，因而无法完成规定重放。资产齐全但 metric 数学退化不属于本状态。
-2. `METRIC_REVERSAL`：无更高优先级状态，且存在某个 Core dataset aggregate `d` 与某个 baseline `b`，使 `delta_NRC(d,b)<0 OR delta_AURC(d,b)<0`，同时 `delta_AUGRC(d,b)>0 OR delta_Risk@70(d,b)>0 OR delta_Risk@90(d,b)>0`。即 S0 在 NRC/AURC 看似更好，但同一 equal-budget nonlearned baseline 在至少一个预定主指标上严格更好；相等不算 reversal。
-3. `BASELINE_DOMINATED`：无 metric reversal，且存在某个 Core dataset aggregate `d` 与某个 baseline `b` 满足 `delta_AUGRC(d,b)>0`，即该 baseline 的 AUGRC 严格低于 S0；相等不算 dominated。
-4. `SENSITIVITY_UNSTABLE`：无以上状态，且在任一源协议预先规定、可由 sealed assets 直接推导的 matching、unmatched、near-square 或 canonicalization sensitivity 中，S0 相对同一 baseline 的 deterministic point-estimate 方向由严格更好 `delta_m(d,b)<0` 翻为严格更差 `delta_m(d,b)>0`。CI 不参与方向或状态判定。
-5. `ROBUST_CANDIDATE`：全部 Core 资产完整；对每个 Core dataset aggregate 与四个 baseline 均有 `delta_AUGRC(d,b)<0`；`Risk@70%` 与 `Risk@90%` 从不反转；AURC/NRC 和全部预先规定 sensitivities 从不反转；`learned_EQS` 不参与决定。bootstrap CI 只报告，不参与本状态。
+判定 precedence 固定为 NOT_ADJUDICATED -> PASS_TO_EXTERNAL_CONFIRMATION -> FAIL_GENERIC_OR_NULL -> INCONCLUSIVE_MIXED。valid execution 必须恰落后三态之一。detector/unit/dataset 只按 unique identity 计数。
 
-必须用真实或确定性合成的最小 fixture 覆盖上述五个且仅五个分支，并证明每个 fixture 只命中一个状态；测试调用实际 production state function，expected 由上述规则独立声明，禁止复制 production 分支或写恒真断言。实际证据缺失时诚实输出 `INSUFFICIENT_ASSETS`，仍继续完成所有可执行的 Track M 盘点、Track D、gate、validator 和报告，不补造资产。若完整证据无法按上述 deterministic point-estimate predicates得到唯一状态，则按 executable-audit failure 处理，禁止增设状态、用 bootstrap CI 补洞或事后改 gate。
+## 9. 双实现 parity 与冻结 reference
 
-## 6. Track D：official evidence 与资产/污染 receipt
+A/B 均从原始 bytes 独立实现 canonicalization、delta、AUGRC、bootstrap、Holm 与 gate，并消费同一冻结 delta JSON。正式风险计算的 delta 算法逐字冻结为：从 JSON `ar/dtheta_075` 取 finite pairs，按 ar 稳定升序且要求严格递增；`ar<first_finite` 返回 infinity；`first_finite<=ar<=grid_max` 使用 `numpy.interp(ar,finite_ar,finite_dtheta)`；`ar>grid_max` 使用 `max(0,min(finite_ar_i*finite_dtheta_i for finite_ar_i>=max(8,grid_max/2))/ar - 2*solve_tolerance_deg)`，其中 `solve_tolerance_deg` 必须从 exact JSON 动态读取为 0.001。A/B 对该 table-driven 算法须 `atol=1e-12,rtol=0` parity。
 
-固定审计四个候选，不因前一候选失败而停止：
+B 另以独立 polygon/bisection 在冻结 JSON 的每个 finite grid ar 上重算未四舍五入 direct root，只作 source-sanity witness，不替换表值；`abs(direct_root-stored_4decimal_root)` 上限固定为 `solve_tolerance_deg + 0.5*10^-4 = 0.00105 degree`。禁止先 round direct root 再比较，也禁止把 off-grid direct root 与线性插值值用该门比较。
 
-```text
-AI-TOD-R
-UAV-OBB
-ShipRSImageNet (backup)
-ICDAR-MLT (auxiliary only; not a remote-sensing gate dataset)
-```
+Comparator C 在 A/B 封存后逐 row key、cluster universe、point metric、全部 replicates、CI/p/Holm、witness、gate 比较。row risk、point metric、replicate、DoD 的 tolerance 为 atol=1e-10,rtol=0；keys/count/hash/state 必须 exact equal。
 
-### 6.1 独立事实重建
+唯一网络例外：新 runtime 内恰一次 HTTPS fetch https://github.com/IML-DKFZ/fd-shifts.git commit c4467aec134e99691359da209f811d91283fc1e3。禁止替代 remote/commit、额外 fetch、hook、submodule、LFS、setup、安装或其它 checkout 代码。固定 blobs：
 
-从 `source_runtime` 已保存的 official body/header/meta 原始文件分别重算 URL、retrieval date、HTTP status、redirect chain、content type、bytes、SHA256、source date、license/use terms、version、split、image/annotation metadata、OBB/angle/vertex-order/clockwise-ignore/difficult 语义。body、header 和 meta 必须相互核对；不得消费 source generator 的 `license_ok`、`angle_ok`、`present`、`eligible`、`contaminated`、`common_family_ok` 或任何 summary/gate bool 作为真相。
+- fd_shifts/analysis/rc_stats.py Git blob 563be2ed8652c730dd940eb241d8642717e25c0d；raw SHA256 d7f823c58bae5bbee4af2c0b5296bea41d6494884bd868d859890e9ccac22619
+- fd_shifts/analysis/rc_stats_utils.py Git blob 9f99c499f370b587d0ca73e2d9679a358de55e05；raw SHA256 a827fcf36d278beccc804e0d1895428f920c746dcc316a19f81bf3f341276b1f
 
-官方证据缺失、矛盾或无法支持事实时写 `SOURCE_FIELD_ABSENT`/`unknown` 并保留证据，不得联网补下载数据或猜测。validator 必须从 raw official bytes 和实际搜索/stat/hash 证据独立派生 remote-sensing 身份、license、angle contract、presence、common detector-family set、new-family 条件、target-label-tuning 条件、contamination facts 和候选状态。
+remote/commit/detached clean HEAD/tree/blob/raw bytes identity 必须闭合。只能完整 import 两 blob 或对其 raw source 做可追溯 AST closure adapter；不得改公式或手抄 expected。动态读取 AUC_DISPLAY_SCALE，必须精确为 1000；reference_augrc_unscaled=reference_augrc_display/1000。固定 tie/binary/continuous/boundary vectors 的 generalized-risk curve 与 unscaled AUGRC 必须对 reference 达到 atol=1e-12,rtol=0。reference 只做实现审计，不进入 270/135 gate。
 
-### 6.2 真实 prior-outcome 与本地资产搜索
+## 10. 六项真实 mutation 与严格时序
 
-对每个候选名称、别名及其与 `prediction|feature|score|risk|metric|bootstrap|report|endpoint` 的组合，分别执行并保存命令/根目录/排除项/起止时间/退出码/stdout/stderr bytes 与 SHA，以及逐 hit adjudication：
+六项 token 和对象固定：
 
-1. Git-tracked text；必须显式排除 `dis/B.md`，不得读取其内容。
-2. Git-ignored 与 tracked 的 `outputs/persistent_artifacts/**`；必须使用能覆盖 hidden/ignored 文件的真实搜索，不能让默认 ignore 规则造成假阴性。
-3. 项目 manifests、reports 与已登记 artifact indexes。
-4. `/home/rspip/cqc/pro/study/pth_data/readme.md`。
-5. dataset root 的 filename/stat-only 视图；只记录路径、类型、size、权限与 stat 结果，不打开、decode 或 hash 候选 annotation 内容。
+1. MUTATION_RAW_THETA：在 isolated copied raw 中改变一条 m069 pred_obb.theta。
+2. MUTATION_SODA_MOTHER：在 isolated copied mapping 中改变一条 SODA tile-to-mother。
+3. MUTATION_AUGRC_LOGIC：在 isolated copied logic 中删除 AUGRC origin 或改变 generalized-risk denominator。
+4. MUTATION_GATE_DATASET_COUNT：在 isolated copied gate logic 中把 two-dataset 条件改为 one-dataset。
+5. MUTATION_MANIFEST_ACCESS：从 copied manifest/access trace 删除一个真实 scientific input event。
+6. MUTATION_REPORT_TOKEN：篡改 copied report 的 scientific gate 或 completion token。
 
-资产存在必须由真实 stat 和适用文件的 bytes/SHA256/schema/兼容环境证据证明；资产缺失必须由覆盖预定根目录的实际枚举/stat failure、命令范围和日志证明。不得把 source inventory 中的 `ABSENT`、空 hit 表、generator bool、路径常量或未搜索到的摘要当作证据。对 config、checkpoint、environment、license/body 等非 annotation 资产记录实际 hash；annotation 仅 filename/stat。
+前四项必须在 SCIENTIFIC_RUNTIME_FREEZE 前执行。每项 pristine copy 先通过，mutated copy 必须被同阶段 independent validator 非零拒绝，保存 before/after SHA 与 semantic witness。
 
-每个候选保留全部事实。generator 只允许保存 raw official body/header/meta、search hits、stat/hash/load witness，不得产出或注入 license/angle/presence/contamination/family/eligible 的判定 bool；以下 primitive 与状态必须由 independent validator 从 raw evidence 派生。
+第五项只能在真实 runtime manifest 已生成且 pristine closure 通过后，由 code/runtime 外的 checker 对 manifest/access copy 执行；pristine pass、mutated nonzero reject。
 
-四个 failure 的触发谓词精确冻结为：
+第六项只能在最终 report exact bytes 已于内存中确定后，对该 exact pristine byte buffer 与 mutated copy 执行；pristine pass、mutated nonzero reject。随后 tracked report 必须一次性写出且 SHA 与 pristine buffer 相同。post-push external receipt 重新 hash 已发布 report 并重放第六项。
 
-```text
-CONTAMINATED iff prior_exact_outcome_or_endpoint_evidence_count > 0
+禁止摘要布尔、恒真 token 或错误时序替代真实 mutation。
 
-LICENSE_BLOCKED iff official_license_evidence_count == 0
-  OR stored official license evidence forbids required academic processing or redistribution
-  OR stored official use terms are incompatible with the planned research use
+## 11. 无环 seals、manifest 与固定产物
 
-INCOMPATIBLE_ANGLE_CONTRACT iff unique_conversion_proven == false
+闭包顺序不可改变：
 
-MISSING_ASSET iff dataset_present == false
-  OR compatible_exact_config_present == false
-  OR compatible_exact_checkpoint_present == false
-  OR compatible_exact_environment_present == false
-  OR compatible_exact_parser_present == false
-  OR any required asset hash preflight or non-inference load preflight failed
-```
+raw inputs -> B/A outputs -> comparator/first-four-mutations -> SCIENTIFIC_RUNTIME_FREEZE
+-> runtime_manifest -> pristine closure/manifest-mutation -> planned-report/report-mutation
+-> tracked report/supervisor append -> TRACKED_CONTENT_SEAL
+-> commit/push -> post-seal external receipt
 
-`prior_exact_outcome_or_endpoint_evidence_count` 是逐 hit adjudication 后的非空 exact evidence 数，扫描域必须全部包含：显式排除 `dis/B.md` 的 Git-tracked text；tracked 与 ignored persistent artifacts；项目 manifests/reports/artifact indexes；`pth_data/readme.md`；dataset root filename/stat-only 视图。任何真实 prediction、feature/score endpoint、risk、metric、bootstrap、report 或 same-endpoint consumption witness 都计数；空表、未覆盖 ignored 文件的搜索或 generator 声明不等于零证据。
+SCIENTIFIC_RUNTIME_FREEZE 前关闭 scientific inputs、A/B/comparator/前四 mutation outputs、resource telemetry、application/OS access traces。runtime command_ledger.csv 只记录 through SCIENTIFIC_RUNTIME_FREEZE 的命令并在 freeze 同时封存。freeze 后唯一允许的新 runtime object 是 runtime_manifest.json；manifest/closure/report/Git/push/post-push verification 命令只进入 postseal_receipt_root 的 append-only、hash-chained `postfreeze_command_log.jsonl`，绝不回写 runtime。该 root 在 freeze 后以 mode 0700 首次创建；command log 以 mode 0600 创建，每个事件含 sequence/command/cwd/start/end/exit/stdout_sha256/stderr_sha256/prev_event_sha/event_sha 并在下一命令前 flush+fsync。
 
-`official_license_evidence_count` 只计入 `source_runtime` 中 bytes/SHA256 闭合的 stored official body/header/meta 所直接支持的许可证据；非官方摘要或 generator bool 不计。`unique_conversion_proven` 只有在不打开候选 annotation 的前提下，stored official annotation/format 文档已唯一确定 OBB fields、角度范围与方向、顶点顺序、long-side/canonicalization、near-square/degenerate 和 ignore/difficult 到冻结语义的转换时才为 true；缺失、矛盾或多义一律为 false。dataset 仅以固定根的 filename/stat 证明 presence；exact config/checkpoint/environment/parser 分别要求预定路径、bytes/SHA256、兼容版本及安全的 non-inference load/parse preflight 全部闭合，任一真实缺失或校验失败即命中 `MISSING_ASSET`。
+全部 post-push verification 完成且 receipt payload 所需事实已确定后，必须追加最后一个 `POSTFREEZE_COMMAND_LOG_SEAL` 事件、flush+fsync、关闭并 chmod 0400；其 sealed bytes/SHA/chain_head 才能进入 receipt。seal 后禁止再执行需记录的 shell/subprocess 命令。receipt JSON、read-back verification、atomic rename 与 sidecar fsync 是 code-sealed receipt writer 的固定 syscall protocol，明确排除于 command log；它们不得启动 shell/subprocess，也不得改变 sealed log。VALID 只核验该 sealed prefix，从而避免 receipt 对记录自身写入命令的循环依赖。
 
-validator 在保存四组原始 true/false predicate 与 evidence paths 后，按以下 precedence 给出唯一状态：
+manifest 枚举 freeze 前全部实际 input/code/runtime bytes、SHA、schema、keys，并与 access events 做 path/bytes/SHA/phase 等值核对；大文件真实流式计数与取 schema，禁止由 bytes 猜 row count。manifest self 标为 EXTERNAL_HASH_ONLY，明确排除未来 report、Git、external receipt。
 
-```text
-CONTAMINATED > LICENSE_BLOCKED > INCOMPATIBLE_ANGLE_CONTRACT > MISSING_ASSET
-```
+seal 外 closure checker 不回写 runtime。它先核验 manifest 与第五 mutation，再以内存中的 gate/completion/前五 mutation 构造 report exact bytes并做第六 mutation；之后一次性写 report 和 supervisor append。report self 标为 EXTERNAL_GIT_BLOB_ONLY 和 POST_COMMIT_EXTERNAL_RECEIPT，其 scientific gate/completion 明确是 `PROVISIONAL_PENDING_C_POSTPULL_ADJUDICATION`。TRACKED_CONTENT_SEAL 后 tracked/runtime 零写。
 
-只有四个 failure predicate 全为 false，且至少三个 detector family 的同一公共集合具备闭合的 exact config/checkpoint/environment/parser/hash 时，状态才是 `ELIGIBLE_CANDIDATE`。失败状态 precedence 只决定最终标签，不得删除较低优先级事实。`ShipRSImageNet` 只能作遥感 backup；`ICDAR-MLT` 仅作 auxiliary，永远不能计入两个独立遥感数据集。
+push 后只能在 postseal_receipt_root 完成 server-local external receipt。固定 schema `orientbench-r020-postseal-v1` 必含：`round_id,status,server_local_candidate_state,execution_base,result_commit_sha,result_parent_sha,result_commit_count,non_merge,remote_url,remote_main_sha,changed_paths,protected_B_blob_parent,protected_B_blob_result,report(path,git_blob_oid,bytes,sha256,provisional_gate,provisional_completion),runtime_manifest(path,sha256),code_seal_aggregate_sha256,implementation_a(gate,completion,evidence_sha256),implementation_b(gate,completion,evidence_sha256),comparator(gate,completion,evidence_sha256),mutation6(pristine_exit,mutated_exit,before_sha256,after_sha256,semantic_rejection),postfreeze_command_log(path,bytes,sha256,chain_head),push(command,exit_code,stdout_sha256,stderr_sha256),created_at_utc`。`VALID_POSTSEAL_RECEIPT` 当且仅当：唯一 commit/parent/scope/B、HTTPS remote、published report blob/raw SHA、manifest、A/B/comparator gate+completion、command chain 与 mutation6 pristine=0/mutated!=0 全部闭合；否则 status 必须为 `INVALID_POSTSEAL_RECEIPT` 且 `server_local_candidate_state=NOT_ADJUDICATED`。
 
-## 7. 联合 gate：固定、互斥且 negative 优先
+receipt JSON 必须以 mode 0600 写到同目录 O_EXCL 临时文件，flush+fsync 后 atomic rename 为唯一 `postseal_receipt.json`；随后写唯一 `postseal_receipt.sha256`，内容精确为 `<json_sha256>  postseal_receipt.json\n`，同样 mode 0600、O_EXCL、fsync。两文件不得覆盖或回填 tracked/runtime；任一写入/hash/permission 失败即异常。该 ignored receipt 只是 server-local publication witness，不是跨电脑正式状态。JSON status=VALID、sidecar hash匹配且全部字段由重新读取的 published bytes 推导，只允许服务器把本阶段标为 `NORMAL_EXECUTION_COMPLETE_PENDING_C_ADJUDICATION` 并回复正常；tracked report 的 provisional gate/completion 仍不得在服务器侧升级为 formal。
 
-validator 必须从 Track M raw 重算状态与 Track D raw evidence 派生事实，不得读取 generator 的 joint gate token。三个科学 gate 按以下顺序互斥求值，禁止换 gate、降低门槛或用 execution status 代替科学状态：
+服务器回复后，唯一后续 owner 是 C。C 必须 HTTPS fast-forward 拉取 result commit，独立核验 commit DAG/scope/B/report Git blob与raw SHA、报告中的 manifest/A-B-comparator identities、published checker和第六 mutation；随后才可在新的 C-side `dis/` 状态提交中采用 provisional gate，或裁为 `NOT_ADJUDICATED`。在该 C-side post-pull adjudication 发布前，任何跨电脑状态都只能写 `PENDING_C_ADJUDICATION`；不得凭聊天短语或 server-local ignored receipt 宣称正式科学结论。
 
-1. `FAIL_TO_MEASUREMENT_ONLY`：只要有证据证明任一预指定 negative condition 即成立。negative conditions 为：Track M 是 `METRIC_REVERSAL`、`BASELINE_DOMINATED` 或 `SENSITIVITY_UNSTABLE`；少于两个彼此独立的遥感 OBB 候选是 `ELIGIBLE_CANDIDATE`；两个合格数据集不存在同一组至少三个 detector family；该公共集合没有至少一个未参与 old Core 开发的 family；任一所需 license/angle contract 不闭合；或未来需要任何 target-label tuning。任一 negative 都优先于 inconclusive，并完整记录其它条件的 true/false/evidence path。
-2. `INCONCLUSIVE_FEASIBILITY`：仅当 Track M=`INSUFFICIENT_ASSETS`，且 Track D 没有独立证明上列任何 negative condition。它不授权方法研究，默认进入 measurement-only writing。
-3. `PASS_TO_METHOD_DESIGN`：当且仅当 Track M=`ROBUST_CANDIDATE`，至少两个彼此独立的遥感 OBB 数据集为 `ELIGIBLE_CANDIDATE`，二者支持同一组至少三个 detector family，该集合至少一个 family 不在 old Core，且不需要任何 target-label tuning。
+runtime 固定最低产物：
 
-`PASS_TO_METHOD_DESIGN` 也只允许未来另起协议并再次取得用户批准；不授权下载、训练、推理、label access、改稿或方法实验。若 Track M 因资产齐全但数学退化或其它 executable-audit failure 未能输出五态之一，则三个 joint gate 均不得求值，必须记录 `scientific_gate: NOT_ADJUDICATED` 并 execution abnormal；不得把它改写为 `INCONCLUSIVE_FEASIBILITY`、发明第四个科学 gate 或包装为 PASS。
+- protocol.json
+- preflight.json
+- input_inventory.csv
+- code_seal.json
+- command_ledger.csv
+- file_access_events.jsonl
+- os_open_trace/**
+- resource_telemetry.csv
+- implementation_b/rows.parquet
+- implementation_b/metrics.csv
+- implementation_b/replicates.parquet
+- implementation_b/witnesses.csv
+- implementation_b/gate.json
+- implementation_a/rows.parquet
+- implementation_a/metrics.csv
+- implementation_a/replicates.parquet
+- implementation_a/witnesses.csv
+- implementation_a/gate.json
+- comparator.json
+- unit_hypotheses.csv
+- dataset_hypotheses.csv
+- scene_macro_diagnostic.csv
+- mutations/pre_freeze_mutation_index.csv，仅含前四项
+- runtime_manifest.json
 
-## 8. 独立 validator 与四个真实 mutation
+第五项 manifest/access mutation 的实际结果只进入 tracked report，不生成新 runtime 对象。第六项的固定 mutation identity 与待重放 token进入 report exact buffer；其对 exact pristine report bytes 的实际检验和 push 后重放结果只进入外部 receipt，不能为了回填结果改写 report。
 
-validator 必须是与 generator 分离的 entry point，不得 import generator module，不得信任或以 generator 的 gate、state、summary、`PASS` 字段、expected hash 表或硬编码布尔为判据。它必须从 sealed raw rows、既有 manifests、保存的 official body/header/meta、真实 search/stat/hash evidence 和 receipt 输出的逐 replicate 明细独立重算 inventory、metrics、五状态、Track D precedence、共同 family/new-family/target-tuning 条件和联合 gate。
+唯一 tracked report 必须记录 execution_base、code/runtime/report identity、26 inputs、join/extras、cluster universes、A/B parity、reference、270/135、all hypotheses、witness/signatures、SCENE_MACRO、前四项 runtime mutation、第五项 closure mutation、预声明第六项 identity、resource telemetry、manifest/seals、四态、provisional completion、negative evidence与 deviations。tracked report 的 Git 字段只能写 git_publish_status=PENDING_EXTERNAL_RECEIPT、scientific_state=PROVISIONAL_PENDING_C_POSTPULL_ADJUDICATION、report self=EXTERNAL_GIT_BLOB_ONLY 和 POST_COMMIT_EXTERNAL_RECEIPT，不得声称未来 commit/push/remote/published-blob 已闭合；真实 Git closure与第六 mutation结果只在 push 后固定 external receipt 核验并形成 server-local candidate state，跨电脑 formal state 仍须 C post-pull adjudication。
 
-在 `runtime_root/mutations/**` 的四个彼此隔离副本中分别做真实 mutation；每个副本都从同一 pristine receipt evidence 建立，sealed source 始终只读，且每次只能改变指定对象：
+## 12. 资源与停止语义
 
-1. `source_hash`：改变一个既有 source asset 的 expected SHA 字段，不改变源文件。
-2. `bootstrap_replicate`：改变一个指定 replicate 的一个 metric/delta 字段。
-3. `track_d_evidence_fact`：改变一个由 official/search/stat raw evidence支持的 license、angle、presence、contamination 或 family fact。
-4. `joint_gate_clause`：改变一个必要 gate clause 的保存值，例如 common-family/new-family/target-label-tuning 条件，不修改 validator 代码。
+CPU-only；preflight 必须确认 N=48 logical CPUs，否则异常。固定 39 worker processes、39-core affinity；OMP/MKL/OpenBLAS/NumExpr threads=1。job CPU 定义为每个完整 30 秒 interval 内该 r020 process tree 的 CPU-time 增量除以 (30*N)。coordinator 以可审计 duty-cycle pause/resume，使 bootstrap parallel phase 的每个完整 interval 满足 60%<=job_cpu_pct<=80%。
 
-四次均必须实际运行同一个独立 validator 并 nonzero exit，且错误必须指向被变异对象；一个 mutation 通过或未执行即 validator phase 失败。每项保存 pristine/mutated path、bytes、SHA256、最小 diff witness、command、cwd、started_at、ended_at、exit code、stdout/stderr 原始日志及 SHA256。不得通过 mock gate token、预设失败 flag、修改 validator、恒真/恒假断言或沿用上一次副本制造非零退出。
+三个连续完整 interval 的 job_cpu_pct<60% 且没有逐 interval 记录 IO_WAIT 或 SERIAL_PHASE 理由，或任一完整 interval job_cpu_pct>80%，均为异常。preflight、serial、finalization interval 只需记录 phase/reason，不适用下限。每 30 秒记录完整 process-tree 的 CPU-time、RSS、affinity、active/paused worker 数、job_cpu_pct 与 throttle events；throttle 不改变 replicate-to-worker。
 
-## 9. 资源、报告、Git 与 external receipt
+wall time 上限 18 小时；新 runtime 上限 30 GB。不得因不利科学中间结果早停，A-F 与 10000 replicates 必须全量完成。只有 source/hash/schema/join/code/trace/parity/bootstrap/mutation/manifest/scope/Git/push/external-receipt 缺陷可 FAILURE_EARLY_STOP / NOT_ADJUDICATED。
 
-本轮不需要 GPU；CPU 只按实际工作量使用并记录 process/child count、CPU、RSS 与 affinity，不得伪造利用率。所有 pre-seal scientific/audit inputs、executed code 与 runtime outputs 都必须有 bytes/SHA256/schema/keys 及按第 4 节截止的 access-log evidence；manifest self、tracked report 和 post-seal/external outputs 必须使用第 4/9 节的显式排除分类与 external verification，不能伪称存在 access-log self coverage。缺字段如实标记。不得覆盖新 runtime，不得生成第二份 tracked report、第二个 report 路径或聊天附件。
+正常 completion mode 只能是：
 
-唯一 tracked `server_report_path` 必须明确包含：
+- FULL_COMPLETION_POSITIVE
+- FULL_COMPLETION_INCONCLUSIVE
+- FULL_COMPLETION_NEGATIVE
 
-- 源执行状态 `ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`，以及源数字状态 `DESCRIPTIVE_UNVERIFIED`；
-- receipt1 状态 `ABNORMAL_PREFLIGHT_FAILURE`、`scientific_gate: NOT_ADJUDICATED`、`non_reusable: true`、Track M/D 未运行，以及 report/archive 的实际 blob 闭合；housekeeping 不得追溯改变 receipt1；
-- receipt2 状态 `ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE`、`scientific_gate: NOT_ADJUDICATED`、`non_reusable: true`、Track M=`NOT_EMITTED_NOT_RUN`、Track D 未运行，以及 report publication commit、report blob 与 canonical archive blob；
-- receipt3 身份 `orientbench-c-topjournal-feasibility-receipt3-20260811`、`retry_of: orientbench-c-topjournal-feasibility-receipt2-20260810`、`dispatch_base: 35358b5fef838b178aff0e16470ebe0117cab687`；
-- pinned reference 最多三次网络尝试的完整 ledger、remote/commit/detached HEAD/clean/tree/blob/bytes identity、完整 import 或 AST adapter provenance、动态 vectors/outputs/comparison，以及所有失败；
-- pre-seal scientific/audit closure（全部 seal 前必做 phase、completed/omitted phase 及 reason、execution failure、technical stop）；tracked report 不得预判 final add/staged checks/commit/push/external receipt；
-- Track M 唯一状态、每项 metric/bootstrap/reference/state-test 证据；
-- Track D 四候选的全部事实、precedence、状态与搜索/stat/hash 证据；
-- 联合 gate 的每个 clause、negative precedence 和唯一结论；
-- independent validator 与四个 isolated mutation 的命令、exit、日志和 witness；
-- 所有缺失、`SOURCE_FIELD_ABSENT`、`unknown`、失败和 `PROPOSED_DEVIATION`；任何科学含义偏离均未获授权并必须停止；
-- 四类授权路径的实际 pre-seal changed/untracked 清单与 planned commit scope、B blob pre-seal 不变、唯一 pinned reference fetch 例外及一般 download/GPU/安装/训练/forward/推理/新 outcome/annotation/改稿均未发生；tracked report 不得声称 final `git add`、staged name-status/diff-check、post-seal B/HEAD check、commit 或 push 已发生；
-- `sug_genuinely_exhausted: true|false` 只回答截至 `PRE_SEAL_SCIENTIFIC_AUDIT_CLOSURE` 的 scientific/audit 阶段是否逐条穷尽；完整执行状态仍为 `PENDING_EXTERNAL_RECEIPT`，不得以脚本退出零代替逐条证明。
+只有这三者允许 sug_genuinely_exhausted: true。异常只能 FAILURE_EARLY_STOP / NOT_ADJUDICATED，sug_genuinely_exhausted: false。不得把科学 FAIL/INCONCLUSIVE 写成异常，也不得把技术早停写成科学失败。
 
-tracked report、manifest 和所有计划提交内容完成后，外层 wrapper 必须先在仓库外捕获这些字节的 seal snapshot，然后宣布唯一截止点 `tracked_seal_point: TRACKED_CONTENT_SEALED_BEFORE_FINAL_GIT_ADD`。同时固定：
+## 13. 最终聊天硬合同
 
-```text
-final_git_add_phase: FINAL_GIT_ADD_IS_POST_SEAL
-post_seal_no_tracked_writes == true
-post_seal_artifacts: EXTERNAL_RECEIPT_ONLY
-```
+所有细节只写唯一报告和 supervisor log。服务器最终聊天严格使用以下二选一 exact project wrapper，无报告路径、SHA、解释或列表：
 
-seal 后禁止回写、touch、格式化、重算或补齐任何 code/runtime/report/manifest/validator/access-log/append-only 仓库文件。服务器结果必须恰好形成一个 commit。seal 后才可显式运行 final `git add`；不得无差别 stage。随后运行 final `git diff --cached --name-status`、`git diff --cached --check`、授权路径全集、`dis/B.md` staged/unstaged diff 与 blob、当前 HEAD 等于 `post_pull_head` 等检查。上述 final add/check 的真实命令与输出全部只进入 external command ledger，不得回填 tracked report/ledger。commit 后必须在仓库外捕获并核验 `HEAD^ == post_pull_head`，且 `rev-list --count post_pull_head..HEAD == 1`；同时核验 HEAD 只有一个 parent、commit changed paths 完全属于授权范围、B blob 仍等于 preflight 值。任一不满足说明 seal 后改写、携带预存 ahead、产生多 commit/merge commit 或越界，必须异常。push 必须通过 HTTPS 且禁止 force。
-
-tracked report、validator、manifest 或其它 commit 内文件不得声称预知包含自身的 final commit。最终 tracked 内容固定写：
-
-```text
-final_commit_sha: POST_COMMIT_EXTERNAL_RECEIPT
-git_publish_status: PENDING_EXTERNAL_RECEIPT
-```
-
-外层 wrapper 必须为 commit/push/post-commit checks/HTTPS `ls-remote` 的 stdout 与 stderr 捕获独立原始字节；在 push attempt 完成后，只在仓库外生成一份 external receipt，最少包含：
-
-```text
-external_receipt_storage: EXTERNAL_RECEIPT_OUTSIDE_REPOSITORY_ONLY
-post_pull_head: <40-hex captured before any receipt write>
-tracked_seal_snapshot_sha256: <external hash over sealed repository-bound bytes>
-post_seal_tracked_snapshot_sha256: <same external hash recomputed after publication>
-post_seal_no_tracked_writes: true|false
-local_final_head: <40-hex or absent-on-commit-failure>
-head_parent: <40-hex or absent>
-commit_count_from_post_pull_head: <actual integer or absent>
-remote_current_branch_sha: <40-hex or absent>
-published_report_bytes_sha256: <actual pair or absent>
-published_manifest_bytes_sha256: <actual pair or absent>
-publication_complete: true|false
-external_receipt_command_ledger:
-  - phase, command, cwd, started_at, ended_at, exit_code,
-    stdout_bytes, stdout_sha256, stderr_bytes, stderr_sha256
-```
-
-`external_receipt_command_ledger` 必须逐项包含真实 seal snapshot、final `git add`、`git diff --cached --name-status`、`git diff --cached --check`、授权 scope、post-seal B/HEAD checks、`git commit`、topology checks、HTTPS `git push`、HTTPS `git ls-remote`、published Git-blob checks 和 post-publication seal-hash comparison；每项记录真实 command/cwd/started_at/ended_at/exit_code/stdout/stderr bytes/SHA256。未执行项写 absent + reason，不得用 tracked ledger 或预期值补齐。成功 push 后从仓库外运行 HTTPS `git ls-remote`，要求 remote current branch SHA 等于 `local_final_head`，并从已发布 Git blobs 复核 tracked report 与所有实际 tracked outputs；对 report 所声明的 runtime manifest hash 另与 sealed local manifest bytes 核对，不得冒充不存在的 remote blob。还必须要求 `post_seal_tracked_snapshot_sha256 == tracked_seal_snapshot_sha256`，否则证明 seal 后发生写入并异常。external receipt 只能保存在不写仓库的外层进程输出/监督通道；不得写入 report、runtime、validator、manifest、`claude_code_and_supervisor.md`，不得追加第二个 commit或制造自引用。
-
-聊天状态只能由这份 external receipt 判定：仅当 `publication_complete=true`、`post_seal_no_tracked_writes=true`、两次 seal snapshot hash 相等、`HEAD^ == post_pull_head`、commit count 恰为 1、remote SHA 等于 local final SHA、published Git-blob checks 闭合，且 tracked pre-seal closure 已完整时，才可选择 `正常执行完毕`；任何 absent、失败或不一致都必须选择 `异常结束`。tracked report 的 `PENDING_EXTERNAL_RECEIPT` 或 generator/validator 的 `PASS` 绝不能决定聊天状态。
-
-科学负结果或真实缺资产可以是完整 receipt；它们不自动等于执行异常。相反，任一必做 phase 缺失、source runtime 不可用、provenance gap 未按规则落为可判定缺资产、reference/validator/mutation 失败、越界写入、commit 数不等于一、HTTPS push 或 external receipt 失败，都使本次执行异常。
-
-## 10. 服务器聊天唯一格式
-
-服务器最终聊天严格只能在以下两个完整模板中二选一。只能有一对 wrapper、一个状态短语；不得添加路径、SHA、解释、列表、前后缀或其它字符。详细证据只写唯一报告。
-
-只有所有 receipt phases、independent validator、四个 mutation、唯一 commit、HTTPS push 和 external receipt 全部闭合时使用；科学结论为负也可以使用：
-
-```text
 👇👇👇👇👇👇
 
 正常执行完毕
 
 👆👆👆👆👆👆
-```
 
-任一必做项缺失、runtime 不可用、provenance gap、validator/mutation/Git 失败或无法安全发布时使用：
+或
 
-```text
 👇👇👇👇👇👇
 
 异常结束
 
 👆👆👆👆👆👆
-```
+
+PASS、FAIL 或 INCONCLUSIVE 的 provisional result 只有在全协议、唯一 commit、push 与固定 server-local receipt 的 `VALID_POSTSEAL_RECEIPT`+sidecar 闭合后，才回复正常执行完毕；该短语仅表示服务器阶段正常并等待 C post-pull adjudication。任何 technical/provenance/audit/publication/receipt defect 均回复异常结束。
