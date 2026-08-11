@@ -2509,3 +2509,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`top_journal_v3_reaudit_055/measurement_validity_r020_20260811/RECOVERY_REPORT.md`；`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/recovery_full_r10000/`（177 MiB）；主运行 581.30 秒；smoke 子目录只作工程验证。
 - 是否触发停止条件：没有技术或资产失败；科学候选为混合不确定，不能升为 PASS，也不能写成纯 null。原 r020 formal status 仍为 `NOT_ADJUDICATED_PENDING_SUPERVISOR`，等待 C post-pull review。
 - 下一步建议：监督端应采用本 recovery bundle 独立复核并决定是否签发正式状态；当前不换 gate、不加 target、不复活 EQS，也不据 DIOR-only AR-domain sensitivity 重启顶刊实验循环。
+
+## 2026-08-11 23:10 CST — `sug.md` 完成度澄清（Codex 汇报）
+
+- 指令来源：用户询问“sug.md执行完了？”。
+- 明确答复：严格按活动 `dis/sug.md` 的 formal audit contract，未执行完毕，且原 r020 已因 preflight defect 被正式标为 `FAILURE_EARLY_STOP / NOT_ADJUDICATED`；后续用户授权完成的是 pragmatic recovery，不能倒签为原 receipt closure。
+- 已完成部分：26 个 frozen inputs 身份、A-F D_audit strict join、long-side/AR/risk 重算、五项消融、3 contrasts × 3 endpoints、10,000 cluster bootstrap、270/135 Holm、witness/gate 与独立数值/结构验证；候选科学状态 `INCONCLUSIVE_MIXED`。
+- 尚未按原合同闭合部分：data-before-code seal、两套完全独立 clean-room A/B、Comparator C 全 replicate parity、live application hash-chain 与 strace 双向 access closure、pinned fd-shifts reference、六项固定 mutation 时序、acyclic runtime/report seal、原 round 唯一 result commit、postseal external receipt 及 C post-pull formal adjudication。
+- 关键产物：`top_journal_v3_reaudit_055/measurement_validity_r020_20260811/RECOVERY_REPORT.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/recovery_full_r10000/`。
+- 停止条件：formal r020 路径已消费且不可复用；recovery 科学计算本身正常完成。
+- 下一步建议：若目标是“把 sug.md formal closure 真正做完”，监督端需基于 recovery 结果签发全新 round id/paths，并把迁移后的 Git/CPU 规则改成可执行版本；不能继续声称旧 r020 已完整闭合。
