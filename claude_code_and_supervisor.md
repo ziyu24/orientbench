@@ -2498,3 +2498,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/preflight.json`。
 - 停止条件：已触发技术/审计早停；本轮路径不可复用。
 - 下一步建议：C/监督端下发全新 round 与路径；Git 规则应允许服务器先用显式 HTTPS literal 拉取再读取合同，CPU 规则应改为实际 `N=112` 并重算 worker/利用率，或明确授权在任务入口固定 48-CPU cpuset 并以 48 为审计分母。
+
+## 2026-08-11 23:00 CST — 用户授权 r020 务实恢复与全量结果（Codex 执行）
+
+- 指令来源：用户明确要求“不要那么死板啊，抓紧搞”；据此不覆盖已发布的 preflight 异常证据，改以 recovery evidence 继续完成科学分析，但不伪造原 formal receipt 已闭合。
+- 执行动作：使用现有 `pcp-obb` 环境；将任务 affinity 固定为 CPU `0-47`，用 39 workers 执行完整 A-F、五项冻结消融、3 contrasts × 3 endpoints、10,000 cluster bootstrap、270/135 分离 Holm 与固定 witness/gate。未使用 GPU、训练、forward、inference、下载、安装、annotation root、learned EQS、receipt3 派生科学输入或新 target。
+- 输入与 join：26/26 frozen inputs 的 bytes/SHA-256 全匹配；六个 D_audit base cohort 对 features/scores 均 missing=0、drop=0、one-to-one。base rows A-F=`43848,47887,47881,26108,157586,192249`；AR>=2.1 main rows=`25080,27682,27410,15132,101160,120947`。
+- 决策结果：recovery candidate=`INCONCLUSIVE_MIXED`。共有 unit witness=5、dataset witness=2；全部局限于 DIOR 的 `NORMALIZED_ALL_AR × linear_source_frozen`，对应 A/B/C 的 AUGRC、A/C 的 Risk@70 及两个 DIOR aggregate。FAIR1M、SODA-A 无同 signature witness，且没有 signature 满足 >=2 datasets、>=4/6 units 与 SODA dataset+unit 条件；`passing_signatures=[]`。
+- 独立验证：validator 重新计算全部 point endpoints、4,050,000 hypothesis replicates 的 centered p、两套 Holm、witness predicate 和 manifest，结果 `PASS`；不是仅复读 generator gate。
+- 关键产物：`top_journal_v3_reaudit_055/measurement_validity_r020_20260811/RECOVERY_REPORT.md`；`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/recovery_full_r10000/`（177 MiB）；主运行 581.30 秒；smoke 子目录只作工程验证。
+- 是否触发停止条件：没有技术或资产失败；科学候选为混合不确定，不能升为 PASS，也不能写成纯 null。原 r020 formal status 仍为 `NOT_ADJUDICATED_PENDING_SUPERVISOR`，等待 C post-pull review。
+- 下一步建议：监督端应采用本 recovery bundle 独立复核并决定是否签发正式状态；当前不换 gate、不加 target、不复活 EQS，也不据 DIOR-only AR-domain sensitivity 重启顶刊实验循环。
