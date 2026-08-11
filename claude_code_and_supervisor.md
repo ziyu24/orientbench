@@ -2531,3 +2531,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`top_journal_v3_reaudit_055/measurement_validity_r020_20260811/RECOVERY_REPORT.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/recovery_independent_b_r10000/`、`recovery_comparator_ab/`、`recovery_reference_probe.json`、`recovery_mutations/`、`recovery_closure.json`。
 - 是否触发停止条件：未触发新的技术/科学停止；候选科学状态仍是 DIOR-only 的 `INCONCLUSIVE_MIXED`。历史 pre-data code seal、live app access chain、strace 双向 closure 与旧 round single-commit/postseal receipt 无法事后重建，formal 状态仍为 `NOT_ADJUDICATED_PENDING_SUPERVISOR`。
 - 下一步建议：C/监督端可直接核验 recovery closure 并签发全新 formal adjudication；若坚持原始实时审计，只能新 round 从零执行，不应继续在旧 r020 路径上追加伪 formal 证据。
+
+## 2026-08-11 23:28 CST — `sug.md` 最终完成状态再次确认（Codex 汇报）
+
+- 指令来源：用户询问“现在sug.md都执行完了？”。
+- 结论：科学计算与所有可事后独立补齐的审计项已经执行完；但严格按原 `dis/sug.md` 的时序型 formal contract，仍不能称“全部执行完”。
+- 已完成：26 inputs、A-F strict join/risk、五项消融、A/B 各 10,000 bootstrap、270/135 Holm、Comparator 零差、pinned reference、六项 mutation、统一 recovery closure；candidate=`INCONCLUSIVE_MIXED`，closure validator=`PASS`。
+- 永久不可在旧轮补齐：首次 scientific input open 前的 code seal、当时的 live application access hash-chain、当时的 strace 双向覆盖，以及以旧 execution_base 为唯一父提交的 single result commit/postseal receipt。这些是时间顺序事实，不能靠当前再跑或补文件变真。
+- 状态边界：`VALID_RECOVERY_CLOSURE` 成立；原 r020 formal receipt 仍为 `NOT_ADJUDICATED_PENDING_SUPERVISOR`。若要求严格满足 `sug.md` 每一条，只能监督端签发新 round/新路径并从零按正确时序执行。
