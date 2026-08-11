@@ -61,6 +61,18 @@ The result does not justify reopening the top-journal experimental loop or claim
 
 This recovery should be submitted to C/supervisor for independent post-pull review. Until that review, the repository's formal state remains `NOT_ADJUDICATED_PENDING_SUPERVISOR`.
 
+## Follow-up independent closure
+
+After the initial recovery result, a second implementation B independently reopened the 26 raw inputs, rebuilt membership, long-side angles, risks, strict joins, all five ablations, point metrics and the complete 10,000-replicate bootstrap. B did not import implementation A or read A rows/runtime before sealing its own output.
+
+Comparator C then compared both sealed bundles. All 4,320,000 unit metric cells and 2,160,000 dataset metric cells were exactly equal; maximum absolute difference was 0. The 405 point hypotheses, CI, centered p, Holm, swap, witness identities and gate were also exactly equal. B independently returned the same 5 unit witnesses, 2 dataset witnesses, empty passing-signature set and `INCONCLUSIVE_MIXED` candidate state.
+
+The pinned fd-shifts reference was fetched once from the exact official HTTPS repository at commit `c4467aec134e99691359da209f811d91283fc1e3`. Both required Git blob and raw SHA identities matched. Full import failed only because the existing environment lacks `loguru`; a traceable AST exact-function-span adapter dynamically read `AUC_DISPLAY_SCALE=1000` and matched tie, binary, continuous and boundary generalized-risk/AUGRC vectors at `atol=1e-12, rtol=0`.
+
+Six isolated recovery mutations passed pristine and were rejected after mutation: D_audit raw theta, SODA tile-to-mother identity, AUGRC origin, two-dataset gate count, 26-input inventory and report candidate-state token. Every pristine validator exited 0 and every mutated validator exited 2.
+
+These follow-up checks materially strengthen the scientific recovery. They cannot retroactively recreate a pre-data code seal, the original live application hash-chain, the original strace bidirectional closure or the original single-commit/postseal receipt. Those historical formal blockers remain explicit and are the only reason this report does not upgrade the old r020 receipt.
+
 ## Evidence identities
 
 - `gate.json`: SHA-256 `bdc4bdaefb912d82ed08cfb78499eaf50d14e08c2a963455bec0f8cf44808abd`
@@ -68,3 +80,7 @@ This recovery should be submitted to C/supervisor for independent post-pull revi
 - `witnesses.csv`: SHA-256 `3e9a0a4129a7b046b83eb3e2a6c944a94df46e98dc1f596ec2669a8c83e29223`
 - `hypothesis_replicates.parquet`: SHA-256 `525c3dcaba7f661445963a2cfc107b394a55a41beccdd973e43b4a3f90f004de`
 - `manifest.csv`: SHA-256 `6b2022041f0c05200adeebfb8598b6eac995ad57618316268ceb343edb982e93`
+- implementation B `manifest.csv`: SHA-256 `cf36d96d25429f268290392ffb089debd52cf1e114ae7ba5380f32a955b73b6a`
+- Comparator C `comparator.json`: SHA-256 `6d76827a8970f0f4a1e542789565a29dcad0805d3a1901a1c78655119bb03113`
+- pinned reference `recovery_reference_probe.json`: SHA-256 `d989c16ddc9b5dc1638e528c4efc22ed6092f253c082266925e9f63aef6d7865`
+- mutation index `mutation_index.json`: SHA-256 `1622f62128e03322bb96f0f890f9f86a268a568626f26c0ea8e8e434218f40ae`

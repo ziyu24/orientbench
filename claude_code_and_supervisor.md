@@ -2519,3 +2519,15 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`top_journal_v3_reaudit_055/measurement_validity_r020_20260811/RECOVERY_REPORT.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/recovery_full_r10000/`。
 - 停止条件：formal r020 路径已消费且不可复用；recovery 科学计算本身正常完成。
 - 下一步建议：若目标是“把 sug.md formal closure 真正做完”，监督端需基于 recovery 结果签发全新 round id/paths，并把迁移后的 Git/CPU 规则改成可执行版本；不能继续声称旧 r020 已完整闭合。
+
+## 2026-08-11 23:27 CST — r020 recovery 独立 B、Comparator、reference 与 mutation 闭包（Codex 执行）
+
+- 指令来源：用户要求“继续推进”；HTTPS 拉取后远端仍无新 round，因此仅在用户已授权的 pragmatic recovery 范围补最有价值的可恢复审计债，不覆盖旧 abnormal report、不倒签 formal r020。
+- 独立实现 B：不 import A、不读取 A rows/runtime，直接从 26 个 raw inputs 重新构造 membership、long-side angle、risk、strict joins、五项消融、point metrics 和 10,000 cluster bootstrap；使用 CPU `0-47` affinity、39 workers，216.97 秒完成，独立 gate=`INCONCLUSIVE_MIXED`、unit witness=5、dataset witness=2、passing signatures=[]。
+- Comparator C：B 封存后读取 A/B；4,320,000 unit 与 2,160,000 dataset bootstrap metric cells 最大绝对差均为 0；全部 point、405 hypotheses、CI、centered p、Holm、swap、witness 与 gate 最大差均为 0。`comparator.json` SHA-256=`6d76827a8970f0f4a1e542789565a29dcad0805d3a1901a1c78655119bb03113`。
+- Reference：从官方 HTTPS 恰一次获取 `fd-shifts@c4467aec134e99691359da209f811d91283fc1e3`，detached checkout clean；两 blob/raw SHA 精确匹配。完整 import 仅因现有环境缺 `loguru` 失败；AST exact-function adapter 动态读出 `AUC_DISPLAY_SCALE=1000`，四个固定向量在 `atol=1e-12,rtol=0` 通过。reference probe SHA-256=`d989c16ddc9b5dc1638e528c4efc22ed6092f253c082266925e9f63aef6d7865`。
+- Mutations：六项 isolated checks 均 pristine exit=0、mutated exit=2，覆盖 raw theta、SODA mother、AUGRC origin、two-dataset gate、26-input inventory、report state token；mutation index SHA-256=`1622f62128e03322bb96f0f890f9f86a268a568626f26c0ea8e8e434218f40ae`。
+- Recovery closure：统一闭包 `VALID_RECOVERY_CLOSURE`，独立 read-back validator=`PASS`，SHA-256=`30827e0f038b275b81171305908c660982a519e56aeabbb634dcfdab3953cb65`；runtime 总量约 281 MiB。
+- 关键产物：`top_journal_v3_reaudit_055/measurement_validity_r020_20260811/RECOVERY_REPORT.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/recovery_independent_b_r10000/`、`recovery_comparator_ab/`、`recovery_reference_probe.json`、`recovery_mutations/`、`recovery_closure.json`。
+- 是否触发停止条件：未触发新的技术/科学停止；候选科学状态仍是 DIOR-only 的 `INCONCLUSIVE_MIXED`。历史 pre-data code seal、live app access chain、strace 双向 closure 与旧 round single-commit/postseal receipt 无法事后重建，formal 状态仍为 `NOT_ADJUDICATED_PENDING_SUPERVISOR`。
+- 下一步建议：C/监督端可直接核验 recovery closure 并签发全新 formal adjudication；若坚持原始实时审计，只能新 round 从零执行，不应继续在旧 r020 路径上追加伪 formal 证据。
