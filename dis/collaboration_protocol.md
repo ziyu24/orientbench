@@ -3,80 +3,63 @@
 ## 当前锚点
 
 - state：`READY_FOR_SERVER_FEASIBILITY_RECEIPT`
-- round：`orientbench-c-topjournal-feasibility-receipt2-20260810`
-- retry of：`orientbench-c-topjournal-feasibility-receipt-20260809`
-- dispatch/housekeeping base：`2a70303e9d74313a15b71e1767b0b6ecdc05d2cc`
-- planning base：`3a4e86cf435af8b29e63b1668af92a1add7c6dbf`
-- receipt control base：`bc27506f7d7c0e47c4d67b202b9157bd4016a87a`
-- source execution：`cdf764c5a974030739a9992079bedb8b970fb2a7`
-- source completion：`ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`
-- source numbers：`DESCRIPTIVE_UNVERIFIED`
-- source reported gate：`FAIL_TO_MEASUREMENT_ONLY_UNVERIFIED`
-- scientific data cutoff：`a9067fb16d2bbd747dfe69789ac33a5911eb15fe`
+- round：`orientbench-c-topjournal-feasibility-receipt3-20260811`
+- retry of：`orientbench-c-topjournal-feasibility-receipt2-20260810`
+- dispatch base：`35358b5fef838b178aff0e16470ebe0117cab687`
+- receipt2 report publication commit：`a2da27559dc6eb005f02efb9b3b34584ebed57b8`
+- source execution：`cdf764c5a974030739a9992079bedb8b970fb2a7` / `ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`
+- source numbers/gate：`DESCRIPTIVE_UNVERIFIED` / `FAIL_TO_MEASUREMENT_ONLY_UNVERIFIED`
+- scientific cutoff：`a9067fb16d2bbd747dfe69789ac33a5911eb15fe`
 - protected B blob：`c0c2571f3a5c828673b39e6458ceaed5f14c5a6a`
+- receipt1：`ABNORMAL_PREFLIGHT_FAILURE / NOT_ADJUDICATED / non_reusable`
+- receipt2：`ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE / NOT_ADJUDICATED / non_reusable`
+- receipt2 report：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`，blob `8e1407d90f5a7247816c457eddcb60a704291951`
+- receipt2 archive：`dis/sug/orientbench-c-topjournal-feasibility-receipt2-20260810-abnormal-reference.md`，blob `25ee36ec83db92364134a66bb44b349ac5f34cf9`
 - active instruction：`dis/sug.md`
-- receipt1 report：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`，blob `4fe331a6a683313150a4fb21cbabd432ffde0f6b`
-- receipt1 contract archive：`dis/sug/orientbench-c-topjournal-feasibility-receipt-20260809-abnormal-preflight.md`，blob `11553a92b05b692a14bf9c4f21898a5c9e10d144`
-- receipt2 future report：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`
-- source runtime：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809`
-- source runtime aggregate SHA-256：`2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43`
-- receipt2 code root：`top_journal_v3_reaudit_055/feasibility_receipt2_20260810`
-- receipt2 runtime：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt2_20260810`
-- receipt2 execution：`NOT_STARTED`
+- receipt3 code：`top_journal_v3_reaudit_055/feasibility_receipt3_20260811`
+- receipt3 runtime：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811`
+- receipt3 reference：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811/references/fd-shifts`
+- receipt3 future report：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md`
+- receipt3 execution：`NOT_STARTED`；`receipt_only: true`
 - current route：`ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC`
 - CC：`COMPLETED / CLOSED`；`cc_recommendation: no`
 
-跨机器共享只通过 Git 仓库，不写账号、机器标识、凭据、本地绝对路径或 C 侧私有规则。receipt2 是相同科学规格的 receipt-only 机械重试，不是新实验或新科学轮次。
+跨机器共享只通过 Git，不写账号、机器标识、凭据、本地绝对路径或 C 侧私有规则。
 
-## receipt1 终态与 housekeeping 边界
+## 历史 receipt 闭环
 
-receipt1 永久为 `ABNORMAL_PREFLIGHT_FAILURE`，`scientific_gate: NOT_ADJUDICATED`，Track M/Track D 均 `NOT_RUN`，并标记 `non_reusable: true`。它因 preexisting dirty tree 与 source runtime 可写而在 preflight 停止；这不是科学负结果，也不是 `INSUFFICIENT_ASSETS`。旧 round、code/runtime/report 路径永久消费。
+receipt1 因 dirty tree 与 writable source runtime 在 preflight 停止，科学 gate 未裁定。receipt2 完成强制 preflight，但本地允许根内不存在 pinned fd-shifts Git identity；当轮无下载权限，因此 mandatory reference provenance 失败。两轮都不是科学失败；receipt1 的 Track M/Track D/joint gate 均未运行，receipt2 的 Track M=`NOT_EMITTED_NOT_RUN` 且 Track D/joint gate 未运行；两轮 round/code/runtime/report 路径均永久消费。
 
-用户在 receipt1 之外授权 housekeeping。提交 `2a70303e9d74313a15b71e1767b0b6ecdc05d2cc` 已发布迁移记录与旧异常报告，并把 source runtime 从可写变为只读；内容树聚合 SHA-256 保持不变。housekeeping 不追溯修改旧 receipt，不补跑科学 phase，不验证旧数字，不改变 gate，也不授予新实验。
+`a2da27559dc6eb005f02efb9b3b34584ebed57b8` 只发布 receipt2 异常报告，不是 receipt2 正常 execution commit。receipt3 不追溯修改任何旧 receipt。
 
-receipt2 preflight 必须在 HTTPS pull 后证明 `post_pull_head == upstream == HTTPS remote current branch`、index/worktree clean，且 `2a70303e9d74313a15b71e1767b0b6ecdc05d2cc` 是 `post_pull_head` 祖先。receipt 内禁止 fix、stash、clean、chmod、remote-edit。还必须闭合旧 report/archive blob；核验 source runtime 全树存在、可读、0 symlink、actual user 不可写、全部对象无 write bit、aggregate SHA 精确匹配；不得 write-probe、copy 替代或用 root 身份掩盖。receipt2 code/runtime/report 启动时必须全部不存在；任一创建后本轮路径永久消费。
+## receipt3 唯一新增权限
 
-## 角色、所有权与写入边界
+`pinned_reference_fetch_authorized: true` 只允许最多三次通过 HTTPS Git 获取 `https://github.com/IML-DKFZ/fd-shifts.git` 的 commit `c4467aec134e99691359da209f811d91283fc1e3` 到新 runtime reference 容器。attempt-01/02/03 使用互不复用的新子目录；失败现场原样保留。每个 Git 命令使用 reference root 内空 hooksPath、禁 submodule，并设置 `GIT_LFS_SKIP_SMUDGE=1`；不使用镜像、替代 commit、setup、hooks、LFS、pip/conda 或安装。一般 download 仍为 false。
 
-### C
+身份核验阶段不执行 checkout 代码、setup 或 hook。remote/commit/detached HEAD/clean/tree/blob/bytes 全部闭合后，只允许在禁网隔离进程执行两份固定 blob 的目标 reference functions 或合规 AST adapter。三次网络命令均失败或任一 identity/dynamic behavior 不闭合，必须异常结束且科学 gate 为 `NOT_ADJUDICATED`。
 
-C 维护 `dis/C.md`、`dis/sug.md`、`dis/review_state.json`、本协议与 `dis/B_START_PROMPT.md`，冻结 receipt2 身份、科学规范与证据边界。服务器回报后仍由 C 审计 tracked report 和发布对象；C 不以聊天状态、源数字或 housekeeping 直接裁定科学结论。
+## 角色与写入边界
 
-### 服务器
+C 维护 active 合同和状态；服务器只执行 `dis/sug.md`。receipt3 唯一写范围：
 
-服务器只执行 active `dis/sug.md`。receipt2 的唯一写范围是：
-
-1. `top_journal_v3_reaudit_055/feasibility_receipt2_20260810/**`
-2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt2_20260810/**`
-3. `dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`
+1. `top_journal_v3_reaudit_055/feasibility_receipt3_20260811/**`
+2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811/**`
+3. `dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md`
 4. `claude_code_and_supervisor.md`，仅 append-only
 
-其它全部只读。GPU、download、installation、training、forward、inference、new target outcome、annotation content、target-label tuning 与 manuscript edit 授权全部为 `false`。不得启动新实验、`r020`、rescue 或 gate substitution。
+除窄 pinned fetch 外，GPU、一般 download、installation、training、forward、inference、new outcome、annotation content、target-label tuning、manuscript edit、method/new experiment/new protocol 均未授权。
 
-### B / CC
+`dis/B.md` 由 B/CC 独占；C 与服务器不得读取内容、创建、修改、格式化、移动、删除、暂存、恢复或提交，只可核验 blob/diff 元数据。上轮 CC 已关闭，本轮不是 CC 邀请。
 
-`dis/B.md` 由 B/CC 独占；C 与服务器不得创建、读取内容、修改、格式化、移动、删除、暂存、恢复或提交，只能核验 ordinary/staged diff 为零和固定 Git blob。上轮 CC 已完成并关闭；本轮不是新的 CC 邀请。CC/B 不执行 receipt2、不追加或改写 `dis/B.md`，也不成为最终裁决者。
+## 不变科学合同
 
-## 不变的 receipt-only 科学状态
+receipt3 的 §5.1/§5.2/§5.4-§8 与 receipt2 canonical archive 逐字节相同；只有 §5.3 的 pinned reference 获取/provenance 规则变化。Track M 五态、Track D 谓词、joint gate、cohort、公式、bootstrap seed `20260809`、replicate `0..9999`、CI report-only、validator 与四 mutation 均不变。
 
-服务器执行健康与科学 outcome 是两条独立轴。active `dis/sug.md` 的 `## 5.` 至 `## 9.` 前与 receipt1 canonical archive 逐字节相同：
+## 完成、异常与聊天
 
-1. Track M 仍只允许 `INSUFFICIENT_ASSETS`、`METRIC_REVERSAL`、`BASELINE_DOMINATED`、`SENSITIVITY_UNSTABLE`、`ROBUST_CANDIDATE` 五态；cohort、公式、seed `20260809` 与 bootstrap replicate `0..9999` 不变。
-2. Track D 四个 failure predicate、precedence 与 `ELIGIBLE_CANDIDATE` 条件不变。
-3. Joint gate 仍只允许 `FAIL_TO_MEASUREMENT_ONLY`、`INCONCLUSIVE_FEASIBILITY`、`PASS_TO_METHOD_DESIGN`，negative 优先。
-4. Independent validator 与 `source_hash`、`bootstrap_replicate`、`track_d_evidence_fact`、`joint_gate_clause` 四项真实 mutation 不变。
+`正常执行完毕` 仅当全部 receipt phase、validator、四 mutation、恰一个 commit、HTTPS push 与 external receipt 闭合；科学负结果也可以正常。reference 获取/identity/dynamic validation 或任一必做 phase 失败均为 `异常结束`。
 
-源执行仍是 `ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`，其全部数字仍是 `DESCRIPTIVE_UNVERIFIED`，reported gate 仍是 `FAIL_TO_MEASUREMENT_ONLY_UNVERIFIED`。当前路线保持 `ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC`。
-
-## receipt2 执行完成与异常
-
-`正常执行完毕` 当且仅当 receipt2 全部 phase、independent validator、四项 isolated mutation、恰好一个 commit、HTTPS push 与仓库外 external receipt 全部闭合；科学负结果也可以正常。
-
-任一 preflight 或必做 phase 缺失、source runtime 不符合只读闭合、provenance gap、validator/mutation/Git/发布/external receipt 失败，均为 `异常结束`。详细证据只能进入 receipt2 唯一 report；聊天不得携带路径、SHA 或解释。
-
-## 服务器聊天唯一格式
-
-服务器最终聊天只能在以下两个完整模板中二选一：
+服务器聊天严格二选一：
 
 ```text
 👇👇👇👇👇👇
@@ -96,6 +79,6 @@ C 维护 `dis/C.md`、`dis/sug.md`、`dis/review_state.json`、本协议与 `dis
 👆👆👆👆👆👆
 ```
 
-## 当前唯一动作与禁区
+## 当前唯一动作
 
-当前唯一动作是 receipt2 receipt-only mechanical retry。禁止新实验、`r020`、DOTA/HRSC/Core rescue、同数据集新 detector 救场、gate substitution、GPU、下载、安装、训练、forward、推理、新 outcome、annotation 内容读取、改稿或重复调用 CC。receipt2 尚未开始；服务器必须先按 active `dis/sug.md` 完成 preflight。
+当前唯一动作是服务器执行 receipt3。禁止新实验、`r020`、rescue、gate substitution、一般下载、安装、训练、forward、推理、新 outcome、annotation 内容读取、改稿或调用 CC。
