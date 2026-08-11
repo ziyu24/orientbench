@@ -2457,3 +2457,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`claude_code_and_supervisor.md`、`docs/server_migration_handoff_20260810.md`、`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`。
 - 是否触发停止条件：未触发新的科学停止条件；当前等待用户与监督端更新控制面并签发全新 round。
 - 下一步建议：监督端确认迁移事实和依赖获取边界后，使用新的 round id、code root、runtime root 与 report path 下发 receipt3；不得复用 receipt2 路径。
+
+## 2026-08-10 20:49 PDT — 新指令拉取检查（Codex 执行）
+
+- 指令来源：用户要求“拉取，执行”。
+- 执行动作：在干净 `main` 上通过 HTTPS 两次执行 `git pull --ff-only origin main`，均返回 `Already up to date`；同时核验 GitHub `refs/heads/main`、本地 HEAD 与 `origin/main` 均为 `9e0352aef88d062a15a4db55e3d948ae84d9f700`。
+- 控制面结果：远端尚未下发新的 receipt3；活动 `dis/sug.md` 仍为已消费且不可复用的 `orientbench-c-topjournal-feasibility-receipt2-20260810`，文件 SHA-256 仍为 `fd532c1f12e713e6d9c55d6f37f109fb6d41afbf351ace7801cab6c3e6573e1d`，对应 receipt2 报告路径已经存在并已发布。
+- 执行边界：未重跑 receipt2，未覆盖其报告或路径，未启动 Track M、Track D、validator、mutation、训练、推理、下载或新科学计算。
+- 关键产物路径：`dis/sug.md`、`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`、`claude_code_and_supervisor.md`。
+- 是否触发停止条件：本次没有可执行的新 round；按现有合同的 non-reusable/path-collision 规则停止，不形成新的科学裁决。
+- 下一步建议：请监督端在用户所述的迁移与依赖灵活性要求纳入控制面后，推送使用全新 round id、code/runtime/report 路径的 receipt3；服务器收到新提交后再拉取执行。
