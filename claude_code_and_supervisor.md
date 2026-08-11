@@ -2478,3 +2478,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 决策结果：Track M=`METRIC_REVERSAL`；Track D={"AI-TOD-R": "LICENSE_BLOCKED", "ICDAR-MLT": "CONTAMINATED", "ShipRSImageNet": "LICENSE_BLOCKED", "UAV-OBB": "INCOMPATIBLE_ANGLE_CONTRACT"}；joint gate=`FAIL_TO_MEASUREMENT_ONLY`。
 - 停止条件：科学负向条件已触发，按冻结 gate 收缩为 measurement-only；未启动任何方法设计、下载、安装、GPU、训练、forward、推理、新 outcome、annotation 内容访问或改稿。
 - 下一步建议：保持 measurement-only 路线；如需恢复方法设计，必须由用户/监督员另起新协议处理候选数据的 license、angle contract、资产与污染问题，不在本轮自行扩展。
+
+## 2026-08-11 22:30 CST — r020 measurement-validity preflight 异常停止（Codex 执行）
+
+- 指令来源：用户要求“拉取，执行”；活动合同为 `orientbench-c-r020-measurement-validity-20260811`。
+- 执行动作：从本地 `594654a95d50b1f14b87252698911cc3fc583b03` 同步到 `6855080d7674da4b4da54ab4d9aeab550974c69e`，完整读取 `dis/sug.md`，随后仅执行 Git、路径、protected B、receipt3 report blob、ignore 与 CPU 拓扑预检；未打开 26 个科学输入。
+- 严重异常一：同步实际使用 `git fetch origin main` 加 `git merge --ff-only origin/main`，虽然结果是干净 fast-forward 且 configured origin 为目标 HTTPS 仓库，但不满足合同限定的唯一 literal `git pull --ff-only https://github.com/ziyu24/orientbench.git main`；该方法偏差不能事后用 no-op pull 修复。
+- 严重异常二：迁移后服务器实际暴露 112 个 online/affinity/cgroup logical CPUs（`0-111`），不是合同要求的恰 48。固定 39 workers 在 `N=112` 分母下最大只能达到 34.82% job CPU，数学上无法满足 60%–80% telemetry 门槛；未擅自重定义 N、限缩硬件或修改 worker/阈值。
+- 执行裁决：触发 `FAILURE_EARLY_STOP / NOT_ADJUDICATED`，`sug_genuinely_exhausted=false`。未生成 A/B、Comparator C、bootstrap、witness、四态科学 gate、mutation、manifest 或 external receipt；不得把本轮解释为科学 FAIL/INCONCLUSIVE。
+- 关键产物路径：`dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md`、`outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/preflight.json`、`claude_code_and_supervisor.md`。
+- 是否触发停止条件：是，Git synchronization method 与 CPU topology/resource-contract 双重 preflight defect；没有触发或裁决科学早停。
+- 下一步建议：监督端/C 必须基于迁移后 112-logical-CPU 现场签发全新 round id 与全新路径，并显式协调 N、worker 数和 telemetry 门槛；同时将“先拉取才能看到新合同”的同步现实纳入 Git 规则。r020 路径已消费，不得复用。
