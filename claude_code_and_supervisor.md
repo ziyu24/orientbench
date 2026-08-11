@@ -2467,3 +2467,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`、`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`、`claude_code_and_supervisor.md`。
 - 是否触发停止条件：本次没有可执行的新 round；按现有合同的 non-reusable/path-collision 规则停止，不形成新的科学裁决。
 - 下一步建议：请监督端在用户所述的迁移与依赖灵活性要求纳入控制面后，推送使用全新 round id、code/runtime/report 路径的 receipt3；服务器收到新提交后再拉取执行。
+
+
+## 2026-08-11T02:59:04.265648-07:00 — receipt3 迁移后执行闭环
+
+- 指令来源：用户“拉取，执行”；适用最高规则为当前 `AGENTS.md` 与 `dis/sug.md` receipt3 合约。
+- 迁移说明：项目已由原服务器迁移至当前服务器；硬件口径相同，复用现有 `pcp-obb` conda 环境，未安装依赖；`pth_data` 仅按只读登记使用。该事实已同步写入监督端固定日志，后续授权应以迁移后的当前服务器现场为准。
+- 执行动作：main 从 `35358b5fef838b178aff0e16470ebe0117cab687` fast-forward 至 `6e0ea32bc3d1c13aa051f8abd9c9e37e5996d025`；固定 fd-shifts commit 首次 HTTPS fetch 成功；完成 A-F raw 重算、完整曲线、10,000 bootstrap、独立 validator、Track D 与四个 isolated mutation。
+- 关键产物：`outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt3_20260811`；`top_journal_v3_reaudit_055/feasibility_receipt3_20260811`；`dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md`。
+- 决策结果：Track M=`METRIC_REVERSAL`；Track D={"AI-TOD-R": "LICENSE_BLOCKED", "ICDAR-MLT": "CONTAMINATED", "ShipRSImageNet": "LICENSE_BLOCKED", "UAV-OBB": "INCOMPATIBLE_ANGLE_CONTRACT"}；joint gate=`FAIL_TO_MEASUREMENT_ONLY`。
+- 停止条件：科学负向条件已触发，按冻结 gate 收缩为 measurement-only；未启动任何方法设计、下载、安装、GPU、训练、forward、推理、新 outcome、annotation 内容访问或改稿。
+- 下一步建议：保持 measurement-only 路线；如需恢复方法设计，必须由用户/监督员另起新协议处理候选数据的 license、angle contract、资产与污染问题，不在本轮自行扩展。
