@@ -1,61 +1,26 @@
 ---
-round_id: orientbench-c-topjournal-feasibility-receipt2-20260810
-retry_of: orientbench-c-topjournal-feasibility-receipt-20260809
-housekeeping_commit: 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc
-dispatch_base: 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc
+round_id: orientbench-c-topjournal-feasibility-receipt-20260809
 control_base: bc27506f7d7c0e47c4d67b202b9157bd4016a87a
 source_execution_commit: cdf764c5a974030739a9992079bedb8b970fb2a7
-source_execution_status: ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809
-source_numbers_status: DESCRIPTIVE_UNVERIFIED
-source_reported_gate: FAIL_TO_MEASUREMENT_ONLY_UNVERIFIED
 scientific_data_cutoff: a9067fb16d2bbd747dfe69789ac33a5911eb15fe
-protected_B_blob: c0c2571f3a5c828673b39e6458ceaed5f14c5a6a
 source_runtime: outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809
-source_runtime_tree_sha256: 2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43
-prior_receipt_report: dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md
-prior_receipt_report_blob: 4fe331a6a683313150a4fb21cbabd432ffde0f6b
-prior_contract_archive: dis/sug/orientbench-c-topjournal-feasibility-receipt-20260809-abnormal-preflight.md
-prior_contract_archive_blob: 11553a92b05b692a14bf9c4f21898a5c9e10d144
-previous_receipt_status: ABNORMAL_PREFLIGHT_FAILURE
-previous_receipt_scientific_gate: NOT_ADJUDICATED
-previous_receipt_non_reusable: true
-receipt_code_root: top_journal_v3_reaudit_055/feasibility_receipt2_20260810
-runtime_root: outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt2_20260810
-server_report_path: dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md
-status: READY_FOR_SERVER_FEASIBILITY_RECEIPT
-receipt_execution_status: NOT_STARTED
-receipt_only_retry: true
+runtime_root: outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt_20260809
+server_report_path: dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md
+status: READY_FOR_SERVER_EXECUTION
 gpu_authorized: false
 download_authorized: false
-installation_authorized: false
 training_authorized: false
-forward_authorized: false
 inference_authorized: false
 new_target_outcome_authorized: false
-annotation_content_authorized: false
 manuscript_edit_authorized: false
-cc_recommendation: 'no'
+cc_recommendation: no
 ---
 
-# OrientBench 顶刊可行性纠偏验收服务器合约（receipt2 机械重试）
+# OrientBench 顶刊可行性纠偏验收服务器合约
 
 ## 1. 唯一问题与不可改写的源状态
 
-本轮是对 `orientbench-c-topjournal-feasibility-receipt-20260809` 的一次 **receipt-only 机械重试**，不是新科学实验，也不产生新科学 outcome；科学问题、指标、cohort、bootstrap、Track M/Track D 状态、联合 gate、validator 与 mutation 规范均不变。唯一问题仍是：能否从既有只读 feasibility runtime、既有 sealed Core 资产和既有官方取证中，独立重建并验证 Track M、Track D、联合 gate、provenance、validator 与 mutation 的全部证据链。
-
-receipt1 已永久终止为：
-
-```text
-receipt_execution: ABNORMAL_PREFLIGHT_FAILURE
-scientific_gate: NOT_ADJUDICATED
-reusable: false
-Track M: NOT_RUN
-Track D: NOT_RUN
-```
-
-它不是科学失败，也不是 `INSUFFICIENT_ASSETS`。其唯一报告为 `dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`，Git blob 为 `4fe331a6a683313150a4fb21cbabd432ffde0f6b`；旧 active 合同已按 filter-aware canonical bytes 归档到 `dis/sug/orientbench-c-topjournal-feasibility-receipt-20260809-abnormal-preflight.md`，归档 blob 为 `11553a92b05b692a14bf9c4f21898a5c9e10d144`。receipt1 的 round、code/runtime/report 路径均永久消费且不可复用。
-
-用户在 receipt1 之外另行授权迁移 housekeeping；已发布提交 `2a70303e9d74313a15b71e1767b0b6ecdc05d2cc` 只闭合 dirty-tree 迁移记录并把既有 source runtime 原位改为只读。housekeeping 前后 source runtime 科学字节树聚合 SHA-256 均为 `2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43`。该 housekeeping 不追溯改写 receipt1，不补跑任何 Track，不验证任何旧数字，也不授予本轮之外的新权限。
+本轮是一次 **receipt-only 纠偏验收**，不是新科学实验，也不产生新科学 outcome。唯一问题是：能否从既有只读 feasibility runtime、既有 sealed Core 资产和既有官方取证中，独立重建并验证 Track M、Track D、联合 gate、provenance、validator 与 mutation 的全部证据链。
 
 源执行的永久状态为：
 
@@ -75,45 +40,43 @@ DESCRIPTIVE_UNVERIFIED
 
 ## 2. 权限、只读边界与唯一写范围
 
-服务器在仓库内外只能写入以下四类全新路径：
+服务器在仓库内外只能写入以下四类路径：
 
-1. `top_journal_v3_reaudit_055/feasibility_receipt2_20260810/**`
-2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt2_20260810/**`
-3. `dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`
+1. `top_journal_v3_reaudit_055/feasibility_receipt_20260809/**`
+2. `outputs/persistent_artifacts/orientbench_topjournal_feasibility_receipt_20260809/**`
+3. `dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`
 4. `claude_code_and_supervisor.md`，仅 append-only
 
 除此之外全部只读。尤其禁止创建、读取内容、修改、格式化、移动、删除、暂存、恢复或提交 `dis/B.md`；只允许核验其 Git blob/diff 元数据。禁止修改主稿、`dis/C.md`、`dis/sug.md`、`dis/review_state.json`、协作协议、旧报告、原 feasibility 代码 `top_journal_v3_reaudit_055/feasibility_gate_20260809/**`、`source_runtime`、r014/m069 sealed 资产、checkpoint、数据、split、阈值、matching、canonicalization、cluster、seed、score、metric 或 gate。
 
-`source_runtime` 以及全部既有科学资产严格只读：不得删除、清空、覆盖、复用、改名、移动、patch、补写、backfill、chmod、write-probe、copy 替代，或借 hard link/符号链接间接修改。receipt1 的异常报告、旧 code/runtime/report 路径也严格只读且不可复用。新代码和新 runtime 必须从上述不存在的新路径创建；发生路径碰撞时不得清理或换旁路路径。
+`source_runtime` 以及全部既有科学资产严格只读：不得删除、清空、覆盖、复用、改名、移动、patch、补写、backfill 或借 hard link/符号链接间接修改。新代码和新 runtime 必须从不存在的路径创建；发生路径碰撞时不得清理或换旁路路径。
 
-禁止使用 GPU、下载数据集/模型/包、安装依赖、训练、forward、推理、打开候选 annotation 内容、计算新 target outcome 或用 target label 调参。网络只允许 HTTPS Git；不得使用 SSH。已存在仓库只允许 `git pull --ff-only`，禁止 merge、rebase、reset、clean、checkout、stash、remote-edit、force push 或改写历史。本轮全部 `gpu/download/installation/training/forward/inference/new_target_outcome/annotation_content/manuscript_edit` 授权均为 `false`。
+禁止使用 GPU、下载数据集/模型/包、安装依赖、训练、forward、推理、打开候选 annotation 内容、计算新 target outcome 或用 target label 调参。网络只允许 HTTPS Git；不得使用 SSH。已存在仓库只允许 `git pull --ff-only`，禁止 merge、rebase、reset、clean、checkout、stash、force push 或改写历史。
 
 ## 3. Preflight、失败闭环与真实事件记录
 
-任何科学验收前必须完成以下 preflight；不得在 receipt 内修复、隐藏或替代启动现场使其通过：
+任何科学验收前必须完成以下 preflight；不得用修复工作树或替代路径使其通过：
 
 1. 完整读取所有适用的 `AGENTS.md`、`CLAUDE.md`、本合约、协作/交接规则和 `/home/rspip/cqc/pro/study/pth_data/readme.md`。对每个实际读取文件记录规范路径、bytes、SHA256、真实读取开始/结束时间和读取结果；规则或 readme 缺失/不可读即失败。
-2. 核验 `origin` 为 `https://github.com/ziyu24/orientbench.git`，记录当前分支、远端默认分支、upstream、完整 pre-pull HEAD 和 HTTPS remote current branch。只运行 HTTPS `git pull --ff-only`；不能 fast-forward 即失败。pull 后立即冻结 `post_pull_head = git rev-parse HEAD`，并分别解析 `upstream_sha = git rev-parse @{upstream}` 与 `https_remote_current_branch_sha = git ls-remote https://github.com/ziyu24/orientbench.git refs/heads/<current_branch>`；必须满足 `post_pull_head == upstream_sha == https_remote_current_branch_sha`，且此时 index/worktree 干净。任一不等、upstream 缺失或 remote current branch 不存在即失败；不得携带 pre-existing ahead commit 进入本轮。preflight 内不得 fix、stash、clean、chmod、remote-edit、恢复、隐藏或提交既有变化。
+2. 核验 `origin` 为 `https://github.com/ziyu24/orientbench.git`，记录当前分支、远端默认分支、upstream、完整 pre-pull HEAD 和 HTTPS remote current branch。只运行 HTTPS `git pull --ff-only`；不能 fast-forward 即失败。pull 后立即冻结 `post_pull_head = git rev-parse HEAD`，并分别解析 `upstream_sha = git rev-parse @{upstream}` 与 `https_remote_current_branch_sha = git ls-remote https://github.com/ziyu24/orientbench.git refs/heads/<current_branch>`；必须满足 `post_pull_head == upstream_sha == https_remote_current_branch_sha`，且此时 index/worktree 干净。任一不等、upstream 缺失或 remote current branch 不存在即失败；不得携带 pre-existing ahead commit 进入本轮。
 3. 核验 index 与 worktree 在执行前干净；不得删除、隐藏或恢复任何现有变化。核验 `dis/B.md` 的 Git blob 严格为 `c0c2571f3a5c828673b39e6458ceaed5f14c5a6a`，且其普通 diff、staged diff 均为空；不得读取文件内容。
-4. 核验 `post_pull_head` 包含本合约。对 `scientific_data_cutoff`、`source_execution_commit`、`control_base`、`housekeeping_commit`、`dispatch_base` 和 `post_pull_head` 分别运行 `git cat-file -e <sha>^{commit}` 并要求 exit 0；`housekeeping_commit` 与 `dispatch_base` 必须都精确等于 `2a70303e9d74313a15b71e1767b0b6ecdc05d2cc`。再按下列固定方向运行 ancestry 检查并要求每条 exit 0：
+4. 核验 `post_pull_head` 包含本合约。对 `scientific_data_cutoff`、`source_execution_commit`、`control_base` 和 `post_pull_head` 分别运行 `git cat-file -e <sha>^{commit}` 并要求 exit 0，再按下列固定方向运行 ancestry 检查并要求每条 exit 0：
 
    ```text
    git merge-base --is-ancestor a9067fb16d2bbd747dfe69789ac33a5911eb15fe cdf764c5a974030739a9992079bedb8b970fb2a7
    git merge-base --is-ancestor cdf764c5a974030739a9992079bedb8b970fb2a7 bc27506f7d7c0e47c4d67b202b9157bd4016a87a
-   git merge-base --is-ancestor bc27506f7d7c0e47c4d67b202b9157bd4016a87a 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc
-   git merge-base --is-ancestor 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc post_pull_head
+   git merge-base --is-ancestor bc27506f7d7c0e47c4d67b202b9157bd4016a87a post_pull_head
    ```
 
-   最后一条执行时必须用已冻结的 40-hex `post_pull_head` 实值替换字面 token。由此固定且只接受 `scientific_data_cutoff -> source_execution_commit -> control_base -> housekeeping_commit/dispatch_base -> post_pull_head` 的祖先链；任何 object 缺失、方向相反或非祖先均失败。housekeeping 必须是 post-pull HEAD 的祖先，不得把它当成 receipt1 的补丁或科学证据。上述 SHA 不是展示字段，还必须与所引用既有 manifests/资产的 source identity 交叉核验。未经验证的事实写 `unknown`，不得套用其它项目路径或状态。
-5. 核验 receipt1 的异常报告已存在，且 `git rev-parse <post_pull_head_40hex>:dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md` 精确为 `4fe331a6a683313150a4fb21cbabd432ffde0f6b`。执行前必须先用已冻结的 40-hex `post_pull_head` 实值替换 `<post_pull_head_40hex>` 占位符；禁止把字面 `post_pull_head` 或字面占位符作为 Git revision 执行。核验 canonical 归档已存在，且 `git hash-object --filters --path=dis/sug.md dis/sug/orientbench-c-topjournal-feasibility-receipt-20260809-abnormal-preflight.md` 精确为 `11553a92b05b692a14bf9c4f21898a5c9e10d144`。旧报告必须仍声明 `ABNORMAL_PREFLIGHT_FAILURE`、`NOT_ADJUDICATED`、Track M/D 未运行；不得覆盖、修订或借 housekeeping 追溯改写。
-6. 核验 `source_runtime` 全树是已存在且可读的真实目录：对象总数、相对路径、类型、bytes 与内容 SHA 必须闭合；符号链接数必须为 0；对实际执行用户，根目录与每个对象均不可写；每个对象 mode 均不得含任何 write bit；按 housekeeping 使用的同一 canonical content-tree 聚合算法重算 SHA-256，必须精确等于 `2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43`。不得在 receipt 内 chmod、做会写入字节的 write-probe、复制到替代目录或用容器/root 身份掩盖 actual-user 可写性；任一 symlink、不可读、可写、write bit 或聚合 SHA 不符即失败。
-7. 核验 `runtime_root`、`receipt_code_root` 和新 `server_report_path` 在启动时全部不存在。任一新路径已存在即 collision，禁止删、覆、复用、改名或改用另一目录；失败报告一旦写入，新 round/code/runtime/report 路径永久消费。核验四类授权写范围可以精确执行，且任何临时文件、日志、mutation 副本均能留在 `runtime_root` 内；不得使用未登记的 `/tmp`、`/dev/shm` 或仓库旁路目录。
+   最后一条执行时必须用已冻结的 40-hex `post_pull_head` 实值替换字面 token。由此固定且只接受 `scientific_data_cutoff -> source_execution_commit -> control_base -> post_pull_head` 的祖先链；任何 object 缺失、方向相反或非祖先均失败。三个 YAML SHA 不是展示字段，还必须与所引用既有 manifests/资产的 source identity 交叉核验。未经验证的事实写 `unknown`，不得套用其它项目路径或状态。
+5. 核验 `source_runtime` 是已存在、可读且不可写的目录；核验 `runtime_root`、新 code root 和新报告在启动时均不存在。任一新路径已存在即 collision，禁止删、覆、复用、改名或改用另一目录。
+6. 核验四类授权写范围可以精确执行，且任何临时文件、日志、mutation 副本均能留在 `runtime_root` 内；不得使用未登记的 `/tmp`、`/dev/shm` 或仓库旁路目录。
 
 tracked `execution_ledger.csv` 的边界固定为 `tracked_ledger_cutoff: PRE_SEAL_SCIENTIFIC_AUDIT_CLOSURE`：它只登记 preflight 至 tracked seal 之前的 scientific/audit 真实命令（包括失败命令），字段为 `phase, command, cwd, inputs, started_at, ended_at, exit_code, stdout_path, stdout_bytes, stdout_sha256, stderr_path, stderr_bytes, stderr_sha256`。旧称 `PRE_COMMIT_CLOSURE_ONLY` 在本合约中严格等价于这一更早的 pre-seal 截止点，绝不授权记录 seal 后但 commit 前的 Git 命令。时间来自命令 wrapper 在事件发生时记录的墙钟；退出码来自真实子进程。receipt 新事件不得使用文件 mtime、常量、猜测、事后重构或硬编码 `PASS/true/0` 代替。源执行中不存在或无法恢复的旧事件字段必须逐字段写 `SOURCE_FIELD_ABSENT`；不得用 mtime、当前时间、默认零、摘要文本或推断值 backfill。
 
 final `git add`、staged name-status/diff-check、post-seal B/HEAD checks、`git commit`、`git push`、post-commit topology checks、HTTPS `git ls-remote` 和 published-object checks 全部发生在 tracked 内容封存之后，严禁写入或回填 `execution_ledger.csv`、access log、tracked report、runtime、validator、manifest 或 append-only 仓库日志。外层 wrapper 必须把这些事件的真实 command/cwd/start/end/exit/stdout/stderr bytes/SHA256 暂存在仓库外，并且只在 push attempt 结束后形成 `EXTERNAL_RECEIPT_OUTSIDE_REPOSITORY_ONLY`；具体 schema 见第 9 节。
 
-任何 preflight 或后续必做阶段失败都使本次聊天状态为 `异常结束`。只要仓库、受保护文件和报告路径仍可安全写入，就必须先在唯一 tracked `server_report_path` 写入异常报告，列出失败点、已完成/未完成阶段、真实命令与证据；不得仅在聊天说明。新报告或任一新 code/runtime 对象一经创建，本轮所有新路径永久消费，不得清理后重跑。若 Git/所有权冲突使报告无法安全落盘或发布，应保持现场不变，并在允许的 append-only 日志中记录失败；绝不能伪造报告、commit、push 或外部回执。
+任何 preflight 或后续必做阶段失败都使本次聊天状态为 `异常结束`。只要仓库、受保护文件和报告路径仍可安全写入，就必须先在唯一 tracked `server_report_path` 写入异常报告，列出失败点、已完成/未完成阶段、真实命令与证据；不得仅在聊天说明。若 Git/所有权冲突使报告无法安全落盘或发布，应保持现场不变，并在允许的 append-only 日志中记录失败；绝不能伪造报告、commit、push 或外部回执。
 
 ## 4. Receipt 固定产物
 
@@ -395,8 +358,6 @@ validator 必须是与 generator 分离的 entry point，不得 import generator
 唯一 tracked `server_report_path` 必须明确包含：
 
 - 源执行状态 `ABNORMAL_FAILED_EXECUTION_FEASIBILITY_20260809`，以及源数字状态 `DESCRIPTIVE_UNVERIFIED`；
-- receipt1 状态 `ABNORMAL_PREFLIGHT_FAILURE`、`scientific_gate: NOT_ADJUDICATED`、`non_reusable: true`、Track M/D 未运行，以及 report/archive 的实际 blob 闭合；housekeeping 只能作为 receipt2 preflight migration evidence，不得追溯改变 receipt1；
-- receipt2 身份 `orientbench-c-topjournal-feasibility-receipt2-20260810`、`retry_of: orientbench-c-topjournal-feasibility-receipt-20260809`、`dispatch_base: 2a70303e9d74313a15b71e1767b0b6ecdc05d2cc`；
 - pre-seal scientific/audit closure（全部 seal 前必做 phase、completed/omitted phase 及 reason、execution failure、technical stop）；tracked report 不得预判 final add/staged checks/commit/push/external receipt；
 - Track M 唯一状态、每项 metric/bootstrap/reference/state-test 证据；
 - Track D 四候选的全部事实、precedence、状态与搜索/stat/hash 证据；
