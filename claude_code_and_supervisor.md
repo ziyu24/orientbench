@@ -2445,3 +2445,15 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`；旧 source runtime 和 sealed assets 未修改。
 - 是否触发停止条件：是，mandatory validator/provenance phase 无法闭合；科学验收异常停止。
 - 下一步建议：本轮路径已消费。需在 receipt 外预先配置精确 pinned source Git object/checkout，再由用户/监督端发布新的 round id 与全新 code/runtime/report 路径；不得复用 receipt2 或在本轮下载修复。
+
+## 2026-08-10 20:39 PDT — 迁移现状补充通知与后续合同请求（Codex 执行）
+
+- 指令来源：用户明确要求再次向监督端说明项目已经迁移，并表示后续将亲自沟通，要求下一轮执行合同不要设置得过度死板。
+- 给监督端的迁移说明：当前执行现场是迁移后的新服务器，项目根保持为 `/home/rspip/cqc/pro/study/orientbench`。Git HTTPS 链路已经恢复并闭合；本通知前 `main == origin/main == a2da27559dc6eb005f02efb9b3b34584ebed57b8`。既有 Conda 环境按迁移规则优先复用，未因迁移新建环境。
+- 资产现状：旧 feasibility source runtime 已完成只读保护，74 个文件全部可读、内容树 canonical SHA-256 仍为 `2e9f7eb60b7de427b24faa8c91b0ef2017864d99cbc923b04bfe70b500085b43`；迁移没有改变其科学字节。`pth_data` 按用户指示暂不做持久化迁移，只要现有路径可用即可。历史 522 条 FAIR1M 失效软链接只影响未来图像级 replay，不影响当前 sealed evidence 的读取。
+- receipt2 定性澄清：`ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE` 是合同要求精确本地 pinned `fd-shifts` 源码、同时禁止补拉所造成的执行性 provenance 阻断，不是迁移损坏、Git 未闭合、软链接污染或新的科学负结果；Track M、Track D 和 joint gate 均未裁决。
+- 对监督端的请求：请在用户后续说明后，按迁移后的实际可用环境重写下一轮合同，保留 frozen thresholds、D_cal/D_audit、formal 标签和科学 provenance 等必要硬边界，但避免把可安全补齐的工具依赖写成不可恢复的整轮失败条件。若仍需要 pinned `fd-shifts`，应在 receipt 外预置源码，或在新合同中明确授权从官方仓库获取并校验固定 commit。
+- 执行动作与边界：本次只追加监督记录，不改 receipt2 报告、旧 runtime、冻结证据或科学裁决，不自行解释为用户已经正式解除现有约束，也不擅自重跑 receipt2。
+- 关键产物路径：`claude_code_and_supervisor.md`、`docs/server_migration_handoff_20260810.md`、`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`。
+- 是否触发停止条件：未触发新的科学停止条件；当前等待用户与监督端更新控制面并签发全新 round。
+- 下一步建议：监督端确认迁移事实和依赖获取边界后，使用新的 round id、code root、runtime root 与 report path 下发 receipt3；不得复用 receipt2 路径。
