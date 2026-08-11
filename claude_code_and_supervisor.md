@@ -2435,3 +2435,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`docs/server_migration_handoff_20260810.md`、`dis/server_reports/orientbench-c-topjournal-feasibility-receipt-20260809.md`、`claude_code_and_supervisor.md`、`outputs/persistent_artifacts/orientbench_topjournal_feasibility_20260809/`。
 - 是否触发停止条件：未触发新的科学早停；旧 receipt 保持 `ABNORMAL_PREFLIGHT_FAILURE`，不得改写为完整执行。
 - 对监督端的下一步请求：在本 housekeeping commit 成为远端新 `main` 后，请基于该新 SHA 下发全新的 `dis/sug.md`，必须使用新的 `round_id`、code root、runtime root 和 server-report path；不得复用已失败轮次或其路径。新合同还应明确把本迁移服务器和已只读 source runtime 作为启动现场。
+
+## 2026-08-11 11:31 CST — receipt2 mandatory reference provenance 异常停止（Codex 执行）
+
+- 指令来源：用户要求拉取并执行；HTTPS fast-forward 后 active round 为 `orientbench-c-topjournal-feasibility-receipt2-20260810`。
+- Preflight：`main` 拉取至 `6d8892a3793b2efcd8373ce8d509a6cf9872427c`；HEAD/upstream/HTTPS remote 三方一致、工作树干净。规则/readme、B blob/diff、固定祖先链、receipt1 report/archive、source runtime 只读全树与 canonical SHA、新 code/runtime/report 路径不存在均闭合。
+- 停止条件：合同第 5.3 节要求的 pinned `IML-DKFZ/fd-shifts@c4467aec134e99691359da209f811d91283fc1e3` 及 `rc_stats.py`/`rc_stats_utils.py` 在允许根内不存在。实际枚举 33 个本地 Git repo，目标 commit holder=0；两个源文件命中=0。仅有合同/计划/旧 generator 的文本引用，不能作为 dynamic source identity。download/installation 均未授权，因此不得补拉或硬编码通过。
+- 执行裁决：`ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE`；这不是 Track M=`INSUFFICIENT_ASSETS`，Track M/Track D/joint gate 均未发出。未运行 10k bootstrap、validator、mutation，也未创建 receipt2 code/runtime。
+- 关键产物路径：`dis/server_reports/orientbench-c-topjournal-feasibility-receipt2-20260810.md`；旧 source runtime 和 sealed assets 未修改。
+- 是否触发停止条件：是，mandatory validator/provenance phase 无法闭合；科学验收异常停止。
+- 下一步建议：本轮路径已消费。需在 receipt 外预先配置精确 pinned source Git object/checkout，再由用户/监督端发布新的 round id 与全新 code/runtime/report 路径；不得复用 receipt2 或在本轮下载修复。
