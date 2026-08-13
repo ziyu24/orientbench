@@ -3,11 +3,11 @@
   "plan_id": "b-r023-measurement-validity-20260813",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r023-measurement-validity-20260813/sug.md",
-  "state": "DISPATCHED",
+  "state": "COMPLETED",
   "plan_commit_sha": "97a0d8ca1c0f0b30650e3ee5a42222c2181f3d24",
   "plan_blob_oid": "debf5cf99606a0142b04f6c5f90d501283f8abe7",
   "plan_sha256": "044cc2539fa6ec1e28a9ad46e121753bc0e389efdf723bf2ce1a4f415e205af5",
-  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "state_reason": "execution_complete_b_verdict_inconclusive_mixed_adopted_c_verdict_pending",
   "ready_at": "2026-08-13T03:20:00-07:00",
-  "updated_at": "2026-08-13T03:25:00-07:00"
+  "updated_at": "2026-08-13T04:20:00-07:00"
 }

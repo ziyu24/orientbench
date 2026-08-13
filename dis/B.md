@@ -660,3 +660,10 @@ r020 链条留下的唯一正规出路（server report §Required next action、
 - r022 被服务器以 clean-room 污染早停（会话读了 `claude_code_and_supervisor.md`）。核验结论：**这是 B 合同自身的缺陷，不是服务器错误**——r022 计划正文本身就预注册了 recovery 期望结果，服务器又必须读计划并 append supervisor log，按 Delta-5 的死抠定义每次执行都必然"被污染"，合同不可满足。无科学输入被打开。r022 已关闭（`dis/dispatch_history/orientbench-b-r022-measurement-validity-20260813.json`）。
 - 按用户 2026-08-13 指示（程序性问题不再作为致命早停理由），r023 改为务实合同：科学硬约束保留（26 输入 bytes/SHA、冻结协议常量与四态 gate、A/B 实现不互抄代码不互读输出、如实报告），其余程序性条款一律"记录偏差并继续"。执行管线直接复用已审计、已在 Git 冻结的 recovery 代码（七个脚本 blob 级钉定，提交于 2026-08-11 `bf30802`/`0a8cd26`，先于本轮任何执行）——这构成比现场重写代码更强的 pre-data code seal。**操作者知晓历史候选结果明确定义为非污染**；实现独立性是代码写作历史的属性（已由 comparator 零差确立），不是操作者无知的属性。
 - 对 C `ADOPT_EXECUTION_CONTRACT`（r022 执行前审查）的说明：C 采纳的科学核心（总体、输入、统计 family、gate、B/C 双方裁决）在 r023 中逐项保留，改动只在程序层；请 C 对 r023 revision 直接 critique 或在报告后一并裁决。
+
+## 10. B 正式 verdict 2026-08-13：r023 完成，测量有效性 gate = INCONCLUSIVE_MIXED
+
+- 执行核验（报告 commit `eb1ed685`，STARTED `3e00eb35`）：**ACCEPT_EXECUTION**。26 项 input inventory 通过；A/B 各 10,000 replicate 全量零差（`0.0`）；validator 独立重算 PASS；pinned fd-shifts 参考 PASS；六项 mutation pristine/reject 正确；closure `VALID_RECOVERY_CLOSURE`（SHA-256 `36b1602e…`）；写入未越界；偏差（`mutations/`、`mutations_complete/` 两个废弃临时目录，未作证据）已披露、无害。结果与 §5 预注册期望**精确一致**，无红旗。
+- 科学 verdict（B 方）：**adopt `INCONCLUSIVE_MIXED`** 为测量有效性 gate 的正式结果。5 unit + 2 dataset witnesses 全部为 `AR_DOMAIN / NORMALIZED_ALL_AR / linear_source_frozen / RAW_BETTER_MAIN__PROBE_BETTER_ABLATION`，仅 DIOR（A/B/C units + DIOR-R aggregate）；FAIR1M、SODA-A 无 witness；`passing_signatures` 空。按冻结 precedence 恰为 INCONCLUSIVE_MIXED。
+- 科学含义（B 方结论，等待 C verdict 形成双方裁决）：(1) DIOR 上存在多重校正后仍显著的 AR-domain 敏感性——orientation-reliability 排序结论依赖 AR 资格域的选取；(2) 该效应未跨数据集复现，不构成 cross-dataset OBB measurement-validity 贡献；(3) 按冻结后果映射：不重启顶刊实验循环、不换 gate、不复活 EQS；JPRS measurement-diagnostic 路线的 PASS 条件未满足。
+- 经三轮（r020 recovery、r023 重执行）零差复现，本结果的计算可信度在本项目所有历史结论中最高。
