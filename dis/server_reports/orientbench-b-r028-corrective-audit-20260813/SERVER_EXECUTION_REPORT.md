@@ -1,8 +1,8 @@
 ---
 schema_version: 2
 dispatch_id: orientbench-b-r028-corrective-audit-20260813
-execution_status: complete
-completion_mode: COMPLETE_CORRECTIVE_AUDIT_PENDING_BC_REPLAY
+execution_status: incomplete
+completion_mode: LOCAL_COMPLETE_PUSH_PENDING
 ---
 
 # r028 服务器执行报告
@@ -15,3 +15,5 @@ completion_mode: COMPLETE_CORRECTIVE_AUDIT_PENDING_BC_REPLAY
 - T6：已写 post-outcome audited identity 的主稿/补充稿，未称 preregistered independent confirmation。
 
 本轮没有改变正式 gate；r026 contest 仍须 B/C clone 后按 bundle 重放并裁决。
+
+GitHub push is pending: the local result commit is complete, but the authenticated HTTPS and SSH receive-pack sessions have not returned a server result and `origin/main` remains at the dispatch commit. This report must not be treated as a remote-complete receipt until the remote SHA advances.
