@@ -646,3 +646,10 @@ r020 链条留下的唯一正规出路（server report §Required next action、
 - recovery runtime 产物（gate.json、comparator.json、manifest 等）的实际字节与哈希：`unknown(local)`，由 r021 正式重执行与 C 侧核验裁决。
 - 服务器当前环境（pcp-obb env、loguru 缺失、112 CPU 拓扑）自 2026-08-11 以来是否变化：`unknown`；r021 preflight 会重新确认。
 - comparator 报告的 max_abs_diff 是否严格为 0：`unknown(local)`（比较器仅硬保证 ≤1e-10）。
+
+## 8. 追记 2026-08-13：r021 治理完整性早停核验与关闭
+
+- 服务器报告（`dis/server_reports/orientbench-b-r021-measurement-validity-20260812/SERVER_EXECUTION_REPORT.md`，commit `d99ec9e8`）：`FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY / NOT_ADJUDICATED`，无任何科学输入被打开。**裁定 adopt**：STARTED commit `f2fb8553` 单文件合规、报告 commit 未越界、未动 coordination 与 B/C 文件；在控制面自相矛盾下按 G2 停止是正确的，服务器短暂考虑绕过后自行更正亦如实披露。
+- 根因经 B 本机独立复现确认：legacy r020 archive 在 Git blob 层为 LF（`git show` SHA-256 `aa3d3698…`），迁移时冻结进 `validate_peer_governance.py`、`MIGRATION.md` 与协议 §8 的 `74ef9c65…` 是 **CRLF Windows 工作树** 哈希（本机 `git ls-files --eol` = `i/lf w/crlf`，工作树 sha256 = `74ef9c65…`）。validator 以 `read_bytes()` 读工作树，因此 Windows 上恒过、LF checkout（服务器）上恒败。这与 B 本机 CLAUDE.md 早已记录的 CRLF 哈希陷阱完全一致。
+- 处置：B 以 owner 身份关闭本派发（closure record `dis/dispatch_history/orientbench-b-r021-measurement-validity-20260812.json`，槽释放，根 `dis/sug.md` 删除）。r021 报告根已消费，正式重执行需新 dispatch id/paths。
+- 待办（需用户授权，治理修复须在槽空闲时进行）：(1) 把 validator/test 的 archive 校验改为 blob 级（预期值 `aa3d3698…`）；(2) 修正 `test_new_dispatch_slot_starts_idle_...` 把空闲槽钉为常驻断言的缺陷（任何合法激活都会使其失败）；(3) 在 MIGRATION.md 与协议 §8 追加更正说明。修复后由 B 发布 r022 revision 并重新激活。

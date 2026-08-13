@@ -52,60 +52,18 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
+  "active_dispatch": null,
+  "last_closed_dispatch": {
     "dispatch_id": "orientbench-b-r021-measurement-validity-20260812",
-    "plan_id": "b-r021-measurement-validity-20260812",
-    "initiator": "B",
-    "activated_by": "B",
     "plan_path": "dis/plans/B/b-r021-measurement-validity-20260812/sug.md",
-    "plan_commit_sha": "60f2eb197dae4d15292f793df86a4dddc989cad9",
-    "plan_blob_oid": "9446b5e7f3d3d93003d4e14cf1eb6dc8062b82c8",
-    "plan_sha256": "e322b15af9765bf10613aedfe413e35f2ac70a58fd427362a71fe76ce63d5d45",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "e322b15af9765bf10613aedfe413e35f2ac70a58fd427362a71fe76ce63d5d45",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户会话指令 2026-08-12（B 机）：『是的，开始吧。你搞完直接让服务器执行。』见 dis/B.md PEER_ERA_B_MEMO_20260812 §6，memo commit c0843ac770079d06c70527347f6a8b821e94d2c9"
-    },
+    "dispatch_commit_sha": "90c0037ae49f7ebe21e53a167a04ee8a6fc68d8f",
+    "execution_status": "incomplete",
+    "completion_mode": "FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY",
+    "scientific_state": "NOT_ADJUDICATED",
     "server_report_path": "dis/server_reports/orientbench-b-r021-measurement-validity-20260812/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
-      "wall_time": {"seconds_max": 43200},
-      "data": {
-        "allowed_dataset_ids": ["existing-frozen-orientbench-evidence-readonly"],
-        "read_bytes_max": 549755813888,
-        "write_bytes_max": 32212254720
-      },
-      "write": {
-        "allowed_paths": [
-          "top_journal_v3_reaudit_055/measurement_validity_r021_20260812/",
-          "outputs/persistent_artifacts/orientbench_measurement_validity_r021_20260812/",
-          "outputs/persistent_artifacts/orientbench_measurement_validity_r021_20260812_postseal_receipt/",
-          "dis/server_reports/orientbench-b-r021-measurement-validity-20260812/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 32212254720
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git",
-          "https://github.com/IML-DKFZ/fd-shifts.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "outputs/persistent_artifacts",
-      "top_journal_v3_reaudit_055"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-12T23:40:00-07:00"
+    "closure_record": "dis/dispatch_history/orientbench-b-r021-measurement-validity-20260812.json",
+    "closed_by": "B",
+    "closed_at": "2026-08-13T00:58:00-07:00"
   },
-  "last_closed_dispatch": null,
-  "updated_at": "2026-08-12T23:40:00-07:00"
+  "updated_at": "2026-08-13T00:58:00-07:00"
 }

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r021-measurement-validity-20260812",
+  "plan_id": "b-r021-measurement-validity-20260812",
+  "initiator": "B",
+  "plan_path": "dis/plans/B/b-r021-measurement-validity-20260812/sug.md",
+  "plan_commit_sha": "60f2eb197dae4d15292f793df86a4dddc989cad9",
+  "plan_blob_oid": "9446b5e7f3d3d93003d4e14cf1eb6dc8062b82c8",
+  "plan_sha256": "e322b15af9765bf10613aedfe413e35f2ac70a58fd427362a71fe76ce63d5d45",
+  "dispatch_commit_sha": "90c0037ae49f7ebe21e53a167a04ee8a6fc68d8f",
+  "started_commit_sha": "f2fb8553e0565064a1fc7a7c8ec798f291629ee2",
+  "report_commit_sha": "d99ec9e83f93050857c2ae9256c2c7342dd47e3e",
+  "server_report_path": "dis/server_reports/orientbench-b-r021-measurement-validity-20260812/SERVER_EXECUTION_REPORT.md",
+  "execution_status": "incomplete",
+  "completion_mode": "FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY",
+  "scientific_state": "NOT_ADJUDICATED",
+  "failure_root_cause": "governance validator froze the legacy r020 archive hash from a CRLF Windows worktree (74ef9c65eb660aa36fa6c7f5d78043a4f68540bff3d9903a9303ad6603c9abf5); the committed blob is LF and hashes to aa3d369863843c2548131a6b9f0fd8ff6de4b6e21a73488102a8feb6140a4141, so validate_peer_governance.py fails on any LF checkout (server Linux) and passes on CRLF checkouts (Windows). Verified by B: git show HEAD:dis/sug/orientbench-c-r020-measurement-validity-20260811-server-returned.md | sha256sum = aa3d..., worktree sha256 = 74ef..., git ls-files --eol = i/lf w/crlf.",
+  "no_scientific_input_opened": true,
+  "paths_consumed": [
+    "dis/server_reports/orientbench-b-r021-measurement-validity-20260812/"
+  ],
+  "closed_by": "B",
+  "closed_at": "2026-08-13T00:58:00-07:00",
+  "closure_reason": "server report verified by B; slot released pending user-authorized governance repair and a fresh dispatch revision"
+}
