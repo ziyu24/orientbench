@@ -2539,3 +2539,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 已完成：26 inputs、A-F strict join/risk、五项消融、A/B 各 10,000 bootstrap、270/135 Holm、Comparator 零差、pinned reference、六项 mutation、统一 recovery closure；candidate=`INCONCLUSIVE_MIXED`，closure validator=`PASS`。
 - 永久不可在旧轮补齐：首次 scientific input open 前的 code seal、当时的 live application access hash-chain、当时的 strace 双向覆盖，以及以旧 execution_base 为唯一父提交的 single result commit/postseal receipt。这些是时间顺序事实，不能靠当前再跑或补文件变真。
 - 状态边界：`VALID_RECOVERY_CLOSURE` 成立；原 r020 formal receipt 仍为 `NOT_ADJUDICATED_PENDING_SUPERVISOR`。若要求严格满足 `sug.md` 每一条，只能监督端签发新 round/新路径并从零按正确时序执行。
+
+## 2026-08-13 00:00 CST — r021 governance integrity failure early stop（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r021-measurement-validity-20260812` 的 dispatch/path/commit；后续明确授权本 clone 绑定 `paper.worker-id=server-primary`，并要求不因无关历史项拖延。
+- 已完成：HTTPS fast-forward 至 dispatch commit `90c0037ae49f7ebe21e53a167a04ee8a6fc68d8f`；active plan/mirror blob、SHA、frozen design blob、空路径、ignore、112 logical CPU、48-CPU affinity 和 strace 可用性核验；唯一 STARTED one-file commit `f2fb8553e0565064a1fc7a7c8ec798f291629ee2` 已 HTTPS push。
+- early-stop：计划内 `validate_peer_governance.py` 要求 legacy archive SHA `74ef9c...`，当前同一 dispatch 的 archive 实际 SHA `aa3d369...`，且 `MIGRATION.md` 保留前者；控制面自相矛盾。复核后按 r021 G2 将其定为 governance integrity failure，未进入 code seal 或任何科学输入读取。
+- 未执行：A/B、Comparator、bootstrap、metrics、witness、gate、pinned fetch、mutation、runtime manifest、GPU、训练、forward、inference、安装或数据下载均未运行；没有 scientific number。
+- 关键产物：`dis/server_reports/orientbench-b-r021-measurement-validity-20260812/STARTED.json`、`dis/server_reports/orientbench-b-r021-measurement-validity-20260812/SERVER_EXECUTION_REPORT.md`。
+- 完成映射：`FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY / NOT_ADJUDICATED / execution_status=incomplete`。需 B 发布新的自洽 dispatch revision；当前 r021 路径含 STARTED，不重用为正式重执行。
