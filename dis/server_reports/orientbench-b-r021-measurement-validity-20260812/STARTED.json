@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r021-measurement-validity-20260812",
+  "plan_sha256": "e322b15af9765bf10613aedfe413e35f2ac70a58fd427362a71fe76ce63d5d45",
+  "plan_blob_oid": "9446b5e7f3d3d93003d4e14cf1eb6dc8062b82c8",
+  "dispatch_commit_sha": "90c0037ae49f7ebe21e53a167a04ee8a6fc68d8f",
+  "starting_commit": "90c0037ae49f7ebe21e53a167a04ee8a6fc68d8f",
+  "created_at": "2026-08-13T00:00:00+08:00",
+  "claimed_by": "server-primary"
+}
