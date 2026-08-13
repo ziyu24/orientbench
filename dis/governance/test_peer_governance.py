@@ -62,16 +62,30 @@ class PeerGovernanceContractTests(unittest.TestCase):
         self.assertIsNone(contract["client_entrypoints"]["AGENTS.md"]["default_actor"])
         self.assertIsNone(contract["client_entrypoints"]["CLAUDE.md"]["default_actor"])
 
-    def test_new_dispatch_slot_starts_idle_and_legacy_plan_is_archived_exactly(self):
+    def test_dispatch_slot_is_consistent_and_legacy_plan_is_archived_exactly(self):
+        # 2026-08-13 用户授权修复：空闲槽不是常驻状态——活动派发是协议允许的合法仓库状态，
+        # 本测试改为核对槽与根镜像一致性；archive 哈希改按 canonical-LF（等于 Git blob 字节）核对，
+        # 消除 CRLF checkout 平台差异。旧常量 74ef9c65... 是 CRLF 工作树哈希，已废弃。
         coordination = load_json(ROOT / "dis" / "coordination.json")
         self.assertEqual("B_C_PEER_EQUAL", coordination["governance_mode"])
-        self.assertIsNone(coordination["active_dispatch"])
-        self.assertFalse((ROOT / "dis" / "sug.md").exists())
+        active = coordination["active_dispatch"]
+        mirror = ROOT / "dis" / "sug.md"
+        if active is None:
+            self.assertFalse(mirror.exists())
+        else:
+            self.assertTrue(mirror.is_file())
+            data = mirror.read_bytes()
+            digests = {
+                hashlib.sha256(data).hexdigest(),
+                hashlib.sha256(data.replace(b"\r\n", b"\n")).hexdigest(),
+            }
+            self.assertIn(active["plan_sha256"], digests)
         archive = ROOT / "dis" / "sug" / "orientbench-c-r020-measurement-validity-20260811-server-returned.md"
         self.assertTrue(archive.is_file())
+        archive_bytes = archive.read_bytes()
         self.assertEqual(
-            "74ef9c65eb660aa36fa6c7f5d78043a4f68540bff3d9903a9303ad6603c9abf5",
-            hashlib.sha256(archive.read_bytes()).hexdigest(),
+            "aa3d369863843c2548131a6b9f0fd8ff6de4b6e21a73488102a8feb6140a4141",
+            hashlib.sha256(archive_bytes.replace(b"\r\n", b"\n")).hexdigest(),
         )
 
     def test_entrypoints_restore_role_from_repo_local_selector(self):

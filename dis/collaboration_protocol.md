@@ -66,4 +66,5 @@ B/C 能力完全镜像：独立评估、维护自己的 memo、提出候选计�
 - 迁移基线：`c78deabcaa54a4c9fd761541430440dcc98067c8`。
 - 旧 r020 正式报告为 `FAILURE_EARLY_STOP / NOT_ADJUDICATED`；后续 recovery 证据保持原样，不倒签旧 formal receipt。
 - 旧活动 `dis/sug.md` 已逐字节归档，SHA-256 为 `74ef9c65eb660aa36fa6c7f5d78043a4f68540bff3d9903a9303ad6603c9abf5`。新 coordination 从空闲槽启动。
+- 更正（2026-08-13，用户授权）：上一条 SHA-256 系 CRLF Windows 工作树哈希；归档 blob 的字节级 SHA-256 为 `aa3d369863843c2548131a6b9f0fd8ff6de4b6e21a73488102a8feb6140a4141`，治理校验按 canonical-LF 核对（详见 `dis/governance/MIGRATION.md` 更正节）。归档字节未变。
 - 不把旧 C-first/B-response 历史重解释为同级协议，也不修改历史 B/C memo 或服务器报告。

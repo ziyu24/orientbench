@@ -119,8 +119,13 @@ def validate_active(root, coordination):
     require(active.get("active_plan_path") == "dis/sug.md", "wrong active mirror path")
     require(active.get("status") == "DISPATCHED", "active record must remain immutable DISPATCHED")
     require(active_path.is_file(), "active dispatch lacks dis/sug.md mirror")
-    digest = hashlib.sha256(active_path.read_bytes()).hexdigest()
-    require(digest == active.get("plan_sha256") == active.get("active_sha256"), "active plan hash mismatch")
+    # 2026-08-13 用户授权修复：按 canonical-LF（等于 Git blob 字节）核对，消除 CRLF checkout 平台差异。
+    mirror_bytes = active_path.read_bytes()
+    digests = {
+        hashlib.sha256(mirror_bytes).hexdigest(),
+        hashlib.sha256(mirror_bytes.replace(b"\r\n", b"\n")).hexdigest(),
+    }
+    require(active.get("plan_sha256") == active.get("active_sha256") and active.get("plan_sha256") in digests, "active plan hash mismatch")
     report = active.get("server_report_path", "")
     require(report.startswith("dis/server_reports/") and active["dispatch_id"] in report, "invalid server report path")
     risk_class = active.get("risk_class")
@@ -157,7 +162,10 @@ def validate_repository(root, check_local_worker=False):
 
     archive = root / "dis" / "sug" / "orientbench-c-r020-measurement-validity-20260811-server-returned.md"
     require(archive.is_file(), "legacy r020 plan archive missing")
-    require(hashlib.sha256(archive.read_bytes()).hexdigest() == "74ef9c65eb660aa36fa6c7f5d78043a4f68540bff3d9903a9303ad6603c9abf5", "legacy r020 plan archive changed")
+    # 2026-08-13 用户授权修复：旧常量 74ef9c65... 是迁移作者 CRLF Windows 工作树的哈希，在 LF checkout
+    # （如 Linux 服务器）上必然失败；改按 canonical-LF 核对，预期值即 Git blob 字节的 SHA-256。
+    archive_bytes = archive.read_bytes()
+    require(hashlib.sha256(archive_bytes.replace(b"\r\n", b"\n")).hexdigest() == "aa3d369863843c2548131a6b9f0fd8ff6de4b6e21a73488102a8feb6140a4141", "legacy r020 plan archive changed")
 
     if check_local_worker:
         result = subprocess.run(
