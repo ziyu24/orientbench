@@ -1,0 +1,10 @@
+{
+  "claimed_by": "server-primary",
+  "created_at": "2026-08-13T10:41:05.826449+00:00",
+  "dispatch_commit_sha": "2244d224d969cc8051e22a8ad175a49bac7aa8a7",
+  "dispatch_id": "orientbench-b-r023-measurement-validity-20260813",
+  "plan_blob_oid": "debf5cf99606a0142b04f6c5f90d501283f8abe7",
+  "plan_sha256": "044cc2539fa6ec1e28a9ad46e121753bc0e389efdf723bf2ce1a4f415e205af5",
+  "schema_version": 1,
+  "starting_commit": "2244d224d969cc8051e22a8ad175a49bac7aa8a7"
+}
