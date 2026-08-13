@@ -52,71 +52,18 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-b-r022-measurement-validity-20260813",
-    "plan_id": "b-r022-measurement-validity-20260813",
-    "initiator": "B",
-    "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r022-measurement-validity-20260813/sug.md",
-    "plan_commit_sha": "717fef9376f015e8ce93cec7d535c7ea99bc5545",
-    "plan_blob_oid": "9d2c9fb7291cb7b81ef130cb7b6aaf2babeeece8",
-    "plan_sha256": "8aef642be5dd4719fc6268f003fac8cff625ddeac6bbfa23fe0badf91d87dcc4",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "8aef642be5dd4719fc6268f003fac8cff625ddeac6bbfa23fe0badf91d87dcc4",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户会话指令 2026-08-12（B 机）：『是的，开始吧。你搞完直接让服务器执行。』见 dis/B.md PEER_ERA_B_MEMO_20260812 §6（memo commit c0843ac）；r021 治理完整性早停后经用户 2026-08-13 授权完成治理修复（commit 99b89b8401df9180c4c590d5616d517c383381c4）并延续授权至本 revision"
-    },
-    "server_report_path": "dis/server_reports/orientbench-b-r022-measurement-validity-20260813/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
-      "wall_time": {"seconds_max": 43200},
-      "data": {
-        "allowed_dataset_ids": ["existing-frozen-orientbench-evidence-readonly"],
-        "read_bytes_max": 549755813888,
-        "write_bytes_max": 32212254720
-      },
-      "write": {
-        "allowed_paths": [
-          "top_journal_v3_reaudit_055/measurement_validity_r022_20260813/",
-          "outputs/persistent_artifacts/orientbench_measurement_validity_r022_20260813/",
-          "outputs/persistent_artifacts/orientbench_measurement_validity_r022_20260813_postseal_receipt/",
-          "dis/server_reports/orientbench-b-r022-measurement-validity-20260813/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 32212254720
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git",
-          "https://github.com/IML-DKFZ/fd-shifts.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "outputs/persistent_artifacts",
-      "top_journal_v3_reaudit_055"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-13T01:35:00-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "dispatch_id": "orientbench-b-r021-measurement-validity-20260812",
-    "plan_path": "dis/plans/B/b-r021-measurement-validity-20260812/sug.md",
-    "dispatch_commit_sha": "90c0037ae49f7ebe21e53a167a04ee8a6fc68d8f",
+    "dispatch_id": "orientbench-b-r022-measurement-validity-20260813",
+    "plan_path": "dis/plans/B/b-r022-measurement-validity-20260813/sug.md",
+    "dispatch_commit_sha": "43dee43d0bedff97fc358eaacfe61bb6a06038f4",
     "execution_status": "incomplete",
-    "completion_mode": "FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY",
+    "completion_mode": "FAILURE_EARLY_STOP_CLEAN_ROOM_CONTAMINATION",
     "scientific_state": "NOT_ADJUDICATED",
-    "server_report_path": "dis/server_reports/orientbench-b-r021-measurement-validity-20260812/SERVER_EXECUTION_REPORT.md",
-    "closure_record": "dis/dispatch_history/orientbench-b-r021-measurement-validity-20260812.json",
+    "server_report_path": "dis/server_reports/orientbench-b-r022-measurement-validity-20260813/SERVER_EXECUTION_REPORT.md",
+    "closure_record": "dis/dispatch_history/orientbench-b-r022-measurement-validity-20260813.json",
     "closed_by": "B",
-    "closed_at": "2026-08-13T00:58:00-07:00"
+    "closed_at": "2026-08-13T03:05:00-07:00"
   },
-  "updated_at": "2026-08-13T00:58:00-07:00"
+  "updated_at": "2026-08-13T03:05:00-07:00"
 }

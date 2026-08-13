@@ -653,3 +653,10 @@ r020 链条留下的唯一正规出路（server report §Required next action、
 - 根因经 B 本机独立复现确认：legacy r020 archive 在 Git blob 层为 LF（`git show` SHA-256 `aa3d3698…`），迁移时冻结进 `validate_peer_governance.py`、`MIGRATION.md` 与协议 §8 的 `74ef9c65…` 是 **CRLF Windows 工作树** 哈希（本机 `git ls-files --eol` = `i/lf w/crlf`，工作树 sha256 = `74ef9c65…`）。validator 以 `read_bytes()` 读工作树，因此 Windows 上恒过、LF checkout（服务器）上恒败。这与 B 本机 CLAUDE.md 早已记录的 CRLF 哈希陷阱完全一致。
 - 处置：B 以 owner 身份关闭本派发（closure record `dis/dispatch_history/orientbench-b-r021-measurement-validity-20260812.json`，槽释放，根 `dis/sug.md` 删除）。r021 报告根已消费，正式重执行需新 dispatch id/paths。
 - 待办（需用户授权，治理修复须在槽空闲时进行）：(1) 把 validator/test 的 archive 校验改为 blob 级（预期值 `aa3d3698…`）；(2) 修正 `test_new_dispatch_slot_starts_idle_...` 把空闲槽钉为常驻断言的缺陷（任何合法激活都会使其失败）；(3) 在 MIGRATION.md 与协议 §8 追加更正说明。修复后由 B 发布 r022 revision 并重新激活。
+- 后记：治理修复经用户授权于 commit `99b89b8` 完成；r022 于 `43dee43` 激活。
+
+## 9. 追记 2026-08-13：r022 关闭与 r023 务实合同
+
+- r022 被服务器以 clean-room 污染早停（会话读了 `claude_code_and_supervisor.md`）。核验结论：**这是 B 合同自身的缺陷，不是服务器错误**——r022 计划正文本身就预注册了 recovery 期望结果，服务器又必须读计划并 append supervisor log，按 Delta-5 的死抠定义每次执行都必然"被污染"，合同不可满足。无科学输入被打开。r022 已关闭（`dis/dispatch_history/orientbench-b-r022-measurement-validity-20260813.json`）。
+- 按用户 2026-08-13 指示（程序性问题不再作为致命早停理由），r023 改为务实合同：科学硬约束保留（26 输入 bytes/SHA、冻结协议常量与四态 gate、A/B 实现不互抄代码不互读输出、如实报告），其余程序性条款一律"记录偏差并继续"。执行管线直接复用已审计、已在 Git 冻结的 recovery 代码（七个脚本 blob 级钉定，提交于 2026-08-11 `bf30802`/`0a8cd26`，先于本轮任何执行）——这构成比现场重写代码更强的 pre-data code seal。**操作者知晓历史候选结果明确定义为非污染**；实现独立性是代码写作历史的属性（已由 comparator 零差确立），不是操作者无知的属性。
+- 对 C `ADOPT_EXECUTION_CONTRACT`（r022 执行前审查）的说明：C 采纳的科学核心（总体、输入、统计 family、gate、B/C 双方裁决）在 r023 中逐项保留，改动只在程序层；请 C 对 r023 revision 直接 critique 或在报告后一并裁决。
