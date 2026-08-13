@@ -20,7 +20,7 @@ ending_commit: PENDING_RESULT_COMMIT
 
 ## 未完成
 
-T1 已补齐为 DESCRIPTIVE artifact：DOTA source-beta sensitivity、AR cutoff scan、Risk@90、15 类分解、Core/DOTA unit×probe×endpoint point tables 与 DOTA cluster SE/MDE80。所有新表均显式标识为 `DESCRIPTIVE`，未新增 witness 或 formal claim。T2 的 canonical claim copies 与封存 r023/r026 source hashes 一致，`claim_check.json=PASS`；抽验范围覆盖 r023 witness table、r026 全 hypotheses 和 AP parity。
+T1 已补齐为 DESCRIPTIVE artifact：DIOR/FAIR1M/SODA/DOTA AR cutoff scans、DOTA source-beta sensitivity with 1,000 mother-cluster CIs、Risk@90、15 类分解、Core/DOTA unit×probe×endpoint point tables，以及全数据集 cluster SE/MDE80。所有新表均显式标识为 `DESCRIPTIVE`，未新增 witness 或 formal claim。T2 逐字段独立读取封存 source 与 paper-source copies，`claim_check.json=PASS`；范围覆盖 r023 witness table、r026 全 hypotheses 和 AP parity。
 
 ## 产物
 

@@ -43,6 +43,19 @@ def main():
    for p in ('raw_confidence','linear_source_frozen','tta_angle','tta_localization'):
     rows.append({'unit':u,'dataset':z.dataset.iloc[0],'cohort':co,'probe':p,'rows':len(z),'AUGRC':aug(z[p].to_numpy(),z.risk_main.to_numpy()),'Risk@70':metric(z[p].to_numpy(),z.risk_main.to_numpy(),.7),'Risk@90':metric(z[p].to_numpy(),z.risk_main.to_numpy(),.9),'status':'DESCRIPTIVE'})
  pd.DataFrame(rows).to_csv(O/'all_units_descriptive_point_table.csv',index=False)
+ # DIOR/FAIR1M/SODA AR cutoff curves and cluster-level uncertainty (DESCRIPTIVE).
+ scans=[]; uncertainty=[]
+ for (dataset,unit),z0 in core.groupby(['dataset','unit']):
+  for cutoff in np.round(np.arange(1,3.01,.1),1):
+   z=z0[z0.ar>=cutoff]
+   if not len(z):continue
+   for e,fun in [('AUGRC',lambda a,b:aug(a,b)),('Risk@70',lambda a,b:metric(a,b,.7))]:
+    scans.append({'dataset':dataset,'unit':unit,'cutoff':cutoff,'endpoint':e,'rows':len(z),'delta_linear_minus_raw':fun(z.linear_source_frozen.to_numpy(),z.risk_main.to_numpy())-fun(z.raw_confidence.to_numpy(),z.risk_main.to_numpy()),'status':'DESCRIPTIVE'})
+  # Bootstrap SE directly from r023 arrays, Main / linear-minus-raw; DOTA handled below.
+  bbcore=np.load(R/'outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/bootstrap_metrics.npz')['unit'];ui='ABCDEF'.index(unit)
+  for ei,e in enumerate(('AUGRC','Risk@70','Risk@90')):
+   v=bbcore[:,ui,0,1,ei]-bbcore[:,ui,0,0,ei];se=float(np.std(v,ddof=1));uncertainty.append({'dataset':dataset,'unit':unit,'clusters':int(z0.cluster.nunique()),'eligible_clusters_main':int(z0[z0.ar>=2.1].cluster.nunique()),'endpoint':e,'bootstrap_se':se,'mde80_normal_approx':2.80*se,'status':'DESCRIPTIVE'})
+ pd.DataFrame(scans).to_csv(O/'core_descriptive_ar_scan.csv',index=False)
  # Source-beta sensitivity and uncertainty disclosure (DESCRIPTIVE, 1000 cluster draws).
  betas={'FAIR1M_source':np.array([-.26525345,.01355104,.00337013,.02027136]),'SODA_source':np.array([-.21289442,.01466760,-.01161673,.00892121])}
  sens=[]; rng=np.random.RandomState(20260813); mothers=sorted(set(pd.read_parquet(d/'implementation_a_raw/matched_orcnn.parquet').mother)|set(pd.read_parquet(d/'implementation_a_raw/matched_rtmdet.parquet').mother));pos={x:i for i,x in enumerate(mothers)}; draws=[np.bincount(rng.randint(0,len(mothers),len(mothers)),minlength=len(mothers)) for _ in range(1000)]
@@ -70,5 +83,5 @@ def main():
  for ei,e in enumerate(('AUGRC','Risk@70')):
   for ui,u in enumerate(('orcnn','rtmdet')):
    x=(bb[:,ui*8+2+ei]-bb[:,ui*8+ei])-(bb[:,ui*8+6+ei]-bb[:,ui*8+4+ei]);se=float(np.std(x,ddof=1));unc.append({'dataset':'DOTA-v1.0','unit':u,'clusters':458,'endpoint':e,'bootstrap_se':se,'mde80_normal_approx':2.80*se,'status':'DESCRIPTIVE'})
- pd.DataFrame(unc).to_csv(O/'dota_uncertainty_mde80_descriptive.csv',index=False)
+ uncertainty.extend(unc);pd.DataFrame(unc).to_csv(O/'dota_uncertainty_mde80_descriptive.csv',index=False);pd.DataFrame(uncertainty).to_csv(O/'all_datasets_uncertainty_mde80_descriptive.csv',index=False)
 if __name__=='__main__':main()
