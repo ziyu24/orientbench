@@ -667,3 +667,13 @@ r020 链条留下的唯一正规出路（server report §Required next action、
 - 科学 verdict（B 方）：**adopt `INCONCLUSIVE_MIXED`** 为测量有效性 gate 的正式结果。5 unit + 2 dataset witnesses 全部为 `AR_DOMAIN / NORMALIZED_ALL_AR / linear_source_frozen / RAW_BETTER_MAIN__PROBE_BETTER_ABLATION`，仅 DIOR（A/B/C units + DIOR-R aggregate）；FAIR1M、SODA-A 无 witness；`passing_signatures` 空。按冻结 precedence 恰为 INCONCLUSIVE_MIXED。
 - 科学含义（B 方结论，等待 C verdict 形成双方裁决）：(1) DIOR 上存在多重校正后仍显著的 AR-domain 敏感性——orientation-reliability 排序结论依赖 AR 资格域的选取；(2) 该效应未跨数据集复现，不构成 cross-dataset OBB measurement-validity 贡献；(3) 按冻结后果映射：不重启顶刊实验循环、不换 gate、不复活 EQS；JPRS measurement-diagnostic 路线的 PASS 条件未满足。
 - 经三轮（r020 recovery、r023 重执行）零差复现，本结果的计算可信度在本项目所有历史结论中最高。
+
+## 11. 路线决策 2026-08-13：用户授权外部复现（r024），目标 JPRS
+
+- 用户授权"路线一"：一次预注册的 DOTA-v1.0 val 外部复现，检验 r023 的 AR-domain 签名是否跨数据集成立；同时确认目标刊为 ISPRS JPRS（声望高于 TGRS 且与测量诊断贡献契合；TGRS 路线按冻结台账需方法升级，不走）。
+- r024 关键设计决定（`dis/plans/B/b-r024-dota-external-replication-20260813/sug.md`）：
+  1. **复现只需 raw_confidence 与 linear_source_frozen**，不需要 TTA 特征——DOTA 只要基础预测；r019 的 forward 产物（官方 AP parity 曾通过）可在 parity 复核后作为原始输入复用，GPU 大概率可免。r019 的**分析数字**保持作废，不进入本轮。
+  2. `score_ar_size_linear` 系数未单独存档，但 r014 冻结列本身构成系数档案：预注册了唯一决策树（找到工件→验证采用；否则对六个 Core unit 精确最小二乘恢复，要求全 unit 残差≤1e-8 且系数一致）；两分支均败则 `NOT_ADJUDICATED_PROBE_PROVENANCE` 停止，禁止重拟合或换探针。
+  3. 族极小且执行前冻结：2 units × {AUGRC, Risk@70} + 2 dataset 假设，唯一 contrast、唯一 ablation（NORMALIZED_ALL_AR）、唯一方向；四态（REPLICATED / NOT_REPLICATED / INCONCLUSIVE_EXTERNAL / NOT_ADJUDICATED）与论文映射（JPRS / JSTARS-scope）事前锁死，杜绝事后重划。
+  4. 纪律：DOTA GT 只能在探针冻结完成后打开；不施加 r019 的 GT_AR≥2.1 掩码（全 AR 入基表）。
+- 声明：r024 是**新研究、新数据、新预注册**，不是对 INCONCLUSIVE 的 gate 续命；此路线由用户明确授权开启。
