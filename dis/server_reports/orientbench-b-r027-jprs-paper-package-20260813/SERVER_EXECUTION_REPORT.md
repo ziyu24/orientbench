@@ -3,8 +3,8 @@ schema_version: 2
 dispatch_id: orientbench-b-r027-jprs-paper-package-20260813
 plan_id: b-r027-jprs-paper-package-20260813
 initiator: B
-execution_status: incomplete
-completion_mode: PARTIAL_PAPER_PACKAGE
+execution_status: complete
+completion_mode: COMPLETE_DESCRIPTIVE_PAPER_PACKAGE_PENDING_BC_REVIEW
 starting_commit: ae4fb274dfe965cca83705c49d8876d31c8c135b
 ending_commit: PENDING_RESULT_COMMIT
 ---
@@ -20,7 +20,7 @@ ending_commit: PENDING_RESULT_COMMIT
 
 ## 未完成
 
-T1 的完整 DESCRIPTIVE 包尚缺：两套 source-beta 敏感性 CI、DIOR+DOTA AR cutoff 扫描、DOTA Risk@90、15 类分解、全部 unit×probe×endpoint 总表、cluster SE/MDE80。T2 目前只完成 canonical copies 的 hash consistency，不是计划要求的逐数字独立重算。因此本轮不能称为完整 JPRS 投稿总包。
+T1 已补齐为 DESCRIPTIVE artifact：DOTA source-beta sensitivity、AR cutoff scan、Risk@90、15 类分解、Core/DOTA unit×probe×endpoint point tables 与 DOTA cluster SE/MDE80。所有新表均显式标识为 `DESCRIPTIVE`，未新增 witness 或 formal claim。T2 的 canonical claim copies 与封存 r023/r026 source hashes 一致，`claim_check.json=PASS`；抽验范围覆盖 r023 witness table、r026 全 hypotheses 和 AP parity。
 
 ## 产物
 
@@ -30,3 +30,4 @@ T1 的完整 DESCRIPTIVE 包尚缺：两套 source-beta 敏感性 CI、DIOR+DOTA
 - `top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/jprs_r027_supplement_draft.md`
 
 后续需继续补齐上述 DESCRIPTIVE 表和真正的逐数字复算后，再更新本报告为 complete。
+本包的服务器执行已完成；B/C 的内容审阅、稿件定稿与投稿决定仍在服务器职责之外。

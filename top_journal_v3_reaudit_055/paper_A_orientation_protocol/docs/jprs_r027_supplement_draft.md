@@ -13,7 +13,7 @@ The full six-row hypothesis table, including epsilons, CIs, Holm p-values, swaps
 
 `linear_source_frozen = -0.23342829 + 0.00830977 logit_score + 0.02817757 log_pred_ar + 0.00753967 half_log_pred_area`.
 
-This is a DIOR-source external probe. FAIR1M- and SODA-source variants, AR threshold scans, Risk@90, and category decompositions are planned descriptive material and must never be presented as formal witness evidence unless separately generated and ledgered.
+This is a DIOR-source external probe. The r027 package provides descriptive AR scans, Risk@90 and class decompositions; none are formal witness evidence. Their data files are explicitly marked `DESCRIPTIVE` in the r027 artifact root.
 
 ## Audit chain
 
