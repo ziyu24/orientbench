@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r024-dota-external-replication-20260813",
+  "plan_id": "b-r024-dota-external-replication-20260813",
+  "initiator": "B",
+  "plan_path": "dis/plans/B/b-r024-dota-external-replication-20260813/sug.md",
+  "plan_commit_sha": "0571c2e4f388b41d98dc5b086334721a1cd7234b",
+  "plan_blob_oid": "3e2ec57f7e47fd239f4ea2ff63c4a98adce813df",
+  "plan_sha256": "e5c20f159bcd74c8ce906f30c013041df563f54d784e09cccc757361aa786139",
+  "dispatch_commit_sha": "57e4f808f0344a2b6d9dc204196d4c9c3eb7c234",
+  "started_commit_sha": "9cbe1037151e8bc90b01832cabb1fd7544a6f036",
+  "report_commit_sha": "0ff98021313c524f740ef9ea5ab6702bb07ab67f",
+  "server_report_path": "dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/SERVER_EXECUTION_REPORT.md",
+  "execution_status": "incomplete",
+  "completion_mode": "NOT_ADJUDICATED_PROBE_PROVENANCE",
+  "scientific_state": "NOT_ADJUDICATED",
+  "failure_root_cause": "preregistered probe recovery P2 found score_ar_size_linear is fit per source dataset (DIOR A/B/C, FAIR1M, SODA-A each have distinct exact coefficients, per-unit residual <=5.6e-16); the plan's global-coefficient requirement was unsatisfiable, so the preregistered kill fired before any DOTA GT was opened. Structural finding recorded in the report's coefficient table.",
+  "no_dota_gt_opened": true,
+  "paths_consumed": [
+    "dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/"
+  ],
+  "b_verdict": "ACCEPT_EXECUTION_HONEST_EARLY_STOP (dis/B.md §12)",
+  "related_out_of_slot_execution": "orientbench-user-r025-dior-source-dota-replication-20260813 (user-authorized diagnostic, commit 805a3f530ec353236ce996e1f2b106d20f54b082; see dis/B.md §12 audit)",
+  "closed_by": "B",
+  "closed_at": "2026-08-13T06:05:00-07:00",
+  "closure_reason": "superseded by r026 formal external confirmation with the DIOR-source frozen probe preregistered literally"
+}

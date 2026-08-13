@@ -677,3 +677,10 @@ r020 链条留下的唯一正规出路（server report §Required next action、
   3. 族极小且执行前冻结：2 units × {AUGRC, Risk@70} + 2 dataset 假设，唯一 contrast、唯一 ablation（NORMALIZED_ALL_AR）、唯一方向；四态（REPLICATED / NOT_REPLICATED / INCONCLUSIVE_EXTERNAL / NOT_ADJUDICATED）与论文映射（JPRS / JSTARS-scope）事前锁死，杜绝事后重划。
   4. 纪律：DOTA GT 只能在探针冻结完成后打开；不施加 r019 的 GT_AR≥2.1 掩码（全 AR 入基表）。
 - 声明：r024 是**新研究、新数据、新预注册**，不是对 INCONCLUSIVE 的 gate 续命；此路线由用户明确授权开启。
+
+## 12. 追记 2026-08-13：r024 诚实早停、r025 用户诊断审计、r026 正式确认
+
+- **r024 verdict：ACCEPT_EXECUTION（早停正确）**。探针 P2 恢复发现 `score_ar_size_linear` 是**分源数据集拟合**：DIOR A/B/C、FAIR1M、SODA-A 各一组系数（单 unit 内残差 ≤5.6e-16，跨组差远超 1e-6），预注册的全局一致条件不成立，按 kill 停止且未触碰 DOTA GT。我的全局系数假设错了，早停机制按设计工作。系数表已进 r024 报告，是有价值的结构性发现（探针本质是 per-source 的）。
+- **r025（用户最高授权、槽外执行）审计**：用 DIOR-source 冻结 β=[-0.23342829, 0.00830977, 0.02817757, 0.00753967]（对 [1, logit_score, log_pred_ar, half_log_pred_area]）作为外部探针，复用 r019 identity predictions（AP parity 复核 PASS）+ 持久化 tile GT 转换，10k mother bootstrap（seed 20260813）。报告结论 `REPLICATED_STRONG`：DOTA dataset AUGRC+Risk@70 双 witness、RTMDet 两 unit witness，方向与 DIOR 一致，全部 6 行 DoD CI 排零、Holm p≤4e-4。**B 代码级审计发现关键缺口**（`run_r025.py` blob `f6d4b995`）：提交代码只含原料层（匹配/point/bootstrap 数组），**判据层不在代码内**——`accepted()` swap 机制从未被调用（Risk@70 witness 的 swap≥0.05 条件未检验），epsilon/CI/Holm/witness 计算无提交实现。ORCNN AUGRC Delta_main=0.000354<5e-4 报 no 与冻结判据自洽，但"yes"各项的 CI-vs-ε 余量（尤其 dataset AUGRC Delta_main=0.001358）未经正式判据核验。**裁定：r025 = 强方向性诊断证据，witness 标志待正式判据复核；不得直接作为论文 claim。**
+- **r026 决策**：立即派发正式外部确认轮——同 seed/同原料确定性重放 + 完整冻结判据层（ε/CI/centered-p/Holm/swap/witness）双独立实现 + comparator + validator + mutations；探针即 DIOR-source β（字面预注册，理由：复现目标本就来自 DIOR，问题是 DIOR→DOTA 迁移）；FAIR1M/SODA β 变体作纯描述性敏感性分析（非 gate），封死"挑系数"批评。预期：raw 数组精确复现 r025；witness 标志以 r026 正式判据为准，可能收紧——即使收紧，方向性证据也足以支撑 JPRS 主体，claim 高度按 r026 四态定。
+- 治理备注：r025 在 r024 槽 active 期间由用户直接授权执行并提交（路径在 r024 write_set 外）。用户拥有该权限，记录如实；B 现关闭 r024 槽并激活 r026。
