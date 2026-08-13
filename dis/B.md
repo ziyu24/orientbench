@@ -596,3 +596,53 @@ B 不自行创建任何服务器轮次。残余分歧：C 未对"是否存在能
 4. B 不是最终裁决者；本报告全部行号与数字可复核。
 
 ——CC_POST_R018_STAGE_2_ADVERSARIAL_RECONCILIATION 结束。
+
+# PEER_ERA_B_MEMO_20260812：r020 恢复证据独立评估与 r021 正式重执行路线
+
+- actor: B（repo-local `paper.worker-id: peer-b-primary`，registry `dis/governance/workers.json`）
+- governance_mode: B_C_PEER_EQUAL（迁移 commit `5e52e0b1e5bd54ea00475c3a9678d47d9c315b6e`）
+- 评估基线 HEAD: `5e52e0b1e5bd54ea00475c3a9678d47d9c315b6e`（clean worktree）
+- memo_time: 2026-08-12T23:24-07:00
+- 独立性声明: 本节为迁移后 peer 备忘，非预声明盲审。写作前已读取 `dis/C.md`（blob `983f7ab2`）、server reports 与 sug 归档；如实标记 `independent_then_cross: not_declared`。
+- 本机限制: `outputs/persistent_artifacts/**` 不在 Git 且本机无该数据，凡依赖 runtime 产物之处均标 `unknown(local)`，只做生成端代码审计与一致性核对。
+
+## 1. r020 正式合同早停：裁定 adopt
+
+服务器报告 `dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md` 记录两项 preflight 缺陷：(a) 同步用 `git fetch origin` + `merge --ff-only` 而非合同唯一允许的显式 HTTPS `pull --ff-only`（合同明文禁止调用 configured origin）；(b) 迁移后服务器 112 逻辑 CPU，合同硬编码 `N=48`，39 workers 对 `30*112` 分母最高只能到 34.82%，低于强制 60% 下限。两项均为真实合同违反，`FAILURE_EARLY_STOP / NOT_ADJUDICATED` 且不发射任何科学数字是正确处置；r020 round/paths 永久消费成立。**adopt**。两项缺陷都是执行环境与合同的错配，不是科学失败——`scientific_failure: false` 成立。
+
+## 2. Pragmatic recovery 证据：代码级审计结论
+
+审计对象为 Git 内生成端代码（runtime 产物本机不可得）：
+
+- `top_journal_v3_reaudit_055/measurement_validity_r020_20260811/independent_b.py`：仅 import 标准库 + numpy/pandas（1-21 行），无任何对 `pragmatic_recovery.py` 或 A 输出的引用；从 26 个原始资产直接重建 cohort、long-side 角、AR、风险、消融与 10k bootstrap。代码级独立性成立；运行时独立性（trace 层）本机 `unknown(local)`，且按恢复报告自认无法补建原始 strace 闭包。
+- `compare_recoveries.py`：42-55 行对 unit/dataset 全部 bootstrap replicate 单元逐一比较（atol=1e-10, rtol=0），57-97 行对 405 hypotheses 的 17 个数值列与 4 个精确列、99-104 行对 gate 四字段比较。恢复报告声称 max_abs_diff=0，该数值在 `comparator.json`（runtime）中，本机 `unknown(local)`，但≤1e-10 由比较器硬保证。
+- `validate_recovery.py`：46-76 行从 `rows.parquet` 独立重算全部 unit/dataset point 端点（atol=1e-12）；108-116 行重算两族 Holm；117-134 行从全部 405×10000 replicate 重建 centered-p；135-148 行逐 hypothesis 重验 witness 谓词（CI 符号条件、p_holm<0.05、DoD CI 排零、|DoD|≥ε_main+ε_ablation、Risk@70/90 swap≥0.05，AUGRC 无 swap 门），与冻结设计 §5-§6 一致。注意其 point 重算以实现 A 的 `rows.parquet` 为输入，是结构一致性验证；真正的生成端双重推导由 independent_b + comparator 承担。
+- `run_recovery_mutations.py`：六项 mutation 均改真实拷贝的原始记录/逻辑（theta+7°、mother_scene+1、AUGRC 去原点对 pinned 参考值、gate 两数据集→一、26 清单删行、report token 篡改），pristine=0 / mutated=2 语义正确。诚实缺陷：这是隔离拷贝 + 微型验证器，弱于正式合同要求的管线内分阶段 mutation；恢复报告已如实披露，不构成虚报。
+
+**裁定：recovery 证据为 decision-grade，候选态计算可信；但不可、也未被倒签为正式 r020 closure。**时序性密封（数据前 code seal、当时 hash-chain、当时 strace、旧 execution_base 单 commit/postseal receipt）无法事后重建，此边界在 `RECOVERY_REPORT.md`（blob `ddd441b1`）与 supervisor log 三处一致、无粉饰。
+
+## 3. 候选科学态 INCONCLUSIVE_MIXED：一致性核对 adopt
+
+7 个 witness 全部为同一签名 `AR_DOMAIN / NORMALIZED_ALL_AR / linear_source_frozen / RAW_BETTER_MAIN__PROBE_BETTER_ABLATION`。按冻结设计 §6 逐项核对 PASS 条件：AUGRC 签名 unit witnesses = {A,B,C} 共 3 个 < 4/6；dataset = {DIOR-R} 1 个 < 2；SODA dataset+unit 条件不满足。Risk@70 签名 = {A,C}、{DIOR-R}，同样不满足。`passing_signatures` 为空、存在 ≥1 正式 witness → 按 precedence 恰为 `INCONCLUSIVE_MIXED`。**adopt**。科学含义同报告：DIOR 上存在 AR-domain 敏感性，FAIR1M/SODA-A 未复现；不得重启顶刊实验循环，不得换 gate 续命，也不构成干净 null。
+
+## 4. 对 C memo 的状态核对
+
+`dis/C.md`（blob `983f7ab2`）头部仍写 `execution_status: NOT_STARTED / READY_FOR_SERVER_EXECUTION` 并把 `dis/sug.md` 列为 active 指令——这已被后续事件推翻：r020 已早停、旧 sug 已归档、迁移后 `dis/coordination.json` 的 `active_dispatch: null` 才是派发权威。这不是科学错误而是 memo 滞后；**建议 C 在下次更新中把 r020 各字段推进到早停+恢复后的实际状态**。C 的科学台账（receipt1-3 non_reusable、learned EQS `APPENDIX_FAILED_ONLY`、route `ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC`）与我方核对一致，**adopt**。
+
+## 5. 结论与下一步：B 发起 r021 正式重执行
+
+r020 链条留下的唯一正规出路（server report §Required next action、supervisor log 2026-08-11 23:28 条目一致）：签发全新 round、修正 Git 同步与 CPU 拓扑两条 preflight 规则、按正确时序从零执行同一冻结科学协议。科学内容零改动（同 26 输入、同 270/135 族、同 seed、同四态 gate）——这不是换 gate，是把已预注册的 gate 按正式时序执行一次，使其可被 B/C 双方正式裁决。
+
+预注册一致性期望（非 gate、仅供裁决参考）：协议确定性 + 同 seed/inputs 下，r021 应精确复现恢复结果（405 hypotheses、5+2 witnesses、同一签名、候选 `INCONCLUSIVE_MIXED`）；任何偏离都必须如实报告并在裁决中作为红旗单独解释。
+
+计划正文见 `dis/plans/B/b-r021-measurement-validity-20260812/sug.md`（READY 后字节冻结）。
+
+## 6. 授权记录
+
+用户于 2026-08-12 本机会话对 B 明确指示：「是的，开始吧。你搞完直接让服务器执行。」——本句构成 r021 派发的 L2 用户授权 reference（L1 未配置，按 L2 处理）。授权范围：B 完成评估与计划后激活派发、由用户把精确 dispatch 三元组交付服务器执行；不扩展到其它 L2 动作。
+
+## 7. unknown 清单
+
+- recovery runtime 产物（gate.json、comparator.json、manifest 等）的实际字节与哈希：`unknown(local)`，由 r021 正式重执行与 C 侧核验裁决。
+- 服务器当前环境（pcp-obb env、loguru 缺失、112 CPU 拓扑）自 2026-08-11 以来是否变化：`unknown`；r021 preflight 会重新确认。
+- comparator 报告的 max_abs_diff 是否严格为 0：`unknown(local)`（比较器仅硬保证 ≤1e-10）。
