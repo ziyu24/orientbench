@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "project_id": "OrientBench",
+  "identity": {
+    "client_binding": "none",
+    "default_actor": null,
+    "assignment_source": "tracked_worker_registry_and_repo_local_selector",
+    "assignment_persistence": "workspace_lifetime",
+    "selector_command": "git config --local paper.worker-id",
+    "missing_selector_behavior": "fail_closed_one_time_binding",
+    "account_or_machine_change_effect": "none"
+  },
+  "actors": {
+    "B": {
+      "profile": "dis/governance/roles/B.md",
+      "capabilities": [
+        "independent_project_assessment",
+        "own_memo",
+        "own_candidate_plan",
+        "requested_or_unsolicited_critique",
+        "activate_own_compliant_plan",
+        "own_verdict_contest_and_stop_request"
+      ],
+      "owned_roots": {
+        "memo": "dis/B.md",
+        "plans": "dis/plans/B",
+        "review_requests": "dis/review_requests/B",
+        "reviews": "dis/reviews/B",
+        "contests": "dis/contests/B",
+        "stop_requests": "dis/stop_requests/B"
+      },
+      "peer_read_only_roots": {
+        "memo": "dis/C.md",
+        "plans": "dis/plans/C",
+        "review_requests": "dis/review_requests/C",
+        "reviews": "dis/reviews/C",
+        "contests": "dis/contests/C",
+        "stop_requests": "dis/stop_requests/C"
+      }
+    },
+    "C": {
+      "profile": "dis/governance/roles/C.md",
+      "capabilities": [
+        "independent_project_assessment",
+        "own_memo",
+        "own_candidate_plan",
+        "requested_or_unsolicited_critique",
+        "activate_own_compliant_plan",
+        "own_verdict_contest_and_stop_request"
+      ],
+      "owned_roots": {
+        "memo": "dis/C.md",
+        "plans": "dis/plans/C",
+        "review_requests": "dis/review_requests/C",
+        "reviews": "dis/reviews/C",
+        "contests": "dis/contests/C",
+        "stop_requests": "dis/stop_requests/C"
+      },
+      "peer_read_only_roots": {
+        "memo": "dis/B.md",
+        "plans": "dis/plans/B",
+        "review_requests": "dis/review_requests/B",
+        "reviews": "dis/reviews/B",
+        "contests": "dis/contests/B",
+        "stop_requests": "dis/stop_requests/B"
+      }
+    }
+  },
+  "server": {
+    "profile": "dis/governance/roles/SERVER.md",
+    "scientific_authority": false,
+    "accepts_only_exact_dispatch": true,
+    "owned_root": "dis/server_reports"
+  },
+  "visibility": {
+    "role_rules_mutually_visible": true,
+    "blind_review_hides_governance": false,
+    "blind_review_may_hide_current_round_peer_material_only": true
+  },
+  "client_entrypoints": {
+    "AGENTS.md": {"client": "Codex_or_compatible_agent", "default_actor": null},
+    "CLAUDE.md": {"client": "Claude_Code", "default_actor": null},
+    "CC_PROMPT.md": {"client": "legacy_Claude_Code_entrypoint", "default_actor": null}
+  },
+  "change_control": {
+    "owner": "shared_governance",
+    "authorization": "explicit_user_authorization",
+    "requires_idle_dispatch_slot": true,
+    "self_expansion_forbidden": true,
+    "protected_governance_paths": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "CC_PROMPT.md",
+      "dis/PEER_START.md",
+      "dis/collaboration_protocol.md",
+      "dis/coordination.json",
+      "dis/governance/role_contract.json",
+      "dis/governance/workers.json",
+      "dis/governance/roles/B.md",
+      "dis/governance/roles/C.md",
+      "dis/governance/roles/SERVER.md"
+    ]
+  }
+}

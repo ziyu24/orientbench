@@ -1,10 +1,24 @@
-# CLAUDE.md
+# AGENTS.md — OrientBench 客户端中立入口与服务器安全基线
+
+本文件由 Git 跟踪，是 Codex、Claude Code 与服务器共同可见的项目入口；它不按客户端、登录账号、电脑或历史会话猜测 B/C/SERVER 角色。
+
+每个独立 clone 只需绑定一次稳定 worker：
+
+```text
+git config --local paper.worker-id peer-b-primary
+git config --local paper.worker-id peer-c-primary
+git config --local paper.worker-id server-primary
+```
+
+实际只选择其中一个。随后从 `dis/governance/workers.json` 恢复角色并读取对应公开角色配置。缺失、未知、停用或与任务冲突时 fail closed，只读并请用户完成一次绑定；不得从模型品牌或文件名推断身份。同一 clone 不得切换或同时承担 B/C，另一角色使用独立 clone。换 Codex/Claude Code 账号不影响绑定。
+
+B/C 权力完全对等、文件所有权分离；共享规则以 `dis/governance/role_contract.json`、`dis/collaboration_protocol.md` 和 `dis/coordination.json` 为准。服务器只执行用户交付的精确 `dispatch_id + plan_path + dispatch commit SHA`，不扫描候选计划，也不裁决科学结论。
+
+本文件后续章节保存 OrientBench 的科学、数据、资源与服务器安全基线，只约束相应任务，不产生 B/C 层级。每轮冻结计划可在不放宽这些上界的前提下设置更严格边界。若用户明确更新治理或项目事实，以 Git 中更新后的规则为准。
 
 项目：orientbench
 
-当前阶段：P1 + P3 measure -> diagnose -> fix 联合主线
-
-本文件是 codex 在服务器上执行 orientbench 项目的最高优先级项目规则。若本文件与临时口头指令冲突，以本文件为准；若用户或监督员明确更新本文件，则以更新后的版本为准。
+迁移时保留的科学阶段基线：P1 + P3 measure -> diagnose -> fix 联合主线
 
 ---
 

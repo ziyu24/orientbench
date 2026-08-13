@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "project_id": "OrientBench",
+  "selector": {
+    "git_config_key": "paper.worker-id",
+    "scope": "repo_local",
+    "missing_behavior": "fail_closed",
+    "unknown_worker_behavior": "fail_closed",
+    "change_requires": "explicit_user_authorization_and_clean_worktree"
+  },
+  "workers": {
+    "peer-b-primary": {
+      "role": "B",
+      "status": "active",
+      "profile": "dis/governance/roles/B.md"
+    },
+    "peer-c-primary": {
+      "role": "C",
+      "status": "active",
+      "profile": "dis/governance/roles/C.md"
+    },
+    "server-primary": {
+      "role": "SERVER",
+      "status": "active",
+      "profile": "dis/governance/roles/SERVER.md"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "plan_id": "REPLACE",
+  "actor": "B_OR_C",
+  "plan_path": "dis/plans/ACTOR/PLAN_ID/sug.md",
+  "state": "DRAFT",
+  "plan_commit_sha": null,
+  "plan_blob_oid": null,
+  "plan_sha256": null,
+  "state_reason": "local_uncommitted_draft",
+  "ready_at": null,
+  "updated_at": "ISO-8601"
+}

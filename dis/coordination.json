@@ -1,0 +1,58 @@
+{
+  "schema_version": 4,
+  "governance_mode": "B_C_PEER_EQUAL",
+  "project_id": "OrientBench",
+  "pre_migration_sha": "c78deabcaa54a4c9fd761541430440dcc98067c8",
+  "legacy_review_state_path": "dis/review_state.json",
+  "single_active_dispatch": true,
+  "actors": {
+    "B": {
+      "memo": "dis/B.md",
+      "plan_root": "dis/plans/B",
+      "request_root": "dis/review_requests/B",
+      "review_root": "dis/reviews/B",
+      "contest_root": "dis/contests/B",
+      "stop_request_root": "dis/stop_requests/B"
+    },
+    "C": {
+      "memo": "dis/C.md",
+      "plan_root": "dis/plans/C",
+      "request_root": "dis/review_requests/C",
+      "review_root": "dis/reviews/C",
+      "contest_root": "dis/contests/C",
+      "stop_request_root": "dis/stop_requests/C"
+    }
+  },
+  "external_review_root": "dis/external_reviews",
+  "server_report_root": "dis/server_reports",
+  "risk_policy": {
+    "L0": {
+      "configured": true,
+      "definition": "static_audit_recomputation_or_tests_no_training_no_gpu_no_data_split_metric_or_core_claim_change",
+      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
+      "wall_time": {"seconds_max": 14400},
+      "data": {
+        "allowed_dataset_ids": ["repository-tracked-evidence", "existing-frozen-orientbench-evidence-readonly"],
+        "read_bytes_max": 549755813888,
+        "write_bytes_max": 5368709120
+      },
+      "write": {
+        "allowed_paths": ["dis/", "docs/audits/", "reports/", "tests/"],
+        "bytes_max": 5368709120
+      },
+      "network": {"allowed": false, "allowed_endpoints": []}
+    },
+    "L1": {
+      "configured": false,
+      "definition": "not_configured_treat_as_L2_until_user_approves_project_caps"
+    },
+    "L2": {
+      "definition": "high_cost_or_any_protocol_data_split_metric_core_claim_submission_irreversible_change_or_unclear_classification",
+      "requires_user_authorization": true
+    }
+  },
+  "closed_dispatch_history_root": "dis/dispatch_history",
+  "active_dispatch": null,
+  "last_closed_dispatch": null,
+  "updated_at": "2026-08-12T20:29:57-07:00"
+}

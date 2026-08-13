@@ -1,93 +1,69 @@
-# OrientBench 最小跨机器协作协议
+# OrientBench B/C 同级协作协议
 
-## 当前锚点
+本协议只规定治理、文件所有权与服务器派发，不改变论文 claim、数据、结果或投稿判断。迁移前科学状态继续以 `dis/review_state.json`、`dis/B.md`、`dis/C.md` 和服务器报告为证据；旧协议原文保存在 `dis/governance/legacy/`，但不再产生当前角色层级或派发权。
 
-- state：READY_FOR_SERVER_EXECUTION
-- round：orientbench-c-r020-measurement-validity-20260811
-- planning base：594654a95d50b1f14b87252698911cc3fc583b03
-- protected B blob：c0c2571f3a5c828673b39e6458ceaed5f14c5a6a
-- route：ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
-- learned EQS：APPENDIX_FAILED_ONLY
-- active instruction：dis/sug.md
-- design：dis/jprs_measurement_validity_gate_design_20260811.md
-- plan：dis/jprs_measurement_validity_dispatch_plan_20260811.md
-- r020 code：top_journal_v3_reaudit_055/measurement_validity_r020_20260811
-- r020 runtime：outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811
-- r020 post-seal receipt：outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt/postseal_receipt.json
-- r020 future report：dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md
-- r020 execution：NOT_STARTED
-- CC：COMPLETED_CLOSED；cc_recommendation: no
+## 1. 身份与可见性
 
-跨机器共享只通过 Git，不写账号、机器标识、凭据、本地绝对路径或任一角色的私有规则。
+- Git 中只登记稳定 worker ID 和 B/C/SERVER 角色，不登记客户端账号、机器或凭据。
+- 每个 clone 通过 repo-local `paper.worker-id` 一次绑定；缺失、未知、停用或冲突时 fail closed。
+- B/C 的角色规则互相可见。盲审只隔离预先声明的本轮 peer 科学材料，不隐藏治理规则。
+- B/C 使用独立 clone；同一 clone 不切换或同时承担两者。
 
-## receipt 历史闭环
+## 2. 对等权力与所有权
 
-receipt1 为 ABNORMAL_PREFLIGHT_FAILURE / NOT_ADJUDICATED / non_reusable。receipt2 为 ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE / NOT_ADJUDICATED / non_reusable。
+B/C 能力完全镜像：独立评估、维护自己的 memo、提出候选计划、主动或受邀批判、激活自己的合规计划、提交 verdict/contest/stop request。任何一方不需要等待另一方提问。
 
-receipt3 的执行提交为 594654a95d50b1f14b87252698911cc3fc583b03，唯一报告为 dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md，blob 498dd8094f713a4a76339890ffd3a9ec45352344。Git 发布机械闭合，但事后审计确认 validator 只在真实 access log、manifest、report 形成前验证 planned tokens，scientific inputs 也没有完整进入 frozen manifest。正式状态固定为：
+文件所有权以 `dis/governance/role_contract.json` 为准：
 
-- ABNORMAL_EXECUTABLE_AUDIT_FAILURE
-- PROTOCOL_DRIFT
-- NOT_ADJUDICATED
-- track_m formal = NOT_EMITTED
-- reported METRIC_REVERSAL = DESCRIPTIVE_UNVERIFIED
-- reported FAIL_TO_MEASUREMENT_ONLY = DESCRIPTIVE_UNVERIFIED
-- non_reusable = true
-- scientific_failure = false
+- B 独占 `dis/B.md` 与 `dis/.../B/` 对应根；C 只读。
+- C 独占 `dis/C.md` 与 `dis/.../C/` 对应根；B 只读。
+- 服务器独占活动 dispatch 的报告目录；B/C 只读报告。
+- `AGENTS.md`、`CLAUDE.md`、`CC_PROMPT.md`、本协议、role contract、workers、roles 与 coordination 是受保护共享治理文件，只有用户明确授权且执行槽为空时可改。
 
-receipt3 的 round/code/runtime/report 路径永久消费，不得重跑、续跑或作为 r020 科学输入。旧 active 合同归档为 dis/sug/orientbench-c-topjournal-feasibility-receipt3-20260811-abnormal-audit.md，filter-aware blob aeb79060e50aeaa615b365065fc087dc7b9e74cc。
+完全对等不等于共写同一文件。任何 actor 不得覆盖 peer memo/plan，也不得靠最后写入根 `sug.md` 垄断事实。
 
-## 角色与写入边界
+## 3. 候选计划
 
-C 维护 active 合同与共享状态。服务器只执行 dis/sug.md，并只可写：
+- 候选位于 `dis/plans/<B|C>/<plan_id>/sug.md`，sidecar 位于同目录 `STATE.json`。
+- DRAFT 仅本地未提交；READY 首次提交后正文永久不可变。改变 gate、预算、数据、科学含义、报告路径或授权时新建 revision/id。
+- 计划必须包含 base/scientific SHA、证据与 unknown、最小判别实验、kill/early-stop、read/write/resource/conflict sets、唯一报告路径和完成映射。
+- critique 可 requested 或 unsolicited；每条结论只能 adopt/revise/reject/experiment，并给证据或最小反证。沉默不形成否决。
+- 每个候选最多一次建设、一次最强攻击、一次综合；没有新证据就转实验/一手核查/保持 contested/关闭。
 
-1. top_journal_v3_reaudit_055/measurement_validity_r020_20260811/**
-2. outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811/**
-3. dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md
-4. claude_code_and_supervisor.md，仅 append-only
+## 4. 风险与授权
 
-dis/B.md 由 B/CC 独占；C 与服务器不得读取内容、创建、修改、格式化、移动、删除、暂存、恢复或提交，只可核验 blob/diff 元数据。上轮 CC 已 COMPLETED_CLOSED，本轮不是新邀请。
+- L0：静态审计、重算或测试；无训练、无 GPU、无数据/split/metric/core claim 改变，并受 coordination 五类资源上限约束。任一 owner 可自主激活自己的合规 L0。
+- L1：只有 coordination 明确配置完整上限时才可自主激活；当前未配置，按 L2 处理。
+- L2：高成本、协议/数据/split/metric/core claim/投稿/不可逆动作，或风险不清；必须有用户已授权的非空 reference。
+- 只有协议污染、泄漏、受保护路径、预算越界或决定性反证可硬阻断；普通科学分歧转 contest 或判别实验。
 
-本轮只授权 existing Core measurement reanalysis、新 protocol 与该 CPU-only r020。GPU、一般下载、安装、训练、forward、inference、新 target outcome、annotation root、主稿与 method experiment 均未授权。唯一网络例外是 dis/sug.md 固定 fd-shifts commit 的一次 HTTPS fetch。
+## 5. 原子派发与服务器
 
-## r020 科学合同
+- `dis/coordination.json` 是唯一当前派发权威；`dis/review_state.json` 不再控制服务器。
+- 任一时刻最多一个 `active_dispatch`。空闲时根 `dis/sug.md` 必须不存在。
+- 激活事务把 owner READY committed blob 逐字节复制为根 `dis/sug.md`，并在 coordination 绑定 plan path、commit、blob OID、SHA-256、dispatch id、risk、资源和唯一报告路径。
+- 默认只有 owner 激活/关闭。代激活/代关闭必须在冻结计划中登记 delegate/reference，或持用户明确授权。
+- 服务器只执行用户交付的精确 dispatch id、plan path 与 dispatch commit SHA，不自行扫描或挑计划；先写唯一 STARTED，再执行和报告。
+- 服务器没有科学裁决权。报告首行/状态只表示执行完整性，不能决定论文 claim。
 
-正式总体只含 r014/m069 冻结 Core A-F。双 clean-room 实现顺序为 B_BEFORE_A；Comparator 在 A/B 封存后运行。三端点为 AUGRC、Risk@70、Risk@90；五个单因素 geometry/AR ablations；unit/dataset Holm families 固定 270/135。full signature 必须包含 effect_class、ablation_id、contrast、endpoint、supported_direction。
+## 6. 生命周期与分歧
 
-strict join 以 matched 的显式 D_audit base cohort 为左表；features/scores 只对 cohort semi-select 后 one-to-one left join。cohort missing/duplicate/drop 必须为 0；合法 RHS extras 只记录 count/sorted SHA，不进入 endpoint；detection_score 只在 features 与 scores 的 cohort rows 精确核对。
+计划：`DRAFT -> READY -> DISPATCHED -> RUNNING -> REPORTED -> COMPLETED|INCOMPLETE`；`READY -> BLOCKED_CONFLICT -> READY|WITHDRAWN`。科学状态与执行状态分离，可为 `PENDING|ACCEPTED|KILLED|CONTESTED|INCONCLUSIVE`。
 
-SCENE_MACRO 纯描述，只报 scene-macro point、nonempty rate 与 scene-cluster CI；禁止 instance-IID bootstrap、material flag、category-change claim 或独立驱动 gate。learned EQS、S0、r011、receipt3 均不得进入 formal family。
+- 报告核验后可以 `PENDING` 关闭并释放执行槽，不必等待双方 verdict。
+- ACCEPTED/KILLED 需要 B/C 双方可追溯 verdict；分歧进入 CONTESTED。
+- CONTESTED 只能由新判别实验、决定性一手证据或用户停止投入而变化，不靠再写一轮口头意见消失。
+- scientific negative 不是服务器失败；协议漂移/部分执行不能伪装完成。
 
-四态固定为 PASS_TO_EXTERNAL_CONFIRMATION、FAIL_GENERIC_OR_NULL、INCONCLUSIVE_MIXED、NOT_ADJUDICATED。PASS 只授权未来独立确认，不等于 JPRS/TGRS ready；FAIL 收口 JSTARS；INCONCLUSIVE 不换 gate 续命。
+## 7. Git
 
-## Git 与执行闭包
+- 只保留一个长期 `main`。必要时使用短期 `initiative/B/<id>`、`initiative/C/<id>` 或 `exec/<id>`，受控集成后删除；禁止永久 B/C/server 分支。
+- 每次开始只 fast-forward；禁止自动 merge/rebase/reset/clean、覆盖式 checkout 与 force push。
+- 只显式暂存 owner 文件或合法共享事务，禁止无差别暂存。
 
-服务器开始时仅 HTTPS pull --ff-only，冻结 post-pull HEAD 为 execution_base。final commit 前 HTTPS remote main 必须仍等于 execution_base。最终必须恰一个 direct-child non-merge commit，只含获准 tracked paths；禁止 merge/rebase/reset/clean/amend/second commit/force。
+## 8. 迁移边界
 
-科学输入打开前封印 A/B/Comparator/closure/mutation code。应用层 hash-chain tracer 与 strace OS-open trace同时运行，scientific relevant set 做双向 coverage并与 manifest 等值。六个真实 mutation 按 raw/logic 前四项、manifest 第五项、report exact buffer 第六项的固定顺序执行。SCIENTIFIC_RUNTIME_FREEZE 与 TRACKED_CONTENT_SEAL 后不得逆向写入；tracked report 的科学态保持 provisional。push 后唯一获准的 seal 外 receipt root 先封存 `POSTFREEZE_COMMAND_LOG_SEAL`，再由无子进程的固定 writer 原子写 JSON 与 SHA sidecar；VALID_POSTSEAL_RECEIPT 只闭合服务器阶段并允许正常聊天，不是跨电脑正式科学态。正式态必须由 C 拉取 published commit 后独立复核并另写 `dis/` 状态提交。
-
-## 完成、异常与聊天
-
-FULL_COMPLETION_POSITIVE、FULL_COMPLETION_INCONCLUSIVE、FULL_COMPLETION_NEGATIVE 都是正常完整执行；科学负结果不是异常。source/hash/schema/join/代码/trace/parity/bootstrap/mutation/manifest/scope/Git/push/external receipt 失败为 FAILURE_EARLY_STOP / NOT_ADJUDICATED。
-
-服务器最终聊天严格二选一：
-
-👇👇👇👇👇👇
-
-正常执行完毕
-
-👆👆👆👆👆👆
-
-或：
-
-👇👇👇👇👇👇
-
-异常结束
-
-👆👆👆👆👆👆
-
-聊天不附报告路径、SHA、解释或列表。跨电脑证据只写唯一 tracked report 与 supervisor log；server-local sealed command log/receipt/sidecar 只作运行见证，不能被 C 直接当作共享正式状态。
-
-## 当前唯一动作
-
-服务器 HTTPS fast-forward 到发布 r020 的提交并执行 dis/sug.md。不得选择其它计划、复用 receipt3、调用 CC 或在本轮之后自动发起新实验。服务器回复后 next owner 固定为 `C_POSTPULL_ADJUDICATION`：C 拉取结果提交、独立复核后才发布跨电脑正式状态。
+- 迁移基线：`c78deabcaa54a4c9fd761541430440dcc98067c8`。
+- 旧 r020 正式报告为 `FAILURE_EARLY_STOP / NOT_ADJUDICATED`；后续 recovery 证据保持原样，不倒签旧 formal receipt。
+- 旧活动 `dis/sug.md` 已逐字节归档，SHA-256 为 `74ef9c65eb660aa36fa6c7f5d78043a4f68540bff3d9903a9303ad6603c9abf5`。新 coordination 从空闲槽启动。
+- 不把旧 C-first/B-response 历史重解释为同级协议，也不修改历史 B/C memo 或服务器报告。
