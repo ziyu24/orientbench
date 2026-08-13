@@ -1,0 +1,1246 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main",
+      "paper_value": 0.0009674199180386,
+      "recomputed_value": 0.0009674199180386,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation",
+      "paper_value": -0.0108146820639458,
+      "recomputed_value": -0.0108146820639458,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod",
+      "paper_value": 0.0117821019819844,
+      "recomputed_value": 0.0117821019819844,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_low",
+      "paper_value": 0.0007229880830703,
+      "recomputed_value": 0.0007229880830703,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_high",
+      "paper_value": 0.0012006816516434,
+      "recomputed_value": 0.0012006816516434,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_low",
+      "paper_value": -0.0119842391677577,
+      "recomputed_value": -0.0119842391677577,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_high",
+      "paper_value": -0.009666158683183,
+      "recomputed_value": -0.009666158683183,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_low",
+      "paper_value": 0.0106173516489928,
+      "recomputed_value": 0.0106173516489928,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_high",
+      "paper_value": 0.0129585113298129,
+      "recomputed_value": 0.0129585113298129,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypothesis_replicates.parquet",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_holm",
+      "paper_value": 0.026997300269973,
+      "recomputed_value": 0.026997300269973,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main",
+      "paper_value": 0.0024023369161906,
+      "recomputed_value": 0.0024023369161906,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation",
+      "paper_value": -0.0264081505199803,
+      "recomputed_value": -0.0264081505199803,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod",
+      "paper_value": 0.028810487436171,
+      "recomputed_value": 0.028810487436171,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main_ci_low",
+      "paper_value": 0.0014355101822856,
+      "recomputed_value": 0.0014355101822856,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main_ci_high",
+      "paper_value": 0.0033276394762521,
+      "recomputed_value": 0.0033276394762521,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation_ci_low",
+      "paper_value": -0.0310699207986206,
+      "recomputed_value": -0.0310699207986206,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation_ci_high",
+      "paper_value": -0.0220629530668616,
+      "recomputed_value": -0.0220629530668616,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod_ci_low",
+      "paper_value": 0.0243242287547924,
+      "recomputed_value": 0.0243242287547924,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod_ci_high",
+      "paper_value": 0.0335722995135248,
+      "recomputed_value": 0.0335722995135248,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypothesis_replicates.parquet",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|A|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:p_holm",
+      "paper_value": 0.026997300269973,
+      "recomputed_value": 0.026997300269973,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main",
+      "paper_value": 0.0006752137535264,
+      "recomputed_value": 0.0006752137535264,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation",
+      "paper_value": -0.0081611664882878,
+      "recomputed_value": -0.0081611664882878,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod",
+      "paper_value": 0.0088363802418142,
+      "recomputed_value": 0.0088363802418142,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_low",
+      "paper_value": 0.0005113882120381,
+      "recomputed_value": 0.0005113882120381,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_high",
+      "paper_value": 0.000840256365356,
+      "recomputed_value": 0.000840256365356,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_low",
+      "paper_value": -0.0090135155407824,
+      "recomputed_value": -0.0090135155407824,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_high",
+      "paper_value": -0.007324344977193,
+      "recomputed_value": -0.007324344977193,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_low",
+      "paper_value": 0.0080034414737483,
+      "recomputed_value": 0.0080034414737483,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_high",
+      "paper_value": 0.0096794523052219,
+      "recomputed_value": 0.0096794523052219,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypothesis_replicates.parquet",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|B|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_holm",
+      "paper_value": 0.026997300269973,
+      "recomputed_value": 0.026997300269973,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main",
+      "paper_value": 0.0028443041467217,
+      "recomputed_value": 0.0028443041467217,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation",
+      "paper_value": -0.0106450765007948,
+      "recomputed_value": -0.0106450765007948,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod",
+      "paper_value": 0.0134893806475165,
+      "recomputed_value": 0.0134893806475165,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_low",
+      "paper_value": 0.0025237553738925,
+      "recomputed_value": 0.0025237553738925,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_high",
+      "paper_value": 0.0031885011071095,
+      "recomputed_value": 0.0031885011071095,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_low",
+      "paper_value": -0.0120039120864238,
+      "recomputed_value": -0.0120039120864238,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_high",
+      "paper_value": -0.0093448230743108,
+      "recomputed_value": -0.0093448230743108,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_low",
+      "paper_value": 0.0121803953644582,
+      "recomputed_value": 0.0121803953644582,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_high",
+      "paper_value": 0.0148761284370346,
+      "recomputed_value": 0.0148761284370346,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypothesis_replicates.parquet",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_holm",
+      "paper_value": 0.026997300269973,
+      "recomputed_value": 0.026997300269973,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main",
+      "paper_value": 0.0043309975127088,
+      "recomputed_value": 0.0043309975127088,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation",
+      "paper_value": -0.0216092936666166,
+      "recomputed_value": -0.0216092936666166,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod",
+      "paper_value": 0.0259402911793254,
+      "recomputed_value": 0.0259402911793254,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main_ci_low",
+      "paper_value": 0.0035576842045496,
+      "recomputed_value": 0.0035576842045496,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main_ci_high",
+      "paper_value": 0.0051575037047406,
+      "recomputed_value": 0.0051575037047406,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation_ci_low",
+      "paper_value": -0.0261834634012278,
+      "recomputed_value": -0.0261834634012278,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation_ci_high",
+      "paper_value": -0.0179314651901195,
+      "recomputed_value": -0.0179314651901195,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod_ci_low",
+      "paper_value": 0.0222372052589749,
+      "recomputed_value": 0.0222372052589749,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod_ci_high",
+      "paper_value": 0.0305758132600652,
+      "recomputed_value": 0.0305758132600652,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypothesis_replicates.parquet",
+      "consistent": true
+    },
+    {
+      "claim": "r023:unit|C|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:p_holm",
+      "paper_value": 0.026997300269973,
+      "recomputed_value": 0.026997300269973,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main",
+      "paper_value": 0.0014956459394289,
+      "recomputed_value": 0.0014956459394289,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation",
+      "paper_value": -0.0098736416843428,
+      "recomputed_value": -0.0098736416843428,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod",
+      "paper_value": 0.0113692876237717,
+      "recomputed_value": 0.0113692876237717,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_low",
+      "paper_value": 0.0013054518836401,
+      "recomputed_value": 0.0013054518836401,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_main_ci_high",
+      "paper_value": 0.0016881899078352,
+      "recomputed_value": 0.0016881899078352,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_low",
+      "paper_value": -0.0109111680247526,
+      "recomputed_value": -0.0109111680247526,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:delta_ablation_ci_high",
+      "paper_value": -0.0088691160439752,
+      "recomputed_value": -0.0088691160439752,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_low",
+      "paper_value": 0.0103499631609382,
+      "recomputed_value": 0.0103499631609382,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:dod_ci_high",
+      "paper_value": 0.0124213458299568,
+      "recomputed_value": 0.0124213458299568,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypothesis_replicates.parquet",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|AUGRC|NORMALIZED_ALL_AR:p_holm",
+      "paper_value": 0.0134986501349865,
+      "recomputed_value": 0.0134986501349865,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main",
+      "paper_value": 0.0027061823659699,
+      "recomputed_value": 0.0027061823659699,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation",
+      "paper_value": -0.0220600040857081,
+      "recomputed_value": -0.0220600040857081,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod",
+      "paper_value": 0.024766186451678,
+      "recomputed_value": 0.024766186451678,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main_ci_low",
+      "paper_value": 0.0020422681831426,
+      "recomputed_value": 0.0020422681831426,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_main_ci_high",
+      "paper_value": 0.0032756079063772,
+      "recomputed_value": 0.0032756079063772,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation_ci_low",
+      "paper_value": -0.0258856937664199,
+      "recomputed_value": -0.0258856937664199,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:delta_ablation_ci_high",
+      "paper_value": -0.0185916782219836,
+      "recomputed_value": -0.0185916782219836,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod_ci_low",
+      "paper_value": 0.0212147029817925,
+      "recomputed_value": 0.0212147029817925,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:dod_ci_high",
+      "paper_value": 0.0285791953085012,
+      "recomputed_value": 0.0285791953085012,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypothesis_replicates.parquet",
+      "consistent": true
+    },
+    {
+      "claim": "r023:dataset|DIOR-R|linear_source_frozen|Risk@70|NORMALIZED_ALL_AR:p_holm",
+      "paper_value": 0.0134986501349865,
+      "recomputed_value": 0.0134986501349865,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:delta_main",
+      "paper_value": 0.0003540202275209,
+      "recomputed_value": 0.0003540202275209,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:delta_ablation",
+      "paper_value": -0.0123154848981335,
+      "recomputed_value": -0.0123154848981335,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:dod",
+      "paper_value": 0.0126695051256545,
+      "recomputed_value": 0.0126695051256545,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:delta_main_ci_low",
+      "paper_value": -1.0874952152299572e-05,
+      "recomputed_value": -1.0874952152299572e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:delta_main_ci_high",
+      "paper_value": 0.0007649670827878,
+      "recomputed_value": 0.0007649670827878,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:delta_ablation_ci_low",
+      "paper_value": -0.0183081540921143,
+      "recomputed_value": -0.0183081540921143,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:delta_ablation_ci_high",
+      "paper_value": -0.0069742323672268,
+      "recomputed_value": -0.0069742323672268,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:dod_ci_low",
+      "paper_value": 0.007361058054546,
+      "recomputed_value": 0.007361058054546,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:dod_ci_high",
+      "paper_value": 0.0186727824777425,
+      "recomputed_value": 0.0186727824777425,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:epsilon_main",
+      "paper_value": 0.0005336960369622,
+      "recomputed_value": 0.0005336960369622,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:epsilon_ablation",
+      "paper_value": 0.0009747330405232,
+      "recomputed_value": 0.0009747330405232,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:swap_main_70",
+      "paper_value": 0.1728307254623044,
+      "recomputed_value": 0.1728307254623044,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:swap_ablation_70",
+      "paper_value": 0.1845525436316376,
+      "recomputed_value": 0.1845525436316376,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:AUGRC:p_holm",
+      "paper_value": 0.0003999600039996,
+      "recomputed_value": 0.0003999600039996,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:delta_main",
+      "paper_value": 0.0011087151171827,
+      "recomputed_value": 0.0011087151171827,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:delta_ablation",
+      "paper_value": -0.0229637987512403,
+      "recomputed_value": -0.0229637987512403,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:dod",
+      "paper_value": 0.024072513868423,
+      "recomputed_value": 0.024072513868423,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:delta_main_ci_low",
+      "paper_value": 9.613988965990715e-05,
+      "recomputed_value": 9.613988965990715e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:delta_main_ci_high",
+      "paper_value": 0.0020098656737464,
+      "recomputed_value": 0.0020098656737464,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:delta_ablation_ci_low",
+      "paper_value": -0.0358950073923938,
+      "recomputed_value": -0.0358950073923938,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:delta_ablation_ci_high",
+      "paper_value": -0.0118066109019026,
+      "recomputed_value": -0.0118066109019026,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:dod_ci_low",
+      "paper_value": 0.013012148865718,
+      "recomputed_value": 0.013012148865718,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:dod_ci_high",
+      "paper_value": 0.0367018419066237,
+      "recomputed_value": 0.0367018419066237,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:epsilon_main",
+      "paper_value": 0.0010803456879785,
+      "recomputed_value": 0.0010803456879785,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:epsilon_ablation",
+      "paper_value": 0.00188524172447,
+      "recomputed_value": 0.00188524172447,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:swap_main_70",
+      "paper_value": 0.1728307254623044,
+      "recomputed_value": 0.1728307254623044,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:swap_ablation_70",
+      "paper_value": 0.1845525436316376,
+      "recomputed_value": 0.1845525436316376,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:orcnn:Risk@70:p_holm",
+      "paper_value": 0.0003999600039996,
+      "recomputed_value": 0.0003999600039996,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:delta_main",
+      "paper_value": 0.0023628573819339,
+      "recomputed_value": 0.0023628573819339,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:delta_ablation",
+      "paper_value": -0.0136098649809066,
+      "recomputed_value": -0.0136098649809066,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:dod",
+      "paper_value": 0.0159727223628405,
+      "recomputed_value": 0.0159727223628405,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:delta_main_ci_low",
+      "paper_value": 0.0016445665516052,
+      "recomputed_value": 0.0016445665516052,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:delta_main_ci_high",
+      "paper_value": 0.0031897685981888,
+      "recomputed_value": 0.0031897685981888,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:delta_ablation_ci_low",
+      "paper_value": -0.0211159990777832,
+      "recomputed_value": -0.0211159990777832,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:delta_ablation_ci_high",
+      "paper_value": -0.0069438463459797,
+      "recomputed_value": -0.0069438463459797,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:dod_ci_low",
+      "paper_value": 0.0092158206673176,
+      "recomputed_value": 0.0092158206673176,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:dod_ci_high",
+      "paper_value": 0.0236150591861318,
+      "recomputed_value": 0.0236150591861318,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:epsilon_main",
+      "paper_value": 0.0005488159707185,
+      "recomputed_value": 0.0005488159707185,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:epsilon_ablation",
+      "paper_value": 0.0009008419015879,
+      "recomputed_value": 0.0009008419015879,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:swap_main_70",
+      "paper_value": 0.2879903268252783,
+      "recomputed_value": 0.2879903268252783,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:swap_ablation_70",
+      "paper_value": 0.2631048870557767,
+      "recomputed_value": 0.2631048870557767,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:AUGRC:p_holm",
+      "paper_value": 0.0003999600039996,
+      "recomputed_value": 0.0003999600039996,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:delta_main",
+      "paper_value": 0.004339282099262,
+      "recomputed_value": 0.004339282099262,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:delta_ablation",
+      "paper_value": -0.0296036554740234,
+      "recomputed_value": -0.0296036554740234,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:dod",
+      "paper_value": 0.0339429375732855,
+      "recomputed_value": 0.0339429375732855,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:delta_main_ci_low",
+      "paper_value": 0.0027121153963277,
+      "recomputed_value": 0.0027121153963277,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:delta_main_ci_high",
+      "paper_value": 0.0059190006760185,
+      "recomputed_value": 0.0059190006760185,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:delta_ablation_ci_low",
+      "paper_value": -0.0467954103041101,
+      "recomputed_value": -0.0467954103041101,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:delta_ablation_ci_high",
+      "paper_value": -0.015039827426462,
+      "recomputed_value": -0.015039827426462,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:dod_ci_low",
+      "paper_value": 0.0191244108150834,
+      "recomputed_value": 0.0191244108150834,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:dod_ci_high",
+      "paper_value": 0.0513363688767271,
+      "recomputed_value": 0.0513363688767271,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:epsilon_main",
+      "paper_value": 0.0010910725852149,
+      "recomputed_value": 0.0010910725852149,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:epsilon_ablation",
+      "paper_value": 0.001685638228913,
+      "recomputed_value": 0.001685638228913,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:swap_main_70",
+      "paper_value": 0.2879903268252783,
+      "recomputed_value": 0.2879903268252783,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:swap_ablation_70",
+      "paper_value": 0.2631048870557767,
+      "recomputed_value": 0.2631048870557767,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:unit:rtmdet:Risk@70:p_holm",
+      "paper_value": 0.0003999600039996,
+      "recomputed_value": 0.0003999600039996,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:delta_main",
+      "paper_value": 0.0013584388047274,
+      "recomputed_value": 0.0013584388047274,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:delta_ablation",
+      "paper_value": -0.0129626749395201,
+      "recomputed_value": -0.0129626749395201,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:dod",
+      "paper_value": 0.0143211137442475,
+      "recomputed_value": 0.0143211137442475,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:delta_main_ci_low",
+      "paper_value": 0.0008633546579861,
+      "recomputed_value": 0.0008633546579861,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:delta_main_ci_high",
+      "paper_value": 0.0019348599544323,
+      "recomputed_value": 0.0019348599544323,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:delta_ablation_ci_low",
+      "paper_value": -0.0196455573908819,
+      "recomputed_value": -0.0196455573908819,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:delta_ablation_ci_high",
+      "paper_value": -0.0069977913897991,
+      "recomputed_value": -0.0069977913897991,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:dod_ci_low",
+      "paper_value": 0.0083367704215118,
+      "recomputed_value": 0.0083367704215118,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:dod_ci_high",
+      "paper_value": 0.0210285355153336,
+      "recomputed_value": 0.0210285355153336,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:epsilon_main",
+      "paper_value": 0.0005412560038404,
+      "recomputed_value": 0.0005412560038404,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:epsilon_ablation",
+      "paper_value": 0.0009377874710556,
+      "recomputed_value": 0.0009377874710556,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:swap_main_70",
+      "paper_value": 0.2304105261437913,
+      "recomputed_value": 0.2304105261437913,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:swap_ablation_70",
+      "paper_value": 0.2238287153437071,
+      "recomputed_value": 0.2238287153437071,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:AUGRC:p_holm",
+      "paper_value": 0.0001999800019998,
+      "recomputed_value": 0.0001999800019998,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:delta_main",
+      "paper_value": 0.0027239986082224,
+      "recomputed_value": 0.0027239986082224,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:delta_ablation",
+      "paper_value": -0.0262837271126318,
+      "recomputed_value": -0.0262837271126318,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:dod",
+      "paper_value": 0.0290077257208543,
+      "recomputed_value": 0.0290077257208543,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:delta_main_ci_low",
+      "paper_value": 0.0015540066690141,
+      "recomputed_value": 0.0015540066690141,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:delta_main_ci_high",
+      "paper_value": 0.0038485967283125,
+      "recomputed_value": 0.0038485967283125,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:delta_ablation_ci_low",
+      "paper_value": -0.0408480685138431,
+      "recomputed_value": -0.0408480685138431,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:delta_ablation_ci_high",
+      "paper_value": -0.0137766331994033,
+      "recomputed_value": -0.0137766331994033,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:dod_ci_low",
+      "paper_value": 0.0164741334266909,
+      "recomputed_value": 0.0164741334266909,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:dod_ci_high",
+      "paper_value": 0.0436297368531662,
+      "recomputed_value": 0.0436297368531662,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:p_raw",
+      "paper_value": 9.999000099990002e-05,
+      "recomputed_value": 9.999000099990002e-05,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:epsilon_main",
+      "paper_value": 0.0010857091365967,
+      "recomputed_value": 0.0010857091365967,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:epsilon_ablation",
+      "paper_value": 0.0017854399766915,
+      "recomputed_value": 0.0017854399766915,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:swap_main_70",
+      "paper_value": 0.2304105261437913,
+      "recomputed_value": 0.2304105261437913,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:swap_ablation_70",
+      "paper_value": 0.2238287153437071,
+      "recomputed_value": 0.2238287153437071,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:dataset:DOTA-v1.0:Risk@70:p_holm",
+      "paper_value": 0.0001999800019998,
+      "recomputed_value": 0.0001999800019998,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_independent/hypotheses.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:orcnn:matched_rows",
+      "paper_value": 48889.0,
+      "recomputed_value": 48889.0,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/point_metrics.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:rtmdet:matched_rows",
+      "paper_value": 51736.0,
+      "recomputed_value": 51736.0,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/point_metrics.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:orcnn:ap50",
+      "paper_value": 0.7060689330101013,
+      "recomputed_value": 0.7060689330101013,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:orcnn:ap75",
+      "paper_value": 0.4517415761947632,
+      "recomputed_value": 0.4517415761947632,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:orcnn:expected_ap50",
+      "paper_value": 0.7061,
+      "recomputed_value": 0.7061,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:orcnn:expected_ap75",
+      "paper_value": 0.4517,
+      "recomputed_value": 0.4517,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:rtmdet:ap50",
+      "paper_value": 0.7161271572113037,
+      "recomputed_value": 0.7161271572113037,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:rtmdet:ap75",
+      "paper_value": 0.4868479073047638,
+      "recomputed_value": 0.4868479073047638,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:rtmdet:expected_ap50",
+      "paper_value": 0.7161,
+      "recomputed_value": 0.7161,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    },
+    {
+      "claim": "r026:rtmdet:expected_ap75",
+      "paper_value": 0.4868,
+      "recomputed_value": 0.4868,
+      "artifact_path": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/implementation_a_raw/official_ap_parity.csv",
+      "consistent": true
+    }
+  ],
+  "n_checks": 177,
+  "scope": "r023 7 witness rows + r026 6 hypotheses, swaps, matched counts, AP parity"
+}

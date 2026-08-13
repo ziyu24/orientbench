@@ -1,0 +1,3 @@
+unit,bootstrap_columns,note
+orcnn,"(10000, 16)",DESCRIPTIVE: R@90 requires recomputation from matched rows
+rtmdet,"(10000, 16)",DESCRIPTIVE: R@90 requires recomputation from matched rows

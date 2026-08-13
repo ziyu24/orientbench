@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE_DESCRIPTIVE_PACKAGE",
+  "files": [
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/all_ar_scans_with_cluster_ci_descriptive.csv",
+      "bytes": 50510,
+      "sha256": "a89f281614a621acf2a99a18fd69601792f968b3a7c5fea08e258cac5417a95d"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/all_datasets_uncertainty_mde80_descriptive.csv",
+      "bytes": 1937,
+      "sha256": "089e9e5ffe0438f4ec333b9d7c22bb7fc665d04024bcbfa786272e7c24ec71ac"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/all_units_descriptive_point_table.csv",
+      "bytes": 7508,
+      "sha256": "d9f78f798c8e6acbb43bb61572be449559d8e693b91f2b478db9d1e71db3d7a3"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/claim_check.json",
+      "bytes": 60209,
+      "sha256": "806ef92abebb2d0be4b1714410386e82e32a6f3623f7d5180065f50fc59b3b9d"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/core_descriptive_ar_scan.csv",
+      "bytes": 15236,
+      "sha256": "fdc2b49fe7e4ae063ebaac6fe440f53604b5ad78c4bca4dc747f0635ecd10d88"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dataset_uncertainty_mde80_descriptive.csv",
+      "bytes": 1313,
+      "sha256": "30a68a5abd9a10d53051b3586efa4ea5c2ed9b395c45af99eddb5d3877e46544"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/descriptive_scope_notes.csv",
+      "bytes": 187,
+      "sha256": "192779229f8e7aec6a684d30eae8aeba89c0ae94558c82a949eae0d05800302d"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_ap_parity.csv",
+      "bytes": 175,
+      "sha256": "74013e3709e6bf08261f00ceb096e80a0dde908fd350b0a39aa47eb01888aa9a"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_descriptive_ar_scan_and_endpoints.csv",
+      "bytes": 7093,
+      "sha256": "4125e150e1f52d3a0c0494cd9be4a76494a4eff122b0d6adebb35d0d97b40e81"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_descriptive_class_decomposition.csv",
+      "bytes": 3148,
+      "sha256": "35b8259526528dd4af0607a698d869d8386c02de38b8762d877e8d4a6081fb3c"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_risk90_two_domain_cluster_ci_descriptive.csv",
+      "bytes": 1097,
+      "sha256": "4b5a6ce1294927b0a25d91a3602c11d31f2be88343a884b419f2a8746b74ccf8"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_source_beta_sensitivity_descriptive.csv",
+      "bytes": 2290,
+      "sha256": "45c67ac2a7e303c0228562ff1d7fa6990a428154a2a27979a2e41d72eb8537ea"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_uncertainty_mde80_descriptive.csv",
+      "bytes": 400,
+      "sha256": "c24470bc27cca7e4e91906e8a19dbd1bd8df7de2e9978210ae05481d3029e0d7"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_unit_point_metrics.csv",
+      "bytes": 675,
+      "sha256": "b39241eecb20c520d68277e1fdc783e271aedb17285aa574d7cd51eff8561b85"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/evidence_ledger.csv",
+      "bytes": 4182,
+      "sha256": "4487cace0f68a73ce0eb20747b3c17a1349438f31036ed0bd699954c78556b29"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/package_manifest.json",
+      "bytes": 4206,
+      "sha256": "65ca781e1139ee3d53ae109bbb10f3753cd698237344139c08b44b194e1f48ad"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/r023_formal_witnesses.csv",
+      "bytes": 4961,
+      "sha256": "9a3b146c73a6d6ae6f7bba3276ee2dec329577fe6c15d2292d8c17815e75e43f"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/r026_formal_hypotheses.csv",
+      "bytes": 2137,
+      "sha256": "3d96083f9bfc486d6a7c33ebe0bb8d56f72b426ac72c9fb2f0c65b4a6de37a53"
+    }
+  ]
+}

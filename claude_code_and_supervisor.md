@@ -2548,3 +2548,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 未执行：A/B、Comparator、bootstrap、metrics、witness、gate、pinned fetch、mutation、runtime manifest、GPU、训练、forward、inference、安装或数据下载均未运行；没有 scientific number。
 - 关键产物：`dis/server_reports/orientbench-b-r021-measurement-validity-20260812/STARTED.json`、`dis/server_reports/orientbench-b-r021-measurement-validity-20260812/SERVER_EXECUTION_REPORT.md`。
 - 完成映射：`FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY / NOT_ADJUDICATED / execution_status=incomplete`。需 B 发布新的自洽 dispatch revision；当前 r021 路径含 STARTED，不重用为正式重执行。
+
+## 2026-08-13 07:10 CST — r027 JPRS paper package completed（server-primary）
+
+- 指令来源：用户要求持续监督、不得打折扣完成；活动 dispatch 为 `orientbench-b-r027-jprs-paper-package-20260813`。
+- 执行动作：补齐并重算 T1--T6。AR cutoff 表覆盖 DIOR A/B/C、DOTA 两 detector 和两个 DOTA aggregate；DOTA equal-unit CI 改为每 bootstrap draw 的直接母图 cluster 重采样等权汇总。补齐 Risk@90 两域、完整八-unit 四-probe表、dataset uncertainty/MDE80、台账、主稿/补充稿、package manifest。
+- 关键产物：`outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/`；`dis/server_reports/orientbench-b-r027-jprs-paper-package-20260813/SERVER_EXECUTION_REPORT.md`；两份 r027 draft。
+- 核验：独立 `claim_recompute_r027.py` 通过 177/177 字段核对，涵盖 r023 七 witness 与 r026 六 hypotheses、swap、matched counts、AP parity；读回检查 AR scan 441 行、Risk@90 8 行、完整 unit 表 64 行及四数据集不确定性表。
+- 是否触发停止条件：否。首版 aggregate CI 为平均单-unit CI，未作完成声称，已以直接 cluster-resample aggregate CI 替换并披露。所有 r027 新数值均 `DESCRIPTIVE`。
+- 下一步建议：B/C post-pull 审阅草稿与 evidence ledger；服务器端任务已闭合，不代表投稿或论文最终定稿。

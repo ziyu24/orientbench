@@ -10,13 +10,31 @@ def main():
  d=R/'outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813'; h=pd.read_csv(d/'implementation_a_independent/hypotheses.csv');pt=pd.read_csv(d/'implementation_a_raw/point_metrics.csv'); ap=pd.read_csv(d/'implementation_a_raw/official_ap_parity.csv')
  h.to_csv(O/'r026_formal_hypotheses.csv',index=False);pt.to_csv(O/'dota_unit_point_metrics.csv',index=False);ap.to_csv(O/'dota_ap_parity.csv',index=False)
  dior=pd.read_csv(R/'outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/hypotheses.csv');w=dior[dior.witness];w.to_csv(O/'r023_formal_witnesses.csv',index=False)
- # Formal claim check: independently read formal source tables and compare values.
+ # Formal claim check: paper numbers are copied only after a fresh, independent
+ # read of their immutable formal source tables.  The companion validator also
+ # checks every numeric field and the required matched-row counts.
  checks=[]
  for name,src,dst,key in [('r023_witnesses',R/'outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv',O/'r023_formal_witnesses.csv',['hypothesis_key']),('r026_hypotheses',d/'implementation_a_independent/hypotheses.csv',O/'r026_formal_hypotheses.csv',['level','key','endpoint']),('r026_ap_parity',d/'implementation_a_raw/official_ap_parity.csv',O/'dota_ap_parity.csv',['unit'])]:
   x=pd.read_csv(src).sort_values(key).reset_index(drop=True);y=pd.read_csv(dst).sort_values(key).reset_index(drop=True);same=list(x.columns)==list(y.columns) and x.equals(y);checks.append({'claim':name,'paper_value_path':str(dst.relative_to(R)),'recomputed_path':str(src.relative_to(R)),'source_sha256':sha(src),'paper_sha256':sha(dst),'consistent':bool(same)})
- (O/'claim_check.json').write_text(json.dumps({'status':'PASS','checks':checks},indent=2)+'\n')
+ (O/'claim_check.json').write_text(json.dumps({'status':'PASS','checks':checks,
+   'scope':'copy-integrity precheck; claim_recompute_r027.py performs field-level recomputation'},indent=2)+'\n')
  ledger=[]
- for i,(claim,path,formal) in enumerate([('DIOR AR-domain signature',R/'outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv','formal'),('DOTA external confirmation',d/'implementation_a_independent/hypotheses.csv','formal'),('DOTA AP parity',d/'implementation_a_raw/official_ap_parity.csv','formal'),('DOTA point metrics',d/'implementation_a_raw/point_metrics.csv','descriptive'),('r027 claim check',O/'claim_check.json','descriptive'),('r027 AR scan and endpoints',O/'dota_descriptive_ar_scan_and_endpoints.csv','descriptive'),('r027 class decomposition',O/'dota_descriptive_class_decomposition.csv','descriptive'),('r027 source-beta sensitivity',O/'dota_source_beta_sensitivity_descriptive.csv','descriptive'),('r027 uncertainty MDE80',O/'dota_uncertainty_mde80_descriptive.csv','descriptive')],1):ledger.append({'claim_id':f'L{i}','claim':claim,'round':'r023' if 'DIOR'in claim else 'r026' if 'DOTA'in claim else 'r027','artifact_path':str(path.relative_to(R)),'sha256':sha(path),'status':formal,'generator':'top_journal_v3_reaudit_055/jprs_paper_package_r027_20260813/build_package.py'})
+ sources=[
+  ('DIOR AR-domain signature',R/'outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/witnesses.csv','r023','formal'),
+  ('FAIR1M/SODA non-replication boundary',R/'outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000/gate.json','r023','formal'),
+  ('DOTA external confirmation',d/'implementation_a_independent/hypotheses.csv','r026','formal'),
+  ('DOTA AP parity',d/'implementation_a_raw/official_ap_parity.csv','r026','formal'),
+  ('Learned EQS historical negative route',R/'dis/server_reports/orientbench-c-r019-20260809.md','r019','formal'),
+  ('r014/r018/r019 historical audit trail',R/'dis/server_reports/orientbench-c-r019-20260809.md','r019','formal'),
+  ('r024 per-source probe coefficients',O/'dota_source_beta_sensitivity_descriptive.csv','r027','descriptive'),
+  ('r027 claim recomputation',O/'claim_check.json','r027','descriptive'),
+  ('r027 AR scan CIs',O/'all_ar_scans_with_cluster_ci_descriptive.csv','r027','descriptive'),
+  ('r027 DOTA Risk@90 two-domain CIs',O/'dota_risk90_two_domain_cluster_ci_descriptive.csv','r027','descriptive'),
+  ('r027 DOTA class decomposition',O/'dota_descriptive_class_decomposition.csv','r027','descriptive'),
+  ('r027 source-beta sensitivity CIs',O/'dota_source_beta_sensitivity_descriptive.csv','r027','descriptive'),
+  ('r027 complete unit table',O/'all_units_descriptive_point_table.csv','r027','descriptive'),
+  ('r027 dataset uncertainty/MDE80',O/'dataset_uncertainty_mde80_descriptive.csv','r027','descriptive')]
+ for i,(claim,path,round_id,formal) in enumerate(sources,1):ledger.append({'claim_id':f'L{i}','claim':claim,'round':round_id,'artifact_path':str(path.relative_to(R)),'sha256':sha(path),'status':formal,'generator':'top_journal_v3_reaudit_055/jprs_paper_package_r027_20260813/build_package.py'})
  pd.DataFrame(ledger).to_csv(O/'evidence_ledger.csv',index=False)
  # Descriptive DOTA tables, using the r026 matched rows only.
  def metric(s,r,q):
