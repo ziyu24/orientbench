@@ -1,0 +1,15 @@
+{
+  "candidate_scientific_state": "INCONCLUSIVE_MIXED",
+  "completion": "FULL_RECOVERY_ANALYSIS",
+  "dataset_witnesses": 2,
+  "elapsed_seconds": 582.0865800380707,
+  "formal_cross_machine_state": "NOT_ADJUDICATED_PENDING_SUPERVISOR",
+  "hypothesis_counts": {
+    "dataset": 135,
+    "unit": 270
+  },
+  "max_rss_kib": 2285608,
+  "passing_signatures": [],
+  "schema": "orientbench-r020-pragmatic-recovery-gate-v1",
+  "unit_witnesses": 5
+}

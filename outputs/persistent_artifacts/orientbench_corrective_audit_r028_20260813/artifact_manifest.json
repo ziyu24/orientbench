@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/completion_audit.json",
+      "bytes": 2490,
+      "sha256": "230d38bfbd90bc2cf83ff8719e558b7b0f6aea6a0efa9bea1d345230a63e8199"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/dota_tta_localization_corrected_ar_scan.csv",
+      "bytes": 6006,
+      "sha256": "04ba5b56140b6b7ef49d6764cde6087d88d37cc861c4b3d8d1172e76e19e82ad"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/dota_tta_localization_corrected_class_table.csv",
+      "bytes": 4135,
+      "sha256": "57905b1cd86c68b448990c4e7c99b8f772f211cbc3ddb1a8b20ed2ff7e802358"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/dota_tta_localization_corrected_unit_table.csv",
+      "bytes": 1769,
+      "sha256": "373885f0d61aa2aa5073e8ce8e9b5d07a41bd15f21637f9b1597c17885949cca"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/gt_integrity.json",
+      "bytes": 854,
+      "sha256": "5c593486871e2a13ec984a20d05d89b2c2262147481d80395e0a45abd98549dc"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/r027_package_manifest_rebuilt.json",
+      "bytes": 3073,
+      "sha256": "157257975cb957aef3625ca95f7bc16436c6147e2ee4588be66ac711ae974f45"
+    },
+    {
+      "path": "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/r027_supersession_manifest.csv",
+      "bytes": 864,
+      "sha256": "02f4eabe40baad7f1eafaeaa4f542da47ab81ff7a70a9c3f3299437bbb4764a6"
+    }
+  ]
+}

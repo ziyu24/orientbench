@@ -2557,3 +2557,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 核验：独立 `claim_recompute_r027.py` 通过 177/177 字段核对，涵盖 r023 七 witness 与 r026 六 hypotheses、swap、matched counts、AP parity；读回检查 AR scan 441 行、Risk@90 8 行、完整 unit 表 64 行及四数据集不确定性表。
 - 是否触发停止条件：否。首版 aggregate CI 为平均单-unit CI，未作完成声称，已以直接 cluster-resample aggregate CI 替换并披露。所有 r027 新数值均 `DESCRIPTIVE`。
 - 下一步建议：B/C post-pull 审阅草稿与 evidence ledger；服务器端任务已闭合，不代表投稿或论文最终定稿。
+
+## 2026-08-13 10:15 CST — r028 corrective audit completed（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r028-corrective-audit-20260813` 并要求建立持续监督、不得未完成即报告完成。
+- 执行动作：新写并实际运行 raw-layer r026/r023 validator；六项 mutation 均通过 subprocess 真执行；构建可提交 Git 的 bundle、GT integrity、r027 `tta_localization` 修复与 post-outcome audited 的 r028 稿件。
+- 关键产物：`top_journal_v3_reaudit_055/corrective_audit_r028_20260813/`、`audit_bundles/r028/`、`outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/`、`dis/server_reports/orientbench-b-r028-corrective-audit-20260813/SERVER_EXECUTION_REPORT.md`。
+- 核验：r026=96/96、r023=4,950/4,950 字段一致；所有 6 mutation 的 pristine exit=0、mutated exit 非0；bundle 19 个文件、92,680,050 bytes、manifest hash 全匹配，并以 bundle 内 r026/r023 validator 实际重放通过。
+- 是否触发停止条件：否。r026 正式状态不在本轮自行改写；仍由 B/C 基于 bundle 重放裁决。无 GPU、训练、推理、下载、冻结阈值/split 或旧冻结产物修改。
+- 下一步建议：B/C clone 后按 bundle 重放；稿件仅可称 post-outcome audited external replication，不能恢复 r026 旧的 preregistration/双方接受表述。

@@ -1,0 +1,6 @@
+r027_artifact,status,reason
+all_units_descriptive_point_table.csv,SUPERSEDED_BY_R028,r027 tta_localization was not -(missing_fraction + iou_loss); only rows using that probe require replacement
+dota_descriptive_ar_scan_and_endpoints.csv,SUPERSEDED_BY_R028,r027 tta_localization was not -(missing_fraction + iou_loss); only rows using that probe require replacement
+dota_descriptive_class_decomposition.csv,SUPERSEDED_BY_R028,r027 tta_localization was not -(missing_fraction + iou_loss); only rows using that probe require replacement
+core_descriptive_ar_scan.csv,SUPERSEDED_BY_R028,r027 tta_localization was not -(missing_fraction + iou_loss); only rows using that probe require replacement
+all_ar_scans_with_cluster_ci_descriptive.csv,SUPERSEDED_BY_R028,r027 tta_localization was not -(missing_fraction + iou_loss); only rows using that probe require replacement
