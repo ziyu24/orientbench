@@ -52,7 +52,60 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r028-corrective-audit-20260813",
+    "plan_id": "b-r028-corrective-audit-20260813",
+    "initiator": "B",
+    "activated_by": "B",
+    "plan_path": "dis/plans/B/b-r028-corrective-audit-20260813/sug.md",
+    "plan_commit_sha": "e871b7b240b20dafd076ba4d47416311dfcafc29",
+    "plan_blob_oid": "95c17c3a4089a8f1e5e845ef3df4b2fcf2fa17cd",
+    "plan_sha256": "cb4c1998f5a10048defeae6c1137e31b9b8c84e371a1b39efac24b8b23e95610",
+    "active_plan_path": "dis/sug.md",
+    "active_sha256": "cb4c1998f5a10048defeae6c1137e31b9b8c84e371a1b39efac24b8b23e95610",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-13 持续授权推进投稿链条；本轮执行 C 正式争议的最低决议（dis/B.md §14）"
+    },
+    "server_report_path": "dis/server_reports/orientbench-b-r028-corrective-audit-20260813/SERVER_EXECUTION_REPORT.md",
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
+      "wall_time": {"seconds_max": 43200},
+      "data": {
+        "allowed_dataset_ids": ["existing-frozen-orientbench-evidence-readonly", "DOTA-v1.0-val"],
+        "read_bytes_max": 549755813888,
+        "write_bytes_max": 32212254720
+      },
+      "write": {
+        "allowed_paths": [
+          "outputs/persistent_artifacts/orientbench_corrective_audit_r028_20260813/",
+          "top_journal_v3_reaudit_055/corrective_audit_r028_20260813/",
+          "audit_bundles/r028/",
+          "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_jprs_r028_draft.md",
+          "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/jprs_r028_supplement_draft.md",
+          "dis/server_reports/orientbench-b-r028-corrective-audit-20260813/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 32212254720
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": [
+          "https://github.com/ziyu24/orientbench.git"
+        ]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md",
+      "outputs/persistent_artifacts"
+    ],
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-13T10:35:00-07:00"
+  },
   "last_closed_dispatch": {
     "dispatch_id": "orientbench-b-r027-jprs-paper-package-20260813",
     "plan_path": "dis/plans/B/b-r027-jprs-paper-package-20260813/sug.md",
