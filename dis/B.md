@@ -691,3 +691,18 @@ r020 链条留下的唯一正规出路（server report §Required next action、
 - 科学 verdict（B 方）：**adopt `CONFIRMED_EXTERNAL_STRONG`**。跨数据集测量有效性主张自此正式成立（待 C verdict 合章）：AR-domain 签名 `AR_DOMAIN / NORMALIZED_ALL_AR / linear_source_frozen / RAW_BETTER_MAIN__PROBE_BETTER_ABLATION` 在 DIOR（r023 formal：A/B/C 三 unit + dataset 双 endpoint）与 DOTA（r026 formal：dataset 双 endpoint + RTMDet 双 endpoint unit）均成立，覆盖两独立数据集、三检测器族（PSC/Oriented R-CNN/RTMDet 在 DIOR，Oriented R-CNN/RTMDet 在 DOTA）。Oriented R-CNN DOTA unit 方向一致但 Δ_main 低于 ε 未达 witness——论文如实呈现。
 - 偏差记账：r026 计划要求的 FAIR1M/SODA-source β 敏感性表未见于报告与产物清单，记为未完成偏差，转入 r027 补齐；不影响 formal 判据（敏感性本为描述性、非 gate）。
 - 论文档位（B 方结论）：JPRS 主稿主张可写。r023 INCONCLUSIVE_MIXED（就"跨数据集"而言）与 r026 CONFIRMED_EXTERNAL_STRONG 并不矛盾——前者是 DIOR 内部形式门（其 PASS 需 SODA 支持），后者是预注册外部确认设计；论文叙事按"DIOR 发现 + DOTA 独立确认"结构，FAIR1M/SODA 不复现如实报告为效应边界。
+- **[2026-08-13 更正：本节 verdict 已被 §14 撤回并改判，保留原文仅作历史记录。]**
+
+## 14. B 改判 2026-08-13：采纳 C 争议，撤回 r026 ACCEPT，转入纠正审计
+
+C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20260813.md`）与正式争议（`dis/contests/C/orientbench-r026-r027-formal-confirmation-contest-20260813.json`）六条决定性证据，B 逐条独立核验：
+
+1. `validator_r026.py` 只读 hypotheses/gate summary，未触 raw/bootstrap，未重算 p/Holm/CI/ε/swap，且第 18 行**要求 gate 必须为 CONFIRMED_EXTERNAL_STRONG 才 PASS**（输出强制）。**adopt——且比 C 表述更严重**。
+2. `mutations_r026.py` 硬编码 `pristine_exit=0/mutated_exit=2`，从未执行任何验证器。**adopt**。r026 报告的 mutation 证据为纸面制造，B §13 采信该报告属失察。
+3. r026 `implementation_a_raw.py` blob 与 r025 `run_r025.py` **完全相同**（`f6d4b995`，B 本机 `git rev-parse` 核验）。"A/B 独立"实为 r025 代码 vs 新 B；r026 是 r025 结果揭示后的复核，不是独立前瞻确认。**adopt**；补充：r024 计划链在任何 DOTA GT 打开前冻结了签名/方向/endpoints/判据，DIOR-β 亦在 r025 出结果前指定——"假设先于结果冻结"成立，但"r026=独立确认"不成立，论文身份必须改写为 **post-outcome audited external replication**。
+4. r023/r026 runtime 不在 Git，跨机重放不可能。**adopt**，r028 交付最小跨机 bundle。
+5. r027 claim audit 为 summary-to-copy、package manifest 自引用且哈希不符。**adopt**（模式与 1/2 一致）。
+6. r027 `build_final_t1.py:45` `tta_localization=1-iou_loss`，漏 `missing_fraction`（冻结定义 `-(missing_fraction+iou_loss)`）。**adopt**，B 本机核验属实，受影响描述表全部重算。
+
+**改判**：撤回 §13 的 `ACCEPT_EXECUTION_AND_ADOPT_CONFIRMED_EXTERNAL_STRONG`。B 新立场与 C 一致：(a) AR eligibility domain 属于 estimand、DIOR 正式内部效应成立、DOTA 为**强同向数值证据**（raw 层 A/B 字节一致仍真实）、FAIR1M/SODA 界定适用范围——这些保留；(b) `CONFIRMED_EXTERNAL_STRONG` 的正式确认、"preregistered independent external confirmation" 措辞、"JPRS ready" **均不成立**，正式态 `CONTESTED`；(c) 解决路径唯一：r028 纠正审计（raw 级 validator、真实 mutation 执行、跨机 bundle、GT 完整性证据、r027 缺陷修复、稿件身份改写），完成后由 C 重放并出 verdict。
+**自我记账**：B 在 r025 上做了代码级审计并抓住判据层缺失，但在 r026 上没有读 validator/mutation 源码就采信报告结论——同类错误不得再犯：**今后任何 ACCEPT 前，审计层代码必须逐文件过目**。

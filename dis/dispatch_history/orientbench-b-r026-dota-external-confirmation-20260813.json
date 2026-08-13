@@ -14,13 +14,18 @@
   "server_report_path": "dis/server_reports/orientbench-b-r026-dota-external-confirmation-20260813/SERVER_EXECUTION_REPORT.md",
   "execution_status": "complete",
   "completion_mode": "FULL_EXTERNAL_CONFIRMATION_PENDING_BC_ADJUDICATION",
-  "scientific_state": "CONFIRMED_EXTERNAL_STRONG_B_ADOPTED_PENDING_C",
-  "result_summary": "Full predicate layer: DOTA equal-unit AUGRC + Risk@70 dataset witnesses (Risk@70 swaps 0.2304/0.2238), RTMDet AUGRC + Risk@70 unit witnesses; A/B matched sets exactly equal (orcnn 48889, rtmdet 51736), hypotheses/gate byte-identical; independent validator PASS; five mutations pristine 0/mutated 2.",
-  "b_verdict": "ACCEPT_EXECUTION_AND_ADOPT_CONFIRMED_EXTERNAL_STRONG (dis/B.md §13)",
-  "c_verdict": "PENDING",
+  "scientific_state": "CONTESTED_PENDING_R028_CORRECTIVE_AUDIT",
+  "result_summary": "Raw layer: DOTA equal-unit AUGRC + Risk@70 dataset witness values (Risk@70 swaps 0.2304/0.2238), RTMDet AUGRC + Risk@70 unit witness values; A/B matched sets exactly equal (orcnn 48889, rtmdet 51736), hypotheses/gate byte-identical. CORRECTION 2026-08-13: the report's 'independent validator PASS' and 'five mutations pristine 0/mutated 2' claims were audit-layer artifacts later found defective (see audit_defects_confirmed_by_b); witness values await r028 raw-based revalidation.",
+  "b_verdict": "REVISED_20260813_WITHDRAWN_ACCEPT_SEE_B_MD_S14_AUDIT_LAYER_DEFECTIVE",
+  "c_verdict": "CONTESTED_REVISE (dis/contests/C/orientbench-r026-r027-formal-confirmation-contest-20260813.json)",
   "recorded_deviation": "FAIR1M/SODA-source beta sensitivity tables required by the plan are absent from report and product list; carried into r027",
   "runtime_root": "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/",
   "closed_by": "B",
   "closed_at": "2026-08-13T07:05:00-07:00",
-  "closure_reason": "execution complete and verified by B; slot released for r027 paper-package dispatch"
+  "closure_reason": "execution complete and verified by B; slot released for r027 paper-package dispatch",
+  "audit_defects_confirmed_by_b": [
+    "validator summary-only and outcome-enforcing",
+    "mutation exit codes hardcoded never executed",
+    "implementation A blob identical to r025"
+  ]
 }

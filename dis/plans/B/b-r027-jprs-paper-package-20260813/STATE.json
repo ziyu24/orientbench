@@ -3,11 +3,11 @@
   "plan_id": "b-r027-jprs-paper-package-20260813",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r027-jprs-paper-package-20260813/sug.md",
-  "state": "DISPATCHED",
+  "state": "COMPLETED",
   "plan_commit_sha": "af63ab230f8f74ffaecf864c417a60c626c6f774",
   "plan_blob_oid": "c181ed36bba04d910758c02a27ef504fdda952dc",
   "plan_sha256": "eb4bc2d39cd6533d02818ff843d054730bef296e9b4a9dafe7d6d58185a92d1b",
-  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "state_reason": "descriptive_package_delivered_with_confirmed_defects_corrections_in_r028",
   "ready_at": "2026-08-13T07:20:00-07:00",
-  "updated_at": "2026-08-13T07:25:00-07:00"
+  "updated_at": "2026-08-13T10:20:00-07:00"
 }
