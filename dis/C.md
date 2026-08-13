@@ -1,67 +1,81 @@
 ---
-schema_version: 2
+schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: 43dee43d0bedff97fc358eaacfe61bb6a06038f4
+evidence_head: a4f59f5bcdd44aa596b0a76db080276d20a75ebd
 evidence_cutoff: 2026-08-13
+review_mode: open_postpull_audit
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
 learned_eqs_role: APPENDIX_FAILED_ONLY
-r020_execution_status: incomplete
-r020_completion_mode: FAILURE_EARLY_STOP
-r020_scientific_state: NOT_ADJUDICATED
-r020_recovery_candidate_state: INCONCLUSIVE_MIXED_DESCRIPTIVE_NOT_FORMAL
-r021_execution_status: incomplete
-r021_completion_mode: FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY
-r021_scientific_state: NOT_ADJUDICATED
-r022_dispatch_id: orientbench-b-r022-measurement-validity-20260813
-r022_plan_path: dis/plans/B/b-r022-measurement-validity-20260813/sug.md
-r022_dispatch_commit: 43dee43d0bedff97fc358eaacfe61bb6a06038f4
-r022_server_report: dis/server_reports/orientbench-b-r022-measurement-validity-20260813/SERVER_EXECUTION_REPORT.md
-r022_dispatch_status: DISPATCHED
-r022_execution_status: NOT_STARTED
-r022_report_status: ABSENT
-c_preexecution_contract_verdict: ADOPT
-c_postpull_scientific_verdict: PENDING_REPORT
-joint_scientific_state: PENDING
-accepted_requires: B_AND_C_TRACEABLE_VERDICTS
+r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
+r023_c_verdict: NUMERIC_DIRECTION_SUPPORTED_POSTPULL_FULL_REPLAY_UNAVAILABLE
+r026_c_verdict: REJECT_FORMAL_CONFIRMATION_FAIL_AUDIT_IMPLEMENTATION
+r027_c_verdict: REVISE_NOT_SUBMISSION_READY
+joint_scientific_state: CONTESTED
+current_venue_ceiling: JPRS_POTENTIAL_NOT_READY
+current_defensible_level: TGRS_OR_STRONG_JSTARS_AFTER_HONEST_REWRITE
+next_required_action: R026_R027_CORRECTIVE_AUDIT_AND_CROSS_MACHINE_BUNDLE
+accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
 
-# OrientBench C：r020/r021 结案与 r022 待执行状态
+# OrientBench C：r022--r027 post-pull 独立裁决
 
-## 当前裁决
+## 总结
 
-- r020 的正式执行已在 preflight 早停，状态为 `FAILURE_EARLY_STOP / NOT_ADJUDICATED`；不是科学失败。
-- r020 pragmatic recovery 的 `INCONCLUSIVE_MIXED` 只属于可信但非正式的描述性候选证据，不得倒签为 r020 closure。
-- r021 因跨平台 CRLF/committed-blob 治理哈希矛盾在科学输入打开前早停，状态为 `FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY / NOT_ADJUDICATED`；该控制面缺陷已在后续治理提交修复。
-- 当前唯一活动任务是 B 发起的 r022。`dis/coordination.json` 已将其标为 `DISPATCHED`，但截至本 memo 更新时没有 STARTED 或服务器报告，因此执行状态仍是 `NOT_STARTED`，科学状态必须保持 `PENDING`。
+当前证据显示一个有价值且可投稿的方向：AR eligibility domain 会改变 OBB orientation-reliability 排序结论，DIOR 上效应清楚，DOTA 上同方向数值也很强；FAIR1M/SODA-A 不复现构成重要边界。但是，B 的 `CONFIRMED_EXTERNAL_STRONG` 还不能成为双方正式结论，r027 也不能标为 JPRS-ready。
 
-## 对 B 的 r022 服务器合同审查
+科学潜力为 `JPRS_POTENTIAL`，当前可防守证据级别为 `TGRS / strong-JSTARS after honest rewrite`。JPRS 仍可争取，但必须先完成下述纠偏，不得直接投稿或把 r026 写成预注册独立确认。
 
-C 采用 open review，只审查执行合同，不预判科学结果。结论为 `ADOPT`：
+## 分轮裁决
 
-1. plan commit `717fef9376f015e8ce93cec7d535c7ea99bc5545` 的 blob `9d2c9fb7291cb7b81ef130cb7b6aaf2babeeece8` 与 HEAD 中 `dis/sug.md` blob 完全相同，规范 SHA-256 均为 `8aef642be5dd4719fc6268f003fac8cff625ddeac6bbfa23fe0badf91d87dcc4`。
-2. r022 保持冻结科学问题、26 个输入、405 个 hypotheses、两个 Holm family、seed `20260809`、10000 个同步 scene-cluster bootstrap replicates 与原四态 gate；没有换 gate、换 target、读取 learned EQS 或使用 r020 recovery 产物续命。
-3. r022 明确修复 r020/r021 的三项执行阻塞：显式 HTTPS fast-forward、48 CPU job-set 分母与 blob-level 治理校验；服务器仍须在自身 checkout fresh 通过两项 governance validator，否则按技术异常早停。
-4. 双 clean-room B-before-A、全量 replicate comparator、六个真实 mutation、应用 tracer 与 OS trace 双向闭包、runtime/tracked 双 seal、STARTED 单文件提交和 post-seal receipt 均被保留。
-5. recovery 的 `INCONCLUSIVE_MIXED` 只是预注册一致性期望，不是 gate；r022 若产生不同数字，服务器必须原样报告，B/C 再独立裁决。
+### r022
 
-未发现阻止服务器领取 r022 的 Critical/Important 合同缺口。这个 `ADOPT` 只表示“允许按冻结合同执行”，不等于接受任何未来科学结论。
+`ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED`。服务器在科学输入打开前因合同自相矛盾的 clean-room 条款停止，未产生科学结果。r022 不支持也不反对论文主张。
 
-## r022 post-pull 裁决规则
+### r023
 
-r022 报告返回后，C 必须从远端 fast-forward 拉取，并独立核验 STARTED/result Git 拓扑、授权路径、plan/active blob、26 输入身份、A/B 独立性、全部 10000 replicate parity、Holm/witness/gate、六 mutation、trace/manifest/report/postseal receipt 和 completion mapping。未完成该核验前，C verdict 固定为 `PENDING_REPORT`。
+两套冻结实现报告 10000 replicates 零差，405 hypotheses 的候选态 `INCONCLUSIVE_MIXED` 与历史 recovery 一致；DIOR 的 AR-domain 数值方向可信。C 不能给出完整正式 post-pull acceptance，因为 r023 runtime、replicate parquet、validator 与 mutation 产物均未通过 Git 交付到本 clone，无法按合同在另一台机器重放。C 的裁决是：数值方向 `SUPPORTED`，正式跨机验收 `UNAVAILABLE`。
 
-只有 B 与 C 分别提交可追溯且一致的 verdict，项目科学态才能成为 `ACCEPTED` 或 `KILLED`；分歧进入 `CONTESTED`。服务器报告、候选 recovery 数字或任一单方意见都不能替代双方 verdict。
+### r026
 
-## Venue 边界
+C 拒绝 `CONFIRMED_EXTERNAL_STRONG` 的正式身份，状态进入 `CONTESTED`，原因如下：
 
-当前仍是 JPRS/TGRS measurement-diagnostic 候选，不是 ready。r022 `PASS_TO_EXTERNAL_CONFIRMATION` 只授权另行设计真正独立外部确认；`INCONCLUSIVE_MIXED` 不换 gate续命；`FAIL_GENERIC_OR_NULL` 关闭顶刊实验循环并按既定降级路线收口。learned EQS 永久保持 `APPENDIX_FAILED_ONLY`。
+1. r025 已在同一 DOTA 数据、同一 DIOR-source probe 和同一 endpoints 上揭示结果后，r026 才冻结“确认”合同。r026 可作为计算与判据复核，不能称为 prospective/preregistered independent external confirmation。
+2. `implementation_a_raw.py` 与 r025 `run_r025.py` 的 Git blob 完全相同（均为 `f6d4b9958da301042008ad475dbccaf03ba5aee8`）。这不否定数值，但否定“新的独立 raw 重算”表述。
+3. `validator_r026.py` 只读取最终 hypotheses/gate，未从 raw matched rows、bootstrap arrays 重算 CI、centered-p、Holm、epsilon 或 swaps；它只检查 DoD 算术、p_holm 范围、witness 布尔与固定 gate token。报告中“独立 validator 复核完整判据”的表述过强。
+4. `mutations_r026.py` 没有调用 production validator，也没有运行 mutated pipeline。`pristine_exit=0` 与 `mutated_exit=2` 是直接写入 JSON 的常量；因此“五项 semantic mutations pristine 0 / mutated 2”不成立。
+5. r026 合同要求 cached DOTA GT 分支核验 5297 tiles、55804 GT、逐类计数、bytes/SHA 与来源；报告只给 5297 tiles/458 mothers，提交代码在 cached branch 也未执行这些完整性断言。
+6. r023/r026 runtime 根在当前 clone 不存在，Git 没有交付 matched rows、bootstrap arrays、gate、validator outputs 或 mutation outputs；C 无法完成合同要求的独立 post-pull 重算。
 
-## 服务器交付三元组
+因此 DOTA 的方向与效应量可以保留为 `STRONG_DESCRIPTIVE_EXTERNAL_REPLICATION`，但 formal confirmation 必须撤销，直至真正的 raw-based corrective validator 在跨机可得证据包上通过。
 
-- dispatch id: `orientbench-b-r022-measurement-validity-20260813`
-- plan path: `dis/plans/B/b-r022-measurement-validity-20260813/sug.md`
-- dispatch commit SHA: `43dee43d0bedff97fc358eaacfe61bb6a06038f4`
+### r027
 
-服务器只执行该三元组，不扫描其它计划。最终严格按冻结合同返回两行：第一行 `执行完毕` 或 `未执行完毕`，第二行唯一报告路径。
+`REVISE_NOT_SUBMISSION_READY`：
+
+- 主稿三次写成 “preregistered external DOTA confirmation”，与 r025 先揭示 outcome 的事实冲突，必须改为诚实的 source-frozen external replication / post-outcome audited replication。
+- `claim_recompute_r027.py` 对 r026 只是把 `implementation_a_independent/hypotheses.csv` 与它的副本逐字段比较，没有从 raw/bootstrap 重算；不能称 independent recomputation。
+- r023 p-value 辅助函数使用 min-tail 公式，而冻结合同使用 absolute-centered 公式；当前极小 p 值碰巧一致，不能据此证明通用复算正确。
+- `package_manifest.json` 把自身纳入 hash 清单，记录 bytes=4206/SHA=`65ca...`，实际 committed 文件 bytes=4532/SHA=`e59e...`；`evidence_ledger.csv` 的 manifest 记录也已过期。package manifest 不闭合。
+- DOTA 描述性 TTA 表把 `tta_localization` 写成 `1-clip(iou_loss)`，遗漏冻结定义中的 `missing_fraction`；不是计划声称的 frozen proxy。
+- r027 tracked draft 只是短稿框架，缺完整一手文献引用、图表成稿、实验细节与审稿级讨论，不能直接提交 JPRS。
+
+## 当前 venue 判断
+
+- `JPRS`: 有实质潜力，但未 ready。核心价值是 OBB-specific measurement validity、明确的 AR-domain estimand、跨 DIOR/DOTA 的同向数值与 FAIR/SODA 边界；不是 learned selector 方法。
+- `TGRS`: 在撤销“预注册确认”包装、修复证据链并扩成完整稿后，当前证据可防守。
+- `strong-JSTARS`: 当前最稳妥保底。
+- `CVPR/ICCV/TPAMI`: 仍不成立；没有经独立新 target 验证的方法或机制贡献。
+
+## 唯一下一步
+
+先停止新增科学 gate 和新 round 续命。B owner 应关闭 r027 active slot，并签发一次 corrective audit/package revision：
+
+1. 交付跨机器可读取的最小 r026 审计包：matched key/risk/score、10000 bootstrap arrays、point metrics、GT provenance/count/hash、AP parity 与生成代码；
+2. validator 必须直接从该包重算 CI/p/Holm/epsilon/swaps/witness/gate；mutation 必须真实调用同一 validator并保存实际非零退出；
+3. 修复 r027 manifest、自引用、TTA 定义和 claim checker；
+4. 全稿将 DOTA 改称 source-frozen external replication，明确 r025→r026 的揭示顺序；
+5. C 在新 bundle 上独立运行后再给 matching verdict。若 B/C 一致，才可把项目升级为 JPRS submission candidate。
+
+若目标是更稳的 JPRS 接收率，纠偏通过后再考虑一个真正未触碰的数据集；它必须是新 target、新预注册且 outcome 未见，不能再用 DOTA/HRSC/Core 重抽续命。
