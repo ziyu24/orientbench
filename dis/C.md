@@ -1,97 +1,67 @@
 ---
-round_id: orientbench-c-r020-measurement-validity-20260811
-planning_base: 594654a95d50b1f14b87252698911cc3fc583b03
-protected_B_blob: c0c2571f3a5c828673b39e6458ceaed5f14c5a6a
-evidence_cutoff: 2026-08-11
-review_mode: jprs_measurement_validity_dispatch
+schema_version: 2
+actor: C
+governance_mode: B_C_PEER_EQUAL
+evidence_head: 43dee43d0bedff97fc358eaacfe61bb6a06038f4
+evidence_cutoff: 2026-08-13
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
 learned_eqs_role: APPENDIX_FAILED_ONLY
-receipt3_execution_commit: 594654a95d50b1f14b87252698911cc3fc583b03
-receipt3_status: ABNORMAL_EXECUTABLE_AUDIT_FAILURE
-receipt3_completion_mode: PROTOCOL_DRIFT
-receipt3_scientific_gate: NOT_ADJUDICATED
-receipt3_non_reusable: true
-receipt3_report: dis/server_reports/orientbench-c-topjournal-feasibility-receipt3-20260811.md
-receipt3_report_blob: 498dd8094f713a4a76339890ffd3a9ec45352344
-receipt3_archive: dis/sug/orientbench-c-topjournal-feasibility-receipt3-20260811-abnormal-audit.md
-receipt3_archive_blob: aeb79060e50aeaa615b365065fc087dc7b9e74cc
-design_path: dis/jprs_measurement_validity_gate_design_20260811.md
-plan_path: dis/jprs_measurement_validity_dispatch_plan_20260811.md
-server_instruction: dis/sug.md
-server_report: dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md
-code_root: top_journal_v3_reaudit_055/measurement_validity_r020_20260811
-runtime_root: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811
-postseal_receipt_root: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt
-postseal_receipt_path: outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt/postseal_receipt.json
-post_server_required_action: C_POSTPULL_ADJUDICATION
-server_status: READY_FOR_SERVER_EXECUTION
-execution_status: NOT_STARTED
-existing_core_measurement_reanalysis_authorized: true
-new_protocol_authorized: true
-new_experiment_authorized: true
-new_target_dataset_outcome_authorized: false
-gpu_authorized: false
-general_download_authorized: false
-installation_authorized: false
-training_authorized: false
-forward_authorized: false
-inference_authorized: false
-annotation_root_authorized: false
-manuscript_edit_authorized: false
-method_experiment_authorized: false
-cc_status: COMPLETED_CLOSED
+r020_execution_status: incomplete
+r020_completion_mode: FAILURE_EARLY_STOP
+r020_scientific_state: NOT_ADJUDICATED
+r020_recovery_candidate_state: INCONCLUSIVE_MIXED_DESCRIPTIVE_NOT_FORMAL
+r021_execution_status: incomplete
+r021_completion_mode: FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY
+r021_scientific_state: NOT_ADJUDICATED
+r022_dispatch_id: orientbench-b-r022-measurement-validity-20260813
+r022_plan_path: dis/plans/B/b-r022-measurement-validity-20260813/sug.md
+r022_dispatch_commit: 43dee43d0bedff97fc358eaacfe61bb6a06038f4
+r022_server_report: dis/server_reports/orientbench-b-r022-measurement-validity-20260813/SERVER_EXECUTION_REPORT.md
+r022_dispatch_status: DISPATCHED
+r022_execution_status: NOT_STARTED
+r022_report_status: ABSENT
+c_preexecution_contract_verdict: ADOPT
+c_postpull_scientific_verdict: PENDING_REPORT
+joint_scientific_state: PENDING
+accepted_requires: B_AND_C_TRACEABLE_VERDICTS
 cc_recommendation: 'no'
 ---
 
-# OrientBench C：receipt3 异常审计闭环与 r020 交接
+# OrientBench C：r020/r021 结案与 r022 待执行状态
 
-## 当前结论
+## 当前裁决
 
-receipt3 的 Git 发布机械闭合，但其 validator 在真实 access log、manifest 和 report 生成前只验证 planned tokens，scientific inputs 也未完整进入 frozen manifest。正式裁决因此是：
+- r020 的正式执行已在 preflight 早停，状态为 `FAILURE_EARLY_STOP / NOT_ADJUDICATED`；不是科学失败。
+- r020 pragmatic recovery 的 `INCONCLUSIVE_MIXED` 只属于可信但非正式的描述性候选证据，不得倒签为 r020 closure。
+- r021 因跨平台 CRLF/committed-blob 治理哈希矛盾在科学输入打开前早停，状态为 `FAILURE_EARLY_STOP_GOVERNANCE_INTEGRITY / NOT_ADJUDICATED`；该控制面缺陷已在后续治理提交修复。
+- 当前唯一活动任务是 B 发起的 r022。`dis/coordination.json` 已将其标为 `DISPATCHED`，但截至本 memo 更新时没有 STARTED 或服务器报告，因此执行状态仍是 `NOT_STARTED`，科学状态必须保持 `PENDING`。
 
-receipt3_execution: ABNORMAL_EXECUTABLE_AUDIT_FAILURE
-completion_mode: PROTOCOL_DRIFT
-scientific_gate: NOT_ADJUDICATED
-track_m_formal: NOT_EMITTED
-reported_track_m: METRIC_REVERSAL_DESCRIPTIVE_UNVERIFIED
-reported_gate: FAIL_TO_MEASUREMENT_ONLY_DESCRIPTIVE_UNVERIFIED
-non_reusable: true
-scientific_failure: false
+## 对 B 的 r022 服务器合同审查
 
-receipt3 的 round、code、runtime 和 report path 永久消费。其数字、rows、bootstrap、manifest、代码与 gate 不得作为 r020 科学输入；同一 receipt 不得再运行。旧合同已逐内容归档，filter-aware blob 为 aeb79060e50aeaa615b365065fc087dc7b9e74cc。
+C 采用 open review，只审查执行合同，不预判科学结果。结论为 `ADOPT`：
 
-## r020 唯一 active 任务
+1. plan commit `717fef9376f015e8ce93cec7d535c7ea99bc5545` 的 blob `9d2c9fb7291cb7b81ef130cb7b6aaf2babeeece8` 与 HEAD 中 `dis/sug.md` blob 完全相同，规范 SHA-256 均为 `8aef642be5dd4719fc6268f003fac8cff625ddeac6bbfa23fe0badf91d87dcc4`。
+2. r022 保持冻结科学问题、26 个输入、405 个 hypotheses、两个 Holm family、seed `20260809`、10000 个同步 scene-cluster bootstrap replicates 与原四态 gate；没有换 gate、换 target、读取 learned EQS 或使用 r020 recovery 产物续命。
+3. r022 明确修复 r020/r021 的三项执行阻塞：显式 HTTPS fast-forward、48 CPU job-set 分母与 blob-level 治理校验；服务器仍须在自身 checkout fresh 通过两项 governance validator，否则按技术异常早停。
+4. 双 clean-room B-before-A、全量 replicate comparator、六个真实 mutation、应用 tracer 与 OS trace 双向闭包、runtime/tracked 双 seal、STARTED 单文件提交和 post-seal receipt 均被保留。
+5. recovery 的 `INCONCLUSIVE_MIXED` 只是预注册一致性期望，不是 gate；r022 若产生不同数字，服务器必须原样报告，B/C 再独立裁决。
 
-r020 状态为 READY_FOR_SERVER_EXECUTION / NOT_STARTED。唯一目标是在 r014/m069 冻结 Core A-F 上执行 CPU-only、双独立实现的 measurement-validity 终门，判定 OBB 长边等价、几何归一化、AR domain 与 scene cluster 是否会实质改变可靠性结论。
+未发现阻止服务器领取 r022 的 Critical/Important 合同缺口。这个 `ADOPT` 只表示“允许按冻结合同执行”，不等于接受任何未来科学结论。
 
-正式四态是 PASS_TO_EXTERNAL_CONFIRMATION、FAIL_GENERIC_OR_NULL、INCONCLUSIVE_MIXED、NOT_ADJUDICATED。PASS 只进入未来独立确认，不等于 JPRS/TGRS ready；FAIL 关闭顶刊实验循环并按 JSTARS scope 收口；INCONCLUSIVE 不换 gate 续命。learned EQS 固定 APPENDIX_FAILED_ONLY，S0、r011 与 receipt3 均不能进入 formal gate。
+## r022 post-pull 裁决规则
 
-本轮设计与执行合同：
+r022 报告返回后，C 必须从远端 fast-forward 拉取，并独立核验 STARTED/result Git 拓扑、授权路径、plan/active blob、26 输入身份、A/B 独立性、全部 10000 replicate parity、Holm/witness/gate、六 mutation、trace/manifest/report/postseal receipt 和 completion mapping。未完成该核验前，C verdict 固定为 `PENDING_REPORT`。
 
-- dis/jprs_measurement_validity_gate_design_20260811.md
-- dis/jprs_measurement_validity_dispatch_plan_20260811.md
-- dis/sug.md
-- 唯一未来报告 dis/server_reports/orientbench-c-r020-measurement-validity-20260811.md
-- 唯一 seal 外回执 outputs/persistent_artifacts/orientbench_measurement_validity_r020_20260811_postseal_receipt/postseal_receipt.json；它只驱动服务器阶段 normal/abnormal，跨电脑正式科学态必须等 C post-pull 独立复核后另行写入 dis
+只有 B 与 C 分别提交可追溯且一致的 verdict，项目科学态才能成为 `ACCEPTED` 或 `KILLED`；分歧进入 `CONTESTED`。服务器报告、候选 recovery 数字或任一单方意见都不能替代双方 verdict。
 
-## 权限与证据边界
+## Venue 边界
 
-已授权 existing Core measurement reanalysis、新 protocol 与该 CPU-only r020 执行。未授权 GPU、一般下载、安装、训练、forward、inference、新 target outcome、annotation root、主稿或 method experiment。唯一网络例外是合同内精确 fd-shifts commit 的一次 HTTPS fetch。
+当前仍是 JPRS/TGRS measurement-diagnostic 候选，不是 ready。r022 `PASS_TO_EXTERNAL_CONFIRMATION` 只授权另行设计真正独立外部确认；`INCONCLUSIVE_MIXED` 不换 gate续命；`FAIL_GENERIC_OR_NULL` 关闭顶刊实验循环并按既定降级路线收口。learned EQS 永久保持 `APPENDIX_FAILED_ONLY`。
 
-protected B blob 保持 c0c2571f3a5c828673b39e6458ceaed5f14c5a6a；C 只核验 Git blob/diff 元数据，不读取或触碰内容。CC 上轮保持 COMPLETED_CLOSED，cc_recommendation: no；本轮不重复调用 CC。
+## 服务器交付三元组
 
-## 唯一下一步
+- dispatch id: `orientbench-b-r022-measurement-validity-20260813`
+- plan path: `dis/plans/B/b-r022-measurement-validity-20260813/sug.md`
+- dispatch commit SHA: `43dee43d0bedff97fc358eaacfe61bb6a06038f4`
 
-服务器 HTTPS fast-forward 到发布 r020 合同的提交，只执行 dis/sug.md。服务器最终聊天只允许项目 wrapper 加一句 正常执行完毕 或 异常结束；完整科学 PASS/FAIL/INCONCLUSIVE 都属于正常，技术、provenance、审计或 Git 闭包失败属于异常。
-
-## 决策台账
-
-| 项目 | 当前状态 | 后续 |
-|---|---|---|
-| receipt1 | ABNORMAL_PREFLIGHT_FAILURE / NOT_ADJUDICATED / non_reusable | 历史 |
-| receipt2 | ABNORMAL_MANDATORY_REFERENCE_PROVENANCE_FAILURE / NOT_ADJUDICATED / non_reusable | 历史 |
-| receipt3 | ABNORMAL_EXECUTABLE_AUDIT_FAILURE / PROTOCOL_DRIFT / NOT_ADJUDICATED / non_reusable | 只作描述动机 |
-| learned EQS | APPENDIX_FAILED_ONLY | 永不复活为 gate |
-| r020 | READY_FOR_SERVER_EXECUTION / NOT_STARTED | 服务器执行 active dis/sug.md |
-| route | ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC | PASS 后另行外部确认 |
-| CC | COMPLETED_CLOSED / no | 保持关闭 |
+服务器只执行该三元组，不扫描其它计划。最终严格按冻结合同返回两行：第一行 `执行完毕` 或 `未执行完毕`，第二行唯一报告路径。
