@@ -53,26 +53,26 @@
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
   "active_dispatch": {
-    "dispatch_id": "orientbench-b-r024-dota-external-replication-20260813",
-    "plan_id": "b-r024-dota-external-replication-20260813",
+    "dispatch_id": "orientbench-b-r026-dota-external-confirmation-20260813",
+    "plan_id": "b-r026-dota-external-confirmation-20260813",
     "initiator": "B",
     "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r024-dota-external-replication-20260813/sug.md",
-    "plan_commit_sha": "0571c2e4f388b41d98dc5b086334721a1cd7234b",
-    "plan_blob_oid": "3e2ec57f7e47fd239f4ea2ff63c4a98adce813df",
-    "plan_sha256": "e5c20f159bcd74c8ce906f30c013041df563f54d784e09cccc757361aa786139",
+    "plan_path": "dis/plans/B/b-r026-dota-external-confirmation-20260813/sug.md",
+    "plan_commit_sha": "0ab65875a5958a009241e50c55f80f8f28b1108f",
+    "plan_blob_oid": "0b43d8cdb9e6c52ddb79b5ea1c0def850b2f0906",
+    "plan_sha256": "2ecc122337451cf10999354236338fc7abd647f85559746e2b8fe59f9f4e6b3a",
     "active_plan_path": "dis/sug.md",
-    "active_sha256": "e5c20f159bcd74c8ce906f30c013041df563f54d784e09cccc757361aa786139",
+    "active_sha256": "2ecc122337451cf10999354236338fc7abd647f85559746e2b8fe59f9f4e6b3a",
     "risk_class": "L2",
     "user_authorization": {
       "required": true,
       "status": "granted",
-      "reference": "用户 2026-08-13：『授权路线一，抓紧推进』——预注册 DOTA 外部复现，含必要时 GPU inference 与官方 checkpoint 获取（dis/B.md §11）"
+      "reference": "用户 2026-08-13 路线一授权与『抓紧向前推进』指示；r025 为用户最高授权诊断，本轮正式化（dis/B.md §11-§12）"
     },
-    "server_report_path": "dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/SERVER_EXECUTION_REPORT.md",
+    "server_report_path": "dis/server_reports/orientbench-b-r026-dota-external-confirmation-20260813/SERVER_EXECUTION_REPORT.md",
     "resource_scope": {
       "declared": true,
-      "compute": {"gpu_count_max": 1, "gpu_hours_max": 10, "cpu_core_hours_max": 112},
+      "compute": {"gpu_count_max": 1, "gpu_hours_max": 4, "cpu_core_hours_max": 112},
       "wall_time": {"seconds_max": 43200},
       "data": {
         "allowed_dataset_ids": ["DOTA-v1.0-val", "existing-frozen-orientbench-evidence-readonly"],
@@ -81,9 +81,9 @@
       },
       "write": {
         "allowed_paths": [
-          "outputs/persistent_artifacts/orientbench_dota_external_replication_r024_20260813/",
-          "top_journal_v3_reaudit_055/dota_external_replication_r024_20260813/",
-          "dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/",
+          "outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/",
+          "top_journal_v3_reaudit_055/dota_external_confirmation_r026_20260813/",
+          "dis/server_reports/orientbench-b-r026-dota-external-confirmation-20260813/",
           "claude_code_and_supervisor.md"
         ],
         "bytes_max": 32212254720
@@ -91,8 +91,7 @@
       "network": {
         "allowed": true,
         "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git",
-          "official-mmrotate-model-zoo-checkpoint-urls-recorded-per-download"
+          "https://github.com/ziyu24/orientbench.git"
         ]
       }
     },
@@ -102,19 +101,19 @@
       "outputs/persistent_artifacts"
     ],
     "status": "DISPATCHED",
-    "activated_at": "2026-08-13T05:10:00-07:00"
+    "activated_at": "2026-08-13T06:25:00-07:00"
   },
   "last_closed_dispatch": {
-    "dispatch_id": "orientbench-b-r023-measurement-validity-20260813",
-    "plan_path": "dis/plans/B/b-r023-measurement-validity-20260813/sug.md",
-    "dispatch_commit_sha": "2244d224d969cc8051e22a8ad175a49bac7aa8a7",
-    "execution_status": "complete",
-    "completion_mode": "FULL_PRACTICAL_RERUN_PENDING_BC_ADJUDICATION",
-    "scientific_state": "INCONCLUSIVE_MIXED_B_ADOPTED_PENDING_C",
-    "server_report_path": "dis/server_reports/orientbench-b-r023-measurement-validity-20260813/SERVER_EXECUTION_REPORT.md",
-    "closure_record": "dis/dispatch_history/orientbench-b-r023-measurement-validity-20260813.json",
+    "dispatch_id": "orientbench-b-r024-dota-external-replication-20260813",
+    "plan_path": "dis/plans/B/b-r024-dota-external-replication-20260813/sug.md",
+    "dispatch_commit_sha": "57e4f808f0344a2b6d9dc204196d4c9c3eb7c234",
+    "execution_status": "incomplete",
+    "completion_mode": "NOT_ADJUDICATED_PROBE_PROVENANCE",
+    "scientific_state": "NOT_ADJUDICATED",
+    "server_report_path": "dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/SERVER_EXECUTION_REPORT.md",
+    "closure_record": "dis/dispatch_history/orientbench-b-r024-dota-external-replication-20260813.json",
     "closed_by": "B",
-    "closed_at": "2026-08-13T04:20:00-07:00"
+    "closed_at": "2026-08-13T06:05:00-07:00"
   },
-  "updated_at": "2026-08-13T04:20:00-07:00"
+  "updated_at": "2026-08-13T06:25:00-07:00"
 }

@@ -1,33 +1,35 @@
 ---
 schema_version: 2
-plan_id: b-r024-dota-external-replication-20260813
-dispatch_id: orientbench-b-r024-dota-external-replication-20260813
+plan_id: b-r026-dota-external-confirmation-20260813
+dispatch_id: orientbench-b-r026-dota-external-confirmation-20260813
 initiator: B
-base_sha: f584c17071c2e4b1c7391b387f2d167a071b38c0
-supersedes: null
+base_sha: a3f058d6e9ecff6bd5bb0e65186549f16beb364d
+supersedes: b-r024-dota-external-replication-20260813
 risk_class: L2
 user_authorization:
   required: true
   status: granted
-  reference: "用户 2026-08-13：『授权路线一，抓紧推进』——预注册外部复现研究，含必要时的 GPU inference 与官方 checkpoint 获取（dis/B.md §11）"
+  reference: "用户 2026-08-13 路线一授权与『抓紧向前推进』指示；r025 为用户最高授权诊断，本轮将其正式化（dis/B.md §11-§12）"
 scientific_snapshot:
-  primary: f584c17071c2e4b1c7391b387f2d167a071b38c0
-  replication_target: "r023 正式结果：AR_DOMAIN / NORMALIZED_ALL_AR / linear_source_frozen / RAW_BETTER_MAIN__PROBE_BETTER_ABLATION（DIOR-only，INCONCLUSIVE_MIXED）"
-  frozen_delta_table: top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json
+  primary: a3f058d6e9ecff6bd5bb0e65186549f16beb364d
+  confirmation_target: "r025 诊断信号：DOTA 上 AR_DOMAIN / NORMALIZED_ALL_AR / linear_source_frozen(DIOR-source) / RAW_BETTER_MAIN__PROBE_BETTER_ABLATION"
   frozen_delta_table_blob: 757be607730b4fd9e1c5bbd28dfb94ae01201b14
-  r019_matcher_semantic_reference_blob: 47e7cf4c3612f5fc09535260547f7ba7be594410
+  normative_risk_endpoint_semantics_blob: 2b0458690c68f6a11587ff4c578d12cecb901698
+  normative_predicate_semantics_blob: e483c5a905545161faa8be2dddc02ca5ef4ae562
+  normative_feature_transform_blob: bbafd08ae778ac45f40f8073f1a3a0b32ab94605
+  r025_raw_layer_reference_blob: f6d4b9958da301042008ad475dbccaf03ba5aee8
 review_mode: open
-server_report_path: dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/SERVER_EXECUTION_REPORT.md
+server_report_path: dis/server_reports/orientbench-b-r026-dota-external-confirmation-20260813/SERVER_EXECUTION_REPORT.md
 read_set:
-  - 整个仓库可读；DOTA-v1.0 val 图像/标注、r019 既有预测产物、Core A-F 冻结 features/scores（outputs/persistent_artifacts/**）按下文分支规则使用
+  - 整个仓库可读；DOTA-v1.0 val 原料、r019 identity predictions 与 tile GT 转换、Core 冻结 features/scores 按正文规则使用
 write_set:
-  - outputs/persistent_artifacts/orientbench_dota_external_replication_r024_20260813/**
-  - top_journal_v3_reaudit_055/dota_external_replication_r024_20260813/**
-  - dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/**
+  - outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/**
+  - top_journal_v3_reaudit_055/dota_external_confirmation_r026_20260813/**
+  - dis/server_reports/orientbench-b-r026-dota-external-confirmation-20260813/**
   - claude_code_and_supervisor.md
 resource_scope:
   declared: true
-  compute: {gpu_count_max: 1, gpu_hours_max: 10, cpu_core_hours_max: 112}
+  compute: {gpu_count_max: 1, gpu_hours_max: 4, cpu_core_hours_max: 112}
   wall_time: {seconds_max: 43200}
   data:
     allowed_dataset_ids: ["DOTA-v1.0-val", "existing-frozen-orientbench-evidence-readonly"]
@@ -35,33 +37,32 @@ resource_scope:
     write_bytes_max: 32212254720
   write:
     allowed_paths:
-      - outputs/persistent_artifacts/orientbench_dota_external_replication_r024_20260813/
-      - top_journal_v3_reaudit_055/dota_external_replication_r024_20260813/
-      - dis/server_reports/orientbench-b-r024-dota-external-replication-20260813/
+      - outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813/
+      - top_journal_v3_reaudit_055/dota_external_confirmation_r026_20260813/
+      - dis/server_reports/orientbench-b-r026-dota-external-confirmation-20260813/
       - claude_code_and_supervisor.md
     bytes_max: 32212254720
   network:
     allowed: true
     allowed_endpoints:
       - https://github.com/ziyu24/orientbench.git
-      - 官方 mmrotate model zoo checkpoint URL（仅在本地 checkpoint 缺失且需要新 forward 时，逐条记录 URL 与 SHA-256）
 conflict_keys:
   - server-execution-slot
   - dis/sug.md
   - outputs/persistent_artifacts
 gates:
   - gate_id: G1
-    rule: 预注册外部复现四态（见正文）；REPLICATED / NOT_REPLICATED / INCONCLUSIVE_EXTERNAL 均属正常完整执行，服务器只报告。
+    rule: 预注册外部确认四态（正文）；CONFIRMED_EXTERNAL / CONFIRMED_EXTERNAL_STRONG / NOT_CONFIRMED / INCONCLUSIVE_EXTERNAL 均属正常完整执行。
   - gate_id: G2
     rule: 仅硬性 kill 清单失败才 NOT_ADJUDICATED；其它偏差记录后继续。
 early_stop_conditions:
   - 仅硬性 kill 清单；wall time 超 43200 秒。
 kill_conditions:
-  - 官方 AP parity 复核失败（任一 unit 与官方期望 AP50/AP75 绝对差 > 0.002）且无法通过重新 forward 修复。
-  - 线性探针恢复失败（正文 P 步骤两分支均不成立）——此时以 NOT_ADJUDICATED_PROBE_PROVENANCE 停止并如实报告，不得改用任何替代探针。
-  - A/B 两套实现 matched 集合身份或任一数值超容差不一致。
-  - 使用任何 r023/r020/recovery 的 DIOR/FAIR1M/SODA 结果数字作为 DOTA 计算输入；读取 DOTA 之外的新目标数据。
-  - 训练任何模型；写入越出 write_set；资源超帽；报告与实际不符。
+  - AP parity 复核失败（任一 unit 与官方期望绝对差 > 0.002）。
+  - GT 完整性检查失败（正文 GT 规则两分支均不成立）。
+  - A/B 两实现 matched 集合身份或数值超容差不一致且无法定位解释。
+  - 在 DOTA 上拟合或调整任何探针系数；使用预注册 β 之外的探针进入判据。
+  - 训练模型；写入越出 write_set；资源超帽；报告与实际不符。
 completion_mapping:
   full_completion: {execution_status: complete, receipt_first_line: 执行完毕}
   gated_early_stop: {execution_status: complete, receipt_first_line: 执行完毕}
@@ -70,61 +71,52 @@ completion_mapping:
   protocol_drift: {execution_status: incomplete, receipt_first_line: 未执行完毕}
 ---
 
-# r024 DOTA 外部复现（B 发起，预注册确认性研究）
+# r026 DOTA 外部确认（B 发起，r025 诊断的正式化）
 
 ## 一句话
 
-在 DOTA-v1.0 val（与 DIOR/FAIR1M/SODA 独立的外部 OBB 数据）上，用**完全相同的冻结机器**检验 r023 已正式确立的 DIOR AR-domain 签名是否跨数据集复现。复现 → 跨数据集测量有效性贡献（JPRS 主张）；不复现 → 效应定性为 DIOR 特有（JSTARS-scope caveat）。本计划在看到任何 DOTA 结果**之前**冻结全部假设、方向、族、判据与论文映射。
+把 r025 的用户授权诊断升级为正式证据：同 seed、同原料、同 DIOR-source 冻结探针，补齐 r025 缺失的**完整判据层**（ε/CI/centered-p/Holm/swap/witness），双独立实现 + comparator + validator + mutations。raw 层预期精确复现 r025；witness 标志以本轮正式判据为准。
 
 ## 冻结科学协议
 
-**总体**：DOTA-v1.0 val 全部 5297 tiles（排除 DOTA-2.0 增补），458 mother scenes 为 cluster universe（零 eligible 的 mother 保留）。tile→mother 由 tile 文件名源图映射，A/B 独立重建并核对（参考 r019 的 458/5297 与集合 SHA：mothers `5b97f439…`，tiles `c3191815…`；不一致须披露解释）。
+**探针（字面预注册，禁止任何拟合/调整/替换）**：
+```text
+linear_source_frozen = β·[1, logit_score, log_pred_ar, half_log_pred_area]
+β = [-0.23342829, 0.00830977, 0.02817757, 0.00753967]   # r014 DIOR A/B/C 精确恢复系数（r024 报告表）
+raw_confidence = detection_score
+```
+特征变换（logit/log/clip 边界）以 r019 密封特征实现为规范（blob `bbafd08a…`），A/B 各自独立实现并在报告披露实际边界；DIOR-source 选择理由预注册：复现目标源自 DIOR，检验的就是 DIOR→DOTA 迁移。**敏感性（纯描述、非 gate、不产生 witness）**：FAIR1M-source 与 SODA-A-source β 变体（r024 报告表）各出一张 dataset 级点估计+CI 表。
 
-**单位**：`DOTA/orcnn`（Oriented R-CNN）与 `DOTA/rtmdet`（RTMDet）两个 unit，检测器族与 Core B/C、F 同族。官方 parity 门：每 unit 预测集必须复核 AP50/AP75 与官方期望（orcnn 0.7061/0.4517，rtmdet 0.7161/0.4868）绝对差 ≤0.002。
+**总体/匹配/风险**：DOTA-v1.0 val 全 5297 tiles / 458 mothers（零 eligible 保留；集合与 r019 密封 SHA 核对：mothers `5b97f439…`、tiles `c3191815…`）。r019 identity predictions 复用，AP parity 门（orcnn 0.7061/0.4517，rtmdet 0.7161/0.4868，容差 0.002）；预测缺失或 parity 失败才允许 GPU 重推（≤4 GPU 时）。匹配：tile 级、逐类、score 降序贪心（平分按索引）、取未匹配同类 GT 中最高 rIoU 且 ≥0.5，ignore GT 排除（与 r025 实现一致，报告披露）。风险与全 AR 域语义以主研究 `independent_b.py`（blob `2b045869…`）为规范：long-side canonical 角、180° 周期、`r_geo=clip(e_can/max(δ0.75(AR),1°),0,3)/3`、冻结 delta 表（blob `757be607…`）finite-grid/`numpy.interp`/inverse-tail。
 
-**匹配**：tile 级、逐类、按 score 降序贪心把预测配到未匹配 GT，rIoU≥0.5 的 TP 对进入总体（语义与 r019 密封 matcher 一致，参考 blob `47e7cf4c…`；由 A/B 各自独立实现，matched 集合身份必须精确一致）。**不施加任何 GT AR 掩码**——全 AR 域进入基表。
+**GT 规则（两分支，报告披露走哪支）**：优先从 DOTA val 原始 annfiles 重建 tile GT；不可得则用 r019 持久化 `dota_gt_fresh.pkl`，但必须通过完整性门：5297 tiles、GT 总数 55804、逐类计数表进报告、bytes/SHA 记录、来源披露（r019 prelabel 阶段转换）。两分支均不成立 → kill。
 
-**风险**：与主研究逐字相同——预测与 GT 均 long-side canonicalize，角差按 180° 周期，`AR=max(gt_w,gt_h)/min(gt_w,gt_h)`，`r_geo=clip(e_can/max(delta_0.75(AR),1°),0,3)/3`，delta 表用 Git 冻结的 `m4_delta_theta_075_frozen.json`（blob `757be607…`），同一 finite-grid/`numpy.interp`/inverse-tail 实现。
+**假设族与判据（执行前冻结，与主研究逐字一致）**：unit 族 = {orcnn, rtmdet} × {AUGRC, Risk@70} 共 4 条；dataset 族 = DOTA equal-unit × 2 endpoints 共 2 条；分别 Holm。唯一 contrast = `linear_source_frozen − raw_confidence`；唯一 ablation = `NORMALIZED_ALL_AR`（主域 AR≥2.1）；唯一方向 = `RAW_BETTER_MAIN__PROBE_BETTER_ABLATION`。witness 谓词全量执行（规范 blob `e483c5a9…`）：`Delta_main_CI_low>ε_main` 且 `Delta_ablation_CI_high<−ε_ablation`；`ε_AUGRC=max(5e-4, 0.02·max(|M_probe|,|M_raw|))`、`ε_Risk=max(1e-3, …)` 按各 cohort 一次计算；centered-p `(1+count(|DoD_b−DoD̂|≥|DoD̂|))/10001`，Holm<0.05；DoD 95% percentile CI 排零；`|DoD|≥ε_main+ε_ablation`；**Risk@70 witness 必须检验 swap**：whole-tie accepted set 定义与主研究相同，`swap_main_.70≥0.05` 且 `swap_ablation_.70≥0.05`；AUGRC 无 swap 门。bootstrap：mother cluster、seed=20260813、replicates 0..9999、`RandomState(seed)` 逐 replicate `randint+bincount`，两 unit 共用 multiplicity。
 
-**探针 P（关键预注册）**：`raw_confidence = detection_score`；`linear_source_frozen` 必须是 r014 冻结线性函数本身，按以下唯一决策树取得，禁止任何重拟合或替代：
-- P1：在仓库与 outputs 的 r014 产物中找到显式系数/定义工件 → 在全部六个 Core unit 的冻结 scores 列上复算验证（max abs 残差 ≤1e-8）→ 采用。
-- P2：找不到工件 → 精确恢复：对每个 Core unit，用其 features/scores 全表把 `score_ar_size_linear` 列对候选设计矩阵（`{detection_score, logit_score} × {pred_ar, log_pred_ar} × {pred_area, log_pred_area, half_log_pred_area}` + 截距）做最小二乘精确求解；要求存在唯一候选在**全部六个 unit** 上 max abs 残差 ≤1e-8 **且六组系数一致（成对差 ≤1e-6）**→ 该全局冻结函数用于 DOTA（对 DOTA 预测的同名量应用同一变换与系数）。
-- P1/P2 均不成立（含六 unit 系数不一致）→ `NOT_ADJUDICATED_PROBE_PROVENANCE` 停止。恢复出的定义、系数、逐 unit 残差全部写入报告。
+**预注册四态与论文映射**：
+- `CONFIRMED_EXTERNAL`：AUGRC dataset witness + ≥1 AUGRC unit witness（完整判据）→ 跨数据集测量有效性主张正式成立（DIOR formal + DOTA formal、≥2 检测器族、2 数据集），**JPRS 主稿主张**。
+- `CONFIRMED_EXTERNAL_STRONG`：上者 + Risk@70 dataset witness（含 swap）→ 同上，主张更强。
+- `NOT_CONFIRMED`：完整执行、两 endpoint 均无 dataset witness → r025 信号定性为判据不达标，论文按 JSTARS-scope，DOTA 效应作描述性报告。
+- `INCONCLUSIVE_EXTERNAL`：其余完整执行情形（如仅 unit witness、或 dataset 仅一 endpoint 且非 AUGRC）→ 论文主张取 DIOR formal + DOTA 部分外部支持的中间档，投稿目标由 B/C+用户裁定。
+- `NOT_ADJUDICATED`：kill 触发。
+无论何态，全部效应量、CI、swap 值、两域点估计、敏感性表全量进报告。
 
-**假设族**（在任何 DOTA 标注被打开前冻结）：contrast 唯一 = `linear_source_frozen − raw_confidence`；ablation 唯一 = `NORMALIZED_ALL_AR`（主域 AR≥2.1 vs 全 AR）；endpoints = `AUGRC`、`Risk@70`（Risk@90 在 r023 无 dataset witness，预注册排除）。unit 族 = 2 units × 2 endpoints = 4 条，dataset 族 = 2 条（等权 unit 聚合），两族分别 Holm。方向唯一 = `RAW_BETTER_MAIN__PROBE_BETTER_ABLATION`。
+**预注册期望**：raw 层（matched 集合、point 指标、16 列 bootstrap 数组）应与 r025 runtime（`run_b5`）精确一致（同 seed/原料/管线，参考 blob `f6d4b995…`）；不一致必须逐项解释。witness 层无预期约束——r025 报告的 witness 表不构成本轮判据的先验。
 
-**推断**：mother-scene cluster bootstrap，`seed=20260813`，replicates 0..9999，`RandomState(seed)` 逐 replicate `randint+bincount` multiplicity，同数据集内共用；witness 谓词与主研究逐字相同（`Delta_main_CI_low>ε_main` 且 `Delta_ablation_CI_high<−ε_ablation`；centered-p `(1+count(|DoD_b−DoD̂|≥|DoD̂|))/10001` Holm<0.05；DoD 95% CI 排零；`|DoD|≥ε_main+ε_ablation`；Risk@70 两 cohort swap≥0.05；AUGRC 无 swap 门；ε 公式同主研究）。
-
-**预注册四态与论文映射**（执行前锁死，事后不得重划）：
-- `REPLICATED`：AUGRC dataset witness 成立且 ≥1 个 AUGRC unit witness。→ 跨数据集（DIOR+DOTA、两检测器族）测量有效性主张成立，投 **ISPRS JPRS**；Risk@70 dataset witness 同时成立记为 `REPLICATED_STRONG`。
-- `NOT_REPLICATED`：完整执行且两 endpoint 均无 dataset witness。→ 效应定性 DIOR 特有，论文按 **JSTARS-scope** 收口，DOTA 负结果如实并入；不再签发新复现轮，除非用户另行授权。
-- `INCONCLUSIVE_EXTERNAL`：其余完整执行情形（如仅 unit witness、或仅 Risk@70 dataset witness）。→ 按 JSTARS-scope 收口并如实报告部分信号；同样不自动续命。
-- `NOT_ADJUDICATED`：kill 清单触发。
-效应量、CI、两域点估计无论何态均全量报告（供论文使用，非判据）。
-
-## 数据与模型来源（分支规则，报告披露走了哪支）
-
-- 优先复用 r019 已存在的**原始预测/推理产物**（不是其分析数字）：条件是官方 AP parity 复核通过 + 产物 bytes/SHA 记录。r019 的分析结论已作废，本轮一律不读其风险/匹配/统计结果。
-- 原始预测缺失或 parity 不过 → 用本地（或官方 model zoo 下载并记录 SHA 的）checkpoint 对 DOTA val 重新 inference（GPU ≤10 小时帽内），再过 parity 门。
-- DOTA 标注（val GT）为公开集，直接读取；禁止读取任何其它新目标数据。
-
-## 执行结构（务实，r023 风格）
+## 执行结构（务实）
 
 1. STARTED 单文件 commit+push。
-2. 探针 P 步骤（只碰 Core 冻结 features/scores，尚不碰 DOTA 标注）；结果写 runtime。
-3. 数据分支：获得两 unit 预测 + parity 门。
-4. A/B 两套独立实现（不共享代码、不互读输出）：各自完成 tile→mother、匹配、canonical 角/AR/风险、eligibility、point 端点、4+2 假设、10k bootstrap、Holm、witness、四态。先 B 后 A 或并行皆可，照实记录。
-5. Comparator：matched 集合身份精确一致；数值 atol=1e-10；witness/状态精确一致。
-6. 独立 validator：重算 point 端点、Holm、centered-p、witness 谓词（r023 风格）。
-7. 语义 mutation（≥4 项，照 recovery 风格：GT theta 篡改、tile→mother 篡改、AR 门 2.1→1.0、报告 token 篡改；pristine 0 / mutated 非 0）。
-8. 报告（模板 schema 2）：P 步骤全记录、分支与 parity、四态、全部效应量/CI、偏差列表、资源；结果 commit+push；两行回执。
+2. A/B 两套独立实现（不共享代码、不互读输出）：原料层（GT、匹配、风险、点指标、bootstrap）+ **完整判据层**（ε/CI/p/Holm/swap/witness/四态）。
+3. Comparator：matched 身份精确一致、数值 atol=1e-10、witness/四态精确一致。
+4. 独立 validator：从 A 输出重算点端点、Holm、centered-p、全部 witness 谓词（含 swap）。
+5. 与 r025 raw 层比对：一致性表进报告。
+6. 语义 mutation ≥4：GT theta 篡改、tile→mother 篡改、AR 门 2.1→1.0、swap 门 0.05→0、报告 token 篡改（任选≥4，pristine 0/mutated 非 0）。
+7. 报告（模板 schema 2，含四态、全部数表、敏感性表、偏差清单、资源），结果 commit+push，两行回执。
 
-## 务实规则
-
-同 r023：任何可审计 ff-only HTTPS 同步皆可；CPU/GPU 配置照实记录；不要求 strace/tracer/duty-cycle/postseal receipt；操作者知晓 r023/recovery 历史结果非污染（本计划正文即含复现目标）；遇到未预料情况默认"继续 + 报告披露"，只有 kill 清单才停。**唯一额外纪律：任何 DOTA GT 的打开必须发生在第 2 步探针冻结完成之后，打开时间与文件清单写入报告。**
+务实规则同 r023/r024：可审计 ff-only 同步即可；配置照实记录；不要求 strace/tracer/postseal；操作者知晓 r025 结果非污染；未预料情况默认继续+披露，仅 kill 清单停。
 
 ## 激活与回执
 
 - READY 首次提交后字节冻结；根 `dis/sug.md` 逐字节镜像并由 coordination 绑定。
 - 服务器只接受用户交付的 `dispatch_id + plan_path + dispatch_commit_sha`。
-- 报告后 B/C 各自 post-pull verdict；ACCEPTED/KILLED 需双方一致。
+- 报告后 B/C 各自 post-pull verdict；ACCEPTED/KILLED 需双方一致。C 对 r023 的 verdict 与对本轮的 critique 一并欢迎。
