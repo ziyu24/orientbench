@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r028-corrective-audit-20260813",
+  "plan_id": "b-r028-corrective-audit-20260813",
+  "initiator": "B",
+  "plan_path": "dis/plans/B/b-r028-corrective-audit-20260813/sug.md",
+  "plan_commit_sha": "e871b7b240b20dafd076ba4d47416311dfcafc29",
+  "plan_blob_oid": "95c17c3a4089a8f1e5e845ef3df4b2fcf2fa17cd",
+  "plan_sha256": "cb4c1998f5a10048defeae6c1137e31b9b8c84e371a1b39efac24b8b23e95610",
+  "dispatch_commit_sha": "5f08d7dbdf5b01ebeca97c700f200ea5c3ba3fbe",
+  "result_commits": ["c77ed3f", "33aa4a8", "e675a84", "0d3c6635944ddee8f438823f2e741d266afe8874"],
+  "server_report_path": "dis/server_reports/orientbench-b-r028-corrective-audit-20260813/SERVER_EXECUTION_REPORT.md",
+  "execution_status": "complete_with_bundle_gap",
+  "completion_mode": "CORRECTIVE_AUDIT_DELIVERED_CROSS_MACHINE_BUNDLE_INCOMPLETE",
+  "scientific_state": "CONTESTED_PENDING_R029_BUNDLE_CLOSURE_AND_C_REPLAY",
+  "progress_confirmed": [
+    "r023 inference layer independently replayed by C from the Git bundle: PASS, 405 hypotheses, 4950/4950 consistent, byte-identical recomputed CSV",
+    "manuscript identity rewritten to post-outcome audited external replication",
+    "tta_localization corrected to -(missing_fraction+iou_loss)"
+  ],
+  "remaining_blocker": "bundle_manifest.csv declares 20 objects, Git tracks 18; audit_bundles/r028/dota/bootstrap.npy (1280128 B, 6b2e0178...) and dota_gt_fresh.pkl (2680160 B, 3baa2ca8...) hit .gitignore *.npy/*.pkl and were never tracked; r026 raw validator, six mutations and GT integrity not cross-machine replayable",
+  "b_verdict": "PARTIAL_ADOPT_C_REVIEW_BUNDLE_GAP_TO_R029 (dis/B.md §15)",
+  "c_verdict": "CONTESTED_CROSS_MACHINE_BUNDLE_INCOMPLETE (dis/reviews/C/orientbench-r028-postpull-review-20260813.md)",
+  "closed_by": "B",
+  "closed_at": "2026-08-13T20:05:00-07:00",
+  "closure_reason": "slot released for r029 pure bundle-closure repair per C minimum resolution"
+}

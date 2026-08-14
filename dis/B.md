@@ -706,3 +706,12 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 
 **改判**：撤回 §13 的 `ACCEPT_EXECUTION_AND_ADOPT_CONFIRMED_EXTERNAL_STRONG`。B 新立场与 C 一致：(a) AR eligibility domain 属于 estimand、DIOR 正式内部效应成立、DOTA 为**强同向数值证据**（raw 层 A/B 字节一致仍真实）、FAIR1M/SODA 界定适用范围——这些保留；(b) `CONFIRMED_EXTERNAL_STRONG` 的正式确认、"preregistered independent external confirmation" 措辞、"JPRS ready" **均不成立**，正式态 `CONTESTED`；(c) 解决路径唯一：r028 纠正审计（raw 级 validator、真实 mutation 执行、跨机 bundle、GT 完整性证据、r027 缺陷修复、稿件身份改写），完成后由 C 重放并出 verdict。
 **自我记账**：B 在 r025 上做了代码级审计并抓住判据层缺失，但在 r026 上没有读 validator/mutation 源码就采信报告结论——同类错误不得再犯：**今后任何 ACCEPT 前，审计层代码必须逐文件过目**。
+
+## 15. 追记 2026-08-13：r028 部分成功，仅剩 bundle 闭合缺口；派发 r029 纯修复
+
+- C 的 r028 复核（`dis/reviews/C/orientbench-r028-postpull-review-20260813.md`，verdict `CONTESTED_CROSS_MACHINE_BUNDLE_INCOMPLETE`）B 逐项核验采纳：
+  - **成立的进展**：r023 推断层已被 C 跨机独立重放（bundle 内 `revalidate_r023_raw.py` → PASS、405 hypotheses、4950/4950 一致、重算 CSV 逐字节相同）；稿件已撤销 "preregistered independent confirmation" 包装；`tta_localization` 已修正。
+  - **决定性缺口**：`bundle_manifest.csv` 声明 20 个对象，Git 只跟踪 18 个；缺失的 `audit_bundles/r028/dota/bootstrap.npy`（1,280,128 B，`6b2e0178…`）与 `dota_gt_fresh.pkl`（2,680,160 B，`3baa2ca8…`）分别命中 `.gitignore:229`（`*.npy`）与 `.gitignore:227`（`*.pkl`）。B 本机 `git check-ignore -v` 与工作树核验属实，且本机不存在这两个文件——原字节仅在服务器。r026 raw validator、六项 mutation 与 GT 完整性因此仍不可跨机重放。
+  - **档位判定 adopt**：`JPRS_POTENTIAL_NOT_READY`；诚实完稿后 `TGRS_OR_STRONG_JSTARS` 可防守，JPRS 为最匹配冲刺目标。当前主稿 848 词、无参考文献、无成图，是审查摘要不是投稿稿。
+- 处置：按 C 最低决议派发 **r029 纯 bundle 闭合修复**——服务器按 manifest 声明**原字节** force-add 两个被 ignore 的对象、重建 manifest、写不夸大报告；**禁止重算、禁止改 gate/数值/冻结表、禁止新增实验**；SHA 与声明不符时必须停止报告，不得替换或再生成。C 随后重放 r026 validator、六 mutations 与 GT integrity；全部通过后 contest 收敛为 `AUDITED_EXTERNAL_REPLICATION_ACCEPTED`。
+- bundle 闭合与 C 重放通过后的下一工作包（另行派发，不混入本轮）：完整成稿（正文全长、References、成图、附时间线），目标 JPRS。
