@@ -715,3 +715,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
   - **档位判定 adopt**：`JPRS_POTENTIAL_NOT_READY`；诚实完稿后 `TGRS_OR_STRONG_JSTARS` 可防守，JPRS 为最匹配冲刺目标。当前主稿 848 词、无参考文献、无成图，是审查摘要不是投稿稿。
 - 处置：按 C 最低决议派发 **r029 纯 bundle 闭合修复**——服务器按 manifest 声明**原字节** force-add 两个被 ignore 的对象、重建 manifest、写不夸大报告；**禁止重算、禁止改 gate/数值/冻结表、禁止新增实验**；SHA 与声明不符时必须停止报告，不得替换或再生成。C 随后重放 r026 validator、六 mutations 与 GT integrity；全部通过后 contest 收敛为 `AUDITED_EXTERNAL_REPLICATION_ACCEPTED`。
 - bundle 闭合与 C 重放通过后的下一工作包（另行派发，不混入本轮）：完整成稿（正文全长、References、成图、附时间线），目标 JPRS。
+
+## 16. B matching verdict 2026-08-13：r029 验收，contest 关闭，联合科学态成立
+
+- **B verdict：`AUDITED_EXTERNAL_REPLICATION_ACCEPTED`（与 C 匹配）**。B 独立核对：r029 结果 commit 只含两个二进制 + supervisor log + 报告；`bundle_manifest.csv` 20/20 对象 canonical blob 一致；C 的重放证据（r026 raw validator 96/96、gate 重算逐字节一致、六项 mutation 真实 subprocess 退出码、GT 55,804/逐类计数/matched 子集覆盖）全部采纳。r026/r027 contest 就此关闭（RESOLVED，`resolution_evidence_head fe9d0ea5`）。
+- **联合科学态（B/C 一致）**：AR eligibility domain 对 OBB orientation-reliability 排序具有可复核的 measurement-validity 影响——DIOR 正式内部效应（r023，`INCONCLUSIVE_MIXED` 按其跨数据集门）+ DOTA `POST_OUTCOME_AUDITED_EXTERNAL_REPLICATION`（数值 gate 输出 `CONFIRMED_EXTERNAL_STRONG`，证据身份受先揭示事实限制，稿件不得把该 token 用作身份）+ FAIR1M/SODA-A 不复现边界 + learned EQS 失败附录。
+- r029 报告 schema 偏差（STARTED/completion 枚举字段不合冻结模板）：**adopt C 的处理**——记录在案、不再开轮修补文字。
+- 档位：`JPRS_SUBMISSION_CANDIDATE_NOT_READY`，唯一缺口是成稿。下一派发 r030 = 完整 md 主稿 + 补充材料 + 成图资产 + 逐数字 claim-to-evidence 校验；用户明确要求：图片不嵌入文档，其余该有尽有，且不得出现任何不实内容（投稿状态声明、伪造作者/基金/致谢、不可核实的引文字段）。

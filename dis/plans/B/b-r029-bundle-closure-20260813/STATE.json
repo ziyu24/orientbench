@@ -3,11 +3,11 @@
   "plan_id": "b-r029-bundle-closure-20260813",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r029-bundle-closure-20260813/sug.md",
-  "state": "DISPATCHED",
+  "state": "COMPLETED",
   "plan_commit_sha": "97f7e9b12cdb2756ed79fb775d834914c24052a4",
   "plan_blob_oid": "fa4dfc37d10c7cabb7c7e077101dadea694e0748",
   "plan_sha256": "f3192c1bbc883f3c91f48163b91642a96bee62c1f20d2e4ede74679657c86631",
-  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "state_reason": "joint_bc_audited_external_replication_accepted_contest_resolved",
   "ready_at": "2026-08-13T20:15:00-07:00",
-  "updated_at": "2026-08-13T20:20:00-07:00"
+  "updated_at": "2026-08-13T21:05:00-07:00"
 }

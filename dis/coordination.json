@@ -52,70 +52,19 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-b-r029-bundle-closure-20260813",
-    "plan_id": "b-r029-bundle-closure-20260813",
-    "initiator": "B",
-    "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r029-bundle-closure-20260813/sug.md",
-    "plan_commit_sha": "97f7e9b12cdb2756ed79fb775d834914c24052a4",
-    "plan_blob_oid": "fa4dfc37d10c7cabb7c7e077101dadea694e0748",
-    "plan_sha256": "f3192c1bbc883f3c91f48163b91642a96bee62c1f20d2e4ede74679657c86631",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "f3192c1bbc883f3c91f48163b91642a96bee62c1f20d2e4ede74679657c86631",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-13 转达并批准 C 建议：纯 bundle 修复，原字节补交两文件并重建 manifest/report，禁止改 gate/数值/新增实验"
-    },
-    "server_report_path": "dis/server_reports/orientbench-b-r029-bundle-closure-20260813/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 2},
-      "wall_time": {"seconds_max": 7200},
-      "data": {
-        "allowed_dataset_ids": ["repository-tracked-evidence"],
-        "read_bytes_max": 10737418240,
-        "write_bytes_max": 1073741824
-      },
-      "write": {
-        "allowed_paths": [
-          "audit_bundles/r028/",
-          "dis/server_reports/orientbench-b-r029-bundle-closure-20260813/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 1073741824
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "audit_bundles/r028"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-13T20:20:00-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "dispatch_id": "orientbench-b-r028-corrective-audit-20260813",
-    "plan_path": "dis/plans/B/b-r028-corrective-audit-20260813/sug.md",
-    "dispatch_commit_sha": "5f08d7dbdf5b01ebeca97c700f200ea5c3ba3fbe",
-    "execution_status": "complete_with_bundle_gap",
-    "completion_mode": "CORRECTIVE_AUDIT_DELIVERED_CROSS_MACHINE_BUNDLE_INCOMPLETE",
-    "scientific_state": "CONTESTED_PENDING_R029_BUNDLE_CLOSURE_AND_C_REPLAY",
-    "server_report_path": "dis/server_reports/orientbench-b-r028-corrective-audit-20260813/SERVER_EXECUTION_REPORT.md",
-    "closure_record": "dis/dispatch_history/orientbench-b-r028-corrective-audit-20260813.json",
+    "dispatch_id": "orientbench-b-r029-bundle-closure-20260813",
+    "plan_path": "dis/plans/B/b-r029-bundle-closure-20260813/sug.md",
+    "dispatch_commit_sha": "c909f0833ff311a1c906cf16b0600bbadefa7c7b",
+    "execution_status": "complete",
+    "completion_mode": "BUNDLE_CLOSURE_DELIVERED_WITH_REPORT_SCHEMA_DEVIATION",
+    "scientific_state": "AUDITED_EXTERNAL_REPLICATION_ACCEPTED_JOINT_BC",
+    "server_report_path": "dis/server_reports/orientbench-b-r029-bundle-closure-20260813/SERVER_EXECUTION_REPORT.md",
+    "closure_record": "dis/dispatch_history/orientbench-b-r029-bundle-closure-20260813.json",
     "closed_by": "B",
-    "closed_at": "2026-08-13T20:05:00-07:00"
+    "closed_at": "2026-08-13T21:05:00-07:00"
   },
-  "open_contests": [
-    "dis/contests/C/orientbench-r026-r027-formal-confirmation-contest-20260813.json"
-  ],
-  "updated_at": "2026-08-13T20:05:00-07:00"
+  "open_contests": [],
+  "updated_at": "2026-08-13T21:05:00-07:00"
 }
