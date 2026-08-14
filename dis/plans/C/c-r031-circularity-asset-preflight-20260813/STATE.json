@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "plan_id": "c-r031-circularity-asset-preflight-20260813",
+  "actor": "C",
+  "plan_path": "dis/plans/C/c-r031-circularity-asset-preflight-20260813/sug.md",
+  "state": "READY",
+  "plan_commit_sha": "2b9aff3c948013a923d08f7b3e02450631c864a7",
+  "plan_blob_oid": "232ac1eb13bd8ea51a9089c54a9ea1f827d682a2",
+  "plan_sha256": "5b95da060237d5dc37d77996483c2c7d8e4e0a1b2666e3d6543ecce0bb60d6d4",
+  "state_reason": "ready_for_owner_activation_after_committed_blob_verification",
+  "ready_at": "2026-08-13T22:38:23-07:00",
+  "updated_at": "2026-08-13T22:38:23-07:00"
+}
