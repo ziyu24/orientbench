@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "count": 24,
+  "references": [
+    {
+      "index": 1,
+      "entry": "Xia, G.-S., Bai, X., Ding, J., et al. DOTA: A Large-Scale Dataset for Object Detection in Aerial Images. CVPR, 2018.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 2,
+      "entry": "Sun, X., Wang, P., Wang, C., et al. FAIR1M: A Benchmark Dataset for Fine-Grained Object Recognition in High-Resolution Remote Sensing Imagery. ISPRS Journal of Photogrammetry and Remote Sensing, 184, 116--130, 2022.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 3,
+      "entry": "Li, K., Wan, G., Cheng, G., Meng, L., and Han, J. Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark. ISPRS Journal of Photogrammetry and Remote Sensing, 159, 296--307, 2020.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 4,
+      "entry": "Cheng, G., Yuan, X., Yao, X., et al. Towards Large-Scale Small Object Detection: Survey and Benchmarks. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2023.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 5,
+      "entry": "Xie, X., Cheng, G., Wang, J., Yao, X., and Han, J. Oriented R-CNN for Object Detection. ICCV, 2021.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 6,
+      "entry": "Lyu, C., Zhang, W., Huang, H., et al. RTMDet: An Empirical Study of Designing Real-Time Object Detectors. arXiv:2212.07784, 2022.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 7,
+      "entry": "Yang, X. and Yan, J. Arbitrary-Oriented Object Detection with Circular Smooth Label. ECCV, 2020.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 8,
+      "entry": "Yang, X., Hou, L., Zhou, Y., et al. Dense Label Encoding for Boundary Discontinuity Free Rotation Detection. CVPR, 2021.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 9,
+      "entry": "Yu, Y. and Da, F. Phase-Shifting Coder: Predicting Accurate Orientation in Oriented Object Detection. CVPR, 2023.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 10,
+      "entry": "Yang, X., Yan, J., Ming, Q., et al. Rethinking Rotated Object Detection with Gaussian Wasserstein Distance Loss. ICML, 2021.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 11,
+      "entry": "Yang, X., Zhou, Y., Zhang, G., et al. Learning High-Precision Bounding Box for Rotated Object Detection via Kullback--Leibler Divergence. NeurIPS, 2021.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 12,
+      "entry": "Zeng, Y., Chen, Y., Yang, X., Li, Q., and Yan, J. ARS-DETR: Aspect Ratio-Sensitive Detection Transformer for Aerial Oriented Object Detection. IEEE Transactions on Geoscience and Remote Sensing, 2024.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 13,
+      "entry": "El-Yaniv, R. and Wiener, Y. On the Foundations of Noise-Free Selective Classification. Journal of Machine Learning Research, 11, 1605--1641, 2010.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 14,
+      "entry": "Geifman, Y. and El-Yaniv, R. Selective Classification for Deep Neural Networks. NeurIPS, 2017.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 15,
+      "entry": "Geifman, Y., Uziel, G., and El-Yaniv, R. SelectiveNet: A Deep Neural Network with an Integrated Reject Option. ICML, 2019.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 16,
+      "entry": "Traub, J., Bungert, T. J., Lüth, C. T., et al. Overcoming Common Flaws in the Evaluation of Selective Classification Systems. NeurIPS, 2024.",
+      "project_evidence": "top_journal_v3_reaudit_055/measurement_validity_r023_20260813/fd_shifts/docs/publications/neurips_2024.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 17,
+      "entry": "Guo, C., Pleiss, G., Sun, Y., and Weinberger, K. Q. On Calibration of Modern Neural Networks. ICML, 2017.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 18,
+      "entry": "Küppers, F., Kronenberger, J., Shantia, A., and Haselhoff, A. Multivariate Confidence Calibration for Object Detection. CVPR Workshops, 2020.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 19,
+      "entry": "Pathiraja, B., Gunawardhana, M., and Khan, M. H. Multiclass Confidence and Localization Calibration for Object Detection. CVPR, 2023.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 20,
+      "entry": "Oksuz, K., Joy, T., and Dokania, P. K. Towards Building Self-Aware Object Detectors via Reliable Uncertainty Quantification and Calibration. CVPR, 2023.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 21,
+      "entry": "Vovk, V., Gammerman, A., and Shafer, G. Algorithmic Learning in a Random World. Springer, 2005.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 22,
+      "entry": "Angelopoulos, A. N., Bates, S., Fisch, A., Lei, L., and Schuster, T. Conformal Risk Control. ICLR, 2024.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 23,
+      "entry": "Angelopoulos, A. N., Bates, S., Jordan, M. I., and Malik, J. Learn Then Test: Calibrating Predictive Algorithms to Achieve Risk Control. arXiv:2110.01052, 2021.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    },
+    {
+      "index": 24,
+      "entry": "Andéol, L., Fel, T., de Grancey, F., and Mossina, L. Conformal Object Detection. arXiv:2308.16005, 2023.",
+      "project_evidence": "top_journal_v3_reaudit_055/paper_A_orientation_protocol/docs/orientation_reliability_submission_r015.md",
+      "confidence": "high: existing project citation; no unverified DOI added"
+    }
+  ]
+}

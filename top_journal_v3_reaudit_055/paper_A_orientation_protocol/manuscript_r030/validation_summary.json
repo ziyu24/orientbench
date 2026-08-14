@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "checks_passed": 15,
+  "checks_total": 15,
+  "checks": [
+    {
+      "check": "main_required_sections",
+      "pass": true,
+      "detail": [
+        "## Abstract",
+        "## 1. Introduction",
+        "## 2. Related work",
+        "## 3. Evidence base",
+        "## 4. Measurement protocol",
+        "## 5. Results",
+        "## 6. Audit and reproducibility",
+        "## 7. Discussion",
+        "## 8. Limitations",
+        "## 9. Conclusion",
+        "## Data and code availability",
+        "## References",
+        "## Figure captions"
+      ]
+    },
+    {
+      "check": "author_placeholder",
+      "pass": true,
+      "detail": "explicit owner-fill placeholder"
+    },
+    {
+      "check": "abstract_200_300_words",
+      "pass": true,
+      "detail": 223
+    },
+    {
+      "check": "reference_count",
+      "pass": true,
+      "detail": 24
+    },
+    {
+      "check": "forbidden_content_absent",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "r023_all_formal_rows_in_main",
+      "pass": true,
+      "detail": {
+        "rows": 7,
+        "missing": []
+      }
+    },
+    {
+      "check": "r026_all_formal_rows_in_main",
+      "pass": true,
+      "detail": {
+        "rows": 6,
+        "missing": []
+      }
+    },
+    {
+      "check": "numeric_claim_check",
+      "pass": true,
+      "detail": {
+        "tokens": 1709,
+        "consistent": 1709
+      }
+    },
+    {
+      "check": "reference_evidence_list",
+      "pass": true,
+      "detail": 24
+    },
+    {
+      "check": "figure_manifest_hashes",
+      "pass": true,
+      "detail": {
+        "files": 8,
+        "bad": []
+      }
+    },
+    {
+      "check": "figure_ar_threshold_scan_dual_format_and_script",
+      "pass": true,
+      "detail": "ar_threshold_scan"
+    },
+    {
+      "check": "figure_witness_effect_ci_dual_format_and_script",
+      "pass": true,
+      "detail": "witness_effect_ci"
+    },
+    {
+      "check": "figure_geometric_tolerance_dual_format_and_script",
+      "pass": true,
+      "detail": "geometric_tolerance"
+    },
+    {
+      "check": "figure_bootstrap_distribution_dual_format_and_script",
+      "pass": true,
+      "detail": "bootstrap_distribution"
+    },
+    {
+      "check": "supplement_full_table_inventory",
+      "pass": true,
+      "detail": "non-superseded and corrected descriptive tables"
+    }
+  ]
+}

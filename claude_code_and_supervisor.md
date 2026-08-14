@@ -2582,3 +2582,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`audit_bundles/r028/dota/bootstrap.npy`、`audit_bundles/r028/dota/dota_gt_fresh.pkl`、r029 server report。
 - 是否触发停止条件：否；两对象 bytes/SHA-256 均与 kill 清单精确一致，20/20 manifest entries 一致。
 - 下一步建议：C 按派发执行最终重放与裁决。
+
+## 2026-08-13 21:22 PDT — r030 complete JPRS Markdown manuscript package（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r030-jprs-manuscript-20260813` dispatch/path/commit，并要求搞完后给出具体路径。
+- 执行动作：只读冻结 r023/r026 bundle 与 r027/r028 修正表，完成英文主稿、补充材料、四组 SVG/PNG 图及逐图脚本、逐数字 claim-check、引用证据清单和包级 validator。
+- 关键产物：`top_journal_v3_reaudit_055/paper_A_orientation_protocol/manuscript_r030/`；`outputs/persistent_artifacts/orientbench_jprs_manuscript_r030_20260813/`；r030 server report。
+- 核验：abstract=223 words；References=24；numeric claim-check=1,709/1,709 PASS；package validation=15/15 PASS；禁止清单零命中；四图均完成目视核验。
+- 是否触发停止条件：否。未做新科学计算、训练、推理、匹配、重采样、阈值/split/gate 修改；未使用被 r028 supersede 的旧 TTA 描述结果。
+- 下一步建议：B/C 审稿与项目所有者填写作者信息、决定定稿；服务器 r030 执行已闭合。
