@@ -52,7 +52,56 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r029-bundle-closure-20260813",
+    "plan_id": "b-r029-bundle-closure-20260813",
+    "initiator": "B",
+    "activated_by": "B",
+    "plan_path": "dis/plans/B/b-r029-bundle-closure-20260813/sug.md",
+    "plan_commit_sha": "97f7e9b12cdb2756ed79fb775d834914c24052a4",
+    "plan_blob_oid": "fa4dfc37d10c7cabb7c7e077101dadea694e0748",
+    "plan_sha256": "f3192c1bbc883f3c91f48163b91642a96bee62c1f20d2e4ede74679657c86631",
+    "active_plan_path": "dis/sug.md",
+    "active_sha256": "f3192c1bbc883f3c91f48163b91642a96bee62c1f20d2e4ede74679657c86631",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-13 转达并批准 C 建议：纯 bundle 修复，原字节补交两文件并重建 manifest/report，禁止改 gate/数值/新增实验"
+    },
+    "server_report_path": "dis/server_reports/orientbench-b-r029-bundle-closure-20260813/SERVER_EXECUTION_REPORT.md",
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 2},
+      "wall_time": {"seconds_max": 7200},
+      "data": {
+        "allowed_dataset_ids": ["repository-tracked-evidence"],
+        "read_bytes_max": 10737418240,
+        "write_bytes_max": 1073741824
+      },
+      "write": {
+        "allowed_paths": [
+          "audit_bundles/r028/",
+          "dis/server_reports/orientbench-b-r029-bundle-closure-20260813/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 1073741824
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": [
+          "https://github.com/ziyu24/orientbench.git"
+        ]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md",
+      "audit_bundles/r028"
+    ],
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-13T20:20:00-07:00"
+  },
   "last_closed_dispatch": {
     "dispatch_id": "orientbench-b-r028-corrective-audit-20260813",
     "plan_path": "dis/plans/B/b-r028-corrective-audit-20260813/sug.md",
