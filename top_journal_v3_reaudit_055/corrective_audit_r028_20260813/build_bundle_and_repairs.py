@@ -13,7 +13,10 @@ def digest(p):
  with p.open('rb') as f:
   for x in iter(lambda:f.read(1<<20),b''):h.update(x)
  return h.hexdigest()
-def cp(src,dst): dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dst)
+def cp(src,dst):
+ dst.parent.mkdir(parents=True,exist_ok=True)
+ if dst.exists(): dst.chmod(dst.stat().st_mode|0o200)
+ shutil.copy2(src,dst)
 def aug(s,r):
  o=np.argsort(-s,kind='stable');s,r=s[o],r[o];st=np.r_[0,np.flatnonzero(s[1:]!=s[:-1])+1];n=len(s);c=np.diff(np.r_[st,n]);rr=np.add.reduceat(r,st);cr=np.cumsum(rr);return float(np.sum((np.r_[0.,cr[:-1]/n]+cr/n)*c/n/2))
 def risk(s,r,q):
@@ -22,7 +25,7 @@ def main():
  O.mkdir(parents=True,exist_ok=True);B.mkdir(parents=True,exist_ok=True)
  r26=R/'outputs/persistent_artifacts/orientbench_dota_external_confirmation_r026_20260813';raw=r26/'implementation_a_raw';r23=R/'outputs/persistent_artifacts/orientbench_measurement_validity_r023_20260813/full_a_r10000'
  # Exact replay inputs and frozen comparison records.
- for src,name in [(raw/'matched_orcnn.parquet','dota/matched_orcnn.parquet'),(raw/'matched_rtmdet.parquet','dota/matched_rtmdet.parquet'),(raw/'bootstrap.npy','dota/bootstrap.npy'),(r26/'implementation_a_independent/hypotheses.csv','dota/r026_hypotheses.csv'),(r26/'implementation_a_independent/gate.json','dota/r026_gate.json'),(r23/'hypotheses.csv','dior/r023_hypotheses.csv'),(r23/'witnesses.csv','dior/r023_witnesses.csv'),(r23/'gate.json','dior/r023_gate.json'),(r23/'hypothesis_replicates.parquet','dior/hypothesis_replicates.parquet'),(r23/'multiplicity_sha256.csv','dior/multiplicity_sha256.csv')]:cp(src,B/name)
+ for src,name in [(raw/'matched_orcnn.parquet','dota/matched_orcnn.parquet'),(raw/'matched_rtmdet.parquet','dota/matched_rtmdet.parquet'),(raw/'bootstrap.npy','dota/bootstrap.npy'),(r26/'implementation_a_independent/hypotheses.csv','dota/r026_hypotheses.csv'),(r26/'implementation_a_independent/gate.json','dota/r026_gate.json'),(r23/'rows.parquet','dior/rows.parquet'),(r23/'hypotheses.csv','dior/r023_hypotheses.csv'),(r23/'witnesses.csv','dior/r023_witnesses.csv'),(r23/'gate.json','dior/r023_gate.json'),(r23/'hypothesis_replicates.parquet','dior/hypothesis_replicates.parquet'),(r23/'multiplicity_sha256.csv','dior/multiplicity_sha256.csv')]:cp(src,B/name)
  for src,name in [(R/'top_journal_v3_reaudit_055/corrective_audit_r028_20260813/revalidate_r026_raw.py','code/revalidate_r026_raw.py'),(R/'top_journal_v3_reaudit_055/corrective_audit_r028_20260813/revalidate_r023_raw.py','code/revalidate_r023_raw.py'),(R/'outputs/persistent_artifacts/orientbench_r019/prelabel/tile_to_mother.csv','dota/tile_to_mother.csv'),(R/'top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json','dota/m4_delta_theta_075_frozen.json')]:cp(src,B/name)
  for src,name in [(R/'top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r026_raw_revalidation/revalidation.json','revalidation/r026_revalidation.json'),(R/'top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r023_revalidation/revalidation.json','revalidation/r023_revalidation.json'),(R/'top_journal_v3_reaudit_055/corrective_audit_r028_20260813/mutations_compact/mutation_index.json','revalidation/mutation_index.json')]:cp(src,B/name)
  # GT completeness uses the original prelabel conversion, independent of r026

@@ -6,6 +6,7 @@ dior/multiplicity_sha256.csv,2306695,20a60c9f92d09139a2b02e945a4257f6baaddf1d4b9
 dior/r023_gate.json,437,daabf1b36da9addd78775d6fee090e90ae33e562fd93dff918999be83afc5b2c,full copy; no column trimming
 dior/r023_hypotheses.csv,229391,1d1104cae6ed8927d404705956d25b2aba8efc246595700166594a3adb00f3a3,full copy; no column trimming
 dior/r023_witnesses.csv,5198,3e9a0a4129a7b046b83eb3e2a6c944a94df46e98dc1f596ec2669a8c83e29223,full copy; no column trimming
+dior/rows.parquet,54259732,e9a7652af54a6613590f8a5bdf70aa9c47c831350b5951c38263b29df2748560,full copy; no column trimming
 dota/bootstrap.npy,1280128,6b2e0178ff2ec8507289aa9ede02fef65a7f69d36d3de33b78c6f224e48e8d30,full copy; no column trimming
 dota/dota_gt_fresh.pkl,2680160,3baa2ca8d2d80c7994db371ff8828a77e90c53521e4c2c187e6f61ee46e0beff,full copy; no column trimming
 dota/gt_integrity.json,854,5c593486871e2a13ec984a20d05d89b2c2262147481d80395e0a45abd98549dc,full copy; no column trimming
