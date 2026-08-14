@@ -1,0 +1,10 @@
+stage,status,command_or_action,workers,decision
+G0,PASS,"git -c http.version=HTTP/1.1 pull --ff-only origin main; identity and STARTED closure",1,continue
+T1,PASS_WITH_LINEAGE_GAPS,"prepare_inputs.py; official manifests and derived feature joins",1,continue because no LINEAGE_CONTRADICTION
+T2_smoke,PASS,"implementation_a.py and implementation_b.py --replicates 20",20,formal run allowed
+T2_A,PASS,"implementation_a.py --replicates 10000 --workers 96",96,K1_K2_KILL_STRONG_JSTARS
+T2_B,PASS,"implementation_b.py --replicates 10000 --workers 96",96,K1_K2_KILL_STRONG_JSTARS
+T4_comparator,PASS,"compare_ab.py atol=1e-10",1,A/B closed
+T4_raw_validator,PASS,"validate_r034.py from rows+multiplicities --workers 96",96,12 primary recomputed
+T4_mutations,PASS,"run_mutations.py; six real subprocess mutations",96,6/6 rejected
+T4_bundle,PASS,"build_bundle.py; verify_bundle_manifest.py; bundle raw replay",96,portable closure

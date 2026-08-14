@@ -1,0 +1,6 @@
+item,status,disclosure,impact
+official_object_lineage,LINEAGE_GAP,"Eight units lack a frozen official-raw-object to processed/tiled-object ID map; no contradiction was observed.",Limits provenance wording; T2 continues by registered rule.
+class_standardization,IMPLEMENTATION_CLARIFICATION,"Equal mean across nonempty official class IDs within each eligibility/bootstrap draw; absent eligible classes receive no fabricated curve.",Applies identically to A/B/raw validator and is fully disclosed.
+dataset_aggregation,PRIOR_MACHINE_MATCH,"Dataset endpoint is the equal-unit mean with shared dataset cluster multiplicity.",Matches r020/r023/r026 witness-machine convention.
+network_tls,NO_SCIENTIFIC_IMPACT,"GitHub HTTPS had no r034 failure during scientific execution.",None.
+gpu_training_inference,COMPLIANT,"GPU=0; training=0; detector forward inference=0.",None.

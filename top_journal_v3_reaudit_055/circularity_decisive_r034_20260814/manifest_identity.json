@@ -1,0 +1,18 @@
+{
+  "bundle_manifest": {
+    "bytes": 3973,
+    "entries": 39,
+    "path": "audit_bundles/r034/bundle_manifest.csv",
+    "sha256": "d9b3cff75e2b9b534ac5ec0bac0b00d10ff4108a92f798af98f8907d4fb6cd39"
+  },
+  "bundle_total_bytes": 229597799,
+  "execution_manifest_note": "non-self-referential; excludes itself and includes this identity record",
+  "execution_manifest_path": "top_journal_v3_reaudit_055/circularity_decisive_r034_20260814/artifact_manifest.csv",
+  "persistent_manifest": {
+    "bytes": 4858,
+    "entries": 48,
+    "path": "outputs/persistent_artifacts/orientbench_circularity_decisive_r034_20260814/artifact_manifest.csv",
+    "sha256": "b1f933f0fb08c476914e62652775a02726912908f05d474fc8e716569a8b783b"
+  },
+  "schema": "r034_manifest_identity_v1"
+}

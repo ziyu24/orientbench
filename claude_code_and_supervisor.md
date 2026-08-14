@@ -2630,3 +2630,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 结论：r032 本轮确已 `full_completion`，远端 `main=dfdb44994fcb292207b8ae926cee17637d82bf45`，validator=`PASS`，48/48 join 无 failure，四项 mutation 全部被拒绝。后继 r033 未执行，原因是合规 readiness=`ASSET_GAP_R032`，八单元均缺官方 raw-object ID 回连资产；这不是 r032 未完成。
 - 是否触发停止条件：r032 未触发 failure/kill；r033 被 readiness gate 正常阻止。
 - 下一步建议：由 C 签发 object-lineage 资产轮，闭合八项官方对象 ID 映射后再重发 r033。
+
+## 2026-08-14 03:57 PDT — r034 circularity decisive audit（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r034-circularity-decisive-20260814` 的 dispatch/path/commit，要求执行决定性循环性/归因审计轮。
+- 执行动作：main 纯 fast-forward 到 `0b5a98f27fd24ceab6b8f6d05ea3a0b7fdf98e1a` 并先推送 STARTED；对 A--H 八单元执行 lineage 回连尝试、两套独立 10,000 次 image-cluster bootstrap 实现、12 项冻结 primary family、三路分解与类别/匹配/NMS 诊断；随后执行 A/B comparator、raw-row validator、六项真实 mutation 与便携 bundle 重放。
+- 关键产物：`outputs/persistent_artifacts/orientbench_circularity_decisive_r034_20260814/`；`top_journal_v3_reaudit_055/circularity_decisive_r034_20260814/`；`audit_bundles/r034/`；`dis/server_reports/orientbench-b-r034-circularity-decisive-20260814/SERVER_EXECUTION_REPORT.md`。
+- 核验：A/B 576 hypothesis keys、14,976 数值字段在 `atol=1e-10` 内一致，bootstrap multiplicity 逐元素一致；raw validator 从 616,184 行与 multiplicity 独立重算 12/12 primary 并通过；六项 mutation 全部被非零拒绝；bundle 39 文件、229,597,799 bytes，manifest 与 bundle 内重放均通过。
+- 决策性结果：八单元 lineage 均为 `LINEAGE_GAP(unit)`、无 `LINEAGE_CONTRADICTION`；12 项 primary 无注册 witness。冻结判据得到 `K1=true`、`K2=true`、`SURVIVAL=false`，候选状态 `K1_K2_KILL_STRONG_JSTARS`。这是完整科学结果而非执行异常；最终 B/C post-pull verdict 仍由监督端裁决。
+- 是否触发停止条件：触发 r034 预注册的科学 kill 结果 K1/K2，因此不得继续扩展 selector 顶会线或自行改 threshold/split；未触发执行 failure、GPU/训练/推理、产物不可持久化或 lineage contradiction。
+- 下一步建议：B/C 从 `audit_bundles/r034/` 独立重放并登记最终 verdict；依项目规则将主线收缩为 TGRS/ISPRS benchmark + practical selector，除非监督端发现可审计反证。本服务器不得自行改写本轮候选裁决。

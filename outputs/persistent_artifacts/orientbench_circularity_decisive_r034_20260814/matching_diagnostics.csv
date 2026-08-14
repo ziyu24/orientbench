@@ -1,0 +1,9 @@
+unit,dataset,prediction_rows,frozen_D_audit_matched_rows,D_audit_matched_fraction_of_predictions,unmatched_handling
+A,DIOR-R,556660,43848,0.07876980562641468,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034
+B,DIOR-R,177967,47887,0.26907797513022075,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034
+C,DIOR-R,358782,47881,0.1334542981531961,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034
+D,FAIR1M,488194,26108,0.05347874000909474,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034
+E,SODA-A,1663631,157586,0.0947241305313498,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034
+F,SODA-A,749109,192249,0.2566368846189273,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034
+G,DOTA-v1.0,101874,48889,0.4798967351826766,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034
+H,DOTA-v1.0,189991,51736,0.2723076356248454,excluded by the frozen classwise IoU>=0.5 one-to-one matched cohort; no rematching in r034

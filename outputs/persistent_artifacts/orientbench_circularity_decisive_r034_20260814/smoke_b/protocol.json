@@ -1,0 +1,8 @@
+{
+  "K1_ratio_threshold": 0.8,
+  "primary_estimand": "class-standardized",
+  "primary_holm_family_size": 12,
+  "replicates": 20,
+  "seed": 20260814,
+  "validator_output_forcing": false
+}

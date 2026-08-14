@@ -1,0 +1,42 @@
+{
+  "K1_ratio_threshold": 0.8,
+  "class_standardization": "equal mean across nonempty official class IDs within each eligibility and bootstrap draw",
+  "contrasts": [
+    "probe-conf",
+    "ARonly-conf",
+    "probe-ARonly",
+    "oracleAR-conf",
+    "probe-oracleAR",
+    "ARonly-oracleAR"
+  ],
+  "dataset_aggregation": "equal-unit mean with shared dataset cluster multiplicities",
+  "eligibilities": [
+    "AR>=2.1",
+    "all-AR"
+  ],
+  "endpoints": [
+    "AUGRC",
+    "Risk@70"
+  ],
+  "estimands": [
+    "pooled",
+    "class-standardized"
+  ],
+  "primary_endpoint": "AUGRC",
+  "primary_estimand": "class-standardized",
+  "primary_holm_family_size": 12,
+  "rankers": [
+    "conf",
+    "ARonly",
+    "oracleAR",
+    "probe"
+  ],
+  "replicates": 10000,
+  "risks": [
+    "R_norm",
+    "R_raw"
+  ],
+  "schema": "r034_protocol_v1",
+  "seed": 20260814,
+  "validator_output_forcing": false
+}

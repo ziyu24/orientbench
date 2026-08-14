@@ -1,0 +1,10 @@
+{
+  "K1": true,
+  "K2": true,
+  "candidate_state": "K1_K2_KILL_STRONG_JSTARS",
+  "numeric_fields_per_primary": 11,
+  "raw_rows": 616184,
+  "recomputed_primary": 12,
+  "status": "PASS",
+  "validator_output_forcing": false
+}
