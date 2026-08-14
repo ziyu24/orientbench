@@ -741,3 +741,5 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 **r031**：G0 因服务器工作树 6 个历史未跟踪残留（r022/r023 目录、r028 mutations*/error.json）门控早停——**执行正确，非缺陷**；这些残留是历史轮次副产物，不在任何 write_set，服务器无权自行处置。**需项目所有者在轮外处置**（建议移入 outputs/ 的 ignored 区保存字节）。r031 关闭权在 C（owner_only）。
 
 **档位重校准（B/C/外部审稿三方一致）**：当前真实档位 `STRONG_JSTARS_OR_REMOTE_SENSING`（可中）；`ISPRS_JPRS` 为有条件冲刺目标（`JPRS_NOT_READY`——须先过循环性审计，再谈覆盖面扩展）；TGRS 需机制或修复。撤回 §16 时代的 "JPRS_SUBMISSION_CANDIDATE" 乐观表述。**下一步唯一路径：用户清理服务器工作树 → C 重发只读预检 → 循环性/归因审计轮（CPU）→ 按结果决定扩展与修稿。**
+
+**追记 2026-08-14（B 自我记账）**：B 上一轮给用户的服务器清理命令把 `corrective_audit_r028_20260813/r026_raw_revalidation/` **整目录**搬入 legacy 区——但 r031 报告列出的未跟踪项只是该目录下的 `error.json` 一个文件，结果 3 个 r028 受保护 tracked 文件被顺带移出工作树（服务器 2026-08-14 监督记录发现并如实上报，未擅自恢复，处置正确）。责任在 B 的命令粒度。修复（用户或 C 在服务器原工作树执行即可，字节自 HEAD 恢复）：`git checkout -- top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r026_raw_revalidation/`。服务器已另建干净 worktree（`orientbench_r032_clean`）供后续轮次，主链不受阻。当前等待：C 关闭 r031（owner-only）并签发新预检 dispatch。
