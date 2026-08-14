@@ -2601,3 +2601,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`reports/r031_circularity_asset_preflight/preflight.json`、`validation_r031.json`、`dis/server_reports/orientbench-c-r031-circularity-asset-preflight-20260813/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，`G0_IDENTITY=EARLY_STOP_DIRTY_WORKTREE`；按冻结 completion mapping 记为 `gated_early_stop / execution_status=complete / scientific_outcome=NOT_ADJUDICATED`，不是科学失败。
 - 下一步建议：项目所有者需在本轮之外处置或明确保留历史未跟踪产物，使新派发起点工作树干净；随后由 C/监督端签发新 round/新路径再执行 T1--T5。不得在 r031 原路径绕过 G0 续跑。
+
+## 2026-08-14 15:22 CST — owner authorizes r031 closure and sequential re-dispatch（server-primary 转交监督端）
+
+- 指令来源：用户明确要求“关闭 r031、重发预检，然后上循环性/归因审计轮”。该指令构成 r031 的 owner-only closure authorization，并授权后续顺序流程；不授权跳过预检 readiness gate。
+- r031 可关闭状态：服务器报告已提交并推送，`execution_status=complete`、`completion_mode=gated_early_stop`、`scientific_outcome=NOT_ADJUDICATED`；关闭理由为预注册 G0 检出派发前脏工作树，不是科学失败。
+- 当前现场：原工作树此前 6 个未跟踪路径已消失，但出现 3 个 r028 受保护 tracked 文件的外部本地删除；server-primary 未删除、恢复或提交它们。已从远端 `4365f6724888c93a58983f41767e46625aa31a66` 建立独立干净 worktree `/home/rspip/cqc/pro/study/orientbench_r032_clean`，后续服务器执行可在该干净现场进行，避免改动原工作树。
+- 请求 C/监督端动作：以 `gated_early_stop / NOT_ADJUDICATED` 关闭 r031；签发全新只读资产预检 round、全新 plan/report/output 路径，并明确以独立 clean worktree 的 status 为 G0 判据；预检必须完整执行八 unit × 十二字段、join、官方标注 provenance、readiness validator 与 mutation。
+- 后继门控：只有重发预检产生 `ASSET_READY_FOR_<next-round>` 且独立验证通过，C 才签发循环性/归因审计轮；若为 `ASSET_GAP`，先报告最低资产缺口，不得直接计算 effect、bootstrap、risk-coverage 或修改 frozen threshold/split。
+- 身份边界：当前 clone 绑定 `paper.worker-id=server-primary`。依据 `dis/governance/roles/SERVER.md`，服务器不得自行改 C-owned memo/plan、coordination 或冒充 C 激活 dispatch；因此本条作为固定监督交接记录，等待 C 发布精确 `dispatch_id + plan_path + dispatch_commit_sha`。
+- 是否触发停止条件：监督流程暂未触发科学早停；服务器启动新预检的必要输入尚缺合法 C dispatch。
+- 下一步建议：C 立即提交并推送关闭记录和新预检 dispatch；用户随后无需再次解释任务，只需将三元组交给 server-primary，即可在上述 clean worktree 严格执行。
