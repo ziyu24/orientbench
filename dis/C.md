@@ -2,81 +2,61 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: 0d3c6635944ddee8f438823f2e741d266afe8874
+evidence_head: fe9d0ea5172c864d0abcecb126f530242a84c7ed
 evidence_cutoff: 2026-08-13
-review_mode: open_postpull_audit
+review_mode: closed_postpull_replay
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
 r023_c_verdict: ACCEPT_INFERENCE_LAYER_INCONCLUSIVE_MIXED
-r026_c_verdict: CONTESTED_R028_CROSS_MACHINE_BUNDLE_INCOMPLETE
-r027_c_verdict: REVISE_R028_NOT_SUBMISSION_READY
-r028_c_verdict: CONTESTED_CROSS_MACHINE_BUNDLE_INCOMPLETE
-joint_scientific_state: CONTESTED
-current_venue_ceiling: JPRS_POTENTIAL_NOT_READY
-current_defensible_level: TGRS_OR_STRONG_JSTARS_AFTER_HONEST_REWRITE
-next_required_action: R028_PUBLISH_MISSING_BOOTSTRAP_AND_GT_THEN_C_REPLAY
+r026_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
+r027_c_verdict: REVISE_NOT_SUBMISSION_READY
+r028_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
+r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
+joint_scientific_state: PENDING_B_MATCHING_VERDICT
+current_venue_ceiling: JPRS_SUBMISSION_CANDIDATE_NOT_READY
+current_defensible_level: TGRS_OR_STRONG_JSTARS_AFTER_FULL_MANUSCRIPT
+next_required_action: B_MATCHING_VERDICT_CLOSE_R029_THEN_FULL_JPRS_MANUSCRIPT
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
 
-# OrientBench C：r022--r028 post-pull 独立裁决
+# OrientBench C：r029 最终跨机重放裁决
 
-## r028 post-pull 更新
+## 结论
 
-C 已在 `0d3c6635944ddee8f438823f2e741d266afe8874` 上完成独立检查。r023 推断层重放通过：405 hypotheses、4,950/4,950 checks consistent，重算 hypotheses CSV 与 committed 文件逐字节一致。
+C 在 `fe9d0ea5172c864d0abcecb126f530242a84c7ed` 上完成最终跨机重放，正式裁决为 `AUDITED_EXTERNAL_REPLICATION_ACCEPTED`。此前 r026/r028 contest 已满足最低解决条件并由 C 解除。
 
-r028 仍不能解除 contest。`audit_bundles/r028/bundle_manifest.csv` 声明 20 个对象，但 Git 只交付 18 个；缺失的正是 `dota/bootstrap.npy` 与 `dota/dota_gt_fresh.pkl`，二者分别被 `*.npy`、`*.pkl` ignore。其余 18 个 canonical Git blob 的 bytes/SHA 全部匹配。没有 bootstrap，C 无法重放 r026 raw validator与六项 mutation；没有 GT pickle，C 无法独立验证 55,804 GT 和 matched GT-id subset。因此 r028 报告与稿件关于“自包含 Git bundle”的表述过强。
+这个裁决只接受 DOTA 结果为 `post-outcome audited external replication`。它不是 prospective、preregistered 或独立新 target confirmation；稿件不得恢复这些表述，也不得把 learned EQS 重新升为主线。
 
-当前档位不升级：`JPRS_POTENTIAL_NOT_READY`；诚实扩稿后 `TGRS_OR_STRONG_JSTARS` 可防守。唯一下一步是只补齐这两个原字节对象并重建 manifest/report，不得新开科学 gate、重算结果或换数据集；随后由 C 完成 r026/mutation/GT 重放。
+## 最终重放证据
 
-## 总结
+- r029 提交只新增 manifest 缺失的 `dota/bootstrap.npy` 和 `dota/dota_gt_fresh.pkl`，并更新 supervisor/report；未改变其余科学 bundle 对象。
+- `audit_bundles/r028/bundle_manifest.csv` 的 20 个对象全部存在，20/20 canonical Git blob bytes 与 SHA-256 匹配。
+- C 从 bundled raw、bootstrap、tile-to-mother map 和冻结 delta source 运行 `revalidate_r026_raw.py`：状态 `PASS`，96/96 checks consistent；候选 gate 重算为 2 个 unit witnesses、2 个 dataset witnesses，重算 gate JSON 与 committed 文件逐字节一致，6 行 hypotheses 的所有数值与离散字段均一致。
+- 六项真实 mutation 均调用 production validator；pristine/mutated exit 分别为 GT_THETA `0/2`、TILE_MOTHER `0/2`、AR_GATE `0/2`、BOOTSTRAP_CELL `0/1`、SWAP_GATE `0/1`、REPORT_TOKEN `0/3`。重算 mutation index 与 committed 文件逐字节一致。
+- C 独立读取 Git-tracked GT pickle：5,297 tiles、458 mother scenes、55,804 GT，15 类计数逐项一致。ORCNN 的 48,889 个、RTMDet 的 51,736 个 matched GT-id 均为 GT universe 子集，对应比例分别为 0.8760841517 和 0.9271019999。
+- r023 推断层此前已由 C 跨机重放：405 hypotheses、4,950/4,950 checks consistent，重算 hypotheses CSV 与 committed 文件一致。其科学状态仍是 `INCONCLUSIVE_MIXED`：DIOR 信号强，FAIR1M/SODA-A 不复现。
+- r027 package manifest 的 17 个对象全部闭合，修正后的 TTA 定义已包含 `missing_fraction`；旧的五个描述性文件已明确标记为 `SUPERSEDED_BY_R028`。
 
-当前证据显示一个有价值且可投稿的方向：AR eligibility domain 会改变 OBB orientation-reliability 排序结论，DIOR 上效应清楚，DOTA 上同方向数值也很强；FAIR1M/SODA-A 不复现构成重要边界。但是，B 的 `CONFIRMED_EXTERNAL_STRONG` 还不能成为双方正式结论，r027 也不能标为 JPRS-ready。
+## r029 执行报告偏差
 
-科学潜力为 `JPRS_POTENTIAL`，当前可防守证据级别为 `TGRS / strong-JSTARS after honest rewrite`。JPRS 仍可争取，但必须先完成下述纠偏，不得直接投稿或把 r026 写成预注册独立确认。
+r029 的 artifact delivery 可以验收，但服务器报告本身不完全符合冻结合同：`STARTED.json` 和最终报告缺少合同要求的若干 plan/dispatch/command/resource 字段，且 `completion_mode: PURE_BUNDLE_CLOSURE` 不在冻结 completion 枚举中。因此 C 记录 `R029_REPORT_SCHEMA_DEVIATION`，不把该报告宣称为完全合规。
 
-## 分轮裁决
+该偏差不推翻科学 bundle：上述裁决来自 C 对 canonical Git blobs 和 production replay 的独立核验，而不是信任报告中的布尔或完成声明。无需为补写报告再开服务器 round；B 应如实关闭 r029 并给出可追踪的 matching verdict。
 
-### r022
+## 证据含义
 
-`ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED`。服务器在科学输入打开前因合同自相矛盾的 clean-room 条款停止，未产生科学结果。r022 不支持也不反对论文主张。
+DOTA 的正式可用结果是：AR eligibility domain 会实质改变 OBB orientation-reliability 排序结论。两个 dataset endpoints 均为 witness；RTMDet 的 AUGRC 与 Risk@70 两个 unit endpoints 也为 witness，ORCNN 同方向但不满足 unit witness。结合 r023，这支持一个有明确边界的 measurement-validity/diagnostic 论文，而不是 learned-selector 方法论文。
 
-### r023
+## 当前期刊级别
 
-两套冻结实现报告 10000 replicates 零差，405 hypotheses 的候选态 `INCONCLUSIVE_MIXED` 与历史 recovery 一致；DIOR 的 AR-domain 数值方向可信。C 不能给出完整正式 post-pull acceptance，因为 r023 runtime、replicate parquet、validator 与 mutation 产物均未通过 Git 交付到本 clone，无法按合同在另一台机器重放。C 的裁决是：数值方向 `SUPPORTED`，正式跨机验收 `UNAVAILABLE`。
-
-### r026
-
-C 拒绝 `CONFIRMED_EXTERNAL_STRONG` 的正式身份，状态进入 `CONTESTED`，原因如下：
-
-1. r025 已在同一 DOTA 数据、同一 DIOR-source probe 和同一 endpoints 上揭示结果后，r026 才冻结“确认”合同。r026 可作为计算与判据复核，不能称为 prospective/preregistered independent external confirmation。
-2. `implementation_a_raw.py` 与 r025 `run_r025.py` 的 Git blob 完全相同（均为 `f6d4b9958da301042008ad475dbccaf03ba5aee8`）。这不否定数值，但否定“新的独立 raw 重算”表述。
-3. `validator_r026.py` 只读取最终 hypotheses/gate，未从 raw matched rows、bootstrap arrays 重算 CI、centered-p、Holm、epsilon 或 swaps；它只检查 DoD 算术、p_holm 范围、witness 布尔与固定 gate token。报告中“独立 validator 复核完整判据”的表述过强。
-4. `mutations_r026.py` 没有调用 production validator，也没有运行 mutated pipeline。`pristine_exit=0` 与 `mutated_exit=2` 是直接写入 JSON 的常量；因此“五项 semantic mutations pristine 0 / mutated 2”不成立。
-5. r026 合同要求 cached DOTA GT 分支核验 5297 tiles、55804 GT、逐类计数、bytes/SHA 与来源；报告只给 5297 tiles/458 mothers，提交代码在 cached branch 也未执行这些完整性断言。
-6. r023/r026 runtime 根在当前 clone 不存在，Git 没有交付 matched rows、bootstrap arrays、gate、validator outputs 或 mutation outputs；C 无法完成合同要求的独立 post-pull 重算。
-
-因此 DOTA 的方向与效应量可以保留为 `STRONG_DESCRIPTIVE_EXTERNAL_REPLICATION`，但 formal confirmation 必须撤销，直至真正的 raw-based corrective validator 在跨机可得证据包上通过。
-
-### r027
-
-`REVISE_NOT_SUBMISSION_READY`：
-
-- 主稿三次写成 “preregistered external DOTA confirmation”，与 r025 先揭示 outcome 的事实冲突，必须改为诚实的 source-frozen external replication / post-outcome audited replication。
-- `claim_recompute_r027.py` 对 r026 只是把 `implementation_a_independent/hypotheses.csv` 与它的副本逐字段比较，没有从 raw/bootstrap 重算；不能称 independent recomputation。
-- r023 p-value 辅助函数使用 min-tail 公式，而冻结合同使用 absolute-centered 公式；当前极小 p 值碰巧一致，不能据此证明通用复算正确。
-- `package_manifest.json` 把自身纳入 hash 清单，记录 bytes=4206/SHA=`65ca...`，实际 committed 文件 bytes=4532/SHA=`e59e...`；`evidence_ledger.csv` 的 manifest 记录也已过期。package manifest 不闭合。
-- DOTA 描述性 TTA 表把 `tta_localization` 写成 `1-clip(iou_loss)`，遗漏冻结定义中的 `missing_fraction`；不是计划声称的 frozen proxy。
-- r027 tracked draft 只是短稿框架，缺完整一手文献引用、图表成稿、实验细节与审稿级讨论，不能直接提交 JPRS。
-
-## 当前 venue 判断
-
-- `JPRS`: 有实质潜力，但未 ready。核心价值是 OBB-specific measurement validity、明确的 AR-domain estimand、跨 DIOR/DOTA 的同向数值与 FAIR/SODA 边界；不是 learned selector 方法。
-- `TGRS`: 在撤销“预注册确认”包装、修复证据链并扩成完整稿后，当前证据可防守。
-- `strong-JSTARS`: 当前最稳妥保底。
-- `CVPR/ICCV/TPAMI`: 仍不成立；没有经独立新 target 验证的方法或机制贡献。
+- 科学证据：`JPRS_SUBMISSION_CANDIDATE`，但不是录用保证。
+- 当前稿件：`NOT_READY`。现有主稿约 848 词、无完整 References、无成稿图表，本质上仍是审计摘要。
+- 最匹配冲刺目标：ISPRS Journal of Photogrammetry and Remote Sensing，主线必须是 OBB measurement validity / diagnostic。
+- 更稳妥档位：完整成稿后 TGRS 或 strong-JSTARS；TGRS 的方法契合度弱于 JPRS 的测量/诊断 framing。
+- CVPR、ICCV、TPAMI：当前证据仍不支持。
 
 ## 唯一下一步
 
-停止新增科学 gate 和新 round 续命。B owner 只需做一次机械的 r028 bundle-closure：按 manifest 原字节补交被 ignore 的 `dota/bootstrap.npy` 与 `dota/dota_gt_fresh.pkl`，重建 manifest/report，不得改变任何科学输入、统计量、gate 或稿件主张。C 收到后重放 r026 validator、六项 mutations 与 GT integrity；全部通过才可形成 B/C matching verdict，并把项目升级为 JPRS submission candidate。
+停止新增科学 gate、DOTA 重跑、换数据集续命和重复调用 CC。B owner 先关闭 r029并发布与 C 一致、可追踪的 `AUDITED_EXTERNAL_REPLICATION_ACCEPTED` verdict；随后单独立项完成 JPRS 全稿：完整正文、相关工作与一手引用、主图/表、实验细节、限制、claim-to-evidence ledger 和投稿时间线。只有全稿完成并再审后，项目才可从 `JPRS_SUBMISSION_CANDIDATE_NOT_READY` 升为 submission-ready。
