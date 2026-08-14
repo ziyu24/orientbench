@@ -52,7 +52,76 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-c-r031-circularity-asset-preflight-20260813",
+    "plan_id": "c-r031-circularity-asset-preflight-20260813",
+    "initiator": "C",
+    "activated_by": "C",
+    "activation_authorization_ref": null,
+    "closure_authorization": {
+      "mode": "owner_only",
+      "delegate": null,
+      "reference": null
+    },
+    "scientific_snapshot": {
+      "primary": "9adbcc45d1d69131adece7226804ab0b1a3528aa",
+      "current_level": "STRONG_JSTARS_OR_REMOTE_SENSING",
+      "conditional_target": "ISPRS_JPRS_NOT_READY"
+    },
+    "plan_path": "dis/plans/C/c-r031-circularity-asset-preflight-20260813/sug.md",
+    "plan_commit_sha": "2b9aff3c948013a923d08f7b3e02450631c864a7",
+    "plan_blob_oid": "232ac1eb13bd8ea51a9089c54a9ea1f827d682a2",
+    "plan_sha256": "5b95da060237d5dc37d77996483c2c7d8e4e0a1b2666e3d6543ecce0bb60d6d4",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "232ac1eb13bd8ea51a9089c54a9ea1f827d682a2",
+    "active_sha256": "5b95da060237d5dc37d77996483c2c7d8e4e0a1b2666e3d6543ecce0bb60d6d4",
+    "base_sha": "9adbcc45d1d69131adece7226804ab0b1a3528aa",
+    "activation_base_sha": "b457527b87a192e6995f19c5b025f43bb3a8ca1d",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-13：『你给服务器下达指令。』"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 8},
+      "wall_time": {"seconds_max": 14400},
+      "data": {
+        "allowed_dataset_ids": [
+          "repository-tracked-evidence",
+          "existing-frozen-orientbench-evidence-readonly",
+          "DIOR-R-existing-readonly",
+          "FAIR1M-v1.0-existing-readonly",
+          "SODA-A-existing-readonly",
+          "DOTA-v1.0-existing-readonly"
+        ],
+        "read_bytes_max": 549755813888,
+        "write_bytes_max": 2147483648
+      },
+      "write": {
+        "allowed_paths": [
+          "reports/r031_circularity_asset_preflight/",
+          "dis/server_reports/orientbench-c-r031-circularity-asset-preflight-20260813/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 2147483648
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git"]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md",
+      "reports/r031_circularity_asset_preflight"
+    ],
+    "server_report_path": "dis/server_reports/orientbench-c-r031-circularity-asset-preflight-20260813/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-13T22:40:00-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-b-r030-jprs-manuscript-20260813.json",
     "dispatch_id": "orientbench-b-r030-jprs-manuscript-20260813",
@@ -62,5 +131,5 @@
     "closed_at": "2026-08-13T22:36:00-07:00"
   },
   "open_contests": [],
-  "updated_at": "2026-08-13T22:36:00-07:00"
+  "updated_at": "2026-08-13T22:40:00-07:00"
 }
