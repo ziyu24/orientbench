@@ -52,85 +52,15 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-c-r032-circularity-asset-preflight-retry-20260814",
-    "plan_id": "c-r032-circularity-asset-preflight-retry-20260814",
-    "initiator": "C",
-    "activated_by": "C",
-    "activation_authorization_ref": null,
-    "closure_authorization": {
-      "mode": "owner_only",
-      "delegate": null,
-      "reference": null
-    },
-    "scientific_snapshot": {
-      "primary": "223cae5e88397274c2ba82e4abde6da08d280acb",
-      "r031_scientific_state": "NOT_ADJUDICATED",
-      "current_level": "STRONG_JSTARS_OR_REMOTE_SENSING",
-      "conditional_target": "ISPRS_JPRS_NOT_READY"
-    },
-    "plan_path": "dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md",
-    "plan_commit_sha": "21e8bcde287ff065c96a00a1712a07fba0cce362",
-    "plan_blob_oid": "49433296024f01136663f0d051cd5c3ac9654394",
-    "plan_sha256": "fddcbac05f7f5959618e51b6a9f7eb9473c4a1d47da337153682b5dfb24d2d67",
-    "active_plan_path": "dis/sug.md",
-    "active_plan_blob_oid": "49433296024f01136663f0d051cd5c3ac9654394",
-    "active_sha256": "fddcbac05f7f5959618e51b6a9f7eb9473c4a1d47da337153682b5dfb24d2d67",
-    "base_sha": "223cae5e88397274c2ba82e4abde6da08d280acb",
-    "activation_base_sha": "a456a49eec304a57e04ac19795dc11a8b4f62317",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-14：『① 正式关闭上一轮（只有它有权关）；② 签发新一轮资产预检（检查数据字段齐不齐，为循环性对照实验做准备）。以及其它你认为必要的。』"
-    },
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 12},
-      "wall_time": {"seconds_max": 14400},
-      "data": {
-        "allowed_dataset_ids": [
-          "repository-tracked-evidence",
-          "existing-frozen-orientbench-evidence-readonly",
-          "DIOR-R-existing-readonly",
-          "FAIR1M-v1.0-existing-readonly",
-          "SODA-A-existing-readonly",
-          "DOTA-v1.0-existing-readonly"
-        ],
-        "read_bytes_max": 549755813888,
-        "write_bytes_max": 2147483648
-      },
-      "write": {
-        "allowed_paths": [
-          "reports/r032_circularity_asset_preflight/",
-          "dis/server_reports/orientbench-c-r032-circularity-asset-preflight-retry-20260814/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 2147483648
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git"]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "reports/r032_circularity_asset_preflight"
-    ],
-    "server_report_path": "dis/server_reports/orientbench-c-r032-circularity-asset-preflight-retry-20260814/SERVER_EXECUTION_REPORT.md",
-    "status": "DISPATCHED",
-    "supersedes": "c-r031-circularity-asset-preflight-20260813",
-    "activated_at": "2026-08-14T01:15:00-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "history_path": "dis/dispatch_history/orientbench-c-r031-circularity-asset-preflight-20260813.json",
-    "dispatch_id": "orientbench-c-r031-circularity-asset-preflight-20260813",
-    "execution_state": "PROTOCOL_ABORTED",
+    "history_path": "dis/dispatch_history/orientbench-c-r032-circularity-asset-preflight-retry-20260814.json",
+    "dispatch_id": "orientbench-c-r032-circularity-asset-preflight-retry-20260814",
+    "execution_state": "COMPLETED_WITH_VALIDATION_SCOPE_DEVIATION_R032",
     "scientific_state_at_close": "PENDING",
     "closed_by": "C",
-    "closed_at": "2026-08-14T01:03:00-07:00"
+    "closed_at": "2026-08-14T02:46:55-07:00"
   },
   "open_contests": [],
-  "updated_at": "2026-08-14T01:15:00-07:00"
+  "updated_at": "2026-08-14T02:46:55-07:00"
 }

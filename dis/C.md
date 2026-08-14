@@ -2,9 +2,9 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: acdb4b0985629d57fe72f5abb5bbba311e8442d9
-evidence_cutoff: 2026-08-13
-review_mode: r031_evidence_check
+evidence_head: 14110ce48fcb17e5c937b9a9c480c882f2072d66
+evidence_cutoff: 2026-08-14
+review_mode: r032_evidence_check
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
@@ -13,12 +13,24 @@ r026_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r027_c_verdict: REVISE_NOT_SUBMISSION_READY
 r028_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
-joint_scientific_state: R030_MANUSCRIPT_ASSET_REVIEWABLE_EXECUTION_PROTOCOL_DRIFT
+joint_scientific_state: R032_ASSET_GAP_NO_SCIENTIFIC_UPLIFT
 current_venue_ceiling: JPRS_CONDITIONAL_NOT_READY
 current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
-next_required_action: R032_ASSET_PREFLIGHT_RETRY_WITH_EXACT_QUARANTINE
+next_required_action: RECOVER_IMMUTABLE_OBJECT_LINEAGE_THEN_RUN_DECISIVE_2X2_CIRCULARITY_CLASS_CONTROL
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
+---
+
+# OrientBench C：r032 资产预检验收与当前级别
+
+## 当前裁决
+
+r032 完成了资产清单与 join 预检，但没有执行循环性、类别混杂、effect、bootstrap 或 venue gate。96 个 unit-field 条目中 8 个缺口全部是 `official_annotation_id`；其它表级字段与 48 个 join 检查报告齐备。因此它只证明下一实验接近可做，不构成论文证据升级。
+
+C 接受其保守的 `ASSET_GAP_R032`，但不无保留接受服务器的独立验证范围：validator 没有动态验证 DIRECT/DERIVABLE 字段语义，也没有从 official roots 重建 child manifests。执行以 `COMPLETED_WITH_VALIDATION_SCOPE_DEVIATION_R032` 关闭，科学状态保持 `PENDING/NOT_ADJUDICATED`。
+
+当前可辩护级别仍是 strong JSTARS / Remote Sensing。JPRS 是条件目标且未 ready；TGRS、TPAMI/IJCV、CVPR/ICCV 均未达到。唯一能改变该级别的下一证据是：闭合不可变 official-object lineage 后，在固定 A--H cohort 上一次性完成 risk definition × AR eligibility 的 2×2 循环性对照、纯 predicted-AR/oracle GT-AR 对照和 class-standardized 分析。不得靠新增模型矩阵、恢复 learned EQS 或继续审计仪式升级 venue。
+
 ---
 
 # OrientBench C：r031 资产预检回执裁决
