@@ -2591,3 +2591,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 核验：abstract=223 words；References=24；numeric claim-check=1,709/1,709 PASS；package validation=15/15 PASS；禁止清单零命中；四图均完成目视核验。
 - 是否触发停止条件：否。未做新科学计算、训练、推理、匹配、重采样、阈值/split/gate 修改；未使用被 r028 supersede 的旧 TTA 描述结果。
 - 下一步建议：B/C 审稿与项目所有者填写作者信息、决定定稿；服务器 r030 执行已闭合。
+
+## 2026-08-13 22:51 PDT — r031 G0 gated early stop（server-primary）
+
+- 指令来源：用户交付 `orientbench-c-r031-circularity-asset-preflight-20260813` dispatch/path/commit，要求建立监督机制、拉取 main 并严格执行。
+- 执行动作：main 纯 fast-forward 到 dispatch `98443feb40d786fb7eb8faf8f36444496fe6b2c5`；核验 active/plan 同 blob 与 SHA、`paper.worker-id=server-primary`、coordination 和只读 `pth_data/readme.md`，随后在任何科学资产检查前执行 G0 status 检查。
+- 严重异常：staged index 干净，但普通工作树已有 6 个派发前未跟踪路径，位于 r028 mutation/revalidation 与 r022/r023 measurement-validity 历史目录。r031 明文规定 worktree/index 必须干净，脏树须在资产检查前早停。
+- 边界动作：没有删除、移动、stash、add、修改或读取这些历史路径为科学输入；未打开 r014/r019 科学资产或四数据集标注资产；未执行 T1--T5、四项 inventory mutation 或 R032 readiness adjudication。
+- 关键产物：`reports/r031_circularity_asset_preflight/preflight.json`、`validation_r031.json`、`dis/server_reports/orientbench-c-r031-circularity-asset-preflight-20260813/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，`G0_IDENTITY=EARLY_STOP_DIRTY_WORKTREE`；按冻结 completion mapping 记为 `gated_early_stop / execution_status=complete / scientific_outcome=NOT_ADJUDICATED`，不是科学失败。
+- 下一步建议：项目所有者需在本轮之外处置或明确保留历史未跟踪产物，使新派发起点工作树干净；随后由 C/监督端签发新 round/新路径再执行 T1--T5。不得在 r031 原路径绕过 G0 续跑。
