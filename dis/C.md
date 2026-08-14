@@ -21,6 +21,58 @@ accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
 
+# OrientBench C：一个月未升档的复盘与 r033 候选提升路线
+
+## 为什么投入很多，级别仍停在 JSTARS / Remote Sensing
+
+结论不是“什么都没做”，而是此前大部分工作产生了**排除性证据**，没有产生足以升档的正向科学证据。项目依次确认：learned EQS 的 leave-dataset 为 0/6；r019 失去前瞻身份且固定 standalone 优于 learned EQS；核心 measurement signature 在 DIOR-R 较强、FAIR1M/SODA-A 不复现；DOTA 只有 RTMDet 单元形成正式 witness，Oriented R-CNN 不形成；主稿又暴露 GT-AR 风险归一化与 predicted-AR probe 的循环性，以及类别—AR 混杂。诚实保留这些结果是必要的，但它们只缩窄 claim，没有扩大可迁移贡献半径。
+
+C 的管理失误也必须记录：过多轮次优化了 protocol、manifest、receipt 和 validator 的闭合，却没有把“本轮是否能改变 venue”设为首要门槛；若干服务器合同需要后续修复，形成审计债务；在 learned-selector 路线已经实质失败后，主线收缩得不够快；把资产 ready、可重放和论文科学升档混为了一谈。迁移和服务器差异解释了部分执行失败，但不能解释论文没有新机制、新外部确认和新可部署方法。后续任何计划都必须按信息增益排序，而不是按审计完整度排序。
+
+## r033 候选路线：先判循环性，再决定是否继续冲顶刊
+
+这不是可执行服务器计划；它是提交给 B 的 `open_attack` 候选路线。B 批判完成、用户批准精确 L2 规格前，不激活、不生成根 `dis/sug.md`。
+
+### 阶段 1：一次性决定性循环性与类别控制
+
+固定现有 A--H cohort，不增数据集、不增 detector、不训练、不改 split/threshold。只允许先闭合官方 raw-object lineage，且不得改变 cohort。随后统一重算：
+
+1. 两种风险定义：当前 GT-AR-normalized risk 与 AR-independent canonical raw-angle risk；
+2. 两个 eligibility domain：all-AR 与 AR≥2.1，形成 risk × eligibility 的 2×2；
+3. 四个排序基线：detector confidence、predicted-AR-only、oracle GT-AR-only、confidence+predicted-AR；
+4. 原始总体估计与 class-standardized/equal-class 估计；
+5. 相同 scene/mother-cluster 同步 bootstrap，并冻结有限 primary endpoints 和 multiplicity family。
+
+阶段 1 的 headline 不是“某 probe 赢了”，而是分解三部分：风险定义带来的机械效应、AR 信息本身带来的效应、预测 AR 质量与 detector score 的剩余效应。
+
+**杀死条件：**若 pure-AR/oracle 基线解释主要翻转，或换成 AR-independent risk / class-standardized estimand 后信号不再跨至少两个数据集和两个 detector family 保持，则停止顶刊提升路线；主张降为“评测定义性后果的定量刻画”，直接按 JSTARS / Remote Sensing 成稿，不再追加服务器 gate。
+
+**升档条件：**只有当剩余效应同时跨至少两个数据集、两个 detector family，并且不是单一类别、near-square 比例或 oracle GT-AR 驱动，才进入阶段 2。
+
+### 阶段 2：解释 mixed，而不是扩大矩阵
+
+只针对阶段 1 保留下来的效应，比较 RTMDet 与 Oriented R-CNN、DIOR-R 与 FAIR1M/SODA-A 的边界。先使用既有产物诊断 score entropy、AR 分布、类别组成、匹配率和 NMS 前后 score 语义；只有这些证据提出可证伪机制后，才授权一个最小干预，例如固定框与匹配、仅替换 score definition 或 pre/post-NMS score。禁止先补 8--10 detector 矩阵。
+
+**杀死条件：**若 mixed 只能用事后叙事解释，或干预结果随数据集/阈值任意翻转，则不声称机制，维持中档 measurement paper。
+
+**升档条件：**预先声明的机制变量能够解释正、负和 mixed 单元，并在留出单元上预测方向，才进入阶段 3。
+
+### 阶段 3：最小修复与真正外部验证
+
+只在阶段 1+2 通过后，设计一个无目标域 angle-error 调参的最小修复，例如源数据冻结的分域 score 选择/校正。目标必须是此前未消费该 endpoint 的数据集或 detector；冻结模型、规则和 gate 后再揭示标签。不得用 DOTA/HRSC/Core 旧结果冒充前瞻确认。
+
+**最终分档：**阶段 1 失败即 JSTARS/Remote Sensing；阶段 1 通过但无机制，最多 JPRS 高风险候选；阶段 1+2 通过可成为 JPRS/TGRS 实质候选；再有阶段 3 的有效外部确认、工具箱和完整自足稿件，才具备较可信的 JPRS/TGRS 冲刺资格。任何阶段都不预先承诺 TPAMI/IJCV。
+
+## B 需要重点攻击的问题
+
+1. 2×2 是否真的识别循环性，还是换一种方式重复定义？
+2. official raw-object lineage 对 primary estimand 是硬前提，还是仅 provenance 附加项？
+3. 最小 primary endpoints、effect floor、multiplicity 和跨数据集复现 gate 应如何冻结，才能避免事后挑选？
+4. 哪个明确结果必须立即终止顶刊投入？
+5. 阶段 2 的最小机制干预是否足以区分一阶段/两阶段、score 语义与类别/AR 混杂？
+
+---
+
 # OrientBench C：r032 资产预检验收与当前级别
 
 ## 当前裁决
