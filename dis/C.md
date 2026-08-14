@@ -2,9 +2,9 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: 657950ac455d4e98e31240a77de8f223b55e2a5f
+evidence_head: acdb4b0985629d57fe72f5abb5bbba311e8442d9
 evidence_cutoff: 2026-08-13
-review_mode: r030_open_attack
+review_mode: r031_evidence_check
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
@@ -16,12 +16,22 @@ r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
 joint_scientific_state: R030_MANUSCRIPT_ASSET_REVIEWABLE_EXECUTION_PROTOCOL_DRIFT
 current_venue_ceiling: JPRS_CONDITIONAL_NOT_READY
 current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
-next_required_action: R031_CIRCULARITY_AND_CLASS_ASSET_PREFLIGHT
+next_required_action: R032_ASSET_PREFLIGHT_RETRY_WITH_EXACT_QUARANTINE
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
 
-# OrientBench C：r030 主稿严厉验收与顶刊阻断项
+# OrientBench C：r031 资产预检回执裁决
+
+## 当前裁决
+
+r031 因六个历史未跟踪路径在 G0 停止，未读取科学资产，科学状态为 `NOT_ADJUDICATED`。停止方向诚实，但缺失必需 `STARTED.json`、报告 `ending_commit` 自引用且同步命令偏离冻结合同，故执行按 `PROTOCOL_ABORTED_R031` 关闭，不能包装成正常完成。
+
+下一步是 r032 同目标技术重试：不删除或移动历史产物，把六个既存路径冻结为只读 quarantine，只允许 hash/bytes 清单且禁止作为科学输入；tracked tree/index 必须 clean，任何第七项脏路径即停。之后才执行八单元字段/键/官方标注预检。
+
+---
+
+# 历史：r030 主稿严厉验收与顶刊阻断项
 
 ## 当前裁决
 
