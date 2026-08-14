@@ -2574,3 +2574,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物：`audit_bundles/r028/`（20 files、146,939,912 bytes）及 r028 执行报告。
 - 是否触发停止条件：否；服务器 r028 已闭合。B/C clone 重放仍是独立裁决步骤。
 - 下一步建议：B/C 基于该 bundle 执行复放与裁决。
+
+## 2026-08-13 19:50 PDT — r029 bundle closure（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r029-bundle-closure-20260813` dispatch/path/commit。
+- 执行动作：按 manifest 声明原字节 force-add r028 bundle 被 ignore 的 `bootstrap.npy` 与 `dota_gt_fresh.pkl`，并从 staged Git blobs 核验全 manifest。
+- 关键产物：`audit_bundles/r028/dota/bootstrap.npy`、`audit_bundles/r028/dota/dota_gt_fresh.pkl`、r029 server report。
+- 是否触发停止条件：否；两对象 bytes/SHA-256 均与 kill 清单精确一致，20/20 manifest entries 一致。
+- 下一步建议：C 按派发执行最终重放与裁决。
