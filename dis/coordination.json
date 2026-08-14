@@ -52,68 +52,15 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-b-r030-jprs-manuscript-20260813",
-    "plan_id": "b-r030-jprs-manuscript-20260813",
-    "initiator": "B",
-    "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r030-jprs-manuscript-20260813/sug.md",
-    "plan_commit_sha": "a016da153a4d1fd87aeb1085a0842e9f0d6fb25a",
-    "plan_blob_oid": "fa79aef7a2796e72539a82a47a976bcfb609cc32",
-    "plan_sha256": "6812db44e15db78da020dddaf0a4971f9eb53c1016b06de66dff76db14770b36",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "6812db44e15db78da020dddaf0a4971f9eb53c1016b06de66dff76db14770b36",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-13：『如果要搞论文，先搞md的，要求除了图片不在文档中，其他该有的都必须有，并且不该有的不能有……稿件内容要完整、科学、规范。』"
-    },
-    "server_report_path": "dis/server_reports/orientbench-b-r030-jprs-manuscript-20260813/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 24},
-      "wall_time": {"seconds_max": 43200},
-      "data": {
-        "allowed_dataset_ids": ["repository-tracked-evidence", "existing-frozen-orientbench-evidence-readonly"],
-        "read_bytes_max": 549755813888,
-        "write_bytes_max": 5368709120
-      },
-      "write": {
-        "allowed_paths": [
-          "top_journal_v3_reaudit_055/paper_A_orientation_protocol/manuscript_r030/",
-          "outputs/persistent_artifacts/orientbench_jprs_manuscript_r030_20260813/",
-          "dis/server_reports/orientbench-b-r030-jprs-manuscript-20260813/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 5368709120
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-13T21:25:00-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "dispatch_id": "orientbench-b-r029-bundle-closure-20260813",
-    "plan_path": "dis/plans/B/b-r029-bundle-closure-20260813/sug.md",
-    "dispatch_commit_sha": "c909f0833ff311a1c906cf16b0600bbadefa7c7b",
-    "execution_status": "complete",
-    "completion_mode": "BUNDLE_CLOSURE_DELIVERED_WITH_REPORT_SCHEMA_DEVIATION",
-    "scientific_state": "AUDITED_EXTERNAL_REPLICATION_ACCEPTED_JOINT_BC",
-    "server_report_path": "dis/server_reports/orientbench-b-r029-bundle-closure-20260813/SERVER_EXECUTION_REPORT.md",
-    "closure_record": "dis/dispatch_history/orientbench-b-r029-bundle-closure-20260813.json",
-    "closed_by": "B",
-    "closed_at": "2026-08-13T21:05:00-07:00"
+    "history_path": "dis/dispatch_history/orientbench-b-r030-jprs-manuscript-20260813.json",
+    "dispatch_id": "orientbench-b-r030-jprs-manuscript-20260813",
+    "execution_state": "INCOMPLETE",
+    "scientific_state_at_close": "PENDING",
+    "closed_by": "C",
+    "closed_at": "2026-08-13T22:36:00-07:00"
   },
   "open_contests": [],
-  "updated_at": "2026-08-13T21:05:00-07:00"
+  "updated_at": "2026-08-13T22:36:00-07:00"
 }

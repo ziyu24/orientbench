@@ -2,9 +2,9 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: fe9d0ea5172c864d0abcecb126f530242a84c7ed
+evidence_head: 657950ac455d4e98e31240a77de8f223b55e2a5f
 evidence_cutoff: 2026-08-13
-review_mode: closed_postpull_replay
+review_mode: r030_open_attack
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
@@ -13,15 +13,27 @@ r026_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r027_c_verdict: REVISE_NOT_SUBMISSION_READY
 r028_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
-joint_scientific_state: PENDING_B_MATCHING_VERDICT
-current_venue_ceiling: JPRS_SUBMISSION_CANDIDATE_NOT_READY
-current_defensible_level: TGRS_OR_STRONG_JSTARS_AFTER_FULL_MANUSCRIPT
-next_required_action: B_MATCHING_VERDICT_CLOSE_R029_THEN_FULL_JPRS_MANUSCRIPT
+joint_scientific_state: R030_MANUSCRIPT_ASSET_REVIEWABLE_EXECUTION_PROTOCOL_DRIFT
+current_venue_ceiling: JPRS_CONDITIONAL_NOT_READY
+current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
+next_required_action: R031_CIRCULARITY_AND_CLASS_ASSET_PREFLIGHT
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
 
-# OrientBench C：r029 最终跨机重放裁决
+# OrientBench C：r030 主稿严厉验收与顶刊阻断项
+
+## 当前裁决
+
+r030 产出了可审阅稿件，但服务器执行存在冻结 completion/STARTED/report schema 漂移；C 以 `PROTOCOL_DRIFT_R030` 关闭执行槽，科学状态保持 `PENDING`，不代替 B 作最终稿件裁决。
+
+主稿当前未排除最强替代解释：几何归一风险依赖 GT aspect ratio，而 probe 含 predicted aspect ratio，可能形成定义诱导的排序优势；类别—AR 混杂和 mixed 数据集/检测器边界也未闭合。因此当前真实级别降为 strong-JSTARS/Remote Sensing，JPRS 仅为有条件目标且尚未 ready。
+
+唯一下一步是 r031 只读资产预检；在资产闭合并冻结 2×2 循环性/类别标准化协议前，不运行新效果量、不扩模型矩阵、不恢复 learned EQS。
+
+---
+
+# 历史：r029 最终跨机重放裁决
 
 ## 结论
 
