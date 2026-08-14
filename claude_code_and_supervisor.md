@@ -2566,3 +2566,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 核验：r026=96/96、r023=4,950/4,950 字段一致；所有 6 mutation 的 pristine exit=0、mutated exit 非0；bundle 19 个文件、92,680,050 bytes、manifest hash 全匹配，并以 bundle 内 r026/r023 validator 实际重放通过。
 - 是否触发停止条件：否。r026 正式状态不在本轮自行改写；仍由 B/C 基于 bundle 重放裁决。无 GPU、训练、推理、下载、冻结阈值/split 或旧冻结产物修改。
 - 下一步建议：B/C clone 后按 bundle 重放；稿件仅可称 post-outcome audited external replication，不能恢复 r026 旧的 preregistration/双方接受表述。
+
+## 2026-08-13 10:35 CST — r028 remote receipt confirmed（server-primary）
+
+- 指令来源：用户要求继续推送并完成任务。
+- 执行动作：补齐 bundle 中 r023 原始 `rows.parquet` 后，以同包输入重放通过 405 hypotheses、4,950/4,950 checks；SSH 推送完成并核验 `origin/main=e675a841041b3305253b1fb8cd664f785f4b67b8`。
+- 关键产物：`audit_bundles/r028/`（20 files、146,939,912 bytes）及 r028 执行报告。
+- 是否触发停止条件：否；服务器 r028 已闭合。B/C clone 重放仍是独立裁决步骤。
+- 下一步建议：B/C 基于该 bundle 执行复放与裁决。
