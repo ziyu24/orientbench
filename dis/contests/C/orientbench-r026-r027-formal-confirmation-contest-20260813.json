@@ -21,5 +21,11 @@
     "outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/package_manifest.json"
   ],
   "minimum_resolution": "Publish a cross-machine audit bundle and a raw/bootstrap-based independent validator with real mutation executions; revise DOTA evidence identity to post-outcome audited external replication; C reruns and issues a matching or revised verdict.",
+  "r028_postpull_review": "dis/reviews/C/orientbench-r028-postpull-review-20260813.md",
+  "r028_evidence_head": "0d3c6635944ddee8f438823f2e741d266afe8874",
+  "r028_c_verdict": "CONTESTED_CROSS_MACHINE_BUNDLE_INCOMPLETE",
+  "r028_decisive_blocker": "The manifest-declared dota/bootstrap.npy and dota/dota_gt_fresh.pkl are absent from Git because *.npy and *.pkl are ignored; r026 raw/bootstrap, mutation, and GT-integrity replay is therefore impossible in the C clone.",
+  "remaining_minimum_resolution": "Publish the exact manifest-declared bootstrap and GT objects without changing scientific bytes or gates, rebuild the manifest/report, then let C rerun r026 validation, six mutations, and GT integrity.",
+  "last_reviewed_at": "2026-08-13T19:24:58-07:00",
   "created_at": "2026-08-13T09:37:00-07:00"
 }

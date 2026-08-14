@@ -2,24 +2,33 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: a4f59f5bcdd44aa596b0a76db080276d20a75ebd
+evidence_head: 0d3c6635944ddee8f438823f2e741d266afe8874
 evidence_cutoff: 2026-08-13
 review_mode: open_postpull_audit
 current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
-r023_c_verdict: NUMERIC_DIRECTION_SUPPORTED_POSTPULL_FULL_REPLAY_UNAVAILABLE
-r026_c_verdict: REJECT_FORMAL_CONFIRMATION_FAIL_AUDIT_IMPLEMENTATION
-r027_c_verdict: REVISE_NOT_SUBMISSION_READY
+r023_c_verdict: ACCEPT_INFERENCE_LAYER_INCONCLUSIVE_MIXED
+r026_c_verdict: CONTESTED_R028_CROSS_MACHINE_BUNDLE_INCOMPLETE
+r027_c_verdict: REVISE_R028_NOT_SUBMISSION_READY
+r028_c_verdict: CONTESTED_CROSS_MACHINE_BUNDLE_INCOMPLETE
 joint_scientific_state: CONTESTED
 current_venue_ceiling: JPRS_POTENTIAL_NOT_READY
 current_defensible_level: TGRS_OR_STRONG_JSTARS_AFTER_HONEST_REWRITE
-next_required_action: R026_R027_CORRECTIVE_AUDIT_AND_CROSS_MACHINE_BUNDLE
+next_required_action: R028_PUBLISH_MISSING_BOOTSTRAP_AND_GT_THEN_C_REPLAY
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
 
-# OrientBench C：r022--r027 post-pull 独立裁决
+# OrientBench C：r022--r028 post-pull 独立裁决
+
+## r028 post-pull 更新
+
+C 已在 `0d3c6635944ddee8f438823f2e741d266afe8874` 上完成独立检查。r023 推断层重放通过：405 hypotheses、4,950/4,950 checks consistent，重算 hypotheses CSV 与 committed 文件逐字节一致。
+
+r028 仍不能解除 contest。`audit_bundles/r028/bundle_manifest.csv` 声明 20 个对象，但 Git 只交付 18 个；缺失的正是 `dota/bootstrap.npy` 与 `dota/dota_gt_fresh.pkl`，二者分别被 `*.npy`、`*.pkl` ignore。其余 18 个 canonical Git blob 的 bytes/SHA 全部匹配。没有 bootstrap，C 无法重放 r026 raw validator与六项 mutation；没有 GT pickle，C 无法独立验证 55,804 GT 和 matched GT-id subset。因此 r028 报告与稿件关于“自包含 Git bundle”的表述过强。
+
+当前档位不升级：`JPRS_POTENTIAL_NOT_READY`；诚实扩稿后 `TGRS_OR_STRONG_JSTARS` 可防守。唯一下一步是只补齐这两个原字节对象并重建 manifest/report，不得新开科学 gate、重算结果或换数据集；随后由 C 完成 r026/mutation/GT 重放。
 
 ## 总结
 
@@ -70,12 +79,4 @@ C 拒绝 `CONFIRMED_EXTERNAL_STRONG` 的正式身份，状态进入 `CONTESTED`�
 
 ## 唯一下一步
 
-先停止新增科学 gate 和新 round 续命。B owner 应关闭 r027 active slot，并签发一次 corrective audit/package revision：
-
-1. 交付跨机器可读取的最小 r026 审计包：matched key/risk/score、10000 bootstrap arrays、point metrics、GT provenance/count/hash、AP parity 与生成代码；
-2. validator 必须直接从该包重算 CI/p/Holm/epsilon/swaps/witness/gate；mutation 必须真实调用同一 validator并保存实际非零退出；
-3. 修复 r027 manifest、自引用、TTA 定义和 claim checker；
-4. 全稿将 DOTA 改称 source-frozen external replication，明确 r025→r026 的揭示顺序；
-5. C 在新 bundle 上独立运行后再给 matching verdict。若 B/C 一致，才可把项目升级为 JPRS submission candidate。
-
-若目标是更稳的 JPRS 接收率，纠偏通过后再考虑一个真正未触碰的数据集；它必须是新 target、新预注册且 outcome 未见，不能再用 DOTA/HRSC/Core 重抽续命。
+停止新增科学 gate 和新 round 续命。B owner 只需做一次机械的 r028 bundle-closure：按 manifest 原字节补交被 ignore 的 `dota/bootstrap.npy` 与 `dota/dota_gt_fresh.pkl`，重建 manifest/report，不得改变任何科学输入、统计量、gate 或稿件主张。C 收到后重放 r026 validator、六项 mutations 与 GT integrity；全部通过才可形成 B/C matching verdict，并把项目升级为 JPRS submission candidate。
