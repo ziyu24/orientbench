@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "plan_id": "c-r032-circularity-asset-preflight-retry-20260814",
+  "actor": "C",
+  "plan_path": "dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md",
+  "state": "READY",
+  "plan_commit_sha": "21e8bcde287ff065c96a00a1712a07fba0cce362",
+  "plan_blob_oid": "49433296024f01136663f0d051cd5c3ac9654394",
+  "plan_sha256": "fddcbac05f7f5959618e51b6a9f7eb9473c4a1d47da337153682b5dfb24d2d67",
+  "state_reason": "ready_for_owner_activation_after_committed_blob_verification",
+  "ready_at": "2026-08-14T01:11:15-07:00",
+  "updated_at": "2026-08-14T01:11:15-07:00"
+}
