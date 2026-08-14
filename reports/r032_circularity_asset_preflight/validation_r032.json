@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "field_cartesian_and_evidence",
+    "join_structure",
+    "source_paths_bytes_sha",
+    "quarantine_binary_closure",
+    "official_manifests",
+    "readiness_mapping",
+    "real_join_recomputation",
+    "artifact_manifest_path_bytes_sha",
+    "committed_execution_identity"
+  ],
+  "readiness": "ASSET_GAP_R032",
+  "status": "PASS",
+  "validated_bundle": "/home/rspip/cqc/pro/study/orientbench_r032_clean/reports/r032_circularity_asset_preflight"
+}

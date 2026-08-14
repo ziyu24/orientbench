@@ -1,0 +1,95 @@
+{
+  "files": [
+    {
+      "bytes": 25072,
+      "relative_path": "build_r032.py",
+      "sha256": "c7d769428ba9f9a719f0469810febbf7ecb6d39ad015585108d68349bffcb849"
+    },
+    {
+      "bytes": 1437,
+      "relative_path": "dota_gt_provenance.json",
+      "sha256": "af80b3e6f34cf657f20a48aba44aa882a48a2d082aee3512a79f73ac32804dff"
+    },
+    {
+      "bytes": 454,
+      "relative_path": "execution_ledger.csv",
+      "sha256": "bc2a990947ce64c747fba356f09bc6df4d8a4c4c09c00ad1755bd8e4595e0bf7"
+    },
+    {
+      "bytes": 19148,
+      "relative_path": "field_availability.csv",
+      "sha256": "1871ee6d3dfdf7bc6b09f937e229211ce6ac718229500b63a745cedcc5e78e1f"
+    },
+    {
+      "bytes": 16919,
+      "relative_path": "join_feasibility.csv",
+      "sha256": "a2497588feb932a18af3e300d8dd58675cd487ff11f14d238850b10f95c8d103"
+    },
+    {
+      "bytes": 27,
+      "relative_path": "legacy_quarantine_after.csv",
+      "sha256": "b21b2115fabceb984bea58dc598711deac34b62f206af9ad83869902ecf20499"
+    },
+    {
+      "bytes": 27,
+      "relative_path": "legacy_quarantine_before.csv",
+      "sha256": "b21b2115fabceb984bea58dc598711deac34b62f206af9ad83869902ecf20499"
+    },
+    {
+      "bytes": 8474,
+      "relative_path": "manuscript_support_inventory.csv",
+      "sha256": "b303cce5ef98eb8f3eccf5e4a3adf1e133f845d99fc74b07ef65d08b15fd55b1"
+    },
+    {
+      "bytes": 902,
+      "relative_path": "mutation_results.json",
+      "sha256": "ec9f8d9c4d5eff744ac948f83499aed87ed06dd7eddb6f620238fa038c797995"
+    },
+    {
+      "bytes": 1487,
+      "relative_path": "official_annotation_inventory.csv",
+      "sha256": "fa8e2347c8a9604d38d8eb429328f93a18a1bbf77aed07ec15286f8297e5bce1"
+    },
+    {
+      "bytes": 940736,
+      "relative_path": "official_manifests/dior_test.csv",
+      "sha256": "25494060d83003b506401642d4d3eca53b83e4ddc3bad634e616017325f6ca56"
+    },
+    {
+      "bytes": 36471,
+      "relative_path": "official_manifests/dota_val.csv",
+      "sha256": "05ae2c0f3fe26000ac69c40337984214a98b14d90660c6aaa6254d538be9d5a3"
+    },
+    {
+      "bytes": 262053,
+      "relative_path": "official_manifests/fair1m_val.csv",
+      "sha256": "4115e3511da7628c6c83b28346c91bc2a60b2ddea74581991a80c09aca68396e"
+    },
+    {
+      "bytes": 47440,
+      "relative_path": "official_manifests/soda_val.csv",
+      "sha256": "2ba759b68830325d91b5a628560a42de6b7dcaec21a95a3208bc9f79c075f647"
+    },
+    {
+      "bytes": 736,
+      "relative_path": "preflight.json",
+      "sha256": "34276d63f79e7168c7562bfd321836d54a890ea706338ebd2d0395823d98c4d1"
+    },
+    {
+      "bytes": 2803,
+      "relative_path": "r033_readiness.json",
+      "sha256": "a7cd27570d0b660b30d44ce8b75afb176c38c91328f3ae432ffb5ef4bbe3443b"
+    },
+    {
+      "bytes": 18893,
+      "relative_path": "source_inventory.csv",
+      "sha256": "d2bea0c9605f2cd6b2cd9d9538047a9c95819363b75425b11df0b4dcd8304792"
+    },
+    {
+      "bytes": 13149,
+      "relative_path": "validate_r032.py",
+      "sha256": "df2fe8db49c17e37b906638ed116e25549c7c9e3a608ca938d34b8ddf658222c"
+    }
+  ],
+  "schema": "r032_artifact_manifest_v1"
+}

@@ -1,0 +1,49 @@
+unit,evidence_item,status,source_path,source_location,witness
+A,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+A,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/m069_fullval_reliability/A/manifest.json,config/checkpoint path and SHA,existing evidence only
+A,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/table1_fullval_final_065.csv,unit row,existing evidence only
+A,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_fullval_reliability_dump.py,399-403,existing evidence only
+A,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+A,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only
+B,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+B,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/m069_fullval_reliability/B/manifest.json,config/checkpoint path and SHA,existing evidence only
+B,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/table1_fullval_final_065.csv,unit row,existing evidence only
+B,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_fullval_reliability_dump.py,399-403,existing evidence only
+B,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+B,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only
+C,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+C,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/m069_fullval_reliability/C/manifest.json,config/checkpoint path and SHA,existing evidence only
+C,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/table1_fullval_final_065.csv,unit row,existing evidence only
+C,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_fullval_reliability_dump.py,399-403,existing evidence only
+C,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+C,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only
+D,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+D,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/m069_fullval_reliability/D/manifest.json,config/checkpoint path and SHA,existing evidence only
+D,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/table1_fullval_final_065.csv,unit row,existing evidence only
+D,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_fullval_reliability_dump.py,399-403,existing evidence only
+D,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+D,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only
+E,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+E,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/m069_fullval_reliability/E/manifest.json,config/checkpoint path and SHA,existing evidence only
+E,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/table1_fullval_final_065.csv,unit row,existing evidence only
+E,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_fullval_reliability_dump.py,399-403,existing evidence only
+E,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+E,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only
+F,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+F,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/m069_fullval_reliability/F/manifest.json,config/checkpoint path and SHA,existing evidence only
+F,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/table1_fullval_final_065.csv,unit row,existing evidence only
+F,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_fullval_reliability_dump.py,399-403,existing evidence only
+F,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+F,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only
+G,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+G,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_r019/prelabel/image_only_registry.json,config/checkpoint path and SHA,existing evidence only
+G,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_ap_parity.csv,unit row,existing evidence only
+G,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/p3_selector/deployable_proxy_r019/scripts/label_attach_results_r019.py,152-166,existing evidence only
+G,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+G,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only
+H,public_unit_name,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md,fixed-unit table,existing evidence only
+H,config_checkpoint_identity,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_r019/prelabel/image_only_registry.json,config/checkpoint path and SHA,existing evidence only
+H,AP50_AP75,DIRECT,/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_jprs_paper_package_r027_20260813/dota_ap_parity.csv,unit row,existing evidence only
+H,matching_threshold_and_classwise_one_to_one,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/p3_selector/deployable_proxy_r019/scripts/label_attach_results_r019.py,152-166,existing evidence only
+H,D_cal_D_audit_role,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/scripts/m069_common.py,261-274,existing evidence only
+H,risk_constant,DIRECT,/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/reports/m4_delta_theta_075_frozen.json,frozen delta-theta table,existing evidence only

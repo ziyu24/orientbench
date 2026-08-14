@@ -2612,3 +2612,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 身份边界：当前 clone 绑定 `paper.worker-id=server-primary`。依据 `dis/governance/roles/SERVER.md`，服务器不得自行改 C-owned memo/plan、coordination 或冒充 C 激活 dispatch；因此本条作为固定监督交接记录，等待 C 发布精确 `dispatch_id + plan_path + dispatch_commit_sha`。
 - 是否触发停止条件：监督流程暂未触发科学早停；服务器启动新预检的必要输入尚缺合法 C dispatch。
 - 下一步建议：C 立即提交并推送关闭记录和新预检 dispatch；用户随后无需再次解释任务，只需将三元组交给 server-primary，即可在上述 clean worktree 严格执行。
+
+## 2026-08-14 02:03 PDT — r032 circularity asset preflight retry（server-primary）
+
+- 指令来源：用户交付 `orientbench-c-r032-circularity-asset-preflight-retry-20260814` 的 dispatch/path/commit，要求执行已重发的循环性资产预检。
+- 执行动作：在独立 clean worktree 以 HTTPS `git pull --ff-only` 闭合到 `a9e1b7f278628962db0ecb82de1fda1a93509a73`，核验 worker/plan/active/pth_data 后先提交并推送完整 STARTED；随后只读盘点 A--H 八单元的 frozen cohort、features、scores、matched geometry、class/cluster map，以及 DIOR-R、FAIR1M-v1.0、SODA-A、DOTA-v1.0 官方标注资产。
+- 关键产物：`reports/r032_circularity_asset_preflight/`；最终执行报告将写入 `dis/server_reports/orientbench-c-r032-circularity-asset-preflight-retry-20260814/SERVER_EXECUTION_REPORT.md`。
+- 核验：8×12 字段矩阵完整；48/48 cohort join 通过，重复键与 cohort missing 均为 0；四数据集官方目录均生成逐文件 bytes/SHA 清单；独立 validator 完整通过；删 unit-field、改 source SHA、制造 cohort duplicate、MISSING→DIRECT 四项真实临时副本 mutation 均被同一 validator 非零拒绝；quarantine before/after 逐字节相同且本 clean worktree 为空集。
+- 是否触发停止条件：未触发执行失败或 kill condition；readiness 合法完成为 `ASSET_GAP_R032`。唯一科学输入缺口为八单元均无冻结的“官方原始对象 ID → 处理后/切片对象 ID”回连证据；现有 `gt_id` 只是处理后逐图 ordinal，不能冒充官方对象 ID。
+- 下一步建议：不得启动 r033 循环性/归因效果审计。最低恢复动作是另行签发只读 lineage round，生成并独立审计 immutable raw-object-to-evaluation-object mapping；该资产闭合后再重发 r033。

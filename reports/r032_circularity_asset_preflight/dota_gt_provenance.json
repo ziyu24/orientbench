@@ -1,0 +1,34 @@
+{
+  "integrity_witness": {
+    "bytes": 854,
+    "path": "/home/rspip/cqc/pro/study/orientbench_r032_clean/audit_bundles/r028/dota/gt_integrity.json",
+    "sha256": "5c593486871e2a13ec984a20d05d89b2c2262147481d80395e0a45abd98549dc"
+  },
+  "known_counts": {
+    "gt_objects": 55804,
+    "mothers": 458,
+    "tiles": 5297
+  },
+  "official_raw": {
+    "file_count": 458,
+    "manifest_path": "/home/rspip/cqc/pro/study/orientbench_r032_clean/reports/r032_circularity_asset_preflight/official_manifests/dota_val.csv",
+    "manifest_sha256": "05ae2c0f3fe26000ac69c40337984214a98b14d90660c6aaa6254d538be9d5a3",
+    "path": "/home/rspip/cqc/data/dataset/dota/dota1.0/val/annfiles"
+  },
+  "persistent_converted_gt": {
+    "bytes": 2680160,
+    "path": "/home/rspip/cqc/pro/study/orientbench_r032_clean/audit_bundles/r028/dota/dota_gt_fresh.pkl",
+    "sha256": "3baa2ca8d2d80c7994db371ff8828a77e90c53521e4c2c187e6f61ee46e0beff"
+  },
+  "semantic_equality_claimed": false,
+  "source_code": {
+    "lines": "84-114",
+    "path": "/home/rspip/cqc/pro/study/orientbench_r032_clean/p3_selector/deployable_proxy_r019/scripts/label_attach_results_r019.py"
+  },
+  "status": "PASS_PROVENANCE_ONLY_NO_EQUIVALENCE_CLAIM",
+  "tile_to_mother": {
+    "bytes": 656105,
+    "path": "/home/rspip/cqc/pro/study/orientbench_r032_clean/audit_bundles/r028/dota/tile_to_mother.csv",
+    "sha256": "c76833d1d9470f1846af3ecc9b5040f8c8d6a285c8b6793b377a9d6f199fe3a1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "dispatch_commit_sha": "a9e1b7f278628962db0ecb82de1fda1a93509a73",
+  "dispatch_id": "orientbench-c-r032-circularity-asset-preflight-retry-20260814",
+  "field_cartesian_rows": 96,
+  "fixed_units": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "plan_path": "dis/plans/C/c-r032-circularity-asset-preflight-retry-20260814/sug.md",
+  "plan_sha256": "fddcbac05f7f5959618e51b6a9f7eb9473c4a1d47da337153682b5dfb24d2d67",
+  "quarantine_content_used": false,
+  "readiness": "ASSET_GAP_R032",
+  "schema": "r032_preflight_v1",
+  "scientific_computation_performed": false,
+  "started_commit": "239fb3e994890226aab55c696d3724270d973d72",
+  "training_or_inference_performed": false,
+  "worker": "server-primary"
+}

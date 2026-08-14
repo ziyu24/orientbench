@@ -1,0 +1,66 @@
+{
+  "decision": "Do not execute r033 circularity/attribution audit until a separately authorized object-lineage asset closes these gaps.",
+  "fixed_units": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "gaps": [
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "A"
+    },
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "B"
+    },
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "C"
+    },
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "D"
+    },
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "E"
+    },
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "F"
+    },
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "G"
+    },
+    {
+      "field": "official_annotation_id",
+      "minimum_nonexecuted_recovery_action": "create and separately audit an immutable raw-object-to-evaluation-object mapping without changing frozen cohorts",
+      "path": "official raw annotation -> processed/tiled object back-map",
+      "unit": "H"
+    }
+  ],
+  "join_failures": [],
+  "ready_for_r033": false,
+  "status": "ASSET_GAP_R032"
+}

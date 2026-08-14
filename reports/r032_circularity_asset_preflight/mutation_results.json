@@ -1,0 +1,37 @@
+{
+  "mutations": [
+    {
+      "diagnostic": [
+        "FAIL: field matrix is not the exact 8x12 cartesian product"
+      ],
+      "exit_code": 1,
+      "mutation": "delete_unit_field",
+      "rejected": true
+    },
+    {
+      "diagnostic": [
+        "FAIL: source SHA mismatch: /home/rspip/cqc/pro/study/orientbench_r032_clean/audit_bundles/r028/dior/rows.parquet"
+      ],
+      "exit_code": 1,
+      "mutation": "change_source_sha",
+      "rejected": true
+    },
+    {
+      "diagnostic": [
+        "FAIL: duplicate unit/source_role join row (manufactured cohort duplicate)"
+      ],
+      "exit_code": 1,
+      "mutation": "cohort_duplicate",
+      "rejected": true
+    },
+    {
+      "diagnostic": [
+        "FAIL: DIRECT lacks source evidence: A/official_annotation_id"
+      ],
+      "exit_code": 1,
+      "mutation": "missing_to_direct",
+      "rejected": true
+    }
+  ],
+  "status": "PASS"
+}
