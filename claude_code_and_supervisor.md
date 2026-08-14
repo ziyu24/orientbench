@@ -2621,3 +2621,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 核验：8×12 字段矩阵完整；48/48 cohort join 通过，重复键与 cohort missing 均为 0；四数据集官方目录均生成逐文件 bytes/SHA 清单；独立 validator 完整通过；删 unit-field、改 source SHA、制造 cohort duplicate、MISSING→DIRECT 四项真实临时副本 mutation 均被同一 validator 非零拒绝；quarantine before/after 逐字节相同且本 clean worktree 为空集。
 - 是否触发停止条件：未触发执行失败或 kill condition；readiness 合法完成为 `ASSET_GAP_R032`。唯一科学输入缺口为八单元均无冻结的“官方原始对象 ID → 处理后/切片对象 ID”回连证据；现有 `gt_id` 只是处理后逐图 ordinal，不能冒充官方对象 ID。
 - 下一步建议：不得启动 r033 循环性/归因效果审计。最低恢复动作是另行签发只读 lineage round，生成并独立审计 immutable raw-object-to-evaluation-object mapping；该资产闭合后再重发 r033。
+
+## 2026-08-14 02:22 PDT — r032 完整性复核（server-primary）
+
+- 指令来源：用户询问“确保完全执行完了？”。
+- 执行动作：复核本地/远端提交、最终报告 completion mapping、独立 validation、readiness、48 项 join 与四项 mutation receipt。
+- 关键产物：`reports/r032_circularity_asset_preflight/validation_r032.json`；`dis/server_reports/orientbench-c-r032-circularity-asset-preflight-retry-20260814/SERVER_EXECUTION_REPORT.md`。
+- 结论：r032 本轮确已 `full_completion`，远端 `main=dfdb44994fcb292207b8ae926cee17637d82bf45`，validator=`PASS`，48/48 join 无 failure，四项 mutation 全部被拒绝。后继 r033 未执行，原因是合规 readiness=`ASSET_GAP_R032`，八单元均缺官方 raw-object ID 回连资产；这不是 r032 未完成。
+- 是否触发停止条件：r032 未触发 failure/kill；r033 被 readiness gate 正常阻止。
+- 下一步建议：由 C 签发 object-lineage 资产轮，闭合八项官方对象 ID 映射后再重发 r033。
