@@ -722,3 +722,22 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - **联合科学态（B/C 一致）**：AR eligibility domain 对 OBB orientation-reliability 排序具有可复核的 measurement-validity 影响——DIOR 正式内部效应（r023，`INCONCLUSIVE_MIXED` 按其跨数据集门）+ DOTA `POST_OUTCOME_AUDITED_EXTERNAL_REPLICATION`（数值 gate 输出 `CONFIRMED_EXTERNAL_STRONG`，证据身份受先揭示事实限制，稿件不得把该 token 用作身份）+ FAIR1M/SODA-A 不复现边界 + learned EQS 失败附录。
 - r029 报告 schema 偏差（STARTED/completion 枚举字段不合冻结模板）：**adopt C 的处理**——记录在案、不再开轮修补文字。
 - 档位：`JPRS_SUBMISSION_CANDIDATE_NOT_READY`，唯一缺口是成稿。下一派发 r030 = 完整 md 主稿 + 补充材料 + 成图资产 + 逐数字 claim-to-evidence 校验；用户明确要求：图片不嵌入文档，其余该有尽有，且不得出现任何不实内容（投稿状态声明、伪造作者/基金/致谢、不可核实的引文字段）。
+
+## 17. B 裁定 2026-08-13：外部审稿采纳、r030/r031 验收、档位重校准
+
+**r030**：稿件包完整交付（主稿 3,359 词 + 补充 + 成图 + claim_check）。C 的两项裁决 B 均 **adopt**：(a) 执行层 `PROTOCOL_DRIFT_R030`（STARTED 缺冻结身份字段、completion token 未冻结、ending_commit 自引用）；(b) `claim_check.json` 的 1709/1709 PASS 不构成语义闭包——生成器可从异质数字池取最近值、无固定 claim-id/源定位/容差，**校验器必须在修稿轮重写**（固定 claim-id → 源文件/字段/变换/容差）。稿件资产保留可审阅，科学态 PENDING。
+
+**外部审稿逐项裁定**（B 正式立场，C 已独立收敛于 P1）：
+- **P1 循环性——adopt，定性为当前最致命**。风险分母含 GT-AR（δ0.75），探针含 predicted-AR，"全域探针占优"可能是定义的算术后果。必补对照（全部 CPU 可行，字段均在既有 matched rows）：(i) 2×2 补缺格 `ALL_AR × 未归一化角风险`（C 的精确化，比外部审稿更具体）；(ii) 纯 AR 单变量排序基线；(iii) oracle GT-AR 探针 vs predicted-AR 探针。**若 AR-only 基线单独复现翻转，主张必须降格为"对定义性后果的定量刻画"——B 预先接受该结果**。
+- **P2 自足性——adopt**（写作层）：A-F 身份公开（DIOR-R/{PSC,ORCNN,RTMDet}、FAIR1M/PSC、SODA-A/{PSC,ORCNN}）、匹配规则全文、探针拟合 provenance（r014 per-source，r024 系数表）、floors/swap 数值与冻结出处、δ0.75 数值解与 tolerance、AR=2.1 边界依据、全部 AP 数字。
+- **P3 类别-AR 混杂——adopt**：正式类分层/类标准化对比进循环性轮。
+- **P4 非复现零诊断——adopt**：FAIR1M/SODA 归因分析（AR 分布、样本量、分数语义、标注噪声）+ ORCNN 的 TOST/功效分析，取代裸 "no"。
+- **P5 预注册叙事——adopt**：时间线全在同日，prospective 语汇全部删除，如实改称"冻结的敏感性分析框架"；不做任何时间戳倒补。
+- **P6 写作语言——adopt**：round/witness/contest/哈希词汇整体译为标准统计语言，审计沉附录。
+- **P7 相关工作——adopt**：补 GWD/KLD 方形不可辨识、CSL/DCL、H2RBox、selective prediction；并把 NO_LONGSIDE/NO_GEONORM 无 witness 明写为**对这两个选择的稳健性正结果**（审稿人替我们看出来的白送结论）。
+- **P8 常数敏感性与可视化——adopt**：匹配 IoU {0.5,0.75,0.9} 重匹配扫描、截断/1° 下限/覆盖点敏感性、实例图与按 AR 分层的风险-覆盖曲线族。
+- **路线建议**：资源型重定位（多检测器×多角度表征×多数据集全景 + HRSC2016 试金石）与机制研究、最小修复——**方向 adopt，但排在循环性审计之后且需用户授权新算力**；C 的护栏（不盲目全矩阵、不复活 EQS、不换数据集救 gate）**adopt**。审计方法学拆分独立成文——同意，后置。DOTA GT 官方标注复核——adopt，已在 C 预检范围。
+
+**r031**：G0 因服务器工作树 6 个历史未跟踪残留（r022/r023 目录、r028 mutations*/error.json）门控早停——**执行正确，非缺陷**；这些残留是历史轮次副产物，不在任何 write_set，服务器无权自行处置。**需项目所有者在轮外处置**（建议移入 outputs/ 的 ignored 区保存字节）。r031 关闭权在 C（owner_only）。
+
+**档位重校准（B/C/外部审稿三方一致）**：当前真实档位 `STRONG_JSTARS_OR_REMOTE_SENSING`（可中）；`ISPRS_JPRS` 为有条件冲刺目标（`JPRS_NOT_READY`——须先过循环性审计，再谈覆盖面扩展）；TGRS 需机制或修复。撤回 §16 时代的 "JPRS_SUBMISSION_CANDIDATE" 乐观表述。**下一步唯一路径：用户清理服务器工作树 → C 重发只读预检 → 循环性/归因审计轮（CPU）→ 按结果决定扩展与修稿。**
