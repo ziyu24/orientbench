@@ -2651,3 +2651,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 偏差与边界：冻结环境无 `diptest` 包且网络不授权下载依赖，T3 使用披露的 deterministic binned Hartigan-style approximation；A/B 完全一致，且不影响 KILL-E/KILL-C。GPU=0、神经网络训练=0、detector forward/inference=0；target angle labels 仅用于评测，未进入拟合/阈值/选择；未触碰 r034 终局或 frozen threshold/split。
 - 是否触发停止条件：触发预注册科学 `KILL-C`，属于正常 full completion，不是 execution failure；硬性 kill 清单未触发。
 - 下一步建议：B/C post-pull 独立重放并登记最终 verdict；若接受，应将 Q-SetOD 降格为 evidence/质量分数候选，不授权 §4.2 集合式有限训练。服务器不得自行启动 GPU 或改写校准规则。
+
+## 2026-08-15 00:55 PDT — 拉取与 r037 激活前核验（server-primary）
+
+- 指令来源：用户要求“拉取，执行。”
+- 执行动作：在独立干净工作树以 `git pull --ff-only` 拉取远端 main 至 `92896951b6ec5aca857c77235d1b47e069122ac0`，复核 worker、coordination、根活动计划、r037 READY plan 与远端 HEAD；未读取 r037 科学输入，未创建 STARTED，未启动计算。
+- 关键产物路径：无新科学产物；待派发计划为 `dis/plans/C/c-r037-qsetod-corrective-adjudication-20260815/sug.md`。
+- 是否触发停止条件：触发执行入口阻断。coordination 与 `dis/sug.md` 仍锁定 r036，r037 仅为 READY；C 已请求 B 关闭 r036 并代理激活 r037，但该事务尚未完成，且用户尚未交付 SERVER 角色要求的精确 r037 三元组。
+- 下一步建议：B 完成 r036 closure / r037 activation 并推送；用户随后交付精确 `dispatch_id + plan_path + dispatch_commit_sha`，server-primary 即按冻结计划执行。
