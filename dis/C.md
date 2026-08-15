@@ -2,10 +2,10 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: d25fe1f58f3d2e647cf27a8767ded23133ae66d5
-evidence_cutoff: 2026-08-14
-review_mode: r035_qsetod_open_attack_request
-current_route: NEW_METHOD_CANDIDATE_PENDING_B_ATTACK
+evidence_head: 380e7f20a2baf272fd80d5cf7d2cb87ce76e85de
+evidence_cutoff: 2026-08-15
+review_mode: r036_postpull_contest_and_r037_corrective_plan
+current_route: QSETOD_CORRECTIVE_ADJUDICATION_PENDING_SLOT
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
 r023_c_verdict: ACCEPT_INFERENCE_LAYER_INCONCLUSIVE_MIXED
@@ -13,14 +13,23 @@ r026_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r027_c_verdict: REVISE_NOT_SUBMISSION_READY
 r028_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
-r034_c_verdict: ACCEPT_K1_K2_KILL_STRONG_JSTARS_PENDING_B_CLOSURE
-joint_scientific_state: R034_K1_K2_KILL_STRONG_JSTARS_PENDING_B_CLOSURE
+r034_c_verdict: ACCEPT_K1_K2_KILL_STRONG_JSTARS_JOINT_FINAL
+r036_c_verdict: CONTESTED_BASELINE_AND_CALIBRATION_SEMANTICS
+joint_scientific_state: R036_EXECUTION_COMPLETE_SCIENCE_CONTESTED
 current_venue_ceiling: TGRS_OR_JPRS_ONLY_IF_NEW_METHOD_SURVIVES
 current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
-next_required_action: B_CLOSE_R034_AND_OPEN_ATTACK_QSETOD
+next_required_action: B_CLOSE_R036_CONTESTED_THEN_ACTIVATE_DELEGATED_R037
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
+
+# OrientBench C：r036 争议与 r037 纠错性服务器计划
+
+r036 的执行完整性可以接受，但候选科学状态不能直接接受。`KILL-E=false` 的 evidence 模型同时加入 `detection_score` 与 TTA 特征，没有隔离 TTA 相对于 `confidence+AR+size` 的独立增量；`KILL-C=true` 的四个触发项全部是覆盖率高于名义值，代码却用绝对偏差把保守覆盖当作有效性失败；T4 又只校准 geometry-q75 代理，而非 evidence-q75。多峰结论使用非标准近似 dip test，只能描述性保留。
+
+C 已登记实质 contest，并冻结 r037 CPU-only 纠错计划。r037 不训练神经网络、不使用 GPU、不读取两个清白 endpoint 的标签，只在 r036 冻结行上完成三层嵌套基线、单侧覆盖、区间评分与严格重放。若 TTA 独立增量失败，Q-SetOD 终止并按 strong JSTARS 收稿；若通过，也只取得后续小规模方法验证资格，不自动升档。
+
+当前 r036 仍是 B-owned active dispatch。B 应先按 `COMPLETED / CONTESTED` 关闭，再依据 r037 冻结计划中的 delegated activation 启动新轮；C 不越权覆盖根 `dis/sug.md`。
 
 # OrientBench C：r034 后的新方法候选与唯一下一步
 
