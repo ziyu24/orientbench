@@ -2659,3 +2659,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：无新科学产物；待派发计划为 `dis/plans/C/c-r037-qsetod-corrective-adjudication-20260815/sug.md`。
 - 是否触发停止条件：触发执行入口阻断。coordination 与 `dis/sug.md` 仍锁定 r036，r037 仅为 READY；C 已请求 B 关闭 r036 并代理激活 r037，但该事务尚未完成，且用户尚未交付 SERVER 角色要求的精确 r037 三元组。
 - 下一步建议：B 完成 r036 closure / r037 activation 并推送；用户随后交付精确 `dispatch_id + plan_path + dispatch_commit_sha`，server-primary 即按冻结计划执行。
+
+## 2026-08-15 01:19 PDT — 用户最高权限催办后的再次核验（server-primary）
+
+- 指令来源：用户明确表示“快执行吧，我是最高权限。”
+- 执行动作：将该表述登记为最高权限的执行授权，再次从 `origin/main` 执行 fast-forward 拉取并核验活动派发、根计划及 r037 计划哈希；未启动科学计算或创建 STARTED。
+- 关键产物路径：无新科学产物；远端与本地 HEAD 均为 `7a05343d78cb3b54203ea6f8e20d9d9843d5fcd8`。
+- 是否触发停止条件：仍触发执行入口阻断。仓库 coordination 仍将 r036 标为唯一活动派发，`dis/sug.md` SHA-256 仍为 r036 的 `3e5014...`，与 r037 的 `65e67b...` 不同；这是派发状态冲突，不是权限不足。
+- 下一步建议：B/监督端必须先提交并推送 r036 closure 与 r037 activation。server-primary 不得冒充 B 修改其独占治理状态；激活一落库即立即执行。
