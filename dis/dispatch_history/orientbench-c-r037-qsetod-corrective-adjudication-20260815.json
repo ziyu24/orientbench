@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-c-r037-qsetod-corrective-adjudication-20260815.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-c-r037-qsetod-corrective-adjudication-20260815",
+    "plan_id": "c-r037-qsetod-corrective-adjudication-20260815",
+    "initiator": "C",
+    "activated_by": "C",
+    "activation_authorization_ref": null,
+    "closure_authorization": {
+      "mode": "delegated",
+      "delegate": "B",
+      "reference": "C owner delegation frozen in this plan; user 2026-08-15:『给出给服务器执行的内容。』"
+    },
+    "scientific_snapshot": {
+      "primary": "380e7f20a2baf272fd80d5cf7d2cb87ce76e85de"
+    },
+    "plan_path": "dis/plans/C/c-r037-qsetod-corrective-adjudication-20260815/sug.md",
+    "plan_commit_sha": "5d6a4606f1771d94fe87528b634b4ad6a2c00bf9",
+    "plan_blob_oid": "5a1a5508b8182dd0353b8cc91398fce7b1282b52",
+    "plan_sha256": "65e67bee39ecceda6b8e5a66a73a330a9a9078b5bd94db13946fd70bde8786e1",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "5a1a5508b8182dd0353b8cc91398fce7b1282b52",
+    "active_sha256": "65e67bee39ecceda6b8e5a66a73a330a9a9078b5bd94db13946fd70bde8786e1",
+    "base_sha": "380e7f20a2baf272fd80d5cf7d2cb87ce76e85de",
+    "activation_base_sha": "57b8c84384a0940fe33cfeaf0851957af8c948f1",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-15：『给出给服务器执行的内容。』——承接 C 已明确说明的 r037 CPU-only 纠错实验；不含 GPU、神经网络训练、新数据或清白 endpoint 标签读取。"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {
+        "gpu_count_max": 0,
+        "gpu_hours_max": 0,
+        "cpu_core_hours_max": 112
+      },
+      "wall_time": {
+        "seconds_max": 43200
+      },
+      "data": {
+        "allowed_dataset_ids": [
+          "repository-tracked-evidence",
+          "existing-frozen-orientbench-r036-evidence-readonly"
+        ],
+        "read_bytes_max": 549755813888,
+        "write_bytes_max": 32212254720
+      },
+      "write": {
+        "allowed_paths": [
+          "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/",
+          "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/",
+          "audit_bundles/r037/",
+          "dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 32212254720
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": [
+          "https://github.com/ziyu24/orientbench.git"
+        ]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md",
+      "outputs/persistent_artifacts"
+    ],
+    "server_report_path": "dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-15T01:52:37-07:00"
+  },
+  "started_ref": {
+    "path": "dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/STARTED.json",
+    "commit_sha": "0fb717df6d5806106c27c1bb0161878e826d365e",
+    "blob_oid": "d5100b3fe579c92096760a789ba56457890b7436",
+    "sha256": "da9f4e28293ec3cf53b24aa8b72baf8f632ef72514680ad032aae3e1b0042be2"
+  },
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "f086e8609d060dd94fdfa09248bca57e2ad8912a",
+    "blob_oid": "6dbda47026033c262d20dfb610ecb72b809c17d2",
+    "sha256": "5e7832fe7e5a42e2316abb452d74a90b1103d41cd3775020035db5e0c553e58e"
+  },
+  "terminal": {
+    "execution_state": "INCOMPLETE",
+    "completion_mode": "protocol_drift",
+    "scientific_state_at_close": "PENDING",
+    "closed_by": "C",
+    "closed_at": "2026-08-15T08:34:44-07:00",
+    "close_reason": "The computation and reporting phases ran, but the mandatory independent implementation contract did not close: implementations A and B differ only in four labeling lines, and the raw validator copies the same principal computational path. The registered small-table arithmetic conditionally yields G_EVIDENCE=PASS and G_SET=FAIL, but full completion and an accepted scientific token are rejected.",
+    "closure_authorization_ref": null,
+    "verdict_refs": [
+      "dis/reviews/C/orientbench-r037-postpull-protocol-drift-review-20260815.md"
+    ],
+    "contest_refs": [],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r037/code/implementation_a.py",
+      "audit_bundles/r037/code/implementation_b.py",
+      "audit_bundles/r037/code/validate_r037.py",
+      "audit_bundles/r037/comparator/comparator.json",
+      "audit_bundles/r037/validation/validation.json"
+    ]
+  }
+}
