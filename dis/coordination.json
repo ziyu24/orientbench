@@ -52,66 +52,15 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-b-r034-circularity-decisive-20260814",
-    "plan_id": "b-r034-circularity-decisive-20260814",
-    "initiator": "B",
-    "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r034-circularity-decisive-20260814/sug.md",
-    "plan_commit_sha": "b50a9b9b3ab4c72e5790273b9adfacb3f70fb5e2",
-    "plan_blob_oid": "6894bae2181af4cf5f66caec38249c74b50f784e",
-    "plan_sha256": "48cf244e01027bb217e19253f627aa8fce10a04ab3d7c3803c05494a2bd04a02",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "48cf244e01027bb217e19253f627aa8fce10a04ab3d7c3803c05494a2bd04a02",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-14：『必须把期刊搞到顶刊上去。给出服务器需要执行的内容。』（决定性循环性/类别控制，CPU-only）"
-    },
-    "server_report_path": "dis/server_reports/orientbench-b-r034-circularity-decisive-20260814/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
-      "wall_time": {"seconds_max": 43200},
-      "data": {
-        "allowed_dataset_ids": ["existing-frozen-orientbench-evidence-readonly", "official-annotation-roots-readonly"],
-        "read_bytes_max": 549755813888,
-        "write_bytes_max": 32212254720
-      },
-      "write": {
-        "allowed_paths": [
-          "outputs/persistent_artifacts/orientbench_circularity_decisive_r034_20260814/",
-          "top_journal_v3_reaudit_055/circularity_decisive_r034_20260814/",
-          "audit_bundles/r034/",
-          "dis/server_reports/orientbench-b-r034-circularity-decisive-20260814/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 32212254720
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "outputs/persistent_artifacts"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-14T16:25:00-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "history_path": "dis/dispatch_history/orientbench-c-r032-circularity-asset-preflight-retry-20260814.json",
-    "dispatch_id": "orientbench-c-r032-circularity-asset-preflight-retry-20260814",
-    "execution_state": "COMPLETED_WITH_VALIDATION_SCOPE_DEVIATION_R032",
-    "scientific_state_at_close": "PENDING",
-    "closed_by": "C",
-    "closed_at": "2026-08-14T02:46:55-07:00"
+    "history_path": "dis/dispatch_history/orientbench-b-r034-circularity-decisive-20260814.json",
+    "dispatch_id": "orientbench-b-r034-circularity-decisive-20260814",
+    "execution_state": "complete",
+    "scientific_state_at_close": "K1_K2_KILL_STRONG_JSTARS_JOINT_BC_FINAL",
+    "closed_by": "B",
+    "closed_at": "2026-08-14T22:05:00-07:00"
   },
   "open_contests": [],
-  "updated_at": "2026-08-14T02:46:55-07:00"
+  "updated_at": "2026-08-14T22:05:00-07:00"
 }

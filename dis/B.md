@@ -742,4 +742,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 
 **档位重校准（B/C/外部审稿三方一致）**：当前真实档位 `STRONG_JSTARS_OR_REMOTE_SENSING`（可中）；`ISPRS_JPRS` 为有条件冲刺目标（`JPRS_NOT_READY`——须先过循环性审计，再谈覆盖面扩展）；TGRS 需机制或修复。撤回 §16 时代的 "JPRS_SUBMISSION_CANDIDATE" 乐观表述。**下一步唯一路径：用户清理服务器工作树 → C 重发只读预检 → 循环性/归因审计轮（CPU）→ 按结果决定扩展与修稿。**
 
+## 18. B 终局 verdict 2026-08-14：r034 = K1+K2 杀死，旧 selector 主张降格，终局不翻案
+
+- **执行 verdict：ACCEPT_FULL_COMPLETION（与 C 一致）**。A/B 双实现 14,976 字段全一致（max diff ~5e-17）、raw validator 独立重算 12/12、六项真实 mutation 全部非零拒绝、39 对象 bundle 逐字节闭合、lineage 八单元 GAP 无矛盾。
+- **科学 verdict：ACCEPT_K1_K2_KILL_STRONG_JSTARS（与 C 一致，双方 verdict 齐备）**。AR-only 基线解释主要翻转（|DoD_ARonly|/|DoD_probe| 满足 0.8 条件）；probe−ARonly 剩余 DoD 虽点估计为正且 CI 排零（DIOR 0.0166、DOTA 0.0161），但不构成冻结 flip witness；R_raw 六项全无 witness。**旧 selector/测量签名主张正式降格为"评测定义性后果的定量刻画"，selector 路线标记 failed/appendix-only。按 §17 预承诺：终局，不以任何新轮次翻案。**
+- 论文含义：现有材料按 STRONG_JSTARS / Remote Sensing 成稿是诚实且可中的；r034 本身成为该稿最有力的方法学章节（三元分解 + 预注册杀死自己主张的完整示范）。顶刊只能靠**新增量**：C 已提出 Q-SetOD 新方法候选，B 攻击见 `dis/reviews/B/orientbench-c-r035-qsetod-method-open-attack-20260814.md`。
+
 **追记 2026-08-14（B 自我记账）**：B 上一轮给用户的服务器清理命令把 `corrective_audit_r028_20260813/r026_raw_revalidation/` **整目录**搬入 legacy 区——但 r031 报告列出的未跟踪项只是该目录下的 `error.json` 一个文件，结果 3 个 r028 受保护 tracked 文件被顺带移出工作树（服务器 2026-08-14 监督记录发现并如实上报，未擅自恢复，处置正确）。责任在 B 的命令粒度。修复（用户或 C 在服务器原工作树执行即可，字节自 HEAD 恢复）：`git checkout -- top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r026_raw_revalidation/`。服务器已另建干净 worktree（`orientbench_r032_clean`）供后续轮次，主链不受阻。当前等待：C 关闭 r031（owner-only）并签发新预检 dispatch。

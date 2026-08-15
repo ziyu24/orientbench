@@ -3,11 +3,11 @@
   "plan_id": "b-r034-circularity-decisive-20260814",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r034-circularity-decisive-20260814/sug.md",
-  "state": "DISPATCHED",
+  "state": "COMPLETED",
   "plan_commit_sha": "b50a9b9b3ab4c72e5790273b9adfacb3f70fb5e2",
   "plan_blob_oid": "6894bae2181af4cf5f66caec38249c74b50f784e",
   "plan_sha256": "48cf244e01027bb217e19253f627aa8fce10a04ab3d7c3803c05494a2bd04a02",
-  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "state_reason": "k1_k2_kill_joint_bc_terminal_verdicts_no_relitigation",
   "ready_at": "2026-08-14T16:20:00-07:00",
-  "updated_at": "2026-08-14T16:25:00-07:00"
+  "updated_at": "2026-08-14T22:05:00-07:00"
 }
