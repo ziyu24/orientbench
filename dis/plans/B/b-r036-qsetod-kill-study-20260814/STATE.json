@@ -3,11 +3,11 @@
   "plan_id": "b-r036-qsetod-kill-study-20260814",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r036-qsetod-kill-study-20260814/sug.md",
-  "state": "READY",
-  "plan_commit_sha": null,
-  "plan_blob_oid": null,
-  "plan_sha256": null,
-  "state_reason": "qsetod_paper_stage_kill_study_zero_training_zero_gpu",
+  "state": "DISPATCHED",
+  "plan_commit_sha": "724f6b689dee09e4050565262ed75973b3f72b18",
+  "plan_blob_oid": "1d4ee8b61fa3b56ffc07aedd0539e89845db7ca9",
+  "plan_sha256": "3e501418eb0adc09f4edd224bc3120d2a9761a9efb686a72df6b6d1051822b28",
+  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
   "ready_at": "2026-08-14T22:35:00-07:00",
-  "updated_at": "2026-08-14T22:35:00-07:00"
+  "updated_at": "2026-08-14T22:40:00-07:00"
 }
