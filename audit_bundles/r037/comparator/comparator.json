@@ -1,0 +1,111 @@
+{
+  "atol": 1e-10,
+  "compared_fields": 16787656,
+  "final_judgment": {
+    "G_EVIDENCE": "PASS",
+    "G_SET": "FAIL",
+    "all_16_overall_validity": true,
+    "all_16_supported_bucket_and_efficiency": false,
+    "candidate": "QSETOD_EVIDENCE_SCORE_ONLY",
+    "schema_version": 1,
+    "set_witnesses": 0,
+    "witness_datasets": 0,
+    "witness_detector_families": 0
+  },
+  "max_abs_diff": 0.0,
+  "objects": [
+    {
+      "columns": 17,
+      "object": "source_oof_predictions.parquet",
+      "rows": 279232,
+      "status": "PASS"
+    },
+    {
+      "columns": 24,
+      "object": "target_predictions_common_support.parquet",
+      "rows": 281001,
+      "status": "PASS"
+    },
+    {
+      "columns": 5,
+      "object": "bootstrap_replicates.parquet",
+      "rows": 160000,
+      "status": "PASS"
+    },
+    {
+      "columns": 31,
+      "object": "t2_evidence_increment.csv",
+      "rows": 8,
+      "status": "PASS"
+    },
+    {
+      "columns": 21,
+      "object": "t3_interval_validity.csv",
+      "rows": 16,
+      "status": "PASS"
+    },
+    {
+      "columns": 11,
+      "object": "t3_set_gain.csv",
+      "rows": 8,
+      "status": "PASS"
+    },
+    {
+      "columns": 8,
+      "object": "interval_predictions.parquet",
+      "rows": 562002,
+      "status": "PASS"
+    },
+    {
+      "columns": 736,
+      "object": "multiplicities/HOdata_ABC_to_D.npz",
+      "rows": 20000,
+      "status": "PASS"
+    },
+    {
+      "columns": 465,
+      "object": "multiplicities/HOdata_ABC_to_E.npz",
+      "rows": 20000,
+      "status": "PASS"
+    },
+    {
+      "columns": 462,
+      "object": "multiplicities/HOdata_ABC_to_F.npz",
+      "rows": 20000,
+      "status": "PASS"
+    },
+    {
+      "columns": 357,
+      "object": "multiplicities/HOdata_ABC_to_G.npz",
+      "rows": 20000,
+      "status": "PASS"
+    },
+    {
+      "columns": 359,
+      "object": "multiplicities/HOdata_ABC_to_H.npz",
+      "rows": 20000,
+      "status": "PASS"
+    },
+    {
+      "columns": 5446,
+      "object": "multiplicities/HOdet_A_to_B.npz",
+      "rows": 20000,
+      "status": "PASS"
+    },
+    {
+      "columns": 5516,
+      "object": "multiplicities/HOdet_A_to_C.npz",
+      "rows": 20000,
+      "status": "PASS"
+    },
+    {
+      "columns": 5368,
+      "object": "multiplicities/HOdet_BC_to_A.npz",
+      "rows": 20000,
+      "status": "PASS"
+    }
+  ],
+  "rtol": 0,
+  "schema_version": 1,
+  "status": "PASS"
+}

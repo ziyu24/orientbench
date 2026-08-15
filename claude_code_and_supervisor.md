@@ -2675,3 +2675,13 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/STARTED.json`。
 - 是否触发停止条件：否；r037 已合法激活，GPU 授权为 0，正式 CPU workers 登记为 90/112。
 - 下一步建议：连续执行 T1--T6；若 G_EVIDENCE 失败则按冻结 gated early stop 完成 validator、mutation、bundle 与报告，不进入 T3/T4。
+
+## 2026-08-15 02:37 PDT — r037 纠错性裁决完成（server-primary）
+
+- 指令来源：用户要求拉取并执行已激活的 `orientbench-c-r037-qsetod-corrective-adjudication-20260815`，执行中询问当前任务内容。
+- 执行动作：从锁定 r036 616,184 行生成 source-labeled / target-covariates / target-evaluation 三相视图；A/B 各自独立拟合 G/GC/GCT 三层 mean/q75 模型并执行八单元各 20,000 次 exact cluster bootstrap；通过 G_EVIDENCE 后执行 source-only interval transport、proper interval score 和 G_SET；随后完成独立 108-estimator refit/rebootstrap validator、8 项真实 mutation、严格资源遥测复放及便携 bundle。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/`；`top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/`；`audit_bundles/r037/`；最终服务器报告将写入 `dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/SERVER_EXECUTION_REPORT.md`。
+- 决策性结果：`G_EVIDENCE=PASS`，注册的 `GCT-GC` 增量有 4/8 witnesses（B/A/E/F），覆盖 2 datasets、2 detector families、2 cross-dataset units；`G_SET=FAIL`，16/16 overall lower-tail validity 通过，但 supported-bucket/efficiency 硬条件不全通过，set witness=0。最终候选为 `QSETOD_EVIDENCE_SCORE_ONLY`：仅保留 scalar evidence-quality，删除集合/覆盖主张，不授权训练、论文不升档。
+- 核验：A/B 16,787,656 fields 与全部 multiplicities/replicates 最大差 0；raw validator 独立复算 33,575,312 fields 最大差 0；8/8 mutations 全部非零拒绝；target-label rows in fit=0、clean endpoint access=0；exact `diptest` 不可用，按冻结规则记 `MULTIMODALITY_NOT_ADJUDICATED` 且删除 multi-arc claim，不使用近似替代。
+- 资源与停止条件：GPU/CUDA/神经训练/detector inference/download 均为 0；90/112 workers，1 秒资源遥测满足 30 秒 cadence，正式 fit/evaluate 峰值分别约 107.4/101.7 cores；未触发 execution failure 或 protocol drift。触发正常科学分支 `G_SET=FAIL`，执行仍为 full completion。
+- 下一步建议：监督端接受后按 strong JSTARS / Remote Sensing 当前路线收口；不得将 r037 写成 deployable set method、不得启动 Q-SetOD 训练或据此升档。

@@ -1,0 +1,7 @@
+{
+  "clean_endpoint_access_count": 0,
+  "inventory_not_authorization": true,
+  "phase_boundary": "fit processes may open source_labeled and target_covariates only; evaluation labels are opened only after prediction seals exist",
+  "schema_version": 1,
+  "target_label_rows_in_fit": 0
+}

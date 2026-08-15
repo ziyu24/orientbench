@@ -1,0 +1,7576 @@
+{
+  "argv": [
+    "conda",
+    "run",
+    "-n",
+    "pcp-obb",
+    "python",
+    "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+    "--phase",
+    "fit",
+    "--views",
+    "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+    "--output",
+    "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+    "--workers",
+    "90",
+    "--replicates",
+    "20000"
+  ],
+  "cwd": "/home/rspip/cqc/pro/study/orientbench_r032_clean",
+  "elapsed_seconds": 19.8096706867218,
+  "end_unix": 1786786240.8669536,
+  "exit_code": 0,
+  "meets_30_second_cadence": true,
+  "samples": [
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 0.0,
+      "aggregate_rss_bytes": 11202560,
+      "process_count": 1,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 11202560
+        }
+      ],
+      "timestamp": 1786786221.0758436
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 37.3,
+      "aggregate_rss_bytes": 130527232,
+      "process_count": 5,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 37.3,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3608576
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537233,
+          "rss_bytes": 1867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537234,
+          "rss_bytes": 2240512
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537235,
+          "rss_bytes": 44843008
+        }
+      ],
+      "timestamp": 1786786222.095032
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 0.0,
+      "aggregate_rss_bytes": 203579392,
+      "process_count": 3,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537239,
+          "rss_bytes": 121991168
+        }
+      ],
+      "timestamp": 1786786223.113887
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 100.1,
+      "aggregate_rss_bytes": 663310336,
+      "process_count": 3,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.1,
+          "pid": 3537239,
+          "rss_bytes": 581722112
+        }
+      ],
+      "timestamp": 1786786224.1329439
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 10743.399999999996,
+      "aggregate_rss_bytes": 86714781696,
+      "process_count": 92,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 96.1,
+          "pid": 3537239,
+          "rss_bytes": 1045344256
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 959582208
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 205.5,
+          "pid": 3537281,
+          "rss_bytes": 959795200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 191.9,
+          "pid": 3537282,
+          "rss_bytes": 959877120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 189.2,
+          "pid": 3537283,
+          "rss_bytes": 959823872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 187.4,
+          "pid": 3537284,
+          "rss_bytes": 959918080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 185.8,
+          "pid": 3537285,
+          "rss_bytes": 956928000
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 184.0,
+          "pid": 3537286,
+          "rss_bytes": 959938560
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 182.9,
+          "pid": 3537287,
+          "rss_bytes": 960069632
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 181.3,
+          "pid": 3537288,
+          "rss_bytes": 959864832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 179.6,
+          "pid": 3537289,
+          "rss_bytes": 960065536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 177.6,
+          "pid": 3537290,
+          "rss_bytes": 960057344
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 176.1,
+          "pid": 3537291,
+          "rss_bytes": 960008192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 174.2,
+          "pid": 3537292,
+          "rss_bytes": 959881216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 171.8,
+          "pid": 3537293,
+          "rss_bytes": 960012288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 170.1,
+          "pid": 3537294,
+          "rss_bytes": 960032768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 168.7,
+          "pid": 3537295,
+          "rss_bytes": 960086016
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 167.5,
+          "pid": 3537296,
+          "rss_bytes": 959868928
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 166.2,
+          "pid": 3537297,
+          "rss_bytes": 960024576
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 164.9,
+          "pid": 3537298,
+          "rss_bytes": 960032768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 163.4,
+          "pid": 3537299,
+          "rss_bytes": 960024576
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 162.6,
+          "pid": 3537300,
+          "rss_bytes": 960016384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 960159744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 160.4,
+          "pid": 3537302,
+          "rss_bytes": 959856640
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 960155648
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 959877120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 960167936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 152.1,
+          "pid": 3537306,
+          "rss_bytes": 960040960
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 960028672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 144.0,
+          "pid": 3537308,
+          "rss_bytes": 960028672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 140.3,
+          "pid": 3537309,
+          "rss_bytes": 960172032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537310,
+          "rss_bytes": 960045056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 134.3,
+          "pid": 3537311,
+          "rss_bytes": 960098304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 130.8,
+          "pid": 3537312,
+          "rss_bytes": 959942656
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 128.2,
+          "pid": 3537313,
+          "rss_bytes": 960045056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537314,
+          "rss_bytes": 959893504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 126.2,
+          "pid": 3537315,
+          "rss_bytes": 960036864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 125.0,
+          "pid": 3537316,
+          "rss_bytes": 959586304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 124.0,
+          "pid": 3537317,
+          "rss_bytes": 959717376
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 959594496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 243.4,
+          "pid": 3537319,
+          "rss_bytes": 959721472
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 120.6,
+          "pid": 3537320,
+          "rss_bytes": 959594496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 119.5,
+          "pid": 3537321,
+          "rss_bytes": 959721472
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 118.0,
+          "pid": 3537322,
+          "rss_bytes": 959692800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 116.9,
+          "pid": 3537323,
+          "rss_bytes": 959832064
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 115.9,
+          "pid": 3537324,
+          "rss_bytes": 959729664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 114.8,
+          "pid": 3537325,
+          "rss_bytes": 959864832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 113.9,
+          "pid": 3537326,
+          "rss_bytes": 959733760
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 112.9,
+          "pid": 3537327,
+          "rss_bytes": 959860736
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 959864832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 111.1,
+          "pid": 3537329,
+          "rss_bytes": 959602688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 109.9,
+          "pid": 3537330,
+          "rss_bytes": 959717376
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 109.0,
+          "pid": 3537331,
+          "rss_bytes": 959868928
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 108.0,
+          "pid": 3537332,
+          "rss_bytes": 959725568
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 959873024
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 106.4,
+          "pid": 3537334,
+          "rss_bytes": 959500288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 105.6,
+          "pid": 3537335,
+          "rss_bytes": 959881216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 105.1,
+          "pid": 3537336,
+          "rss_bytes": 959750144
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 104.8,
+          "pid": 3537337,
+          "rss_bytes": 959864832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 104.4,
+          "pid": 3537338,
+          "rss_bytes": 959754240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 104.0,
+          "pid": 3537339,
+          "rss_bytes": 959885312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 103.7,
+          "pid": 3537340,
+          "rss_bytes": 959819776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 103.4,
+          "pid": 3537341,
+          "rss_bytes": 959709184
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 103.1,
+          "pid": 3537342,
+          "rss_bytes": 957186048
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 102.7,
+          "pid": 3537343,
+          "rss_bytes": 959823872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 102.4,
+          "pid": 3537344,
+          "rss_bytes": 959664128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 102.0,
+          "pid": 3537345,
+          "rss_bytes": 959795200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.7,
+          "pid": 3537346,
+          "rss_bytes": 959647744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 202.8,
+          "pid": 3537347,
+          "rss_bytes": 959717376
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 201.6,
+          "pid": 3537348,
+          "rss_bytes": 957181952
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537349,
+          "rss_bytes": 959893504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537350,
+          "rss_bytes": 957198336
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537351,
+          "rss_bytes": 957198336
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537352,
+          "rss_bytes": 981401600
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537353,
+          "rss_bytes": 981413888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537354,
+          "rss_bytes": 982704128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.3,
+          "pid": 3537355,
+          "rss_bytes": 980402176
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.2,
+          "pid": 3537356,
+          "rss_bytes": 985305088
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.0,
+          "pid": 3537357,
+          "rss_bytes": 982487040
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.8,
+          "pid": 3537358,
+          "rss_bytes": 957571072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 197.4,
+          "pid": 3537359,
+          "rss_bytes": 957599744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 197.1,
+          "pid": 3537360,
+          "rss_bytes": 957349888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 196.5,
+          "pid": 3537361,
+          "rss_bytes": 957214720
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 196.2,
+          "pid": 3537362,
+          "rss_bytes": 979091456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 195.8,
+          "pid": 3537363,
+          "rss_bytes": 979369984
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 195.4,
+          "pid": 3537364,
+          "rss_bytes": 957603840
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 97.5,
+          "pid": 3537365,
+          "rss_bytes": 957583360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 97.3,
+          "pid": 3537366,
+          "rss_bytes": 957362176
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 97.0,
+          "pid": 3537367,
+          "rss_bytes": 957362176
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 96.7,
+          "pid": 3537368,
+          "rss_bytes": 978796544
+        }
+      ],
+      "timestamp": 1786786225.1934433
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 9044.500000000002,
+      "aggregate_rss_bytes": 87946493952,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537239,
+          "rss_bytes": 1045344256
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.8,
+          "pid": 3537280,
+          "rss_bytes": 961462272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537281,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537282,
+          "rss_bytes": 961613824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537283,
+          "rss_bytes": 961527808
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537284,
+          "rss_bytes": 961576960
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537285,
+          "rss_bytes": 961581056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537286,
+          "rss_bytes": 961626112
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537287,
+          "rss_bytes": 961605632
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.8,
+          "pid": 3537288,
+          "rss_bytes": 961617920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.8,
+          "pid": 3537289,
+          "rss_bytes": 961593344
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537290,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537291,
+          "rss_bytes": 961572864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537292,
+          "rss_bytes": 961634304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537293,
+          "rss_bytes": 961622016
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537294,
+          "rss_bytes": 961630208
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537295,
+          "rss_bytes": 961617920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537296,
+          "rss_bytes": 961622016
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.8,
+          "pid": 3537297,
+          "rss_bytes": 961585152
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537298,
+          "rss_bytes": 961617920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.8,
+          "pid": 3537299,
+          "rss_bytes": 961613824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537300,
+          "rss_bytes": 961609728
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537301,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537302,
+          "rss_bytes": 961585152
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537303,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537304,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537305,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.9,
+          "pid": 3537306,
+          "rss_bytes": 961646592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537307,
+          "rss_bytes": 961613824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.9,
+          "pid": 3537308,
+          "rss_bytes": 961630208
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.9,
+          "pid": 3537309,
+          "rss_bytes": 961597440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537310,
+          "rss_bytes": 961675264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537311,
+          "rss_bytes": 961613824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537312,
+          "rss_bytes": 961650688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537313,
+          "rss_bytes": 961626112
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537314,
+          "rss_bytes": 961622016
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537315,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537316,
+          "rss_bytes": 961617920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.0,
+          "pid": 3537317,
+          "rss_bytes": 963330048
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537318,
+          "rss_bytes": 961634304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537319,
+          "rss_bytes": 963334144
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537320,
+          "rss_bytes": 961630208
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537321,
+          "rss_bytes": 961585152
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537322,
+          "rss_bytes": 961593344
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537323,
+          "rss_bytes": 962617344
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537324,
+          "rss_bytes": 961638400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537325,
+          "rss_bytes": 963350528
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537326,
+          "rss_bytes": 961650688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537327,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.9,
+          "pid": 3537328,
+          "rss_bytes": 961646592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537329,
+          "rss_bytes": 962949120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537330,
+          "rss_bytes": 961634304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537331,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537332,
+          "rss_bytes": 961638400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537333,
+          "rss_bytes": 961589248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537334,
+          "rss_bytes": 961138688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537335,
+          "rss_bytes": 963346432
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537336,
+          "rss_bytes": 961650688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537337,
+          "rss_bytes": 961576960
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537338,
+          "rss_bytes": 961650688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537339,
+          "rss_bytes": 961601536
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537340,
+          "rss_bytes": 961445888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537341,
+          "rss_bytes": 963104768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537342,
+          "rss_bytes": 961417216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537343,
+          "rss_bytes": 961994752
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537344,
+          "rss_bytes": 961667072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537345,
+          "rss_bytes": 961613824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537346,
+          "rss_bytes": 961232896
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537347,
+          "rss_bytes": 963002368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.1,
+          "pid": 3537348,
+          "rss_bytes": 961556480
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537349,
+          "rss_bytes": 961617920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537350,
+          "rss_bytes": 961630208
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537351,
+          "rss_bytes": 961548288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537352,
+          "rss_bytes": 986243072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.0,
+          "pid": 3537353,
+          "rss_bytes": 987947008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.0,
+          "pid": 3537354,
+          "rss_bytes": 987340800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537355,
+          "rss_bytes": 989057024
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537356,
+          "rss_bytes": 990691328
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537357,
+          "rss_bytes": 992411648
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537358,
+          "rss_bytes": 961638400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537359,
+          "rss_bytes": 963350528
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537360,
+          "rss_bytes": 961679360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537361,
+          "rss_bytes": 963387392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537362,
+          "rss_bytes": 984440832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537363,
+          "rss_bytes": 984403968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537364,
+          "rss_bytes": 961638400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537365,
+          "rss_bytes": 963358720
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537366,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.1,
+          "pid": 3537367,
+          "rss_bytes": 963407872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537368,
+          "rss_bytes": 984887296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 151.4,
+          "pid": 3537369,
+          "rss_bytes": 984838144
+        }
+      ],
+      "timestamp": 1786786226.2532537
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 8992.400000000003,
+      "aggregate_rss_bytes": 88089866240,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 1.9,
+          "pid": 3537239,
+          "rss_bytes": 1047699456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.4,
+          "pid": 3537280,
+          "rss_bytes": 961617920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537281,
+          "rss_bytes": 963362816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537282,
+          "rss_bytes": 961753088
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537283,
+          "rss_bytes": 963338240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537284,
+          "rss_bytes": 961716224
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537285,
+          "rss_bytes": 963420160
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537286,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537287,
+          "rss_bytes": 961667072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537288,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.4,
+          "pid": 3537289,
+          "rss_bytes": 962334720
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537290,
+          "rss_bytes": 961822720
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537291,
+          "rss_bytes": 961654784
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537292,
+          "rss_bytes": 963035136
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.6,
+          "pid": 3537293,
+          "rss_bytes": 961679360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.6,
+          "pid": 3537294,
+          "rss_bytes": 985255936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537295,
+          "rss_bytes": 962056192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537296,
+          "rss_bytes": 963719168
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537297,
+          "rss_bytes": 961667072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537298,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537299,
+          "rss_bytes": 963526656
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.6,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.6,
+          "pid": 3537301,
+          "rss_bytes": 963448832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537303,
+          "rss_bytes": 961671168
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537304,
+          "rss_bytes": 985202688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537305,
+          "rss_bytes": 962641920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537306,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537307,
+          "rss_bytes": 963440640
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537308,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537309,
+          "rss_bytes": 961675264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537310,
+          "rss_bytes": 985395200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537311,
+          "rss_bytes": 963420160
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537312,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537313,
+          "rss_bytes": 963440640
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537314,
+          "rss_bytes": 985227264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537315,
+          "rss_bytes": 961675264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537316,
+          "rss_bytes": 961650688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537317,
+          "rss_bytes": 963346432
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537318,
+          "rss_bytes": 961675264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537319,
+          "rss_bytes": 963366912
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.6,
+          "pid": 3537320,
+          "rss_bytes": 961662976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537321,
+          "rss_bytes": 963358720
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537322,
+          "rss_bytes": 961650688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537323,
+          "rss_bytes": 963379200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537324,
+          "rss_bytes": 961662976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537325,
+          "rss_bytes": 963383296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537326,
+          "rss_bytes": 961679360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537327,
+          "rss_bytes": 963366912
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.6,
+          "pid": 3537328,
+          "rss_bytes": 961671168
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537329,
+          "rss_bytes": 962998272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537330,
+          "rss_bytes": 961654784
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537331,
+          "rss_bytes": 963379200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537332,
+          "rss_bytes": 961662976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537333,
+          "rss_bytes": 963366912
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.4,
+          "pid": 3537334,
+          "rss_bytes": 961187840
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537335,
+          "rss_bytes": 963416064
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537336,
+          "rss_bytes": 961695744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537337,
+          "rss_bytes": 963387392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537338,
+          "rss_bytes": 961679360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537339,
+          "rss_bytes": 963371008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537340,
+          "rss_bytes": 961482752
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537341,
+          "rss_bytes": 963166208
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.5,
+          "pid": 3537342,
+          "rss_bytes": 961486848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537343,
+          "rss_bytes": 963416064
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537344,
+          "rss_bytes": 961695744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537345,
+          "rss_bytes": 963391488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537346,
+          "rss_bytes": 961306624
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537347,
+          "rss_bytes": 963055616
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537348,
+          "rss_bytes": 961744896
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.6,
+          "pid": 3537349,
+          "rss_bytes": 963416064
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537350,
+          "rss_bytes": 961679360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537351,
+          "rss_bytes": 962994176
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537352,
+          "rss_bytes": 986267648
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537353,
+          "rss_bytes": 987971584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537354,
+          "rss_bytes": 987365376
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537355,
+          "rss_bytes": 989065216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537356,
+          "rss_bytes": 990711808
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537357,
+          "rss_bytes": 992423936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537358,
+          "rss_bytes": 961650688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537359,
+          "rss_bytes": 963371008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537360,
+          "rss_bytes": 961712128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537361,
+          "rss_bytes": 963411968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.6,
+          "pid": 3537362,
+          "rss_bytes": 984465408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537363,
+          "rss_bytes": 986173440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537364,
+          "rss_bytes": 961675264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537365,
+          "rss_bytes": 963403776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537366,
+          "rss_bytes": 961703936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537367,
+          "rss_bytes": 963428352
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537368,
+          "rss_bytes": 984907776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537369,
+          "rss_bytes": 986603520
+        }
+      ],
+      "timestamp": 1786786227.308473
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 8128.199999999995,
+      "aggregate_rss_bytes": 88165715968,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 4.7,
+          "pid": 3537239,
+          "rss_bytes": 1053573120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537280,
+          "rss_bytes": 961662976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537281,
+          "rss_bytes": 963465216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537282,
+          "rss_bytes": 961814528
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537283,
+          "rss_bytes": 963469312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537284,
+          "rss_bytes": 961785856
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537285,
+          "rss_bytes": 963428352
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537286,
+          "rss_bytes": 963190784
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 42.6,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537288,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 26.5,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537290,
+          "rss_bytes": 961822720
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 75.8,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537292,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 44.5,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537294,
+          "rss_bytes": 985255936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 18.9,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537296,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537297,
+          "rss_bytes": 985415680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537298,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537299,
+          "rss_bytes": 963608576
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.3,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 24.6,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 76.7,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537304,
+          "rss_bytes": 985202688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 53.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537306,
+          "rss_bytes": 961986560
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 46.4,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537308,
+          "rss_bytes": 963731456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 67.2,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537310,
+          "rss_bytes": 986374144
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 39.8,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537312,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 50.2,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537314,
+          "rss_bytes": 985923584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 79.5,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537316,
+          "rss_bytes": 961695744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537317,
+          "rss_bytes": 963399680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537318,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537319,
+          "rss_bytes": 963403776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.3,
+          "pid": 3537320,
+          "rss_bytes": 961703936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537321,
+          "rss_bytes": 963366912
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 97.5,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537323,
+          "rss_bytes": 963424256
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 97.5,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537325,
+          "rss_bytes": 963457024
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537326,
+          "rss_bytes": 961871872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537327,
+          "rss_bytes": 963444736
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 96.6,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537329,
+          "rss_bytes": 963047424
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537330,
+          "rss_bytes": 961781760
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537331,
+          "rss_bytes": 963444736
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537332,
+          "rss_bytes": 961785856
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537333,
+          "rss_bytes": 963448832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.4,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537335,
+          "rss_bytes": 963452928
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 75.7,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537337,
+          "rss_bytes": 963448832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537338,
+          "rss_bytes": 961810432
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537339,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 51.1,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537341,
+          "rss_bytes": 963198976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 71.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537343,
+          "rss_bytes": 963469312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 49.2,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537345,
+          "rss_bytes": 963481600
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 54.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.3,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537348,
+          "rss_bytes": 985419776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537349,
+          "rss_bytes": 963485696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 93.7,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.5,
+          "pid": 3537351,
+          "rss_bytes": 963428352
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537352,
+          "rss_bytes": 986316800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537353,
+          "rss_bytes": 988004352
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537354,
+          "rss_bytes": 987406336
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537355,
+          "rss_bytes": 989106176
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537356,
+          "rss_bytes": 990732288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537357,
+          "rss_bytes": 992440320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537358,
+          "rss_bytes": 961703936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537359,
+          "rss_bytes": 963411968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537360,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537361,
+          "rss_bytes": 963440640
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.3,
+          "pid": 3537362,
+          "rss_bytes": 984498176
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537363,
+          "rss_bytes": 986230784
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537364,
+          "rss_bytes": 961712128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537365,
+          "rss_bytes": 963457024
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537366,
+          "rss_bytes": 961736704
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537367,
+          "rss_bytes": 963485696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537368,
+          "rss_bytes": 984928256
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537369,
+          "rss_bytes": 986603520
+        }
+      ],
+      "timestamp": 1786786228.3642414
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 5367.499999999996,
+      "aggregate_rss_bytes": 88186769408,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 4.7,
+          "pid": 3537239,
+          "rss_bytes": 1066545152
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 20.9,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 61.6,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 27.5,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537283,
+          "rss_bytes": 963518464
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 76.8,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 93.9,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537286,
+          "rss_bytes": 963190784
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537292,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537294,
+          "rss_bytes": 985255936
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537296,
+          "rss_bytes": 963731456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537297,
+          "rss_bytes": 985415680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537298,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537299,
+          "rss_bytes": 963608576
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537304,
+          "rss_bytes": 985202688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537306,
+          "rss_bytes": 963739648
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537308,
+          "rss_bytes": 963739648
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537310,
+          "rss_bytes": 986374144
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537312,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537314,
+          "rss_bytes": 985923584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 62.6,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537317,
+          "rss_bytes": 963452928
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 30.3,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537319,
+          "rss_bytes": 963465216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 79.6,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537321,
+          "rss_bytes": 963457024
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 87.2,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 55.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 7.6,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537327,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 74.9,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 1.9,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 89.1,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 15.2,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537333,
+          "rss_bytes": 963547136
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 79.6,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 53.1,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 1.9,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537339,
+          "rss_bytes": 963481600
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 29.4,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 77.7,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 52.1,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537348,
+          "rss_bytes": 985419776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 93.8,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 81.5,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537352,
+          "rss_bytes": 986488832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537353,
+          "rss_bytes": 988024832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537354,
+          "rss_bytes": 987525120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.4,
+          "pid": 3537355,
+          "rss_bytes": 989147136
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537356,
+          "rss_bytes": 990748672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537357,
+          "rss_bytes": 992468992
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 68.2,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537359,
+          "rss_bytes": 963465216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 76.7,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537361,
+          "rss_bytes": 963497984
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537362,
+          "rss_bytes": 984543232
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537363,
+          "rss_bytes": 986275840
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 9.5,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537365,
+          "rss_bytes": 963493888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 55.9,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537367,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537368,
+          "rss_bytes": 984956928
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.4,
+          "pid": 3537369,
+          "rss_bytes": 986669056
+        }
+      ],
+      "timestamp": 1786786229.4204934
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 2971.7999999999997,
+      "aggregate_rss_bytes": 88202952704,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 3.8,
+          "pid": 3537239,
+          "rss_bytes": 1075421184
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 33.2,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 29.4,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 70.1,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537292,
+          "rss_bytes": 963747840
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537296,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 82.4,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.4,
+          "pid": 3537299,
+          "rss_bytes": 963608576
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 95.7,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 54.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 95.7,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537306,
+          "rss_bytes": 963768320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537308,
+          "rss_bytes": 963768320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.4,
+          "pid": 3537310,
+          "rss_bytes": 987160576
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 42.6,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 101.4,
+          "pid": 3537314,
+          "rss_bytes": 987136000
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 79.6,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 98.5,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537321,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 9.5,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 11.4,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 26.5,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537348,
+          "rss_bytes": 987176960
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537352,
+          "rss_bytes": 986488832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537353,
+          "rss_bytes": 988086272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537354,
+          "rss_bytes": 987525120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537355,
+          "rss_bytes": 989200384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.5,
+          "pid": 3537356,
+          "rss_bytes": 990953472
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537357,
+          "rss_bytes": 992518144
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 85.3,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 96.7,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 4.7,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 81.5,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 29.4,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 35.1,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 5.7,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.5,
+          "pid": 3537369,
+          "rss_bytes": 986726400
+        }
+      ],
+      "timestamp": 1786786230.4752584
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 1550.0000000000005,
+      "aggregate_rss_bytes": 88207310848,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 1.0,
+          "pid": 3537239,
+          "rss_bytes": 1079177216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.7,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 94.1,
+          "pid": 3537292,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 20.0,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 76.0,
+          "pid": 3537296,
+          "rss_bytes": 963760128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 17.1,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 97.9,
+          "pid": 3537299,
+          "rss_bytes": 963637248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537306,
+          "rss_bytes": 963788800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 87.5,
+          "pid": 3537308,
+          "rss_bytes": 963772416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537310,
+          "rss_bytes": 987189248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.8,
+          "pid": 3537314,
+          "rss_bytes": 987152384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 15.2,
+          "pid": 3537321,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537348,
+          "rss_bytes": 987209728
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537352,
+          "rss_bytes": 986488832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537353,
+          "rss_bytes": 988098560
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.8,
+          "pid": 3537354,
+          "rss_bytes": 987525120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537355,
+          "rss_bytes": 989356032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537356,
+          "rss_bytes": 990953472
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537357,
+          "rss_bytes": 992575488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 40.9,
+          "pid": 3537369,
+          "rss_bytes": 986882048
+        }
+      ],
+      "timestamp": 1786786231.5263438
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 742.8999999999999,
+      "aggregate_rss_bytes": 88209469440,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537239,
+          "rss_bytes": 1081327616
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 5.7,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537292,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537296,
+          "rss_bytes": 963760128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537299,
+          "rss_bytes": 963637248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 13.3,
+          "pid": 3537306,
+          "rss_bytes": 963788800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537308,
+          "rss_bytes": 963772416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 24.7,
+          "pid": 3537310,
+          "rss_bytes": 987189248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 42.8,
+          "pid": 3537314,
+          "rss_bytes": 987152384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537321,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 55.2,
+          "pid": 3537348,
+          "rss_bytes": 987217920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.8,
+          "pid": 3537352,
+          "rss_bytes": 986488832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537353,
+          "rss_bytes": 988098560
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537354,
+          "rss_bytes": 987525120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537355,
+          "rss_bytes": 989356032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.8,
+          "pid": 3537356,
+          "rss_bytes": 990953472
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.9,
+          "pid": 3537357,
+          "rss_bytes": 992575488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537369,
+          "rss_bytes": 986882048
+        }
+      ],
+      "timestamp": 1786786232.5775814
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 599.0,
+      "aggregate_rss_bytes": 88209604608,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537239,
+          "rss_bytes": 1081327616
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537292,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537296,
+          "rss_bytes": 963760128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537299,
+          "rss_bytes": 963637248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537306,
+          "rss_bytes": 963788800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537308,
+          "rss_bytes": 963772416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537310,
+          "rss_bytes": 987189248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537314,
+          "rss_bytes": 987152384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537321,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537348,
+          "rss_bytes": 987217920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.0,
+          "pid": 3537352,
+          "rss_bytes": 986488832
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537353,
+          "rss_bytes": 988233728
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537354,
+          "rss_bytes": 987525120
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537355,
+          "rss_bytes": 989356032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537356,
+          "rss_bytes": 990953472
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537357,
+          "rss_bytes": 992575488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537369,
+          "rss_bytes": 986882048
+        }
+      ],
+      "timestamp": 1786786233.627872
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 564.8,
+      "aggregate_rss_bytes": 88217661440,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 1.0,
+          "pid": 3537239,
+          "rss_bytes": 1089155072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537292,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537296,
+          "rss_bytes": 963760128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537299,
+          "rss_bytes": 963637248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537306,
+          "rss_bytes": 963788800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537308,
+          "rss_bytes": 963772416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537310,
+          "rss_bytes": 987189248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537314,
+          "rss_bytes": 987152384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537321,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537348,
+          "rss_bytes": 987217920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 63.8,
+          "pid": 3537352,
+          "rss_bytes": 986509312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537353,
+          "rss_bytes": 988233728
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537354,
+          "rss_bytes": 987594752
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537355,
+          "rss_bytes": 989356032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537356,
+          "rss_bytes": 990957568
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537357,
+          "rss_bytes": 992710656
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537369,
+          "rss_bytes": 986882048
+        }
+      ],
+      "timestamp": 1786786234.6776319
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 348.6,
+      "aggregate_rss_bytes": 88225243136,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 1.9,
+          "pid": 3537239,
+          "rss_bytes": 1096695808
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537292,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537296,
+          "rss_bytes": 963760128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537299,
+          "rss_bytes": 963637248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537306,
+          "rss_bytes": 963788800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537308,
+          "rss_bytes": 963772416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537310,
+          "rss_bytes": 987189248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537314,
+          "rss_bytes": 987152384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537321,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537348,
+          "rss_bytes": 987217920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537352,
+          "rss_bytes": 986509312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537353,
+          "rss_bytes": 988233728
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 18.1,
+          "pid": 3537354,
+          "rss_bytes": 987615232
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537355,
+          "rss_bytes": 989356032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 28.6,
+          "pid": 3537356,
+          "rss_bytes": 990978048
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537357,
+          "rss_bytes": 992710656
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537369,
+          "rss_bytes": 986882048
+        }
+      ],
+      "timestamp": 1786786235.7272
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 300.0,
+      "aggregate_rss_bytes": 88225243136,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537239,
+          "rss_bytes": 1096695808
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537292,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537296,
+          "rss_bytes": 963760128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537299,
+          "rss_bytes": 963637248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537306,
+          "rss_bytes": 963788800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537308,
+          "rss_bytes": 963772416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537310,
+          "rss_bytes": 987189248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537314,
+          "rss_bytes": 987152384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537321,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537348,
+          "rss_bytes": 987217920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537352,
+          "rss_bytes": 986509312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537353,
+          "rss_bytes": 988233728
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537354,
+          "rss_bytes": 987615232
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537355,
+          "rss_bytes": 989356032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537356,
+          "rss_bytes": 990978048
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.0,
+          "pid": 3537357,
+          "rss_bytes": 992710656
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537369,
+          "rss_bytes": 986882048
+        }
+      ],
+      "timestamp": 1786786236.7772963
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 237.10000000000002,
+      "aggregate_rss_bytes": 88232824832,
+      "process_count": 93,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 1.9,
+          "pid": 3537239,
+          "rss_bytes": 1104244736
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537280,
+          "rss_bytes": 961683456
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537281,
+          "rss_bytes": 963534848
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537282,
+          "rss_bytes": 961835008
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537283,
+          "rss_bytes": 963538944
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537284,
+          "rss_bytes": 961802240
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537285,
+          "rss_bytes": 963592192
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537286,
+          "rss_bytes": 963780608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537287,
+          "rss_bytes": 963588096
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537288,
+          "rss_bytes": 961851392
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537289,
+          "rss_bytes": 963571712
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537290,
+          "rss_bytes": 961826816
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537291,
+          "rss_bytes": 961843200
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537292,
+          "rss_bytes": 963756032
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537293,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537294,
+          "rss_bytes": 985272320
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537295,
+          "rss_bytes": 963596288
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537296,
+          "rss_bytes": 963760128
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537297,
+          "rss_bytes": 985423872
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537298,
+          "rss_bytes": 961855488
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537299,
+          "rss_bytes": 963637248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537300,
+          "rss_bytes": 961847296
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537301,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537302,
+          "rss_bytes": 961839104
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537303,
+          "rss_bytes": 961859584
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537304,
+          "rss_bytes": 985219072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537305,
+          "rss_bytes": 963616768
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537306,
+          "rss_bytes": 963788800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537307,
+          "rss_bytes": 963600384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537308,
+          "rss_bytes": 963772416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537309,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537310,
+          "rss_bytes": 987189248
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537311,
+          "rss_bytes": 963612672
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537312,
+          "rss_bytes": 961867776
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537313,
+          "rss_bytes": 963629056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537314,
+          "rss_bytes": 987152384
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537315,
+          "rss_bytes": 963620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537316,
+          "rss_bytes": 961929216
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537317,
+          "rss_bytes": 963661824
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537318,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537319,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537320,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537321,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537322,
+          "rss_bytes": 961900544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537323,
+          "rss_bytes": 963690496
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537324,
+          "rss_bytes": 961933312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537325,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537326,
+          "rss_bytes": 961949696
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537327,
+          "rss_bytes": 963686400
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537328,
+          "rss_bytes": 961957888
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537329,
+          "rss_bytes": 963313664
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537330,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537331,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537332,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537333,
+          "rss_bytes": 963710976
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537334,
+          "rss_bytes": 961454080
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537335,
+          "rss_bytes": 963715072
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537336,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537337,
+          "rss_bytes": 963706880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537338,
+          "rss_bytes": 961978368
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537339,
+          "rss_bytes": 963698688
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537340,
+          "rss_bytes": 961740800
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537341,
+          "rss_bytes": 963436544
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537342,
+          "rss_bytes": 961732608
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537343,
+          "rss_bytes": 963723264
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537344,
+          "rss_bytes": 961974272
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537345,
+          "rss_bytes": 963727360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537346,
+          "rss_bytes": 961515520
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537347,
+          "rss_bytes": 963297280
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537348,
+          "rss_bytes": 987217920
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537349,
+          "rss_bytes": 963743744
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537350,
+          "rss_bytes": 961953792
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537351,
+          "rss_bytes": 963682304
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537352,
+          "rss_bytes": 986509312
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 78.4,
+          "pid": 3537353,
+          "rss_bytes": 988250112
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537354,
+          "rss_bytes": 987615232
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 57.1,
+          "pid": 3537355,
+          "rss_bytes": 989372416
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537356,
+          "rss_bytes": 990978048
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 99.7,
+          "pid": 3537357,
+          "rss_bytes": 992710656
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537358,
+          "rss_bytes": 961896448
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537359,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537360,
+          "rss_bytes": 961937408
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537361,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537362,
+          "rss_bytes": 984698880
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537363,
+          "rss_bytes": 986451968
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537364,
+          "rss_bytes": 961863680
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537365,
+          "rss_bytes": 963645440
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537366,
+          "rss_bytes": 961941504
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537367,
+          "rss_bytes": 963694592
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537368,
+          "rss_bytes": 985133056
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537369,
+          "rss_bytes": 986882048
+        }
+      ],
+      "timestamp": 1786786237.8098097
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 67.5,
+      "aggregate_rss_bytes": 1243127808,
+      "process_count": 3,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 67.5,
+          "pid": 3537239,
+          "rss_bytes": 1161539584
+        }
+      ],
+      "timestamp": 1786786238.829214
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 100.1,
+      "aggregate_rss_bytes": 1304199168,
+      "process_count": 3,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537230,
+          "rss_bytes": 77967360
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 0.0,
+          "pid": 3537231,
+          "rss_bytes": 3620864
+        },
+        {
+          "affinity_count": 112,
+          "cpu_percent": 100.1,
+          "pid": 3537239,
+          "rss_bytes": 1222610944
+        }
+      ],
+      "timestamp": 1786786239.8477197
+    },
+    {
+      "affinity_union_count": 112,
+      "aggregate_cpu_percent": 6.9,
+      "aggregate_rss_bytes": 0,
+      "process_count": 1,
+      "processes": [
+        {
+          "affinity_count": 112,
+          "cpu_percent": 6.9,
+          "pid": 3537230,
+          "rss_bytes": 0
+        }
+      ],
+      "timestamp": 1786786240.866771
+    }
+  ],
+  "sampling_period_seconds": 1,
+  "schema_version": 1,
+  "start_unix": 1786786221.057283,
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

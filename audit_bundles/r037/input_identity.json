@@ -1,0 +1,17 @@
+{
+  "clean_endpoint_access_count": 0,
+  "inventory_not_authorization": true,
+  "r036_bundle_manifest": {
+    "bytes": 5668,
+    "git_blob_oid": "68da07a9c4c2864a4f4070d0213ba803cbf2a8fd",
+    "sha256": "f199aeece6fa4595e560520d08c96c9d4b016c3960d727c5c6249471e1d2891f"
+  },
+  "r036_rows": {
+    "bytes": 34796105,
+    "copied": false,
+    "git_blob_oid": "1b348e35dfbe0a699a7bc6cbe79e639fb25384f5",
+    "reference_path": "audit_bundles/r036/inputs/qsetod_rows.parquet",
+    "sha256": "bb4184089a0cb9e0584cdf9fe340fe76a5d831090f07a6bc0c73e4499ac8da51"
+  },
+  "schema_version": 1
+}

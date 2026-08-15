@@ -1,0 +1,177 @@
+{
+  "all_rejected": true,
+  "mutation_count": 8,
+  "mutations": [
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/registered_increment_GCT_minus_G",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/registered_increment_GCT_minus_G/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "registered_increment_GCT_minus_G",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 390, in raw_validate\n    if not ok: raise RuntimeError(f\"numeric/content mismatch {ref}:{name}:{col}\")\nRuntimeError: numeric/content mismatch outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/registered_increment_GCT_minus_G:t2_evidence_increment.csv:Delta_rho\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/detection_score_removed_from_GC",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/detection_score_removed_from_GC/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "detection_score_removed_from_GC",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 390, in raw_validate\n    if not ok: raise RuntimeError(f\"numeric/content mismatch {ref}:{name}:{col}\")\nRuntimeError: numeric/content mismatch outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/detection_score_removed_from_GC:target_predictions_common_support.parquet:GC_mean\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/fixed_observed_ranks",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/fixed_observed_ranks/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "fixed_observed_ranks",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 390, in raw_validate\n    if not ok: raise RuntimeError(f\"numeric/content mismatch {ref}:{name}:{col}\")\nRuntimeError: numeric/content mismatch outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/fixed_observed_ranks:bootstrap_replicates.parquet:Delta_rho\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/absolute_coverage_deviation",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/absolute_coverage_deviation/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "absolute_coverage_deviation",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 390, in raw_validate\n    if not ok: raise RuntimeError(f\"numeric/content mismatch {ref}:{name}:{col}\")\nRuntimeError: numeric/content mismatch outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/absolute_coverage_deviation:t3_interval_validity.csv:overall_validity_pass\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/class_by_ar_primary_bucket",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/class_by_ar_primary_bucket/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "class_by_ar_primary_bucket",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 390, in raw_validate\n    if not ok: raise RuntimeError(f\"numeric/content mismatch {ref}:{name}:{col}\")\nRuntimeError: numeric/content mismatch outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/class_by_ar_primary_bucket:t3_interval_validity.csv:supported_buckets\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/interval_score_penalty",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/interval_score_penalty/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "interval_score_penalty",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 390, in raw_validate\n    if not ok: raise RuntimeError(f\"numeric/content mismatch {ref}:{name}:{col}\")\nRuntimeError: numeric/content mismatch outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/interval_score_penalty:interval_predictions.parquet:IS_GCT\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/final_token",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/final_token/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "final_token",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 396, in raw_validate\n    if x!=y: raise RuntimeError(f\"judgment mismatch {name}\")\nRuntimeError: judgment mismatch judgment_final.json\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+        "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py",
+        "--phase",
+        "validate",
+        "--views",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/runtime_views",
+        "--output",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/validator_monitored_strict",
+        "--reference",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/target_label_fit_ledger",
+        "--validation-out",
+        "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/target_label_fit_ledger/should_not_pass.json"
+      ],
+      "exit_code": 1,
+      "mutation": "target_label_fit_ledger",
+      "rejected": true,
+      "stderr": "Traceback (most recent call last):\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 411, in <module>\n    if __name__==\"__main__\": main()\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 408, in main\n    else: raw_validate(args.views,args.output,args.reference,args.validation_out)\n  File \"/home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py\", line 379, in raw_validate\n    if ledger_semantics(ref/\"fit_ledger.jsonl\")!=raw_ledger: raise RuntimeError(f\"fit ledger semantic mismatch: {ref}\")\nRuntimeError: fit ledger semantic mismatch: outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/mutation_work/target_label_fit_ledger\n",
+      "stdout": ""
+    }
+  ],
+  "schema_version": 1,
+  "status": "PASS",
+  "validator": "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/validate_r037.py"
+}
