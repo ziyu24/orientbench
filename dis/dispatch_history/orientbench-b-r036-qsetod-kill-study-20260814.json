@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-b-r036-qsetod-kill-study-20260814.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r036-qsetod-kill-study-20260814",
+    "plan_id": "b-r036-qsetod-kill-study-20260814",
+    "initiator": "B",
+    "activated_by": "B",
+    "plan_path": "dis/plans/B/b-r036-qsetod-kill-study-20260814/sug.md",
+    "plan_commit_sha": "724f6b689dee09e4050565262ed75973b3f72b18",
+    "plan_blob_oid": "1d4ee8b61fa3b56ffc07aedd0539e89845db7ca9",
+    "plan_sha256": "3e501418eb0adc09f4edd224bc3120d2a9761a9efb686a72df6b6d1051822b28",
+    "active_plan_path": "dis/sug.md",
+    "active_sha256": "3e501418eb0adc09f4edd224bc3120d2a9761a9efb686a72df6b6d1051822b28",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-14：『目前期刊级别不够，必须提升上去……你批判继承后（严厉的），直接给出服务器执行方案。』（Q-SetOD 纸面杀伤实验，CPU-only 零训练）"
+    },
+    "server_report_path": "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/SERVER_EXECUTION_REPORT.md",
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
+      "wall_time": {"seconds_max": 43200},
+      "data": {
+        "allowed_dataset_ids": ["existing-frozen-orientbench-evidence-readonly"],
+        "read_bytes_max": 549755813888,
+        "write_bytes_max": 32212254720
+      },
+      "write": {
+        "allowed_paths": [
+          "outputs/persistent_artifacts/orientbench_qsetod_kill_study_r036_20260814/",
+          "top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/",
+          "audit_bundles/r036/",
+          "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 32212254720
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git"]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md",
+      "outputs/persistent_artifacts"
+    ],
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-14T22:40:00-07:00"
+  },
+  "started_ref": {
+    "path": "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/STARTED.json",
+    "commit_sha": "f4b5af91ffd78d621e8ee6abcf44f25deb419540",
+    "blob_oid": "a30650f33b634aaaf1cb468bd5c708fb098eff9a",
+    "sha256": "6d077b4f26a71a9cb5fa66ed172b28a2bd78a78c551c964b166eec7a3a8d59fd"
+  },
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "380e7f20a2baf272fd80d5cf7d2cb87ce76e85de",
+    "blob_oid": "6f30344b7338aee1680b834f4f028259ec2b4427",
+    "sha256": "b60dcae73985f365923cc70b9d194fe7e7ac46966f04148eb67d8ffb9ee60caa"
+  },
+  "terminal": {
+    "execution_state": "COMPLETED",
+    "completion_mode": "full_completion",
+    "scientific_state_at_close": "CONTESTED",
+    "closed_by": "C",
+    "closed_at": "2026-08-15T01:50:38-07:00",
+    "close_reason": "The r036 server execution and full-completion receipt are accepted, but C's committed scientific contest remains open. The user explicitly authorized the supervision side to close r036 and activate r037, so the execution slot is released for the frozen corrective adjudication without accepting either contested scientific interpretation.",
+    "closure_authorization_ref": "用户 2026-08-15：『请监督端立即关闭 r036、激活 r037 并推送。』",
+    "verdict_refs": [
+      "dis/reviews/C/orientbench-r036-postpull-contested-review-20260815.md"
+    ],
+    "contest_refs": [
+      "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
+    ],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/STARTED.json",
+      "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r036/comparator.json",
+      "audit_bundles/r036/execution/validation/validation.json",
+      "audit_bundles/r036/execution/mutations/mutation_results.json"
+    ]
+  }
+}

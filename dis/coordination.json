@@ -52,66 +52,17 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-b-r036-qsetod-kill-study-20260814",
-    "plan_id": "b-r036-qsetod-kill-study-20260814",
-    "initiator": "B",
-    "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r036-qsetod-kill-study-20260814/sug.md",
-    "plan_commit_sha": "724f6b689dee09e4050565262ed75973b3f72b18",
-    "plan_blob_oid": "1d4ee8b61fa3b56ffc07aedd0539e89845db7ca9",
-    "plan_sha256": "3e501418eb0adc09f4edd224bc3120d2a9761a9efb686a72df6b6d1051822b28",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "3e501418eb0adc09f4edd224bc3120d2a9761a9efb686a72df6b6d1051822b28",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-14：『目前期刊级别不够，必须提升上去……你批判继承后（严厉的），直接给出服务器执行方案。』（Q-SetOD 纸面杀伤实验，CPU-only 零训练）"
-    },
-    "server_report_path": "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
-      "wall_time": {"seconds_max": 43200},
-      "data": {
-        "allowed_dataset_ids": ["existing-frozen-orientbench-evidence-readonly"],
-        "read_bytes_max": 549755813888,
-        "write_bytes_max": 32212254720
-      },
-      "write": {
-        "allowed_paths": [
-          "outputs/persistent_artifacts/orientbench_qsetod_kill_study_r036_20260814/",
-          "top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/",
-          "audit_bundles/r036/",
-          "dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 32212254720
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "outputs/persistent_artifacts"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-14T22:40:00-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "history_path": "dis/dispatch_history/orientbench-b-r034-circularity-decisive-20260814.json",
-    "dispatch_id": "orientbench-b-r034-circularity-decisive-20260814",
-    "execution_state": "complete",
-    "scientific_state_at_close": "K1_K2_KILL_STRONG_JSTARS_JOINT_BC_FINAL",
-    "closed_by": "B",
-    "closed_at": "2026-08-14T22:05:00-07:00"
+    "history_path": "dis/dispatch_history/orientbench-b-r036-qsetod-kill-study-20260814.json",
+    "dispatch_id": "orientbench-b-r036-qsetod-kill-study-20260814",
+    "execution_state": "COMPLETED",
+    "scientific_state_at_close": "CONTESTED",
+    "closed_by": "C",
+    "closed_at": "2026-08-15T01:50:38-07:00"
   },
-  "open_contests": [],
-  "updated_at": "2026-08-14T22:05:00-07:00"
+  "open_contests": [
+    "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
+  ],
+  "updated_at": "2026-08-15T01:50:38-07:00"
 }
