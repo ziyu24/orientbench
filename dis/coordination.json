@@ -52,7 +52,80 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-c-r037-qsetod-corrective-adjudication-20260815",
+    "plan_id": "c-r037-qsetod-corrective-adjudication-20260815",
+    "initiator": "C",
+    "activated_by": "C",
+    "activation_authorization_ref": null,
+    "closure_authorization": {
+      "mode": "delegated",
+      "delegate": "B",
+      "reference": "C owner delegation frozen in this plan; user 2026-08-15:『给出给服务器执行的内容。』"
+    },
+    "scientific_snapshot": {
+      "primary": "380e7f20a2baf272fd80d5cf7d2cb87ce76e85de"
+    },
+    "plan_path": "dis/plans/C/c-r037-qsetod-corrective-adjudication-20260815/sug.md",
+    "plan_commit_sha": "5d6a4606f1771d94fe87528b634b4ad6a2c00bf9",
+    "plan_blob_oid": "5a1a5508b8182dd0353b8cc91398fce7b1282b52",
+    "plan_sha256": "65e67bee39ecceda6b8e5a66a73a330a9a9078b5bd94db13946fd70bde8786e1",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "5a1a5508b8182dd0353b8cc91398fce7b1282b52",
+    "active_sha256": "65e67bee39ecceda6b8e5a66a73a330a9a9078b5bd94db13946fd70bde8786e1",
+    "base_sha": "380e7f20a2baf272fd80d5cf7d2cb87ce76e85de",
+    "activation_base_sha": "57b8c84384a0940fe33cfeaf0851957af8c948f1",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-15：『给出给服务器执行的内容。』——承接 C 已明确说明的 r037 CPU-only 纠错实验；不含 GPU、神经网络训练、新数据或清白 endpoint 标签读取。"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {
+        "gpu_count_max": 0,
+        "gpu_hours_max": 0,
+        "cpu_core_hours_max": 112
+      },
+      "wall_time": {
+        "seconds_max": 43200
+      },
+      "data": {
+        "allowed_dataset_ids": [
+          "repository-tracked-evidence",
+          "existing-frozen-orientbench-r036-evidence-readonly"
+        ],
+        "read_bytes_max": 549755813888,
+        "write_bytes_max": 32212254720
+      },
+      "write": {
+        "allowed_paths": [
+          "outputs/persistent_artifacts/orientbench_qsetod_corrective_r037_20260815/",
+          "top_journal_v3_reaudit_055/qsetod_corrective_r037_20260815/",
+          "audit_bundles/r037/",
+          "dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 32212254720
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": [
+          "https://github.com/ziyu24/orientbench.git"
+        ]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md",
+      "outputs/persistent_artifacts"
+    ],
+    "server_report_path": "dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-15T01:52:37-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-b-r036-qsetod-kill-study-20260814.json",
     "dispatch_id": "orientbench-b-r036-qsetod-kill-study-20260814",
@@ -64,5 +137,5 @@
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-15T01:50:38-07:00"
+  "updated_at": "2026-08-15T01:52:37-07:00"
 }
