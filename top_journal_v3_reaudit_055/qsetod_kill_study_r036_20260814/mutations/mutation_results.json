@@ -1,0 +1,57 @@
+{
+  "all_rejected": true,
+  "mutations": [
+    {
+      "command": "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/validate_r036.py --project /home/rspip/cqc/pro/study/orientbench_r032_clean --protocol /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/mutations/cases/m01_kill_e_floor/protocol.json",
+      "exit_code": 1,
+      "mutation": "KILL-E Spearman floor 0.03->0",
+      "rejected": true,
+      "stderr": "VALIDATION_FAIL: protocol mutation KILL_E_spearman_floor",
+      "stdout": ""
+    },
+    {
+      "command": "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/validate_r036.py --project /home/rspip/cqc/pro/study/orientbench_r032_clean --protocol /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/mutations/cases/m02_common_support/protocol.json",
+      "exit_code": 1,
+      "mutation": "common-support definition tamper",
+      "rejected": true,
+      "stderr": "VALIDATION_FAIL: common-support mutation",
+      "stdout": ""
+    },
+    {
+      "command": "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/validate_r036.py --project /home/rspip/cqc/pro/study/orientbench_r032_clean --t4 /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/mutations/cases/m03_nominal_coverage/t4.csv",
+      "exit_code": 1,
+      "mutation": "coverage nominal value tamper",
+      "rejected": true,
+      "stderr": "VALIDATION_FAIL: T4 nominal mutation",
+      "stdout": ""
+    },
+    {
+      "command": "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/validate_r036.py --project /home/rspip/cqc/pro/study/orientbench_r032_clean --protocol /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/mutations/cases/m04_dip_threshold/protocol.json",
+      "exit_code": 1,
+      "mutation": "dip threshold 0.01->0",
+      "rejected": true,
+      "stderr": "VALIDATION_FAIL: protocol mutation dip_p_threshold",
+      "stdout": ""
+    },
+    {
+      "command": "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/validate_r036.py --project /home/rspip/cqc/pro/study/orientbench_r032_clean --judgment /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/mutations/cases/m05_judgment/judgment.json",
+      "exit_code": 1,
+      "mutation": "judgment token tamper",
+      "rejected": true,
+      "stderr": "VALIDATION_FAIL: judgment candidate_state",
+      "stdout": ""
+    },
+    {
+      "command": "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/validate_r036.py --project /home/rspip/cqc/pro/study/orientbench_r032_clean --fit-guard /home/rspip/cqc/pro/study/orientbench_r032_clean/top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/mutations/cases/m06_target_label_guard/fit_guard.csv",
+      "exit_code": 1,
+      "mutation": "target-label fit guard tamper",
+      "rejected": true,
+      "stderr": "VALIDATION_FAIL: target label fit guard",
+      "stdout": ""
+    }
+  ],
+  "pristine_exit_code": 0,
+  "real_subprocess_mutations": 6,
+  "schema": "r036_mutation_results_v1",
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+{
+  "candidate_count": 7,
+  "clean_present": [
+    "DOTA-v2.0 val annotations",
+    "SODA-A official test labels"
+  ],
+  "clean_present_count": 2,
+  "note": "Inventory only; clean status does not authorize use, training, or inference.",
+  "schema": "r036_endpoint_audit_v1",
+  "venue_cap_due_to_no_clean_endpoint": false
+}

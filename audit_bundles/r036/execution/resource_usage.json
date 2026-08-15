@@ -1,0 +1,16 @@
+{
+  "cpu_core_hours_cap": 112,
+  "detector_forward_inference_runs": 0,
+  "estimated_cpu_core_hours_upper_bound": 60,
+  "formal_bootstrap_workers": 96,
+  "gpu_count": 0,
+  "gpu_hours": 0,
+  "implementation_a_elapsed_seconds": 494.1114151477814,
+  "implementation_b_elapsed_seconds": 485.06014919281006,
+  "neural_training_runs": 0,
+  "replicates_per_implementation": 10000,
+  "schema": "r036_resource_usage_v1",
+  "visible_logical_cpu": 112,
+  "wall_time_cap_seconds": 43200,
+  "within_caps": true
+}

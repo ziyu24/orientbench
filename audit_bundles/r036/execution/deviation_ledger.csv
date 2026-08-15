@@ -1,0 +1,5 @@
+item,status,disclosure,impact
+dip_backend,IMPLEMENTATION_DEVIATION,"diptest package absent in frozen conda environment; disclosed deterministic approximation, no dependency download permitted",T3 uses a deterministic binned Hartigan-style approximation; A/B agree; KILL-E/KILL-C unaffected.
+semantic_class_intersection,IMPLEMENTATION_CLARIFICATION,Cross-dataset common support uses normalized semantic class names rather than incomparable numeric IDs.,Prevents false class overlap.
+bootstrap_spearman,IMPLEMENTATION_CLARIFICATION,Cluster multiplicities reweight observed-sample midranks; AUGRC and pinball are multiplicity-exact.,Frozen identically in A/B/raw validator.
+gpu_training_inference,COMPLIANT,GPU=0; neural training=0; detector forward/inference=0.,None.

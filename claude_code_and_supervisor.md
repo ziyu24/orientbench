@@ -2640,3 +2640,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 决策性结果：八单元 lineage 均为 `LINEAGE_GAP(unit)`、无 `LINEAGE_CONTRADICTION`；12 项 primary 无注册 witness。冻结判据得到 `K1=true`、`K2=true`、`SURVIVAL=false`，候选状态 `K1_K2_KILL_STRONG_JSTARS`。这是完整科学结果而非执行异常；最终 B/C post-pull verdict 仍由监督端裁决。
 - 是否触发停止条件：触发 r034 预注册的科学 kill 结果 K1/K2，因此不得继续扩展 selector 顶会线或自行改 threshold/split；未触发执行 failure、GPU/训练/推理、产物不可持久化或 lineage contradiction。
 - 下一步建议：B/C 从 `audit_bundles/r034/` 独立重放并登记最终 verdict；依项目规则将主线收缩为 TGRS/ISPRS benchmark + practical selector，除非监督端发现可审计反证。本服务器不得自行改写本轮候选裁决。
+
+## 2026-08-14 22:08 PDT — r036 Q-SetOD paper-kill study（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r036-qsetod-kill-study-20260814` 的 dispatch/path/commit，授权按冻结 CPU-only 计划执行 Q-SetOD 纸面杀伤实验。
+- 执行动作：main 纯 fast-forward 到 `ffab54d8babe7041f87131ef08723456b6011f25` 并先推送 STARTED；无损连接八单元 616,184 行冻结数据与 TTA/面积/原始 OBB；完成 endpoint 消费审计、三个 source 规格的 5-fold cluster cross-fitting、八个 held-out 配置、A/B 各 10,000 次 cluster bootstrap、536 strata 多峰审计和 source-only Mondrian 校准。
+- 关键产物：`outputs/persistent_artifacts/orientbench_qsetod_kill_study_r036_20260814/`；`top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/`；`audit_bundles/r036/`；最终报告 `dis/server_reports/orientbench-b-r036-qsetod-kill-study-20260814/SERVER_EXECUTION_REPORT.md`。
+- 核验：A/B comparator 244,794 字段、最大差 `1.01e-16`，multiplicity 完全一致；raw validator 从 rows/OOF/predictions/multiplicities 重导全部门控并 PASS；六项真实 subprocess mutation 全部拒绝；bundle 54 files、190,356,770 bytes，manifest 与 bundle 内 raw replay 均 PASS。
+- 决策性结果：证据增量 witness 为 5/8，故 `KILL-E=false`；多峰行数加权占比 14.476%，故 `PRUNE-M=false`；但 16 个 calibration rows 中 4 个因 held-out 覆盖偏离名义值超过 5 个百分点触发，故 `KILL-C=true`。候选状态为 `QSETOD_EVIDENCE_ONLY_KEEP_M`：证据信息存在，但 source-only 集合校准不可行，不进入集合式训练验证。
+- 偏差与边界：冻结环境无 `diptest` 包且网络不授权下载依赖，T3 使用披露的 deterministic binned Hartigan-style approximation；A/B 完全一致，且不影响 KILL-E/KILL-C。GPU=0、神经网络训练=0、detector forward/inference=0；target angle labels 仅用于评测，未进入拟合/阈值/选择；未触碰 r034 终局或 frozen threshold/split。
+- 是否触发停止条件：触发预注册科学 `KILL-C`，属于正常 full completion，不是 execution failure；硬性 kill 清单未触发。
+- 下一步建议：B/C post-pull 独立重放并登记最终 verdict；若接受，应将 Q-SetOD 降格为 evidence/质量分数候选，不授权 §4.2 集合式有限训练。服务器不得自行启动 GPU 或改写校准规则。

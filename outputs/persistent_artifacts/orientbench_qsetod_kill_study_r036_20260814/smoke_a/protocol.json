@@ -1,0 +1,35 @@
+{
+  "AUGRC_risk": "clip(angle_error/90,0,1)",
+  "KILL_E": "all held-out configurations have no evidence_witness",
+  "bootstrap_spearman": "cluster multiplicity reweighting of fixed observed-sample midranks",
+  "common_support": "source-defined AR and size quintiles x normalized semantic class; cells nonempty in source and target",
+  "cross_folds": 5,
+  "epsilon_AUGRC": "max(0.0005,0.02*max(abs(AUGRC_geom),abs(AUGRC_evidence)))",
+  "evidence_features_added": [
+    "u_axis",
+    "missing_fraction",
+    "iou_loss",
+    "detection_score"
+  ],
+  "evidence_witness": "all three increment CI lows >0 and not(spearman_gain<0.03 and AUGRC_gain<epsilon)",
+  "fold_unit": "dataset/mother-image cluster",
+  "geometry_features": [
+    "log_pred_ar",
+    "log_area",
+    "class_onehot"
+  ],
+  "models": {
+    "family": "HistGradientBoostingRegressor",
+    "learning_rate": 0.05,
+    "max_iter": 200,
+    "max_leaf_nodes": 15,
+    "mean_loss": "squared_error",
+    "quantile_loss": "pinball tau=0.75"
+  },
+  "mondrian": "class x source-defined predicted-AR quintile; source count <50 falls back to global",
+  "replicates": 20,
+  "schema": "r036_protocol_v1",
+  "seed": 20260814,
+  "target_label_fit_guard": "only source-unit frames passed to fit/calibration; target angle labels consumed after frozen predictions for evaluation",
+  "validator_output_forcing": false
+}

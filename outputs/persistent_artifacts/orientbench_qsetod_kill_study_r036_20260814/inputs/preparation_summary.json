@@ -1,0 +1,32 @@
+{
+  "clusters": {
+    "DIOR-R": 5697,
+    "DOTA-v1.0": 452,
+    "FAIR1M": 1876,
+    "SODA-A": 569
+  },
+  "datasets": {
+    "DIOR-R": 139616,
+    "DOTA-v1.0": 100625,
+    "FAIR1M": 26108,
+    "SODA-A": 349835
+  },
+  "rows": 616184,
+  "schema": "r036_prepared_input_v1",
+  "seed": 20260814,
+  "target_label_columns": [
+    "angle_error",
+    "signed_residual_deg"
+  ],
+  "target_label_fit_guard": "enforced in implementations by train_unit membership",
+  "units": {
+    "A": 43848,
+    "B": 47887,
+    "C": 47881,
+    "D": 26108,
+    "E": 157586,
+    "F": 192249,
+    "G": 48889,
+    "H": 51736
+  }
+}

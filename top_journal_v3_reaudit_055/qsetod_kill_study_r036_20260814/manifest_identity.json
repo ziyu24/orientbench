@@ -1,0 +1,20 @@
+{
+  "bundle_manifest": {
+    "bytes": 5668,
+    "path": "audit_bundles/r036/bundle_manifest.csv",
+    "sha256": "f199aeece6fa4595e560520d08c96c9d4b016c3960d727c5c6249471e1d2891f"
+  },
+  "execution_manifest": {
+    "bytes": 2798,
+    "entries": 29,
+    "path": "top_journal_v3_reaudit_055/qsetod_kill_study_r036_20260814/artifact_manifest.csv",
+    "sha256": "2e19205ca596f97704732b22f4fb432fca7860aeac4c75c2dd195f4e3afb1344"
+  },
+  "persistent_manifest": {
+    "bytes": 5209,
+    "entries": 48,
+    "path": "outputs/persistent_artifacts/orientbench_qsetod_kill_study_r036_20260814/artifact_manifest.csv",
+    "sha256": "9d0d421c14d8d93093e7ff7f9e61b7df18391a01a1e2b069574c6053c5d6d0c7"
+  },
+  "schema": "r036_manifest_identity_v1"
+}

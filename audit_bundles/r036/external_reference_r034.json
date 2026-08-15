@@ -1,0 +1,7 @@
+{
+  "can_recompute": true,
+  "r034_bundle_manifest_sha256": "d9b3cff75e2b9b534ac5ec0bac0b00d10ff4108a92f798af98f8907d4fb6cd39",
+  "r034_bundle_path": "audit_bundles/r034",
+  "relationship": "r036 prepared input is derived from r034 rows plus immutable frozen feature/matched-geometry assets; r034 bundle itself is not duplicated",
+  "schema": "r036_external_reference_v1"
+}

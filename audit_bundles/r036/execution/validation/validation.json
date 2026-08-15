@@ -1,0 +1,20 @@
+{
+  "T2_configurations": 8,
+  "T3_strata": 536,
+  "T4_rows": 16,
+  "bootstrap_replicates": 10000,
+  "bootstrap_spot_recomputations": 24,
+  "derived": {
+    "KILL_C": true,
+    "KILL_E": false,
+    "PRUNE_M": false,
+    "candidate_state": "QSETOD_EVIDENCE_ONLY",
+    "clean_endpoint_count": 2,
+    "evidence_witnesses": 5,
+    "multimodal_row_weighted_fraction": 0.14476033132960284
+  },
+  "rows": 616184,
+  "schema": "r036_raw_validation_v1",
+  "status": "PASS",
+  "validator_output_forcing": false
+}

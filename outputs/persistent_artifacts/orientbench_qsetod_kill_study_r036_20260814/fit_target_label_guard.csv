@@ -1,0 +1,9 @@
+config,fit_units,heldout_unit,target_angle_label_rows_in_fit,target_labels_used_for,cross_fitted_source,status
+HOdet_A_to_B,A,B,0,evaluation_only,True,PASS
+HOdet_A_to_C,A,C,0,evaluation_only,True,PASS
+HOdet_BC_to_A,BC,A,0,evaluation_only,True,PASS
+HOdata_ABC_to_D,ABC,D,0,evaluation_only,True,PASS
+HOdata_ABC_to_E,ABC,E,0,evaluation_only,True,PASS
+HOdata_ABC_to_F,ABC,F,0,evaluation_only,True,PASS
+HOdata_ABC_to_G,ABC,G,0,evaluation_only,True,PASS
+HOdata_ABC_to_H,ABC,H,0,evaluation_only,True,PASS

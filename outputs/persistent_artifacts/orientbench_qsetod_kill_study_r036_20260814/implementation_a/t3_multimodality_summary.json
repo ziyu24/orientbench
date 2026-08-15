@@ -1,0 +1,10 @@
+{
+  "PRUNE_M": false,
+  "dip_backend": "deterministic 128-bin maximum binned Hartigan-style dip projection; asymptotic uniform-null upper p=2exp(-2nD^2)",
+  "implementation_deviation": "diptest package absent in frozen conda environment; disclosed deterministic approximation, no dependency download permitted",
+  "multimodal_row_weighted_fraction": 0.14476033132960284,
+  "multimodal_strata": 39,
+  "rows": 616184,
+  "schema": "r036_multimodality_v1",
+  "strata": 536
+}
