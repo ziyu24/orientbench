@@ -2,10 +2,10 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: 380e7f20a2baf272fd80d5cf7d2cb87ce76e85de
+evidence_head: f086e8609d060dd94fdfa09248bca57e2ad8912a
 evidence_cutoff: 2026-08-15
-review_mode: r036_postpull_contest_and_r037_corrective_plan
-current_route: QSETOD_CORRECTIVE_ADJUDICATION_PENDING_SLOT
+review_mode: r037_postpull_protocol_drift
+current_route: QSETOD_SET_ROUTE_REJECTED
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
 r023_c_verdict: ACCEPT_INFERENCE_LAYER_INCONCLUSIVE_MIXED
@@ -15,13 +15,22 @@ r028_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
 r034_c_verdict: ACCEPT_K1_K2_KILL_STRONG_JSTARS_JOINT_FINAL
 r036_c_verdict: CONTESTED_BASELINE_AND_CALIBRATION_SEMANTICS
-joint_scientific_state: R036_EXECUTION_COMPLETE_SCIENCE_CONTESTED
+r037_c_verdict: REJECT_FULL_COMPLETION_PROTOCOL_DRIFT_CONDITIONAL_G_SET_FAIL
+joint_scientific_state: R037_REPORTED_C_PROTOCOL_DRIFT_PENDING_B
 current_venue_ceiling: TGRS_OR_JPRS_ONLY_IF_NEW_METHOD_SURVIVES
 current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
-next_required_action: B_CLOSE_R036_CONTESTED_THEN_ACTIVATE_DELEGATED_R037
+next_required_action: CLOSE_R037_INCOMPLETE_THEN_STOP_QSETOD_SET_ROUTE
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
+
+# OrientBench C：r037 post-pull 裁决
+
+r037 的计算与持久化已经跑完，但不能验收为 `full_completion`。A/B 代码只差 4 行实现标签，raw validator 与 A 的行序列相似度为 0.930769，并共享全部主要计算路径；三条链不是独立实现。C 因此把执行裁决定为 `INCOMPLETE / protocol_drift`，科学状态保持 PENDING。
+
+已提交表格的门控算术本身清楚：T2 为 4/8 witnesses，T3 为 0/8 set witnesses。条件性解释是 TTA 特征还有标量诊断信息，但 Q-SetOD 集合/覆盖路线失败，不能训练、不能升档。当前真实级别仍为 strong JSTARS / Remote Sensing；JPRS/TGRS 未 ready。详细证据见 `dis/reviews/C/orientbench-r037-postpull-protocol-drift-review-20260815.md`。
+
+下一步不是重跑 r037 或换 gate，而是关闭该槽并终止 Q-SetOD set-route。若继续冲 JPRS/TGRS，必须另立真正的新方法与清白 endpoint 计划。
 
 # OrientBench C：r036 争议与 r037 纠错性服务器计划
 
