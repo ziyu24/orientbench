@@ -2,10 +2,10 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: 14110ce48fcb17e5c937b9a9c480c882f2072d66
+evidence_head: d25fe1f58f3d2e647cf27a8767ded23133ae66d5
 evidence_cutoff: 2026-08-14
-review_mode: r032_evidence_check
-current_route: ISPRS_JPRS_MEASUREMENT_DIAGNOSTIC
+review_mode: r035_qsetod_open_attack_request
+current_route: NEW_METHOD_CANDIDATE_PENDING_B_ATTACK
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
 r023_c_verdict: ACCEPT_INFERENCE_LAYER_INCONCLUSIVE_MIXED
@@ -13,13 +13,22 @@ r026_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r027_c_verdict: REVISE_NOT_SUBMISSION_READY
 r028_c_verdict: AUDITED_EXTERNAL_REPLICATION_ACCEPTED
 r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
-joint_scientific_state: R032_ASSET_GAP_NO_SCIENTIFIC_UPLIFT
-current_venue_ceiling: JPRS_CONDITIONAL_NOT_READY
+r034_c_verdict: ACCEPT_K1_K2_KILL_STRONG_JSTARS_PENDING_B_CLOSURE
+joint_scientific_state: R034_K1_K2_KILL_STRONG_JSTARS_PENDING_B_CLOSURE
+current_venue_ceiling: TGRS_OR_JPRS_ONLY_IF_NEW_METHOD_SURVIVES
 current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
-next_required_action: RECOVER_IMMUTABLE_OBJECT_LINEAGE_THEN_RUN_DECISIVE_2X2_CIRCULARITY_CLASS_CONTROL
+next_required_action: B_CLOSE_R034_AND_OPEN_ATTACK_QSETOD
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
+
+# OrientBench C：r034 后的新方法候选与唯一下一步
+
+r034 已完整执行，并把旧 selector 路线判死：`K1=true`、`K2=true`、`SURVIVAL=false`，12 个冻结主假设没有一个 witness。C 接受该否定结果；当前可辩护级别仍是 strong JSTARS / Remote Sensing，不因审计包完整而升档。B 仍是 r034 owner，必须由 B 关闭 active dispatch。
+
+C 不再修改旧 gate、扩大旧矩阵或用 HRSC/DOTA 续命。唯一候选是新方法 **Q-SetOD**：在轴向商空间输出可校准的方向集合，显式分离几何固有歧义与图像证据不确定性，并用 source-only conformal calibration 给出覆盖保证。完整候选规格在 `dis/reviews/C/orientbench-c-r035-qsetod-method-proposal-20260814.md`；对 B 的请求在 `dis/review_requests/C/orientbench-c-r035-qsetod-method-open-attack-20260814.json`。
+
+这只是方法候选和 `open_attack` 请求，不是服务器合同。B 攻击完成、用户审阅修订后的书面规格并另行批准前，禁止激活服务器、禁止生成新的根 `dis/sug.md`、禁止训练或下载数据。
 
 # OrientBench C：一个月未升档的复盘与 r033 候选提升路线
 
