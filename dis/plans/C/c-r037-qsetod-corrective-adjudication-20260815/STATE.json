@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "plan_id": "c-r037-qsetod-corrective-adjudication-20260815",
+  "actor": "C",
+  "plan_path": "dis/plans/C/c-r037-qsetod-corrective-adjudication-20260815/sug.md",
+  "state": "READY",
+  "plan_commit_sha": "5d6a4606f1771d94fe87528b634b4ad6a2c00bf9",
+  "plan_blob_oid": "5a1a5508b8182dd0353b8cc91398fce7b1282b52",
+  "plan_sha256": "65e67bee39ecceda6b8e5a66a73a330a9a9078b5bd94db13946fd70bde8786e1",
+  "state_reason": "ready_user_authorized_corrective_adjudication_pending_r036_owner_closure_and_delegated_activation",
+  "ready_at": "2026-08-15T00:50:40-07:00",
+  "updated_at": "2026-08-15T00:50:40-07:00"
+}
