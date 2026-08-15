@@ -2667,3 +2667,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：无新科学产物；远端与本地 HEAD 均为 `7a05343d78cb3b54203ea6f8e20d9d9843d5fcd8`。
 - 是否触发停止条件：仍触发执行入口阻断。仓库 coordination 仍将 r036 标为唯一活动派发，`dis/sug.md` SHA-256 仍为 r036 的 `3e5014...`，与 r037 的 `65e67b...` 不同；这是派发状态冲突，不是权限不足。
 - 下一步建议：B/监督端必须先提交并推送 r036 closure 与 r037 activation。server-primary 不得冒充 B 修改其独占治理状态；激活一落库即立即执行。
+
+## 2026-08-15 02:02 PDT — r037 正式启动（server-primary）
+
+- 指令来源：用户在监督端完成激活后再次要求“拉取，执行。”
+- 执行动作：从 `origin/main` fast-forward 至激活提交 `1cc00e7b5ff6ce32efbea497ee23e6af32d2aec7`；核验 worker、clean worktree/index、coordination、活动镜像、计划 blob/SHA-256、只读 pth readme、四个冻结 Git blob 及五个 write roots 后，按计划在任何科学输入读取前创建唯一 STARTED。
+- 关键产物路径：`dis/server_reports/orientbench-c-r037-qsetod-corrective-adjudication-20260815/STARTED.json`。
+- 是否触发停止条件：否；r037 已合法激活，GPU 授权为 0，正式 CPU workers 登记为 90/112。
+- 下一步建议：连续执行 T1--T6；若 G_EVIDENCE 失败则按冻结 gated early stop 完成 validator、mutation、bundle 与报告，不进入 T3/T4。
