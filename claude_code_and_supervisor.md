@@ -2733,3 +2733,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/matched_rows_hrsc.parquet`（3,190 行、7 单元）；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/validation.json`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_020_psc_dota/views/identity.pkl`。
 - 是否触发停止条件：否。HRSC 的三视图和独立 validator/mutations 已完成；Tier 2 仅 PSC identity 已完成且为 `AP_MISALIGNED`（0.2566 vs 0.5562）。GPU 当前空闲，r040 尚未完成，Tier 2--4、完整 manifest/bundle/最终报告尚未执行。
 - 下一步建议：继续 r040 Tier 2，逐单元保留 AP 对齐状态；不将任何未对齐单元纳入正式可比资产。
+
+## 2026-08-16 11:31 CST — r040 状态复核（server-primary）
+
+- 指令来源：用户再次询问当前状态。
+- 执行动作：只读核验 Git、r040 view dump 数量和 GPU；未启动新计算。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/`（22 个 view dump）。
+- 是否触发停止条件：否；自上次复核没有新增 r040 产物，四张 GPU 均为空闲。
+- 下一步建议：继续执行 Tier 2--4、bundle 和最终报告，r040 才能关闭。
