@@ -2717,3 +2717,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/matched_rows_hrsc.parquet`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/provenance_hrsc.csv`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/validation.json`。
 - 是否触发停止条件：否。ICDAR-MLT 2019 两个 Tier 1 配置所需数据根缺失，按计划记录为资产缺失跳过；没有下载、替代数据或读取禁触端点。ARS-DETR 匹配行数异常低，保留并列入 AP 对齐披露，未作科学结论。
 - 下一步建议：完成 Tier 1 summary/manifest/bundle 与提交，然后继续 Tier 2 的 DOTA-v1.0 未覆盖架构单元。
+
+## 2026-08-15 21:29 PDT — r040 Tier 2 PSC DOTA identity 核验（server-primary）
+
+- 指令来源：r040 连续执行。
+- 执行动作：对 `rotated_retinanet_psc_r50_fpn_1x_le90` 建立 r040-local、只去除 DOTA 标注元数据行的 val annotation overlay（图像只读符号链接），完成 identity 前向；没有修改源数据或访问 test/DOTA-v2。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/input_views/dota10_val/`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_020_psc_dota/views/identity.pkl`。
+- 是否触发停止条件：否。实测 `dota/mAP=0.2566`，而 readme 记录为 `0.5562`；配置原始根为历史切片目录、当前是官方原图 val 布局，故登记 `AP_MISALIGNED` 并保留产物，不将其作为正式可比资产。
+- 下一步建议：按计划继续剩余 Tier 2 单元；每个单元独立记录 AP 对齐状态，任何同类偏差只跳过该单元，不扩展为科学结论。
