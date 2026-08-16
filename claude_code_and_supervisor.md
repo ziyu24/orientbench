@@ -2709,3 +2709,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：无。
 - 是否触发停止条件：否；该工具层历史条目没有可由服务器删除的仓库对象，r040 不受影响。
 - 下一步建议：忽略该历史 UI 标记；继续以 r040 的 `STARTED` 和最终服务器报告作为唯一执行状态依据。
+
+## 2026-08-15 21:16 PDT — r040 继续执行：HRSC 标准化与审计（server-primary）
+
+- 指令来源：用户要求“继续推进项目。执行 r40”，并更新了客户端中立入口规则。
+- 执行动作：重新核验 `server-primary` → SERVER 映射、活动 r040 派发及资源/write_set；将七个 HRSC2016 val 三视图真实预测标准化为 3,190 条 schema-2 matched TP 行，并生成逐单元 checkpoint/config/log SHA-256 provenance。独立 validator 通过；篡改 IoU、制造重复键、删除 checkpoint SHA 三项真实 mutation 均被非零拒绝。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/matched_rows_hrsc.parquet`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/provenance_hrsc.csv`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/validation.json`。
+- 是否触发停止条件：否。ICDAR-MLT 2019 两个 Tier 1 配置所需数据根缺失，按计划记录为资产缺失跳过；没有下载、替代数据或读取禁触端点。ARS-DETR 匹配行数异常低，保留并列入 AP 对齐披露，未作科学结论。
+- 下一步建议：完成 Tier 1 summary/manifest/bundle 与提交，然后继续 Tier 2 的 DOTA-v1.0 未覆盖架构单元。
