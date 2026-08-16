@@ -2701,3 +2701,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/input_views/hrsc2016_val/`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/`。
 - 是否触发停止条件：否。ICDAR-MLT 2019 的配置指定根 `/home/rspip/cqc/data/dataset/icdar_mlt_2019/` 在本机不存在；按计划应登记为该两单元的资产缺失并跳过，不下载、不替代。HRSC 已只读取 val split，未读取任何禁触端点。
 - 下一步建议：将七个 HRSC 单元原始预测标准化为 matched-row schema，完成 provenance/AP 对齐、A--H 语义比对、独立 validator/mutation 和 Tier 1 提交；随后按 Tier 2 继续。
+
+## 2026-08-15 21:09 PDT — 目标计时提示核验（server-primary）
+
+- 指令来源：用户要求去掉界面中的 “Goal achieved (23m)” 提示。
+- 执行动作：核验该提示对应本会话工具层的历史目标；它是已完成的 `orientbench-c-r031-circularity-asset-preflight-20260813` 计时记录（1,387 秒），不是仓库内容、r040 状态或任何实验产物。
+- 关键产物路径：无。
+- 是否触发停止条件：否；该工具层历史条目没有可由服务器删除的仓库对象，r040 不受影响。
+- 下一步建议：忽略该历史 UI 标记；继续以 r040 的 `STARTED` 和最终服务器报告作为唯一执行状态依据。
