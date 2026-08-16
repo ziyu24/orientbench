@@ -2685,3 +2685,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 核验：A/B 16,787,656 fields 与全部 multiplicities/replicates 最大差 0；raw validator 独立复算 33,575,312 fields 最大差 0；8/8 mutations 全部非零拒绝；target-label rows in fit=0、clean endpoint access=0；exact `diptest` 不可用，按冻结规则记 `MULTIMODALITY_NOT_ADJUDICATED` 且删除 multi-arc claim，不使用近似替代。
 - 资源与停止条件：GPU/CUDA/神经训练/detector inference/download 均为 0；90/112 workers，1 秒资源遥测满足 30 秒 cadence，正式 fit/evaluate 峰值分别约 107.4/101.7 cores；未触发 execution failure 或 protocol drift。触发正常科学分支 `G_SET=FAIL`，执行仍为 full completion。
 - 下一步建议：监督端接受后按 strong JSTARS / Remote Sensing 当前路线收口；不得将 r037 写成 deployable set method、不得启动 Q-SetOD 训练或据此升档。
+
+## 2026-08-15 20:44 PDT — r040 panorama inference 启动（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r040-panorama-inference-20260815` 的 dispatch/path/commit，要求严格执行。
+- 执行动作：从 `origin/main` fast-forward 至 `ede2eb34c0e95efa55a98e6eb1cf151829317899`；核验本地身份、活动派发、根镜像、计划 blob/SHA-256、只读 pth_data readme 与五个受限写入根，随后在读取任何实验输入前创建唯一 STARTED。
+- 关键产物路径：`dis/server_reports/orientbench-b-r040-panorama-inference-20260815/STARTED.json`。
+- 是否触发停止条件：否；计划限定至多 2 卡，直接 GPU 授权有效。正式推理将使用两卡，并按 tier 推进；单一单元异常只登记和跳过，只有计划硬性 kill 才停止。
+- 下一步建议：盘点既有 valid 单元与推理入口，完成 Tier 1 的烟雾核验后依次运行 HRSC2016 和 ICDAR-MLT 全部 valid 单元。

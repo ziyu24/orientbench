@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "dispatch_id": "orientbench-b-r040-panorama-inference-20260815",
+  "plan_id": "b-r040-panorama-inference-20260815",
+  "plan_path": "dis/plans/B/b-r040-panorama-inference-20260815/sug.md",
+  "dispatch_commit_sha": "ede2eb34c0e95efa55a98e6eb1cf151829317899",
+  "plan_commit_sha": "3d9452c352718767816d392730402d7bbed41d82",
+  "plan_blob_oid": "71993eb2b1e23fa5859b2940f908e9a51056e958",
+  "plan_sha256": "251453067d08cc34d081a612760e8afd383ffa12978395e7204f8d66afbf9799",
+  "active_plan_path": "dis/sug.md",
+  "active_plan_sha256": "251453067d08cc34d081a612760e8afd383ffa12978395e7204f8d66afbf9799",
+  "worker_id": "server-primary",
+  "branch": "main",
+  "origin": "https://github.com/ziyu24/orientbench",
+  "pre_pull_commit": "4365f6724888c93a58983f41767e46625aa31a66",
+  "starting_commit": "ede2eb34c0e95efa55a98e6eb1cf151829317899",
+  "clean_before_start": true,
+  "pth_readme": "/home/rspip/cqc/pro/study/pth_data/readme.md",
+  "pth_readme_sha256": "eb9ac9a172b49cc8063b91c2332f36829d0b3cf5f3a3667f2617d64258d10c9c",
+  "resource_plan": {"gpu_count_max": 2, "gpu_hours_max": 60, "cpu_core_hours_max": 224, "logical_cpu_count": 112},
+  "started_at": "2026-08-15T20:44:40-07:00"
+}
