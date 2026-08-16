@@ -761,4 +761,20 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 
 **档位终局（B/C 一致，不再辩论）**：`STRONG_JSTARS_OR_REMOTE_SENSING`，可中。JPRS/TGRS 的差距不是写作或审计，是**没有一个存活的方法级贡献**——旧 selector 死于 r034（定义性后果），Q-SetOD 集合路线死于 r036/r037（覆盖迁移失败）。继续冲顶刊的唯一诚实路径是全新方法构建 + 清白 endpoint 验证（GPU、周级、成败未知），属用户投资决策，不属当前证据。
 
+## 20. 重大资源发现与路线重构 2026-08-15：67 个已训练基线改变可行性边界
+
+用户指出上级 `CLAUDE.md`（`C:\claude\project\CLAUDE.md`）记载服务器 `~/cqc/pro/study/pth_data` 存有既往训练权重与配置，"能利用尽量利用，必须对齐基本配置"。B 解析仓库内既有 `outputs/bench_core/baseline_inventory.csv`（73 条，**67 条 valid，pth/config 全部在盘**）确认：
+
+**可用 (dataset × architecture) 独立单元 49 个**，跨 **11 种架构**：`oriented_rcnn`(midpoint-offset 两阶段)、`oriented_rcnn_lsknet`、`strip_rcnn`、`rotated_rtmdet`(一阶段)、`rotated_retinanet_psc`(**PSC 角编码**)、`rotated_retinanet`(le90 回归)、`rotated_fcos_le90`、`arsdetr`(**DETR-like**)、`h2rbox_v2`(**弱监督 HBB→OBB**)、`point2rbox_v2`(**点监督**)、`faa_oriented_rcnn`；跨 **7 个域**：DIOR-R(7)、DOTA-v1.0(13)、DOTA-v1.5(6+4)、FAIR1M(4)、**HRSC2016(7，长条船——外部审稿人点名的试金石)**、SODA-A(4)、**ICDAR-MLT / MLT2019(4，场景文字＝非遥感 OBB)**。
+
+**这直接击中此前被判"需要新算力、成败未知"的三处瓶颈**：(1) 外部审稿人的顶刊路线一（8-10 检测器 × 多角度表征 × 4-5 数据集全景）**不需要训练，只需推理**；(2) 机制归因（一阶段/两阶段/DETR/弱监督/角编码器）在 N≈49 单元上可检验，而非旧的 N=8；(3) TPAMI/IJCV 门槛点名的"跨遥感之外 OBB"——**场景文字基线已在盘**。
+
+**路线重构（用户 2026-08-15 授权 GPU 直接执行，不再逐轮请示）**：
+1. **r040 全景推理资产轮（新，最高优先）**：用既有权重做纯推理（identity + h-flip + v-flip 三视图一次到位），同时产出 ①测量学全景（AR 资格域敏感性是否为跨架构/跨角度表征/跨域的普遍律）②OER 所需等变证据特征 ③机制底料 ④每基线 provenance 表（AGENTS §4.1 全字段 + checkpoint sha256 + 与 readme 记录 mAP 的对齐核验——同时解决外部审稿人 P2"单元匿名不可接受"）。**无论 OER 生死都有价值，故排在 OER 门之前。**
+2. **OER 门（r039 修订版）**：在扩展单元池上执行，功效远高于原 8 单元版；**r039 原件降级为待superseded**（不作废，作为 pilot 规格保留）。
+3. **OER-D 蒸馏头**（训练，GPU）→ **密封确认**（DOTA-v2.0 val / SODA-A official test，全程禁触至该轮）。
+4. **成稿轮后置**：`r038` 服务器**尚未启动**（无 STARTED），B 主动撤回并让位给 r040——理由：先做全景再定稿，避免按旧档位写完再全面重写；成稿骨架/claim-check/图件规格在 r038 计划中保留复用。
+
+**档位说明（不预支）**：本节不改变当前可辩护档位 `STRONG_JSTARS_OR_REMOTE_SENSING`。全景资产使更高档位**可尝试**，不等于已达到；一切以 r040 及后续轮的实际结果为准。
+
 **追记 2026-08-14（B 自我记账）**：B 上一轮给用户的服务器清理命令把 `corrective_audit_r028_20260813/r026_raw_revalidation/` **整目录**搬入 legacy 区——但 r031 报告列出的未跟踪项只是该目录下的 `error.json` 一个文件，结果 3 个 r028 受保护 tracked 文件被顺带移出工作树（服务器 2026-08-14 监督记录发现并如实上报，未擅自恢复，处置正确）。责任在 B 的命令粒度。修复（用户或 C 在服务器原工作树执行即可，字节自 HEAD 恢复）：`git checkout -- top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r026_raw_revalidation/`。服务器已另建干净 worktree（`orientbench_r032_clean`）供后续轮次，主链不受阻。当前等待：C 关闭 r031（owner-only）并签发新预检 dispatch。
