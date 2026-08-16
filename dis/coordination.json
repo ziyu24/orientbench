@@ -52,7 +52,56 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r038-final-manuscript-20260815",
+    "plan_id": "b-r038-final-manuscript-20260815",
+    "initiator": "B",
+    "activated_by": "B",
+    "plan_path": "dis/plans/B/b-r038-final-manuscript-20260815/sug.md",
+    "plan_commit_sha": "ab6c8f515ac8ced46404822d6d4334483e31fb5f",
+    "plan_blob_oid": "db21d2ee24bcd62f499a45a56b18c0d7e9f54525",
+    "plan_sha256": "585c009da8c298665040eb0b2db7131a7e0ea6f86091c11090ed4bf7823c3b41",
+    "active_plan_path": "dis/sug.md",
+    "active_sha256": "585c009da8c298665040eb0b2db7131a7e0ea6f86091c11090ed4bf7823c3b41",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-15：『水平可以降低，不要死扛面子。同时给出服务器下一步计划。』（最终成稿包，STRONG_JSTARS/Remote Sensing 档位）"
+    },
+    "server_report_path": "dis/server_reports/orientbench-b-r038-final-manuscript-20260815/SERVER_EXECUTION_REPORT.md",
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 24},
+      "wall_time": {"seconds_max": 43200},
+      "data": {
+        "allowed_dataset_ids": ["repository-tracked-evidence", "existing-frozen-orientbench-evidence-readonly"],
+        "read_bytes_max": 549755813888,
+        "write_bytes_max": 5368709120
+      },
+      "write": {
+        "allowed_paths": [
+          "top_journal_v3_reaudit_055/paper_A_orientation_protocol/manuscript_r038/",
+          "outputs/persistent_artifacts/orientbench_final_manuscript_r038_20260815/",
+          "dis/server_reports/orientbench-b-r038-final-manuscript-20260815/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 5368709120
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": [
+          "https://github.com/ziyu24/orientbench.git"
+        ]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md"
+    ],
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-15T09:25:00-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-c-r037-qsetod-corrective-adjudication-20260815.json",
     "dispatch_id": "orientbench-c-r037-qsetod-corrective-adjudication-20260815",

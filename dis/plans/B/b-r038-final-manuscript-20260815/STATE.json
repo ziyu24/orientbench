@@ -3,11 +3,11 @@
   "plan_id": "b-r038-final-manuscript-20260815",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r038-final-manuscript-20260815/sug.md",
-  "state": "READY",
-  "plan_commit_sha": null,
-  "plan_blob_oid": null,
-  "plan_sha256": null,
-  "state_reason": "final_manuscript_at_honest_strong_jstars_level_project_scientific_closeout",
+  "state": "DISPATCHED",
+  "plan_commit_sha": "ab6c8f515ac8ced46404822d6d4334483e31fb5f",
+  "plan_blob_oid": "db21d2ee24bcd62f499a45a56b18c0d7e9f54525",
+  "plan_sha256": "585c009da8c298665040eb0b2db7131a7e0ea6f86091c11090ed4bf7823c3b41",
+  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
   "ready_at": "2026-08-15T09:20:00-07:00",
-  "updated_at": "2026-08-15T09:20:00-07:00"
+  "updated_at": "2026-08-15T09:25:00-07:00"
 }
