@@ -3,11 +3,11 @@
   "plan_id": "b-r040-panorama-inference-20260815",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r040-panorama-inference-20260815/sug.md",
-  "state": "READY",
-  "plan_commit_sha": null,
-  "plan_blob_oid": null,
-  "plan_sha256": null,
-  "state_reason": "panorama_inference_asset_round_using_existing_pth_data_weights_gpu_authorized",
+  "state": "DISPATCHED",
+  "plan_commit_sha": "3d9452c352718767816d392730402d7bbed41d82",
+  "plan_blob_oid": "71993eb2b1e23fa5859b2940f908e9a51056e958",
+  "plan_sha256": "251453067d08cc34d081a612760e8afd383ffa12978395e7204f8d66afbf9799",
+  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
   "ready_at": "2026-08-15T21:20:00-07:00",
-  "updated_at": "2026-08-15T21:20:00-07:00"
+  "updated_at": "2026-08-15T21:30:00-07:00"
 }

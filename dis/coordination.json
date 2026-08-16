@@ -29,18 +29,35 @@
     "L0": {
       "configured": true,
       "definition": "static_audit_recomputation_or_tests_no_training_no_gpu_no_data_split_metric_or_core_claim_change",
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 112},
-      "wall_time": {"seconds_max": 14400},
+      "compute": {
+        "gpu_count_max": 0,
+        "gpu_hours_max": 0,
+        "cpu_core_hours_max": 112
+      },
+      "wall_time": {
+        "seconds_max": 14400
+      },
       "data": {
-        "allowed_dataset_ids": ["repository-tracked-evidence", "existing-frozen-orientbench-evidence-readonly"],
+        "allowed_dataset_ids": [
+          "repository-tracked-evidence",
+          "existing-frozen-orientbench-evidence-readonly"
+        ],
         "read_bytes_max": 549755813888,
         "write_bytes_max": 5368709120
       },
       "write": {
-        "allowed_paths": ["dis/", "docs/audits/", "reports/", "tests/"],
+        "allowed_paths": [
+          "dis/",
+          "docs/audits/",
+          "reports/",
+          "tests/"
+        ],
         "bytes_max": 5368709120
       },
-      "network": {"allowed": false, "allowed_endpoints": []}
+      "network": {
+        "allowed": false,
+        "allowed_endpoints": []
+      }
     },
     "L1": {
       "configured": false,
@@ -53,40 +70,56 @@
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
   "active_dispatch": {
-    "dispatch_id": "orientbench-b-r038-final-manuscript-20260815",
-    "plan_id": "b-r038-final-manuscript-20260815",
+    "dispatch_id": "orientbench-b-r040-panorama-inference-20260815",
+    "plan_id": "b-r040-panorama-inference-20260815",
     "initiator": "B",
     "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r038-final-manuscript-20260815/sug.md",
-    "plan_commit_sha": "ab6c8f515ac8ced46404822d6d4334483e31fb5f",
-    "plan_blob_oid": "db21d2ee24bcd62f499a45a56b18c0d7e9f54525",
-    "plan_sha256": "585c009da8c298665040eb0b2db7131a7e0ea6f86091c11090ed4bf7823c3b41",
+    "plan_path": "dis/plans/B/b-r040-panorama-inference-20260815/sug.md",
+    "plan_commit_sha": "3d9452c352718767816d392730402d7bbed41d82",
+    "plan_blob_oid": "71993eb2b1e23fa5859b2940f908e9a51056e958",
+    "plan_sha256": "251453067d08cc34d081a612760e8afd383ffa12978395e7204f8d66afbf9799",
     "active_plan_path": "dis/sug.md",
-    "active_sha256": "585c009da8c298665040eb0b2db7131a7e0ea6f86091c11090ed4bf7823c3b41",
+    "active_sha256": "251453067d08cc34d081a612760e8afd383ffa12978395e7204f8d66afbf9799",
     "risk_class": "L2",
     "user_authorization": {
       "required": true,
       "status": "granted",
-      "reference": "用户 2026-08-15：『水平可以降低，不要死扛面子。同时给出服务器下一步计划。』（最终成稿包，STRONG_JSTARS/Remote Sensing 档位）"
+      "reference": "用户 2026-08-15：后续GPU授权直接搞不再询问 + 利用 pth_data 既有权重资源（见 C:/claude/project/CLAUDE.md）"
     },
-    "server_report_path": "dis/server_reports/orientbench-b-r038-final-manuscript-20260815/SERVER_EXECUTION_REPORT.md",
+    "server_report_path": "dis/server_reports/orientbench-b-r040-panorama-inference-20260815/SERVER_EXECUTION_REPORT.md",
     "resource_scope": {
       "declared": true,
-      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 24},
-      "wall_time": {"seconds_max": 43200},
+      "compute": {
+        "gpu_count_max": 2,
+        "gpu_hours_max": 60,
+        "cpu_core_hours_max": 224
+      },
+      "wall_time": {
+        "seconds_max": 86400
+      },
       "data": {
-        "allowed_dataset_ids": ["repository-tracked-evidence", "existing-frozen-orientbench-evidence-readonly"],
-        "read_bytes_max": 549755813888,
-        "write_bytes_max": 5368709120
+        "allowed_dataset_ids": [
+          "DIOR-R-val-readonly",
+          "DOTA-v1.0-val-readonly",
+          "DOTA-v1.5-val-readonly",
+          "FAIR1M-v1.0-val-readonly",
+          "HRSC2016-val-readonly",
+          "SODA-A-val-readonly",
+          "ICDAR-MLT-val-readonly",
+          "existing-frozen-orientbench-evidence-readonly"
+        ],
+        "read_bytes_max": 2199023255552,
+        "write_bytes_max": 214748364800
       },
       "write": {
         "allowed_paths": [
-          "top_journal_v3_reaudit_055/paper_A_orientation_protocol/manuscript_r038/",
-          "outputs/persistent_artifacts/orientbench_final_manuscript_r038_20260815/",
-          "dis/server_reports/orientbench-b-r038-final-manuscript-20260815/",
+          "outputs/persistent_artifacts/orientbench_panorama_r040_20260815/",
+          "top_journal_v3_reaudit_055/panorama_r040_20260815/",
+          "audit_bundles/r040/",
+          "dis/server_reports/orientbench-b-r040-panorama-inference-20260815/",
           "claude_code_and_supervisor.md"
         ],
-        "bytes_max": 5368709120
+        "bytes_max": 214748364800
       },
       "network": {
         "allowed": true,
@@ -97,21 +130,22 @@
     },
     "conflict_keys": [
       "server-execution-slot",
-      "dis/sug.md"
+      "dis/sug.md",
+      "outputs/persistent_artifacts"
     ],
     "status": "DISPATCHED",
-    "activated_at": "2026-08-15T09:25:00-07:00"
+    "activated_at": "2026-08-15T21:30:00-07:00"
   },
   "last_closed_dispatch": {
-    "history_path": "dis/dispatch_history/orientbench-c-r037-qsetod-corrective-adjudication-20260815.json",
-    "dispatch_id": "orientbench-c-r037-qsetod-corrective-adjudication-20260815",
-    "execution_state": "INCOMPLETE",
-    "scientific_state_at_close": "PENDING",
-    "closed_by": "C",
-    "closed_at": "2026-08-15T08:34:44-07:00"
+    "history_path": "dis/dispatch_history/orientbench-b-r038-final-manuscript-20260815.json",
+    "dispatch_id": "orientbench-b-r038-final-manuscript-20260815",
+    "execution_state": "not_started",
+    "scientific_state_at_close": "NOT_APPLICABLE",
+    "closed_by": "B",
+    "closed_at": "2026-08-15T21:10:00-07:00"
   },
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-15T08:34:44-07:00"
+  "updated_at": "2026-08-15T21:30:00-07:00"
 }
