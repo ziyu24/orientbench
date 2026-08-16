@@ -748,4 +748,17 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - **科学 verdict：ACCEPT_K1_K2_KILL_STRONG_JSTARS（与 C 一致，双方 verdict 齐备）**。AR-only 基线解释主要翻转（|DoD_ARonly|/|DoD_probe| 满足 0.8 条件）；probe−ARonly 剩余 DoD 虽点估计为正且 CI 排零（DIOR 0.0166、DOTA 0.0161），但不构成冻结 flip witness；R_raw 六项全无 witness。**旧 selector/测量签名主张正式降格为"评测定义性后果的定量刻画"，selector 路线标记 failed/appendix-only。按 §17 预承诺：终局，不以任何新轮次翻案。**
 - 论文含义：现有材料按 STRONG_JSTARS / Remote Sensing 成稿是诚实且可中的；r034 本身成为该稿最有力的方法学章节（三元分解 + 预注册杀死自己主张的完整示范）。顶刊只能靠**新增量**：C 已提出 Q-SetOD 新方法候选，B 攻击见 `dis/reviews/B/orientbench-c-r035-qsetod-method-open-attack-20260814.md`。
 
+## 19. B 终局裁定 2026-08-15：Q-SetOD 集合路线终止，联合科学态收敛，项目按 STRONG_JSTARS 收口
+
+**r036（B 派发）**：执行与审计层真实（244,794 字段 A/B 一致、validator 无输出强制、六 mutation 真实、bundle 闭合），**但 C 对科学映射的争议四点全部成立，B adopt**：(1) T2 证据特征混入 detection_score——**B 合同设计缺陷**，"证据增量"混杂了分数信息，不能声称隔离了 conf+AR+size 之外的证据；(2) T4 对称 ±5pp 把全部为**保守超覆盖**的偏差判死——把"过于保守"当"无效"是错的，B 合同第二处缺陷；(3) T4 校准的是几何 q75 非证据密度；(4) T3 dip 近似非标准。r036 的 `QSETOD_EVIDENCE_ONLY_KEEP_M` 候选**不成立为正式态**。
+
+**r037（C 派发的纠正轮）**：C 拒收 full_completion **正确且 B 独立复核坐实**——A/B 实现归一化标签后 369 行仅 8 行差异（B 本机 diff），validator 与 A 相似度 0.93；三条计算链同源，`max_abs_diff=0` 只证自洽不证独立。这是服务器第二次以复制品冒充独立实现（第一次 r026），**记入服务器执行模式的已知风险清单：今后任何"独立实现"验收必须先做代码相似度检查，再看数值一致性**。
+
+**联合科学态（B verdict 与 C 一致，r036 contest 可标 RESOLVED）**：
+- Q-SetOD **集合/覆盖路线终止**（G_SET 0/8，source-only interval transport 不成立）；**多峰主张删除**（统计工具不合格，不以近似顶替）。
+- 唯一存活的正结果（条件性、描述级）：`QSETOD_EVIDENCE_SCORE_ONLY`——TTA 标量证据在强几何协变量之后仍有跨 held-out 的预测信息（G_EVIDENCE 4/8：A、B、E、F；2 数据集、2 检测器族）。它是诊断性资产与未来方法的输入候选，**不是方法论文**。
+- 清白 endpoint 盘点（r036 T1）：DOTA-v2.0 val 与 SODA-A official test 在盘且未消费——这是未来任何方法验证仅存的两张干净门票，在新方法成立前**不得动用**。
+
+**档位终局（B/C 一致，不再辩论）**：`STRONG_JSTARS_OR_REMOTE_SENSING`，可中。JPRS/TGRS 的差距不是写作或审计，是**没有一个存活的方法级贡献**——旧 selector 死于 r034（定义性后果），Q-SetOD 集合路线死于 r036/r037（覆盖迁移失败）。继续冲顶刊的唯一诚实路径是全新方法构建 + 清白 endpoint 验证（GPU、周级、成败未知），属用户投资决策，不属当前证据。
+
 **追记 2026-08-14（B 自我记账）**：B 上一轮给用户的服务器清理命令把 `corrective_audit_r028_20260813/r026_raw_revalidation/` **整目录**搬入 legacy 区——但 r031 报告列出的未跟踪项只是该目录下的 `error.json` 一个文件，结果 3 个 r028 受保护 tracked 文件被顺带移出工作树（服务器 2026-08-14 监督记录发现并如实上报，未擅自恢复，处置正确）。责任在 B 的命令粒度。修复（用户或 C 在服务器原工作树执行即可，字节自 HEAD 恢复）：`git checkout -- top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r026_raw_revalidation/`。服务器已另建干净 worktree（`orientbench_r032_clean`）供后续轮次，主链不受阻。当前等待：C 关闭 r031（owner-only）并签发新预检 dispatch。
