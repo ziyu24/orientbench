@@ -2725,3 +2725,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/input_views/dota10_val/`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_020_psc_dota/views/identity.pkl`。
 - 是否触发停止条件：否。实测 `dota/mAP=0.2566`，而 readme 记录为 `0.5562`；配置原始根为历史切片目录、当前是官方原图 val 布局，故登记 `AP_MISALIGNED` 并保留产物，不将其作为正式可比资产。
 - 下一步建议：按计划继续剩余 Tier 2 单元；每个单元独立记录 AP 对齐状态，任何同类偏差只跳过该单元，不扩展为科学结论。
+
+## 2026-08-16 11:30 CST — r040 当前状态复核（server-primary）
+
+- 指令来源：用户询问“现在什么情况？”。
+- 执行动作：只读核验 r040 工作树、提交、资产清单与 GPU 状态；未启动新计算。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/matched_rows_hrsc.parquet`（3,190 行、7 单元）；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/normalized/validation.json`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_020_psc_dota/views/identity.pkl`。
+- 是否触发停止条件：否。HRSC 的三视图和独立 validator/mutations 已完成；Tier 2 仅 PSC identity 已完成且为 `AP_MISALIGNED`（0.2566 vs 0.5562）。GPU 当前空闲，r040 尚未完成，Tier 2--4、完整 manifest/bundle/最终报告尚未执行。
+- 下一步建议：继续 r040 Tier 2，逐单元保留 AP 对齐状态；不将任何未对齐单元纳入正式可比资产。
