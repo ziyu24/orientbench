@@ -2693,3 +2693,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r040-panorama-inference-20260815/STARTED.json`。
 - 是否触发停止条件：否；计划限定至多 2 卡，直接 GPU 授权有效。正式推理将使用两卡，并按 tier 推进；单一单元异常只登记和跳过，只有计划硬性 kill 才停止。
 - 下一步建议：盘点既有 valid 单元与推理入口，完成 Tier 1 的烟雾核验后依次运行 HRSC2016 和 ICDAR-MLT 全部 valid 单元。
+
+## 2026-08-15 21:08 PDT — r040 Tier 1 前向进度（server-primary）
+
+- 指令来源：r040 已激活派发；用户授权直接使用既有权重与 GPU。
+- 执行动作：在不改动 `pth_data` 或数据集的前提下，针对 HRSC2016 `val.txt` 建立 r040 输出根内的水平/垂直翻转图像视图，并完成 7 个 valid 单元的 identity/hflip/vflip 原始前向预测；v3 与 legacy/ARS-DETR 三条框架链均通过真实权重加载。`pcp-obb` 的用户 site NumPy 覆盖已通过 `PYTHONNOUSERSITE=1` 绕开，不修改环境。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/input_views/hrsc2016_val/`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/`。
+- 是否触发停止条件：否。ICDAR-MLT 2019 的配置指定根 `/home/rspip/cqc/data/dataset/icdar_mlt_2019/` 在本机不存在；按计划应登记为该两单元的资产缺失并跳过，不下载、不替代。HRSC 已只读取 val split，未读取任何禁触端点。
+- 下一步建议：将七个 HRSC 单元原始预测标准化为 matched-row schema，完成 provenance/AP 对齐、A--H 语义比对、独立 validator/mutation 和 Tier 1 提交；随后按 Tier 2 继续。
