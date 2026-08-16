@@ -2741,3 +2741,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/`（22 个 view dump）。
 - 是否触发停止条件：否；自上次复核没有新增 r040 产物，四张 GPU 均为空闲。
 - 下一步建议：继续执行 Tier 2--4、bundle 和最终报告，r040 才能关闭。
+
+## 2026-08-16 11:32 CST — r040 运行态核验（server-primary）
+
+- 指令来源：用户询问“现在是否在执行？”。
+- 执行动作：只读检查 r040/推理进程与 GPU 遥测。
+- 关键产物路径：无新增产物。
+- 是否触发停止条件：否；当前没有 r040 进程，四张 GPU 均为 0 MiB / 0% 利用率。
+- 下一步建议：需恢复执行 Tier 2，随后逐 tier 完成剩余资产和审计。
