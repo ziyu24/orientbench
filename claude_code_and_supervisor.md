@@ -2805,3 +2805,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_016_arsdetr_dior/parity/identity.pkl`；`.../views/hflip.log`；`.../unit_status.json`。
 - 是否触发停止条件：否；这是单元级技术失败。恢复后未新增 DOTA-v2.0 或 SODA-A official test 访问，未训练、下载或改动 pth_data。
 - 下一步建议：提交该单元状态后转 PSC DIOR-R AP parity；DOTA 仍因指定根缺 annfiles 保持 LAYOUT_UNAVAILABLE。
+
+## 2026-08-17 07:14 PDT — r041 PSC DIOR 持久监督（server-primary）
+
+- 指令来源：用户要求持续监督、无需手动轮询。
+- 执行动作：PSC DIOR identity AP parity 已完成，实测 `dota/mAP=0.5368` 对齐 readme `0.5368`；hflip 正在独立持久 tmux 会话运行。建立 `orientbench-r041-supervisor`，在 hflip 成功落盘后自动启动 vflip；若 hflip 失败则记录而不伪造后续视图。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/code/supervise_psc_dior_views.sh`；`.../units/unit_022_psc_dior/views/supervisor.log`。
+- 是否触发停止条件：否；监督会话不访问禁触数据端点，也不训练、下载或改 pth_data。
+- 下一步建议：vflip 结束后汇总 PSC 单元三视图并按单元提交推送。
