@@ -2765,3 +2765,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：最终唯一报告仍为 `dis/server_reports/orientbench-b-r040-panorama-inference-20260815/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：否；r040 继续执行。
 - 下一步建议：继续 Tier 2 未覆盖单元并按上述节点汇报。
+
+## 2026-08-17 00:51 PDT — r040 资源上限早停（server-primary）
+
+- 指令来源：用户询问完成还需多久；按冻结 r040 plan 核验资源时间边界。
+- 执行动作：计算从唯一 STARTED 的 `2026-08-15T20:44:40-07:00` 至当前的 elapsed wall time 为 28.12 小时，超过计划 `86400` 秒上限；停止任何新推理并写入最终服务器报告。
+- 关键产物路径：`dis/server_reports/orientbench-b-r040-panorama-inference-20260815/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，`wall_time_cap_exhausted`；这是执行资源边界，不是科学裁决。r040 状态为 `incomplete / resource_budget_early_stop / NOT_ADJUDICATED`。
+- 下一步建议：如需继续，B 必须新发激活 dispatch，提供新的资源预算与 DOTA AP-misaligned 单元是否继续三视图的明确规则；服务器不得自行延长冻结 r040。
