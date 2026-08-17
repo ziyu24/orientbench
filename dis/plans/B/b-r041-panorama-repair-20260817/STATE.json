@@ -3,11 +3,11 @@
   "plan_id": "b-r041-panorama-repair-20260817",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r041-panorama-repair-20260817/sug.md",
-  "state": "READY",
-  "plan_commit_sha": null,
-  "plan_blob_oid": null,
-  "plan_sha256": null,
-  "state_reason": "panorama_repair_corrected_dota_layout_ap_parity_validity_gate",
+  "state": "DISPATCHED",
+  "plan_commit_sha": "eff4d731020112335efbb021c8d18bac1116257d",
+  "plan_blob_oid": "51aceb1e142ef60fbf552b1321dbd8bf08f5fad2",
+  "plan_sha256": "9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85",
+  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
   "ready_at": "2026-08-17T09:15:00-07:00",
-  "updated_at": "2026-08-17T09:15:00-07:00"
+  "updated_at": "2026-08-17T09:20:00-07:00"
 }
