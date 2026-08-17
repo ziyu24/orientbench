@@ -2757,3 +2757,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_014_arsdetr_dota/views/identity.pkl`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_026_retinanet_dota/views/identity.pkl`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_025_faa_dota/`。
 - 是否触发停止条件：否；只读取 DOTA-v1.0 val overlay，未读取 test/DOTA-v2 或下载/训练。单元偏差按冻结计划继续+披露。
 - 下一步建议：等待 FAA identity 结束，核验 AP 对齐后继续后续 Tier 2 单元及三视图/审计资产。
+
+## 2026-08-16 21:02 CST — r040 任务监督约定（server-primary）
+
+- 指令来源：用户要求“全部任务搞完了要及时汇报”。
+- 执行动作：建立 r040 执行监督节奏：只在 tier 完成、单元出现 AP 对齐/执行偏差、硬停止、最终 bundle/报告/推送完成时主动报告；不以重复空闲状态检查替代执行。
+- 关键产物路径：最终唯一报告仍为 `dis/server_reports/orientbench-b-r040-panorama-inference-20260815/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：否；r040 继续执行。
+- 下一步建议：继续 Tier 2 未覆盖单元并按上述节点汇报。
