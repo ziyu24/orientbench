@@ -2797,3 +2797,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r041-panorama-repair-20260817/RESUMED_BY_USER.json`。
 - 是否触发停止条件：此前硬禁条件已记录；本次恢复后没有新增禁触。指定 DOTA 根缺 annfiles 不是新硬禁条件。
 - 下一步建议：开始 DIOR-R 未覆盖架构的 AP parity；DOTA 单元待用户指定根提供 annfiles 后再补。
+
+## 2026-08-17 06:12 PDT — r041 DIOR ARS-DETR 单元级失败（server-primary）
+
+- 指令来源：r041 三视图资产要求与用户恢复指令。
+- 执行动作：DIOR ARS-DETR identity AP parity 正常完成，mAP `0.4157511592` 对齐 readme `0.4158`；hflip 使用框架的 `MultiScaleFlipAug` 启动后，`ARSDeformableDETRHead` 明确断言不支持 test-time augmentation，未生成 hflip 预测。依 r041 单元失败继续规则，跳过该单元的 vflip 与 matched rows，继续下一单元。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_016_arsdetr_dior/parity/identity.pkl`；`.../views/hflip.log`；`.../unit_status.json`。
+- 是否触发停止条件：否；这是单元级技术失败。恢复后未新增 DOTA-v2.0 或 SODA-A official test 访问，未训练、下载或改动 pth_data。
+- 下一步建议：提交该单元状态后转 PSC DIOR-R AP parity；DOTA 仍因指定根缺 annfiles 保持 LAYOUT_UNAVAILABLE。
