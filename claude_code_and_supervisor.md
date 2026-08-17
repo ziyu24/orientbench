@@ -2843,6 +2843,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_010_lsknet_dior/views/{hflip,vflip}.pkl`；`.../unit_status.json`。
 - 是否触发停止条件：否；禁止端点未触碰。
 - 下一步建议：继续 Strip-RCNN identity AP parity；并为 LSKNet legacy 输出执行 schema-aware normalization。
+
+## 2026-08-17 08:43 PDT — r041 Strip-RCNN DIOR AP parity 未通过（server-primary）
+
+- 指令来源：r041 冻结计划；每单元先过 AP parity，未过即跳过三视图并记录。
+- 执行动作：identity 推理正常结束，实测 `mAP=0.1940328777`，相对已验证基线 `0.4467` 的绝对差为 `0.2526671`，超过 `0.02` 容差；按计划停止该单元扩展，hflip/vflip 均跳过。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_030_strip_dior/parity/identity.pkl`；`.../parity/eval_20260817_082542.json`；`.../unit_status.json`。
+- 是否触发停止条件：该单元 AP parity gate 未通过；未触碰禁止端点。
+- 下一步建议：保留为不对齐记录，不重训 host；继续 LSKNet schema-aware normalization 与其余冻结审计收尾。
 - 是否触发停止条件：否；这是允许的单元级实现修复。未改源数据、未训练、下载或修改 pth_data，恢复后未访问 DOTA-v2.0 或 SODA-A official test。
 - 下一步建议：监督器等待 hflip 单视图推理结束后自动启动 vflip；两个真实输入视图落盘后进行规范化匹配。
 

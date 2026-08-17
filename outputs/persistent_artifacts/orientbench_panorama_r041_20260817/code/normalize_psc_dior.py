@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Normalize the completed PSC DIOR three-view dumps into r041's common rows."""
-import csv, math, multiprocessing as mp, os, pickle
+import csv, glob, math, multiprocessing as mp, os, pickle
 from pathlib import Path
 import cv2, numpy as np, pandas as pd
 
 ROOT=Path('outputs/persistent_artifacts/orientbench_panorama_r041_20260817')
 UNIT=os.environ.get('R041_UNIT','unit_022_psc_dior'); OUTPUT_STEM=os.environ.get('R041_OUTPUT_STEM','psc_dior'); V=ROOT/'units'/UNIT/'views'
+LEGACY_MMROTATE=os.environ.get('R041_LEGACY_MMROTATE','0') == '1'
 ANN=Path('top_journal_v3_reaudit_055/data_prep/DIOR/annfiles_dotaformat/test')
+RAW_IMAGES=Path('/home/rspip/cqc/data/dataset/DIOR/images/test')
 CLASSES=['airplane','airport','baseballfield','basketballcourt','bridge','chimney','dam','Expressway-Service-area','Expressway-toll-station','golffield','groundtrackfield','harbor','overpass','ship','stadium','storagetank','tenniscourt','trainstation','vehicle','windmill']
 SCHEMA=['unit_id','image_id','pred_id','gt_id','class_id','cluster_id','angle_error_deg','Y','detection_score','pred_w','pred_h','gt_w','gt_h','pred_ar','gt_ar','pred_area','iou','u_axis','missing_fraction','iou_loss','center_dispersion','scale_dispersion','score_dispersion','association_ambiguity']
 
@@ -27,6 +29,20 @@ def gt(i):
  return out
 def read(p):
  raw=pickle.load(open(p,'rb')); out=[]
+ if LEGACY_MMROTATE:
+  # The legacy DIORDataset writes results in its glob.glob traversal order.
+  # Preserve that order exactly; lexical sorting would associate predictions
+  # with the wrong images on this transferred filesystem.
+  ids=[Path(x).stem for x in glob.glob(str(ANN/'*.txt'))]
+  if len(raw)!=len(ids): raise RuntimeError(f'legacy result/image count mismatch: {len(raw)} != {len(ids)}')
+  for iid,r in zip(ids,raw):
+   im=cv2.imread(str(RAW_IMAGES/f'{iid}.jpg'))
+   if im is None: raise FileNotFoundError(RAW_IMAGES/f'{iid}.jpg')
+   ps=[]
+   for label, boxes in enumerate(r):
+    for b in np.asarray(boxes): ps.append((canon(b[:5]),float(b[5]),label))
+   out.append((iid,tuple(im.shape[:2]),ps))
+  return out
  for r in raw:
   pi=r['pred_instances']; cv=lambda a: np.asarray(a.cpu() if hasattr(a,'cpu') else a)
   out.append((str(r['img_id']),tuple(r['ori_shape'][:2]),[(canon(b),float(s),int(l)) for b,s,l in zip(cv(pi['bboxes']),cv(pi['scores']),cv(pi['labels']))]))
