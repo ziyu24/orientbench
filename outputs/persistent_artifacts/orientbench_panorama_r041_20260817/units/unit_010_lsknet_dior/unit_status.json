@@ -1,0 +1,21 @@
+{
+  "unit_id": "unit_010_lsknet_dior",
+  "dataset": "DIOR-R",
+  "split": "official test (per non-DOTA project rule)",
+  "architecture": "oriented_rcnn_lsknet_s_fpn_1x_le90",
+  "ap_parity": {
+    "reference_map": 0.7187,
+    "observed_identity_map": 0.7187469005584717,
+    "absolute_delta": 0.0000469005584717,
+    "tolerance": 0.02,
+    "status": "PASS"
+  },
+  "views": {
+    "identity": "COMPLETE",
+    "hflip": "PENDING",
+    "vflip": "PENDING"
+  },
+  "unit_status": "AP_PARITY_PASS_TRI_VIEW_IN_PROGRESS",
+  "input_layout": "output-local PNG symlink aliases to frozen DIOR test JPGs; no source data was modified",
+  "forbidden_endpoints_after_resume": "none"
+}

@@ -2821,3 +2821,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_022_psc_dior/parity/identity.pkl`；`.../views/hflip.pkl`；`.../views/vflip.pkl`；`.../unit_status.json`。
 - 是否触发停止条件：否；未访问 DOTA-v2.0 或 SODA-A official test，未训练、下载或改 pth_data。
 - 下一步建议：对该单元执行统一 matched-row normalization，同时继续监督 LSKNet parity。
+
+## 2026-08-17 07:47 PDT — r041 LSKNet DIOR AP parity 通过（server-primary）
+
+- 指令来源：r041 三视图资产要求与持续监督指令。
+- 执行动作：LSKNet DIOR identity 推理正常结束，实测 `mAP=0.7187469006`，相对参考 `0.7187` 的绝对差为 `0.0000469`，小于 `0.02` 门限；因此通过 AP parity，允许继续 hflip/vflip。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_010_lsknet_dior/parity/identity.pkl`；`.../parity/eval_20260817_073210.json`；`.../unit_status.json`。
+- 是否触发停止条件：否；正常结束。恢复后未访问 DOTA-v2.0 或 SODA-A official test，未训练、下载或修改 pth_data。
+- 下一步建议：立即启动 LSKNet 的 hflip，并由监督器在其正常结束后继续 vflip；随后进行统一 matched-row normalization。
