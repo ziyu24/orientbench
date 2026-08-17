@@ -777,4 +777,13 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 
 **档位说明（不预支）**：本节不改变当前可辩护档位 `STRONG_JSTARS_OR_REMOTE_SENSING`。全景资产使更高档位**可尝试**，不等于已达到；一切以 r040 及后续轮的实际结果为准。
 
+## 21. r040 部分交付与 r041 修复 2026-08-17
+
+- **收获**：HRSC2016 val **七单元完整三视图入库**（3,190 matched TP rows，独立 validation pass，三 mutation 拒绝，provenance 齐全）。这是新域（长条船试金石）首次进入单元池。禁触端点零访问已证明。
+- **失手一**：DOTA Tier-2 五单元 **AP 全线崩塌**（PSC 实测 0.2566 vs readme 0.5562；ARS-DETR 0.0474；Strip 0.1749）。**B 定位根因：用了 official-val overlay，而这些权重在切片数据上训练**；r019/r025 取得精确 AP parity 用的是 `/home/rspip/cqc/data/dataset/dota/split_ss_dota10_dota15/val`（annfiles/ + images/ + png）。这是布局错配，非权重或科学问题，r041 强制改正。
+- **失手二**：三单元技术失败（fcos config `__file__`、h2rbox evaluator、rtmdet 空数据集），均为工程问题，r041 给出绕过方案。
+- **损失**：ICDAR-MLT 2019 数据根不在盘 → 跨遥感域（TPAMI 门槛点名项）本轮无法获得；服务器未下载替代，处置正确。该域暂列不可得。
+- **B 合同缺陷记账**：r040 把 AP 对齐写成"超差不 kill 只标记"，导致五个单元在错误布局下白跑三视图预算。r041 改为**AP parity 作单元有效性门**：不过则跳过该单元三视图，省预算且不污染分析池；并要求**每单元跑完即提交**，避免墙钟截断再次丢失成果。
+- **档位（规则5要求的评估）**：本轮为资产轮、无科学裁决，可辩护档位**维持 `STRONG_JSTARS_OR_REMOTE_SENSING` 不变**。全景仍未成形（有效新单元仅 HRSC 七个），故不上调；HRSC 入库是实质进展，故不下调。
+
 **追记 2026-08-14（B 自我记账）**：B 上一轮给用户的服务器清理命令把 `corrective_audit_r028_20260813/r026_raw_revalidation/` **整目录**搬入 legacy 区——但 r031 报告列出的未跟踪项只是该目录下的 `error.json` 一个文件，结果 3 个 r028 受保护 tracked 文件被顺带移出工作树（服务器 2026-08-14 监督记录发现并如实上报，未擅自恢复，处置正确）。责任在 B 的命令粒度。修复（用户或 C 在服务器原工作树执行即可，字节自 HEAD 恢复）：`git checkout -- top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r026_raw_revalidation/`。服务器已另建干净 worktree（`orientbench_r032_clean`）供后续轮次，主链不受阻。当前等待：C 关闭 r031（owner-only）并签发新预检 dispatch。
