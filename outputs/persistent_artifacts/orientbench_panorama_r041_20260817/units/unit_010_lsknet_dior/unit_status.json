@@ -12,10 +12,20 @@
   },
   "views": {
     "identity": "COMPLETE",
-    "hflip": "PENDING",
-    "vflip": "PENDING"
+    "hflip": "COMPLETE",
+    "vflip": "COMPLETE"
   },
-  "unit_status": "AP_PARITY_PASS_TRI_VIEW_IN_PROGRESS",
-  "input_layout": "output-local PNG symlink aliases to frozen DIOR test JPGs; no source data was modified",
+  "view_artifacts": {
+    "hflip": {
+      "path": "views/hflip.pkl",
+      "sha256": "5d40e1179ca38e5968eba2e49177e1a1ad917a2029233cfc4d6fe3fa6c81b33c"
+    },
+    "vflip": {
+      "path": "views/vflip.pkl",
+      "sha256": "d6376b50c7e70e6d7c4800a0e0bdd6fad6c080a415b8ea506adc73140d00decd"
+    }
+  },
+  "unit_status": "AP_PARITY_PASS_TRI_VIEW_COMPLETE_PENDING_NORMALIZATION",
+  "input_layout": "output-local physical image flips derived from frozen DIOR test JPGs, with PNG loader aliases; no source data was modified",
   "forbidden_endpoints_after_resume": "none"
 }
