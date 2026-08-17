@@ -2829,3 +2829,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_010_lsknet_dior/parity/identity.pkl`；`.../parity/eval_20260817_073210.json`；`.../unit_status.json`。
 - 是否触发停止条件：否；正常结束。恢复后未访问 DOTA-v2.0 或 SODA-A official test，未训练、下载或修改 pth_data。
 - 下一步建议：立即启动 LSKNet 的 hflip，并由监督器在其正常结束后继续 vflip；随后进行统一 matched-row normalization。
+
+## 2026-08-17 07:55 PDT — r041 LSKNet 三视图恢复（server-primary）
+
+- 指令来源：r041 AP-gated 三视图要求与持续监督指令。
+- 执行动作：LSKNet legacy ROI head 的框架 `aug_test` 不实现，两个框架 TTA hflip 尝试均以 `NotImplementedError` 结束，未产生伪造 dump。改用输出目录内的输入空间翻转：以 40 个 CPU worker 完成 11,738 张 DIOR hflip 图像及 `.png` loader 别名；持久监督器将依次启动单视图 hflip、vflip 推理。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/code/materialize_dior_lsknet_views.py`；`.../code/supervise_lsknet_dior_materialized_views.sh`；`.../input_views/dior_hflip_png/`。
+- 是否触发停止条件：否；这是允许的单元级实现修复。未改源数据、未训练、下载或修改 pth_data，恢复后未访问 DOTA-v2.0 或 SODA-A official test。
+- 下一步建议：监督器等待 hflip 单视图推理结束后自动启动 vflip；两个真实输入视图落盘后进行规范化匹配。
