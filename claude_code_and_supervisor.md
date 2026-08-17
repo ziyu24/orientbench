@@ -2789,3 +2789,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md`；已完成单元为 0，AP 表为 NOT_STARTED。
 - 是否触发停止条件：是，`DOTA-v2.0_directory_metadata_accessed`；未打开其标注或图像、未推理，未触碰 SODA-A test，未训练、下载、改 pth_data 或 r040 HRSC。
 - 下一步建议：若需重开，B 必须发新 dispatch；新轮将以指定 DOTA-v1.0 路径的精确 `test -d` 检查代替全局目录递归。
+
+## 2026-08-17 01:13 PDT — r041 用户直接授权恢复（server-primary）
+
+- 指令来源：用户明确指令“继续r41”。
+- 执行动作：恢复冻结 r041 的未执行工作；保留前次 DOTA-v2.0 目录元数据误触作为不可删除审计事实，后续仅使用精确 DOTA-v1.0 路径、严禁再作广域目录扫描。精确检查确认指定根的 `images/` 和 png 存在，但 `annfiles/` 缺失；因此 DOTA AP parity 暂无法启动，将记录该布局缺失并继续计划允许的后续非 DOTA 单元。
+- 关键产物路径：`dis/server_reports/orientbench-b-r041-panorama-repair-20260817/RESUMED_BY_USER.json`。
+- 是否触发停止条件：此前硬禁条件已记录；本次恢复后没有新增禁触。指定 DOTA 根缺 annfiles 不是新硬禁条件。
+- 下一步建议：开始 DIOR-R 未覆盖架构的 AP parity；DOTA 单元待用户指定根提供 annfiles 后再补。
