@@ -1,0 +1,21 @@
+{
+  "unit_id": "unit_061_rtmdet_s_dior",
+  "dataset": "DIOR-R",
+  "split": "official test (per non-DOTA project rule)",
+  "architecture": "rotated_rtmdet_s_fpn_3x_le90",
+  "ap_parity": {
+    "reference_map": 0.5489,
+    "observed_identity_map": 0.5489,
+    "observed_ap50": 0.646,
+    "observed_ap75": 0.452,
+    "status": "PASS"
+  },
+  "views": {
+    "identity": "COMPLETE",
+    "hflip": "PENDING",
+    "vflip": "PENDING"
+  },
+  "unit_status": "AP_PARITY_PASS_TRI_VIEW_IN_PROGRESS",
+  "repair": "output-local portable config bound the frozen transferred config to its verified local ai4rs base path",
+  "forbidden_endpoints_after_resume": "none"
+}

@@ -2853,3 +2853,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/normalized/matched_rows_psc_dior.csv`，SHA-256 `aff0a682ee91dcca649fd73d3068f9468ca32306bbe3421e5a401eb5c2a77f92`。
 - 是否触发停止条件：否；正常结束。未访问禁触端点，未训练、下载或修改 pth_data。
 - 下一步建议：提交该完整 PSC 单元并继续等待 LSKNet/RTMDet 的 AP-gated 视图任务。
+
+## 2026-08-17 08:08 PDT — r041 RTMDet-S DIOR AP parity 通过（server-primary）
+
+- 指令来源：r041 失败单元修复后的 identity AP gate。
+- 执行动作：portable config 的 DIOR identity 推理正常结束，`dota/mAP=0.5489` 与冻结参考 `0.5489` 精确对齐（同时 AP50=`0.6460`、AP75=`0.4520`）；允许继续真实 hflip/vflip。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_061_rtmdet_s_dior/parity/identity.pkl`；`.../parity/retry_portable.log`；`.../unit_status.json`。
+- 是否触发停止条件：否；正常结束。未访问禁触端点，未训练、下载或修改 pth_data。
+- 下一步建议：立即启动 RTMDet-S 的输出本地真实翻转输入视图；完成后再规范化匹配。
