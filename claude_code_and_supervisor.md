@@ -2845,3 +2845,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/code/rtmdet_s_dior_portable.py`；`.../code/normalize_psc_dior.py`；`.../units/unit_061_rtmdet_s_dior/parity/retry_portable.log`。
 - 是否触发停止条件：否；RTMDet 修复仅重新绑定 transferred config 的已验证本地 third_party 基路径，未改冻结 config 内容或 pth_data。
 - 下一步建议：按各进程的正常/异常结束状态分别执行 AP gate、三视图或单元失败记录。
+
+## 2026-08-17 08:04 PDT — r041 PSC DIOR 规范化完成（server-primary）
+
+- 指令来源：r041 已完成三视图的 matched-row 资产要求。
+- 执行动作：PSC DIOR 的 identity/hflip/vflip dump 已以 40-worker 规范化完成，生成 87,224 行；键唯一、数值有限，IoU 范围为 `[0.500027, 0.993762]`。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/normalized/matched_rows_psc_dior.csv`，SHA-256 `aff0a682ee91dcca649fd73d3068f9468ca32306bbe3421e5a401eb5c2a77f92`。
+- 是否触发停止条件：否；正常结束。未访问禁触端点，未训练、下载或修改 pth_data。
+- 下一步建议：提交该完整 PSC 单元并继续等待 LSKNet/RTMDet 的 AP-gated 视图任务。
