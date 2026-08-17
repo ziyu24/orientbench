@@ -15,7 +15,13 @@
     "hflip": "PENDING",
     "vflip": "PENDING"
   },
-  "unit_status": "AP_PARITY_PASS_TRI_VIEW_IN_PROGRESS",
+  "unit_status": "TRI_VIEW_NORMALIZED_COMPLETE",
+  "normalized_rows": {
+    "path": "outputs/persistent_artifacts/orientbench_panorama_r041_20260817/normalized/matched_rows_rtmdet_s_dior.csv",
+    "row_count": 93419,
+    "sha256": "12d4d85e48bc79afeeafc75c6c76cc580cd6448e32d37d21030b5f601bdcfc1d",
+    "validation": "unique (image_id,pred_id); numeric fields finite"
+  },
   "repair": "output-local portable config bound the frozen transferred config to its verified local ai4rs base path",
   "forbidden_endpoints_after_resume": "none"
 }

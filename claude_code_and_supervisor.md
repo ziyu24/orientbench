@@ -2861,3 +2861,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_061_rtmdet_s_dior/parity/identity.pkl`；`.../parity/retry_portable.log`；`.../unit_status.json`。
 - 是否触发停止条件：否；正常结束。未访问禁触端点，未训练、下载或修改 pth_data。
 - 下一步建议：立即启动 RTMDet-S 的输出本地真实翻转输入视图；完成后再规范化匹配。
+
+## 2026-08-17 08:24 PDT — r041 RTMDet-S DIOR 三视图完成（server-primary）
+
+- 指令来源：r041 AP-gated 三视图资产要求。
+- 执行动作：RTMDet-S DIOR 的 identity/hflip/vflip 已正常结束并完成规范化；产出 93,419 行，键唯一且数值有限。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/normalized/matched_rows_rtmdet_s_dior.csv`，SHA-256 `12d4d85e48bc79afeeafc75c6c76cc580cd6448e32d37d21030b5f601bdcfc1d`。
+- 是否触发停止条件：否；正常结束。未访问禁触端点，未训练、下载或修改 pth_data。
+- 下一步建议：提交该完整单元；LSKNet 三视图和 Strip-RCNN identity AP gate 继续由监督进程执行。

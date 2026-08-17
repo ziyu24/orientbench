@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Normalize the completed PSC DIOR three-view dumps into r041's common rows."""
-import csv, math, multiprocessing as mp, pickle
+import csv, math, multiprocessing as mp, os, pickle
 from pathlib import Path
 import cv2, numpy as np, pandas as pd
 
 ROOT=Path('outputs/persistent_artifacts/orientbench_panorama_r041_20260817')
-UNIT='unit_022_psc_dior'; V=ROOT/'units'/UNIT/'views'
+UNIT=os.environ.get('R041_UNIT','unit_022_psc_dior'); OUTPUT_STEM=os.environ.get('R041_OUTPUT_STEM','psc_dior'); V=ROOT/'units'/UNIT/'views'
 ANN=Path('top_journal_v3_reaudit_055/data_prep/DIOR/annfiles_dotaformat/test')
 CLASSES=['airplane','airport','baseballfield','basketballcourt','bridge','chimney','dam','Expressway-Service-area','Expressway-toll-station','golffield','groundtrackfield','harbor','overpass','ship','stadium','storagetank','tenniscourt','trainstation','vehicle','windmill']
 SCHEMA=['unit_id','image_id','pred_id','gt_id','class_id','cluster_id','angle_error_deg','Y','detection_score','pred_w','pred_h','gt_w','gt_h','pred_ar','gt_ar','pred_area','iou','u_axis','missing_fraction','iou_loss','center_dispersion','scale_dispersion','score_dispersion','association_ambiguity']
@@ -54,5 +54,5 @@ def main():
  global VIEWS; VIEWS={k:read(p) for k,p in paths.items()}; rows=[]
  with mp.get_context('fork').Pool(processes=40) as pool:
   for part in pool.imap_unordered(process_one,range(len(VIEWS['identity'])),chunksize=24): rows.extend(part)
- out=ROOT/'normalized'; out.mkdir(exist_ok=True); pd.DataFrame(sorted(rows,key=lambda r:(r[1],r[2])),columns=SCHEMA).to_csv(out/'matched_rows_psc_dior.csv',index=False)
+ out=ROOT/'normalized'; out.mkdir(exist_ok=True); pd.DataFrame(sorted(rows,key=lambda r:(r[1],r[2])),columns=SCHEMA).to_csv(out/f'matched_rows_{OUTPUT_STEM}.csv',index=False)
 if __name__=='__main__': main()
