@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "pass": true,
+  "errors": [],
+  "rows": 281804,
+  "units": [
+    "unit_010_lsknet_dior",
+    "unit_022_psc_dior",
+    "unit_061_rtmdet_s_dior"
+  ],
+  "forbidden_endpoint_accessed_after_resume": false
+}

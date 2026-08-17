@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "pass": false,
+  "errors": [
+    "nonfinite_evidence"
+  ],
+  "rows": 20,
+  "units": [
+    "unit_022_psc_dior"
+  ],
+  "forbidden_endpoint_accessed_after_resume": false
+}

@@ -1,0 +1,7 @@
+{
+  "dataset": "ICDAR-MLT",
+  "status": "DATA_ABSENT",
+  "checked_path": "/home/rspip/cqc/data/dataset/ICDAR-MLT",
+  "action": "not downloaded and not substituted",
+  "forbidden_endpoints_after_resume": "none"
+}

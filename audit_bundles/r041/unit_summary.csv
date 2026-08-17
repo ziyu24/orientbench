@@ -1,0 +1,6 @@
+unit_id,dataset,architecture,ap_status,reference_map,observed_map,unit_status,forbidden_endpoints_after_resume
+unit_010_lsknet_dior,DIOR-R,oriented_rcnn_lsknet_s_fpn_1x_le90,PASS,0.7187,0.7187469005584717,TRI_VIEW_NORMALIZED_COMPLETE,none
+unit_016_arsdetr_dior,DIOR-R,arsdetr_r50_fpn_36e_le90,PASS,0.4158,0.4157511591911316,SKIPPED_AFTER_VIEW_FAILURE,none
+unit_022_psc_dior,DIOR-R,rotated_retinanet_psc_r50_fpn_1x_le90,PASS,0.5368,0.5368,TRI_VIEW_NORMALIZED_COMPLETE,none
+unit_030_strip_dior,DIOR-R,strip_rcnn_s_fpn_1x_le90,FAIL,0.4467,0.19403287768363953,AP_MISALIGNED_TRI_VIEW_SKIPPED,none
+unit_061_rtmdet_s_dior,DIOR-R,rotated_rtmdet_s_fpn_3x_le90,PASS,0.5489,0.5489,TRI_VIEW_NORMALIZED_COMPLETE,none
