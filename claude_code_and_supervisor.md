@@ -2837,3 +2837,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/code/materialize_dior_lsknet_views.py`；`.../code/supervise_lsknet_dior_materialized_views.sh`；`.../input_views/dior_hflip_png/`。
 - 是否触发停止条件：否；这是允许的单元级实现修复。未改源数据、未训练、下载或修改 pth_data，恢复后未访问 DOTA-v2.0 或 SODA-A official test。
 - 下一步建议：监督器等待 hflip 单视图推理结束后自动启动 vflip；两个真实输入视图落盘后进行规范化匹配。
+
+## 2026-08-17 08:02 PDT — r041 并行资产监督（server-primary）
+
+- 指令来源：r041 并行资源范围与持续监督指令。
+- 执行动作：GPU 1 继续 LSKNet DIOR hflip；GPU 0 已用输出本地的 portable-config 修复启动 RTMDet-S DIOR identity AP parity；PSC DIOR 三视图统一匹配改为 40-worker CPU 规范化，避免单核低利用率。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/code/rtmdet_s_dior_portable.py`；`.../code/normalize_psc_dior.py`；`.../units/unit_061_rtmdet_s_dior/parity/retry_portable.log`。
+- 是否触发停止条件：否；RTMDet 修复仅重新绑定 transferred config 的已验证本地 third_party 基路径，未改冻结 config 内容或 pth_data。
+- 下一步建议：按各进程的正常/异常结束状态分别执行 AP gate、三视图或单元失败记录。
