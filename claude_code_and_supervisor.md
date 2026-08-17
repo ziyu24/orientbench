@@ -2749,3 +2749,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：无新增产物。
 - 是否触发停止条件：否；当前没有 r040 进程，四张 GPU 均为 0 MiB / 0% 利用率。
 - 下一步建议：需恢复执行 Tier 2，随后逐 tier 完成剩余资产和审计。
+
+## 2026-08-16 19:18 CST — r040 恢复 Tier 2 实际前向（server-primary）
+
+- 指令来源：用户再次交付 `orientbench-b-r040-panorama-inference-20260815` 精确 dispatch/path/commit，要求执行。
+- 执行动作：复核活动镜像 SHA 后恢复 DOTA-v1.0 val overlay 推理。RetinaNet unit 026 已完成 identity（`dota/mAP=0.2504`，保留为 AP_MISALIGNED）；ARS-DETR unit 014 已落盘 identity；FAA Oriented R-CNN unit 025 正在 GPU 1 执行 identity。H2RBox unit 070 前向完成但 evaluator/dump 阶段失败，记录为单元失败；FCOS unit 065 配置因 `__file__` 未定义失败，记录为单元失败。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_014_arsdetr_dota/views/identity.pkl`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_026_retinanet_dota/views/identity.pkl`；`outputs/persistent_artifacts/orientbench_panorama_r040_20260815/units/unit_025_faa_dota/`。
+- 是否触发停止条件：否；只读取 DOTA-v1.0 val overlay，未读取 test/DOTA-v2 或下载/训练。单元偏差按冻结计划继续+披露。
+- 下一步建议：等待 FAA identity 结束，核验 AP 对齐后继续后续 Tier 2 单元及三视图/审计资产。
