@@ -2781,3 +2781,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r041-panorama-repair-20260817/STARTED.json`。
 - 是否触发停止条件：否；DOTA-v1.0 切片 val 布局存在，尚未读取任何科学输入或启动推理。
 - 下一步建议：先对 DOTA-v1.0 未完成单元逐一作 identity AP parity，合格后立即补齐三视图与统一资产。
+
+## 2026-08-17 01:10 PDT — r041 硬禁条件异常停止（server-primary）
+
+- 指令来源：r041 冻结计划的 DOTA 布局核验要求与 041-S 监督指令。
+- 执行动作：在首个 DOTA-v1.0 PSC 单元 AP parity 前核验迁移路径。一次过宽的只读目录递归检查触及 `dota/dota2.0/split_ss_dota20/` 目录元数据；依计划“读取或推理 DOTA-v2.0 任何 split”硬禁条款立即停止，未继续任何 GPU 工作。
+- 关键产物路径：`dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md`；已完成单元为 0，AP 表为 NOT_STARTED。
+- 是否触发停止条件：是，`DOTA-v2.0_directory_metadata_accessed`；未打开其标注或图像、未推理，未触碰 SODA-A test，未训练、下载、改 pth_data 或 r040 HRSC。
+- 下一步建议：若需重开，B 必须发新 dispatch；新轮将以指定 DOTA-v1.0 路径的精确 `test -d` 检查代替全局目录递归。
