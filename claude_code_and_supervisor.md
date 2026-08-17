@@ -2851,6 +2851,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_030_strip_dior/parity/identity.pkl`；`.../parity/eval_20260817_082542.json`；`.../unit_status.json`。
 - 是否触发停止条件：该单元 AP parity gate 未通过；未触碰禁止端点。
 - 下一步建议：保留为不对齐记录，不重训 host；继续 LSKNet schema-aware normalization 与其余冻结审计收尾。
+
+## 2026-08-17 08:47 PDT — r041 LSKNet DIOR 统一匹配完成（server-primary）
+
+- 指令来源：r041 冻结计划；保持静默执行，仅记录阶段性产物。
+- 执行动作：LSKNet legacy dump 使用与 DIORDataset 一致的 `glob.glob` 遍历顺序完成三视图统一匹配；先前仅 35 行的词典序候选保留为非规范化诊断，不进入分析池。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/normalized/matched_rows_lsknet_dior_globorder.csv`（101,161 rows；SHA-256 `b49ca95e37a9e5d7f973fa1cbcd08e1cf61dcab85c6323f6626b5ad1085c0b1b`）。
+- 是否触发停止条件：否；键唯一、数值有限、IoU 范围 `[0.500060, 0.993883]`，禁止端点未触碰。
+- 下一步建议：进行 r041 manifest、独立验证器与 mutation 审计收尾。
 - 是否触发停止条件：否；这是允许的单元级实现修复。未改源数据、未训练、下载或修改 pth_data，恢复后未访问 DOTA-v2.0 或 SODA-A official test。
 - 下一步建议：监督器等待 hflip 单视图推理结束后自动启动 vflip；两个真实输入视图落盘后进行规范化匹配。
 
