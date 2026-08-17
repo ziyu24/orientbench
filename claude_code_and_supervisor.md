@@ -2773,3 +2773,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r040-panorama-inference-20260815/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，`wall_time_cap_exhausted`；这是执行资源边界，不是科学裁决。r040 状态为 `incomplete / resource_budget_early_stop / NOT_ADJUDICATED`。
 - 下一步建议：如需继续，B 必须新发激活 dispatch，提供新的资源预算与 DOTA AP-misaligned 单元是否继续三视图的明确规则；服务器不得自行延长冻结 r040。
+
+## 2026-08-17 01:05 PDT — r041 启动与监督登记（server-primary）
+
+- 指令来源：用户交付 `orientbench-b-r041-panorama-repair-20260817`、计划路径及 dispatch commit `20a8fb26937439cb0ae10d9be95c5a2c218f3023`，并下达 041-S 监督指令。
+- 执行动作：已 ff-only 同步至指定提交，核验活动镜像与计划 SHA-256 `9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85` 一致；创建 STARTED 记录。监督机制：启动、每个单元完成后提交推送、严重异常、最终结束四类节点汇报。
+- 关键产物路径：`dis/server_reports/orientbench-b-r041-panorama-repair-20260817/STARTED.json`。
+- 是否触发停止条件：否；DOTA-v1.0 切片 val 布局存在，尚未读取任何科学输入或启动推理。
+- 下一步建议：先对 DOTA-v1.0 未完成单元逐一作 identity AP parity，合格后立即补齐三视图与统一资产。

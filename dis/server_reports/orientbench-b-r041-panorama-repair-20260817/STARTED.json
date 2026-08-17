@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r041-panorama-repair-20260817",
+  "plan_id": "b-r041-panorama-repair-20260817",
+  "plan_path": "dis/plans/B/b-r041-panorama-repair-20260817/sug.md",
+  "plan_sha256": "9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85",
+  "plan_blob_oid": "51aceb1e142ef60fbf552b1321dbd8bf08f5fad2",
+  "active_plan_path": "dis/sug.md",
+  "active_plan_sha256": "9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85",
+  "dispatch_commit_sha": "20a8fb26937439cb0ae10d9be95c5a2c218f3023",
+  "starting_commit": "20a8fb26937439cb0ae10d9be95c5a2c218f3023",
+  "created_at": "2026-08-17T01:05:12-07:00",
+  "claimed_by": "server-primary"
+}
