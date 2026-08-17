@@ -1,0 +1,19 @@
+{
+  "unit_id": "unit_022_psc_dior",
+  "dataset": "DIOR-R",
+  "split": "official test (per non-DOTA project rule)",
+  "architecture": "rotated_retinanet_psc_r50_fpn_1x_le90",
+  "ap_parity": {
+    "reference_map": 0.5368,
+    "observed_identity_map": 0.5368,
+    "status": "PASS"
+  },
+  "views": {
+    "identity": "COMPLETE",
+    "hflip": "COMPLETE",
+    "vflip": "COMPLETE"
+  },
+  "unit_status": "TRI_VIEW_COMPLETE_PENDING_NORMALIZATION",
+  "notes": "hflip/vflip evaluator mAP is not a parity metric because predictions are generated on transformed inputs; dumps retain flip metadata for inverse mapping during normalization.",
+  "forbidden_endpoints_after_resume": "none"
+}

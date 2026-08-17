@@ -2813,3 +2813,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/code/supervise_psc_dior_views.sh`；`.../units/unit_022_psc_dior/views/supervisor.log`。
 - 是否触发停止条件：否；监督会话不访问禁触数据端点，也不训练、下载或改 pth_data。
 - 下一步建议：vflip 结束后汇总 PSC 单元三视图并按单元提交推送。
+
+## 2026-08-17 07:34 PDT — r041 PSC DIOR 三视图完成（server-primary）
+
+- 指令来源：r041 三视图资产要求与持久监督器。
+- 执行动作：PSC DIOR identity AP parity `0.5368` 对齐 readme `0.5368`；identity、hflip、vflip 三个预测 dump 已完成。变换视图的 evaluator mAP 不作为 parity 数值使用，后续将根据 dump 的 flip 元数据逆变换并统一匹配。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_022_psc_dior/parity/identity.pkl`；`.../views/hflip.pkl`；`.../views/vflip.pkl`；`.../unit_status.json`。
+- 是否触发停止条件：否；未访问 DOTA-v2.0 或 SODA-A official test，未训练、下载或改 pth_data。
+- 下一步建议：对该单元执行统一 matched-row normalization，同时继续监督 LSKNet parity。
