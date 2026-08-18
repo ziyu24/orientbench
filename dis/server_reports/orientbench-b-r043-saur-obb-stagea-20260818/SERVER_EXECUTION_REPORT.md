@@ -35,3 +35,12 @@ Using the checkpoint on DIOR-R val cannot repair G0: it was trained on `trainval
 ## Required disposition
 
 Execution status is **in progress**.  The user-authorized amendment makes the archived DIOR-R trainval-to-test PSC parity endpoint legal for this execution.  The prior DIOR base output is valid only as host-parity evidence; it is not a Stage-A method result.  All remaining work continues under the amended split table, with SODA-A remaining train-to-val.
+
+## G0 parity completion
+
+| Dataset | Fixed endpoint | Archived AP50 | Reproduced mAP / AP50 | Absolute AP50 difference | G0 |
+|---|---|---:|---:|---:|---|
+| DIOR-R | user-authorized trainval -> test | 0.5370 | 0.5368 / 0.5370 | 0.0000 | PASS |
+| SODA-A | train -> val | 0.5991 | 0.5991 / 0.5990 | 0.0001 | PASS |
+
+Logs: `outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_base.log` and `outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/soda_base_resume2.log`.  Both ran with four ranks under the installed `pcp-obb` environment.  The earlier source-checkout import failure is an environment-path repair record only; the successful runs used the installed compatible MMRotate package.

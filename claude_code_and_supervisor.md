@@ -2990,3 +2990,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/USER_AUTHORIZED_PROTOCOL_AMENDMENT.md`。
 - 是否触发停止条件：否（DIOR-R test endpoint 已获用户明确授权）；其余禁止端点和科学门槛不变。
 - 下一步建议：完成 SODA-A host parity 后，按相同的固定端点评估纪律执行 r043 四卡 smoke、CONT/SAUR 和完整审计。
+
+## 2026-08-18 04:52 PDT — SERVER 完成 r043 G0 host parity
+
+- 指令来源：r043 G0_REAL_ASSET_AND_HOST。
+- 执行动作：在用户授权的 DIOR-R trainval→test 和原 SODA-A train→val 端点，四卡复现 PSC host。DIOR-R 为 0.5368 mAP / 0.5370 AP50，SODA-A 为 0.5991 mAP / 0.5990 AP50，均在 0.02 阈值内。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_base.log`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/soda_base_resume2.log`；服务器执行报告 G0 表。
+- 是否触发停止条件：否。
+- 下一步建议：四卡执行 DIOR-R SAUR 100-iteration smoke；通过后完成 CONT/SAUR 的匹配三 epoch Stage A。
