@@ -2958,3 +2958,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r043-saur-obb-stagea-20260818/STATE.json`。
 - 是否触发停止条件：否。
 - 下一步建议：提交并 HTTPS push activation commit；向 111.37.195.26 交付精确 dispatch id、plan path、dispatch commit SHA，立即开始业务指令 043。
+
+## 2026-08-18 03:45 PDT — SERVER 执行 r043 SAUR-OBB Stage A
+
+- 指令来源：用户业务指令 043，精确 dispatch `orientbench-b-r043-saur-obb-stagea-20260818`、计划路径与 dispatch SHA 均已交付。
+- 执行动作：核验 `server-primary`、协调状态、plan commit/blob/SHA-256、活动镜像、L2 授权、write/resource scope 与四张空闲 A30；写入唯一 STARTED 记录后审计 required PSC assets。
+- 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/STARTED.json`；`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r043/asset_inventory.csv`。
+- 是否触发停止条件：是。DIOR-R 唯一 valid PSC baseline 是 trainval→test，归档 AP50 只能通过被明确禁止的 test 标签复现；无独立 train-only→val 资产，故按 G0 输出 `NOT_ADJUDICATED_ASSET_HOST`，未运行训练或评估。
+- 下一步建议：仅可提供并核验 DIOR-R train-only→val PSC checkpoint/config/归档 val parity 后，以新的精确 dispatch 重启；不得以当前 trainval→test checkpoint 代替。

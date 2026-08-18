@@ -1,0 +1,12 @@
+{
+  "dispatch_id": "orientbench-b-r043-saur-obb-stagea-20260818",
+  "execution_state": "STARTED",
+  "started_at": "2026-08-18T03:45:49-07:00",
+  "worker_id": "server-primary",
+  "dispatch_commit_sha": "71736d9db19bdc14f67265e40c03ae5c3f50c306",
+  "plan_commit_sha": "2e88b3e9e1ddb97e3ad62eb4c9c7b7c9406e39f9",
+  "plan_blob_oid": "8ebd3d2821a2b1245b0e30d5e64a6493f6ccd6a7",
+  "plan_sha256": "fac37d84fb11c03870540b18a5ebec5d31e782717db215658c55a4602a31072b",
+  "active_mirror_byte_identical": true,
+  "gpu_count_verified": 4
+}
