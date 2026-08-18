@@ -3022,3 +3022,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur_identity_fixed.log`；`.../dior_saur_smoke_100_identityfixed.log`。
 - 是否触发停止条件：否；正常结束，未触碰禁止端点。
 - 下一步建议：从同一 PSC checkpoint 启动修正后的 DIOR-R SAUR 三 epoch 四卡 arm；随后按冻结顺序完成 SODA-A CONT/SAUR 与全量审计。
+
+## 2026-08-18 06:07 PDT — SERVER r043 DIOR-R SAUR Stage-A 首轮早停
+
+- 指令来源：AGENTS.md 的首 epoch 明显偏低早停规则与 r043 冻结 Gate G2。
+- 执行动作：修正后 DIOR-R SAUR 第 1 epoch 评估正常结束，但 AP50=`0.3340`、AP75=`0.0960`，相对固定 BASE AP50=`0.5370` 的差为 `-0.2030`，远超 Gate G2 允许的 `-0.002`。已在 epoch 2 中止该 arm，并停止自动监督器，未启动 SODA-A arm。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur_fixed.log`；`.../dior_saur_fixed/`；`.../stagea_supervisor.log`。
+- 是否触发停止条件：是；正常早停，非 OOM/崩溃。禁止端点未触碰。
+- 下一步建议：由 B/用户决定是否按 r043 的完整双数据集矩阵继续（其科学结果预期为 REJECT）或接受该明确早停并关闭本轮；服务器不自行改阈值、预算或方法。
