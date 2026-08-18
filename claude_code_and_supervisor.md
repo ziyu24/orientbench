@@ -2909,3 +2909,12 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/C/orientbench-r041-postpull-protocol-drift-review-20260817.md`；`dis/dispatch_history/orientbench-b-r041-panorama-repair-20260817.json`；`dis/sug/orientbench-b-r041-panorama-repair-20260817.md`。
 - 是否触发停止条件：是。冻结的 DOTA-v2.0 hard kill 已在首次运行触发；后续同 dispatch 续跑、覆盖报告和非枚举 completion mode 不可验收为正常完成。
 - 下一步建议：不重跑 r041；由 C 冻结新的 r042 CPU-only OER Stage A 杀伤实验。r042 失败即终止顶刊方法线，通过才讨论 OER-D GPU 训练。
+
+## 2026-08-17 22:28 PDT — C 激活 r042 OER Stage A 生死门
+
+- 指令来源：用户 2026-08-15 批准 OER-OBB 设计；用户 2026-08-17“暂时不用等B了，你直接决定”。
+- 执行动作：C 将 `c-r042-oer-stagea-cheap-kill-20260817` 冻结为独立计划提交，并把逐字节同一版本激活到 `dis/sug.md`。本轮只消费 r036 的八单元只读证据，CPU-only、零新标签、零 host inference；r040/r041、DOTA-v2.0 与 SODA-A official test 禁止进入训练、评估或 gate。
+- 科学门槛：只有满足 5/8 units、至少一个 DOTA、至少两个 datasets 与两个 detector families、至少两个 dataset aggregates 及预指定 controls 的全部阈值，才给 `PROCEED_OER`；否则完整执行后必须给 `REJECT_OER_METHOD`，不得用 `INCONCLUSIVE` 续命。
+- 关键产物路径：`dis/plans/C/c-r042-oer-stagea-cheap-kill-20260817/sug.md`；`dis/sug.md`；`dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：否。活动槽在 r041 关闭后为空，L2 用户授权有效，计划无占位符，B 文件未修改。
+- 下一步建议：服务器拉取激活提交并严格执行 `dis/sug.md`；最终聊天只汇报“执行完毕”或“未执行完毕”及报告路径。
