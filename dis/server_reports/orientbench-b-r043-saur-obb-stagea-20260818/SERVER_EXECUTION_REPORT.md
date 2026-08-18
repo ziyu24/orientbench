@@ -2,7 +2,7 @@
 
 ## Outcome
 
-**PROTOCOL_DRIFT_STOPPED** (plan-defined G0 failure / kill condition). The r043 run is incomplete and its only DIOR result is invalid for this dispatch.
+**RESUMED_USER_AMENDMENT**.  The user explicitly amended DIOR-R to `trainval -> test`; execution resumes under the persisted amendment at `USER_AUTHORIZED_PROTOCOL_AMENDMENT.md`.
 
 ## Dispatch verification
 
@@ -34,4 +34,4 @@ Using the checkpoint on DIOR-R val cannot repair G0: it was trained on `trainval
 
 ## Required disposition
 
-Execution status is **incomplete** under the plan's `failure_early_stop` mapping. The only permissible continuation is the plan-specified one-time repair of the identified asset/host root cause: provide a real DIOR-R train-only → val PSC checkpoint, config, and archived val parity record. A new exact dispatch is required before any subsequent execution.  The invalid DIOR test-evaluation output must not be used as evidence.
+Execution status is **in progress**.  The user-authorized amendment makes the archived DIOR-R trainval-to-test PSC parity endpoint legal for this execution.  The prior DIOR base output is valid only as host-parity evidence; it is not a Stage-A method result.  All remaining work continues under the amended split table, with SODA-A remaining train-to-val.

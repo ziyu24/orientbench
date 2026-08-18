@@ -2982,3 +2982,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r043/asset_inventory.csv`。
 - 是否触发停止条件：是，且未改变。
 - 下一步建议：B 提供 DIOR-R train-only→val 的 PSC host 和 parity 证据后，重新激活精确 dispatch；服务器可立即恢复四卡执行。
+
+## 2026-08-18 04:34 PDT — 用户授权修订 r043 的 DIOR-R 端点
+
+- 指令来源：用户明确授权「dior-r做trainval/test，不要来回拉扯了，其它的也做相应更改。」
+- 执行动作：为 r043 持久化用户授权补充；DIOR-R 改用 trainval→test 作 PSC parity 与固定最终评估端点，SODA-A 保持 train→val。此前停止状态改为恢复执行；不授权 DOTA-v2.0、SODA-A official test、新数据集或任何 test 驱动的训练/挑选。
+- 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/USER_AUTHORIZED_PROTOCOL_AMENDMENT.md`。
+- 是否触发停止条件：否（DIOR-R test endpoint 已获用户明确授权）；其余禁止端点和科学门槛不变。
+- 下一步建议：完成 SODA-A host parity 后，按相同的固定端点评估纪律执行 r043 四卡 smoke、CONT/SAUR 和完整审计。
