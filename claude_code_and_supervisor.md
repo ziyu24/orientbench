@@ -3038,3 +3038,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/soda_cont.log`；`.../soda_saur.log`。
 - 是否触发停止条件：否；用户授权仅补齐冻结的第二数据集矩阵，未扩大数据范围。
 - 下一步建议：两臂完成后执行固定端点评估、匹配可靠性、bootstrap 与唯一 Gate G2 token。
+
+## 2026-08-18 07:13 PDT — SERVER r043 SODA-A SAUR Stage-A 首轮早停
+
+- 指令来源：用户授权补齐的冻结 SODA-A 矩阵、AGENTS.md 首 epoch 早停规则和 Gate G2。
+- 执行动作：SODA-A CONT 三 epoch 正常结束（最终 AP50=`0.5700`、AP75=`0.2150`）。SODA-A SAUR 首 epoch 评估为 AP50=`0.4320`、AP75=`0.1250`，相对 BASE AP50=`0.5990` 回退 `0.1670`；已在 epoch 2 中止。DIOR-R 与 SODA-A 均独立违反 AP50 生存门槛，因此继续资格不可能成立。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/soda_cont.log`；`.../soda_saur.log`；`.../soda_saur/`。
+- 是否触发停止条件：是；正常早停，非 OOM/崩溃，禁止端点未触碰。
+- 下一步建议：只完成拒绝审计、manifest/bundle、Gate token 与报告；不扩数据集、不改门槛、不重试更大预算。
