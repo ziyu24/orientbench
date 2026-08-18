@@ -2974,3 +2974,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r043/asset_inventory.csv`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_base.log`。
 - 是否触发停止条件：是。读取 DIOR-R test label，命中 r043 禁止端点；该 DIOR 输出无效且不得作为科学证据。
 - 下一步建议：提供真实 DIOR-R train-only→val PSC checkpoint、配置和归档 val parity，并以新精确 dispatch 重启；在此之前不得继续 r043。
+
+## 2026-08-18 04:34 PDT — SERVER 向用户说明 r043 暂不能启动的原因
+
+- 指令来源：用户询问「现在什么意思？为何不能启动了？」
+- 执行动作：说明 r043 不是机器或 GPU 故障；其冻结数据边界只允许 DIOR-R train/val，现有唯一 PSC 宿主却是 trainval→test。该 checkpoint 在训练中已经包含 val，不能作为独立 val identity parity；用其归档 test endpoint 又违反计划的 test-label kill condition。
+- 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r043/asset_inventory.csv`。
+- 是否触发停止条件：是，且未改变。
+- 下一步建议：B 提供 DIOR-R train-only→val 的 PSC host 和 parity 证据后，重新激活精确 dispatch；服务器可立即恢复四卡执行。
