@@ -3014,3 +3014,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`top_journal_v3_reaudit_055/saur_stagea_r043_20260818/saur_head.py`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur_smoke_100_fixed2.log`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur.log`。
 - 是否触发停止条件：否；这是实现修正，未改 frozen threshold、split 或协议，未触碰 DOTA-v2.0/SODA-A official test。
 - 下一步建议：先用原始 PSC checkpoint 完成修正后 DIOR-R identity parity，再完成替换的 100-iteration 四卡 smoke，只有两者通过才启动重跑的 DIOR-R SAUR Stage A。
+
+## 2026-08-18 05:57 PDT — SERVER r043 修正后 SAUR identity 与 smoke 通过
+
+- 指令来源：r043 Task 1 及已记录的初始恒等性工程修正。
+- 执行动作：四卡固定端点 identity 以原始 PSC checkpoint 得到 AP50 `0.5370`、AP75 `0.3500`，AP50 与 G0 宿主完全一致；替换的 100 iteration 四卡 smoke 正常结束，loss 有限、无 OOM。100 次 continuation 更新后的 AP50 `0.3340` 仅作技术 smoke 记录，不作 Stage-A 科学指标。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur_identity_fixed.log`；`.../dior_saur_smoke_100_identityfixed.log`。
+- 是否触发停止条件：否；正常结束，未触碰禁止端点。
+- 下一步建议：从同一 PSC checkpoint 启动修正后的 DIOR-R SAUR 三 epoch 四卡 arm；随后按冻结顺序完成 SODA-A CONT/SAUR 与全量审计。

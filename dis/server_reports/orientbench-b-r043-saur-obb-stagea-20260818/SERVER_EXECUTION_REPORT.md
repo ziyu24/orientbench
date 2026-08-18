@@ -53,3 +53,12 @@ Logs: `outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_b
 - The residual branch now initializes to exact zero axial change (sin/cos identity bias), and the inference path preserves the PSC decoder output at initialization.  A fresh fixed-checkpoint identity evaluation and a replacement 100-iteration four-rank smoke are required before the corrected Stage-A SAUR arm may start.
 - `grad_norm: nan` remains an inherited PSC host logging condition also present in archived baseline training logs; it did not produce non-finite loss or abort the optimizer/checkpoint path in the superseded engineering attempt.
 - Forensic logs: `dior_saur_smoke_100_resume.log`, `dior_saur_smoke_100_fixed2.log`, and `dior_saur.log`.
+
+## Corrected SAUR validation
+
+| Check | Fixed endpoint result | Status |
+|---|---:|---|
+| Initial PSC identity with corrected SAUR head | `0.5370` AP50 / `0.3500` AP75 | PASS — AP50 exactly matches G0 host |
+| Replacement DIOR-R 100-iteration four-rank smoke | finite losses; no OOM; `0.3340` AP50 / `0.0960` AP75 after 100 update iterations | PASS — technical smoke only |
+
+The replacement smoke is an optimizer-path test, not a preservation test: it executes 100 high-learning-rate continuation updates and is not eligible for a Stage-A metric.  The identity evaluation establishes the required step-zero host equivalence.  The corrected SAUR arm may now proceed from the same PSC checkpoint under the predeclared three-epoch budget.
