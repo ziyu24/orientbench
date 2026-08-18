@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "plan_id": "c-r042-oer-stagea-cheap-kill-20260817",
+  "actor": "C",
+  "plan_path": "dis/plans/C/c-r042-oer-stagea-cheap-kill-20260817/sug.md",
+  "state": "READY",
+  "plan_commit_sha": "d43b9518b0bfacc5578a30e2cdde86391d06e6cb",
+  "plan_blob_oid": "cb0af19466963bbd158ea886e198290e2860f1e0",
+  "plan_sha256": "081bca6595d735280de54fb689b1b8cbb514037c10a961d26aca732ee2c4fc3a",
+  "state_reason": "ready_user_authorized_c_owned_oer_stage_a_cheap_kill",
+  "ready_at": "2026-08-17T22:27:19-07:00",
+  "updated_at": "2026-08-17T22:27:19-07:00"
+}
