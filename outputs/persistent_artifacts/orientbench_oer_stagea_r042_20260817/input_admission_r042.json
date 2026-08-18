@@ -1,0 +1,56 @@
+{
+  "path":{
+    "qsetod_rows.parquet":"audit_bundles\/r036\/inputs\/qsetod_rows.parquet",
+    "cluster_universe.csv":"audit_bundles\/r036\/inputs\/cluster_universe.csv",
+    "preparation_summary.json":"audit_bundles\/r036\/inputs\/preparation_summary.json",
+    "source_inventory.csv":"audit_bundles\/r036\/inputs\/source_inventory.csv",
+    "join_audit.csv":"audit_bundles\/r036\/inputs\/join_audit.csv",
+    "rows":616184,
+    "schema":"row_id: string\nunit: string\ndataset: string\ndetector: string\nimage_id: string\npred_id: int64\ncluster: string\nfold: int64\nclass_id: int64\nclass_name: string\ngt_ar: double\nlog_pred_ar: double\nlog_area: double\nangle_error: double\nsigned_residual_deg: double\nu_axis: double\nmissing_fraction: double\niou_loss: double\ndetection_score: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 2329"
+  },
+  "bytes":{
+    "qsetod_rows.parquet":34796105,
+    "cluster_universe.csv":176693,
+    "preparation_summary.json":599,
+    "source_inventory.csv":3351,
+    "join_audit.csv":475,
+    "rows":616184,
+    "schema":"row_id: string\nunit: string\ndataset: string\ndetector: string\nimage_id: string\npred_id: int64\ncluster: string\nfold: int64\nclass_id: int64\nclass_name: string\ngt_ar: double\nlog_pred_ar: double\nlog_area: double\nangle_error: double\nsigned_residual_deg: double\nu_axis: double\nmissing_fraction: double\niou_loss: double\ndetection_score: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 2329"
+  },
+  "sha256":{
+    "qsetod_rows.parquet":"bb4184089a0cb9e0584cdf9fe340fe76a5d831090f07a6bc0c73e4499ac8da51",
+    "cluster_universe.csv":"4131f34dbeaa442e1328a7f3fb8b2306ac7ac40d09563561ad504b74e8bedb53",
+    "preparation_summary.json":"2c10a07c468ced8de8fafde88c2782a530fd175fd53cb6977fd02cfae21d07af",
+    "source_inventory.csv":"3205f62ba8729fd89c89b80cdf2f65971bccce758e0898115342b955353ed8e1",
+    "join_audit.csv":"64bf9339a93e3a78ac83937ce670ca20154e9fbe5a2a265d39f82a7d7417834f",
+    "rows":616184,
+    "schema":"row_id: string\nunit: string\ndataset: string\ndetector: string\nimage_id: string\npred_id: int64\ncluster: string\nfold: int64\nclass_id: int64\nclass_name: string\ngt_ar: double\nlog_pred_ar: double\nlog_area: double\nangle_error: double\nsigned_residual_deg: double\nu_axis: double\nmissing_fraction: double\niou_loss: double\ndetection_score: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 2329"
+  },
+  "expected_bytes":{
+    "qsetod_rows.parquet":34796105,
+    "cluster_universe.csv":176693,
+    "preparation_summary.json":599,
+    "source_inventory.csv":3351,
+    "join_audit.csv":475,
+    "rows":616184,
+    "schema":"row_id: string\nunit: string\ndataset: string\ndetector: string\nimage_id: string\npred_id: int64\ncluster: string\nfold: int64\nclass_id: int64\nclass_name: string\ngt_ar: double\nlog_pred_ar: double\nlog_area: double\nangle_error: double\nsigned_residual_deg: double\nu_axis: double\nmissing_fraction: double\niou_loss: double\ndetection_score: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 2329"
+  },
+  "expected_sha256":{
+    "qsetod_rows.parquet":"bb4184089a0cb9e0584cdf9fe340fe76a5d831090f07a6bc0c73e4499ac8da51",
+    "cluster_universe.csv":"4131f34dbeaa442e1328a7f3fb8b2306ac7ac40d09563561ad504b74e8bedb53",
+    "preparation_summary.json":"2c10a07c468ced8de8fafde88c2782a530fd175fd53cb6977fd02cfae21d07af",
+    "source_inventory.csv":"3205f62ba8729fd89c89b80cdf2f65971bccce758e0898115342b955353ed8e1",
+    "join_audit.csv":"64bf9339a93e3a78ac83937ce670ca20154e9fbe5a2a265d39f82a7d7417834f",
+    "rows":616184,
+    "schema":"row_id: string\nunit: string\ndataset: string\ndetector: string\nimage_id: string\npred_id: int64\ncluster: string\nfold: int64\nclass_id: int64\nclass_name: string\ngt_ar: double\nlog_pred_ar: double\nlog_area: double\nangle_error: double\nsigned_residual_deg: double\nu_axis: double\nmissing_fraction: double\niou_loss: double\ndetection_score: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 2329"
+  },
+  "pass":{
+    "qsetod_rows.parquet":true,
+    "cluster_universe.csv":true,
+    "preparation_summary.json":true,
+    "source_inventory.csv":true,
+    "join_audit.csv":true,
+    "rows":616184,
+    "schema":"row_id: string\nunit: string\ndataset: string\ndetector: string\nimage_id: string\npred_id: int64\ncluster: string\nfold: int64\nclass_id: int64\nclass_name: string\ngt_ar: double\nlog_pred_ar: double\nlog_area: double\nangle_error: double\nsigned_residual_deg: double\nu_axis: double\nmissing_fraction: double\niou_loss: double\ndetection_score: double\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 2329"
+  }
+}

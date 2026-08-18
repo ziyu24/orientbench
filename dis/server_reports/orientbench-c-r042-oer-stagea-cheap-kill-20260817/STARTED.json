@@ -1,0 +1,11 @@
+{
+  "schema_version": 2,
+  "dispatch_id": "orientbench-c-r042-oer-stagea-cheap-kill-20260817",
+  "dispatch_commit_sha": "3a2544a857107b2dfa6daee007ca67539f612bdf",
+  "plan_path": "dis/sug.md",
+  "plan_sha256": "081bca6595d735280de54fb689b1b8cbb514037c10a961d26aca732ee2c4fc3a",
+  "worker_id": "server-primary",
+  "started_at": "2026-08-17T22:40:34-07:00",
+  "resource_scope": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 448, "wall_seconds_max": 43200},
+  "status": "STARTED"
+}

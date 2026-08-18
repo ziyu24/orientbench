@@ -2867,6 +2867,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/normalized/matched_rows_r041_dior.csv`；`.../code/validate_r041.py`；`audit_bundles/r041/`；`dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：恢复后否；首次历史 DOTA-v2.0 目录元数据事件仍保留为审计事实，恢复后禁止端点零访问。
 - 下一步建议：由发起方基于已交付的资产轮结果安排下一冻结任务；本轮不作科学裁决。
+
+## 2026-08-17 22:40 PDT — r042 OER Stage A 启动（server-primary）
+
+- 指令来源：用户交付精确提交 `3a2544a857107b2dfa6daee007ca67539f612bdf`，执行 `dis/sug.md`。
+- 执行动作：已快进至该提交，核验活动镜像、SHA-256、L2 授权、SERVER 绑定、write set 与 CPU-only 资源边界；将用已存在 `pcp-obb` conda 环境执行。
+- 关键产物路径：`dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/STARTED.json`。
+- 是否触发停止条件：否。
+- 下一步建议：按冻结顺序执行 RED fixture、G0 输入核验与访问闭包，再进行 production。
 - 是否触发停止条件：否；这是允许的单元级实现修复。未改源数据、未训练、下载或修改 pth_data，恢复后未访问 DOTA-v2.0 或 SODA-A official test。
 - 下一步建议：监督器等待 hflip 单视图推理结束后自动启动 vflip；两个真实输入视图落盘后进行规范化匹配。
 
