@@ -2998,3 +2998,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_base.log`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/soda_base_resume2.log`；服务器执行报告 G0 表。
 - 是否触发停止条件：否。
 - 下一步建议：四卡执行 DIOR-R SAUR 100-iteration smoke；通过后完成 CONT/SAUR 的匹配三 epoch Stage A。
+
+## 2026-08-18 05:04 PDT — SERVER 完成 r043 SAUR 四卡 smoke
+
+- 指令来源：r043 Task 1。
+- 执行动作：完成 DIOR-R SAUR 100 iteration 四卡 smoke；数学单测 3/3 通过，所有记录 loss 有限、无 OOM，固定端点评估为 0.3341 mAP / 0.3340 AP50。`grad_norm: nan` 经归档 PSC training log 对照确认是宿主既有日志现象，未造成 loss/训练中断。
+- 关键产物路径：`top_journal_v3_reaudit_055/saur_stagea_r043_20260818/saur_head.py`；`.../test_saur_math.py`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur_smoke_100_fixed2.log`。
+- 是否触发停止条件：否。
+- 下一步建议：按预注册次序执行 DIOR-R CONT 后 SAUR 三 epoch 四卡正式运行。

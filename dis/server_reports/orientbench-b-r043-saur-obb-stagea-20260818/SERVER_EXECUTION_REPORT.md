@@ -44,3 +44,10 @@ Execution status is **in progress**.  The user-authorized amendment makes the ar
 | SODA-A | train -> val | 0.5991 | 0.5991 / 0.5990 | 0.0001 | PASS |
 
 Logs: `outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_base.log` and `outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/soda_base_resume2.log`.  Both ran with four ranks under the installed `pcp-obb` environment.  The earlier source-checkout import failure is an environment-path repair record only; the successful runs used the installed compatible MMRotate package.
+
+## Task 1 engineering and smoke completion
+
+- SAUR is implemented as an in-head PSC extension with independent axial residual mean and concentration outputs, continuous width/height symmetry gate, corrected OBB output, and native `saur_concentration`; it is not a selector or post-hoc score fit.
+- Math tests passed (`3 passed`): doubled-angle periodicity, width/height swap invariance with near-square suppression, and finite axial gradient.
+- The four-rank DIOR-R 100-iteration smoke completed normally.  All recorded loss components were finite and no OOM occurred; the fixed endpoint smoke evaluation was `0.3341` mAP / `0.3340` AP50.  `grad_norm: nan` is an inherited PSC host logging condition also present in archived baseline training logs; it did not produce non-finite loss or abort the optimizer/checkpoint path.
+- Logs: `dior_saur_smoke_100_resume.log` (first engineering run) and `dior_saur_smoke_100_fixed2.log` (completed run).  The latter is the valid smoke record.
