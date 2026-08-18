@@ -3046,3 +3046,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/soda_cont.log`；`.../soda_saur.log`；`.../soda_saur/`。
 - 是否触发停止条件：是；正常早停，非 OOM/崩溃，禁止端点未触碰。
 - 下一步建议：只完成拒绝审计、manifest/bundle、Gate token 与报告；不扩数据集、不改门槛、不重试更大预算。
+
+## 2026-08-18 08:18 PDT — SERVER r043 正常早停拒绝交付完成
+
+- 指令来源：r043 冻结 Gate G2 与用户授权补齐的 SODA-A 矩阵。
+- 执行动作：完成固定端点终核：DIOR-R BASE/CONT/SAUR 为 AP50 `0.5370/0.4330/0.3340`、AP75 `0.3500/0.2290/0.0960`；SODA-A BASE/CONT/SAUR 为 AP50 `0.5990/0.5700/0.4320`、AP75 `0.2730/0.2150/0.1250`。两数据集均在 SAUR 首轮独立违反 AP50 生存门槛，写入唯一 token `REJECT_SAUR_METHOD`。风险/cluster bootstrap 因强制早停未计算并明确标注，未以缺失结果掩盖负结果。
+- 关键产物路径：`audit_bundles/r043/gate.json`；`audit_bundles/r043/fullval_metrics.csv`；`audit_bundles/r043/MANIFEST.sha256`；`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，正常早停且交付完成；无 OOM、无未处理异常、未触碰禁止端点。
+- 下一步建议：关闭 SAUR-OBB 方法线；不得以更多预算、数据集或改门槛重启。 

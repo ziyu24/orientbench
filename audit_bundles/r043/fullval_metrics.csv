@@ -1,0 +1,7 @@
+dataset,arm,checkpoint,AP50,AP75,run_status,source_log
+DIOR-R,BASE,fixed host checkpoint,0.5370,0.3500,complete,dior_saur_identity_fixed.log
+DIOR-R,CONT,epoch_3,0.4330,0.2290,complete,dior_cont_final.log
+DIOR-R,SAUR,epoch_1,0.3340,0.0960,early_stopped,dior_saur_fixed.log
+SODA-A,BASE,fixed host checkpoint,0.5990,0.2730,complete,soda_base_final.log
+SODA-A,CONT,epoch_3,0.5700,0.2150,complete,soda_cont.log
+SODA-A,SAUR,epoch_1,0.4320,0.1250,early_stopped,soda_saur.log

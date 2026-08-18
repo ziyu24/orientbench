@@ -1,0 +1,5 @@
+dataset,arm,completed_epochs,status,checkpoint,source_log
+DIOR-R,CONT,3,complete,epoch_3.pth,dior_cont.log
+DIOR-R,SAUR,1,early_stopped,epoch_1.pth,dior_saur_fixed.log
+SODA-A,CONT,3,complete,epoch_3.pth,soda_cont.log
+SODA-A,SAUR,1,early_stopped,epoch_1.pth,soda_saur.log

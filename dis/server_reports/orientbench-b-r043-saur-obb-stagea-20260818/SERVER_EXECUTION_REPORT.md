@@ -2,7 +2,7 @@
 
 ## Outcome
 
-**RESUMED_USER_AMENDMENT**.  The user explicitly amended DIOR-R to `trainval -> test`; execution resumes under the persisted amendment at `USER_AUTHORIZED_PROTOCOL_AMENDMENT.md`.
+**COMPLETE_NORMAL_EARLY_STOP_REJECTION**.  The user explicitly amended DIOR-R to `trainval -> test`; execution followed the persisted amendment at `USER_AUTHORIZED_PROTOCOL_AMENDMENT.md` and completed the frozen early-stop disposition.
 
 ## Dispatch verification
 
@@ -74,3 +74,16 @@ The user subsequently authorized completion of the already-frozen SODA-A matrix.
 SODA-A CONT completed all three epochs normally (final `0.5700` AP50 / `0.2150` AP75).  SODA-A SAUR completed its first evaluation normally, but returned `0.4320` AP50 / `0.1250` AP75.  Relative to the fixed SODA-A BASE (`0.5990` AP50), this is an AP50 regression of `-0.1670`, again decisively outside the `-0.002` allowance.  It was terminated during epoch 2 under the first-epoch-low rule.  No OOM or crash occurred and no forbidden endpoint was accessed.
 
 The AP50 survival condition fails independently on both datasets, so `PROCEED_SAUR_STAGE_B` is logically impossible.  The remaining audit will issue the frozen rejection token and preserve completed/early-stopped evidence; it will not add datasets, adjust thresholds, or retry with a larger budget.
+
+## Final gate and delivery
+
+`REJECT_SAUR_METHOD` is recorded at `audit_bundles/r043/gate.json`.  The decisive AP50 evidence is:
+
+| Dataset | BASE AP50 | SAUR epoch-1 AP50 | Delta | Frozen survival minimum |
+|---|---:|---:|---:|---:|
+| DIOR-R | 0.5370 | 0.3340 | -0.2030 | -0.0020 |
+| SODA-A | 0.5990 | 0.4320 | -0.1670 | -0.0020 |
+
+Normal completion artifacts: `audit_bundles/r043/{asset_inventory,training_runs,fullval_metrics,risk_metrics,bootstrap_summary}.csv`, `audit_bundles/r043/gate.json`, and `audit_bundles/r043/MANIFEST.sha256`.  `risk_metrics.csv` and `bootstrap_summary.csv` explicitly record `NOT_COMPUTED_EARLY_STOP`; bootstrap cannot overturn independently failed AP50 survival gates and was not run after mandatory early stop.  All persistent checkpoints/logs remain under `outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/`.
+
+No DOTA-v2.0, SODA-A official test, or other forbidden endpoint was accessed.  No OOM or unhandled training exception occurred.  The project remains below the TGRS/JPRS route for this method: do not expand SAUR-OBB, retry it with larger budget, or change frozen gates.
