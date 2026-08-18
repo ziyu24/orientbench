@@ -1,0 +1,1 @@
+{"fit_leakage": true, "features": ["detection_score", "log_pred_ar", "log_area", "class_name", "u_axis", "missing_fraction", "iou_loss"], "bootstrap_tampered": false, "gate_token": "REJECT_OER_METHOD"}
