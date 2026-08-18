@@ -2901,3 +2901,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_panorama_r041_20260817/normalized/matched_rows_rtmdet_s_dior.csv`，SHA-256 `12d4d85e48bc79afeeafc75c6c76cc580cd6448e32d37d21030b5f601bdcfc1d`。
 - 是否触发停止条件：否；正常结束。未访问禁触端点，未训练、下载或修改 pth_data。
 - 下一步建议：提交该完整单元；LSKNet 三视图和 Strip-RCNN identity AP gate 继续由监督进程执行。
+
+## 2026-08-17 22:25 PDT — C 接管 r041 并作 post-pull 裁决
+
+- 指令来源：用户 2026-08-17“服务器运行完了，现在接手过来。暂时不用等B了，你直接决定。同时，阅读上级AGENTS.md”。
+- 执行动作：C 完整读取上级与仓库规则，fast-forward 到 `ba2cd67ed268169fcec264ef4a79085fd5c8d7d9`，核验 r041 冻结计划、STARTED、首次异常报告历史、恢复记录、最终报告、validator、manifest、AP/单元汇总与状态文件；以 `INCOMPLETE / protocol_drift / PENDING` 关闭 r041。
+- 关键产物路径：`dis/reviews/C/orientbench-r041-postpull-protocol-drift-review-20260817.md`；`dis/dispatch_history/orientbench-b-r041-panorama-repair-20260817.json`；`dis/sug/orientbench-b-r041-panorama-repair-20260817.md`。
+- 是否触发停止条件：是。冻结的 DOTA-v2.0 hard kill 已在首次运行触发；后续同 dispatch 续跑、覆盖报告和非枚举 completion mode 不可验收为正常完成。
+- 下一步建议：不重跑 r041；由 C 冻结新的 r042 CPU-only OER Stage A 杀伤实验。r042 失败即终止顶刊方法线，通过才讨论 OER-D GPU 训练。

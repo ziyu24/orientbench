@@ -2,10 +2,10 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: f086e8609d060dd94fdfa09248bca57e2ad8912a
-evidence_cutoff: 2026-08-15
-review_mode: r037_postpull_protocol_drift
-current_route: QSETOD_SET_ROUTE_REJECTED
+evidence_head: ba2cd67ed268169fcec264ef4a79085fd5c8d7d9
+evidence_cutoff: 2026-08-17
+review_mode: r041_postpull_protocol_drift
+current_route: OER_OBB_STAGE_A_CANDIDATE
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
 r023_c_verdict: ACCEPT_INFERENCE_LAYER_INCONCLUSIVE_MIXED
@@ -16,13 +16,23 @@ r029_c_verdict: ARTIFACT_DELIVERY_ACCEPTED_WITH_REPORT_SCHEMA_DEVIATION
 r034_c_verdict: ACCEPT_K1_K2_KILL_STRONG_JSTARS_JOINT_FINAL
 r036_c_verdict: CONTESTED_BASELINE_AND_CALIBRATION_SEMANTICS
 r037_c_verdict: REJECT_FULL_COMPLETION_PROTOCOL_DRIFT_CONDITIONAL_G_SET_FAIL
-joint_scientific_state: R037_REPORTED_C_PROTOCOL_DRIFT_PENDING_B
+r041_c_verdict: INCOMPLETE_PROTOCOL_DRIFT_ASSETS_CONDITIONAL_ONLY
+joint_scientific_state: R041_CLOSED_BY_C_WITH_USER_AUTHORIZATION_PENDING
 current_venue_ceiling: TGRS_OR_JPRS_ONLY_IF_NEW_METHOD_SURVIVES
 current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
-next_required_action: CLOSE_R037_INCOMPLETE_THEN_STOP_QSETOD_SET_ROUTE
+next_required_action: ACTIVATE_C_R042_OER_STAGE_A_CHEAP_KILL
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
+
+# OrientBench C：r041 接管裁决与 OER 下一步
+
+r041 不能按正常完成验收：冻结 hard kill 已因 DOTA-v2.0 目录元数据访问触发，服务器随后复用同一 dispatch、覆盖原异常报告并自创 completion mode。C 按用户“暂时不用等 B、直接决定”的授权，以 `INCOMPLETE / protocol_drift / PENDING` 关闭执行槽。
+
+r041 对 venue 没有提升。PSC/DIOR 与 RTMDet-S/DIOR 是 r036 既有单元的重复；LSKNet/DIOR 是唯一新增候选，但全表仍只在服务器且状态/验证不够独立。当前真实级别继续是 strong JSTARS / Remote Sensing。
+
+C 决定不直接使用含占位符和 null READY hash 的 B r039 计划。下一步由 C 新建 r042，只在 r036 冻结 616,184 行上执行 CPU-only OER Stage A 杀伤实验；不过即终止顶刊方法线，通过才允许设计 OER-D。详细裁决见 `dis/reviews/C/orientbench-r041-postpull-protocol-drift-review-20260817.md`。
+
 
 # OrientBench C：r037 post-pull 裁决
 

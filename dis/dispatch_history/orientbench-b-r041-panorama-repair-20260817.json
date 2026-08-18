@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-b-r041-panorama-repair-20260817.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r041-panorama-repair-20260817",
+    "plan_id": "b-r041-panorama-repair-20260817",
+    "initiator": "B",
+    "activated_by": "B",
+    "plan_path": "dis/plans/B/b-r041-panorama-repair-20260817/sug.md",
+    "plan_commit_sha": "eff4d731020112335efbb021c8d18bac1116257d",
+    "plan_blob_oid": "51aceb1e142ef60fbf552b1321dbd8bf08f5fad2",
+    "plan_sha256": "9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85",
+    "active_plan_path": "dis/sug.md",
+    "active_sha256": "9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-15 GPU 直接授权；2026-08-17 交付本轮"
+    },
+    "server_report_path": "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md",
+    "resource_scope": {
+      "declared": true,
+      "compute": {
+        "gpu_count_max": 2,
+        "gpu_hours_max": 120,
+        "cpu_core_hours_max": 448
+      },
+      "wall_time": {
+        "seconds_max": 172800
+      },
+      "data": {
+        "allowed_dataset_ids": [
+          "DOTA-v1.0-val-readonly",
+          "DIOR-R-val-readonly",
+          "FAIR1M-v1.0-val-readonly",
+          "SODA-A-val-readonly",
+          "DOTA-v1.5-val-readonly",
+          "existing-frozen-orientbench-evidence-readonly"
+        ],
+        "read_bytes_max": 4398046511104,
+        "write_bytes_max": 429496729600
+      },
+      "write": {
+        "allowed_paths": [
+          "outputs/persistent_artifacts/orientbench_panorama_r041_20260817/",
+          "top_journal_v3_reaudit_055/panorama_r041_20260817/",
+          "audit_bundles/r041/",
+          "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 429496729600
+      },
+      "network": {
+        "allowed": true,
+        "allowed_endpoints": [
+          "https://github.com/ziyu24/orientbench.git"
+        ]
+      }
+    },
+    "conflict_keys": [
+      "server-execution-slot",
+      "dis/sug.md",
+      "outputs/persistent_artifacts"
+    ],
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-17T09:20:00-07:00"
+  },
+  "started_ref": {
+    "path": "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/STARTED.json",
+    "commit_sha": "9a7bfea19171d0727628469558907179c0b28341",
+    "blob_oid": "dfeeb80ca301c9663349de811b7e13319c238e21",
+    "sha256": "2540f5c493c0c00058ec581e84232434cc5398f962c8a8fe8a4dfc6c0c9f31e9"
+  },
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "ba2cd67ed268169fcec264ef4a79085fd5c8d7d9",
+    "blob_oid": "147374ec0abed4c8519f3e1b8b38b50546298b00",
+    "sha256": "821c2427918e0eb9703258cc35a69cf32b4a4cd7d56ad6c9c6ba9f19b0e82533"
+  },
+  "terminal": {
+    "execution_state": "INCOMPLETE",
+    "completion_mode": "protocol_drift",
+    "scientific_state_at_close": "PENDING",
+    "closed_by": "C",
+    "closed_at": "2026-08-17T22:25:00-07:00",
+    "close_reason": "The frozen hard-kill condition was triggered by DOTA-v2.0 metadata access and the original failure_early_stop report was committed. A later user-authorized resume reused the same immutable dispatch and overwrote that report, then claimed a completion mode absent from the frozen mapping. The final report also omits required plan hashes and uses a non-SHA ending_commit placeholder. DIOR artifacts may be retained only as conditional development assets; this dispatch cannot be accepted as complete.",
+    "closure_authorization_ref": "用户 2026-08-17：『暂时不用等B了，你直接决定。』",
+    "verdict_refs": [
+      "dis/reviews/C/orientbench-r041-postpull-protocol-drift-review-20260817.md"
+    ],
+    "contest_refs": [],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/plans/B/b-r041-panorama-repair-20260817/sug.md",
+      "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/STARTED.json",
+      "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/RESUMED_BY_USER.json",
+      "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md",
+      "95ecc5ef675bf36eb6f500becdf1043de1ff8cdd:dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r041/validation_r041.json",
+      "audit_bundles/r041/unit_summary.csv",
+      "outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_061_rtmdet_s_dior/unit_status.json"
+    ]
+  }
+}

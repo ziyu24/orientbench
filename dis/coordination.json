@@ -69,81 +69,17 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-b-r041-panorama-repair-20260817",
-    "plan_id": "b-r041-panorama-repair-20260817",
-    "initiator": "B",
-    "activated_by": "B",
-    "plan_path": "dis/plans/B/b-r041-panorama-repair-20260817/sug.md",
-    "plan_commit_sha": "eff4d731020112335efbb021c8d18bac1116257d",
-    "plan_blob_oid": "51aceb1e142ef60fbf552b1321dbd8bf08f5fad2",
-    "plan_sha256": "9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "9afc676f6f962fdb0ea47b0507ee6d3f0261710d7f0dd70b6a47ab7e9f46fc85",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-15 GPU 直接授权；2026-08-17 交付本轮"
-    },
-    "server_report_path": "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {
-        "gpu_count_max": 2,
-        "gpu_hours_max": 120,
-        "cpu_core_hours_max": 448
-      },
-      "wall_time": {
-        "seconds_max": 172800
-      },
-      "data": {
-        "allowed_dataset_ids": [
-          "DOTA-v1.0-val-readonly",
-          "DIOR-R-val-readonly",
-          "FAIR1M-v1.0-val-readonly",
-          "SODA-A-val-readonly",
-          "DOTA-v1.5-val-readonly",
-          "existing-frozen-orientbench-evidence-readonly"
-        ],
-        "read_bytes_max": 4398046511104,
-        "write_bytes_max": 429496729600
-      },
-      "write": {
-        "allowed_paths": [
-          "outputs/persistent_artifacts/orientbench_panorama_r041_20260817/",
-          "top_journal_v3_reaudit_055/panorama_r041_20260817/",
-          "audit_bundles/r041/",
-          "dis/server_reports/orientbench-b-r041-panorama-repair-20260817/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 429496729600
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "outputs/persistent_artifacts"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-17T09:20:00-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "history_path": "dis/dispatch_history/orientbench-b-r040-panorama-inference-20260815.json",
-    "dispatch_id": "orientbench-b-r040-panorama-inference-20260815",
-    "execution_state": "incomplete",
-    "scientific_state_at_close": "NOT_ADJUDICATED_ASSET_ROUND",
-    "closed_by": "B",
-    "closed_at": "2026-08-17T09:10:00-07:00"
+    "history_path": "dis/dispatch_history/orientbench-b-r041-panorama-repair-20260817.json",
+    "dispatch_id": "orientbench-b-r041-panorama-repair-20260817",
+    "execution_state": "INCOMPLETE",
+    "scientific_state_at_close": "PENDING",
+    "closed_by": "C",
+    "closed_at": "2026-08-17T22:25:00-07:00"
   },
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-17T09:20:00-07:00"
+  "updated_at": "2026-08-17T22:25:00-07:00"
 }
