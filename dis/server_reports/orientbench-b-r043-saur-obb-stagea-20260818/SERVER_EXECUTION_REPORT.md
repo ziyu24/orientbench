@@ -66,3 +66,5 @@ The replacement smoke is an optimizer-path test, not a preservation test: it exe
 ## Stage-A early stop
 
 The corrected DIOR-R SAUR arm completed its first epoch evaluation normally but obtained `0.3340` AP50 and `0.0960` AP75, versus the fixed BASE `0.5370` AP50.  This is an immediate, material regression (AP50 `-0.2030`), far beyond the frozen `-0.002` survival allowance.  Under the project first-epoch-low early-stop rule, the run was terminated during epoch 2; no SODA-A arm was launched.  This is a **normal early-stop decision**, not an OOM or software crash.  The existing DIOR-R CONT arm is retained as budget-matched forensic evidence, but no Gate G2 verdict is issued because the two-dataset Stage-A matrix is intentionally incomplete.
+
+The user subsequently authorized completion of the already-frozen SODA-A matrix.  SODA-A CONT and SAUR therefore resume under the same three-epoch, four-GPU budget; this authorization does not alter the DIOR-R early-stop evidence or any frozen G2 threshold.
