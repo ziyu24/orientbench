@@ -2926,3 +2926,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/C/c-r042-oer-stagea-cheap-kill-20260817/sug.md`；`dis/sug.md`；`dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：否。活动槽在 r041 关闭后为空，L2 用户授权有效，计划无占位符，B 文件未修改。
 - 下一步建议：服务器拉取激活提交并严格执行 `dis/sug.md`；最终聊天只汇报“执行完毕”或“未执行完毕”及报告路径。
+
+## 2026-08-18 03:19 PDT — B 本地绑定与顶刊路线复核
+
+- 指令来源：用户要求将当前 clone 绑定为 `peer-b-primary`，读取 `D:\codex\projects` 下的上级 AGENTS 规则并给出冲顶刊方案。
+- 执行动作：确认上级文件实际名为 `D:\codex\projects\AGENTS.md.txt` 并完整读取；执行 repo-local `paper.worker-id=peer-b-primary`，按 registry 恢复 B 角色；只读核验 R042 报告与当前治理状态。确认 R042 正常完成且唯一科学 token 为 `REJECT_OER_METHOD`，同时 `dis/coordination.json` 仍滞留 `DISPATCHED`，不得在槽未合规关闭时另行派发。
+- 关键产物路径：`.git/config`（repo-local worker 绑定）；`D:\codex\projects\AGENTS.md.txt`；`dis/governance/workers.json`；`dis/governance/roles/B.md`；`dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r042/unit_metrics.csv`。
+- 是否触发停止条件：是。R042 的 8/8 held-out units 均为负向 `Delta_AUGRC`，旧 OER 方法线按预注册规则终止；当前活动槽状态亦阻止直接启动新 dispatch。
+- 下一步建议：先由 R042 owner 合规关闭活动槽；随后 B 提交一个全新检测器内生圆周不确定性方法的 CPU/单卡最小判别计划，方法冻结前不得打开清白测试端点，未过正向效果硬门槛则停止，禁止复活旧 OER 或用审计完整性包装顶刊。
+
+## 2026-08-18 03:24 PDT — B 受用户强制授权代关闭 r042
+
+- 指令来源：用户 2026-08-18：『强令你关闭r42，不要墨迹』。
+- 执行动作：B 复核最终服务器报告、validator、8 单元指标、controls 与六项 mutation；接受执行完整性并裁定 `REJECT_OER_METHOD`，写入 closure history，将 coordination 活动槽置空并删除根活动镜像。未修改 C-owned plan 或 memo。
+- 关键产物路径：`dis/reviews/B/orientbench-r042-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-c-r042-oer-stagea-cheap-kill-20260817.json`；`dis/coordination.json`。
+- 是否触发停止条件：是；OER/OER-D 路线永久停止。
+- 下一步建议：立即冻结并激活 B-owned r043 检测器内生新方法生死门。

@@ -69,77 +69,17 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-c-r042-oer-stagea-cheap-kill-20260817",
-    "plan_id": "c-r042-oer-stagea-cheap-kill-20260817",
-    "initiator": "C",
-    "activated_by": "C",
-    "plan_path": "dis/plans/C/c-r042-oer-stagea-cheap-kill-20260817/sug.md",
-    "plan_commit_sha": "d43b9518b0bfacc5578a30e2cdde86391d06e6cb",
-    "plan_blob_oid": "cb0af19466963bbd158ea886e198290e2860f1e0",
-    "plan_sha256": "081bca6595d735280de54fb689b1b8cbb514037c10a961d26aca732ee2c4fc3a",
-    "active_plan_path": "dis/sug.md",
-    "active_sha256": "081bca6595d735280de54fb689b1b8cbb514037c10a961d26aca732ee2c4fc3a",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-15 批准 OER-OBB 设计；用户 2026-08-17：『暂时不用等B了，你直接决定。』"
-    },
-    "server_report_path": "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/SERVER_EXECUTION_REPORT.md",
-    "resource_scope": {
-      "declared": true,
-      "compute": {
-        "gpu_count_max": 0,
-        "gpu_hours_max": 0,
-        "cpu_core_hours_max": 448
-      },
-      "wall_time": {
-        "seconds_max": 43200
-      },
-      "data": {
-        "allowed_dataset_ids": [
-          "repository-tracked-r036-evidence-readonly"
-        ],
-        "read_bytes_max": 1099511627776,
-        "write_bytes_max": 34359738368
-      },
-      "write": {
-        "allowed_paths": [
-          "outputs/persistent_artifacts/orientbench_oer_stagea_r042_20260817/",
-          "top_journal_v3_reaudit_055/oer_stagea_r042_20260817/",
-          "audit_bundles/r042/",
-          "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/",
-          "claude_code_and_supervisor.md"
-        ],
-        "bytes_max": 34359738368
-      },
-      "network": {
-        "allowed": true,
-        "allowed_endpoints": [
-          "https://github.com/ziyu24/orientbench.git"
-        ]
-      }
-    },
-    "conflict_keys": [
-      "server-execution-slot",
-      "dis/sug.md",
-      "outputs/persistent_artifacts",
-      "audit_bundles/r042"
-    ],
-    "status": "DISPATCHED",
-    "activated_at": "2026-08-17T22:28:19-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "history_path": "dis/dispatch_history/orientbench-b-r041-panorama-repair-20260817.json",
-    "dispatch_id": "orientbench-b-r041-panorama-repair-20260817",
-    "execution_state": "INCOMPLETE",
-    "scientific_state_at_close": "PENDING",
-    "closed_by": "C",
-    "closed_at": "2026-08-17T22:25:00-07:00"
+    "history_path": "dis/dispatch_history/orientbench-c-r042-oer-stagea-cheap-kill-20260817.json",
+    "dispatch_id": "orientbench-c-r042-oer-stagea-cheap-kill-20260817",
+    "execution_state": "COMPLETED",
+    "scientific_state_at_close": "KILLED",
+    "closed_by": "B",
+    "closed_at": "2026-08-18T03:24:00-07:00"
   },
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-17T22:28:19-07:00"
+  "updated_at": "2026-08-18T03:24:00-07:00"
 }

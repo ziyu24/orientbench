@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-c-r042-oer-stagea-cheap-kill-20260817.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-c-r042-oer-stagea-cheap-kill-20260817",
+    "plan_id": "c-r042-oer-stagea-cheap-kill-20260817",
+    "initiator": "C",
+    "activated_by": "C",
+    "plan_path": "dis/plans/C/c-r042-oer-stagea-cheap-kill-20260817/sug.md",
+    "plan_commit_sha": "d43b9518b0bfacc5578a30e2cdde86391d06e6cb",
+    "plan_blob_oid": "cb0af19466963bbd158ea886e198290e2860f1e0",
+    "plan_sha256": "081bca6595d735280de54fb689b1b8cbb514037c10a961d26aca732ee2c4fc3a",
+    "active_plan_path": "dis/sug.md",
+    "active_sha256": "081bca6595d735280de54fb689b1b8cbb514037c10a961d26aca732ee2c4fc3a",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-15 批准 OER-OBB 设计；用户 2026-08-17：『暂时不用等B了，你直接决定。』"
+    },
+    "server_report_path": "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/SERVER_EXECUTION_REPORT.md",
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 448},
+      "wall_time": {"seconds_max": 43200},
+      "data": {
+        "allowed_dataset_ids": ["repository-tracked-r036-evidence-readonly"],
+        "read_bytes_max": 1099511627776,
+        "write_bytes_max": 34359738368
+      },
+      "write": {
+        "allowed_paths": [
+          "outputs/persistent_artifacts/orientbench_oer_stagea_r042_20260817/",
+          "top_journal_v3_reaudit_055/oer_stagea_r042_20260817/",
+          "audit_bundles/r042/",
+          "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/",
+          "claude_code_and_supervisor.md"
+        ],
+        "bytes_max": 34359738368
+      },
+      "network": {"allowed": true, "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git"]}
+    },
+    "conflict_keys": ["server-execution-slot", "dis/sug.md", "outputs/persistent_artifacts", "audit_bundles/r042"],
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-17T22:28:19-07:00"
+  },
+  "started_ref": {
+    "path": "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/STARTED.json",
+    "commit_sha": "b5d59f0d578966ee36d858b67d196090d13bd912",
+    "blob_oid": "4939dbe216a007dacb43574da2eb19b7f26e096c",
+    "sha256": "1e95056553a84a44a233fe0e18abc09957cfe7a4d83b3cf922a34f9a410b8af4"
+  },
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "0a3e9a9e26c6f5fa3353a5e7f8492f3cabfa895e",
+    "blob_oid": "7887c1e5da5cac85c42a7d868ac32f5041ab6b24",
+    "sha256": "9a66f61f129b8093ec8ac2d8b36748f80574e5b9ddbeb2d2d758acc76dc2fab7"
+  },
+  "terminal": {
+    "execution_state": "COMPLETED",
+    "completion_mode": "full_completion",
+    "scientific_state_at_close": "KILLED",
+    "closed_by": "B",
+    "closed_at": "2026-08-18T03:24:00-07:00",
+    "close_reason": "Final traced production completed with no forbidden access; validator passed; all six mutations were rejected; all eight held-out units had negative Delta_AUGRC. The frozen gate therefore yields REJECT_OER_METHOD.",
+    "closure_authorization_ref": "用户 2026-08-18：『强令你关闭r42，不要墨迹』",
+    "verdict_refs": ["dis/reviews/B/orientbench-r042-postexecution-verdict-20260818.md"],
+    "contest_refs": [],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/plans/C/c-r042-oer-stagea-cheap-kill-20260817/sug.md",
+      "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/STARTED.json",
+      "dis/server_reports/orientbench-c-r042-oer-stagea-cheap-kill-20260817/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r042/validation_r042.json",
+      "audit_bundles/r042/unit_metrics.csv",
+      "audit_bundles/r042/controls_r042.csv",
+      "audit_bundles/r042/mutation_results_r042.json"
+    ]
+  }
+}
+
