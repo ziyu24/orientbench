@@ -2950,3 +2950,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r043-saur-obb-stagea-20260818/sug.md`；同目录 `STATE.json`。
 - 是否触发停止条件：否；r042 已关闭、执行槽空闲、用户 L2 授权有效。
 - 下一步建议：提交 READY 状态，原子激活到 `dis/sug.md` 与 coordination，然后把精确三元组交付 111.37.195.26 服务器执行。
+
+## 2026-08-18 03:37 PDT — B 激活 r043 并准备交付服务器
+
+- 指令来源：用户 2026-08-18 直接授权服务器开始执行顶刊方案。
+- 执行动作：把 committed READY plan 逐字节镜像到根 `dis/sug.md`，在 coordination 绑定 plan commit/blob/SHA-256、L2 授权、四卡资源、唯一报告路径与冲突键；STATE 推进至 `DISPATCHED`。
+- 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r043-saur-obb-stagea-20260818/STATE.json`。
+- 是否触发停止条件：否。
+- 下一步建议：提交并 HTTPS push activation commit；向 111.37.195.26 交付精确 dispatch id、plan path、dispatch commit SHA，立即开始业务指令 043。
