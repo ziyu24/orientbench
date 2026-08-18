@@ -2966,3 +2966,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/STARTED.json`；`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r043/asset_inventory.csv`。
 - 是否触发停止条件：是。DIOR-R 唯一 valid PSC baseline 是 trainval→test，归档 AP50 只能通过被明确禁止的 test 标签复现；无独立 train-only→val 资产，故按 G0 输出 `NOT_ADJUDICATED_ASSET_HOST`，未运行训练或评估。
 - 下一步建议：仅可提供并核验 DIOR-R train-only→val PSC checkpoint/config/归档 val parity 后，以新的精确 dispatch 重启；不得以当前 trainval→test checkpoint 代替。
+
+## 2026-08-18 04:32 PDT — SERVER 停止 r043：DIOR-R 禁止端点触发
+
+- 指令来源：r043 冻结计划的 G0 与 kill condition。
+- 执行动作：发现 DIOR-R 唯一归档 PSC host 为 trainval→test 后，后续便携配置仍错误读取了冻结的 `annfiles_dotaformat/test/` 标注并复现归档 AP50；立即终止正在运行的 SODA-A parity 会话及所有 r043 会话。
+- 关键产物路径：`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r043/asset_inventory.csv`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_base.log`。
+- 是否触发停止条件：是。读取 DIOR-R test label，命中 r043 禁止端点；该 DIOR 输出无效且不得作为科学证据。
+- 下一步建议：提供真实 DIOR-R train-only→val PSC checkpoint、配置和归档 val parity，并以新精确 dispatch 重启；在此之前不得继续 r043。
