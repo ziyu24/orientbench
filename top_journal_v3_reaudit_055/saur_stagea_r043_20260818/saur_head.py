@@ -52,6 +52,11 @@ class SAURAngleBranchRetinaHead(AngleBranchRetinaHead):
         self.saur_concentration = nn.Conv2d(self.feat_channels, self.num_anchors, 3, padding=1)
         nn.init.normal_(self.saur_residual.weight, std=.01)
         nn.init.constant_(self.saur_residual.bias, 0.)
+        # atan2(0, 0) has an undefined backward derivative.  Start every
+        # residual mean at the neutral axial direction (sin=0, cos=1), not at
+        # a zero vector, so the first distributed step has finite gradients.
+        with torch.no_grad():
+            self.saur_residual.bias.view(self.num_anchors, 2)[:, 1].fill_(1.)
         nn.init.normal_(self.saur_concentration.weight, std=.01)
         nn.init.constant_(self.saur_concentration.bias, -2.)
 
