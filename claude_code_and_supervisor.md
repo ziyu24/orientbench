@@ -3006,3 +3006,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`top_journal_v3_reaudit_055/saur_stagea_r043_20260818/saur_head.py`；`.../test_saur_math.py`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur_smoke_100_fixed2.log`。
 - 是否触发停止条件：否。
 - 下一步建议：按预注册次序执行 DIOR-R CONT 后 SAUR 三 epoch 四卡正式运行。
+
+## 2026-08-18 05:31 PDT — SERVER r043 SAUR 初始恒等性工程修正
+
+- 指令来源：r043 Task 1 的实现完整性核验。
+- 执行动作：复核首个 SAUR smoke/三 epoch 结果后，定位到新增 residual 输出层沿用了随机初始化，加载 PSC checkpoint 后在 step zero 已改变角度预测；该问题不构成科学结果。已将 residual 初始化改为零角度增量（sin/cos identity bias），并保持 PSC decoder 的原始初始化输出。此前 smoke 与同一实现的三 epoch SAUR 运行均标记为 `INVALID_ENGINEERING_SUPERSEDED`，不进入 Stage-A 或 gate 表。
+- 关键产物路径：`top_journal_v3_reaudit_055/saur_stagea_r043_20260818/saur_head.py`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur_smoke_100_fixed2.log`；`outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/dior_saur.log`。
+- 是否触发停止条件：否；这是实现修正，未改 frozen threshold、split 或协议，未触碰 DOTA-v2.0/SODA-A official test。
+- 下一步建议：先用原始 PSC checkpoint 完成修正后 DIOR-R identity parity，再完成替换的 100-iteration 四卡 smoke，只有两者通过才启动重跑的 DIOR-R SAUR Stage A。
