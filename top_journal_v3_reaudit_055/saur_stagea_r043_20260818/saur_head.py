@@ -50,7 +50,10 @@ class SAURAngleBranchRetinaHead(AngleBranchRetinaHead):
         # Per-anchor axial residual vector (sin(2d), cos(2d)) and log-kappa.
         self.saur_residual = nn.Conv2d(self.feat_channels, self.num_anchors * 2, 3, padding=1)
         self.saur_concentration = nn.Conv2d(self.feat_channels, self.num_anchors, 3, padding=1)
-        nn.init.normal_(self.saur_residual.weight, std=.01)
+        # Exact PSC identity at initialization is required for a fair
+        # continuation control: the residual starts at zero, then learns from
+        # the axial proper loss rather than perturbing a loaded PSC host.
+        nn.init.constant_(self.saur_residual.weight, 0.)
         nn.init.constant_(self.saur_residual.bias, 0.)
         # atan2(0, 0) has an undefined backward derivative.  Start every
         # residual mean at the neutral axial direction (sin=0, cos=1), not at
@@ -170,7 +173,9 @@ class SAURAngleBranchRetinaHead(AngleBranchRetinaHead):
             decoded = self._decode_box_tensor(priors, bbox)
             gate = geometry_identifiability(decoded[:, 2], decoded[:, 3], self.geometry_gate_slope, self.geometry_gate_center)
             delta = gate * .5 * torch.atan2(residual[keep, 0], residual[keep, 1])
-            theta = axial_wrap(self.angle_coder.decode(angle[keep]) + delta)
+            # Preserve the host decoder exactly at initialization (delta=0).
+            # The rotated box coder performs its native le90 normalization.
+            theta = self.angle_coder.decode(angle[keep]) + delta
             bbox[..., -1] = theta
             boxes_all.append(self.bbox_coder.decode(priors, bbox, max_shape=img_meta['img_shape']))
             scores_all.append(scores); labels_all.append(labels)
