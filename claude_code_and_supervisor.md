@@ -2942,3 +2942,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r042-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-c-r042-oer-stagea-cheap-kill-20260817.json`；`dis/coordination.json`。
 - 是否触发停止条件：是；OER/OER-D 路线永久停止。
 - 下一步建议：立即冻结并激活 B-owned r043 检测器内生新方法生死门。
+
+## 2026-08-18 03:35 PDT — B 冻结 r043 SAUR-OBB Stage A
+
+- 指令来源：用户 2026-08-18：『给出顶刊的方案，让服务器去执行，开始。』
+- 执行动作：冻结 B-owned L2 计划 `b-r043-saur-obb-stagea-20260818`。新方法为检测器内生 symmetry-aware axial residual-distribution head，不复用 r042 OER；Stage A 固定 DIOR-R/SODA-A、PSC 宿主、BASE/CONT/SAUR 同预算对照、四卡训练及正向效果生死门。
+- 关键产物路径：`dis/plans/B/b-r043-saur-obb-stagea-20260818/sug.md`；同目录 `STATE.json`。
+- 是否触发停止条件：否；r042 已关闭、执行槽空闲、用户 L2 授权有效。
+- 下一步建议：提交 READY 状态，原子激活到 `dis/sug.md` 与 coordination，然后把精确三元组交付 111.37.195.26 服务器执行。

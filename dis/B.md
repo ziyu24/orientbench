@@ -787,3 +787,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - **档位（规则5要求的评估）**：本轮为资产轮、无科学裁决，可辩护档位**维持 `STRONG_JSTARS_OR_REMOTE_SENSING` 不变**。全景仍未成形（有效新单元仅 HRSC 七个），故不上调；HRSC 入库是实质进展，故不下调。
 
 **追记 2026-08-14（B 自我记账）**：B 上一轮给用户的服务器清理命令把 `corrective_audit_r028_20260813/r026_raw_revalidation/` **整目录**搬入 legacy 区——但 r031 报告列出的未跟踪项只是该目录下的 `error.json` 一个文件，结果 3 个 r028 受保护 tracked 文件被顺带移出工作树（服务器 2026-08-14 监督记录发现并如实上报，未擅自恢复，处置正确）。责任在 B 的命令粒度。修复（用户或 C 在服务器原工作树执行即可，字节自 HEAD 恢复）：`git checkout -- top_journal_v3_reaudit_055/corrective_audit_r028_20260813/r026_raw_revalidation/`。服务器已另建干净 worktree（`orientbench_r032_clean`）供后续轮次，主链不受阻。当前等待：C 关闭 r031（owner-only）并签发新预检 dispatch。
+
+## 13. 2026-08-18：r042 关闭与 r043 SAUR-OBB 新方法路线
+
+- 用户明确授权 B 代关闭 r042。B 核验最终 traced production、validator、mutation 与八单元指标后裁定 `ACCEPT_EXECUTION / KILLED / REJECT_OER_METHOD`；旧 selector、Q-SetOD、OER/OER-D 全部终止。
+- 当前可辩护级别仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于项目合法目标，不投稿收口。
+- B 冻结 r043：在 PSC detector 内增加 symmetry-aware axial residual-distribution head，同时输出方向修正与 concentration；以 DIOR-R、SODA-A 和 budget-matched continuation 作两数据集生死门。只有 AP75、mean angle error、native normalized AUGRC 同时过预注册门槛才进入多架构 Stage B。
+- 用户 L2 授权 reference：2026-08-18『给出顶刊的方案，让服务器去执行，开始。』
+- 冻结计划：`dis/plans/B/b-r043-saur-obb-stagea-20260818/sug.md`。
