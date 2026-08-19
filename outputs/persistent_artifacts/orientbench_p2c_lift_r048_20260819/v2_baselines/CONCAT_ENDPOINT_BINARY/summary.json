@@ -1,0 +1,7 @@
+{
+  "kind": "CONCAT_ENDPOINT_BINARY",
+  "best_accuracy": 0.8484288354898336,
+  "hid": 384,
+  "layers": 3,
+  "formal": true
+}

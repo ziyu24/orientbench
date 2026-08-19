@@ -1,0 +1,7 @@
+{
+  "kind": "P2C_LIFT",
+  "best_accuracy": 0.8558225508317929,
+  "hid": 256,
+  "layers": 2,
+  "formal": true
+}
