@@ -811,3 +811,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - B adopt `NOT_JPRS_READY`：两份内部红队的 novelty 均为 `3/5`；其余 technical soundness / evidence breadth / presentation / JPRS fit 均为 `4/5`。这不是润色问题。
 - 当前科学档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`。主缺口是没有 prospective held-out remote-sensing decision study：现有 severe event 与 rectangle-IoU geometry 接近，六个 LTT 单元又全部选择 full coverage，尚未证明协议改变一个真实模型/阈值决策并在 domain shift 下保住 image-level risk。
 - 下一步只能补一个预先冻结、应用端点非同一 IoU 容忍曲线的 held-out 决策研究；不再补普通 detector row，不再试 selector/head，不靠写作宣称顶刊。
+
+## 16. 2026-08-18：r045 prospective axis-drift 决策研究
+
+- r045 冻结一个独立于 rectangle-IoU tolerance 的应用端点：`d_tip=min(1, (GT_AR/2)*sin(angle_error))`，表示沿预测轴线做切片/排列时，GT 长轴端点相对预测轴的横向漂移（以 GT 短边归一化）；主严重阈值为半个短边。
+- source=`DIOR-R`，sealed target=`HRSC2016`；只用既有 consumed 数据、既有 valid baselines 与原冻结 D_cal/D_audit，不触 DOTA-v2.0/SODA official test，不训练 detector。
+- 候选 family 预注册为 Oriented R-CNN、LSKNet Oriented R-CNN、RTMDet-S。比较 AP-only 全覆盖策略与 orientation policy；只有策略发生非平凡变化后才允许打开 HRSC audit outcome。
+- target PASS 必须同时满足：paired image-bootstrap 连续/严重风险改善、风险 UCB<=0.10、eligible coverage>=0.70、AP50 回退<=0.02、敏感性与独立审计通过。任何一项失败即停止，不调 endpoint/coverage/gate。
+- 计划：`dis/plans/B/b-r045-prospective-axis-drift-decision-20260818/sug.md`；这是当前唯一可能把 novelty 从 3/5 补到 4/5 的科学轮。
