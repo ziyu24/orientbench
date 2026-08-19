@@ -3523,3 +3523,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/runtime_compat/sitecustomize.py`；`experiments/r049_cora_obb/g0_parity.md`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g0/asset_inventory.csv`；对应 `test.log`。
 - 是否触发停止条件：否，正常结束。DIOR AP50 `0.5370` 对 archive `0.5368`（差 `0.0002`）；SODA-A val AP50 `0.5990` 对 archive `0.5991`（差 `0.0001`），均在 `0.005` 阈值内。未触碰 DOTA-v2.0、SODA-A official test 或旧 T_audit。
 - 下一步建议：冻结并测试全新 detector-native CORA-OBB head，先执行四卡 200-iter smoke，再决定是否进入 seed0 cheap gate。
+
+## 2026-08-19 05:27 CST — r049 任务状态核查
+
+- 指令来源：用户“为何是achieve？石佛还在运行？”。
+- 执行动作：核查任务状态与服务器进程；`Goal achieved` 是会话层状态被错误置为 complete，不是 r049 的科学或执行完成状态。r049 当前仅完成 G0，G1 CORA-OBB smoke 尚未启动；另有遗留 r041 tmux 进程，GPU 上运行的是其 `mr` 环境进程，非 r049。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g0/`；遗留进程日志 `outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_022_psc_dior/views/hflip.log`。
+- 是否触发停止条件：否。r049 未结束，也未发生 r049 异常结束。
+- 下一步建议：重建持续 r049 goal，随即开始 G1 实现与四卡 smoke；不等待遗留 r041 小显存进程退出。
