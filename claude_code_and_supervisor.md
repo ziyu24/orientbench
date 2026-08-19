@@ -3627,3 +3627,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`configs/r049_cora_obb/dior_cont_seed0_3e.py`；`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_cont_seed0_fp32/train.log`。
 - 是否触发停止条件：否。当前四卡 CONT 进程与顺序监督器均存活；未触碰禁止数据端点。
 - 下一步建议：待 FP32 三臂完成后再进行固定 G2 指标裁决，届时才可能触发科学早停。
+
+## 2026-08-19 08:49 CST — r049 VM-NLL 原生风险导出修复
+
+- 指令来源：持续推进与 G2 正确性监督。
+- 执行动作：核查发现 VM-NLL 对照的未训练 ordinal harm 分支原会被导出为风险；在 VM 尚未启动前，改为仅导出 periodic 分布的逆浓度，CORA 仍只导出 harm 风险。六项数学/无GT测试通过。
+- 关键产物路径：`experiments/r049_cora_obb/cora_head.py`；`configs/r049_cora_obb/dior_vm_nll_seed0_3e.py`；`audit_bundles/r049/METHOD_FREEZE.json`。
+- 是否触发停止条件：否。这是对照导出正确性修复，不改变 CORA 训练方法、数据、门槛或预算；FP32 CONT 已在运行，尚未加载该变更。
+- 下一步建议：按既有监督器顺序启动修复后的 VM-NLL，再启动 CORA；后续 matched-row 指标严格使用各臂实际 native risk。

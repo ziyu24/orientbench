@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "dispatch_id": "orientbench-b-r049-cora-obb-native-risk-stagea-20260819",
-  "frozen_at": "2026-08-19T07:30:00+08:00",
+  "frozen_at": "2026-08-19T08:49:00+08:00",
   "method": "CORA-OBB detector-native counterfactual orientation-risk alignment",
   "host": "PSC AngleBranchRetinaHead on registered DIOR host checkpoint",
   "periodic_distribution": "axial unit-vector and bounded concentration; pi-periodic von-Mises NLL",
@@ -9,7 +9,8 @@
   "counterfactuals_deg": [-40, -20, -10, -5, -2, 2, 5, 10, 20, 40],
   "counterfactual_invariant": "only decoded angle is intervened; center, scale, class and detection score are not inputs to the risk head",
   "loss_weights": {"vm": 0.1, "harm": 0.2, "counterfactual": 0.1},
-  "inference": "native harm distribution only; no GT, detection score fusion, target-domain calibration, temperature or threshold fitting",
+  "inference": "CORA uses its native harm distribution only; VM-NLL uses inverse native periodic concentration only; neither uses GT, detection-score fusion, target-domain calibration, temperature or threshold fitting",
+  "freeze_revision": "The VM-NLL control export was corrected before its FP32 run so that its untrained ordinal branch is excluded and its native periodic concentration is its sole uncertainty. CORA method, losses, counterfactuals, data, thresholds, optimizer and budget are unchanged.",
   "annotation_hygiene": "filter rbox width/height <= 1 before target encoding; source files remain unchanged; two zero-area DIOR train annotations are excluded",
   "g1_validation": {
     "math_tests": "5 passed",

@@ -1,7 +1,8 @@
 import inspect
 import torch
-from cora_head import (CORAAngleBranchRetinaHead, axial_wrap, counterfactual_angles,
-                       counterfactual_harm_logits, normalized_harm)
+from experiments.r049_cora_obb.cora_head import (
+    CORAAngleBranchRetinaHead, axial_wrap, counterfactual_angles,
+    counterfactual_harm_logits, normalized_harm)
 
 
 def test_pi_periodicity():

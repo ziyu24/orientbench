@@ -52,11 +52,15 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
     """PSC head with periodic VM-NLL and ordinal native-harm arms."""
 
     def __init__(self, *args, vm_loss_weight=0.10, harm_loss_weight=0.20,
-                 cf_loss_weight=0.10, harm_bins=8, **kwargs):
+                 cf_loss_weight=0.10, harm_bins=8,
+                 native_risk_mode='cora_harm', **kwargs):
         self.vm_loss_weight = vm_loss_weight
         self.harm_loss_weight = harm_loss_weight
         self.cf_loss_weight = cf_loss_weight
         self.harm_bins = harm_bins
+        if native_risk_mode not in {'cora_harm', 'vm_concentration'}:
+            raise ValueError(f'unsupported native_risk_mode={native_risk_mode}')
+        self.native_risk_mode = native_risk_mode
         super().__init__(*args, **kwargs)
 
     def _init_layers(self):
@@ -169,32 +173,44 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
                 select_single_mlvl(cls_scores, image_id, detach=True),
                 select_single_mlvl(bbox_preds, image_id, detach=True),
                 select_single_mlvl(angle_preds, image_id, detach=True),
+                select_single_mlvl(periodic_preds, image_id, detach=True),
                 select_single_mlvl(harm_preds, image_id, detach=True), priors,
                 meta, cfg, rescale, with_nms))
         return results
 
-    def _predict_cora_single(self, cls_list, bbox_list, angle_list, harm_list,
+    def _predict_cora_single(self, cls_list, bbox_list, angle_list, periodic_list, harm_list,
                              priors_list, img_meta, cfg, rescale, with_nms):
         """Decode host boxes unchanged and attach only native CDF risk."""
         cfg = copy.deepcopy(self.test_cfg if cfg is None else cfg)
         boxes_all, scores_all, labels_all, risks_all = [], [], [], []
-        for cls, bbox, angle, harm, priors in zip(
-                cls_list, bbox_list, angle_list, harm_list, priors_list):
+        for cls, bbox, angle, periodic, harm, priors in zip(
+                cls_list, bbox_list, angle_list, periodic_list, harm_list, priors_list):
             bbox = bbox.float().permute(1, 2, 0).reshape(-1, self.bbox_coder.encode_size)
             angle = angle.permute(1, 2, 0).reshape(-1, self.encode_size)
+            periodic = periodic.float().permute(1, 2, 0).reshape(-1, 2)
             harm = harm.permute(1, 2, 0).reshape(-1, self.harm_bins)
             scores = cls.float().permute(1, 2, 0).reshape(-1, self.cls_out_channels).sigmoid()
             scores, labels, keep, kept = filter_scores_and_topk(
                 scores, cfg.get('score_thr', 0), cfg.get('nms_pre', -1),
-                dict(bbox_pred=bbox, priors=priors, angle_pred=angle, harm=harm))
-            bbox, priors, angle, harm = (kept['bbox_pred'], kept['priors'],
-                                         kept['angle_pred'], kept['harm'])
+                dict(bbox_pred=bbox, priors=priors, angle_pred=angle,
+                     periodic=periodic, harm=harm))
+            bbox, priors, angle, periodic, harm = (
+                kept['bbox_pred'], kept['priors'], kept['angle_pred'],
+                kept['periodic'], kept['harm'])
             # This is the original PSC decode: CORA risk does not change it.
             bbox[..., -1] = self.angle_coder.decode(angle)
             boxes_all.append(self.bbox_coder.decode(priors, bbox, max_shape=img_meta['img_shape']))
             scores_all.append(scores)
             labels_all.append(labels)
-            risks_all.append(torch.sigmoid(harm).mean(-1))
+            if self.native_risk_mode == 'cora_harm':
+                risk = torch.sigmoid(harm).mean(-1)
+            else:
+                # VM boundary arm: inverse axial concentration is its sole
+                # native uncertainty.  Harm/CORA parameters are ignored, so
+                # an untrained ordinal branch cannot contaminate this control.
+                kappa = torch.sqrt(periodic.square().sum(-1) + 1e-4).clamp(max=20.)
+                risk = 1. / (1. + kappa)
+            risks_all.append(risk)
         result = InstanceData(bboxes=cat_boxes(boxes_all), scores=torch.cat(scores_all),
                               labels=torch.cat(labels_all), cora_native_risk=torch.cat(risks_all))
         return self._bbox_post_process(result, cfg, rescale, with_nms, img_meta)
