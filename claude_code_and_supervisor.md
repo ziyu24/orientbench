@@ -3387,3 +3387,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r047-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818.json`；`outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/tcal_rows.jsonl`。
 - 是否触发停止条件：是。不得 Stage B；同时因 AHC 比 WHOLE_CROP val 低 3.14pp且纠正后三 view 仍全败，资源层停止 AHC，不再开 post-outcome 修复轮。
 - 下一步建议：当前不处理下一科学轮；项目仍低于 TGRS，未来只能在用户新授权下启动真正不同的方法/任务，不能修补 AHC。
+
+## 2026-08-19 00:00 PDT — B 澄清 r047 后续边界
+
+- 指令来源：用户询问“是要让服务器重新执行还是什么？”
+- 执行动作：明确 r047 不续跑、不修复、不重做；其执行缺陷使结果不能成为正式论文证据，但 AHC 落后 strongest baseline 且三视图纠正校准全败，已足以作停止投资决策。
+- 关键产物路径：`dis/reviews/B/orientbench-r047-postexecution-verdict-20260818.md`。
+- 是否触发停止条件：是，AHC 路线与 Stage B 均停止；服务器不得继续业务指令 047。
+- 下一步建议：若继续唯一的 TGRS-or-better 目标，只能另行授权并派发一个科学上不同的新方法/任务，不能把 r047 工程修复包装为新进展。
