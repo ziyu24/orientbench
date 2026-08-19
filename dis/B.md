@@ -858,3 +858,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 但 formal completion 不成立：dispatch 已在 `4db8ced` 以环境失败终止后无 tracked resume 又覆盖报告；MMRotate 通过伪造版本字符串绕过 guard；训练漏 warmup/cosine/color jitter/AUGRC，HEADPOINT 不是二维头点回归，AHC retry 实际代码不可追溯，校准漏 temperature/Hoeffding/全 image accounting/one-to-one matching，且无 checkpoints bundle、manifest、独立 validator/mutations。
 - 因 GT UCB 只高门槛 0.0066，以上科学配置漂移可能翻转 formal gate，故不采纳 `REJECT_AHC_OBB_VALID_TCAL_SAFETY_FAIL`。执行关闭为 `INCOMPLETE / PROTOCOL_DRIFT / PENDING`。
 - 资源决策仍明确停止 AHC：它已比 strongest whole-crop baseline 低 3.14pp，三 view 的纠正校准也全部失败；禁止 Stage B，也不再开 AHC 修复轮。项目维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，下一条顶刊路线必须是真正不同的新方法/任务并另获授权。
+
+## 22. 2026-08-19：用户授权 P2C-Lift 新方法路线
+
+- 用户在 B 明确 r047 不重跑、下一步必须是科学上完全不同的新方法/任务后回复“推进下一步吧”，构成业务指令 048 的 L2 授权。
+- 新方法 P2C-Lift 把 OBB 的 axial angle（`mod pi`）建模为 projective state，再以 conditional pole变量概率抬升到 full heading（`mod 2pi`）；同时输出 axial concentration、pole posterior和完整方向风险。它不复活 AHC hard comparator。
+- 最近邻边界：CHPDet 已在 TGRS 做 center-head point 360°检测，故任务和船头预测本身不新；本项目必须靠 double-cover factorization、intrinsic reliability、跨 host plug-in和后续 source-disjoint 外部验证建立创新。
+- r048 只用 train/val/T_cal consumed development开发；仅当 P2C 对 whole/concat/真实 headpoint/direct-S1 强基线在两开发分区同时过门，才打开仍密封的 228-image T_audit。通过后另轮获取 FGSD2021或ShipRS非HRSC去重子集。
+- 当前档位不变：`STRONG_JSTARS_OR_REMOTE_SENSING`；r048 Stage A 全过只恢复 JPRS/TGRS potential，不预支 ready。

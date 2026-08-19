@@ -3395,3 +3395,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r047-postexecution-verdict-20260818.md`。
 - 是否触发停止条件：是，AHC 路线与 Stage B 均停止；服务器不得继续业务指令 047。
 - 下一步建议：若继续唯一的 TGRS-or-better 目标，只能另行授权并派发一个科学上不同的新方法/任务，不能把 r047 工程修复包装为新进展。
+
+## 2026-08-19 00:05 PDT — B 冻结 r048 P2C-Lift 新方法
+
+- 指令来源：用户在 r047/AHC 明确停止后回复“推进下一步吧”。
+- 执行动作：基于最新一手文献与数据源核查，冻结 projective-to-circular probabilistic lift：factorize axial residual、bow/stern pole和intrinsic reliability；设置 whole/concat/真实 headpoint/direct-S1 强基线、consumed val+T_cal双门、228-image sealed T_audit与双 host正式门。
+- 关键产物路径：`dis/plans/B/b-r048-p2c-lift-directed-obb-stagea-20260819/sug.md`。
+- 是否触发停止条件：否。T_audit仍未打开；r048 不下载新数据、不复用AHC权重、不训练host detector。
+- 下一步建议：提交 immutable READY 计划并激活业务指令 048；只有 Stage A 全过才允许外部 FGSD2021/ShipRS来源去重验证。
