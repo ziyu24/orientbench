@@ -3579,3 +3579,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`configs/r049_cora_obb/dior_{cont,vm_nll,cora}_seed0_3e.py`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_cont_seed0/train.log`。
 - 是否触发停止条件：否。仅 CONT 正在执行，VM-NLL/CORA 尚未启动；禁止端点未触碰。
 - 下一步建议：CONT 正常完成后顺序执行 VM-NLL 与 CORA，随后使用冻结的 G2 指标与 raw native-risk rows 裁决。
+
+## 2026-08-19 07:42 CST — r049 native-risk 导出校验通过
+
+- 指令来源：用户“继续推进”。
+- 执行动作：四卡 DIOR inference export 正常结束；`11738` 个 prediction rows 均保留 `cora_native_risk` 字段，首图 `43` 个 post-NMS 检测与 `43` 个 native-risk 值一一对应。风险未与 detection score 融合。
+- 关键产物路径：`experiments/r049_cora_obb/native_risk_export_check.md`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/native_risk_export_test/predictions.pkl`。
+- 是否触发停止条件：否。DIOR CONT 尚在正常运行；VM-NLL/CORA 未提前启动。
+- 下一步建议：CONT 完成后顺序启动 VM-NLL，再启动 CORA，并以该导出 schema 生成 G2 raw native-risk rows。
