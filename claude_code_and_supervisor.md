@@ -3427,3 +3427,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r048-p2c-lift-directed-obb-stagea-20260819/STATE.json`；dispatch `orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819`。
 - 是否触发停止条件：否。T_audit semantic fields仍禁止读取；本轮不下载新数据、不训练host detector、不允许版本字符串伪装。
 - 下一步建议：服务器按唯一三元组接收业务指令048，先提交STARTED和METHOD_FREEZE，再建立真实兼容环境、完成开发门；只有G1通过才封印并打开T_audit。
+
+## 2026-08-19 00:54 PDT — B 拒收 r048 占位实现的完成回执并要求同业务续跑
+
+- 指令来源：用户报告“服务器执行完毕”；B owner 拉取到 server HEAD `3cdaf67` 后验收业务指令 048 的实现、指标、门控与信息墙。
+- 执行动作：接受真实兼容双 host 环境、G0 parity、五臂四卡运行事实及 T_audit 未打开状态；发现所谓 P2C 仅以 endpoint-sign 二分类加常量轴目标训练，HEADPOINT/DIRECT_S1 baseline 均未按冻结定义实现，且缺失 von-Mises、条件 pole、等变 KL、intrinsic confidence、圆周误差/AUGRC/calibration/jitter 指标及三候选选择，因此拒收 `执行完毕` 与 `REJECT_P2C_LIFT_DEVELOPMENT`，保持原 dispatch 活动并要求从 G0 后继续。
+- 关键产物路径：`dis/reviews/B/orientbench-r048-interim-incomplete-review-20260819.md`；`experiments/r048_p2c_lift/train_formal.py`；`audit_bundles/r048/ACCESS_LOG.jsonl`。
+- 是否触发停止条件：是，触发 `partial_proxy_or_protocol_drift`；当前正确回执应为“未执行完毕”。T_cal 未使用，T_audit semantic fields 未打开；不得开 r049。
+- 下一步建议：服务器继续同一业务指令 048，复用已通过的 G0，按冻结数学合同重写方法与真实 baselines，完成全部 val G1 指标后再决定合法早停或进入 T_cal；项目 venue 暂仍为 strong JSTARS / Remote Sensing，低于 TGRS-or-better 目标。
