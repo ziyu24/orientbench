@@ -3643,3 +3643,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`configs/r049_cora_obb/dior_*_seed0_export.py`；`experiments/r049_cora_obb/export_dior_g2_seed0.sh`。
 - 是否触发停止条件：否。未启动额外 GPU 工作；导出配置已在可用环境解析。
 - 下一步建议：待训练监督器正常结束后运行该导出，再从相同 matched TP rows 计算固定 G2 指标。
+
+## 2026-08-19 08:54 CST — r049 DIOR G2 指标生成器预置
+
+- 指令来源：持续推进与 G2 交付要求。
+- 执行动作：实现只接受三臂完整 raw export 的 matched-TP 生成器；采用同一 class-aware、score-ordered、rotated-IoU>=0.5 匹配，CONT 仅按 detection score，VM/CORA 仅按其 native risk 排序，whole-tie-group AUGRC/Risk@70 均无 target-domain 拟合。单记录 smoke 通过。
+- 关键产物路径：`experiments/r049_cora_obb/build_dior_g2_metrics.py`。
+- 是否触发停止条件：否。未生成或选择任何 G2 结果；等待三臂实际 raw export。
+- 下一步建议：训练与导出完成后立即生成持久化 matched rows、manifest 与 DIOR G2 point metrics。
