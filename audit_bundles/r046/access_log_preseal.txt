@@ -1,0 +1,3 @@
+2026-08-18 — Read HRSC train/val XML header_x/header_y fields only for G0 count.
+2026-08-18 — Read HRSC test split identity and image metadata only; test XML semantic fields were not opened.
+2026-08-18 — Read pth_data/readme.md host provenance rows 6 and 13 only.
