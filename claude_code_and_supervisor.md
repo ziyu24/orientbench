@@ -3515,3 +3515,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r049-cora-obb-native-risk-stagea-20260819/STATE.json`；dispatch `orientbench-b-r049-cora-obb-native-risk-stagea-20260819`。
 - 是否触发停止条件：否。DOTA-v2.0、SODA official test 与旧 T_audit 继续封存；本轮先做 pth_data readme + 双 baseline parity，再做 detector-native实现与四卡 smoke。
 - 下一步建议：服务器按唯一三元组接收业务049并直接执行；普通工程问题自主修复，只有科学门或真实不可恢复异常才终止。
+
+## 2026-08-19 05:25 CST — 业务 049 G0 双 PSC host parity 通过
+
+- 指令来源：用户“少了你自己解决，或者找其它的conda环境啊”。
+- 执行动作：在既有 `pcp-obb` 环境完成兼容性修复；仅为历史 checkpoint 反序列化提供 `numpy._core -> numpy.core` 模块路径别名，未改第三方源码、包版本、模型、配置或 checkpoint。DIOR 与 SODA-A 双 host 均以四卡重放完成。
+- 关键产物路径：`experiments/r049_cora_obb/runtime_compat/sitecustomize.py`；`experiments/r049_cora_obb/g0_parity.md`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g0/asset_inventory.csv`；对应 `test.log`。
+- 是否触发停止条件：否，正常结束。DIOR AP50 `0.5370` 对 archive `0.5368`（差 `0.0002`）；SODA-A val AP50 `0.5990` 对 archive `0.5991`（差 `0.0001`），均在 `0.005` 阈值内。未触碰 DOTA-v2.0、SODA-A official test 或旧 T_audit。
+- 下一步建议：冻结并测试全新 detector-native CORA-OBB head，先执行四卡 200-iter smoke，再决定是否进入 seed0 cheap gate。
