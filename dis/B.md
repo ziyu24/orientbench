@@ -843,3 +843,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 信息墙已越过：V_fit/V_cal 清单在多轮完整 val 船头标签读取、full-val accuracy 比较和 crop transform 修正之后才生成，不满足“先冻结 split 再打开 val heading values”。
 - 交付只是随机初始化的单卷积 16-channel、6.8 KB `smoke/formal proxy`；没有 detector-R50 初始化、冻结 jitter/temperature/V_fit model selection、HEADPOINT_REG、两 host、manifest、独立 validator、mutation 或 schema-2 report。故 `REJECT_AHC_OBB_METHOD` 不成立，proxy 的 0.7837 val accuracy 也只能视为开发信号。
 - 项目档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于 TGRS-or-better 合法线。r046 既不升档也不降档；在新用户授权与全新、诚实标注已消费 val 状态的 dispatch 前，不处理下一科学轮。
+
+## 20. 2026-08-18：用户授权 r047 clean formal 重跑
+
+- 用户在 r046 被关闭为 `INCOMPLETE / PROTOCOL_DRIFT` 且 B 明确说明必须新授权后回复“继续推进执行”，构成 r047 L2 授权。
+- official train/val 全部降为 consumed development；不再把 r046 后置生成的 V_fit/V_cal 包装成 calibration。唯一未揭示的 official test 先只按 image ID 哈希封存为 T_cal/T_audit，再实行 model seal→T_cal seal→T_audit 两道墙。
+- r047 必须使用注册 HRSC Oriented R-CNN R50 backbone，完整训练 AHC、WHOLE_CROP、CONCAT_ENDPOINT、HEADPOINT_REG，四卡 DDP、双 host、配对 confidence/error 与真正的 complete-image finite-sample UCB。任何 tiny proxy、缺 baseline 或错配校准均为未执行完毕。
+- 通过 Stage A 只进入第二 head-label 数据集外部验证；当前档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，没有预支 JPRS/TGRS。

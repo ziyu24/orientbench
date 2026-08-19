@@ -3348,3 +3348,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r046-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818.json`；`experiments/r046_semantic_heading/calibrate_vcal.py`。
 - 是否触发停止条件：是。执行不完整且跨越 val 信息墙；不得 Stage B，也不得把错误风险值写成方法负结果。HRSC test semantic labels 仍保持未打开。
 - 下一步建议：当前不处理下一科学轮；若用户另行授权，只能新建承认 val 已消费的 clean rerun dispatch，使用新的 calibration/audit 信息墙和完整正式实现。
+
+## 2026-08-18 22:14 PDT — B 接受新授权并冻结 r047 clean formal 方案
+
+- 指令来源：用户在 r046 被判不完整后回复“继续推进执行”。
+- 执行动作：将 official train/val 明确降为 consumed development；设计 official test identity-only 哈希 T_cal/T_audit 与两道远端 seal；冻结注册 R50 backbone、AHC+三强 baseline、四卡 DDP、双 host、paired confidence/error 和 complete-image Hoeffding-Bentkus UCB 的正式 Stage-A 合同。
+- 关键产物路径：`dis/plans/B/b-r047-ahc-obb-clean-formal-stagea-20260818/sug.md`。
+- 是否触发停止条件：否。official test semantic values 仍未打开；r046 proxy、split、risk 与科学 token 禁止复用。
+- 下一步建议：提交不可变 READY 计划，绑定 commit/blob/SHA 后激活业务指令 047；服务器必须先封存 test identity partition 和完整实现，再运行正式训练。
