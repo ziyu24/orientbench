@@ -18,6 +18,8 @@ try:
     @ROTATED_DATASETS.register_module()
     class R045LegacyImageOnlyDataset(CustomDataset):
         CLASSES=('ship',)
+        def __init__(self, *args, version=None, **kwargs):
+            super().__init__(*args, **kwargs)
         def load_annotations(self, ann_file):
             return [dict(filename=f'{i}.bmp',width=0,height=0,ann=dict(bboxes=[],labels=[])) for i in Path(ann_file).read_text().splitlines()]
 except ImportError:
