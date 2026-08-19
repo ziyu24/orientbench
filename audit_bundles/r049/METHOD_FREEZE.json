@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r049-cora-obb-native-risk-stagea-20260819",
+  "frozen_at": "2026-08-19T07:30:00+08:00",
+  "method": "CORA-OBB detector-native counterfactual orientation-risk alignment",
+  "host": "PSC AngleBranchRetinaHead on registered DIOR host checkpoint",
+  "periodic_distribution": "axial unit-vector and bounded concentration; pi-periodic von-Mises NLL",
+  "harm_distribution": "8-bin ordinal CDF over normalized le90 angle harm",
+  "counterfactuals_deg": [-40, -20, -10, -5, -2, 2, 5, 10, 20, 40],
+  "counterfactual_invariant": "only decoded angle is intervened; center, scale, class and detection score are not inputs to the risk head",
+  "loss_weights": {"vm": 0.1, "harm": 0.2, "counterfactual": 0.1},
+  "inference": "native harm distribution only; no GT, detection score fusion, target-domain calibration, temperature or threshold fitting",
+  "annotation_hygiene": "filter rbox width/height <= 1 before target encoding; source files remain unchanged; two zero-area DIOR train annotations are excluded",
+  "g1_validation": {
+    "math_tests": "5 passed",
+    "four_gpu_200_iteration_smoke": "all reported losses and gradient norms finite",
+    "full_val": {"AP50": 0.51, "AP75": 0.272},
+    "log": "outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200_cf_v2/20260819_072844/20260819_072844.log"
+  },
+  "scope": "G1 freeze only; no G2 result or scientific conclusion"
+}

@@ -1,5 +1,7 @@
+import inspect
 import torch
-from cora_head import axial_wrap, counterfactual_angles, normalized_harm
+from cora_head import (CORAAngleBranchRetinaHead, axial_wrap, counterfactual_angles,
+                       counterfactual_harm_logits, normalized_harm)
 
 
 def test_pi_periodicity():
@@ -23,3 +25,20 @@ def test_harm_bounds_and_counterfactual_mutation():
     assert bool(((harm >= 0) & (harm <= 1)).all())
     angle = torch.tensor([0.])
     assert not torch.equal(counterfactual_angles(angle, torch.tensor([5.])), angle)
+
+
+def test_counterfactual_logits_identity_mutation_and_gradient():
+    base = torch.zeros(2, 8, requires_grad=True)
+    slope = torch.tensor([.2, -.4], requires_grad=True)
+    delta = torch.tensor([0., 10.])
+    logits = counterfactual_harm_logits(base, slope, delta)
+    assert torch.equal(logits[:, 0], base)
+    assert not torch.equal(logits[:, 0], logits[:, 1])
+    logits.square().mean().backward()
+    assert torch.isfinite(base.grad).all() and torch.isfinite(slope.grad).all()
+    assert slope.grad.abs().sum() > 0
+
+
+def test_inference_signature_has_no_ground_truth_input():
+    params = inspect.signature(CORAAngleBranchRetinaHead.predict_by_feat).parameters
+    assert not any('gt' in name.lower() for name in params)

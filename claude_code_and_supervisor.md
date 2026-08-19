@@ -3563,3 +3563,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`docs/paper_jprs_r049/g1_numerical_repair_report.md`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200_repaired_fullval_bg/20260819_062910/20260819_062910.log`。
 - 是否触发停止条件：否；原实现性早停已消除。G2/seed0 仍未启动，禁止端点未触碰。
 - 下一步建议：补完 G1 余下 mutation/GT-inference tests 和 METHOD_FREEZE 审查后，才可按冻结 r049 进入 G2。
+
+## 2026-08-19 07:30 CST — r049 G1 方法冻结完成
+
+- 指令来源：用户“继续推进”。
+- 执行动作：补齐 pi-periodicity、angle-only identity/mutation、counterfactual logits mutation、risk-gradient 与无 GT inference signature tests（`5 passed`）；将反事实 harm 改为同一原生 feature 的 angle-conditioned ordinal CDF，不使用 detection score。四卡 200-iteration full-val smoke 正常结束，AP50 `0.5100`、AP75 `0.2720`，所有报告 loss/grad finite。
+- 关键产物路径：`audit_bundles/r049/METHOD_FREEZE.json`；`experiments/r049_cora_obb/test_cora_math.py`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200_cf_v2/20260819_072844/20260819_072844.log`。
+- 是否触发停止条件：否。G1 的数值/方法 smoke 已通过；未将 smoke AP 当成 G2 结论，G2 尚未启动；禁止端点未触碰。
+- 下一步建议：按冻结顺序以同一 checkpoint/预算启动 DIOR seed0 的 CONT、VM-NLL、CORA，再由 G2 指标决定是否继续 SODA-A。

@@ -32,6 +32,17 @@ def counterfactual_angles(angle: torch.Tensor, delta_deg: torch.Tensor) -> torch
     return angle + torch.deg2rad(delta_deg)
 
 
+def counterfactual_harm_logits(base_logits: torch.Tensor, angle_slope: torch.Tensor,
+                               delta_deg: torch.Tensor) -> torch.Tensor:
+    """Native angle-conditioned ordinal harm logits for fixed interventions.
+
+    ``base_logits`` and ``angle_slope`` come from the same positive-anchor
+    feature.  Only the supplied angular intervention varies; no box geometry,
+    class score, GT quantity, or detector score is an input here.
+    """
+    return base_logits[:, None, :] + angle_slope[:, None, None] * (delta_deg[None, :, None] / 40.0)
+
+
 @MODELS.register_module()
 class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
     """PSC head with periodic VM-NLL and ordinal native-harm arms."""
@@ -51,12 +62,15 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
         # decoding while allowing finite, nonzero gradients from step one.
         self.cora_periodic = nn.Conv2d(self.feat_channels, self.num_anchors * 2, 3, padding=1)
         self.cora_harm = nn.Conv2d(self.feat_channels, self.num_anchors * self.harm_bins, 3, padding=1)
+        self.cora_cf_slope = nn.Conv2d(self.feat_channels, self.num_anchors, 3, padding=1)
         nn.init.constant_(self.cora_periodic.weight, 0.)
         nn.init.constant_(self.cora_periodic.bias, 0.)
         with torch.no_grad():
             self.cora_periodic.bias.view(self.num_anchors, 2)[:, 1].fill_(1.)
         nn.init.normal_(self.cora_harm.weight, std=.01)
         nn.init.constant_(self.cora_harm.bias, 0.)
+        nn.init.normal_(self.cora_cf_slope.weight, std=.01)
+        nn.init.constant_(self.cora_cf_slope.bias, 0.)
 
     def forward_single(self, x):
         cls_feat, reg_feat = x, x
@@ -68,7 +82,8 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
         if self.use_normalized_angle_feat:
             angle = angle.sigmoid() * 2 - 1
         return (self.retina_cls(cls_feat), self.retina_reg(reg_feat), angle,
-                self.cora_periodic(reg_feat), self.cora_harm(reg_feat))
+                self.cora_periodic(reg_feat), self.cora_harm(reg_feat),
+                self.cora_cf_slope(reg_feat))
 
     @staticmethod
     def _ordinal_target(harm, bins):
@@ -76,7 +91,7 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
         return (harm.unsqueeze(-1) >= thresholds).to(harm.dtype)
 
     def loss_by_feat(self, cls_scores, bbox_preds, angle_preds, periodic_preds,
-                     harm_preds, batch_gt_instances, batch_img_metas,
+                     harm_preds, cf_slope_preds, batch_gt_instances, batch_img_metas,
                      batch_gt_instances_ignore=None):
         sizes = [x.shape[-2:] for x in cls_scores]
         anchors, flags = self.get_anchors(sizes, batch_img_metas, device=cls_scores[0].device)
@@ -91,10 +106,12 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
             avg_factor=avg_factor)
         vm_losses, harm_losses, cf_losses = [], [], []
         interventions = torch.tensor([-40., -20., -10., -5., -2., 2., 5., 10., 20., 40.], device=cls_scores[0].device)
-        for angle, periodic, harm, target, weight in zip(angle_preds, periodic_preds, harm_preds, angle_t, angle_w):
+        for angle, periodic, harm, cf_slope, target, weight in zip(
+                angle_preds, periodic_preds, harm_preds, cf_slope_preds, angle_t, angle_w):
             a = angle.permute(0, 2, 3, 1).reshape(-1, self.encode_size)
             p = periodic.permute(0, 2, 3, 1).reshape(-1, 2)
             h = harm.permute(0, 2, 3, 1).reshape(-1, self.harm_bins)
+            s = cf_slope.permute(0, 2, 3, 1).reshape(-1)
             w = weight.reshape(-1)
             base = self.angle_coder.decode(a).reshape(-1)
             gt = self.angle_coder.decode(target.reshape(-1, self.encode_size)).reshape(-1)
@@ -105,16 +122,22 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
             vm = torch.log(torch.special.i0e(kappa)) + kappa - kappa * (unit[:, 0] * torch.sin(2 * residual) + unit[:, 1] * torch.cos(2 * residual))
             real_harm = normalized_harm(residual)
             proper = F.binary_cross_entropy_with_logits(h, self._ordinal_target(real_harm, self.harm_bins), reduction='none').mean(-1)
-            # Counterfactuals alter only angle; their GT-derived training harm
-            # supervises ranking, while all predicted quantities remain native.
+            # Counterfactuals alter only angle.  The same native feature has a
+            # learned angle response, and GT appears solely in this train loss.
             cf_angle = counterfactual_angles(base[:, None], interventions[None, :])
             cf_harm = normalized_harm(gt[:, None] - cf_angle)
-            risk = torch.sigmoid(h).mean(-1)
-            # Same native risk receives a differentiable angle-conditioned
-            # ordering target: closer interventions should not be presumed
-            # better; ranking follows actual counterfactual harm.
-            target_rank = cf_harm.mean(-1)
-            align = F.smooth_l1_loss(risk, target_rank, reduction='none')
+            cf_logits = counterfactual_harm_logits(h, s, interventions)
+            cf_target = self._ordinal_target(cf_harm.reshape(-1), self.harm_bins).reshape_as(cf_logits)
+            cf_proper = F.binary_cross_entropy_with_logits(cf_logits, cf_target, reduction='none').mean((-1, -2))
+            cf_risk = torch.sigmoid(cf_logits).mean(-1)
+            # Ordering follows the actual GT harm, not intervention magnitude.
+            pred_diff = cf_risk[:, :, None] - cf_risk[:, None, :]
+            true_diff = cf_harm[:, :, None] - cf_harm[:, None, :]
+            pair_mask = true_diff.ne(0)
+            pair_target = (true_diff > 0).to(pred_diff.dtype)
+            pair = F.binary_cross_entropy_with_logits(pred_diff, pair_target, reduction='none')
+            pair = (pair * pair_mask).sum((-1, -2)) / pair_mask.sum((-1, -2)).clamp_min(1)
+            align = cf_proper + pair
             denom = max(float(avg_factor), 1.)
             vm_losses.append((vm * w).sum() / denom)
             harm_losses.append((proper * w).sum() / denom)
@@ -125,7 +148,7 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
                     loss_cora_cf=[x * self.cf_loss_weight for x in cf_losses])
 
     def predict_by_feat(self, cls_scores, bbox_preds, angle_preds, periodic_preds,
-                        harm_preds, score_factors=None, batch_img_metas=None,
+                        harm_preds, cf_slope_preds, score_factors=None, batch_img_metas=None,
                         cfg=None, rescale=False, with_nms=True):
         # Deliberately delegates detection decoding unchanged.  The native harm
         # tensor is retained by the detector forward path for artifact export;
