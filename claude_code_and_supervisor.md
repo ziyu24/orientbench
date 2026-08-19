@@ -3587,3 +3587,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/native_risk_export_check.md`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/native_risk_export_test/predictions.pkl`。
 - 是否触发停止条件：否。DIOR CONT 尚在正常运行；VM-NLL/CORA 未提前启动。
 - 下一步建议：CONT 完成后顺序启动 VM-NLL，再启动 CORA，并以该导出 schema 生成 G2 raw native-risk rows。
+
+## 2026-08-19 07:55 CST — r049 G2 DIOR seed0 CONT 完成、VM-NLL 启动
+
+- 指令来源：用户“继续推进”。
+- 执行动作：CONT 四卡三 epoch 正常结束，最终 AP50 `0.5000`、AP75 `0.2650`；按冻结顺序启动同 checkpoint/三 epoch/四卡的 VM-NLL，tmux 会话 `orientbench-r049-dior-vm-s0`。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_cont_seed0/20260819_073239/20260819_073239.log`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0/train.log`。
+- 是否触发停止条件：否。CONT 正常结束；VM-NLL 运行中，CORA 未提前启动；禁止端点未触碰。
+- 下一步建议：VM-NLL 正常完成后启动 CORA seed0，再生成原始预测/TP matched reliability rows 做 G2 裁决。
