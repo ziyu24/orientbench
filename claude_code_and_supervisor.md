@@ -3444,6 +3444,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，触发 `partial_proxy_or_protocol_drift`；当前正确回执应为“未执行完毕”。T_cal 未使用，T_audit semantic fields 未打开；不得开 r049。
 - 下一步建议：服务器继续同一业务指令 048，复用已通过的 G0，按冻结数学合同重写方法与真实 baselines，完成全部 val G1 指标后再决定合法早停或进入 T_cal；项目 venue 暂仍为 strong JSTARS / Remote Sensing，低于 TGRS-or-better 目标。
 
+## 2026-08-19 02:12 PDT — B 拒收 r048 第二次完成回执：pole 训练/解码语义相反
+
+- 指令来源：用户再次报告“服务器执行完了”；B owner 拉取至 server HEAD `38c4922`，复核 replacement P2C 数学实现、30-epoch 轨迹、row-level G1、jitter、脚本与信息墙。
+- 执行动作：接受真实 heading/axial/vector 数据合同、conditional pole 结构、direct-S1/真实 headpoint、四卡轨迹和 T_cal/T_audit 未读取事实；发现 `pole_logit`/likelihood 把正 logit 定义为 sheet 0，而 BCE 训练却把 sheet 1 作为正类，导致 pole loss 越低、预测越趋近 180°反向。三候选按同轨迹作极性纠正后的最高 accuracy 分别约 0.8669/0.8484/0.8577，证明当前 0.5028 选模和 G1 表不可用于科学裁决。另发现 H/V 等变未训练、baselines 未消费 augmentation、正式/评估入口脚本与交付文件不一致，以及 FLOPs/latency/checkpoint manifest 缺失。
+- 关键产物路径：`dis/reviews/B/orientbench-r048-second-interim-incomplete-review-20260819.md`；`experiments/r048_p2c_lift/p2c_distribution.py`；`experiments/r048_p2c_lift/train_v2.py`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/formal_revised/`。
+- 是否触发停止条件：是，属于 implementation sign error + protocol drift；拒收 `执行完毕` 与 `REJECT_P2C_LIFT_DEVELOPMENT`。T_cal 和 T_audit 均保持封存，不得开 r049。
+- 下一步建议：服务器继续同一业务 048，复用 G0；统一 pole proper-loss/likelihood/decoder 约定，补两 sheet 与 180° mutation 测试，落实 H/V/R 等变及公平 augmentation，从 clean 初始化重跑 G1并遵守首 epoch 早停。当前 venue 仍为 strong JSTARS / Remote Sensing。
+
 ## 2026-08-19 15:xx CST — r048 推送状态核查
 
 - 指令来源：用户“是否推送？”。
