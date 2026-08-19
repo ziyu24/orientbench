@@ -3205,3 +3205,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r044/manifest.csv`；`audit_bundles/r044/claim_check.json`；`audit_bundles/r044/gate.json`；`dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：否；正常 venue gate `NOT_JPRS_READY` 已按 gated completion 收口。
 - 下一步建议：提交全部显式 write_set 文件并只用 GitHub HTTPS 推送；随后严格按 SERVER 两行回执返回唯一报告路径。
+
+## 2026-08-18 19:49 PDT — B 验收并关闭 r044
+
+- 指令来源：用户报告“服务器执行完毕”；B owner 按冻结 T1–T5 与 venue gate 验收。
+- 执行动作：拉取至 `94e3844`，复跑 exact claim checker、三项真实 mutation 与 manifest；核验 8,150 词主稿、六组图、九张表、24 条引用审计及双视角内部红队。接受执行完成并 adopt `NOT_JPRS_READY`，写入 B verdict/closure history，释放活动槽并删除根计划镜像。
+- 关键产物路径：`dis/reviews/B/orientbench-r044-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r044-jprs-measurement-manuscript-20260818.json`；`docs/paper_jprs_r044/orientation_reliability_jprs.md`；`audit_bundles/r044/gate.json`。
+- 是否触发停止条件：是。G4 未通过：两份内部红队 novelty 均为 3/5；当前稿不得宣称或作为 JPRS ready 提交。
+- 下一步建议：只推进 prospective held-out remote-sensing decision study；必须用非同一 rectangle-IoU 容忍曲线的应用端点，证明 protocol 改变 consequential model/threshold choice 并在 domain shift 下保持 image-level risk。

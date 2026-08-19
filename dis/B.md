@@ -803,3 +803,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 当前可辩护档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于合法目标；但受控扰动、几何可辨识域、NRC/risk-coverage、image-level finite-sample risk control 和 600 目标双人互盲标注仍构成一条完整的测量学正证据主线。
 - B 冻结 r044：以 JPRS 为目标完成英文 measurement–diagnostic 全稿、图表、补充材料、精确 claim checker、引用审计与双红队。禁止 selector/fix/deployable 包装；只有五项 venue gate 均过才可输出 `JPRS_SUBMISSION_CANDIDATE`，否则必须诚实输出 `NOT_JPRS_READY`。
 - 用户 L2 授权沿用 2026-08-18『给出顶刊的方案，让服务器去执行，开始。』；计划：`dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md`。
+
+## 15. 2026-08-18：r044 完整成稿验收，严格 JPRS gate 未通过
+
+- B 复跑 exact claim checker、三项真实 mutation 与 manifest：`57/57 PASS`，三项 mutation 全部非零拒绝，执行与证据闭合可接受。
+- 交付完整：8,150 词英文主稿、补充材料、九张机器表、六组 SVG+PNG、24 条已核引用、双视角内部红队与 venue gate。
+- B adopt `NOT_JPRS_READY`：两份内部红队的 novelty 均为 `3/5`；其余 technical soundness / evidence breadth / presentation / JPRS fit 均为 `4/5`。这不是润色问题。
+- 当前科学档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`。主缺口是没有 prospective held-out remote-sensing decision study：现有 severe event 与 rectangle-IoU geometry 接近，六个 LTT 单元又全部选择 full coverage，尚未证明协议改变一个真实模型/阈值决策并在 domain shift 下保住 image-level risk。
+- 下一步只能补一个预先冻结、应用端点非同一 IoU 容忍曲线的 held-out 决策研究；不再补普通 detector row，不再试 selector/head，不靠写作宣称顶刊。

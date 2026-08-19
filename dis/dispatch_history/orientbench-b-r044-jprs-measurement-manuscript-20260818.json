@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-b-r044-jprs-measurement-manuscript-20260818.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r044-jprs-measurement-manuscript-20260818",
+    "plan_id": "b-r044-jprs-measurement-manuscript-20260818",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-18：『给出顶刊的方案，让服务器去执行，开始。』；r043 完成后用户确认『服务器执行完毕。』",
+    "scientific_snapshot": {
+      "primary": "72dfdd8f0060112bec90cfe0302f39d6804fa960",
+      "r043_state": "ACCEPT_EXECUTION_REJECT_SAUR_METHOD_DO_NOT_EXPAND",
+      "current_venue_floor": "STRONG_JSTARS_OR_REMOTE_SENSING",
+      "target_route": "JPRS_MEASUREMENT_DIAGNOSTIC"
+    },
+    "plan_path": "dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md",
+    "plan_commit_sha": "6679fb2315ace3110a086cf38c72135193c228be",
+    "plan_blob_oid": "2e55f656ba843309fc0ba0954ccb4bf69da2f157",
+    "plan_sha256": "3b2b6a03f40920afa457ec3e8aecc3e77eaabc7795dabfd128588ff78cf72495",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "2e55f656ba843309fc0ba0954ccb4bf69da2f157",
+    "active_sha256": "3b2b6a03f40920afa457ec3e8aecc3e77eaabc7795dabfd128588ff78cf72495",
+    "base_sha": "72dfdd8f0060112bec90cfe0302f39d6804fa960",
+    "activation_base_sha": "5815980750a04b39610a4a701478432bc61ec9cd",
+    "risk_class": "L2",
+    "user_authorization": {"required": true, "status": "granted", "reference": "用户 2026-08-18 顶刊路线服务器执行授权"},
+    "resource_scope": {"compute": {"gpu_count_max": 0, "gpu_hours_max": 0, "cpu_core_hours_max": 96}, "wall_time": {"seconds_max": 43200}},
+    "conflict_keys": ["server-execution-slot", "dis/sug.md"],
+    "server_report_path": "dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": "b-r038-final-manuscript-20260815",
+    "activated_at": "2026-08-18T18:46:24-07:00"
+  },
+  "started_ref": {
+    "path": "dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/STARTED.json",
+    "commit_sha": "4f39575cb048ebe3a2a7a1839232917ba7f9f357",
+    "blob_oid": "84b4501d498bac49686e8ea3be575a21e20ef9fc",
+    "sha256": "f7c5735d99034cfc2d38a4e0f6741ba7248d207f5e5aadea8df6fb2eadccceb5"
+  },
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "713ccd27a438a3fd3fbc741731e2d2833f3be6b0",
+    "blob_oid": "ca9f6b305ecb9386ddbc56d05a50db09ea0c9f29",
+    "sha256": "f2efc92f07c1ae716cdbb1cbab7072ca16da71ae7870127dc6c82f36f1c49ed1"
+  },
+  "terminal": {
+    "execution_state": "COMPLETED",
+    "completion_mode": "complete_not_jprs_ready",
+    "scientific_state_at_close": "PENDING",
+    "closed_by": "B",
+    "closed_at": "2026-08-18T19:49:00-07:00",
+    "close_reason": "B accepts the complete manuscript execution and adopts the frozen NOT_JPRS_READY gate. Novelty remains 3/5 because no prospective held-out application decision or domain-shift risk validation is demonstrated; matching peer verdict remains pending.",
+    "closure_authorization_ref": "B owner closure after user reported server completion on 2026-08-18",
+    "verdict_refs": ["dis/reviews/B/orientbench-r044-postexecution-verdict-20260818.md"],
+    "contest_refs": [],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md",
+      "dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r044/gate.json",
+      "audit_bundles/r044/claim_check.json",
+      "audit_bundles/r044/mutation_results.json",
+      "docs/paper_jprs_r044/venue_readiness.md"
+    ]
+  }
+}
