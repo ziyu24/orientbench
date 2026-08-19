@@ -3070,3 +3070,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md`；计划 commit `6679fb2315ace3110a086cf38c72135193c228be`；canonical SHA-256 `3b2b6a03f40920afa457ec3e8aecc3e77eaabc7795dabfd128588ff78cf72495`。
 - 是否触发停止条件：否。r044 禁止新训练、推理、原始数据访问和失败方法包装；任何 headline 证据无法精确闭合则早停。
 - 下一步建议：激活 `orientbench-b-r044-jprs-measurement-manuscript-20260818`，服务器生成完整英文稿、图表、补充材料、claim checker、引用审计和双红队 venue gate。
+
+## 2026-08-18 18:46 PDT — B 激活并派发 r044
+
+- 指令来源：用户已授予顶刊路线服务器执行授权；r043 已完成并由 B 关闭。
+- 执行动作：将 r044 READY 计划逐字节镜像到根 `dis/sug.md`，绑定 coordination 单活动槽并标记 `DISPATCHED`。
+- 关键产物路径：`dis/sug.md`；`dis/coordination.json`；dispatch `orientbench-b-r044-jprs-measurement-manuscript-20260818`；计划 commit `6679fb2315ace3110a086cf38c72135193c228be`。
+- 是否触发停止条件：否；本轮 0 GPU、仅 Git 跟踪证据与投稿级写作/校验。
+- 下一步建议：服务器先提交 `STARTED.json`，再执行 T1–T5 并以 `JPRS_SUBMISSION_CANDIDATE` 或 `NOT_JPRS_READY` 诚实收口。
