@@ -3651,3 +3651,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/build_dior_g2_metrics.py`。
 - 是否触发停止条件：否。未生成或选择任何 G2 结果；等待三臂实际 raw export。
 - 下一步建议：训练与导出完成后立即生成持久化 matched rows、manifest 与 DIOR G2 point metrics。
+
+## 2026-08-19 08:56 CST — r049 DIOR G2 冻结裁决器预置
+
+- 指令来源：持续推进与 G2 早停纪律。
+- 执行动作：预置只读取最终 AP 与 AR>=2.1 matched-TP point metrics 的裁决器；严格采用计划中的 AP、AUGRC、Risk@70、mean angle error 不等式，DIOR 失败将输出 `REJECT_CORA_METHOD` 并阻止 SODA/补种子。
+- 关键产物路径：`experiments/r049_cora_obb/adjudicate_dior_g2_seed0.py`。
+- 是否触发停止条件：否。尚无三臂完整结果，未执行裁决。
+- 下一步建议：待三臂、导出与指标均完成后执行一次，不改阈值、不选最优 epoch/seed。
