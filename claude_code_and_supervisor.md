@@ -3484,6 +3484,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，`G1` clean、sheet-consistent val 早停；正常结束。T_cal 未读取，T_audit semantic fields 未打开。
 - 下一步建议：不启动 r049；保留有效负结果及 hash manifest，停止对 P2C-Lift 的本轮扩展。
 
+## 2026-08-19 03:xx PDT — 用户要求拉取并执行 r048 的核验
+
+- 指令来源：用户“拉取，执行r48”。
+- 执行动作：fast-forward 至 `9e34801` 并核验 r048 closure；未改动已关闭的 P2C 路线，也未启动当前 `dis/sug.md` 的 r049。
+- 关键产物路径：`dis/reviews/B/orientbench-r048-postexecution-verdict-20260819.md`；`dis/dispatch_history/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819.json`。
+- 是否触发停止条件：r048 已由 B 以 `ACCEPT_EXECUTION / ADOPT_REJECT_P2C_LIFT_DEVELOPMENT` 正常关闭；T_cal/T_audit 保持未读。
+- 下一步建议：如需继续项目，请明确授权当前已激活的 r049；其内容不是 r048 的续跑。
+
 ## 2026-08-19 03:44 PDT — B 正式接收并关闭 r048 P2C-Lift 负结果
 
 - 指令来源：用户第三次报告“服务器执行完毕”；B owner 拉取至 server HEAD `d4acafb`，复核 sheet convention、mutation/transform tests、首 epoch traces、row-level G1/jitter、manifest 与信息墙。
