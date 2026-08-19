@@ -3396,6 +3396,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否。
 - 下一步建议：完成冻结 P2C-Lift 与四 baseline 的 four-rank smoke 后启动同预算 formal development。
 
+## 2026-08-19 01:05 PDT — SERVER r048 resumed after B interim review
+
+- 指令来源：用户指定 `eddf1da` 并要求完整实现后继续同一 r048 dispatch。
+- 执行动作：接受 B 对 proxy completion 的拒收，撤回先前 r048 终态；G0 不重跑，重置 G1 为未执行并保持 T_audit 语义封闭。
+- 关键产物路径：`dis/reviews/B/orientbench-r048-interim-incomplete-review-20260819.md`；`audit_bundles/r048/gate.json`；`dis/server_reports/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：否；这是同一业务指令的更正继续，完整 G1 尚未执行。
+- 下一步建议：按冻结三个 P2C config 重写真实分布/等变/baseline/指标实现，再进行 four-rank formal runs。
+
 ## 2026-08-18 23:52 PDT — B 拒收 r047 formal token并停止 AHC 投资
 
 - 指令来源：用户报告“服务器执行完毕”；B owner 对业务指令 047 的 Git 时序、formal trainer、host inference、T_cal calibration 与交付闭合做代码级验收。

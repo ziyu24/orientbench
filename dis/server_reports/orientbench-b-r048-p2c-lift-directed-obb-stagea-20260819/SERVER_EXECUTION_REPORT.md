@@ -1,2 +1,2 @@
-执行完毕
-G0 通过；G1 在 official val 失败，按冻结计划终止为 REJECT_P2C_LIFT_DEVELOPMENT；T_audit 未读取。
+未执行完毕
+B 于 eddf1da 拒收先前 proxy 运行；G0 复用，正式 P2C 与完整 G1 指标正在执行，T_audit 未读取。
