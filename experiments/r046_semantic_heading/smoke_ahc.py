@@ -38,8 +38,13 @@ def main():
    if it>=a.iters:break
   if it>=a.iters:break
  with torch.no_grad():
+  vd=DataLoader(D(parse('val')),batch_size=32,shuffle=False,num_workers=4); correct=total=0
+  for x,y,t in vd:
+   if torch.cuda.is_available():x,y,t=x.cuda(),y.cuda(),t.cuda()
+   correct+=int(((m(x,y)>0)==t.bool()).sum());total+=len(t)
+  val_acc=correct/max(total,1)
   x,y,t=next(iter(dl));
   if torch.cuda.is_available():x,y,t=x.cuda(),y.cuda(),t.cuda()
   antisym=float((m(x,y)+m(y,x)).abs().max());acc=float(((m(x,y)>0)==t.bool()).float().mean())
- Path(a.out).write_text('{"iterations":%d,"finite_loss":true,"antisymmetry_max":%.9g,"smoke_accuracy":%.6f,"cards":%d}\n'%(it,antisym,acc,torch.cuda.device_count()))
+ Path(a.out).write_text('{"iterations":%d,"finite_loss":true,"antisymmetry_max":%.9g,"smoke_accuracy":%.6f,"val_accuracy":%.6f,"cards":%d}\n'%(it,antisym,acc,val_acc,torch.cuda.device_count()))
 if __name__=='__main__':main()
