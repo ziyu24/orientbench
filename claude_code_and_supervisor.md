@@ -3278,6 +3278,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；策略、阈值、coverage、门控完全未改，HRSC `D_cal` GT/outcome 与 `D_audit` 仍未打开。
 - 下一步建议：独立提交并推送 retraction 后，进入 target score-only threshold seal。
 
+## 2026-08-18 20:31 PDT — SERVER r045 target score-only threshold seal
+
+- 指令来源：业务指令 045 T2。
+- 执行动作：仅由 HRSC `D_cal` image id、prediction id 与 score 完成 R50 的 90% quantile threshold；未读取 annotation、GT、angle、match 或 outcome。
+- 关键产物路径：`audit_bundles/r045/TARGET_THRESHOLD_SEAL.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_hrsc_score_only/`。
+- 是否触发停止条件：否；threshold=0.05102584883570671，尚未打开 HRSC `D_audit`。
+- 下一步建议：该 seal 独立 HTTPS 推送成功后，才重建 target audit prediction 并执行一次匹配与统计。
+
 ## 2026-08-18 20:14 PDT — SERVER r045 DIOR-R policy seal 完成
 
 - 指令来源：业务指令 045 冻结计划 T1 / G1 / G2。
