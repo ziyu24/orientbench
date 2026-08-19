@@ -795,3 +795,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - B 冻结 r043：在 PSC detector 内增加 symmetry-aware axial residual-distribution head，同时输出方向修正与 concentration；以 DIOR-R、SODA-A 和 budget-matched continuation 作两数据集生死门。只有 AP75、mean angle error、native normalized AUGRC 同时过预注册门槛才进入多架构 Stage B。
 - 用户 L2 授权 reference：2026-08-18『给出顶刊的方案，让服务器去执行，开始。』
 - 冻结计划：`dis/plans/B/b-r043-saur-obb-stagea-20260818/sug.md`。
+
+## 14. 2026-08-18：r043 终止后转入 r044 JPRS measurement 成稿门
+
+- r043 已由 B 验收并关闭：DIOR-R、SODA-A 的 SAUR epoch-1 AP50 相对 BASE 分别回退 `0.203`、`0.167`，接受 `REJECT_SAUR_METHOD`，禁止 Stage B、加预算或调门槛续命。
+- 实现审计同时发现 geometry gate 与冻结公式不一致，因此拒绝只限已执行配置；巨大双数据集性能坍塌足以终止本线，不值得为修补外推范围而重跑。
+- 当前可辩护档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于合法目标；但受控扰动、几何可辨识域、NRC/risk-coverage、image-level finite-sample risk control 和 600 目标双人互盲标注仍构成一条完整的测量学正证据主线。
+- B 冻结 r044：以 JPRS 为目标完成英文 measurement–diagnostic 全稿、图表、补充材料、精确 claim checker、引用审计与双红队。禁止 selector/fix/deployable 包装；只有五项 venue gate 均过才可输出 `JPRS_SUBMISSION_CANDIDATE`，否则必须诚实输出 `NOT_JPRS_READY`。
+- 用户 L2 授权沿用 2026-08-18『给出顶刊的方案，让服务器去执行，开始。』；计划：`dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md`。

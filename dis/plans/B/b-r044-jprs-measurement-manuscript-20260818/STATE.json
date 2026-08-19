@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "plan_id": "b-r044-jprs-measurement-manuscript-20260818",
+  "actor": "B",
+  "plan_path": "dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md",
+  "state": "READY",
+  "plan_commit_sha": "6679fb2315ace3110a086cf38c72135193c228be",
+  "plan_blob_oid": "2e55f656ba843309fc0ba0954ccb4bf69da2f157",
+  "plan_sha256": "3b2b6a03f40920afa457ec3e8aecc3e77eaabc7795dabfd128588ff78cf72495",
+  "state_reason": "frozen_plan_ready_for_activation",
+  "ready_at": "2026-08-18T18:45:20-07:00",
+  "updated_at": "2026-08-18T18:45:20-07:00"
+}

@@ -3062,3 +3062,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r043-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r043-saur-obb-stagea-20260818.json`；`audit_bundles/r043/gate.json`。
 - 是否触发停止条件：是。DIOR-R/SODA-A 的 SAUR epoch-1 AP50 分别比 BASE 低 0.203/0.167，禁止 Stage B、增预算或修改 gate。实现的 sigmoid geometry gate 与冻结公式不一致，故结论只限 r043 配置，不外推为所有对称分布头不可能。
 - 下一步建议：停止 detector-head 试错，把现有正向 measurement/diagnostic 证据重构为 JPRS 完整稿并做一次严厉 claim/novelty 验收。
+
+## 2026-08-18 18:45 PDT — B 冻结 r044 JPRS measurement 成稿计划
+
+- 指令来源：用户此前明确要求“给出顶刊的方案，让服务器去执行，开始”，并在 r043 完成后报告“服务器执行完毕”。
+- 执行动作：在 r043 拒绝后停止 detector-head 试错；冻结 r044 纯 CPU 成稿与证据闭合计划，目标为 JPRS measurement-validity + geometry-aware evaluation + image-level finite-sample risk-control 路线。
+- 关键产物路径：`dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md`；计划 commit `6679fb2315ace3110a086cf38c72135193c228be`；canonical SHA-256 `3b2b6a03f40920afa457ec3e8aecc3e77eaabc7795dabfd128588ff78cf72495`。
+- 是否触发停止条件：否。r044 禁止新训练、推理、原始数据访问和失败方法包装；任何 headline 证据无法精确闭合则早停。
+- 下一步建议：激活 `orientbench-b-r044-jprs-measurement-manuscript-20260818`，服务器生成完整英文稿、图表、补充材料、claim checker、引用审计和双红队 venue gate。
