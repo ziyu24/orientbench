@@ -27,9 +27,6 @@ CLASSES = ['airplane','airport','baseballfield','basketballcourt','bridge','chim
            'vehicle','windmill']
 Q_GRID = (0.25, 0.50, 1.00)
 C_GRID = (0.90, 0.85, 0.80, 0.75, 0.70)
-# The AI4RS RTMDet DIOR config orders the two Expressway classes before dam;
-# its integer prediction labels must be translated to the canonical GT order.
-RTMDET_DIOR_LABEL_REMAP = {6: 7, 7: 8, 8: 6}
 
 
 def sha256(path: Path) -> str:
@@ -88,11 +85,10 @@ def load_predictions(path: Path, ann_dir: Path):
     raw = pickle.load(path.open('rb'))
     result = []
     if raw and isinstance(raw[0], dict) and 'pred_instances' in raw[0]:
-        remap = RTMDET_DIOR_LABEL_REMAP if 'rtmdet' in path.name else {}
         for item in raw:
             pi = item['pred_instances']
             result.append((str(item['img_id']), [
-                (canon(box), float(score), remap.get(int(label), int(label)))
+                (canon(box), float(score), int(label))
                 for box, score, label in zip(tensor_array(pi['bboxes']), tensor_array(pi['scores']), tensor_array(pi['labels']))
             ]))
         return result
@@ -240,7 +236,7 @@ def source(args):
             _, eligible, risks, cont=image_risk(cal_match, cal_ids, threshold, .5)
             ucb=hb_ucb(risks, .05/len(inventory['source_prediction_files']))
             summary.append(dict(family=family, coverage=coverage, score_threshold=threshold,
-                                d_cal_mean_d_tip=float(eligible.d_tip.mean()) if len(eligible) else 0.0, d_cal_severe_risk=float(risks.mean()),
+                                d_cal_mean_d_tip=float(cont.mean()), d_cal_severe_risk=float(risks.mean()),
                                 d_cal_hb_ucb=ucb, d_cal_eligible_coverage=float(len(eligible)/max(1, (cal_match.gt_ar>=2.1).sum())),
                                 passes=bool(ucb <= .10)))
     grid=pd.DataFrame(summary); grid.to_csv(out/'source_dcal_policy_grid.csv',index=False)
@@ -250,7 +246,7 @@ def source(args):
         family=rec['family']; predictions,_,matched=candidates[family]
         audit_ids_rows=matched[matched.image_id.isin(audit_ids)]
         _, eligible, risks, cont=image_risk(audit_ids_rows, audit_ids, rec['score_threshold'], .5)
-        audit.append(dict(**rec, d_audit_mean_d_tip=float(eligible.d_tip.mean()) if len(eligible) else 0.0, d_audit_severe_risk=float(risks.mean()),
+        audit.append(dict(**rec, d_audit_mean_d_tip=float(cont.mean()), d_audit_severe_risk=float(risks.mean()),
                           d_audit_hb_ucb=hb_ucb(risks,.05/len(inventory['source_prediction_files'])),
                           d_audit_eligible_coverage=float(len(eligible)/max(1,(audit_ids_rows.gt_ar>=2.1).sum())),
                           d_audit_ap50=ap50(predictions,ann_dir,audit_ids,rec['score_threshold'])))
