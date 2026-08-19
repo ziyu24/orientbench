@@ -3054,3 +3054,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r043/gate.json`；`audit_bundles/r043/fullval_metrics.csv`；`audit_bundles/r043/MANIFEST.sha256`；`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，正常早停且交付完成；无 OOM、无未处理异常、未触碰禁止端点。
 - 下一步建议：关闭 SAUR-OBB 方法线；不得以更多预算、数据集或改门槛重启。 
+
+## 2026-08-18 18:38 PDT — B 验收并关闭 r043
+
+- 指令来源：用户报告“服务器执行完毕”；B owner 按冻结计划接管验收。
+- 执行动作：拉取至 `ed3f28f`，核验报告、用户 split amendment、BASE/CONT/SAUR 指标、gate 与实现。接受正常早停及 `REJECT_SAUR_METHOD`，写入 B verdict 与 closure history，释放活动槽并删除根计划镜像。
+- 关键产物路径：`dis/reviews/B/orientbench-r043-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r043-saur-obb-stagea-20260818.json`；`audit_bundles/r043/gate.json`。
+- 是否触发停止条件：是。DIOR-R/SODA-A 的 SAUR epoch-1 AP50 分别比 BASE 低 0.203/0.167，禁止 Stage B、增预算或修改 gate。实现的 sigmoid geometry gate 与冻结公式不一致，故结论只限 r043 配置，不外推为所有对称分布头不可能。
+- 下一步建议：停止 detector-head 试错，把现有正向 measurement/diagnostic 证据重构为 JPRS 完整稿并做一次严厉 claim/novelty 验收。
