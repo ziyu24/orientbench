@@ -3603,3 +3603,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/cora_head.py`；`experiments/r049_cora_obb/test_cora_math.py`；失败日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0/train.log`。
 - 是否触发停止条件：否，属于计划允许的一次数值稳定性修复；CORA 未启动，禁止端点未触碰。
 - 下一步建议：用修复 head 重启 VM-NLL；若仍发生非有限梯度则停止 G2 并报告技术未裁决。
+
+## 2026-08-19 07:59 CST — r049 G2 统一 FP32 工程重启
+
+- 指令来源：用户“继续推进”。
+- 执行动作：稳定归一化后 VM-NLL AMP 的原始梯度范数仍为非有限，停止该未采信 run；将 CONT/VM-NLL/CORA 三臂统一为同 optimizer/LR/global batch/BN/augmentation/预算的 FP32 wrapper，避免 PSC continuation AMP 路径的非有限梯度。此前 AMP CONT 仅保留日志，不进入 G2 比较。
+- 关键产物路径：`configs/r049_cora_obb/dior_cont_seed0_3e.py`；未采信日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0_retry1/train.log`。
+- 是否触发停止条件：否，用户授权的工程稳定性修复；方法、数据端点、阈值与科学口径不变。
+- 下一步建议：从同一 PSC checkpoint 依次运行 FP32 CONT、VM-NLL、CORA seed0；任一臂再发生非有限值则停止 G2 并只报告技术未裁决。

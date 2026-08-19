@@ -11,4 +11,9 @@ train_dataloader = dict(dataset=dict(pipeline=[
     dict(type='mmdet.PackDetInputs'),
 ]))
 default_hooks = dict(checkpoint=dict(type='CheckpointHook', interval=1, max_keep_ckpts=1, save_best='auto'))
+# G2 engineering-stability setting: all three arms use this identical FP32
+# wrapper after the registered PSC AMP continuation produced non-finite raw
+# gradient norms. Optimizer, LR, batch, BN, augmentation and budget are fixed.
+optim_wrapper = dict(type='OptimWrapper', clip_grad=dict(max_norm=35, norm_type=2),
+                     optimizer=dict(type='SGD', lr=.005, momentum=.9, weight_decay=.0001))
 work_dir = '/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_cont_seed0'
