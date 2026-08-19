@@ -11,4 +11,13 @@ default_hooks = dict(checkpoint=dict(type='CheckpointHook', interval=200, max_ke
 # passes; this setting is not a scientific hyperparameter choice.
 optim_wrapper = dict(type='OptimWrapper', clip_grad=dict(max_norm=35, norm_type=2),
                      optimizer=dict(type='SGD', lr=.005, momentum=.9, weight_decay=.0001))
+train_dataloader = dict(dataset=dict(pipeline=[
+    dict(backend_args=None, type='mmdet.LoadImageFromFile'),
+    dict(box_type='qbox', type='mmdet.LoadAnnotations', with_bbox=True),
+    dict(box_type_mapping=dict(gt_bboxes='rbox'), type='ConvertBoxType'),
+    dict(type='mmdet.FilterAnnotations', min_gt_bbox_wh=(1, 1), keep_empty=True),
+    dict(keep_ratio=True, scale=(1024, 1024), type='mmdet.Resize'),
+    dict(direction=['horizontal', 'vertical', 'diagonal'], prob=.75, type='mmdet.RandomFlip'),
+    dict(type='mmdet.PackDetInputs'),
+]))
 work_dir = '/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200'

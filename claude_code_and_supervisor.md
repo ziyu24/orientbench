@@ -3539,3 +3539,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/cora_head.py`；`configs/r049_cora_obb/dior_cora_smoke_200.py`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200_{retry,fp32}/train.log`；`docs/paper_jprs_r049/g1_implementation_stop_report.md`；`audit_bundles/r049/gate.json`。
 - 是否触发停止条件：是，异常结束 `NOT_ADJUDICATED_IMPLEMENTATION`；G2/seed0 未启动。G0 已正常通过。未读 DOTA-v2.0、SODA-A official test、旧 T_audit 或其它 clean endpoint。
 - 下一步建议：不得以调 CORA 超参绕过；如要继续须新 dispatch 专门修复已登记 PSC host continuation 的 bbox-loss 数值根因，再从 G1 重启。
+
+## 2026-08-19 06:27 CST — r049 G1 数值根因与修复验证
+
+- 指令来源：用户“你需要解决为何早停啊”。
+- 执行动作：以无 CORA 的四卡 host continuation 对照复现同一 `loss_bbox: inf`，排除 CORA 为根因；审计 DIOR trainval 注释发现 `04137.txt:14` 与 `07007.txt:37` 为零面积四边形。项目内 train pipeline 在 target encoding 前过滤 width/height `<=1` 的无效框；不改源数据、图像、train membership、评估端点或 CORA 方法。四卡 CORA 200 iter repaired diagnostic 全程 finite。
+- 关键产物路径：`configs/r049_cora_obb/dior_host_continuation_diag_200_degenerate_filter.py`；`configs/r049_cora_obb/dior_cora_smoke_200_degenerate_repair.py`；对应 g1 `train.log`。
+- 是否触发停止条件：原 G1 停止根因已解决；完整 repaired full-val smoke 正在 tmux `orientbench-r049-g1-repaired` 中运行。未启动 G2，禁止端点未触碰。
+- 下一步建议：等待该完整四卡 smoke 正常结束并核验 logs/AP，再更新 r049 G1 状态。
+
+## 2026-08-19 06:28 CST — r049 可再生 smoke checkpoint 清理
+
+- 指令来源：用户授权解决 r049 早停；文件系统 100% 满，阻止完整 smoke 创建输出目录。
+- 执行动作：删除 10 个已记录 SHA 的非 formal、可再生 G1 diagnostic/failed-smoke checkpoint，保留全部日志、配置和数值证据；释放约 2.1GiB，用于 repaired full-val smoke。
+- 关键产物路径：`audit_bundles/r049/regenerable_checkpoint_prune_20260819.md`。
+- 是否触发停止条件：否；删除内容可由同文档所列四卡配置再生，未删除 valid PSC baseline 或 formal artifact。
+- 下一步建议：完整 repaired full-val 结束后只保留计划规定的最佳与最近 checkpoint，其余再生性 checkpoint 继续按 manifest 清理。
