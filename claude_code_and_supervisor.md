@@ -3317,3 +3317,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r045-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r045-prospective-axis-drift-decision-20260818.json`；`audit_bundles/r045/gate.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_gate_a/implementation_a.json`。
 - 是否触发停止条件：是。G3/G5 benefit 失败：`Delta_cont=-0.0019519474`、CI 跨零，主 severe delta=0，敏感性无两个正 benefit；停止所有 post-outcome rescue 与当前顶刊实验扩展。
 - 下一步建议：当前档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于 TGRS-or-better 合法目标。除非用户明确授权真正的新应用标签/任务或全新方法与未消费端点验证，不激活新服务器派发。
+
+## 2026-08-18 20:57 PDT — B 冻结 r046 AHC-OBB semantic-heading Stage A
+
+- 指令来源：用户在 r045 关闭后明确回复“授权，抓紧进行下一步”，授权新标签/新方法与必要四卡轻量训练。
+- 执行动作：放弃已失败的 axial selector/OER/SAUR/r045 rescue，冻结 HRSC2016 ship-head semantic-heading 新任务；定义 plug-in antisymmetric endpoint comparator、parameter-matched baselines、official train→val V_fit/V_cal→sealed test 信息墙、R50/LSKNet 双 host、heading accuracy/AUGRC/HB risk-control 生死门与 Stage-B 外部数据前置条件。
+- 关键产物路径：`dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/sug.md`；计划 commit `49a95ab58f963516d2755b7b9a2cff85499e86f7`；blob `f96d78fc0c0b9a22c5a4104b2fcb83bd872a0d9c`；canonical SHA-256 `1de911459804301e07324facfcdb7ef1d6bbaf4592281c468fc96d082dc67f54`。
+- 是否触发停止条件：否。r046 不下载新数据、不训练 detector、不读取 sealed test head values；test 语义标签只能在 model/checkpoint/temperature/threshold seal 推送后一次揭示。
+- 下一步建议：激活业务指令 046；服务器先做 head-label/host asset seal，再四卡 smoke/train/calibrate，封印后执行唯一 test audit。只有全门通过才允许新派发获取 FGSD/第二 head-label 数据集。

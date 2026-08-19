@@ -827,3 +827,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 执行带审计保留：正式 `POLICY_SEAL` 与 `source_analysis/` 使用 all-prediction quantile（R50 阈值 0.0712），但后置、非 operative 的 `source_policy_results.json` 写成 0.8388、源统计冲突且引用未入库脚本；`STARTED.json` 也曾被历史提交改写后恢复。两者不改变 R50@0.90 的架构选择、独立 HRSC score-only 阈值或 target 负结论，但不得包装为整包无瑕疵。
 - 当前可辩护档位仍是 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于项目合法 TGRS-or-better 门槛。r044 唯一允许的 prospective application 补强已失败，当前证据下停止顶刊实验扩展，不激活 r046 rescue。
 - 若未来重开顶刊路线，必须先由用户明确授权真正的新科学投入：独立采集的下游应用标签与 prospective endpoint，或全新 orientation-reliability 方法并在未消费 endpoint 上验证；不得继续在已打开的 DIOR-R/HRSC split 上试阈值、端点、selector、审计或文字救场。
+
+## 18. 2026-08-18：用户授权 r046 semantic-heading 新方法路线
+
+- 用户在 B 明确说明新标签/新方法需重新授权后回复“授权，抓紧进行下一步”，故 r046 L2 新科学投入成立；本轮不把 r045 负结果改口，也不做其 endpoint/selector rescue。
+- 新任务使用 HRSC2016 原始 `header_x/header_y` 船头点，把普通 OBB 的 `theta mod pi` 无向轴扩展为 `phi mod 2pi` 有向 semantic heading；这是真实应用标签，不再以 rectangle-IoU 或 axis-drift proxy 冒充下游任务。
+- 新方法 AHC-OBB：共享 endpoint encoder + 无 bias 差分 logit，结构上保证交换两个轴端点时 logit 变号、概率互补；不修改 detector box/class/score，另行输出 heading 与 confidence。
+- Stage A 使用 official train 训练、val 的 V_fit/V_cal 做模型选择与风险阈值、test 在 model/threshold seal 后一次揭示；同时挂接 R50 与 LSKNet 两个既有 HRSC host。必须打赢 parameter-matched unconstrained classifier 与 CHP-like head-point regression，并达到两 host 的 accuracy/AUGRC/risk-control 门。
+- 通过只进入 Stage B：新增 FGSD 或另一真实 head-label 数据做跨数据集/传感器验证；Stage A 不宣称 JPRS/TGRS ready。计划：`dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/sug.md`。
