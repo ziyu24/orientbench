@@ -3126,6 +3126,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是；所有大体积删改仍需该 dossier 的归档、再生命令和用户逐组授权。
 - 下一步建议：取得 Group D（exact duplicates）和 Group E（materialized flips）授权后，可安全释放约7.8G；继续对其余约30G persistent/probe/workdir 大项逐项做 lineage 分类。
 
+## 2026-08-18 08:36 PDT — 用户授权 Group D/E 清理完成
+
+- 指令来源：用户明确授权「清理D,E」。
+- 执行动作：删除 2.5G 已验证 SHA-256 重复副本；删除 5.3G DIOR materialized hflip/vflip JPEG 及其可重建 PNG alias 目录。保留 canonical twin、`dior_png_aliases/`、重建脚本、匹配表、预测和 pre-delete dossier。`persistent_artifacts` 目录从约35G降至约25G（目录块计量）。
+- 关键产物路径：`audit_bundles/predelete_reproducible_20260818/large_candidate_dossier.md`；重建脚本 `outputs/persistent_artifacts/orientbench_panorama_r041_20260817/code/materialize_dior_lsknet_views.py`。
+- 是否触发停止条件：否；仅执行获授权的 D/E，未删除数据集、第三方源码、canonical evidence 或历史 Git snapshot。
+- 下一步建议：继续逐项审计 K2 checkpoints、m069 PSC phase、v2、r040/r041 原始预测等高占用内容；每组均先归档、提供再生命令并请求授权。
+
 ## 2026-08-18 18:58 PDT — SERVER 接收并启动业务指令 044
 
 - 指令来源：用户交付唯一三元组 `orientbench-b-r044-jprs-measurement-manuscript-20260818` / `dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md` / `3fb932bb6d717e161b9a9bcc1c76849ea33f5a0e`，要求无人值守执行 T1–T5。
