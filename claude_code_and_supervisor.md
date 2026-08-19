@@ -3364,3 +3364,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r047-ahc-obb-clean-formal-stagea-20260818/STATE.json`；dispatch `orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818`。
 - 是否触发停止条件：否。official test semantic values 仍禁止读取；正式模型 seal 前只能使用 test ID 与 image-only 信息。
 - 下一步建议：服务器按唯一三元组接收业务指令 047，先提交 STARTED 与 identity-only TEST_PARTITION_SEAL，再实现/训练正式模型。
+## 2026-08-18 21:40 PDT — SERVER r047 implementation gate failure
+
+- 指令来源：业务指令 047 G0/G1 formal execution。
+- 执行动作：拉取并封存 r047 test identity-only partition（T_cal=225、T_audit=228），随后验证正式 R50 backbone mapping 环境。
+- 关键产物路径：`audit_bundles/r047/gate.json`；`dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，正式环境不兼容；`pcp-obb` MMCV 2.3.4 超出 mmrotate_1x 上限，`mr/pcp-obb-soda` MMCV 1.7.2 低于下限。未读取 test 语义字段。
+- 下一步建议：补齐与注册 MMRotate 版本匹配的现有环境后重新 dispatch；本轮不得把 proxy 结果写成科学裁决。

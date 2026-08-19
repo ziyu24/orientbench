@@ -1,0 +1,8 @@
+/home/rspip/cqc/data/install/yes/envs/mr/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/home/rspip/cqc/pro/study/third_party/mmrotate_1x/mmrotate/__init__.py", line 13, in <module>
+    assert (mmcv_version >= digit_version(mmcv_minimum_version)
+AssertionError: MMCV 1.7.2 is incompatible with MMRotate 1.0.0rc1. Please use MMCV >= 2.0.0rc4, <= 2.1.0 instead.
+ERROR conda.cli.main_run:execute(127): `conda run python -` failed. (See above for error)
