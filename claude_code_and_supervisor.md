@@ -3237,3 +3237,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/STARTED.json`。
 - 是否触发停止条件：否；治理、身份、授权、资源与写入范围预检全部通过，HRSC D_audit 未打开。
 - 下一步建议：将 STARTED 作为独立提交用 HTTPS 推送；推送成功后才进入 T0 asset 预封存。
+
+## 2026-08-18 20:03 PDT — SERVER r045 T0 asset seal 完成
+
+- 指令来源：业务指令 045 冻结计划 T0 / G0。
+- 执行动作：在 STARTED 独立推送后，仅读取 `pth_data/readme.md`、六个 source/target baseline 的 config/log/checkpoint 元数据与 SHA、r014/r040/r041 prediction manifest/provenance/parity 以及四个 split bytes/SHA。三个冻结 common families 均为 valid，六个已有 identity dump 与登记 endpoint parity 均成立；冻结 trainval 子集需用同一 checkpoint/config 做确定性推理重建，无需训练。
+- 关键产物路径：`audit_bundles/r045/ASSET_SEAL.json`；`audit_bundles/r045/candidate_inventory.csv`；`audit_bundles/r045/access_log_preseal.txt`。
+- 是否触发停止条件：否；G0 `PASS`，四个 split SHA-256 精确匹配，common valid family count=3，HRSC D_audit GT/outcome 与 HRSC D_cal 结果字段均未打开。
+- 下一步建议：将 ASSET_SEAL 作为独立提交用 HTTPS 推送；推送成功后才构造 DIOR-R source policy。

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r045-prospective-axis-drift-decision-20260818",
+  "sealed_at": "2026-08-18T20:03:41-07:00",
+  "started_commit": "714edef2ab7ba320caea9e20378a2024c86ec3c1",
+  "worker_id": "server-primary",
+  "gate_id": "G0_ASSET_AND_SPLIT_INTEGRITY",
+  "gate_status": "PASS",
+  "pth_data_readme": {
+    "path": "/home/rspip/cqc/pro/study/pth_data/readme.md",
+    "readable": true
+  },
+  "splits": [
+    {
+      "path": "outputs/bench_core/splits/D_cal_dior_trainval.csv",
+      "expected_sha256": "f624a21451de394a35041af35c9a910c3a1bdc11fb5c942d15416e04e0e6f632",
+      "observed_sha256": "f624a21451de394a35041af35c9a910c3a1bdc11fb5c942d15416e04e0e6f632",
+      "status": "PASS"
+    },
+    {
+      "path": "outputs/bench_core/splits/D_audit_dior_trainval.csv",
+      "expected_sha256": "11c61be3a03c922b5e00e4cf9e866cf73e18eff44bd6b868b53f54612065669b",
+      "observed_sha256": "11c61be3a03c922b5e00e4cf9e866cf73e18eff44bd6b868b53f54612065669b",
+      "status": "PASS"
+    },
+    {
+      "path": "outputs/bench_core/splits/D_cal_hrsc_trainval.csv",
+      "expected_sha256": "bbaf79002ad683893292101744e32e379d711f14ab7c187ae5bad42d2e37bdb0",
+      "observed_sha256": "bbaf79002ad683893292101744e32e379d711f14ab7c187ae5bad42d2e37bdb0",
+      "status": "PASS"
+    },
+    {
+      "path": "outputs/bench_core/splits/D_audit_hrsc_trainval.csv",
+      "expected_sha256": "55734ae8aa3f49350186fd066a761a54fe1a99921897012c5e59ca1fdf9f6679",
+      "observed_sha256": "55734ae8aa3f49350186fd066a761a54fe1a99921897012c5e59ca1fdf9f6679",
+      "status": "PASS"
+    }
+  ],
+  "candidate_families": [
+    "oriented_rcnn_r50_fpn_le90",
+    "oriented_rcnn_lsknet_s_fpn_le90",
+    "rotated_rtmdet_s_fpn_le90"
+  ],
+  "common_valid_family_count": 3,
+  "candidate_inventory_path": "audit_bundles/r045/candidate_inventory.csv",
+  "asset_findings": {
+    "all_six_domain_family_baselines_valid": true,
+    "all_configs_logs_checkpoints_present_and_hashed": true,
+    "all_six_existing_identity_prediction_dumps_present_and_hashed": true,
+    "registered_endpoint_parity_passed": true,
+    "frozen_trainval_prediction_status": "deterministic_inference_reconstruction_required; no training or fine-tuning",
+    "reconstruction_recoverable": true
+  },
+  "target_access": {
+    "hrsc_d_audit_gt_opened": false,
+    "hrsc_d_audit_outcome_opened": false,
+    "hrsc_d_cal_gt_or_outcome_opened": false,
+    "allowed_preseal_reads_only": true,
+    "access_log": "audit_bundles/r045/access_log_preseal.txt"
+  },
+  "next_layer_authorized": "SOURCE_DIOR_POLICY_CONSTRUCTION_ONLY"
+}
