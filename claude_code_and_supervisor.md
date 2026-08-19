@@ -3619,3 +3619,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/sequence_driver.log`。
 - 是否触发停止条件：否。CONT 仍在执行；监督器未越过 CONT/VM-NLL/CORA 的冻结顺序。
 - 下一步建议：监督器正常完成后生成 raw predictions 和 G2 fixed metrics；若其停止则只读取相关尾部日志并报告根因。
+
+## 2026-08-19 08:43 CST — r049 早停原因核查与处置
+
+- 指令来源：用户“你需要解决为何早停啊”。
+- 执行动作：确认早停仅是 AMP 下 VM-NLL 出现非有限梯度的工程保护，未触发任何 G2 科学早停条件；已以全三臂一致的 FP32 wrapper 消除该数值路径，并以顺序监督器继续执行。
+- 关键产物路径：`configs/r049_cora_obb/dior_cont_seed0_3e.py`；`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_cont_seed0_fp32/train.log`。
+- 是否触发停止条件：否。当前四卡 CONT 进程与顺序监督器均存活；未触碰禁止数据端点。
+- 下一步建议：待 FP32 三臂完成后再进行固定 G2 指标裁决，届时才可能触发科学早停。
