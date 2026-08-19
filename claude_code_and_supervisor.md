@@ -3229,3 +3229,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`；`dis/coordination.json`；dispatch `orientbench-b-r045-prospective-axis-drift-decision-20260818`；计划 commit `605796f58b1f940319380f1f3b6c2f4d618fb0e6`。
 - 是否触发停止条件：否；本轮只用 DIOR-R/HRSC2016 既有 consumed endpoints 与 baselines，seals 之前严格禁止 HRSC audit outcome access。
 - 下一步建议：服务器先提交 STARTED，随后按三层 seal 执行；source 无非平凡 decision change 时必须在 target audit 未打开状态收口。
+
+## 2026-08-18 20:00 PDT — SERVER 接收并启动业务指令 045
+
+- 指令来源：用户交付唯一三元组 `orientbench-b-r045-prospective-axis-drift-decision-20260818` / `dis/plans/B/b-r045-prospective-axis-drift-decision-20260818/sug.md` / `cb7b0c0a87e5c5373153ac02643b25b0e0fc0de8`，要求无人值守严格分层执行。
+- 执行动作：完整读取项目入口、SERVER 角色、coordination、协作协议与冻结计划；核验 worker=`server-primary`、dispatch commit=`HEAD=origin/main`、计划与根镜像 blob/SHA-256 一致、L2 授权已授予、HTTPS endpoint 与 resource/write scope；在读取任何业务 asset 前创建唯一 `STARTED.json`。
+- 关键产物路径：`dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/STARTED.json`。
+- 是否触发停止条件：否；治理、身份、授权、资源与写入范围预检全部通过，HRSC D_audit 未打开。
+- 下一步建议：将 STARTED 作为独立提交用 HTTPS 推送；推送成功后才进入 T0 asset 预封存。
