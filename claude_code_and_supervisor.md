@@ -3309,3 +3309,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r045/gate.json`；`audit_bundles/r045/manifest.csv`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_gate_a/implementation_a.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_audit/validator_b.json`；`dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，`APPLICATION_SHIFT_FAIL`；`Delta_cont=-0.0019519474` 且 CI 跨零，`Delta_severe=0`，敏感性无两个正 benefit。停止所有 endpoint/threshold/coverage/selector 扩展，无 post-outcome rescue。
 - 下一步建议：维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，不得由服务器宣称 JPRS/TGRS ready；交由 B/C 按冻结负结果决定后续论文定位。
+
+## 2026-08-18 20:41 PDT — B 验收并关闭 r045
+
+- 指令来源：用户报告“服务器执行完毕，早停了。”；B owner 按冻结 r045 计划复核并关闭活动派发。
+- 执行动作：fast-forward 拉取至 `070b17d`；核验 seal/access 顺序、A/B 原始输入复算、五项真实 mutation、106 项 Git-blob manifest、target image rows、Python 编译和 peer-governance tests。采纳 `APPLICATION_SHIFT_FAIL` 与 gated early-stop complete，同时记录非 operative source-policy 数值冲突、缺失脚本引用和 STARTED 临时改写的审计保留；写入 B verdict/closure history，释放活动槽并删除根计划镜像。
+- 关键产物路径：`dis/reviews/B/orientbench-r045-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r045-prospective-axis-drift-decision-20260818.json`；`audit_bundles/r045/gate.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_gate_a/implementation_a.json`。
+- 是否触发停止条件：是。G3/G5 benefit 失败：`Delta_cont=-0.0019519474`、CI 跨零，主 severe delta=0，敏感性无两个正 benefit；停止所有 post-outcome rescue 与当前顶刊实验扩展。
+- 下一步建议：当前档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于 TGRS-or-better 合法目标。除非用户明确授权真正的新应用标签/任务或全新方法与未消费端点验证，不激活新服务器派发。

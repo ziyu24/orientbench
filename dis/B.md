@@ -819,3 +819,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 候选 family 预注册为 Oriented R-CNN、LSKNet Oriented R-CNN、RTMDet-S。比较 AP-only 全覆盖策略与 orientation policy；只有策略发生非平凡变化后才允许打开 HRSC audit outcome。
 - target PASS 必须同时满足：paired image-bootstrap 连续/严重风险改善、风险 UCB<=0.10、eligible coverage>=0.70、AP50 回退<=0.02、敏感性与独立审计通过。任何一项失败即停止，不调 endpoint/coverage/gate。
 - 计划：`dis/plans/B/b-r045-prospective-axis-drift-decision-20260818/sug.md`；这是当前唯一可能把 novelty 从 3/5 补到 4/5 的科学轮。
+
+## 17. 2026-08-18：r045 早停验收与顶刊路线关闭
+
+- B 采纳 `APPLICATION_SHIFT_FAIL`：98 张 sealed HRSC2016 D_audit 图像上，orientation policy 的 `Delta_cont=-0.0019519474`，95% CI `[-0.0075969074,0.0035536397]`；主严重风险差为 0；`q={0.25,0.50,1.00}` 敏感性为负/零/零。G3 与 G5 的 benefit 条件失败，禁止事后修改 endpoint、阈值、coverage、candidate 或 selector。
+- target 负结果可复核：A/B 原始输入重算一致，五项真实 mutation 均非零，106 个 manifest 项按 Git blob 字节全部闭合，禁触 DOTA-v2.0 val / SODA-A official test 未打开。
+- 执行带审计保留：正式 `POLICY_SEAL` 与 `source_analysis/` 使用 all-prediction quantile（R50 阈值 0.0712），但后置、非 operative 的 `source_policy_results.json` 写成 0.8388、源统计冲突且引用未入库脚本；`STARTED.json` 也曾被历史提交改写后恢复。两者不改变 R50@0.90 的架构选择、独立 HRSC score-only 阈值或 target 负结论，但不得包装为整包无瑕疵。
+- 当前可辩护档位仍是 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于项目合法 TGRS-or-better 门槛。r044 唯一允许的 prospective application 补强已失败，当前证据下停止顶刊实验扩展，不激活 r046 rescue。
+- 若未来重开顶刊路线，必须先由用户明确授权真正的新科学投入：独立采集的下游应用标签与 prospective endpoint，或全新 orientation-reliability 方法并在未消费 endpoint 上验证；不得继续在已打开的 DIOR-R/HRSC split 上试阈值、端点、selector、审计或文字救场。
