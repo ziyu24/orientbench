@@ -3142,6 +3142,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，门控早停但执行完整；G1--G3 PASS，G4 红队 novelty=3/5 FAIL，终态 `NOT_JPRS_READY`。
 - 下一步建议：r044 已完整执行；不得把 `NOT_JPRS_READY` 误写为技术未完成。若推进 JPRS，需新增 prospective held-out decision study，而非补写作或重跑现有证据。
 
+## 2026-08-18 19:03 PDT — r044 推送确认
+
+- 指令来源：用户询问「是否推送？」
+- 执行动作：确认 r044 完成与复核记录已通过 HTTPS 推送到 `origin/main`。
+- 关键产物路径：远端 `main`；r044 server report 与 audit bundle。
+- 是否触发停止条件：否。
+- 下一步建议：以远端 `main` 的 r044 终态 `NOT_JPRS_READY` 作为当前可复核状态。
+
 ## 2026-08-18 08:36 PDT — 用户授权 Group D/E 清理完成
 
 - 指令来源：用户明确授权「清理D,E」。
