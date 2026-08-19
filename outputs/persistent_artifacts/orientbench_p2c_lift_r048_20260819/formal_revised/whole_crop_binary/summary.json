@@ -1,0 +1,7 @@
+{
+  "kind": "WHOLE_CROP_BINARY",
+  "best_accuracy": 0.8539741219963032,
+  "hid": 384,
+  "layers": 3,
+  "formal": true
+}

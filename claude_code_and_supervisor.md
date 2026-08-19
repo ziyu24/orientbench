@@ -3443,3 +3443,27 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r048-interim-incomplete-review-20260819.md`；`experiments/r048_p2c_lift/train_formal.py`；`audit_bundles/r048/ACCESS_LOG.jsonl`。
 - 是否触发停止条件：是，触发 `partial_proxy_or_protocol_drift`；当前正确回执应为“未执行完毕”。T_cal 未使用，T_audit semantic fields 未打开；不得开 r049。
 - 下一步建议：服务器继续同一业务指令 048，复用已通过的 G0，按冻结数学合同重写方法与真实 baselines，完成全部 val G1 指标后再决定合法早停或进入 T_cal；项目 venue 暂仍为 strong JSTARS / Remote Sensing，低于 TGRS-or-better 目标。
+
+## 2026-08-19 15:xx CST — r048 推送状态核查
+
+- 指令来源：用户“是否推送？”。
+- 执行动作：核查本地 `main`、`origin/main` 与工作树；已提交的正式候选/基线运行记录已推至远端，当前 HEAD 与 `origin/main` 同为 `e63df2e9366fd6f685a20bc694e83638ee3edc06`。
+- 关键产物路径：`experiments/r048_p2c_lift/data_contract.py`；`experiments/r048_p2c_lift/evaluate_g1_val.py`。
+- 是否触发停止条件：否；但上述两项为未提交中的真实 G1 补全工作，尚未推送，T_audit 未打开。
+- 下一步建议：完成并验证数据合同/全量 val G1 评估后，以独立提交推送该增量。
+
+## 2026-08-19 01:xx PDT — r048 B-revision 的真实 G1 重启
+
+- 指令来源：持续业务指令 048；用户要求完整实现并在 G1 完成前不得回执完成。
+- 执行动作：将 train/val 真实 `header_x/header_y` heading、中心到船头归一化向量、RP1 doubled von-Mises、条件 pole Fourier head、direct-S1 von-Mises、分布级解析 rotation KL 与 intrinsic confidence 写入实现；新的 200-step 四卡 smoke 正常结束。随后以相同四卡预算启动三个预注册 P2C capacity 与四个真实 baseline 的正式 val 运行。
+- 关键产物路径：`experiments/r048_p2c_lift/{data_contract.py,p2c_distribution.py,train_v2.py,evaluate_g1_val.py,run_formal_revised.sh}`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/formal_revised/`。
+- 是否触发停止条件：尚未终判。small 候选的 smoke/正式 val 目前弱于 concat smoke，故不能进入 T_cal；但必须完成三候选、完整指标和冻结 jitter 表后才可形成有效 G1 早停。T_audit semantic fields 未打开。
+- 下一步建议：完成正式队列，val-only 选出唯一 P2C 与 strongest baseline，生成完整 G1 + 5/10/15-degree jitter 表；若任一相对门未过则以 `REJECT_P2C_LIFT_DEVELOPMENT` 关闭而不读取 T_cal/T_audit。
+
+## 2026-08-19 01:55 PDT — r048 G1 正常早停并关闭
+
+- 指令来源：持续业务指令 048；B interim review 的同 dispatch 补正要求。
+- 执行动作：完成三项 P2C capacity、四项真实 baseline 的四卡 formal val 运行，以及所有 G1 指标和 5/10/15° axis-jitter 表；根据冻结 val 选择规则选出 `p2c_base` 与 `whole_crop_binary`。P2C 相对 baseline 的 accuracy/AUGRC/error 三项均反向失败，故不进入 T_cal。
+- 关键产物路径：`docs/paper_jprs_r048/g1_val_early_stop_report.md`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/{formal_revised,g1_val_revised}/`；`audit_bundles/r048/gate.json`。
+- 是否触发停止条件：是，`G1_CONSUMED_DEVELOPMENT_SUPERIORITY` 在完成 required val+jitter stage 后失败，终态 `REJECT_P2C_LIFT_DEVELOPMENT`。正常结束；T_cal 未读取，T_audit semantic fields 未打开。
+- 下一步建议：停止 r048 方法扩展；保留 measure/diagnose 主线与此负结果，不对该失败模型进行 T_cal 或 T_audit 调参。

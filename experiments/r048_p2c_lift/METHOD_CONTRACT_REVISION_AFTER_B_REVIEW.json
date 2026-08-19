@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819",
+  "reason": "B interim review rejected the earlier endpoint-sign proxy as not implementing the frozen method; this record supersedes its scientific execution only, while preserving G0 acceptance.",
+  "data_contract": {
+    "heading": "actual HRSC header_x/header_y heading expressed relative to the rectified long OBB axis",
+    "vector": "actual normalized center-to-header vector in rectified coordinates",
+    "splits": ["official_train", "official_val"],
+    "audit_semantics_opened": false
+  },
+  "p2c": {
+    "axis": "von-Mises density on doubled axial residual with RP1 Jacobian",
+    "pole": "Bernoulli sheet conditional on axial residual via first Fourier terms",
+    "equivariance": "S1 distribution-level KL under exact rotation pull-back",
+    "confidence": "axis concentration multiplied by posterior expected pole certainty"
+  },
+  "baselines": ["WHOLE_CROP_BINARY", "CONCAT_ENDPOINT_BINARY", "HEADPOINT_2D", "DIRECT_S1_VM"],
+  "capacity_menu": ["p2c_small", "p2c_base", "p2c_wide"],
+  "selection": "official_val only",
+  "created_before_replacement_formal_run": true
+}
