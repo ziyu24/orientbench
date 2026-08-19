@@ -3286,6 +3286,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；threshold=0.05102584883570671，尚未打开 HRSC `D_audit`。
 - 下一步建议：该 seal 独立 HTTPS 推送成功后，才重建 target audit prediction 并执行一次匹配与统计。
 
+## 2026-08-18 20:45 PDT — SERVER r045 final closure
+
+- 指令来源：业务指令 045 T4 / early-stop closure。
+- 执行动作：完成 implementation-A 独立复算与五项真实 mutation audit；确认 G3/G5 失败后按冻结计划正常早停。
+- 关键产物路径：`dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r045/gate.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_gate_a/`。
+- 是否触发停止条件：是，`APPLICATION_SHIFT_FAIL`；未触碰 DOTA-v2.0/SODA-A official test。
+- 下一步建议：保持当前负结果与 venue 收缩结论，不再启动 r045 endpoint/threshold rescue。
+
 ## 2026-08-18 20:14 PDT — SERVER r045 DIOR-R policy seal 完成
 
 - 指令来源：业务指令 045 冻结计划 T1 / G1 / G2。

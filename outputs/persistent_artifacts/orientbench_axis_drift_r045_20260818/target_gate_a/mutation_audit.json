@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "pristine_nonzero": 0,
+  "mutations": {
+    "split_member": {
+      "nonzero": 1,
+      "changed_gate_count": 1
+    },
+    "target_threshold": {
+      "nonzero": 1,
+      "changed_gate_count": 1
+    },
+    "angle_error": {
+      "nonzero": 1,
+      "changed_gate_count": 1
+    },
+    "gt_aspect_ratio": {
+      "nonzero": 1,
+      "changed_gate_count": 1
+    },
+    "policy_token": {
+      "nonzero": 1,
+      "changed_gate_count": 1
+    }
+  },
+  "pass": true
+}
