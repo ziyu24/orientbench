@@ -3667,3 +3667,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_posttrain.sh`；后续日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/posttrain_supervisor.log`。
 - 是否触发停止条件：否。当前 CONT 第3 epoch 正常运行；监督器仍未启动额外 GPU 工作。
 - 下一步建议：启动该监督器等待现有 driver；DIOR PASS 才为 SODA seed0 准备下一步。
+
+## 2026-08-19 08:49 CST — r049 AMP 数值早停修复与继续执行
+
+- 指令来源：用户要求解决早停原因并继续推进。
+- 执行动作：确认历史早停由 AMP 下 VM-NLL `grad_norm=NaN` 的数值保护触发，而非 G2 科学门控；已将三臂统一为 FP32。复核当前 VM-NLL 第 1 epoch 2200/2932 steps：损失和梯度范数均为有限值，顺序 driver 与后训练监督器均存活。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0_fp32/train.log`；`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`。
+- 是否触发停止条件：否；AMP 历史运行不纳入 G2 结果。
+- 下一步建议：完成 VM-NLL 与 CORA 的 FP32 训练后，按冻结流程导出、匹配、裁决；仅 DIOR 通过才启动 SODA。
