@@ -3555,3 +3555,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r049/regenerable_checkpoint_prune_20260819.md`。
 - 是否触发停止条件：否；删除内容可由同文档所列四卡配置再生，未删除 valid PSC baseline 或 formal artifact。
 - 下一步建议：完整 repaired full-val 结束后只保留计划规定的最佳与最近 checkpoint，其余再生性 checkpoint 继续按 manifest 清理。
+
+## 2026-08-19 06:33 CST — r049 G1 数值修复完整验证通过
+
+- 指令来源：用户要求解决早停根因。
+- 执行动作：修复后的 four-GPU 200-iteration CORA full-val smoke 正常结束；所有报告 loss 与 grad_norm 有限，AP50 `0.5110`、AP75 `0.2770`。
+- 关键产物路径：`docs/paper_jprs_r049/g1_numerical_repair_report.md`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200_repaired_fullval_bg/20260819_062910/20260819_062910.log`。
+- 是否触发停止条件：否；原实现性早停已消除。G2/seed0 仍未启动，禁止端点未触碰。
+- 下一步建议：补完 G1 余下 mutation/GT-inference tests 和 METHOD_FREEZE 审查后，才可按冻结 r049 进入 G2。

@@ -2,10 +2,10 @@
   "dispatch_id": "orientbench-b-r049-cora-obb-native-risk-stagea-20260819",
   "execution_status": "incomplete",
   "terminal_gate": "G1_REAL_CORA_AND_SMOKE",
-  "decision": "NOT_ADJUDICATED_IMPLEMENTATION",
-  "termination": "abnormal",
-  "reason": "The required 200-iteration four-GPU smoke produced non-finite host bbox loss at iteration 150. One stability-only retry in FP32 retained the same non-finite bbox loss. No G2 training was started.",
-  "completed_units": ["G0_ASSET_ENV_AND_BASE_PARITY", "G1 math smoke tests", "G1 4-GPU AMP smoke", "G1 4-GPU FP32 stability retry"],
+  "decision": "G1_NUMERICAL_REPAIR_PASS",
+  "termination": "normal",
+  "reason": "The original non-finite host bbox loss was traced to two zero-area DIOR train annotations. A project-local invalid-box filter was validated by host control and repaired CORA four-GPU full smoke; all reported losses/gradient norms were finite. No G2 training was started.",
+  "completed_units": ["G0_ASSET_ENV_AND_BASE_PARITY", "G1 math smoke tests", "G1 host-control root-cause reproduction", "G1 invalid-box filter validation", "G1 repaired 4-GPU 200-iteration full-val smoke"],
   "forbidden_endpoint_touched": false,
-  "next_action": "Repair the registered host continuation numerical failure in a new authorized dispatch; do not tune CORA, run G2, or open any sealed endpoint."
+  "next_action": "Complete the remaining required G1 mutation/GT-inference tests and formal METHOD_FREEZE review before any G2 decision; do not start G2 under this repair task."
 }
