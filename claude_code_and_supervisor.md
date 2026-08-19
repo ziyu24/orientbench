@@ -3325,3 +3325,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/sug.md`；计划 commit `49a95ab58f963516d2755b7b9a2cff85499e86f7`；blob `f96d78fc0c0b9a22c5a4104b2fcb83bd872a0d9c`；canonical SHA-256 `1de911459804301e07324facfcdb7ef1d6bbaf4592281c468fc96d082dc67f54`。
 - 是否触发停止条件：否。r046 不下载新数据、不训练 detector、不读取 sealed test head values；test 语义标签只能在 model/checkpoint/temperature/threshold seal 推送后一次揭示。
 - 下一步建议：激活业务指令 046；服务器先做 head-label/host asset seal，再四卡 smoke/train/calibrate，封印后执行唯一 test audit。只有全门通过才允许新派发获取 FGSD/第二 head-label 数据集。
+
+## 2026-08-18 20:58 PDT — B 激活并派发业务指令 046
+
+- 指令来源：用户“授权，抓紧进行下一步”；r046 READY 科学合同与单活动槽均已核验。
+- 执行动作：将 r046 committed plan 逐字节镜像到根 `dis/sug.md`，绑定 coordination 的 plan commit/blob/SHA、L2 授权、四卡/墙钟/数据/写入范围并标记 `DISPATCHED`。
+- 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/STATE.json`；dispatch `orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818`。
+- 是否触发停止条件：否；test semantic head values 仍未授权在 MODEL_AND_THRESHOLD_SEAL 前读取，r046 不下载新数据、不训练 detector。
+- 下一步建议：服务器按唯一三元组接收业务指令 046，先提交 STARTED，再执行 HEADING_ASSET_SEAL→四卡 smoke/train→MODEL_AND_THRESHOLD_SEAL→唯一 sealed test audit。

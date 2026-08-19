@@ -69,7 +69,54 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818",
+    "plan_id": "b-r046-ahc-obb-semantic-heading-stagea-20260818",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-18 在 r045 早停且 B 明确说明新标签/新方法需重新授权后回复：『授权，抓紧进行下一步。』",
+    "scientific_snapshot": {
+      "primary": "1b659ea0e8a0190211b6f451b85bdaf0b0ec149d",
+      "r045_state": "ACCEPT_GATED_EARLY_STOP_WITH_AUDIT_QUALIFICATION_ADOPT_APPLICATION_SHIFT_FAIL",
+      "current_venue_floor": "STRONG_JSTARS_OR_REMOTE_SENSING",
+      "target_route": "AHC_OBB_SEMANTIC_HEADING_STAGE_A"
+    },
+    "plan_path": "dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/sug.md",
+    "plan_commit_sha": "49a95ab58f963516d2755b7b9a2cff85499e86f7",
+    "plan_blob_oid": "f96d78fc0c0b9a22c5a4104b2fcb83bd872a0d9c",
+    "plan_sha256": "1de911459804301e07324facfcdb7ef1d6bbaf4592281c468fc96d082dc67f54",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "f96d78fc0c0b9a22c5a4104b2fcb83bd872a0d9c",
+    "active_sha256": "1de911459804301e07324facfcdb7ef1d6bbaf4592281c468fc96d082dc67f54",
+    "base_sha": "1b659ea0e8a0190211b6f451b85bdaf0b0ec149d",
+    "activation_base_sha": "a3923a7062dc45694f1562b43c4d080d6ffbf6a2",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-18：『授权，抓紧进行下一步。』"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 4, "gpu_hours_max": 48, "cpu_core_hours_max": 384},
+      "wall_time": {"seconds_max": 64800},
+      "data": {
+        "allowed_dataset_ids": ["HRSC2016-existing-images-and-original-head-annotations-readonly", "existing-valid-HRSC-baselines-readonly", "repository-and-manifest-pinned-HRSC-artifacts-readonly"],
+        "read_bytes_max": 1099511627776,
+        "write_bytes_max": 107374182400
+      },
+      "write": {
+        "allowed_paths": ["experiments/r046_semantic_heading/", "outputs/persistent_artifacts/orientbench_semantic_heading_r046_20260818/", "audit_bundles/r046/", "docs/paper_jprs_r046/", "dis/server_reports/orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818/", "claude_code_and_supervisor.md"],
+        "bytes_max": 107374182400
+      },
+      "network": {"allowed": true, "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git"]}
+    },
+    "conflict_keys": ["server-execution-slot", "dis/sug.md", "gpu-all-four-heading-training", "HRSC2016-semantic-heading-test-seal"],
+    "server_report_path": "dis/server_reports/orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-18T20:58:22-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-b-r045-prospective-axis-drift-decision-20260818.json",
     "dispatch_id": "orientbench-b-r045-prospective-axis-drift-decision-20260818",
@@ -81,5 +128,5 @@
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-18T20:41:28-07:00"
+  "updated_at": "2026-08-18T20:58:22-07:00"
 }
