@@ -1,0 +1,8 @@
+{
+  "mode": "HEADPOINT_2D",
+  "best_val_accuracy": 0.8595194085027726,
+  "train_instances": 1207,
+  "val_instances": 541,
+  "formal": true,
+  "four_rank_ddp": true
+}

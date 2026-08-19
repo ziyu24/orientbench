@@ -1,0 +1,8 @@
+{
+  "mode": "CONCAT_ENDPOINT_BINARY",
+  "best_val_accuracy": 0.8724584103512015,
+  "train_instances": 1207,
+  "val_instances": 541,
+  "formal": true,
+  "four_rank_ddp": true
+}

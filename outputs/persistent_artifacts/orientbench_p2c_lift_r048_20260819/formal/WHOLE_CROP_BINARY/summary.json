@@ -1,0 +1,8 @@
+{
+  "mode": "WHOLE_CROP_BINARY",
+  "best_val_accuracy": 0.8576709796672828,
+  "train_instances": 1207,
+  "val_instances": 541,
+  "formal": true,
+  "four_rank_ddp": true
+}
