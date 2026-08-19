@@ -3141,3 +3141,43 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/STARTED.json`。
 - 是否触发停止条件：否；治理、身份、授权、资源与写入范围预检全部通过。
 - 下一步建议：将 STARTED 作为独立提交用 HTTPS 推送；推送成功后才读取 Git 跟踪研究证据并执行 T1–T5。
+
+## 2026-08-18 19:07 PDT — SERVER r044 T1 证据闭合
+
+- 指令来源：业务指令 044 冻结计划 T1。
+- 执行动作：定位六单元扰动、几何风险、图像级 LTT、NRC、DOTA 与 600 目标人工双标的 canonical source；将仍标记 `HUMAN_BLOCKED` 的旧表列为 superseded；隔离 r034/r036/r037/r042/r043 负方法边界。
+- 关键产物路径：`docs/paper_jprs_r044/evidence_map.csv`；`docs/paper_jprs_r044/claim_ledger.csv`；`docs/paper_jprs_r044/stale_claims_removed.md`。
+- 是否触发停止条件：否；headline 数字均有精确可回链来源，来源间冲突通过证据身份而非改数消解。
+- 下一步建议：只用已准入来源完成英文 measurement-diagnostic 主稿与补充材料。
+
+## 2026-08-18 19:12 PDT — SERVER r044 T2/T3 稿件与图表完成
+
+- 指令来源：业务指令 044 冻结计划 T2/T3。
+- 执行动作：完成 8,150 词英文主稿、补充材料、投稿附件、9 份机器可读表和 6 组 SVG+PNG；图只使用 tracked derived evidence，不读取原图或原始数据。
+- 关键产物路径：`docs/paper_jprs_r044/orientation_reliability_jprs.md`；`docs/paper_jprs_r044/supplement.md`；`docs/paper_jprs_r044/figures/`；`docs/paper_jprs_r044/tables/`；`outputs/persistent_artifacts/orientbench_jprs_manuscript_r044_20260818/build_package.py`。
+- 是否触发停止条件：否；无训练、推理、GPU、原始数据或禁止 endpoint 访问。
+- 下一步建议：冻结主稿哈希并运行独立 exact claim checker、引用审计和 mutations。
+
+## 2026-08-18 19:15 PDT — SERVER r044 T4 精确校验完成
+
+- 指令来源：业务指令 044 冻结计划 T4。
+- 执行动作：按精确 path/key 校验 57 项 claim，禁止 fuzzy/nearest matching；核对 24/24 引用键；分别改变 AP75、人工均值和删除 NRC source row。
+- 关键产物路径：`audit_bundles/r044/claim_spec.csv`；`audit_bundles/r044/claim_check.json`；`audit_bundles/r044/mutation_results.json`。
+- 是否触发停止条件：否；pristine 57/57 PASS，三项 mutated invocation 全部非零退出。
+- 下一步建议：对 SHA-256 冻结的成稿执行 measurement 与 remote-sensing 两个独立视角红队。
+
+## 2026-08-18 19:18 PDT — SERVER r044 T5 venue gate 收口
+
+- 指令来源：业务指令 044 冻结计划 T5。
+- 执行动作：对主稿 SHA-256 `e23077a080af8c3f3ad70606b83bf8d4491503be60d4e442f8c725e13f445317` 完成两份只读红队；G1--G3 PASS，G4 因两位 reviewer 的 novelty 均为 3/5 而 FAIL。
+- 关键产物路径：`docs/paper_jprs_r044/reviewer_1_measurement.md`；`docs/paper_jprs_r044/reviewer_2_remote_sensing.md`；`docs/paper_jprs_r044/venue_readiness.md`；`audit_bundles/r044/gate.json`；`dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，正常 venue gate 收口；终态 `NOT_JPRS_READY`，执行按 gated early stop 记 complete。
+- 下一步建议：最小科学补救是预注册的 held-out 遥感决策研究，验证协议确实改变模型/阈值选择并在 geography/sensor/acquisition shift 下保持图像级风险；纯润色或追加同分布 detector row 不足。
+
+## 2026-08-18 19:21 PDT — SERVER r044 最终推送前完整性核验
+
+- 指令来源：业务指令 044 的最终 Git 跟踪、manifest、schema-2 报告与 HTTPS push 要求。
+- 执行动作：复核 manifest 64 行的 size/SHA-256 与 write_set 全覆盖；确认 55 个变更文件无越界、主稿 8,150 词、6 组 SVG+PNG、claim 57/57，并完成 staged diff whitespace 检查。
+- 关键产物路径：`audit_bundles/r044/manifest.csv`；`audit_bundles/r044/claim_check.json`；`audit_bundles/r044/gate.json`；`dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：否；正常 venue gate `NOT_JPRS_READY` 已按 gated completion 收口。
+- 下一步建议：提交全部显式 write_set 文件并只用 GitHub HTTPS 推送；随后严格按 SERVER 两行回执返回唯一报告路径。

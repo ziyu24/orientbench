@@ -1,0 +1,16 @@
+evidence_id,claim_scope,evidence_identity,canonical_source,canonical_key,status,boundary
+E01,controlled angle perturbation across six full validation units,formal full-evaluator,top_journal_v3_reaudit_055/reports/pre_submission_s1s5_v1/s1a_full_pipeline_perturbation_v1.csv,all six rows,ADMIT,AP50 invariance is constructed under IoU>=0.5 constrained rotation; AP75 and angle error reveal degradation
+E02,reverse localization control,audited descriptive,top_journal_v3_reaudit_055/reports/r3_reverse_perturbation.csv,DIOR-R/3 and DIOR-R/22 rows,ADMIT_AS_CONTROL,angle unchanged while AP changes; not a causal decomposition of every AP component
+E03,rectangle rotation tolerance,deterministic geometry,top_journal_v3_reaudit_055/reports/m4_delta_theta_tau_curve.csv,exact ar rows,ADMIT,concentric same-scale congruent rectangle model only
+E04,geometry-normalized severe risk,formal,top_journal_v3_reaudit_055/reports/m4_geometry_normalized_risk.csv,cells A-H,ADMIT,event is based on matched-GT aspect ratio and is not observed-pair IoU failure
+E05,masked NRC ranking,audited descriptive,top_journal_v3_reaudit_055/reports/a0_masked_nrc_bootstrap_ci_055.csv,all eight rows,ADMIT_WITH_SCOPE,within-setting comparison only; no cross-dataset correlation headline
+E06,image-level finite-sample control,formal,top_journal_v3_reaudit_055/reports/m3_image_level_ltt.csv,PRIMARY detection_score selected alpha=0.03 rows,ADMIT,complete evaluation images are exchangeable; D_audit is report-only
+E07,image versus instance-iid comparison,audit counterfactual,top_journal_v3_reaudit_055/reports/m3_instance_vs_image_comparison.csv,PRIMARY detection_score alpha=0.03 rows,ADMIT_AS_WARNING,instance-iid exact-binomial values are explicitly invalid-independence counterfactuals
+E08,human long-axis disagreement,human study,reports/m4_human_annotation_primary_summary_073.csv,overall/dataset/ar>=2.1 rows,ADMIT,human disagreement is not dataset GT error and is not subtracted from model error
+E09,human study protocol,human study,reports/m4_human_annotation_analysis_audit.json,status and recheck_summary,ADMIT,600 decisions produced 450 primary numeric pairs; recheck is secondary
+E10,DOTA local train/val evidence,post-outcome audited external replication,audit_bundles/r028/dota/r026_hypotheses.csv,all formal rows,ADMIT_WITH_SCOPE,no public trainval/test comparison and no SOTA claim
+E11,old geometry selector,formal negative,audit_bundles/r034/implementation_a/judgment.json,decision,EXCLUDE_AS_CONTRIBUTION,dominant flip attributed to AR-only definitional component
+E12,Q-SetOD,formal negative,audit_bundles/r037/validator_recompute/judgment_final.json,decision,EXCLUDE_AS_CONTRIBUTION,set/coverage transfer route terminated
+E13,OER/OER-D,formal negative,audit_bundles/r042/gate.json,decision,EXCLUDE_AS_CONTRIBUTION,no positive Delta_AUGRC across evaluated units
+E14,SAUR evaluated configuration,formal negative with implementation boundary,audit_bundles/r043/gate.json,decision,EXCLUDE_AS_CONTRIBUTION,large AP regression; implemented gate deviated from frozen formula so rejection does not prove class-wide impossibility
+E15,stale pre-human tables,superseded,top_journal_v3_reaudit_055/reports/m4_human_annotation_disagreement.csv,status=HUMAN_BLOCKED,EXCLUDE,superseded by reports/m4_human_annotation_primary_summary_073.csv

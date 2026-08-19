@@ -1,0 +1,38 @@
+{
+  "citation_audit": {
+    "audit_records": 24,
+    "bib_records": 24,
+    "cited": 24,
+    "missing_audit": [],
+    "missing_bib": []
+  },
+  "exact_lookup_only": true,
+  "failed": 2,
+  "failures": [
+    {
+      "actual": "bfac1d4df0c37c9f026befbb211f66ab0f8ebc2099801e22f72e51097788adc0",
+      "claim_id": "SRC_FIG4",
+      "expected": "eff52ab2512edae2ce44fdfd89f8c44ea4b2e999377c94503236cf1d3faa3eeb",
+      "reason": "value_mismatch"
+    },
+    {
+      "claim_id": "NRC_DIOR_SCORE",
+      "detail": "exact selector matched 0 rows: cell=DIOR-R/22&selector=detection_score|nrc",
+      "reason": "lookup_error"
+    }
+  ],
+  "input_sha256": {
+    "reports/m4_human_annotation_primary_summary_073.csv": "f7f93b9da582df2b6b3412c95bc1f30d9dc5b1984b24dab84c6175c8c2d94f7b",
+    "top_journal_v3_reaudit_055/reports/a0_masked_nrc_bootstrap_ci_055.csv": "bfac1d4df0c37c9f026befbb211f66ab0f8ebc2099801e22f72e51097788adc0",
+    "top_journal_v3_reaudit_055/reports/m3_image_level_ltt.csv": "53f7f243edab673632e7bee0206c1b6a75f2cf67b9a9b3c1fba4639aad29c07e",
+    "top_journal_v3_reaudit_055/reports/m3_instance_vs_image_comparison.csv": "a017bc287718ef659048a0f01a898894756f71070c65c2d49ffb3a286c9b4cbb",
+    "top_journal_v3_reaudit_055/reports/m4_delta_theta_tau_curve.csv": "25ed7c7bb86b23cdefc7a0090ac64c41bf84f1e08476a6bbee96badc83a9ff65",
+    "top_journal_v3_reaudit_055/reports/m4_geometry_normalized_risk.csv": "a652182ebb89a44355d424603eedc8a1bf3896012473289ca5a5e95e36cd65cd",
+    "top_journal_v3_reaudit_055/reports/pre_submission_s1s5_v1/s1a_full_pipeline_perturbation_v1.csv": "e69a159fb2da5dfde409d6d70f93bc9ee745342f898ee0296d0e567a74d29c1c"
+  },
+  "nearest_value_matching": false,
+  "passed": 55,
+  "schema_version": 1,
+  "status": "FAIL",
+  "total": 57
+}

@@ -1,0 +1,45 @@
+{
+  "citation_audit": {
+    "audit_records": 24,
+    "bib_records": 24,
+    "cited": 24,
+    "missing_audit": [],
+    "missing_bib": []
+  },
+  "exact_lookup_only": true,
+  "failed": 3,
+  "failures": [
+    {
+      "actual": "fc0d41e3261bf8db067f647fe6af51be7fffbc8e18054deb94d883fb87e6770c",
+      "claim_id": "SRC_FIG1",
+      "expected": "e69a159fb2da5dfde409d6d70f93bc9ee745342f898ee0296d0e567a74d29c1c",
+      "reason": "value_mismatch"
+    },
+    {
+      "actual": "fc0d41e3261bf8db067f647fe6af51be7fffbc8e18054deb94d883fb87e6770c",
+      "claim_id": "SRC_FIG2",
+      "expected": "e69a159fb2da5dfde409d6d70f93bc9ee745342f898ee0296d0e567a74d29c1c",
+      "reason": "value_mismatch"
+    },
+    {
+      "actual": 0.1897,
+      "claim_id": "P_DI3_AP75_PERT",
+      "expected": "0.0897",
+      "reason": "value_mismatch"
+    }
+  ],
+  "input_sha256": {
+    "reports/m4_human_annotation_primary_summary_073.csv": "f7f93b9da582df2b6b3412c95bc1f30d9dc5b1984b24dab84c6175c8c2d94f7b",
+    "top_journal_v3_reaudit_055/reports/a0_masked_nrc_bootstrap_ci_055.csv": "eff52ab2512edae2ce44fdfd89f8c44ea4b2e999377c94503236cf1d3faa3eeb",
+    "top_journal_v3_reaudit_055/reports/m3_image_level_ltt.csv": "53f7f243edab673632e7bee0206c1b6a75f2cf67b9a9b3c1fba4639aad29c07e",
+    "top_journal_v3_reaudit_055/reports/m3_instance_vs_image_comparison.csv": "a017bc287718ef659048a0f01a898894756f71070c65c2d49ffb3a286c9b4cbb",
+    "top_journal_v3_reaudit_055/reports/m4_delta_theta_tau_curve.csv": "25ed7c7bb86b23cdefc7a0090ac64c41bf84f1e08476a6bbee96badc83a9ff65",
+    "top_journal_v3_reaudit_055/reports/m4_geometry_normalized_risk.csv": "a652182ebb89a44355d424603eedc8a1bf3896012473289ca5a5e95e36cd65cd",
+    "top_journal_v3_reaudit_055/reports/pre_submission_s1s5_v1/s1a_full_pipeline_perturbation_v1.csv": "fc0d41e3261bf8db067f647fe6af51be7fffbc8e18054deb94d883fb87e6770c"
+  },
+  "nearest_value_matching": false,
+  "passed": 54,
+  "schema_version": 1,
+  "status": "FAIL",
+  "total": 57
+}

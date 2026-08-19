@@ -1,0 +1,15 @@
+claim_id,manuscript_location,claim_text,evidence_id,status,scope_note
+C001,Abstract and Sec. 5.1,AP50 unchanged in all six controlled perturbation units,E01,ADMIT,exact six-row full-evaluator result
+C002,Abstract and Sec. 5.1,AP75 decreases by 0.1731 to 0.6166 and mean angle error increases by 29.186 to 31.886 degrees,E01,ADMIT,ranges over six cells
+C003,Sec. 3.2,delta_0.75(2.1)=15.3297 degrees,E03,ADMIT,deterministic congruent-rectangle geometry
+C004,Sec. 5.2,geometry-normalized severe-event rates span 0.0019 to 0.0167,E04,ADMIT,descriptive across eight cells
+C005,Sec. 5.3,representative masked NRC distinguishes informative and reversed rankings within settings,E05,ADMIT_WITH_SCOPE,no claim of independence from AP
+C006,Abstract and Sec. 5.4,image-level HB calibration UCB spans 0.003008 to 0.025875 at alpha 0.03,E06,ADMIT,selected primary detection-score rows
+C007,Sec. 5.4,instance-iid counterfactual can be materially smaller than image-level bound,E07,ADMIT_AS_WARNING,invalid counterfactual labeled in text and figure
+C008,Abstract and Sec. 5.5,450 numeric human pairs have mean disagreement 2.3112 degrees with image-cluster CI 1.9970 to 2.7854,E08,ADMIT,human disagreement not GT error
+C009,Sec. 5.5,human P(disagreement>5)=0.0800 and P(disagreement>10)=0.008889,E08,ADMIT,threshold-semantics anchor
+C010,Sec. 5.5,ar>=2.1 human subset has 308 pairs and mean 2.2823 degrees,E08,ADMIT,primary reporting domain anchor
+C011,Sec. 4.1,study covers DIOR-R FAIR1M-v1.0 SODA-A and local DOTA-v1.0 train/val,E04,ADMIT_WITH_SCOPE,DOTA public test excluded
+C012,Sec. 6,evaluated repair attempts did not yield a surviving deployable repair,E11;E12;E13;E14,ADMIT_AS_LIMITATION,not a universal impossibility claim
+C013,Sec. 5.3,PSC detector/dataset score-level behavior is heterogeneous,E05,ADMIT_WITH_SCOPE,no angle-head-wide claim
+C014,Sec. 7,NRC offers an additional reliability view within comparable settings,E05,ADMIT_WITH_SCOPE,not claimed statistically independent of mAP
