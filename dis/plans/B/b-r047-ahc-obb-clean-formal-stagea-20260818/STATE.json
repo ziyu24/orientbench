@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "plan_id": "b-r047-ahc-obb-clean-formal-stagea-20260818",
+  "actor": "B",
+  "plan_path": "dis/plans/B/b-r047-ahc-obb-clean-formal-stagea-20260818/sug.md",
+  "state": "DISPATCHED",
+  "plan_commit_sha": "ba3494f3d4150f9e10a9016ab0f336fd0de8ac82",
+  "plan_blob_oid": "7b8e7c6886e7e52fd3cdd74bf8a4ada3e9ec54f2",
+  "plan_sha256": "23fd4bbf9089ed59825d9d81f12cb73432609afe2934333a3af6b12f488dcb2a",
+  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "ready_at": "2026-08-18T22:16:58-07:00",
+  "updated_at": "2026-08-18T22:17:20-07:00"
+}

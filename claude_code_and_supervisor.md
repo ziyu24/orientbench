@@ -3356,3 +3356,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r047-ahc-obb-clean-formal-stagea-20260818/sug.md`。
 - 是否触发停止条件：否。official test semantic values 仍未打开；r046 proxy、split、risk 与科学 token 禁止复用。
 - 下一步建议：提交不可变 READY 计划，绑定 commit/blob/SHA 后激活业务指令 047；服务器必须先封存 test identity partition 和完整实现，再运行正式训练。
+
+## 2026-08-18 22:17 PDT — B 激活并派发业务指令 047
+
+- 指令来源：用户“继续推进执行”；r046 已按不完整关闭，活动槽为空。
+- 执行动作：将 r047 committed plan 逐字节镜像到根 `dis/sug.md`，绑定 plan commit/blob/SHA、L2 授权、四卡预算、test-internal semantic wall 与唯一报告路径，标记 `DISPATCHED`。
+- 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r047-ahc-obb-clean-formal-stagea-20260818/STATE.json`；dispatch `orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818`。
+- 是否触发停止条件：否。official test semantic values 仍禁止读取；正式模型 seal 前只能使用 test ID 与 image-only 信息。
+- 下一步建议：服务器按唯一三元组接收业务指令 047，先提交 STARTED 与 identity-only TEST_PARTITION_SEAL，再实现/训练正式模型。
