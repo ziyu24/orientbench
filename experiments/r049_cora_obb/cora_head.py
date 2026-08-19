@@ -120,9 +120,13 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
             base = self.angle_coder.decode(a).reshape(-1)
             gt = self.angle_coder.decode(target.reshape(-1, self.encode_size)).reshape(-1)
             residual = axial_wrap(gt - base)
-            unit = F.normalize(p, dim=-1, eps=1e-6)
+            # ``F.normalize`` can create an AMP-overflowing derivative close
+            # to a zero axial vector.  The explicit epsilon is part of the
+            # frozen numerical parameterisation, not a loss-weight change.
+            squared_norm = p.square().sum(-1, keepdim=True)
+            unit = p / torch.sqrt(squared_norm + 1e-4)
             # Proper axial VM negative log likelihood with learned concentration.
-            kappa = p.norm(dim=-1).clamp(max=20.)
+            kappa = torch.sqrt(squared_norm.squeeze(-1) + 1e-4).clamp(max=20.)
             vm = torch.log(torch.special.i0e(kappa)) + kappa - kappa * (unit[:, 0] * torch.sin(2 * residual) + unit[:, 1] * torch.cos(2 * residual))
             real_harm = normalized_harm(residual)
             proper = F.binary_cross_entropy_with_logits(h, self._ordinal_target(real_harm, self.harm_bins), reduction='none').mean(-1)

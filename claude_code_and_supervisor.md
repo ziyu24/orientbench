@@ -3595,3 +3595,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_cont_seed0/20260819_073239/20260819_073239.log`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0/train.log`。
 - 是否触发停止条件：否。CONT 正常结束；VM-NLL 运行中，CORA 未提前启动；禁止端点未触碰。
 - 下一步建议：VM-NLL 正常完成后启动 CORA seed0，再生成原始预测/TP matched reliability rows 做 G2 裁决。
+
+## 2026-08-19 07:57 CST — r049 G2 VM-NLL 数值修复重启
+
+- 指令来源：用户“继续推进”。
+- 执行动作：VM-NLL AMP run 在迭代 50/100/150 持续 `grad_norm: nan`，主动停止未采信；将 axial vector 的近零归一化改为显式 epsilon-stable 形式，新增近零梯度测试（累计 `6 passed`），保留同 checkpoint、数据、四卡、预算、loss weights 与门槛。
+- 关键产物路径：`experiments/r049_cora_obb/cora_head.py`；`experiments/r049_cora_obb/test_cora_math.py`；失败日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0/train.log`。
+- 是否触发停止条件：否，属于计划允许的一次数值稳定性修复；CORA 未启动，禁止端点未触碰。
+- 下一步建议：用修复 head 重启 VM-NLL；若仍发生非有限梯度则停止 G2 并报告技术未裁决。

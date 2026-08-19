@@ -42,3 +42,11 @@ def test_counterfactual_logits_identity_mutation_and_gradient():
 def test_inference_signature_has_no_ground_truth_input():
     params = inspect.signature(CORAAngleBranchRetinaHead.predict_by_feat).parameters
     assert not any('gt' in name.lower() for name in params)
+
+
+def test_near_zero_periodic_vector_has_finite_normalization_gradient():
+    p = torch.zeros(3, 2, requires_grad=True)
+    unit = p / torch.sqrt(p.square().sum(-1, keepdim=True) + 1e-4)
+    kappa = torch.sqrt(p.square().sum(-1) + 1e-4)
+    (unit.square().sum() + kappa.sum()).backward()
+    assert torch.isfinite(p.grad).all()
