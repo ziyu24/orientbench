@@ -23,7 +23,7 @@ class D(Dataset):
  def __init__(self,rows):self.rows=rows
  def __len__(self):return len(self.rows)
  def __getitem__(self,i):
-  iid,cx,cy,w,h,t,y=self.rows[i]; im=cv2.imread(str(DATA/'images'/f'{iid}.bmp')); M=cv2.getRotationMatrix2D((cx,cy),-math.degrees(t),1); crop=cv2.warpAffine(im,M,(int(max(w,2)),int(max(h,2))),borderMode=cv2.BORDER_REFLECT); crop=cv2.resize(crop,(192,64)); a=crop[:,:96];b=crop[:,96:]; a=torch.from_numpy(a[:,:,::-1].copy()).permute(2,0,1).float()/255.;b=torch.from_numpy(b[:,:,::-1].copy()).permute(2,0,1).float()/255.;return a,b,torch.tensor(y,dtype=torch.float32)
+  iid,cx,cy,w,h,t,y=self.rows[i]; im=cv2.imread(str(DATA/'images'/f'{iid}.bmp')); ow,oh=int(max(w,2)),int(max(h,2)); M=cv2.getRotationMatrix2D((cx,cy),math.degrees(t),1); M[0,2]+=ow/2-cx; M[1,2]+=oh/2-cy; crop=cv2.warpAffine(im,M,(ow,oh),borderMode=cv2.BORDER_REFLECT); crop=cv2.resize(crop,(192,64)); a=crop[:,:96];b=crop[:,96:]; a=torch.from_numpy(a[:,:,::-1].copy()).permute(2,0,1).float()/255.;b=torch.from_numpy(b[:,:,::-1].copy()).permute(2,0,1).float()/255.;return a,b,torch.tensor(y,dtype=torch.float32)
 class AHC(nn.Module):
  def __init__(self):super().__init__();self.f=nn.Sequential(nn.Conv2d(3,16,5,2),nn.ReLU(),nn.AdaptiveAvgPool2d(1));self.w=nn.Linear(16,1,bias=False)
  def forward(self,a,b):return self.w((self.f(a)-self.f(b)).flatten(1)).squeeze(1)
