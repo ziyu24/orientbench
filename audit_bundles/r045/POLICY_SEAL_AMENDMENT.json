@@ -24,11 +24,11 @@
   },
   "recomputed_candidate_table": {
     "path": "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_analysis/source_daudit_selected_policy.csv",
-    "sha256": "632293d43406d2ec86904bc5ebc47ccbd623dcf715107b6f0da94e55c2eaab9b"
+    "sha256": "2c745417654ef963dd995bb96aad055b71958b73ce0e93b4b1b2fff6b0292487"
   },
   "recomputed_grid": {
     "path": "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_analysis/source_dcal_policy_grid.csv",
-    "sha256": "9a1d4751b914a5a7f618899151d69c9d3b29a62293b625259f9202d975bae778"
+    "sha256": "d8a0e015b3b16981c30ff3021e45ec33d008d168c5f03313e74213056c59880b"
   },
   "implementation": {
     "path": "experiments/r045_axis_drift/evaluate_axis_drift.py",
