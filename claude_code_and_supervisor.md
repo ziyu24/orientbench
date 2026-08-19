@@ -3571,3 +3571,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r049/METHOD_FREEZE.json`；`experiments/r049_cora_obb/test_cora_math.py`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200_cf_v2/20260819_072640/20260819_072640.log`。
 - 是否触发停止条件：否。G1 的数值/方法 smoke 已通过；未将 smoke AP 当成 G2 结论，G2 尚未启动；禁止端点未触碰。
 - 下一步建议：按冻结顺序以同一 checkpoint/预算启动 DIOR seed0 的 CONT、VM-NLL、CORA，再由 G2 指标决定是否继续 SODA-A。
+
+## 2026-08-19 07:35 CST — r049 G2 DIOR seed0 CONT 启动
+
+- 指令来源：用户“继续推进”。
+- 执行动作：冻结并提交同 checkpoint、同三 epoch、同四卡/optimizer/augmentation 的 DIOR seed0 CONT、VM-NLL、CORA 配置；按规定先启动 CONT，tmux 会话 `orientbench-r049-dior-cont-s0`。
+- 关键产物路径：`configs/r049_cora_obb/dior_{cont,vm_nll,cora}_seed0_3e.py`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_cont_seed0/train.log`。
+- 是否触发停止条件：否。仅 CONT 正在执行，VM-NLL/CORA 尚未启动；禁止端点未触碰。
+- 下一步建议：CONT 正常完成后顺序执行 VM-NLL 与 CORA，随后使用冻结的 G2 指标与 raw native-risk rows 裁决。
