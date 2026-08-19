@@ -3531,3 +3531,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g0/`；遗留进程日志 `outputs/persistent_artifacts/orientbench_panorama_r041_20260817/units/unit_022_psc_dior/views/hflip.log`。
 - 是否触发停止条件：否。r049 未结束，也未发生 r049 异常结束。
 - 下一步建议：重建持续 r049 goal，随即开始 G1 实现与四卡 smoke；不等待遗留 r041 小显存进程退出。
+
+## 2026-08-19 05:46 CST — 业务 049 G1 实现门异常结束
+
+- 指令来源：r049 冻结计划 Task 1；用户授权自主解决普通环境/工程问题。
+- 执行动作：新增项目内 CORA-OBB detector-native head、math tests 与四卡 200-iteration DIOR smoke。首个 AMP smoke 出现 `loss_bbox: inf`/`grad_norm: nan`；按计划允许的一次稳定性修复，以保持 host optimizer/batch/lr/BN/clip 不变的 FP32 完整复跑，iteration 150 仍为 `loss_bbox: inf`。
+- 关键产物路径：`experiments/r049_cora_obb/cora_head.py`；`configs/r049_cora_obb/dior_cora_smoke_200.py`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g1/dior_cora_smoke_200_{retry,fp32}/train.log`；`docs/paper_jprs_r049/g1_implementation_stop_report.md`；`audit_bundles/r049/gate.json`。
+- 是否触发停止条件：是，异常结束 `NOT_ADJUDICATED_IMPLEMENTATION`；G2/seed0 未启动。G0 已正常通过。未读 DOTA-v2.0、SODA-A official test、旧 T_audit 或其它 clean endpoint。
+- 下一步建议：不得以调 CORA 超参绕过；如要继续须新 dispatch 专门修复已登记 PSC host continuation 的 bbox-loss 数值根因，再从 G1 重启。
