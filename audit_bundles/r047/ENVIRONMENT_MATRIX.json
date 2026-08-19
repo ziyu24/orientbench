@@ -1,0 +1,12 @@
+{
+  "dispatch_id": "orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818",
+  "formal_requirement": "mmrotate_1x requires mmcv >=2.0.0rc4 <=2.1.0 and mmdet >=3.0.0rc6 <3.1.0",
+  "checked_existing_envs": {
+    "pcp-obb": {"mmcv": "2.3.4", "mmdet": "3.5.0", "status": "incompatible"},
+    "ai4rs": {"mmcv": "2.1.0", "mmdet": "3.3.0", "status": "incompatible"},
+    "mr": {"mmcv": "1.7.2", "mmdet": "2.28.2", "status": "incompatible"},
+    "pcp-obb-soda": {"mmcv": "1.7.2", "mmdet": "2.28.2", "status": "incompatible"}
+  },
+  "formal_backbone_mapping_executed": false,
+  "test_semantic_values_opened": false
+}
