@@ -3611,3 +3611,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`configs/r049_cora_obb/dior_cont_seed0_3e.py`；未采信日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0_retry1/train.log`。
 - 是否触发停止条件：否，用户授权的工程稳定性修复；方法、数据端点、阈值与科学口径不变。
 - 下一步建议：从同一 PSC checkpoint 依次运行 FP32 CONT、VM-NLL、CORA seed0；任一臂再发生非有限值则停止 G2 并只报告技术未裁决。
+
+## 2026-08-19 08:02 CST — r049 DIOR FP32 G2 顺序监督器启动
+
+- 指令来源：用户持续“继续推进”与静默监督要求。
+- 执行动作：启动 `orientbench-r049-dior-g2-driver`；它等待 FP32 CONT 结束后自动串行运行 VM-NLL、CORA，且扫描每臂日志中的非有限 loss/gradient，命中即以失败码停止后续臂。
+- 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/sequence_driver.log`。
+- 是否触发停止条件：否。CONT 仍在执行；监督器未越过 CONT/VM-NLL/CORA 的冻结顺序。
+- 下一步建议：监督器正常完成后生成 raw predictions 和 G2 fixed metrics；若其停止则只读取相关尾部日志并报告根因。
