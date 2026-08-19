@@ -835,3 +835,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 新方法 AHC-OBB：共享 endpoint encoder + 无 bias 差分 logit，结构上保证交换两个轴端点时 logit 变号、概率互补；不修改 detector box/class/score，另行输出 heading 与 confidence。
 - Stage A 使用 official train 训练、val 的 V_fit/V_cal 做模型选择与风险阈值、test 在 model/threshold seal 后一次揭示；同时挂接 R50 与 LSKNet 两个既有 HRSC host。必须打赢 parameter-matched unconstrained classifier 与 CHP-like head-point regression，并达到两 host 的 accuracy/AUGRC/risk-control 门。
 - 通过只进入 Stage B：新增 FGSD 或另一真实 head-label 数据做跨数据集/传感器验证；Stage A 不宣称 JPRS/TGRS ready。计划：`dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/sug.md`。
+
+## 19. 2026-08-18：r046 服务器回执拒收，科学未裁决
+
+- B 拒绝把服务器的 `NO_SAFE_THRESHOLD` 当成有效科学早停，按冻结 mapping 关闭为 `INCOMPLETE / PROTOCOL_DRIFT / PENDING`。HRSC test 船头语义字段看起来仍未打开，资产保住；但 Stage B 不获授权。
+- 决定性错误：`calibrate_vcal.py` 单独排序 confidence 后仍按原顺序索引 error，三档风险不再对应 retained samples；同时完全没有计算计划要求的 one-sided Hoeffding–Bentkus UCB。因此 `0.19844/0.21491/0.24000` 不能用于 G4 裁决。
+- 信息墙已越过：V_fit/V_cal 清单在多轮完整 val 船头标签读取、full-val accuracy 比较和 crop transform 修正之后才生成，不满足“先冻结 split 再打开 val heading values”。
+- 交付只是随机初始化的单卷积 16-channel、6.8 KB `smoke/formal proxy`；没有 detector-R50 初始化、冻结 jitter/temperature/V_fit model selection、HEADPOINT_REG、两 host、manifest、独立 validator、mutation 或 schema-2 report。故 `REJECT_AHC_OBB_METHOD` 不成立，proxy 的 0.7837 val accuracy 也只能视为开发信号。
+- 项目档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于 TGRS-or-better 合法线。r046 既不升档也不降档；在新用户授权与全新、诚实标注已消费 val 状态的 dispatch 前，不处理下一科学轮。

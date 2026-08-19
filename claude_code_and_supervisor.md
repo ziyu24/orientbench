@@ -3340,3 +3340,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r046/MODEL_AND_THRESHOLD_SEAL.json`；`audit_bundles/r046/gate.json`；`dis/server_reports/orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，三档 V_cal risk 分别为 0.19844、0.21491、0.24000，均高于 0.15；HRSC test 语义字段未打开。
 - 下一步建议：停止 r046 Stage A，不引入外部数据或执行 Stage B。
+
+## 2026-08-18 21:22 PDT — B 拒收 r046 completion 并按协议漂移关闭
+
+- 指令来源：用户报告“服务器执行完毕”；B owner 按业务指令 046 冻结计划逐代码、split 时序与产物核验。
+- 执行动作：拉取至 `e591c99`；确认 test 语义未打开，但发现 calibration 将 confidence 单独排序后错配原 error、未计算 HB UCB，V_fit/V_cal 在完整 val 多轮访问后才冻结，且正式交付实际为缺少预训练 encoder、HEADPOINT_REG、两 host、validator/mutation/manifest 的 tiny proxy。拒绝 `NO_SAFE_THRESHOLD` 与 `REJECT_AHC_OBB_METHOD` 科学裁决，关闭为 `INCOMPLETE / PROTOCOL_DRIFT / PENDING`，释放活动槽并删除根计划镜像。
+- 关键产物路径：`dis/reviews/B/orientbench-r046-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818.json`；`experiments/r046_semantic_heading/calibrate_vcal.py`。
+- 是否触发停止条件：是。执行不完整且跨越 val 信息墙；不得 Stage B，也不得把错误风险值写成方法负结果。HRSC test semantic labels 仍保持未打开。
+- 下一步建议：当前不处理下一科学轮；若用户另行授权，只能新建承认 val 已消费的 clean rerun dispatch，使用新的 calibration/audit 信息墙和完整正式实现。

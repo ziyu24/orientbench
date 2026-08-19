@@ -3,11 +3,11 @@
   "plan_id": "b-r046-ahc-obb-semantic-heading-stagea-20260818",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/sug.md",
-  "state": "DISPATCHED",
+  "state": "INCOMPLETE",
   "plan_commit_sha": "49a95ab58f963516d2755b7b9a2cff85499e86f7",
   "plan_blob_oid": "f96d78fc0c0b9a22c5a4104b2fcb83bd872a0d9c",
   "plan_sha256": "1de911459804301e07324facfcdb7ef1d6bbaf4592281c468fc96d082dc67f54",
-  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "state_reason": "closed_by_owner_as_protocol_drift_proxy_execution_and_invalid_calibration_science_not_adjudicated",
   "ready_at": "2026-08-18T20:57:30-07:00",
-  "updated_at": "2026-08-18T20:58:22-07:00"
+  "updated_at": "2026-08-18T21:22:25-07:00"
 }
