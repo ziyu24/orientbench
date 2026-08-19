@@ -69,7 +69,54 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r049-cora-obb-native-risk-stagea-20260819",
+    "plan_id": "b-r049-cora-obb-native-risk-stagea-20260819",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-19：『后续GPU等的不需要授权，都在空着呢，抓紧推进。』",
+    "scientific_snapshot": {
+      "primary": "2110269b12613d1d38ba3f2b4a2d83d548225556",
+      "r048_state": "B_ACCEPT_REJECT_P2C_LIFT_JOINT_PENDING",
+      "current_venue_floor": "STRONG_JSTARS_OR_REMOTE_SENSING",
+      "target_route": "CORA_OBB_NATIVE_COUNTERFACTUAL_ORIENTATION_RISK_STAGE_A"
+    },
+    "plan_path": "dis/plans/B/b-r049-cora-obb-native-risk-stagea-20260819/sug.md",
+    "plan_commit_sha": "01228a8d36c3658e42eb683ba94026e9dd52fc1a",
+    "plan_blob_oid": "1eb291beed956fdcae815e5c590baa915c14985b",
+    "plan_sha256": "ebf4128d6109581c384ec719d0d6436f988060468c6073db9908db5be661dee4",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "1eb291beed956fdcae815e5c590baa915c14985b",
+    "active_sha256": "ebf4128d6109581c384ec719d0d6436f988060468c6073db9908db5be661dee4",
+    "base_sha": "2110269b12613d1d38ba3f2b4a2d83d548225556",
+    "activation_base_sha": "01228a8d36c3658e42eb683ba94026e9dd52fc1a",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-19：『后续GPU等的不需要授权，都在空着呢，抓紧推进。』"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 4, "gpu_hours_max": 320, "cpu_core_hours_max": 960},
+      "wall_time": {"seconds_max": 259200},
+      "data": {
+        "allowed_dataset_ids": ["DIOR-R-existing-r043-development-train-val-readonly", "SODA-A-existing-r043-development-train-val-readonly", "existing-valid-PSC-baselines-readonly", "repository-tracked-evidence-readonly"],
+        "read_bytes_max": 4398046511104,
+        "write_bytes_max": 536870912000
+      },
+      "write": {
+        "allowed_paths": ["experiments/r049_cora_obb/", "configs/r049_cora_obb/", "outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/", "audit_bundles/r049/", "docs/paper_jprs_r049/", "dis/server_reports/orientbench-b-r049-cora-obb-native-risk-stagea-20260819/", "claude_code_and_supervisor.md"],
+        "bytes_max": 536870912000
+      },
+      "network": {"allowed": true, "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git", "https://github.com/open-mmlab/", "https://pypi.org/", "https://files.pythonhosted.org/", "https://download.pytorch.org/", "https://repo.anaconda.com/", "https://conda.anaconda.org/"]}
+    },
+    "conflict_keys": ["server-execution-slot", "dis/sug.md", "gpu-all-four-cora-native-training", "DOTA-v2.0-and-SODA-official-test-sealed", "outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819"],
+    "server_report_path": "dis/server_reports/orientbench-b-r049-cora-obb-native-risk-stagea-20260819/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-19T04:35:50-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819.json",
     "dispatch_id": "orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819",
@@ -81,5 +128,5 @@
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-19T03:44:06-07:00"
+  "updated_at": "2026-08-19T04:35:50-07:00"
 }

@@ -3499,3 +3499,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r049-cora-obb-native-risk-stagea-20260819/sug.md`；business instruction `049`。
 - 是否触发停止条件：否。r049 仅使用已消费 development train/val；DOTA-v2.0、SODA official test、r047/r048 T_audit 继续密封。另按对等协议把 r048 joint scientific state 从单方误记的 KILLED 纠正为 PENDING，B 的 stop verdict 不变。
 - 下一步建议：提交不可变 READY 计划，绑定 commit/blob/SHA 后直接激活业务 049；服务器先读 pth_data/readme、复现双 baseline parity，再做真实方法与四卡 smoke。
+
+## 2026-08-19 04:35 PDT — B 激活并派发业务指令 049
+
+- 指令来源：用户持续算力授权“后续GPU等的不需要授权，都在空着呢，抓紧推进”；r048 已关闭且活动槽为空。
+- 执行动作：将 committed CORA-OBB plan 逐字节镜像到根 `dis/sug.md`，绑定 plan commit/blob/SHA、四卡320 GPU-hour上限、DIOR-R/SODA-A development边界和唯一报告路径，标记 `DISPATCHED`。
+- 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r049-cora-obb-native-risk-stagea-20260819/STATE.json`；dispatch `orientbench-b-r049-cora-obb-native-risk-stagea-20260819`。
+- 是否触发停止条件：否。DOTA-v2.0、SODA official test 与旧 T_audit 继续封存；本轮先做 pth_data readme + 双 baseline parity，再做 detector-native实现与四卡 smoke。
+- 下一步建议：服务器按唯一三元组接收业务049并直接执行；普通工程问题自主修复，只有科学门或真实不可恢复异常才终止。
