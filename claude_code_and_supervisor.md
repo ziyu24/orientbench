@@ -3118,6 +3118,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是；删除前必须形成带 SHA-256、再生命令和保留理由的归档清单，并取得逐组授权。
 - 下一步建议：先归档并申请清理 Group A（cache/gt_index/work_dirs，约84M）和 Group B（两份可再生训练 checkpoint，470M）；大体积 evidence 和 r032 快照默认保留，需另行专项审计。
 
+## 2026-08-18 08:34 PDT — 全量大体积清理审计的首批可验证结果
+
+- 指令来源：用户质询约50G项目空间未被认真审核，要求全量复核。
+- 执行动作：完成首批精确 hash 比对，形成大体积候选 dossier。确认 2.5G 为字节级重复副本，5.3G 为可由项目内脚本确定性重建的 DIOR 翻转视图；均尚未删除。
+- 关键产物路径：`audit_bundles/predelete_reproducible_20260818/large_candidate_dossier.md`。
+- 是否触发停止条件：是；所有大体积删改仍需该 dossier 的归档、再生命令和用户逐组授权。
+- 下一步建议：取得 Group D（exact duplicates）和 Group E（materialized flips）授权后，可安全释放约7.8G；继续对其余约30G persistent/probe/workdir 大项逐项做 lineage 分类。
+
 ## 2026-08-18 18:58 PDT — SERVER 接收并启动业务指令 044
 
 - 指令来源：用户交付唯一三元组 `orientbench-b-r044-jprs-measurement-manuscript-20260818` / `dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md` / `3fb932bb6d717e161b9a9bcc1c76849ea33f5a0e`，要求无人值守执行 T1–T5。
