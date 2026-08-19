@@ -3062,3 +3062,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：候选包括 `outputs/persistent_artifacts/_legacy_worktree_leftovers_20260813/`（288M）及 r043 的 superseded smoke/invalid checkpoint 目录（约1.1G），待用户精确授权。
 - 是否触发停止条件：是；删除范围需用户授权后执行。
 - 下一步建议：向用户提交分组清单、大小、保留影响和可释放空间，取得明确范围后采用可恢复方式清理。
+
+## 2026-08-18 08:24 PDT — 用户授权范围内清理完成
+
+- 指令来源：用户明确回复「清理。」；范围限定为上条盘点的迁移遗留目录和 r043 已无效/被替代 checkpoint。
+- 执行动作：删除 `outputs/persistent_artifacts/_legacy_worktree_leftovers_20260813/`（288M），并删除 r043 的无效 `dior_saur`、两组 smoke checkpoint/last_checkpoint（约851M）；保留所有相应日志、config、报告、审计表和有效 checkpoint。
+- 关键产物路径：保留的 r043 审计为 `audit_bundles/r043/`；删除后的工作目录仅余小型日志/config 文件。
+- 是否触发停止条件：否；没有删除正式审计、预测、论文证据或任何数据集。
+- 下一步建议：如需继续回收空间，先对 r010/r011、m069、v2 等大体积历史证据作跨任务 lineage/重复性审计，不宜直接删除。
