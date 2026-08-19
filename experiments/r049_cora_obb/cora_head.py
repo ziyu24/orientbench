@@ -8,11 +8,15 @@ used in any CORA loss or risk quantity.
 """
 from __future__ import annotations
 
+import copy
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from mmdet.models.utils import images_to_levels, multi_apply
-from mmdet.structures.bbox import cat_boxes, get_box_tensor
+from mmengine.structures import InstanceData
+from mmdet.models.utils import (filter_scores_and_topk, images_to_levels,
+                                multi_apply, select_single_mlvl)
+from mmdet.structures.bbox import cat_boxes
 from mmrotate.registry import MODELS
 from mmrotate.models.dense_heads.angle_branch_retina_head import AngleBranchRetinaHead
 
@@ -150,10 +154,43 @@ class CORAAngleBranchRetinaHead(AngleBranchRetinaHead):
     def predict_by_feat(self, cls_scores, bbox_preds, angle_preds, periodic_preds,
                         harm_preds, cf_slope_preds, score_factors=None, batch_img_metas=None,
                         cfg=None, rescale=False, with_nms=True):
-        # Deliberately delegates detection decoding unchanged.  The native harm
-        # tensor is retained by the detector forward path for artifact export;
-        # it never modifies detection confidence or uses GT at inference.
-        return super().predict_by_feat(cls_scores, bbox_preds, angle_preds,
-                                       score_factors=score_factors,
-                                       batch_img_metas=batch_img_metas, cfg=cfg,
-                                       rescale=rescale, with_nms=with_nms)
+        if score_factors is not None:
+            raise NotImplementedError('PSC host does not use score factors')
+        priors = self.prior_generator.grid_priors(
+            [x.shape[-2:] for x in cls_scores], dtype=cls_scores[0].dtype,
+            device=cls_scores[0].device)
+        results = []
+        for image_id, meta in enumerate(batch_img_metas):
+            results.append(self._predict_cora_single(
+                select_single_mlvl(cls_scores, image_id, detach=True),
+                select_single_mlvl(bbox_preds, image_id, detach=True),
+                select_single_mlvl(angle_preds, image_id, detach=True),
+                select_single_mlvl(harm_preds, image_id, detach=True), priors,
+                meta, cfg, rescale, with_nms))
+        return results
+
+    def _predict_cora_single(self, cls_list, bbox_list, angle_list, harm_list,
+                             priors_list, img_meta, cfg, rescale, with_nms):
+        """Decode host boxes unchanged and attach only native CDF risk."""
+        cfg = copy.deepcopy(self.test_cfg if cfg is None else cfg)
+        boxes_all, scores_all, labels_all, risks_all = [], [], [], []
+        for cls, bbox, angle, harm, priors in zip(
+                cls_list, bbox_list, angle_list, harm_list, priors_list):
+            bbox = bbox.float().permute(1, 2, 0).reshape(-1, self.bbox_coder.encode_size)
+            angle = angle.permute(1, 2, 0).reshape(-1, self.encode_size)
+            harm = harm.permute(1, 2, 0).reshape(-1, self.harm_bins)
+            scores = cls.float().permute(1, 2, 0).reshape(-1, self.cls_out_channels).sigmoid()
+            scores, labels, keep, kept = filter_scores_and_topk(
+                scores, cfg.get('score_thr', 0), cfg.get('nms_pre', -1),
+                dict(bbox_pred=bbox, priors=priors, angle_pred=angle, harm=harm))
+            bbox, priors, angle, harm = (kept['bbox_pred'], kept['priors'],
+                                         kept['angle_pred'], kept['harm'])
+            # This is the original PSC decode: CORA risk does not change it.
+            bbox[..., -1] = self.angle_coder.decode(angle)
+            boxes_all.append(self.bbox_coder.decode(priors, bbox, max_shape=img_meta['img_shape']))
+            scores_all.append(scores)
+            labels_all.append(labels)
+            risks_all.append(torch.sigmoid(harm).mean(-1))
+        result = InstanceData(bboxes=cat_boxes(boxes_all), scores=torch.cat(scores_all),
+                              labels=torch.cat(labels_all), cora_native_risk=torch.cat(risks_all))
+        return self._bbox_post_process(result, cfg, rescale, with_nms, img_meta)
