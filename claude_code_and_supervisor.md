@@ -3301,3 +3301,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r045/POLICY_SEAL.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_policy/source_policy_results.json`；`experiments/r045_axis_drift/source_policy.py`。
 - 是否触发停止条件：否；orientation family=`oriented_rcnn_r50_fpn_le90` 不同于 AP family=`oriented_rcnn_lsknet_s_fpn_le90`，且 coverage=0.90 在冻结范围内。HRSC D_audit GT/outcome 仍未打开，HRSC D_cal candidate rows 仍未读取。
 - 下一步建议：将 POLICY_SEAL 作为独立提交用 HTTPS 推送；推送成功后才读取 HRSC D_cal 的 score/image/prediction id 并封存 target threshold。
+
+## 2026-08-18 20:38 PDT — SERVER r045 HRSC 唯一 gate 收口
+
+- 指令来源：业务指令 045 冻结计划 T2–T4。
+- 执行动作：在 TARGET_THRESHOLD_SEAL 推送后打开 HRSC D_audit，四卡重建两条冻结 policy 的 image-only predictions；48 worker 完成 class-aware matching 与 10,000 次 paired image bootstrap；A/B 独立重算、五项真实 mutation、access audit、非等价表、manifest、application section、venue reassessment 与 schema-2 report 全部落盘。
+- 关键产物路径：`audit_bundles/r045/gate.json`；`audit_bundles/r045/manifest.csv`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_gate_a/implementation_a.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_audit/validator_b.json`；`dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，`APPLICATION_SHIFT_FAIL`；`Delta_cont=-0.0019519474` 且 CI 跨零，`Delta_severe=0`，敏感性无两个正 benefit。停止所有 endpoint/threshold/coverage/selector 扩展，无 post-outcome rescue。
+- 下一步建议：维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，不得由服务器宣称 JPRS/TGRS ready；交由 B/C 按冻结负结果决定后续论文定位。

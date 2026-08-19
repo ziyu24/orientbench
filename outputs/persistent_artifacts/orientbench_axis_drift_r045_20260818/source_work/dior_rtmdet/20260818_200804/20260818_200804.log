@@ -1,0 +1,596 @@
+2026/08/18 20:08:05 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.10.20 | packaged by conda-forge | (main, Mar  5 2026, 16:42:22) [GCC 14.3.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 900891318
+    GPU 0,1,2,3: NVIDIA A30
+    CUDA_HOME: None
+    GCC: gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+    PyTorch: 2.4.1+cu124
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2022.2-Product Build 20220804 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.4.2 (Git Hash 1137e04ec0b5251ca2b4400a4fd3c667ce843d67)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX512
+  - CUDA Runtime 12.4
+  - NVCC architecture flags: -gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90
+  - CuDNN 90.1
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=12.4, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=pedantic -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=2.4.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, 
+
+    TorchVision: 0.19.1+cu124
+    OpenCV: 4.13.0
+    MMEngine: 0.10.10
+
+Runtime environment:
+    cudnn_benchmark: False
+    dist_cfg: {'backend': 'nccl'}
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    seed: 900891318
+    Distributed launcher: pytorch
+    Distributed training: True
+    GPU number: 4
+------------------------------------------------------------
+
+2026/08/18 20:08:06 - mmengine - INFO - Config:
+DIOR_CLASSES = (
+    'airplane',
+    'airport',
+    'baseballfield',
+    'basketballcourt',
+    'bridge',
+    'chimney',
+    'Expressway-Service-area',
+    'Expressway-toll-station',
+    'dam',
+    'golffield',
+    'groundtrackfield',
+    'harbor',
+    'overpass',
+    'ship',
+    'stadium',
+    'storagetank',
+    'tenniscourt',
+    'trainstation',
+    'vehicle',
+    'windmill',
+)
+_TAOS_ROOT = '/home/rspip/cqc/pro/study/TAOS'
+angle_version = 'le90'
+backend_args = None
+base_lr = 0.00025
+checkpoint = 'https://download.openmmlab.com/mmdetection/v3.0/rtmdet/cspnext_rsb_pretrain/cspnext-s_imagenet_600e.pth'
+custom_hooks = [
+    dict(type='mmdet.NumClassCheckHook'),
+    dict(
+        ema_type='mmdet.ExpMomentumEMA',
+        momentum=0.0002,
+        priority=49,
+        type='EMAHook',
+        update_buffers=True),
+]
+data_root = '/home/rspip/cqc/data/dataset/DIOR/'
+dataset_type = 'DOTADataset'
+default_hooks = dict(
+    checkpoint=dict(
+        interval=1,
+        max_keep_ckpts=1,
+        save_best='auto',
+        save_last=True,
+        type='CheckpointHook'),
+    logger=dict(interval=50, type='LoggerHook'),
+    param_scheduler=dict(type='ParamSchedulerHook'),
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+    timer=dict(type='IterTimerHook'),
+    visualization=dict(type='mmdet.DetVisualizationHook'))
+default_scope = 'mmrotate'
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+interval = 12
+launcher = 'pytorch'
+load_from = '/home/rspip/cqc/pro/study/pth_data/baseline_rotated_rtmdet_s_fpn_3x_le90/DIOR_trainval_test_taos_pad32/best_mAP_5489_epoch_32.pth'
+log_level = 'INFO'
+log_processor = dict(by_epoch=True, type='LogProcessor', window_size=50)
+max_epochs = 36
+metainfo = dict(
+    classes=(
+        'airplane',
+        'airport',
+        'baseballfield',
+        'basketballcourt',
+        'bridge',
+        'chimney',
+        'Expressway-Service-area',
+        'Expressway-toll-station',
+        'dam',
+        'golffield',
+        'groundtrackfield',
+        'harbor',
+        'overpass',
+        'ship',
+        'stadium',
+        'storagetank',
+        'tenniscourt',
+        'trainstation',
+        'vehicle',
+        'windmill',
+    ))
+model = dict(
+    backbone=dict(
+        act_cfg=dict(type='SiLU'),
+        arch='P5',
+        channel_attention=True,
+        deepen_factor=0.33,
+        expand_ratio=0.5,
+        init_cfg=dict(
+            checkpoint=
+            'https://download.openmmlab.com/mmdetection/v3.0/rtmdet/cspnext_rsb_pretrain/cspnext-s_imagenet_600e.pth',
+            prefix='backbone.',
+            type='Pretrained'),
+        norm_cfg=dict(type='SyncBN'),
+        type='mmdet.CSPNeXt',
+        widen_factor=0.5),
+    bbox_head=dict(
+        act_cfg=dict(type='SiLU'),
+        anchor_generator=dict(
+            offset=0, strides=[
+                8,
+                16,
+                32,
+            ], type='mmdet.MlvlPointGenerator'),
+        angle_version='le90',
+        bbox_coder=dict(angle_version='le90', type='DistanceAnglePointCoder'),
+        exp_on_reg=False,
+        feat_channels=128,
+        in_channels=128,
+        loss_angle=None,
+        loss_bbox=dict(loss_weight=2.0, mode='linear', type='RotatedIoULoss'),
+        loss_cls=dict(
+            beta=2.0,
+            loss_weight=1.0,
+            type='mmdet.QualityFocalLoss',
+            use_sigmoid=True),
+        norm_cfg=dict(type='SyncBN'),
+        num_classes=20,
+        pred_kernel_size=1,
+        scale_angle=False,
+        share_conv=True,
+        stacked_convs=2,
+        type='RotatedRTMDetSepBNHead',
+        use_hbbox_loss=False,
+        with_objectness=False),
+    data_preprocessor=dict(
+        batch_augments=None,
+        bgr_to_rgb=False,
+        boxtype2tensor=False,
+        mean=[
+            103.53,
+            116.28,
+            123.675,
+        ],
+        pad_size_divisor=32,
+        std=[
+            57.375,
+            57.12,
+            58.395,
+        ],
+        type='mmdet.DetDataPreprocessor'),
+    neck=dict(
+        act_cfg=dict(type='SiLU'),
+        expand_ratio=0.5,
+        in_channels=[
+            128,
+            256,
+            512,
+        ],
+        norm_cfg=dict(type='SyncBN'),
+        num_csp_blocks=1,
+        out_channels=128,
+        type='mmdet.CSPNeXtPAFPN'),
+    test_cfg=dict(
+        max_per_img=2000,
+        min_bbox_size=0,
+        nms=dict(iou_threshold=0.1, type='nms_rotated'),
+        nms_pre=2000,
+        score_thr=0.05),
+    train_cfg=dict(
+        allowed_border=-1,
+        assigner=dict(
+            iou_calculator=dict(type='RBboxOverlaps2D'),
+            topk=13,
+            type='mmdet.DynamicSoftLabelAssigner'),
+        debug=False,
+        pos_weight=-1),
+    type='mmdet.RTMDet')
+optim_wrapper = dict(
+    optimizer=dict(lr=0.00025, type='AdamW', weight_decay=0.05),
+    paramwise_cfg=dict(
+        bias_decay_mult=0, bypass_duplicate=True, norm_decay_mult=0),
+    type='OptimWrapper')
+param_scheduler = [
+    dict(
+        begin=0, by_epoch=False, end=1000, start_factor=1e-05,
+        type='LinearLR'),
+    dict(
+        T_max=18,
+        begin=18,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=36,
+        eta_min=1.25e-05,
+        type='CosineAnnealingLR'),
+]
+resume = False
+test_cfg = dict(type='TestLoop')
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='annfiles',
+        data_prefix=dict(img_path='images'),
+        data_root=
+        '/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_dior_subset',
+        img_suffix='jpg',
+        metainfo=dict(
+            classes=(
+                'airplane',
+                'airport',
+                'baseballfield',
+                'basketballcourt',
+                'bridge',
+                'chimney',
+                'Expressway-Service-area',
+                'Expressway-toll-station',
+                'dam',
+                'golffield',
+                'groundtrackfield',
+                'harbor',
+                'overpass',
+                'ship',
+                'stadium',
+                'storagetank',
+                'tenniscourt',
+                'trainstation',
+                'vehicle',
+                'windmill',
+            )),
+        pipeline=[
+            dict(backend_args=None, type='mmdet.LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                800,
+                800,
+            ), type='mmdet.Resize'),
+            dict(
+                box_type='qbox', type='mmdet.LoadAnnotations', with_bbox=True),
+            dict(
+                box_type_mapping=dict(gt_bboxes='rbox'),
+                type='ConvertBoxType'),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='mmdet.PackDetInputs'),
+        ],
+        test_mode=True,
+        type='DOTADataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    out_file_path=
+    '/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_predictions/dior_rtmdet.pkl',
+    type='mmdet.DumpDetResults')
+test_pipeline = [
+    dict(backend_args=None, type='mmdet.LoadImageFromFile'),
+    dict(keep_ratio=True, scale=(
+        1024,
+        1024,
+    ), type='mmdet.Resize'),
+    dict(
+        pad_val=dict(img=(
+            114,
+            114,
+            114,
+        )),
+        size=(
+            1024,
+            1024,
+        ),
+        type='mmdet.Pad'),
+    dict(
+        meta_keys=(
+            'img_id',
+            'img_path',
+            'ori_shape',
+            'img_shape',
+            'scale_factor',
+        ),
+        type='mmdet.PackDetInputs'),
+]
+train_cfg = dict(max_epochs=36, type='EpochBasedTrainLoop', val_interval=1)
+train_dataloader = dict(
+    batch_sampler=None,
+    batch_size=2,
+    dataset=dict(
+        ann_file='trainval/annfiles/',
+        data_prefix=dict(img_path='trainval/images/'),
+        data_root='/home/rspip/cqc/data/dataset/DIOR/',
+        filter_cfg=dict(filter_empty_gt=True),
+        img_suffix='jpg',
+        metainfo=dict(
+            classes=(
+                'airplane',
+                'airport',
+                'baseballfield',
+                'basketballcourt',
+                'bridge',
+                'chimney',
+                'Expressway-Service-area',
+                'Expressway-toll-station',
+                'dam',
+                'golffield',
+                'groundtrackfield',
+                'harbor',
+                'overpass',
+                'ship',
+                'stadium',
+                'storagetank',
+                'tenniscourt',
+                'trainstation',
+                'vehicle',
+                'windmill',
+            )),
+        pipeline=[
+            dict(backend_args=None, type='mmdet.LoadImageFromFile'),
+            dict(
+                box_type='qbox', type='mmdet.LoadAnnotations', with_bbox=True),
+            dict(
+                box_type_mapping=dict(gt_bboxes='rbox'),
+                type='ConvertBoxType'),
+            dict(keep_ratio=True, scale=(
+                800,
+                800,
+            ), type='mmdet.Resize'),
+            dict(
+                direction=[
+                    'horizontal',
+                    'vertical',
+                    'diagonal',
+                ],
+                prob=0.75,
+                type='mmdet.RandomFlip'),
+            dict(type='mmdet.PackDetInputs'),
+        ],
+        type='DOTADataset'),
+    num_workers=4,
+    persistent_workers=True,
+    pin_memory=False,
+    sampler=dict(shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(backend_args=None, type='mmdet.LoadImageFromFile'),
+    dict(box_type='qbox', type='mmdet.LoadAnnotations', with_bbox=True),
+    dict(box_type_mapping=dict(gt_bboxes='rbox'), type='ConvertBoxType'),
+    dict(keep_ratio=True, scale=(
+        800,
+        800,
+    ), type='mmdet.Resize'),
+    dict(
+        direction=[
+            'horizontal',
+            'vertical',
+            'diagonal',
+        ],
+        prob=0.75,
+        type='mmdet.RandomFlip'),
+    dict(type='mmdet.PackDetInputs'),
+]
+val_cfg = dict(type='ValLoop')
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='test/annfiles/',
+        data_prefix=dict(img_path='test/images/'),
+        data_root='/home/rspip/cqc/data/dataset/DIOR/',
+        img_suffix='jpg',
+        metainfo=dict(
+            classes=(
+                'airplane',
+                'airport',
+                'baseballfield',
+                'basketballcourt',
+                'bridge',
+                'chimney',
+                'Expressway-Service-area',
+                'Expressway-toll-station',
+                'dam',
+                'golffield',
+                'groundtrackfield',
+                'harbor',
+                'overpass',
+                'ship',
+                'stadium',
+                'storagetank',
+                'tenniscourt',
+                'trainstation',
+                'vehicle',
+                'windmill',
+            )),
+        pipeline=[
+            dict(backend_args=None, type='mmdet.LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                800,
+                800,
+            ), type='mmdet.Resize'),
+            dict(
+                box_type='qbox', type='mmdet.LoadAnnotations', with_bbox=True),
+            dict(
+                box_type_mapping=dict(gt_bboxes='rbox'),
+                type='ConvertBoxType'),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='mmdet.PackDetInputs'),
+        ],
+        test_mode=True,
+        type='DOTADataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    iou_thrs=[
+        0.5,
+        0.75,
+    ], metric='mAP', type='DOTAMetric')
+val_pipeline = [
+    dict(backend_args=None, type='mmdet.LoadImageFromFile'),
+    dict(keep_ratio=True, scale=(
+        800,
+        800,
+    ), type='mmdet.Resize'),
+    dict(box_type='qbox', type='mmdet.LoadAnnotations', with_bbox=True),
+    dict(box_type_mapping=dict(gt_bboxes='rbox'), type='ConvertBoxType'),
+    dict(
+        meta_keys=(
+            'img_id',
+            'img_path',
+            'ori_shape',
+            'img_shape',
+            'scale_factor',
+        ),
+        type='mmdet.PackDetInputs'),
+]
+vis_backends = [
+    dict(type='LocalVisBackend'),
+]
+visualizer = dict(
+    name='visualizer',
+    type='RotLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+work_dir = '/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_work/dior_rtmdet'
+
+2026/08/18 20:08:06 - mmengine - INFO - Using SyncBatchNorm()
+2026/08/18 20:08:06 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(49          ) EMAHook                            
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_load_checkpoint:
+(49          ) EMAHook                            
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(49          ) EMAHook                            
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+(NORMAL      ) NumClassCheckHook                  
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(49          ) EMAHook                            
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(49          ) EMAHook                            
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) NumClassCheckHook                  
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DetVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(49          ) EMAHook                            
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_save_checkpoint:
+(49          ) EMAHook                            
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(49          ) EMAHook                            
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DetVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(49          ) EMAHook                            
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+2026/08/18 20:08:07 - mmengine - WARNING - The prefix is not set in metric class DumpDetResults.
+2026/08/18 20:08:08 - mmengine - INFO - Load checkpoint from /home/rspip/cqc/pro/study/pth_data/baseline_rotated_rtmdet_s_fpn_3x_le90/DIOR_trainval_test_taos_pad32/best_mAP_5489_epoch_32.pth
+2026/08/18 20:08:10 - mmengine - INFO - Epoch(test) [50/50]    eta: 0:00:00  time: 0.0319  data_time: 0.0026  memory: 186  
+2026/08/18 20:08:10 - mmengine - INFO - Results has been saved to /home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_predictions/dior_rtmdet.pkl.
+2026/08/18 20:08:10 - mmengine - INFO - Epoch(test) [50/50]    data_time: 0.0026  time: 0.0319

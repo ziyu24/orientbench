@@ -1,0 +1,28 @@
+/home/rspip/cqc/data/install/yes/envs/pcp-obb/lib/python3.10/site-packages/mmengine/optim/optimizer/zero_optimizer.py:11: DeprecationWarning: `TorchScript` support for functional optimizers is deprecated and will be removed in a future PyTorch release. Consider using the `torch.compile` optimizer instead.
+  from torch.distributed.optim import \
+{
+  "ap_policy": "oriented_rcnn_lsknet_s_fpn_le90",
+  "orientation_policy": "oriented_rcnn_r50_fpn_le90",
+  "decision_change": true,
+  "passing": [
+    "oriented_rcnn_r50_fpn_le90",
+    "oriented_rcnn_lsknet_s_fpn_le90",
+    "rotated_rtmdet_s_fpn_le90"
+  ],
+  "orientation": {
+    "family": "oriented_rcnn_r50_fpn_le90",
+    "nominal_coverage": 0.9,
+    "source_score_threshold": 0.8387539386749268,
+    "source_audit": {
+      "eligible_matches": 423,
+      "retained_eligible_matches": 382,
+      "eligible_coverage": 0.9030732860520094,
+      "mean_d_tip": 0.03581197044844426,
+      "severe_risk_instance": 0.0,
+      "severe_risk_image": 0.0,
+      "severe_risk_image_ucb": 0.049667585528931274,
+      "image_count": 100,
+      "ap50_voc11": 0.7597398473133624
+    }
+  }
+}
