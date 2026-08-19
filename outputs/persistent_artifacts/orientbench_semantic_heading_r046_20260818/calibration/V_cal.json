@@ -1,0 +1,23 @@
+{
+  "rows": 286,
+  "trials": [
+    {
+      "coverage": 0.9,
+      "threshold": 0.08882081508636475,
+      "retained": 257,
+      "risk": 0.19844357976653695
+    },
+    {
+      "coverage": 0.8,
+      "threshold": 0.16335105895996094,
+      "retained": 228,
+      "risk": 0.2149122807017544
+    },
+    {
+      "coverage": 0.7,
+      "threshold": 0.25277793407440186,
+      "retained": 200,
+      "risk": 0.24
+    }
+  ]
+}

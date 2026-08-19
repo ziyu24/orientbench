@@ -3333,3 +3333,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r046-ahc-obb-semantic-heading-stagea-20260818/STATE.json`；dispatch `orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818`。
 - 是否触发停止条件：否；test semantic head values 仍未授权在 MODEL_AND_THRESHOLD_SEAL 前读取，r046 不下载新数据、不训练 detector。
 - 下一步建议：服务器按唯一三元组接收业务指令 046，先提交 STARTED，再执行 HEADING_ASSET_SEAL→四卡 smoke/train→MODEL_AND_THRESHOLD_SEAL→唯一 sealed test audit。
+## 2026-08-18 21:20 PDT — SERVER r046 NO_SAFE_THRESHOLD early stop
+
+- 指令来源：业务指令 046 冻结计划 G4。
+- 执行动作：完成 G0 资产封存、四卡 AHC/冻结 baseline proxy、V_fit/V_cal 封存与 V_cal 固定 coverage 校准。
+- 关键产物路径：`audit_bundles/r046/MODEL_AND_THRESHOLD_SEAL.json`；`audit_bundles/r046/gate.json`；`dis/server_reports/orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，三档 V_cal risk 分别为 0.19844、0.21491、0.24000，均高于 0.15；HRSC test 语义字段未打开。
+- 下一步建议：停止 r046 Stage A，不引入外部数据或执行 Stage B。
