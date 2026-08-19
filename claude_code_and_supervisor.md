@@ -3109,3 +3109,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`archives/worktrees/orientbench_r032_clean/`；`archives/README.md`。
 - 是否触发停止条件：否；没有合并、覆盖或修改该历史快照内容。
 - 下一步建议：该目录只作本地溯源，不作为新任务的执行或源代码写入位置；后续所有新产物继续只写主工作树的项目内 artifact 根。
+
+## 2026-08-18 18:58 PDT — SERVER 接收并启动业务指令 044
+
+- 指令来源：用户交付唯一三元组 `orientbench-b-r044-jprs-measurement-manuscript-20260818` / `dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md` / `3fb932bb6d717e161b9a9bcc1c76849ea33f5a0e`，要求无人值守执行 T1–T5。
+- 执行动作：完整读取项目入口、SERVER 角色、coordination、协作协议与冻结计划；核验 worker=`server-primary`、派发提交为 HEAD 祖先、计划与根镜像 blob/SHA-256 一致、L2 授权已授予、0 GPU 上限和 write_set；在未打开研究证据前创建唯一 `STARTED.json`。
+- 关键产物路径：`dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/STARTED.json`。
+- 是否触发停止条件：否；治理、身份、授权、资源与写入范围预检全部通过。
+- 下一步建议：将 STARTED 作为独立提交用 HTTPS 推送；推送成功后才读取 Git 跟踪研究证据并执行 T1–T5。

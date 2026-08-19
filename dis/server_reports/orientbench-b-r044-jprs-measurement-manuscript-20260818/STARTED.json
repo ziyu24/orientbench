@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r044-jprs-measurement-manuscript-20260818",
+  "plan_sha256": "3b2b6a03f40920afa457ec3e8aecc3e77eaabc7795dabfd128588ff78cf72495",
+  "plan_blob_oid": "2e55f656ba843309fc0ba0954ccb4bf69da2f157",
+  "dispatch_commit_sha": "3fb932bb6d717e161b9a9bcc1c76849ea33f5a0e",
+  "starting_commit": "b8c054f4230a87eb2989e67f97d24102b75ad158",
+  "created_at": "2026-08-18T18:58:49-07:00",
+  "claimed_by": "server-primary"
+}
