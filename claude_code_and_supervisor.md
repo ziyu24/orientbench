@@ -3262,6 +3262,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；G1 prospective policy 已封存、G2 已形成非平凡架构+coverage 决策，HRSC `D_cal` GT/outcome 与 `D_audit` GT/outcome 仍未打开。
 - 下一步建议：将 POLICY_SEAL 及其唯一 source 输入/代码/结果独立提交并 HTTPS 推送；成功后仅以 HRSC `D_cal` 的 score/image/prediction-id 字段冻结 target threshold。
 
+## 2026-08-18 20:22 PDT — SERVER r045 pre-target source numerical amendment
+
+- 指令来源：r045 T1 sealed-result integrity check。
+- 执行动作：在任何 HRSC target 字段访问前，修正 continuous `d_tip` 的聚合口径并应用 RTMDet 已登记 DIOR class-order remap；AP policy、orientation family、coverage、threshold、风险规则与所有 target gate 均未改变。
+- 关键产物路径：`audit_bundles/r045/POLICY_SEAL_AMENDMENT.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_analysis/`。
+- 是否触发停止条件：否；修正在 target access 之前完成，G1/G2 仍成立，HRSC `D_cal` GT/outcome 与 `D_audit` 未打开。
+- 下一步建议：独立提交并推送该 amendment；随后只读 HRSC `D_cal` score/image/prediction-id 以封存 target threshold。
+
 ## 2026-08-18 20:14 PDT — SERVER r045 DIOR-R policy seal 完成
 
 - 指令来源：业务指令 045 冻结计划 T1 / G1 / G2。
