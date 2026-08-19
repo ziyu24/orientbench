@@ -1,0 +1,5 @@
+{
+  "reason": "first_epoch_below_0.60_against_baseline_at_least_0.65",
+  "p2c_accuracy": 0.5027726432532348,
+  "baseline_accuracy": 0.8853974121996303
+}

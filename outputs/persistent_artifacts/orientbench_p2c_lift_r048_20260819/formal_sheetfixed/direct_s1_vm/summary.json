@@ -1,0 +1,9 @@
+{
+  "kind": "DIRECT_S1_VM",
+  "best_accuracy": 0.8798521256931608,
+  "hid": 384,
+  "layers": 3,
+  "formal": true,
+  "augmentation": "one uniformly sampled H/V/R transform per train item plus original view",
+  "trainable_parameters": 19304323
+}

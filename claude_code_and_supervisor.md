@@ -3475,3 +3475,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`docs/paper_jprs_r048/g1_val_early_stop_report.md`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/{formal_revised,g1_val_revised}/`；`audit_bundles/r048/gate.json`。
 - 是否触发停止条件：是，`G1_CONSUMED_DEVELOPMENT_SUPERIORITY` 在完成 required val+jitter stage 后失败，终态 `REJECT_P2C_LIFT_DEVELOPMENT`。正常结束；T_cal 未读取，T_audit semantic fields 未打开。
 - 下一步建议：停止 r048 方法扩展；保留 measure/diagnose 主线与此负结果，不对该失败模型进行 T_cal 或 T_audit 调参。
+
+## 2026-08-19 03:xx PDT — r048 按 B 4965243 修复 sheet 后的 clean G1 早停
+
+- 指令来源：用户“又再骗人，拉取 main 4965243，继续同一业务 048”；B second interim review。
+- 执行动作：复用 G0；统一为 `positive pole_logit = q(sheet=1)`，使 BCE、likelihood、decoder 和 confidence 共用同一约定；通过双 sheet、显式 180° mutation、H/V/R90/R180/R270 pull-back 与渲染标签测试。所有 arms 使用统一 H/V/R augmentation，从新输出目录 clean 初始化重跑；三项 P2C 在强基线下首 epoch 均触发冻结早停，并仍输出 val 指标与选择模型 jitter。
+- 关键产物路径：`experiments/r048_p2c_lift/test_sheet_and_transforms.py`；`docs/paper_jprs_r048/g1_sheetfixed_early_stop_report.md`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/{formal_sheetfixed,g1_val_sheetfixed,sheetfixed_manifest.json}`。
+- 是否触发停止条件：是，`G1` clean、sheet-consistent val 早停；正常结束。T_cal 未读取，T_audit semantic fields 未打开。
+- 下一步建议：不启动 r049；保留有效负结果及 hash manifest，停止对 P2C-Lift 的本轮扩展。

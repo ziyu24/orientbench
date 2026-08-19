@@ -38,7 +38,9 @@ def records(split):
             out.append((iid, j, cx, cy, w, h, axis, phi, rel, *vec))
     return out
 
-def render(r, rotation=0, axis_jitter=0):
+IDENTITY, HFLIP, VFLIP, R90, R180, R270 = range(6)
+
+def render(r, op=IDENTITY, axis_jitter=0):
     iid, _, cx, cy, w, h, axis, phi, rel, vx, vy = r
     render_axis = axis + math.radians(axis_jitter)
     image = cv2.imread(str(DATA / 'images' / f'{iid}.bmp'))
@@ -49,10 +51,15 @@ def render(r, rotation=0, axis_jitter=0):
     # The physical heading and OBB axis are expressed in the rendered coordinate
     # system; jitter is an inference-only axis reference perturbation.
     local = wrap(rel - math.radians(axis_jitter))
-    if rotation:
-        crop = cv2.rotate(crop, {90: cv2.ROTATE_90_CLOCKWISE, 180: cv2.ROTATE_180, 270: cv2.ROTATE_90_COUNTERCLOCKWISE}[rotation])
+    if op in (R90, R180, R270):
+        degree = {R90: 90, R180: 180, R270: 270}[op]
+        crop = cv2.rotate(crop, {90: cv2.ROTATE_90_CLOCKWISE, 180: cv2.ROTATE_180, 270: cv2.ROTATE_90_COUNTERCLOCKWISE}[degree])
         crop = cv2.resize(crop, (192, 64), interpolation=cv2.INTER_LINEAR)
-        local = wrap(local + math.radians(rotation))
+        local = wrap(local + math.radians(degree))
+    elif op == HFLIP:
+        crop = cv2.flip(crop, 1); local = wrap(math.pi - local)
+    elif op == VFLIP:
+        crop = cv2.flip(crop, 0); local = wrap(-local)
     vnorm = math.hypot(vx, vy)
     vector = (vnorm * math.cos(local), vnorm * math.sin(local))
     crop = torch.from_numpy(cv2.cvtColor(crop, cv2.COLOR_BGR2RGB).copy()).permute(2, 0, 1).float()
@@ -67,7 +74,7 @@ class HeadingDS(Dataset):
         self.rows, self.aug, self.jitter = rows, aug, jitter
     def __len__(self): return len(self.rows)
     def __getitem__(self, index):
-        rot = [0, 90, 180, 270][np.random.randint(4)] if self.aug else 0
-        a, b, g, t = render(self.rows[index], 0, self.jitter)
-        aa, bb, gg, tt = render(self.rows[index], rot, self.jitter)
-        return a, b, g, t, aa, bb, gg, tt, rot
+        op = np.random.randint(1, 6) if self.aug else IDENTITY
+        a, b, g, t = render(self.rows[index], IDENTITY, self.jitter)
+        aa, bb, gg, tt = render(self.rows[index], int(op), self.jitter)
+        return a, b, g, t, aa, bb, gg, tt, int(op)

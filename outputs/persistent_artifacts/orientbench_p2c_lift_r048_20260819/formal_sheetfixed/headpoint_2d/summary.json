@@ -1,0 +1,9 @@
+{
+  "kind": "HEADPOINT_2D",
+  "best_accuracy": 0.8853974121996303,
+  "hid": 384,
+  "layers": 3,
+  "formal": true,
+  "augmentation": "one uniformly sampled H/V/R transform per train item plus original view",
+  "trainable_parameters": 19303938
+}

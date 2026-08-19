@@ -26,7 +26,7 @@ def axial_vm_nll(delta, mu2, kappa):
     return -(vm_logprob(2 * axial_wrap(delta), mu2, kappa) + LOG2).mean()
 
 def pole_logit(coeff, delta):
-    """q(s=0 | delta,I), conditional on the actual axial residual."""
+    """Logit of q(s=1 | delta,I), conditional on the actual axial residual."""
     return coeff[..., 0] + coeff[..., 1] * torch.cos(2 * delta) + coeff[..., 2] * torch.sin(2 * delta)
 
 def _sheet(phi):
@@ -40,7 +40,9 @@ def p2c_logprob(phi, mu2, kappa, coeff):
                       kappa[..., None] if phi.ndim > kappa.ndim else kappa) + LOG2
     c = coeff[..., None, :] if phi.ndim > coeff.ndim - 1 else coeff
     logit = pole_logit(c, delta)
-    return axis + torch.where(_sheet(phi).bool(), torch.nn.functional.logsigmoid(-logit), torch.nn.functional.logsigmoid(logit))
+    # `pole_logit` is q(sheet=1); this same convention is used by BCE, density,
+    # decoding and confidence.  Do not invert it in one consumer only.
+    return axis + torch.where(_sheet(phi).bool(), torch.nn.functional.logsigmoid(logit), torch.nn.functional.logsigmoid(-logit))
 
 def _grid(x, n=144):
     return torch.linspace(-math.pi, math.pi, n, device=x.device, dtype=x.dtype)[None, :]
@@ -60,38 +62,44 @@ def circular_bayes_action(mu2, kappa, coeff):
 def intrinsic_confidence(mu2, kappa, coeff):
     """Intrinsic (no detector score) concentration × expected pole certainty."""
     g, _, w = _density_stats(mu2, kappa, coeff)
-    pole = torch.sigmoid(pole_logit(coeff[:, None, :], axial_wrap(g)))
-    return torch.tanh(kappa.clamp_min(0) / 4) * (w * torch.abs(2 * pole - 1)).sum(1)
+    q_sheet1 = torch.sigmoid(pole_logit(coeff[:, None, :], axial_wrap(g)))
+    return torch.tanh(kappa.clamp_min(0) / 4) * (w * torch.abs(2 * q_sheet1 - 1)).sum(1)
 
 def probability_within(pred, mu2, kappa, coeff, degrees=90):
     g, _, w = _density_stats(mu2, kappa, coeff)
     e = torch.abs(wrap(g - pred[:, None]))
     return (w * (e < math.radians(degrees)).to(w.dtype)).sum(1)
 
-def transform_angle(phi, rotation_deg=0, horizontal=False, vertical=False):
-    out = phi + math.radians(rotation_deg)
-    if horizontal:
-        out = math.pi - out
-    if vertical:
-        out = -out
+IDENTITY, HFLIP, VFLIP, R90, R180, R270 = range(6)
+
+def transform_angle(phi, op):
+    """Forward S1 action for the six frozen image transforms."""
+    if not torch.is_tensor(op):
+        op = torch.as_tensor(op, device=phi.device if torch.is_tensor(phi) else None)
+    out = phi
+    out = torch.where(op == HFLIP, math.pi - phi, out)
+    out = torch.where(op == VFLIP, -phi, out)
+    out = torch.where(op == R90, phi + math.pi / 2, out)
+    out = torch.where(op == R180, phi + math.pi, out)
+    out = torch.where(op == R270, phi + 3 * math.pi / 2, out)
     return wrap(out)
 
-def transformed_logprob(phi, src_mu2, src_kappa, src_coeff, rotation_deg=0, horizontal=False, vertical=False):
-    """Analytic pull-back log p_g(phi)=log p(g^-1 phi) on the full S1 density."""
+def transformed_logprob(phi, src_mu2, src_kappa, src_coeff, op):
+    """Analytic pull-back log p_g(phi)=log p(g^-1 phi) for H/V/R actions."""
+    if not torch.is_tensor(op): op = torch.as_tensor(op, device=phi.device)
     inv = phi
-    if vertical:
-        inv = -inv
-    if horizontal:
-        inv = math.pi - inv
-    radians = rotation_deg * (math.pi / 180) if torch.is_tensor(rotation_deg) else math.radians(rotation_deg)
-    inv = inv - radians
+    inv = torch.where(op == HFLIP, math.pi - phi, inv)
+    inv = torch.where(op == VFLIP, -phi, inv)
+    inv = torch.where(op == R90, phi - math.pi / 2, inv)
+    inv = torch.where(op == R180, phi - math.pi, inv)
+    inv = torch.where(op == R270, phi - 3 * math.pi / 2, inv)
     return p2c_logprob(wrap(inv), src_mu2, src_kappa, src_coeff)
 
-def equivariance_kl(aug_mu2, aug_kappa, aug_coeff, src_mu2, src_kappa, src_coeff, rotation_deg):
+def equivariance_kl(aug_mu2, aug_kappa, aug_coeff, src_mu2, src_kappa, src_coeff, op):
     """KL(q_aug || g q_src), exact group action evaluated on S1 quadrature."""
     g = _grid(aug_mu2)
     la = p2c_logprob(g, aug_mu2[:, None], aug_kappa[:, None], aug_coeff[:, None, :])
-    lb = transformed_logprob(g, src_mu2[:, None], src_kappa[:, None], src_coeff[:, None, :], rotation_deg=rotation_deg[:, None])
+    lb = transformed_logprob(g, src_mu2[:, None], src_kappa[:, None], src_coeff[:, None, :], op[:, None])
     pa = torch.softmax(la, dim=1)
     return (pa * (la - lb)).sum(1).mean()
 
