@@ -3635,3 +3635,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/cora_head.py`；`configs/r049_cora_obb/dior_vm_nll_seed0_3e.py`；`audit_bundles/r049/METHOD_FREEZE.json`。
 - 是否触发停止条件：否。这是对照导出正确性修复，不改变 CORA 训练方法、数据、门槛或预算；FP32 CONT 已在运行，尚未加载该变更。
 - 下一步建议：按既有监督器顺序启动修复后的 VM-NLL，再启动 CORA；后续 matched-row 指标严格使用各臂实际 native risk。
+
+## 2026-08-19 08:51 CST — r049 DIOR G2 原始预测导出预置
+
+- 指令来源：持续推进与 G2 交付要求。
+- 执行动作：预置 CONT、VM-NLL、CORA 三臂的同端点四卡 inference export configs 与顺序脚本；脚本只会在三臂训练正常结束后使用各自 best checkpoint，输出持久化 raw pkl 和紧凑日志。
+- 关键产物路径：`configs/r049_cora_obb/dior_*_seed0_export.py`；`experiments/r049_cora_obb/export_dior_g2_seed0.sh`。
+- 是否触发停止条件：否。未启动额外 GPU 工作；导出配置已在可用环境解析。
+- 下一步建议：待训练监督器正常结束后运行该导出，再从相同 matched TP rows 计算固定 G2 指标。
