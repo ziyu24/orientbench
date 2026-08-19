@@ -27,8 +27,13 @@ class D(Dataset):
 class AHC(nn.Module):
  def __init__(self):super().__init__();self.f=nn.Sequential(nn.Conv2d(3,16,5,2),nn.ReLU(),nn.AdaptiveAvgPool2d(1));self.w=nn.Linear(16,1,bias=False)
  def forward(self,a,b):return self.w((self.f(a)-self.f(b)).flatten(1)).squeeze(1)
+class Whole(AHC):
+ def forward(self,a,b):return self.w(self.f(torch.cat([a,b],2)).flatten(1)).squeeze(1)
+class Concat(AHC):
+ def __init__(self):super().__init__();self.w=nn.Linear(32,1)
+ def forward(self,a,b):return self.w(torch.cat([self.f(a),self.f(b)],1).flatten(1)).squeeze(1)
 def main():
- p=argparse.ArgumentParser();p.add_argument('--iters',type=int,default=200);p.add_argument('--out',required=True);a=p.parse_args();torch.manual_seed(20260818); rows=parse('train'); ds=D(rows); dl=DataLoader(ds,batch_size=32,shuffle=True,num_workers=4);m=AHC();
+ p=argparse.ArgumentParser();p.add_argument('--iters',type=int,default=200);p.add_argument('--out',required=True);p.add_argument('--mode',choices=['ahc','whole','concat'],default='ahc');a=p.parse_args();torch.manual_seed(20260818); rows=parse('train'); ds=D(rows); dl=DataLoader(ds,batch_size=32,shuffle=True,num_workers=4);m={'ahc':AHC,'whole':Whole,'concat':Concat}[a.mode]();
  if torch.cuda.is_available():m=nn.DataParallel(m).cuda()
  opt=torch.optim.Adam(m.parameters(),1e-3);it=0;losses=[]
  for ep in range(100):
