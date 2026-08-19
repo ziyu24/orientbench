@@ -3054,3 +3054,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r043/gate.json`；`audit_bundles/r043/fullval_metrics.csv`；`audit_bundles/r043/MANIFEST.sha256`；`dis/server_reports/orientbench-b-r043-saur-obb-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，正常早停且交付完成；无 OOM、无未处理异常、未触碰禁止端点。
 - 下一步建议：关闭 SAUR-OBB 方法线；不得以更多预算、数据集或改门槛重启。 
+
+## 2026-08-18 08:22 PDT — 用户要求项目无用数据清理前盘点
+
+- 指令来源：用户「本项目在其它地方是否有不需要的数据，请清理。请两千先汇报获取授权。」
+- 执行动作：仅做只读磁盘盘点和 r043 checkpoint 校验；未删除、移动、压缩或改写任何项目文件。
+- 关键产物路径：候选包括 `outputs/persistent_artifacts/_legacy_worktree_leftovers_20260813/`（288M）及 r043 的 superseded smoke/invalid checkpoint 目录（约1.1G），待用户精确授权。
+- 是否触发停止条件：是；删除范围需用户授权后执行。
+- 下一步建议：向用户提交分组清单、大小、保留影响和可释放空间，取得明确范围后采用可恢复方式清理。
