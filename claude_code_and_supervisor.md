@@ -3071,6 +3071,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；没有删除正式审计、预测、论文证据或任何数据集。
 - 下一步建议：如需继续回收空间，先对 r010/r011、m069、v2 等大体积历史证据作跨任务 lineage/重复性审计，不宜直接删除。
 
+## 2026-08-18 08:26 PDT — 项目外执行产物归位核验
+
+- 指令来源：用户要求「散落在外面的你执行的文件放到本项目，后续这种情况不允许。」
+- 执行动作：只读扫描项目根外的 `/home/rspip/cqc/pro/study/third_party/`；未发现可归属的 r043/OrientBench 文件，仅发现本次框架运行生成的空目录 `third_party/mmrotate_1x/.dist_test`，已删除。未触碰其他项目（包括 `GeoStructDOTA`）、第三方源码或数据集。
+- 关键产物路径：所有本次 r043 日志、checkpoint、审计与配置均位于 `outputs/persistent_artifacts/orientbench_saur_stagea_r043_20260818/`、`audit_bundles/r043/`、`top_journal_v3_reaudit_055/saur_stagea_r043_20260818/`。
+- 是否触发停止条件：否；未发现需要迁移的项目外文件。
+- 下一步建议：后续一律为训练/评估明确传入项目内 `--work-dir`、日志重定向及 artifact 根，不在 third_party、数据根或其它项目创建产物。
+
 ## 2026-08-18 18:38 PDT — B 验收并关闭 r043
 
 - 指令来源：用户报告“服务器执行完毕”；B owner 按冻结计划接管验收。
