@@ -1,0 +1,1 @@
+{"schema_version":1,"dispatch_id":"orientbench-b-r046-ahc-obb-semantic-heading-stagea-20260818","gate":"G1_SMOKE_PRECHECK","iterations":200,"cards":4,"finite_loss":true,"antisymmetry_max":0.0,"smoke_accuracy":0.53125,"status":"MECHANICS_PASS_FORMAL_EPOCH_REQUIRED","test_semantics_opened":false}
