@@ -3491,3 +3491,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r048-postexecution-verdict-20260819.md`；`dis/dispatch_history/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819.json`；`docs/paper_jprs_r048/g1_sheetfixed_early_stop_report.md`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/g1_val_sheetfixed/`。
 - 是否触发停止条件：是，有效 G1 scientific early stop；T_cal 与 T_audit 均未打开，P2C tuning、confirmation、audit 与 external Stage B 全部停止。
 - 下一步建议：项目仍为 strong JSTARS / Remote Sensing，低于 TGRS-or-better；不得再做 HRSC crop-head rescue。若用户继续冲顶刊，必须另行授权 detector-native probabilistic orientation reliability + 独立 source-disjoint 应用标签/端点，涉及新数据或大规模 detector 训练时必须先获明确批准。
+
+## 2026-08-19 04:05 PDT — 用户授予持续算力权限，B 冻结 r049 CORA-OBB
+
+- 指令来源：用户“后续GPU等的不需要授权，都在空着呢，抓紧推进”。
+- 执行动作：记录后续 GPU/CPU 普通执行无需逐轮授权；核对 2026 最近邻后否定“angle distribution/uncertainty 本身创新”，冻结 detector-native Counterfactual Orientation-Risk Alignment：angle-only intervention、proper harm distribution、counterfactual alignment、native no-GT risk，并设置 DIOR-R/SODA-A seed0 cheap gate→三种子 Stage-A。
+- 关键产物路径：`dis/plans/B/b-r049-cora-obb-native-risk-stagea-20260819/sug.md`；business instruction `049`。
+- 是否触发停止条件：否。r049 仅使用已消费 development train/val；DOTA-v2.0、SODA official test、r047/r048 T_audit 继续密封。另按对等协议把 r048 joint scientific state 从单方误记的 KILLED 纠正为 PENDING，B 的 stop verdict 不变。
+- 下一步建议：提交不可变 READY 计划，绑定 commit/blob/SHA 后直接激活业务 049；服务器先读 pth_data/readme、复现双 baseline parity，再做真实方法与四卡 smoke。

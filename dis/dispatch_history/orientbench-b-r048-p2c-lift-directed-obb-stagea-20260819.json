@@ -37,7 +37,7 @@
   "terminal": {
     "execution_state": "COMPLETED",
     "completion_mode": "GATED_EARLY_STOP_AFTER_SHEET_CONSISTENT_CLEAN_G1",
-    "scientific_state_at_close": "KILLED",
+    "scientific_state_at_close": "PENDING",
     "closed_by": "B",
     "closed_at": "2026-08-19T03:44:06-07:00",
     "close_reason": "B accepts the third clean r048 execution. Pole loss, likelihood, decoding and confidence now share the sheet=1 convention; H/V/R and 180-degree mutation tests pass. CONCAT already reaches 0.656192 at epoch one while all three P2C arms remain below 0.507, satisfying the frozen first-epoch stop. Full val and jitter comparisons are uniformly negative, T_cal and T_audit remain unopened, and P2C expansion stops.",

@@ -74,7 +74,7 @@
     "history_path": "dis/dispatch_history/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819.json",
     "dispatch_id": "orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819",
     "execution_state": "COMPLETED",
-    "scientific_state_at_close": "KILLED",
+    "scientific_state_at_close": "PENDING",
     "closed_by": "B",
     "closed_at": "2026-08-19T03:44:06-07:00"
   },

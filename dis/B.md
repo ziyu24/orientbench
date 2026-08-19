@@ -874,3 +874,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - row-level val 复算确认：selected P2C base accuracy `0.506470`、mean error `87.741°`、AUGRC `0.423795`；whole-crop baseline 为 `0.885397/21.336°/0.024484`，5/10/15° jitter 也全方向失败。
 - B 采纳 `REJECT_P2C_LIFT_DEVELOPMENT`，业务 048 以有效 gated early stop 关闭；T_cal 与 T_audit 均未打开，禁止 P2C 调参、确认、audit 或外部 Stage B。
 - 项目仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于 TGRS-or-better。后续不得再做 HRSC crop-head/selector rescue；若冲顶刊，只能在用户新授权下投入 detector-native probabilistic orientation reliability 与独立 source-disjoint 应用标签/端点，或接受现实档位投稿。
+
+## 24. 2026-08-19：用户持续算力授权与 r049 CORA-OBB
+
+- 用户明确“后续GPU等的不需要授权，都在空着呢，抓紧推进”，作为后续 GPU/CPU 执行的持续授权；B 不再为普通四卡训练逐轮等待，但 frozen split/threshold、clean endpoint、scientific claim 等边界仍按 AGENTS fail closed。
+- 最近邻边界已更新：O2-RT-DETR (TGRS 2026) 已做 angle-distribution refinement，OSKDet 已有 localization-quality uncertainty，SAOD 已定义 self-aware detection；因此“预测角度分布/不确定性”本身不构成创新。
+- r049 新增 CORA-OBB：在 PSC detector 内对 angle-only counterfactual boxes 学习完整 orientation-harm distribution，使风险梯度进入原生 orientation feature，并以 no-GT native risk 直接对抗 detection score、angle entropy、VM-NLL 和 TTA consistency。
+- Stage A 仅使用已消费的 DIOR-R/SODA-A development train/val；先 seed0 双数据集生死门，再补三种子。DOTA-v2.0、SODA official test 与旧 T_audit 全部继续密封。
+- 过门才取得 TGRS candidate/JPRS potential；失败则 CORA 停止，不靠更多 epoch、seed、阈值或 score fusion 救场。计划：`dis/plans/B/b-r049-cora-obb-native-risk-stagea-20260819/sug.md`。
