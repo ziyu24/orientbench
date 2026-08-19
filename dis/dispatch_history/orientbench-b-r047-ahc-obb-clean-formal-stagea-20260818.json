@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818",
+    "plan_id": "b-r047-ahc-obb-clean-formal-stagea-20260818",
+    "initiator": "B",
+    "activated_by": "B",
+    "plan_path": "dis/plans/B/b-r047-ahc-obb-clean-formal-stagea-20260818/sug.md",
+    "plan_commit_sha": "ba3494f3d4150f9e10a9016ab0f336fd0de8ac82",
+    "plan_blob_oid": "7b8e7c6886e7e52fd3cdd74bf8a4ada3e9ec54f2",
+    "plan_sha256": "23fd4bbf9089ed59825d9d81f12cb73432609afe2934333a3af6b12f488dcb2a",
+    "dispatch_commit_sha": "6879c5dfa9a7c42bf6866f7ea0c7569b077604e7",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-18：『继续推进执行。』"
+    },
+    "server_report_path": "dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-18T22:17:20-07:00"
+  },
+  "started_ref": null,
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "dbf68f2242323098ece1e6670abc4dc580161c4a",
+    "blob_oid": "a1b3139fc7953e2438df1d6918f94e2550be4c1f",
+    "sha256": "aec9ca787b43deada151504d62f0c88f76d11537e29c91809bdd3361a7cfd068"
+  },
+  "terminal": {
+    "execution_state": "INCOMPLETE",
+    "completion_mode": "PROTOCOL_DRIFT_AFTER_TERMINAL_REPORT_AND_FORMAL_SPEC_DEVIATION",
+    "scientific_state_at_close": "PENDING",
+    "closed_by": "B",
+    "closed_at": "2026-08-18T23:52:06-07:00",
+    "close_reason": "The server first terminated r047 as an implementation/environment failure, then resumed and overwrote the report without a tracked resume authorization. The resumed run produced real four-arm/T_cal evidence, but bypassed MMRotate compatibility guards, omitted frozen training and calibration components, used a non-CHP headpoint target and non-one-to-one host matching, and did not deliver checkpoints, manifest, independent validator or mutations. Corrected T_cal recomputation is still negative, so Stage B and further AHC investment stop, but the frozen scientific reject token is not adopted.",
+    "closure_authorization_ref": "B owner closure after user reported server completion on 2026-08-18",
+    "verdict_refs": [
+      "dis/reviews/B/orientbench-r047-postexecution-verdict-20260818.md"
+    ],
+    "contest_refs": [],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/plans/B/b-r047-ahc-obb-clean-formal-stagea-20260818/sug.md",
+      "4db8ced9b1ba5ef0af181e3e14025c039f622941:dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md",
+      "dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r047/ENVIRONMENT_MATRIX.json",
+      "audit_bundles/r047/gate.json",
+      "experiments/r047_semantic_heading/formal_train.py",
+      "experiments/r047_semantic_heading/calibrate_tcal.py",
+      "experiments/r047_semantic_heading/run_mmrotate_test.py",
+      "outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/seals/MODEL_DEVELOPMENT_SEAL.json",
+      "outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/seals/TCALIBRATION_SEAL.json",
+      "outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/tcal_rows.jsonl"
+    ]
+  }
+}

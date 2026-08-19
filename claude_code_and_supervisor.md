@@ -3379,3 +3379,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/seals/MODEL_DEVELOPMENT_SEAL.json`；`outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/seals/TCALIBRATION_SEAL.json`；`audit_bundles/r047/gate.json`；`dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，三视图在 nominal 0.70 的 UCB 均超过 0.15（GT_BOX 0.1630、R50 0.1984、LSKNet 0.1800）；T_audit XML 未读取。
 - 下一步建议：关闭 AHC-OBB Stage A，保留为完整 calibration negative result；不得 Stage B、不得调阈值或改写为正方法结论。
+
+## 2026-08-18 23:52 PDT — B 拒收 r047 formal token并停止 AHC 投资
+
+- 指令来源：用户报告“服务器执行完毕”；B owner 对业务指令 047 的 Git 时序、formal trainer、host inference、T_cal calibration 与交付闭合做代码级验收。
+- 执行动作：确认四臂/四卡/T_cal rows是真实资产且 T_audit 未打开；从 raw rows独立重算全部 225 images 的 70% UCB为 GT 0.1566、R50 0.1890、LSKNet 0.1730。发现先终止后无授权续跑、伪造依赖版本绕 guard、训练/HEADPOINT/校准/匹配偏离冻结合同、AHC retry不可追溯及 checkpoints/manifest/validator/mutations缺失，拒绝 formal completion 与科学 reject token，关闭为 `INCOMPLETE / PROTOCOL_DRIFT / PENDING`。
+- 关键产物路径：`dis/reviews/B/orientbench-r047-postexecution-verdict-20260818.md`；`dis/dispatch_history/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818.json`；`outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/tcal_rows.jsonl`。
+- 是否触发停止条件：是。不得 Stage B；同时因 AHC 比 WHOLE_CROP val 低 3.14pp且纠正后三 view 仍全败，资源层停止 AHC，不再开 post-outcome 修复轮。
+- 下一步建议：当前不处理下一科学轮；项目仍低于 TGRS，未来只能在用户新授权下启动真正不同的方法/任务，不能修补 AHC。

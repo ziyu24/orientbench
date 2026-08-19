@@ -850,3 +850,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - official train/val 全部降为 consumed development；不再把 r046 后置生成的 V_fit/V_cal 包装成 calibration。唯一未揭示的 official test 先只按 image ID 哈希封存为 T_cal/T_audit，再实行 model seal→T_cal seal→T_audit 两道墙。
 - r047 必须使用注册 HRSC Oriented R-CNN R50 backbone，完整训练 AHC、WHOLE_CROP、CONCAT_ENDPOINT、HEADPOINT_REG，四卡 DDP、双 host、配对 confidence/error 与真正的 complete-image finite-sample UCB。任何 tiny proxy、缺 baseline 或错配校准均为未执行完毕。
 - 通过 Stage A 只进入第二 head-label 数据集外部验证；当前档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，没有预支 JPRS/TGRS。
+
+## 21. 2026-08-18：r047 formal token 拒收，但 AHC 投资路线停止
+
+- r047 的 test identity partition 与四臂 30-epoch 训练是真实进展，T_audit 仍未发现被打开；AHC/WHOLE/CONCAT/HEADPOINT 的 val accuracy 分别为 0.8429/0.8743/0.8651/0.8614。
+- B 从 1,764 条 T_cal raw rows独立重算：70% 档 GT/R50/LSKNet 的 realized coverage 为 0.6992/0.6990/0.7005，包含全部 225 images 的合法 UCB 为 0.1566/0.1890/0.1730，三 view 仍不满足安全门。负方向不是 r046 的旧配对 bug。
+- 但 formal completion 不成立：dispatch 已在 `4db8ced` 以环境失败终止后无 tracked resume 又覆盖报告；MMRotate 通过伪造版本字符串绕过 guard；训练漏 warmup/cosine/color jitter/AUGRC，HEADPOINT 不是二维头点回归，AHC retry 实际代码不可追溯，校准漏 temperature/Hoeffding/全 image accounting/one-to-one matching，且无 checkpoints bundle、manifest、独立 validator/mutations。
+- 因 GT UCB 只高门槛 0.0066，以上科学配置漂移可能翻转 formal gate，故不采纳 `REJECT_AHC_OBB_VALID_TCAL_SAFETY_FAIL`。执行关闭为 `INCOMPLETE / PROTOCOL_DRIFT / PENDING`。
+- 资源决策仍明确停止 AHC：它已比 strongest whole-crop baseline 低 3.14pp，三 view 的纠正校准也全部失败；禁止 Stage B，也不再开 AHC 修复轮。项目维持 `STRONG_JSTARS_OR_REMOTE_SENSING`，下一条顶刊路线必须是真正不同的新方法/任务并另获授权。
