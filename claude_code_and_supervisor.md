@@ -3110,6 +3110,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；没有合并、覆盖或修改该历史快照内容。
 - 下一步建议：该目录只作本地溯源，不作为新任务的执行或源代码写入位置；后续所有新产物继续只写主工作树的项目内 artifact 根。
 
+## 2026-08-18 08:30 PDT — 用户要求可再生产物清理前归档审计
+
+- 指令来源：用户要求删除项目不需要内容，并规定训练后可再生内容须先归档、说明生成方式且取得授权。
+- 执行动作：仅作只读分类盘点；未删除、移动或压缩任何文件。初步分类为：可再生缓存/工作目录（约84M）、训练 checkpoint（470M，需保留 manifest/config 后方可清理）、大体积 raw probes/历史 persistent evidence（>30G，当前不纳入自动删除）和刚迁入的 r032 历史 worktree（2.4G，用户刚要求保留）。
+- 关键产物路径：`outputs/bench_core/{cache,gt_index}/`；`work_dirs/`；`outputs/training/`；`outputs/probes/`；`archives/worktrees/orientbench_r032_clean/`。
+- 是否触发停止条件：是；删除前必须形成带 SHA-256、再生命令和保留理由的归档清单，并取得逐组授权。
+- 下一步建议：先归档并申请清理 Group A（cache/gt_index/work_dirs，约84M）和 Group B（两份可再生训练 checkpoint，470M）；大体积 evidence 和 r032 快照默认保留，需另行专项审计。
+
 ## 2026-08-18 18:58 PDT — SERVER 接收并启动业务指令 044
 
 - 指令来源：用户交付唯一三元组 `orientbench-b-r044-jprs-measurement-manuscript-20260818` / `dis/plans/B/b-r044-jprs-measurement-manuscript-20260818/sug.md` / `3fb932bb6d717e161b9a9bcc1c76849ea33f5a0e`，要求无人值守执行 T1–T5。
