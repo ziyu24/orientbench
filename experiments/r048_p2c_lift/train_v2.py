@@ -20,7 +20,10 @@ def enc():
 class Net(nn.Module):
  def __init__(self,kind,hid=384,layers=3):
   super().__init__();self.kind=kind;self.b=enc();self.p=nn.Linear(2048,hid);self.t=nn.TransformerEncoder(nn.TransformerEncoderLayer(hid,8,hid*2,batch_first=True),layers);self.p2c=P2CHeads(hid);self.head=nn.Linear(hid*(3 if kind=='CONCAT_ENDPOINT_BINARY' else 1),2 if kind in ('HEADPOINT_2D','DIRECT_S1_VM') else 1)
+  for q in self.b.modules():
+   if isinstance(q,nn.BatchNorm2d):q.eval()
  def f(self,x):
+  self.b.eval()
   x=self.b.relu(self.b.bn1(self.b.conv1(x)));x=self.b.maxpool(x);x=self.b.layer1(x);x=self.b.layer2(x);x=self.b.layer3(x);return self.b.avgpool(self.b.layer4(x)).flatten(1)
  def forward(self,a,b,g):
   fa,fb,fg=self.f(a),self.f(b),self.f(g)
@@ -36,8 +39,9 @@ def main():
   for am,bm,g,t,aa,ba,ga,ta,rot in dl:
    am,bm,g,t,aa,ba,ga,ta=[z.to(dev) for z in (am,bm,g,t,aa,ba,ga,ta)];op.zero_grad()
    if a.kind=='P2C_LIFT':
+    with torch.no_grad(): mu2,k2,p2,_=m(aa,ba,ga)
     mu,k,p,v=m(am,bm,g);rel=t[:,1];pole=(torch.cos(rel)>0).float();loss=axial_vm_nll(rel,mu,k)+nn.functional.binary_cross_entropy_with_logits(p,pole)+.25*nn.functional.mse_loss(v,t[:,2:])
-    mu2,k2,p2,_=m(aa,ba,ga);loss=loss+.25*distribution_kl(mu2,k2,p2,mu,k,p)
+    loss=loss+.25*distribution_kl(mu,k,p,mu2,k2,p2)
    else:
     z=m(am,bm,g);phi=t[:,0];
     if a.kind=='HEADPOINT_2D':loss=nn.functional.mse_loss(torch.tanh(z),t[:,2:])
