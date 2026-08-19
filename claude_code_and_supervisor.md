@@ -3245,3 +3245,27 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r045/ASSET_SEAL.json`；`audit_bundles/r045/candidate_inventory.csv`；`audit_bundles/r045/access_log_preseal.txt`。
 - 是否触发停止条件：否；G0 `PASS`，四个 split SHA-256 精确匹配，common valid family count=3，HRSC D_audit GT/outcome 与 HRSC D_cal 结果字段均未打开。
 - 下一步建议：将 ASSET_SEAL 作为独立提交用 HTTPS 推送；推送成功后才构造 DIOR-R source policy。
+
+## 2026-08-18 20:06 PDT — SERVER 推送状态核验
+
+- 指令来源：用户询问“是否推送？”。
+- 执行动作：核验本地 `main` 与 `origin/main` 的提交一致性。
+- 关键产物路径：远端 `origin/main` = `c77c012d419a30c89ab589a26caca58f4d9eb0eb`。
+- 是否触发停止条件：否；已推送的 r045 启动与 T0 资产封存提交均在该远端历史中。
+- 下一步建议：继续按冻结顺序完成 DIOR-R source policy seal；本条运行记录随下一次 r045 允许写入一并提交。
+
+## 2026-08-18 20:18 PDT — SERVER r045 T1 source policy seal
+
+- 指令来源：业务指令 045 冻结计划 T1 / G1–G2。
+- 执行动作：仅以 DIOR-R `D_cal` 构造 0.90–0.70 score-coverage grid，并在 DIOR-R `D_audit` 比较冻结预选策略；AP-only 选择 LSKNet（registered mAP=0.7187），orientation policy 选择 R50（coverage=0.90，source audit mean `d_tip`=0.0276878891）。
+- 关键产物路径：`audit_bundles/r045/POLICY_SEAL.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_analysis/`；`experiments/r045_axis_drift/evaluate_axis_drift.py`。
+- 是否触发停止条件：否；G1 prospective policy 已封存、G2 已形成非平凡架构+coverage 决策，HRSC `D_cal` GT/outcome 与 `D_audit` GT/outcome 仍未打开。
+- 下一步建议：将 POLICY_SEAL 及其唯一 source 输入/代码/结果独立提交并 HTTPS 推送；成功后仅以 HRSC `D_cal` 的 score/image/prediction-id 字段冻结 target threshold。
+
+## 2026-08-18 20:14 PDT — SERVER r045 DIOR-R policy seal 完成
+
+- 指令来源：业务指令 045 冻结计划 T1 / G1 / G2。
+- 执行动作：用三个既有 valid checkpoint 在冻结 DIOR-R 200-image trainval 子集上做确定性四卡推理（无训练/微调）；48 工作线程执行 class-aware one-to-one matching；依次检验冻结 coverage grid 与 image-level Hoeffding-Bentkus UCB。AP-only 选 LSKNet（registered mAP 0.7187）；orientation policy 选 R50 @ nominal coverage 0.90，source D_audit `mean_d_tip=0.035812`。架构与 coverage 均发生非平凡改变，G2 `PASS`。
+- 关键产物路径：`audit_bundles/r045/POLICY_SEAL.json`；`outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_policy/source_policy_results.json`；`experiments/r045_axis_drift/source_policy.py`。
+- 是否触发停止条件：否；orientation family=`oriented_rcnn_r50_fpn_le90` 不同于 AP family=`oriented_rcnn_lsknet_s_fpn_le90`，且 coverage=0.90 在冻结范围内。HRSC D_audit GT/outcome 仍未打开，HRSC D_cal candidate rows 仍未读取。
+- 下一步建议：将 POLICY_SEAL 作为独立提交用 HTTPS 推送；推送成功后才读取 HRSC D_cal 的 score/image/prediction id 并封存 target threshold。

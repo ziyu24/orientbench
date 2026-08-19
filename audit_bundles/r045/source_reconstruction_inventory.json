@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r045-prospective-axis-drift-decision-20260818",
+  "stage": "T1_SOURCE_DIOR_ONLY",
+  "source_prediction_files": [
+    {
+      "family": "oriented_rcnn_r50_fpn_le90",
+      "path": "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_predictions/dior_r50.pkl",
+      "config": "experiments/r045_axis_drift/configs/dior_r50_source.py",
+      "checkpoint": "/home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_r50_fpn_1x_le90/DIOR_trainval_test/best_dota_mAP_epoch_11.pth"
+    },
+    {
+      "family": "oriented_rcnn_lsknet_s_fpn_le90",
+      "path": "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_predictions/dior_lsknet.pkl",
+      "config": "experiments/r045_axis_drift/configs/dior_lsknet_source.py",
+      "checkpoint": "/home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_lsknet_s_fpn_1x_le90/DIOR_trainval_test/best_mAP_7187_epoch_12.pth"
+    },
+    {
+      "family": "rotated_rtmdet_s_fpn_le90",
+      "path": "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/source_predictions/dior_rtmdet.pkl",
+      "config": "experiments/r045_axis_drift/configs/dior_rtmdet_source.py",
+      "checkpoint": "/home/rspip/cqc/pro/study/pth_data/baseline_rotated_rtmdet_s_fpn_3x_le90/DIOR_trainval_test_taos_pad32/best_mAP_5489_epoch_32.pth"
+    }
+  ]
+}
