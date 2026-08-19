@@ -3126,6 +3126,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是；所有大体积删改仍需该 dossier 的归档、再生命令和用户逐组授权。
 - 下一步建议：取得 Group D（exact duplicates）和 Group E（materialized flips）授权后，可安全释放约7.8G；继续对其余约30G persistent/probe/workdir 大项逐项做 lineage 分类。
 
+## 2026-08-18 18:59 PDT — r044 错误与门控结果说明
+
+- 指令来源：用户询问「除了什么错误」。
+- 执行动作：说明 r044 无未处理技术错误：claim checker 57/57、三项 semantic mutation 和 manifest 均通过。唯一工程事件是构建脚本一次路径解析问题，已在允许范围修复并确定性重建，未影响输入或数字。
+- 关键产物路径：`audit_bundles/r044/claim_check.json`；`audit_bundles/r044/mutation_results.json`；`dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，科学门控而非运行错误；G4 双红队 novelty=3/5，故 `NOT_JPRS_READY`。
+- 下一步建议：若后续继续，应补 prospective held-out remote-sensing decision study；纯语言润色不构成科学补救。
+
 ## 2026-08-18 08:36 PDT — 用户授权 Group D/E 清理完成
 
 - 指令来源：用户明确授权「清理D,E」。
