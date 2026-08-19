@@ -1,0 +1,85 @@
+{
+  "differences": [
+    {
+      "a": 0.03795507405789419,
+      "b": 0.0379961927952958,
+      "field": "ap.mean_d_tip",
+      "tolerance": 1e-12
+    },
+    {
+      "a": 0.03990702146419978,
+      "b": 0.0399984264353589,
+      "field": "orientation.mean_d_tip",
+      "tolerance": 1e-12
+    },
+    {
+      "a": -0.001951947406305591,
+      "b": -0.002002233640063104,
+      "field": "delta_cont",
+      "tolerance": 1e-12
+    },
+    {
+      "a": -0.00759690736733883,
+      "b": -0.007665814834978664,
+      "field": "delta_cont_ci95[0]",
+      "tolerance": 1e-10
+    },
+    {
+      "a": 0.003553639725280447,
+      "b": 0.0035350608885288473,
+      "field": "delta_cont_ci95[1]",
+      "tolerance": 1e-10
+    }
+  ],
+  "mutation": "gt_ar",
+  "pristine": false,
+  "recomputed": {
+    "delta_cont": -0.002002233640063104,
+    "delta_cont_ci95": [
+      -0.007665814834978664,
+      0.0035350608885288473
+    ],
+    "delta_severe": 0.0,
+    "delta_severe_ci95": [
+      0.0,
+      0.0
+    ],
+    "images": 98,
+    "policies": {
+      "ap": {
+        "ap50": 0.9980072392675561,
+        "eligible_full": 293,
+        "eligible_matched_coverage": 1.0,
+        "eligible_retained": 293,
+        "hb_ucb_z_0_50": 0.03995275126737112,
+        "mean_d_tip": 0.0379961927952958,
+        "risk_z_0_25": 0.0,
+        "risk_z_0_50": 0.0,
+        "risk_z_1_00": 0.0
+      },
+      "orientation": {
+        "ap50": 0.9986048423890885,
+        "eligible_full": 293,
+        "eligible_matched_coverage": 1.0,
+        "eligible_retained": 293,
+        "hb_ucb_z_0_50": 0.03995275126737112,
+        "mean_d_tip": 0.0399984264353589,
+        "risk_z_0_25": 0.0031584062196307093,
+        "risk_z_0_50": 0.0,
+        "risk_z_1_00": 0.0
+      }
+    },
+    "sensitivity_delta": {
+      "0.25": -0.0031584062196307093,
+      "0.50": 0.0,
+      "1.00": 0.0
+    },
+    "threshold": 0.05102584883570671
+  },
+  "schema_version": 2,
+  "status": "FAIL",
+  "tolerances": {
+    "bootstrap_endpoints": 1e-10,
+    "deterministic": 1e-12
+  }
+}
