@@ -3134,6 +3134,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，科学门控而非运行错误；G4 双红队 novelty=3/5，故 `NOT_JPRS_READY`。
 - 下一步建议：若后续继续，应补 prospective held-out remote-sensing decision study；纯语言润色不构成科学补救。
 
+## 2026-08-18 19:02 PDT — 用户要求复核 r044 完整执行性
+
+- 指令来源：用户要求「在核查下，044是否完整执行完了。」
+- 执行动作：按 T1--T5 和完成定义逐项复核：STARTED、三份 T1、8,150-word T2、6 SVG+6 PNG+9 tables 及 T3 附件、T4 spec/checker/mutation/manifest、双红队/gate/报告均存在；远端 `origin/main` 与本地 HEAD `4e6ad5a` 一致且工作树干净。重新执行 checker：57/57 PASS；pristine mutation=0，三项真实 mutation 均非零；reference audit=24 行。
+- 关键产物路径：`docs/paper_jprs_r044/`；`audit_bundles/r044/`；`dis/server_reports/orientbench-b-r044-jprs-measurement-manuscript-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，门控早停但执行完整；G1--G3 PASS，G4 红队 novelty=3/5 FAIL，终态 `NOT_JPRS_READY`。
+- 下一步建议：r044 已完整执行；不得把 `NOT_JPRS_READY` 误写为技术未完成。若推进 JPRS，需新增 prospective held-out decision study，而非补写作或重跑现有证据。
+
 ## 2026-08-18 08:36 PDT — 用户授权 Group D/E 清理完成
 
 - 指令来源：用户明确授权「清理D,E」。
