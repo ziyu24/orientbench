@@ -866,3 +866,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 最近邻边界：CHPDet 已在 TGRS 做 center-head point 360°检测，故任务和船头预测本身不新；本项目必须靠 double-cover factorization、intrinsic reliability、跨 host plug-in和后续 source-disjoint 外部验证建立创新。
 - r048 只用 train/val/T_cal consumed development开发；仅当 P2C 对 whole/concat/真实 headpoint/direct-S1 强基线在两开发分区同时过门，才打开仍密封的 228-image T_audit。通过后另轮获取 FGSD2021或ShipRS非HRSC去重子集。
 - 当前档位不变：`STRONG_JSTARS_OR_REMOTE_SENSING`；r048 Stage A 全过只恢复 JPRS/TGRS potential，不预支 ready。
+
+## 23. 2026-08-19：r048 P2C-Lift 有效 G1 早停，方法路线关闭
+
+- 第三次 clean rerun 修复了此前的 pole 训练/解码反向：BCE、full-S1 likelihood、Bayes decoder 与 intrinsic confidence 统一为 `positive logit = q(sheet=1)`；双 sheet、180° mutation 与 H/V/R transform tests 通过。
+- 冻结首 epoch 早停严格成立：CONCAT baseline 首 epoch `0.656192>=0.65`，P2C small/base/wide 分别只有 `0.502773/0.506470/0.499076<0.60`。三候选按协议均停止，无需用 baseline 的 30-epoch best 偷换判定。
+- row-level val 复算确认：selected P2C base accuracy `0.506470`、mean error `87.741°`、AUGRC `0.423795`；whole-crop baseline 为 `0.885397/21.336°/0.024484`，5/10/15° jitter 也全方向失败。
+- B 采纳 `REJECT_P2C_LIFT_DEVELOPMENT`，业务 048 以有效 gated early stop 关闭；T_cal 与 T_audit 均未打开，禁止 P2C 调参、确认、audit 或外部 Stage B。
+- 项目仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于 TGRS-or-better。后续不得再做 HRSC crop-head/selector rescue；若冲顶刊，只能在用户新授权下投入 detector-native probabilistic orientation reliability 与独立 source-disjoint 应用标签/端点，或接受现实档位投稿。

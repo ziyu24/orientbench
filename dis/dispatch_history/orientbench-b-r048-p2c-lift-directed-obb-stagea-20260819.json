@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819",
+    "plan_id": "b-r048-p2c-lift-directed-obb-stagea-20260819",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-19 在 B 说明必须换科学上不同的新方法/任务后回复：『推进下一步吧。』",
+    "plan_path": "dis/plans/B/b-r048-p2c-lift-directed-obb-stagea-20260819/sug.md",
+    "plan_commit_sha": "af164e6115df13082f134552716bd8ab8b6b3eed",
+    "plan_blob_oid": "efb206d81088acab0e298df8ceb8b302da36479c",
+    "plan_sha256": "09d332477798307fb229743dcb444e79e4fa33fd92a89d13126df82333b307a0",
+    "dispatch_commit_sha": "39519dac5bfa335fd90268555895434a4c5917e7",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-19：『推进下一步吧。』"
+    },
+    "server_report_path": "dis/server_reports/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-19T00:08:03-07:00"
+  },
+  "started_ref": {
+    "path": "audit_bundles/r048/STARTED.json",
+    "commit_sha": "51e3afd8a604f77030a588afb1fd256fa8634005",
+    "blob_oid": "239a0b09e0078bfb4af560dcdc0439f6fbdee71e",
+    "sha256": "a07666b93e3200ae11c1faa2a612a91f8cc2ede4a14f23778a7e9eb85e06422b"
+  },
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "d4acafb7826fd041a359081d35b433b1c7ed0c8f",
+    "blob_oid": "affaa4d6293afb285d506b734500e3c4bb299954",
+    "sha256": "f3323196968b8406caf8e9d5a8282fc3a8e464069ad0773d362ae32f6850562d"
+  },
+  "terminal": {
+    "execution_state": "COMPLETED",
+    "completion_mode": "GATED_EARLY_STOP_AFTER_SHEET_CONSISTENT_CLEAN_G1",
+    "scientific_state_at_close": "KILLED",
+    "closed_by": "B",
+    "closed_at": "2026-08-19T03:44:06-07:00",
+    "close_reason": "B accepts the third clean r048 execution. Pole loss, likelihood, decoding and confidence now share the sheet=1 convention; H/V/R and 180-degree mutation tests pass. CONCAT already reaches 0.656192 at epoch one while all three P2C arms remain below 0.507, satisfying the frozen first-epoch stop. Full val and jitter comparisons are uniformly negative, T_cal and T_audit remain unopened, and P2C expansion stops.",
+    "closure_authorization_ref": "B owner closure after user reported server completion on 2026-08-19",
+    "verdict_refs": [
+      "dis/reviews/B/orientbench-r048-postexecution-verdict-20260819.md"
+    ],
+    "contest_refs": [],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/plans/B/b-r048-p2c-lift-directed-obb-stagea-20260819/sug.md",
+      "dis/server_reports/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r048/STARTED.json",
+      "audit_bundles/r048/ACCESS_LOG.jsonl",
+      "audit_bundles/r048/gate.json",
+      "experiments/r048_p2c_lift/p2c_distribution.py",
+      "experiments/r048_p2c_lift/test_sheet_and_transforms.py",
+      "outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/formal_sheetfixed/concat_endpoint_binary/epochs.jsonl",
+      "outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/g1_val_sheetfixed/selection.json",
+      "outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/g1_val_sheetfixed/p2c_base.json",
+      "outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/g1_val_sheetfixed/whole_crop_binary.json",
+      "outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/sheetfixed_manifest.json",
+      "docs/paper_jprs_r048/g1_sheetfixed_early_stop_report.md"
+    ]
+  }
+}

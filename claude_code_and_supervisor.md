@@ -3483,3 +3483,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r048_p2c_lift/test_sheet_and_transforms.py`；`docs/paper_jprs_r048/g1_sheetfixed_early_stop_report.md`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/{formal_sheetfixed,g1_val_sheetfixed,sheetfixed_manifest.json}`。
 - 是否触发停止条件：是，`G1` clean、sheet-consistent val 早停；正常结束。T_cal 未读取，T_audit semantic fields 未打开。
 - 下一步建议：不启动 r049；保留有效负结果及 hash manifest，停止对 P2C-Lift 的本轮扩展。
+
+## 2026-08-19 03:44 PDT — B 正式接收并关闭 r048 P2C-Lift 负结果
+
+- 指令来源：用户第三次报告“服务器执行完毕”；B owner 拉取至 server HEAD `d4acafb`，复核 sheet convention、mutation/transform tests、首 epoch traces、row-level G1/jitter、manifest 与信息墙。
+- 执行动作：确认 pole proper-loss/likelihood/decoder/confidence 已统一，CONCAT 首 epoch `0.656192>=0.65`，三项 P2C 首 epoch `0.502773/0.506470/0.499076<0.60`，严格触发冻结早停；独立复算 selected P2C 对 whole-crop 的 accuracy delta `-0.378928`、baseline-minus-P2C AUGRC `-0.399311`、mean-error improvement `-66.405°`。采纳 `REJECT_P2C_LIFT_DEVELOPMENT` 并关闭活动槽。
+- 关键产物路径：`dis/reviews/B/orientbench-r048-postexecution-verdict-20260819.md`；`dis/dispatch_history/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819.json`；`docs/paper_jprs_r048/g1_sheetfixed_early_stop_report.md`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/g1_val_sheetfixed/`。
+- 是否触发停止条件：是，有效 G1 scientific early stop；T_cal 与 T_audit 均未打开，P2C tuning、confirmation、audit 与 external Stage B 全部停止。
+- 下一步建议：项目仍为 strong JSTARS / Remote Sensing，低于 TGRS-or-better；不得再做 HRSC crop-head rescue。若用户继续冲顶刊，必须另行授权 detector-native probabilistic orientation reliability + 独立 source-disjoint 应用标签/端点，涉及新数据或大规模 detector 训练时必须先获明确批准。
