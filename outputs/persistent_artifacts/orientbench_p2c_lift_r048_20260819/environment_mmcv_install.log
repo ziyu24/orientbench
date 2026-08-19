@@ -1,0 +1,34 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting mmcv==2.0.1
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ab/03/6c4fb70f2c547ab96cbf66a235aa4465631f77d045e57d84d941b3e66311/mmcv-2.0.1.tar.gz (469 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × python setup.py egg_info did not run successfully.
+  │ exit code: 1
+  ╰─> [14 lines of output]
+      Traceback (most recent call last):
+        File "<string>", line 2, in <module>
+        File "<pip-setuptools-caller>", line 34, in <module>
+        File "/tmp/pip-install-wwoqxv7a/mmcv_40553351202844239dcee402f53cc9d1/setup.py", line 466, in <module>
+          ext_modules=get_extensions(),
+        File "/tmp/pip-install-wwoqxv7a/mmcv_40553351202844239dcee402f53cc9d1/setup.py", line 423, in get_extensions
+          ext_ops = extension(
+        File "/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime/lib/python3.8/site-packages/torch/utils/cpp_extension.py", line 867, in CUDAExtension
+          library_dirs += library_paths(cuda=True)
+        File "/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime/lib/python3.8/site-packages/torch/utils/cpp_extension.py", line 975, in library_paths
+          if (not os.path.exists(_join_cuda_home(lib_dir)) and
+        File "/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime/lib/python3.8/site-packages/torch/utils/cpp_extension.py", line 1982, in _join_cuda_home
+          raise EnvironmentError('CUDA_HOME environment variable is not set. '
+      OSError: CUDA_HOME environment variable is not set. Please set it to your CUDA install root.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.

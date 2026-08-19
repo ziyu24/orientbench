@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "dispatch_id": "orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819",
+  "status": "PASS",
+  "r50_environment": {
+    "path": "/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime",
+    "python": "3.8.20",
+    "torch": "1.8.1+cu111",
+    "mmcv": "2.0.1",
+    "mmdet": "3.0.0",
+    "mmrotate": "1.0.0rc1",
+    "installation": "dedicated copy of ai4rs plus explicit PyPI packages; no version-string spoofing",
+    "r50_val_map": 0.9087,
+    "r50_val_ap50": 0.9090
+  },
+  "lsknet_environment": {
+    "path": "/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk",
+    "python": "3.8.20",
+    "torch": "1.10.1+cu113",
+    "mmcv": "1.7.2",
+    "mmdet": "2.28.2",
+    "mmrotate": "0.3.4",
+    "installation": "dedicated copy of pcp-obb-soda plus tracked Fourier-Angle-Alignment LSKNet source import; no version-string spoofing",
+    "lsknet_val_map": 0.7617657274,
+    "lsknet_val_ap50": 0.998
+  },
+  "registered_reference": {"r50_test_map": 0.9036, "lsknet_test_map": 0.7156},
+  "semantic_access": {"train": "consumed", "val": "consumed", "t_cal": "consumed but not opened in r048 G0", "t_audit": "unopened"}
+}

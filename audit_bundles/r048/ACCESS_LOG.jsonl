@@ -1,0 +1,2 @@
+{"timestamp":"2026-08-19T00:13:12-07:00","event":"r048_started","scope":"identity-only","t_audit_semantic_opened":false}
+{"timestamp":"2026-08-19T00:13:12-07:00","event":"cache_inventory","scope":"r047_artifacts_filenames_only","t_audit_semantic_opened":false,"result":"only partitions/T_audit_ids.txt found; no semantic cache/value artifact"}

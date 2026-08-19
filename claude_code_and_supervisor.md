@@ -3380,6 +3380,22 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，三视图在 nominal 0.70 的 UCB 均超过 0.15（GT_BOX 0.1630、R50 0.1984、LSKNet 0.1800）；T_audit XML 未读取。
 - 下一步建议：关闭 AHC-OBB Stage A，保留为完整 calibration negative result；不得 Stage B、不得调阈值或改写为正方法结论。
 
+## 2026-08-19 00:13 PDT — SERVER r048 started
+
+- 指令来源：用户“拉取，执行r48”。
+- 执行动作：已 fast-forward 至 r048 dispatch，建立 `STARTED.json`、只读缓存盘点与 `METHOD_FREEZE.json`；尚未读取 r047 T_audit 语义字段。
+- 关键产物路径：`audit_bundles/r048/STARTED.json`；`audit_bundles/r048/ACCESS_LOG.jsonl`；`experiments/r048_p2c_lift/METHOD_FREEZE.json`。
+- 是否触发停止条件：否。
+- 下一步建议：创建真实兼容双 host 环境，完成 AP parity 与 P2C-Lift/mechanical baselines 的静态检查后再启动四卡训练。
+
+## 2026-08-19 00:30 PDT — SERVER r048 G0 passed
+
+- 指令来源：业务指令 048 G0。
+- 执行动作：创建两套专用真实兼容运行环境并以 consumed official val 实测双 host；R50 mAP=0.9087/AP50=0.9090，LSKNet mAP=0.7618/AP50=0.998。未修改版本字符串；T_audit 未读。
+- 关键产物路径：`audit_bundles/r048/G0_ENVIRONMENT_AND_ASSET.json`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/r50_val_parity.log`；`outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/lsknet_val_parity.log`。
+- 是否触发停止条件：否。
+- 下一步建议：完成冻结 P2C-Lift 与四 baseline 的 four-rank smoke 后启动同预算 formal development。
+
 ## 2026-08-18 23:52 PDT — B 拒收 r047 formal token并停止 AHC 投资
 
 - 指令来源：用户报告“服务器执行完毕”；B owner 对业务指令 047 的 Git 时序、formal trainer、host inference、T_cal calibration 与交付闭合做代码级验收。
