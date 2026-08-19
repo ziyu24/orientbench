@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r045-prospective-axis-drift-decision-20260818",
+  "amends_commit": "e9326ccf4a6d8ab86e06bd01ccb9922ef66aaa5e",
+  "reason": "Add the frozen-plan-required command and explicit score-only table column/SHA audit before any HRSC D_audit access; numeric threshold and policy are unchanged.",
+  "score_only_table": {
+    "path": "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_hrsc_score_only/score_only/hrsc_r50_dcal_scores.csv",
+    "sha256": "3d24111ca8a2ac50719c20b9d80efc43f8ed1438861d56ec1456fb1a52f9bb19",
+    "columns": ["image_id", "prediction_id", "score"]
+  },
+  "commands": {
+    "four_gpu_reconstruction": "CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONNOUSERSITE=1 conda run --no-capture-output -n pcp-obb python -m torch.distributed.run --nproc_per_node=4 /home/rspip/cqc/pro/study/third_party/mmrotate_1x/tools/test.py experiments/r045_axis_drift/configs/hrsc_r50_dcal_score_only.py /home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_r50_fpn_3x_le90/HRSC_trainval_test/best_dota_mAP_epoch_34.pth --launcher pytorch --work-dir outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_hrsc_score_only/work_r50_dcal",
+    "score_only_export": "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python experiments/r045_axis_drift/extract_target_score_only.py outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_hrsc_score_only/predictions/hrsc_r50_dcal.pkl outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_hrsc_score_only/score_only/hrsc_r50_dcal_scores.csv --coverage 0.90"
+  },
+  "inference_log": "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/target_hrsc_score_only/work_r50_dcal/20260818_202326/20260818_202326.log",
+  "forbidden_fields_read": [],
+  "hrsc_d_audit_opened_before_this_amendment": false,
+  "numeric_threshold_unchanged": 0.05102584883570671
+}
