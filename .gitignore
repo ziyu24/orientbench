@@ -240,6 +240,9 @@ work_dirs/
 measure_fix_v2/artifacts/
 measure_fix_v2/logs/
 
+# Local historical Git worktrees kept under this project tree for provenance.
+archives/worktrees/
+
 # Annotation media and local UI state
 annotation_tools/**/crops/
 annotation_tools/**/images/

@@ -3102,3 +3102,10 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/sug.md`；`dis/coordination.json`；dispatch `orientbench-b-r044-jprs-measurement-manuscript-20260818`；计划 commit `6679fb2315ace3110a086cf38c72135193c228be`。
 - 是否触发停止条件：否；本轮 0 GPU、仅 Git 跟踪证据与投稿级写作/校验。
 - 下一步建议：服务器先提交 `STARTED.json`，再执行 T1–T5 并以 `JPRS_SUBMISSION_CANDIDATE` 或 `NOT_JPRS_READY` 诚实收口。
+## 2026-08-18 08:28 PDT — r032 clean 工作树归入项目
+
+- 指令来源：用户要求「orientbench_r032_clean，这是啥？弄进来。」
+- 执行动作：核验其为同仓库的 linked Git worktree，分支 `r032-clean-execution`、HEAD `ede2eb3`（r040 派发前历史快照）、大小 2.4G、工作区干净。通过 `git worktree move` 迁入 `archives/worktrees/orientbench_r032_clean/`，保留其独立 Git 关系和历史软链接；原项目外路径已消失。
+- 关键产物路径：`archives/worktrees/orientbench_r032_clean/`；`archives/README.md`。
+- 是否触发停止条件：否；没有合并、覆盖或修改该历史快照内容。
+- 下一步建议：该目录只作本地溯源，不作为新任务的执行或源代码写入位置；后续所有新产物继续只写主工作树的项目内 artifact 根。
