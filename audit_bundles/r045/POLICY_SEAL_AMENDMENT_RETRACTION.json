@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "dispatch_id": "orientbench-b-r045-prospective-axis-drift-decision-20260818",
+  "retracts": "audit_bundles/r045/POLICY_SEAL_AMENDMENT.json",
+  "issued_before_target_hrsc_access": true,
+  "reason": "The proposed amendment was not sealed against the committed source tables and conflated the pair-level endpoint definition with the frozen paired image-bootstrap aggregation. It is therefore invalid and must not be used. The original POLICY_SEAL remains the only operative source-policy seal.",
+  "operative_policy": "audit_bundles/r045/POLICY_SEAL.json at commit e8f757b",
+  "protocol_or_decision_changed": false,
+  "target_access_attestation": {
+    "hrsc_d_cal_gt_angle_match_or_risk_opened": false,
+    "hrsc_d_audit_gt_or_outcome_opened": false
+  }
+}

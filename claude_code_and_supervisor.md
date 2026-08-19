@@ -3270,6 +3270,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；修正在 target access 之前完成，G1/G2 仍成立，HRSC `D_cal` GT/outcome 与 `D_audit` 未打开。
 - 下一步建议：独立提交并推送该 amendment；随后只读 HRSC `D_cal` score/image/prediction-id 以封存 target threshold。
 
+## 2026-08-18 20:25 PDT — SERVER r045 amendment retraction
+
+- 指令来源：r045 sealed-source consistency audit。
+- 执行动作：发现 amendment 未与已提交 source table/paired image-bootstrap 聚合一致，故在任何 HRSC target 访问前明确撤回；唯一有效策略恢复为原 `POLICY_SEAL.json`。
+- 关键产物路径：`audit_bundles/r045/POLICY_SEAL_AMENDMENT_RETRACTION.json`。
+- 是否触发停止条件：否；策略、阈值、coverage、门控完全未改，HRSC `D_cal` GT/outcome 与 `D_audit` 仍未打开。
+- 下一步建议：独立提交并推送 retraction 后，进入 target score-only threshold seal。
+
 ## 2026-08-18 20:14 PDT — SERVER r045 DIOR-R policy seal 完成
 
 - 指令来源：业务指令 045 冻结计划 T1 / G1 / G2。
