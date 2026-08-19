@@ -3659,3 +3659,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/adjudicate_dior_g2_seed0.py`。
 - 是否触发停止条件：否。尚无三臂完整结果，未执行裁决。
 - 下一步建议：待三臂、导出与指标均完成后执行一次，不改阈值、不选最优 epoch/seed。
+
+## 2026-08-19 08:59 CST — r049 DIOR 后训练监督器预置
+
+- 指令来源：用户要求持续监督、静默推进与完整执行。
+- 执行动作：预置独立后训练监督器；仅在顺序训练 driver 退出、三臂均已完成第3个 full-val、无非有限/Traceback/OOM 且各有 best checkpoint 时，才自动顺序进行 raw export、matched-row 指标和冻结 DIOR 裁决。否则以失败码停止，绝不启动 SODA 或补种子。
+- 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_posttrain.sh`；后续日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/posttrain_supervisor.log`。
+- 是否触发停止条件：否。当前 CONT 第3 epoch 正常运行；监督器仍未启动额外 GPU 工作。
+- 下一步建议：启动该监督器等待现有 driver；DIOR PASS 才为 SODA seed0 准备下一步。
