@@ -69,7 +69,54 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r045-prospective-axis-drift-decision-20260818",
+    "plan_id": "b-r045-prospective-axis-drift-decision-20260818",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-18：『给出顶刊的方案，让服务器去执行，开始。』；r044 完成后再次报告『服务器执行完毕。』",
+    "scientific_snapshot": {
+      "primary": "11abe6f63766b5d8114b7fcb6ac80da4b4fd6170",
+      "r044_state": "ACCEPT_EXECUTION_ADOPT_NOT_JPRS_READY",
+      "current_venue_floor": "STRONG_JSTARS_OR_REMOTE_SENSING",
+      "target_route": "JPRS_PROSPECTIVE_AXIS_DRIFT_DECISION"
+    },
+    "plan_path": "dis/plans/B/b-r045-prospective-axis-drift-decision-20260818/sug.md",
+    "plan_commit_sha": "605796f58b1f940319380f1f3b6c2f4d618fb0e6",
+    "plan_blob_oid": "5601060370eb6b95ebd1941747319fa847dac30d",
+    "plan_sha256": "82d06ebc294525bb8032e562217fd7a865773c6af9e901fd56d582ca9a5f9563",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "5601060370eb6b95ebd1941747319fa847dac30d",
+    "active_sha256": "82d06ebc294525bb8032e562217fd7a865773c6af9e901fd56d582ca9a5f9563",
+    "base_sha": "11abe6f63766b5d8114b7fcb6ac80da4b4fd6170",
+    "activation_base_sha": "d207a39c770b91149ff472417318c9235c426645",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-18 顶刊路线服务器执行授权；r044 完成后再次要求继续处理"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 4, "gpu_hours_max": 48, "cpu_core_hours_max": 384},
+      "wall_time": {"seconds_max": 86400},
+      "data": {
+        "allowed_dataset_ids": ["DIOR-R-existing-endpoints-readonly", "HRSC2016-existing-endpoints-readonly", "existing-valid-baselines-readonly", "repository-and-manifest-pinned-artifacts-readonly"],
+        "read_bytes_max": 2199023255552,
+        "write_bytes_max": 107374182400
+      },
+      "write": {
+        "allowed_paths": ["experiments/r045_axis_drift/", "outputs/persistent_artifacts/orientbench_axis_drift_r045_20260818/", "audit_bundles/r045/", "docs/paper_jprs_r045/", "dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/", "claude_code_and_supervisor.md"],
+        "bytes_max": 107374182400
+      },
+      "network": {"allowed": true, "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git"]}
+    },
+    "conflict_keys": ["server-execution-slot", "dis/sug.md", "gpu-all-four-if-reconstruction-needed", "r045-heldout-policy-seal"],
+    "server_report_path": "dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-18T19:56:51-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-b-r044-jprs-measurement-manuscript-20260818.json",
     "dispatch_id": "orientbench-b-r044-jprs-measurement-manuscript-20260818",
@@ -81,5 +128,5 @@
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-18T19:49:00-07:00"
+  "updated_at": "2026-08-18T19:56:51-07:00"
 }

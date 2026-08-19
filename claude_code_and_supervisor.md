@@ -3221,3 +3221,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r045-prospective-axis-drift-decision-20260818/sug.md`；计划 commit `605796f58b1f940319380f1f3b6c2f4d618fb0e6`；canonical SHA-256 `82d06ebc294525bb8032e562217fd7a865773c6af9e901fd56d582ca9a5f9563`。
 - 是否触发停止条件：否。计划禁止训练、新数据、clean endpoint、split 修改和 post-outcome gate 调整；source 无非平凡决策变化时 HRSC audit 保持未打开。
 - 下一步建议：激活业务指令 `045`，服务器依次完成 STARTED→ASSET_SEAL→POLICY_SEAL→TARGET_THRESHOLD_SEAL→唯一跨域 gate。
+
+## 2026-08-18 19:56 PDT — B 激活并派发 r045
+
+- 指令来源：用户持续授权顶刊方案服务器执行；r044 已关闭并释放单活动槽。
+- 执行动作：将 r045 READY 计划逐字节镜像到 `dis/sug.md`，绑定 coordination 并标记 `DISPATCHED`。
+- 关键产物路径：`dis/sug.md`；`dis/coordination.json`；dispatch `orientbench-b-r045-prospective-axis-drift-decision-20260818`；计划 commit `605796f58b1f940319380f1f3b6c2f4d618fb0e6`。
+- 是否触发停止条件：否；本轮只用 DIOR-R/HRSC2016 既有 consumed endpoints 与 baselines，seals 之前严格禁止 HRSC audit outcome access。
+- 下一步建议：服务器先提交 STARTED，随后按三层 seal 执行；source 无非平凡 decision change 时必须在 target audit 未打开状态收口。
