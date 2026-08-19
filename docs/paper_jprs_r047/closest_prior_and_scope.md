@@ -1,3 +1,3 @@
 # Scope
 
-r047 remains incomplete at the implementation gate. Proxy outputs are explicitly excluded from the formal evidence bundle.
+r047 is a complete gated negative result, not a proxy result. Formal development passed, but the frozen three-view T_cal safety gate failed. Official-test T_audit semantic fields remain unopened; the result does not support an AHC-OBB method or deployability claim.

@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "dispatch_id": "orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818",
+  "stage": "TCALIBRATION_SEAL",
+  "terminal": "REJECT_AHC_OBB_VALID_TCAL_SAFETY_FAIL",
+  "model_development_seal": "seals/MODEL_DEVELOPMENT_SEAL.json",
+  "rows_path": "tcal_rows.jsonl",
+  "rows_sha256": "d8e2a502858bfb92ee37ea81dff8dd5927f953ca6042616788f60abf1649a4df",
+  "summary_path": "tcal_summary.json",
+  "summary_sha256": "78d0ef6b6456aa5e137f19d9dba330a53a695f40dd5383699b680349f4bdd658",
+  "alpha_bonferroni": 0.005555555555555556,
+  "views": {
+    "rows": 1764,
+    "images": 225,
+    "views": [
+      "GT_BOX",
+      "PRED_BOX_LSKNET",
+      "PRED_BOX_R50"
+    ],
+    "xml_scope": "T_cal only",
+    "t_audit_xml_opened": false,
+    "GT_BOX": {
+      "safe": false
+    },
+    "PRED_BOX_LSKNET": {
+      "safe": false
+    },
+    "PRED_BOX_R50": {
+      "safe": false
+    }
+  },
+  "t_audit_access": false,
+  "t_audit_xml_opened": false,
+  "selection_retries": 0
+}

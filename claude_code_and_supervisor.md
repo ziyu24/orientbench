@@ -3371,3 +3371,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r047/gate.json`；`dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，正式环境不兼容；`pcp-obb` MMCV 2.3.4 超出 mmrotate_1x 上限，`mr/pcp-obb-soda` MMCV 1.7.2 低于下限。未读取 test 语义字段。
 - 下一步建议：补齐与注册 MMRotate 版本匹配的现有环境后重新 dispatch；本轮不得把 proxy 结果写成科学裁决。
+
+## 2026-08-18 22:46 PDT — SERVER r047 formal T_cal safety failure
+
+- 指令来源：业务指令 047；用户要求不得虚报完成。
+- 执行动作：完成四卡 DDP 四臂 30-epoch formal development，推送 `MODEL_DEVELOPMENT_SEAL`；seal 后仅打开 T_cal，生成 R50/LSKNet 检测框与 GT_BOX 配对行并执行三视图 Bentkus-UCB 校准。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/seals/MODEL_DEVELOPMENT_SEAL.json`；`outputs/persistent_artifacts/orientbench_semantic_heading_r047_20260818/seals/TCALIBRATION_SEAL.json`；`audit_bundles/r047/gate.json`；`dis/server_reports/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，三视图在 nominal 0.70 的 UCB 均超过 0.15（GT_BOX 0.1630、R50 0.1984、LSKNet 0.1800）；T_audit XML 未读取。
+- 下一步建议：关闭 AHC-OBB Stage A，保留为完整 calibration negative result；不得 Stage B、不得调阈值或改写为正方法结论。

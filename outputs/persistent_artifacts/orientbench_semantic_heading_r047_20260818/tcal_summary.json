@@ -1,0 +1,20 @@
+{
+  "rows": 1764,
+  "images": 225,
+  "views": [
+    "GT_BOX",
+    "PRED_BOX_LSKNET",
+    "PRED_BOX_R50"
+  ],
+  "xml_scope": "T_cal only",
+  "t_audit_xml_opened": false,
+  "GT_BOX": {
+    "safe": false
+  },
+  "PRED_BOX_LSKNET": {
+    "safe": false
+  },
+  "PRED_BOX_R50": {
+    "safe": false
+  }
+}

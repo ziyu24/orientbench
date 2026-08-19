@@ -1,2 +1,2 @@
-未执行完毕
-G0/G1 已完成并推送 MODEL_DEVELOPMENT_SEAL；四个 formal arm 均以四卡 DDP 完成 30 epochs。当前进入 T_cal 前置阶段，尚未读取 official-test 语义字段，G2-G5 未完成。
+执行完毕
+G0/G1 完成；T_cal 三视图安全校准失败并推送 TCALIBRATION_SEAL，按冻结计划停止，T_audit 未读取。终态：REJECT_AHC_OBB_VALID_TCAL_SAFETY_FAIL。
