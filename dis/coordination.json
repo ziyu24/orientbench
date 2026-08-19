@@ -69,7 +69,54 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819",
+    "plan_id": "b-r048-p2c-lift-directed-obb-stagea-20260819",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-19 在 B 说明必须换科学上不同的新方法/任务后回复：『推进下一步吧。』",
+    "scientific_snapshot": {
+      "primary": "c49dcce2bbe9a10cddc5c04fb5548d456ca28991",
+      "r047_state": "INCOMPLETE_PROTOCOL_DRIFT_AHC_INVESTMENT_STOPPED",
+      "current_venue_floor": "STRONG_JSTARS_OR_REMOTE_SENSING",
+      "target_route": "P2C_LIFT_DIRECTED_OBB_STAGE_A"
+    },
+    "plan_path": "dis/plans/B/b-r048-p2c-lift-directed-obb-stagea-20260819/sug.md",
+    "plan_commit_sha": "af164e6115df13082f134552716bd8ab8b6b3eed",
+    "plan_blob_oid": "efb206d81088acab0e298df8ceb8b302da36479c",
+    "plan_sha256": "09d332477798307fb229743dcb444e79e4fa33fd92a89d13126df82333b307a0",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "efb206d81088acab0e298df8ceb8b302da36479c",
+    "active_sha256": "09d332477798307fb229743dcb444e79e4fa33fd92a89d13126df82333b307a0",
+    "base_sha": "c49dcce2bbe9a10cddc5c04fb5548d456ca28991",
+    "activation_base_sha": "af164e6115df13082f134552716bd8ab8b6b3eed",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-19：『推进下一步吧。』"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 4, "gpu_hours_max": 120, "cpu_core_hours_max": 512},
+      "wall_time": {"seconds_max": 172800},
+      "data": {
+        "allowed_dataset_ids": ["HRSC2016-existing-readonly", "existing-valid-HRSC-baselines-readonly", "r047-consumed-development-artifacts-readonly", "r047-unopened-T_audit-sealed"],
+        "read_bytes_max": 1649267441664,
+        "write_bytes_max": 161061273600
+      },
+      "write": {
+        "allowed_paths": ["experiments/r048_p2c_lift/", "outputs/persistent_artifacts/orientbench_p2c_lift_r048_20260819/", "audit_bundles/r048/", "docs/paper_jprs_r048/", "dis/server_reports/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819/", "/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/", "claude_code_and_supervisor.md"],
+        "bytes_max": 161061273600
+      },
+      "network": {"allowed": true, "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git", "https://github.com/open-mmlab/", "https://pypi.org/", "https://files.pythonhosted.org/", "https://download.pytorch.org/", "https://repo.anaconda.com/", "https://conda.anaconda.org/"]}
+    },
+    "conflict_keys": ["server-execution-slot", "dis/sug.md", "gpu-all-four-p2c-training", "HRSC-r047-T_audit-semantic-seal"],
+    "server_report_path": "dis/server_reports/orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-19T00:08:03-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818.json",
     "dispatch_id": "orientbench-b-r047-ahc-obb-clean-formal-stagea-20260818",
@@ -81,5 +128,5 @@
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-18T23:52:06-07:00"
+  "updated_at": "2026-08-19T00:08:03-07:00"
 }

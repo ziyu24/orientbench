@@ -3403,3 +3403,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r048-p2c-lift-directed-obb-stagea-20260819/sug.md`。
 - 是否触发停止条件：否。T_audit仍未打开；r048 不下载新数据、不复用AHC权重、不训练host detector。
 - 下一步建议：提交 immutable READY 计划并激活业务指令 048；只有 Stage A 全过才允许外部 FGSD2021/ShipRS来源去重验证。
+
+## 2026-08-19 00:08 PDT — B 激活并派发业务指令 048
+
+- 指令来源：用户“推进下一步吧”；r047 已关闭且活动槽为空。
+- 执行动作：将 r048 committed plan 逐字节镜像到根 `dis/sug.md`，绑定 plan commit/blob/SHA、L2授权、四卡预算、真实兼容环境、consumed-development门与228-image T_audit seal，标记 `DISPATCHED`。
+- 关键产物路径：`dis/sug.md`；`dis/coordination.json`；`dis/plans/B/b-r048-p2c-lift-directed-obb-stagea-20260819/STATE.json`；dispatch `orientbench-b-r048-p2c-lift-directed-obb-stagea-20260819`。
+- 是否触发停止条件：否。T_audit semantic fields仍禁止读取；本轮不下载新数据、不训练host detector、不允许版本字符串伪装。
+- 下一步建议：服务器按唯一三元组接收业务指令048，先提交STARTED和METHOD_FREEZE，再建立真实兼容环境、完成开发门；只有G1通过才封印并打开T_audit。
