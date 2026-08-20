@@ -3787,3 +3787,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/B.md`；`dis/coordination.json`。
 - 是否触发停止条件：否，新授权扩大后续数据与训练范围；clean endpoint 是否启用仍由新 revision 正式冻结。
 - 下一步建议：提交撤回事务，随后冻结并激活业务049 revision。
+
+## 2026-08-19 21:27 PDT — 业务 049 新数据/完整 detector revision 成形
+
+- 指令来源：用户明确授权业务049新数据与四卡 detector 训练，并否定负结果附录。
+- 执行动作：新建业务049 revision；主门为 DOTA-v1.0/PSC 四卡全参数标准完整训练，扩展为 DOTA/DIOR/FAIR1M/SODA、PSC/Oriented R-CNN 六 cells；加入三 seed与零目标GT transfer。投稿过滤明确排除所有失败方法与负结果。
+- 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`。
+- 是否触发停止条件：否，计划尚未激活；DOTA-v2.0与SODA official test继续留作未来 clean confirmation，不在本 revision 消费。
+- 下一步建议：提交 immutable plan、标记 READY，再原子激活并推送服务器执行参数。
+
+## 2026-08-19 21:28 PDT — 新范围阶段汇报
+
+- 指令来源：B 主动汇报。
+- 执行动作：向用户确认旧 r050 未启动已撤回；新业务049 revision 使用新增 DOTA/FAIR1M、两 detector family 与四卡完整训练；失败结果不进入任何投稿版面。
+- 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`。
+- 是否触发停止条件：否。
+- 下一步建议：完成 READY/activation 事务。

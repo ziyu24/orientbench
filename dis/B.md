@@ -902,3 +902,9 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 用户明确授权“业务049的新数据与四卡detector训练”，并明确反对把负结果放入附录。B 采纳：r043-r049 的失败方法只留内部研发台账，不进入目标论文正文、补充材料或消融表，不用版面重复证明失败。
 - r050 尚无 tracked STARTED，故在服务器启动前撤回；其“仅旧 DIOR/SODA + frozen-head”范围不再执行。
 - 授权不用于重跑已失败的 CORA-v1。新 revision 保留 PEF 的 candidate-conditioned periodic evidence 核心，但改为 DOTA-v1.0/DIOR-R/FAIR1M/SODA-A 新数据范围、标准四卡 detector 训练、两 detector family 和严格正贡献门。只有正结果进入稿件。
+
+## 28. 2026-08-19：业务 049 revision 冻结为新数据/完整 detector 路线
+
+- 主生死门改为 DOTA-v1.0 train→val、PSC 四卡标准完整 schedule，全参数训练 CONT/DIRECT_DIST/SCALAR_QUALITY/PEF；必须同时取得 AP75 `+1.0pp`、角误差相对下降10%、AUGRC/Risk@70相对下降15%，而非靠风险排序牺牲检测精度。
+- 主门通过后扩为六个 full-detector cells，覆盖 DOTA/DIOR/FAIR1M/SODA、PSC/Oriented R-CNN；至少5/6复现，且两个 detector family、三个 datasets 均有通过 cell。再补三 seeds 与零目标 GT transfer。
+- r049-v1 的 CORA 负结果、其他失败方法与本 revision 可能的失败结果均不进入目标论文正文/补充/附录。计划：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`。
