@@ -3755,3 +3755,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`。
 - 是否触发停止条件：否，r050 为新方法候选；未触碰任何 clean endpoint。
 - 下一步建议：完成 READY/activation 原子事务并推送。
+
+## 2026-08-19 21:16 PDT — 业务 050 激活
+
+- 指令来源：用户持续 GPU/CPU 授权与“抓紧推进”。
+- 执行动作：PEF-OBB 候选计划已先以 immutable blob 提交为 READY，再逐字节镜像到根 `dis/sug.md` 并绑定 coordination；业务编号 `050`、dispatch `orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819`。
+- 关键产物路径：`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`；`dis/sug.md`；`dis/coordination.json`。
+- 是否触发停止条件：否。当前只完成派发，服务器尚未产生 STARTED/结果；clean endpoints 继续密封。
+- 下一步建议：服务器 fast-forward 到 activation commit，核验 plan commit `f92b4324a5fcc7190241f16c850f712618898c51`、blob `fd765f56a6c980986a8d9dbb1c0ec12c7ea1556d`、SHA-256 `ddef746c929f9f88445610f3000467483e6e9064c219a683d5f280b634a62e96` 后执行 G0→G1。

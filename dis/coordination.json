@@ -69,7 +69,54 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": null,
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819",
+    "plan_id": "b-r050-pef-obb-periodic-evidence-stagea-20260819",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-19：『后续GPU等的不需要授权，都在空着呢，抓紧推进。』",
+    "scientific_snapshot": {
+      "primary": "9f20680c1b094bc029614fe7be3e0b9b4d13abc7",
+      "r049_state": "B_REJECT_EXECUTED_CORA_V1_JOINT_PENDING",
+      "current_venue_floor": "STRONG_JSTARS_OR_REMOTE_SENSING",
+      "target_route": "PEF_OBB_PERIODIC_CANDIDATE_EVIDENCE_FIELD_STAGE_A"
+    },
+    "plan_path": "dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md",
+    "plan_commit_sha": "f92b4324a5fcc7190241f16c850f712618898c51",
+    "plan_blob_oid": "fd765f56a6c980986a8d9dbb1c0ec12c7ea1556d",
+    "plan_sha256": "ddef746c929f9f88445610f3000467483e6e9064c219a683d5f280b634a62e96",
+    "active_plan_path": "dis/sug.md",
+    "active_plan_blob_oid": "fd765f56a6c980986a8d9dbb1c0ec12c7ea1556d",
+    "active_sha256": "ddef746c929f9f88445610f3000467483e6e9064c219a683d5f280b634a62e96",
+    "base_sha": "9f20680c1b094bc029614fe7be3e0b9b4d13abc7",
+    "activation_base_sha": "560e97f46a6be4e32cb34a2e374f668a1b11934a",
+    "risk_class": "L2",
+    "user_authorization": {
+      "required": true,
+      "status": "granted",
+      "reference": "用户 2026-08-19：『后续GPU等的不需要授权，都在空着呢，抓紧推进。』"
+    },
+    "resource_scope": {
+      "declared": true,
+      "compute": {"gpu_count_max": 4, "gpu_hours_max": 360, "cpu_core_hours_max": 1200},
+      "wall_time": {"seconds_max": 345600},
+      "data": {
+        "allowed_dataset_ids": ["DIOR-R-existing-r043-development-train-val-readonly", "SODA-A-existing-r043-development-train-val-readonly", "existing-valid-PSC-baselines-readonly", "repository-tracked-evidence-readonly"],
+        "read_bytes_max": 4398046511104,
+        "write_bytes_max": 536870912000
+      },
+      "write": {
+        "allowed_paths": ["experiments/r050_pef_obb/", "configs/r050_pef_obb/", "outputs/persistent_artifacts/orientbench_pef_obb_r050_20260819/", "audit_bundles/r050/", "docs/paper_jprs_r050/", "dis/server_reports/orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819/", "claude_code_and_supervisor.md"],
+        "bytes_max": 536870912000
+      },
+      "network": {"allowed": true, "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git", "https://github.com/open-mmlab/", "https://pypi.org/", "https://files.pythonhosted.org/", "https://download.pytorch.org/", "https://repo.anaconda.com/", "https://conda.anaconda.org/"]}
+    },
+    "conflict_keys": ["server-execution-slot", "dis/sug.md", "gpu-all-four-pef-native-training", "DOTA-v2.0-and-SODA-official-test-sealed", "outputs/persistent_artifacts/orientbench_pef_obb_r050_20260819"],
+    "server_report_path": "dis/server_reports/orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "supersedes": null,
+    "activated_at": "2026-08-19T21:15:59-07:00"
+  },
   "last_closed_dispatch": {
     "history_path": "dis/dispatch_history/orientbench-b-r049-cora-obb-native-risk-stagea-20260819.json",
     "dispatch_id": "orientbench-b-r049-cora-obb-native-risk-stagea-20260819",
@@ -81,5 +128,5 @@
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-19T21:07:46-07:00"
+  "updated_at": "2026-08-19T21:15:59-07:00"
 }
