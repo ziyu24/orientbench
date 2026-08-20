@@ -3883,3 +3883,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/invalid_pre_geometry_cont/train.log`；`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/pef_head.py`；`configs/r049_rev2_pef_obb/dota_psc_pef_geometry_smoke_500.py`。
 - 是否触发停止条件：原 G2 run 因实现不合格而作废并停止；不是科学门控早停。禁止端点未触碰。
 - 下一步建议：先以修复后实现完成四卡 500-iteration smoke；通过后从零重新开始四臂 G2 标准完整训练，单 epoch 波动不得早停。
+
+## 2026-08-19 22:35 PDT — r049-rev2 几何修复 smoke 通过并重启 G2
+
+- 指令来源：冻结业务 049 与用户要求解决早停原因。
+- 执行动作：修复后 PEF 的四卡 500-iteration full-parameter smoke 正常完成，final validation 与 checkpoint 均完成，5/5 field tests 通过；已重新启动从零训练的 DOTA/PSC CONT，并恢复只在前一 arm 正常完成第 12 epoch 后才启动下一 arm 的监督器。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_geometry_smoke_500/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_cont/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/supervisor_geometry_repair.log`。
+- 是否触发停止条件：否；修复后 G1 admission 正常通过，G2 尚未裁决。未触碰禁止端点。
+- 下一步建议：完成四臂完整 12-epoch 训练，再以冻结的 AP75、角误差、native-risk、bootstrap 指标一次性决定是否停止扩展。
