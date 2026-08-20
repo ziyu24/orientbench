@@ -34,4 +34,9 @@ if wait_for_normal_arm "$base/dota_psc_scalar_quality"; then
 else
   echo "SCALAR_QUALITY_ABNORMAL"; exit 1
 fi
-echo "PEF_STARTED"
+if wait_for_normal_arm "$base/dota_psc_pef"; then
+  tmux send-keys -t "$session" "bash $root/experiments/r049_rev2_pef_obb/run_g2_final_exports.sh > $base/final_exports.log 2>&1" Enter
+  echo "PEF_NORMAL_FINAL_EXPORTS_STARTED"
+else
+  echo "PEF_ABNORMAL"; exit 1
+fi
