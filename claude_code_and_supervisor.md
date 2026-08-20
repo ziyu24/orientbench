@@ -3891,3 +3891,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_geometry_smoke_500/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_cont/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/supervisor_geometry_repair.log`。
 - 是否触发停止条件：否；修复后 G1 admission 正常通过，G2 尚未裁决。未触碰禁止端点。
 - 下一步建议：完成四臂完整 12-epoch 训练，再以冻结的 AP75、角误差、native-risk、bootstrap 指标一次性决定是否停止扩展。
+
+## 2026-08-19 22:41 PDT — r049-rev2 训练后冻结导出已接入监督器
+
+- 指令来源：冻结业务 049 的 raw prediction / AP 交付要求。
+- 执行动作：监督器已更新为在四个 arm 均正常完成第 12 epoch 后，自动以 final `epoch_12.pth`（非 val-selected best checkpoint）串行四卡导出全部 prediction pkl，并以冻结 IoU=0.5/0.75 evaluator 写出 AP；监督器重启只影响自身，不中断正在运行的 CONT。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/run_g2_final_exports.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/final_exports.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/`。
+- 是否触发停止条件：否；CONT 仍正常执行，禁止端点未触碰。
+- 下一步建议：四臂完成后从导出结果生成 raw-q/risk/matched rows、angle/risk/bootstrap 表并裁决 G2。
