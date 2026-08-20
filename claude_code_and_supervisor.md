@@ -3827,3 +3827,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r049_rev2/STARTED.json`；`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：否；未触碰 DOTA-v2.0、SODA-A official test 或旧 T_audit 语义字段。
 - 下一步建议：完成 DOTA/PSC 主 cell 的数据、baseline、配置与环境一致性盘点，再实现并烟测冻结 PEF。
+
+## 2026-08-19 21:47 PDT — r049-rev2 G0 主门通过
+
+- 指令来源：冻结业务 `orientbench-b-r049-rev2-pef-multidata-multihost-20260819`。
+- 执行动作：完成 DOTA/PSC 主资产、配置和 checkpoint 身份核验；以四张 A30 全验证回放 historical PSC checkpoint，mAP/AP50=`0.5562/0.5560`，与 archived mAP=`0.5562` 一致。修复仅为项目内 retired data-root alias 与延迟的 legacy NumPy checkpoint alias，未改变模型、数据、checkpoint 或 evaluator。
+- 关键产物路径：`audit_bundles/r049_rev2/asset_inventory.csv`；`experiments/r049_rev2_pef_obb/g0_asset_parity.md`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g0/dota_psc_baseline_parity/test.log`。
+- 是否触发停止条件：否；DOTA-v1.0 + PSC 主 cell 成立。FAIR1M 已登记 transformed split 缺失，按计划仅跳过可选扩展，不以 raw 数据替代。未触碰 DOTA-v2.0、SODA official test 或旧 T_audit。
+- 下一步建议：执行 G1 的 PEF/DIRECT_DIST/SCALAR_QUALITY 实现、结构测试和四卡 500-iteration 全参数 smoke。
