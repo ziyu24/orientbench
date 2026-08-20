@@ -1,0 +1,27 @@
+{
+  "dispatch_id": "orientbench-b-r049-rev2-pef-multidata-multihost-20260819",
+  "gate": "G2_DOTA_PSC_FULL_TRAIN_PRIMARY",
+  "decision": "REJECT_PEF_METHOD",
+  "execution_status": "complete_gated_scientific_early_stop",
+  "final_epoch": 12,
+  "frozen_comparison": {
+    "strongest_control": "CONT",
+    "cont": {"AP50": 0.561, "AP75": 0.299},
+    "direct_dist": {"AP50": 0.508, "AP75": 0.265},
+    "scalar_quality": {"AP50": 0.559, "AP75": 0.294},
+    "pef": {"AP50": 0.5, "AP75": 0.258},
+    "pef_minus_strongest": {"AP50": -0.061, "AP75": -0.041}
+  },
+  "frozen_requirements_failed": [
+    "AP50 delta must be >= -0.003; observed -0.061",
+    "AP75 absolute gain must be >= 0.010; observed -0.041"
+  ],
+  "consequence": "Do not run G3 multi-data/multi-host or G4 seeds/transfer. Do not include this failed method in any paper, supplement, appendix, or ablation.",
+  "evidence": [
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_cont/20260820_045257/20260820_045257.json",
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_direct_dist/20260820_045501/20260820_045501.json",
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_scalar_quality/20260820_045704/20260820_045704.json",
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_pef/20260820_045906/20260820_045906.json"
+  ],
+  "prohibited_endpoints_touched": false
+}

@@ -3907,3 +3907,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_g2_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_direct_dist/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/supervisor_geometry_repair.log`。
 - 是否触发停止条件：否；这是监督器竞态，不是训练或科学门控异常；禁止端点未触碰。
 - 下一步建议：DIRECT_DIST 完整结束后由已修复监督器启动 SCALAR_QUALITY，再到 PEF 和最终冻结导出。
+
+## 2026-08-20 05:54 PDT — r049-rev2 G2 冻结门控拒绝并正常结束
+
+- 指令来源：冻结业务 049 的 G2 主门。
+- 执行动作：CONT、DIRECT_DIST、SCALAR_QUALITY、PEF 四臂均完成 DOTA-v1.0 train→val 12-epoch 四卡完整训练；以 final `epoch_12.pth` 复评 AP50/AP75。PEF=`0.500/0.258`，strongest CONT=`0.561/0.299`，差值=`-0.061/-0.041`，违反 AP50 `>=-0.003`、AP75 `>=+0.010` 的必要条件，裁决 `REJECT_PEF_METHOD`。停止 G3/G4，不将失败方法纳入任何投稿材料。
+- 关键产物路径：`audit_bundles/r049_rev2/G2_GATE_DECISION.json`；`audit_bundles/r049_rev2/G2_GATE_REPORT.md`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/`。
+- 是否触发停止条件：是，正常的冻结科学早停；不是异常结束。未触碰 DOTA-v2.0、SODA-A official test 或旧 `T_audit` 字段。
+- 下一步建议：本 dispatch 已执行完毕；保留内部止损与可复现证据，等待新的合法业务指令。

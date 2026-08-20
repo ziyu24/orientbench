@@ -1,13 +1,13 @@
-未执行完毕
+执行完毕
 `dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`
 
 ## r049-rev2 server execution record
 
-- 状态：`G1_GEOMETRY_REPAIR_PASS`；此前 G2 CONT 已判为无效，不进入任何科学结论。
+- 状态：`COMPLETE_GATED_SCIENTIFIC_EARLY_STOP`；G2 已完成并以冻结阈值拒绝 PEF 方法。
 - 已核验：`server-primary` 绑定、冻结 plan commit/blob/SHA、四张 A30 可用、唯一报告路径和写入范围；DOTA/PSC 主资产与历史 checkpoint 的四卡全验证回放通过。
 - 信息墙：尚未访问 DOTA-v2.0、SODA-A official test 或旧 `T_audit` 语义字段。
 - G0 结论：DOTA PSC replay mAP/AP50=`0.5562/0.5560`，与 archived mAP=`0.5562` 一致；DIOR 与 SODA 的已登记扩展资产可用，FAIR1M 的已登记 transformed split 缺失并冻结为可跳过扩展 cell。
-- 下一步：从零开始 CONT、DIRECT_DIST、SCALAR_QUALITY、PEF 四臂 G2；只在四臂完整结束后进行冻结联合裁决。
+- 下一步：不运行 G3/G4；保留内部止损证据，不能将本轮失败方法写入任何投稿材料。
 
 ## Historical G1 completion (superseded for G2 admission)
 
@@ -19,3 +19,9 @@
 
 - 修复后 PEF 四卡 500-iteration full-parameter smoke 正常结束，final validation 与 checkpoint 正常完成；5/5 PEF field tests 通过。
 - 修复实现以每 FPN level 的 fixed anchor candidate box 宽高决定 rotated sampling axes，候选角是唯一变化的几何量；未改变数据、控制、K、loss weight、阈值或禁止端点。
+
+## G2 final decision
+
+- CONT、DIRECT_DIST、SCALAR_QUALITY、PEF 均完成 DOTA-v1.0 train→val 12-epoch 四卡完整训练；final `epoch_12.pth` 的 frozen AP50/AP75 复评结果为 CONT=`0.561/0.299`、DIRECT_DIST=`0.508/0.265`、SCALAR_QUALITY=`0.559/0.294`、PEF=`0.500/0.258`。
+- 相对 strongest CONT，PEF AP50/AP75 分别为 `-0.061/-0.041`，直接违反 AP50 `>=-0.003` 与 AP75 `>=+0.010` 两项必要条件。因此结论为 `REJECT_PEF_METHOD`，按计划正常结束并停止 G3/G4；未触碰禁止端点。
+- 决策证据：`audit_bundles/r049_rev2/G2_GATE_DECISION.json`；`audit_bundles/r049_rev2/G2_GATE_REPORT.md`。
