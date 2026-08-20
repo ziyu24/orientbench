@@ -65,6 +65,15 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
 
     def predict_by_feat(self, cls_scores, bbox_preds, angle_preds, pef_energies,
                         pef_angles, pef_risks, **kwargs):
-        # PEF's complete q/refined-angle/risk tensors are emitted by the
-        # dedicated exporter.  Detection scores are not fused with risk here.
-        return super().predict_by_feat(cls_scores, bbox_preds, angle_preds, **kwargs)
+        # Replace only the decoded orientation with the candidate-evidence
+        # circular estimate.  Class score and box geometry are untouched and
+        # risk is never score-fused.  One location-level evidence field is
+        # shared over its anchor templates, matching the FPN sampling site.
+        refined_codes = []
+        for refined in pef_angles:
+            b, h, w = refined.shape
+            code = self.angle_coder.encode(refined.reshape(-1, 1))
+            code = code.reshape(b, h, w, self.encode_size).permute(0, 3, 1, 2)
+            code = code.unsqueeze(1).expand(-1, self.num_anchors, -1, -1, -1)
+            refined_codes.append(code.reshape(b, self.num_anchors * self.encode_size, h, w))
+        return super().predict_by_feat(cls_scores, bbox_preds, refined_codes, **kwargs)
