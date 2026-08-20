@@ -3987,3 +3987,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_cont/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_direct_dist/train.log`；`experiments/r049_rev2_pef_obb/control_heads.py`。
 - 是否触发停止条件：是，G2 control 的实现/对照定义待确认；不是 PEF 科学 REJECT，禁止端点未触碰。
 - 下一步建议：由 B/用户确认 DIRECT_DIST 是否允许采用“host angle + distribution residual”的可操作定义；确认前不启动 SCALAR_QUALITY/PEF，也不以不等价控制裁决 G2。
+
+## 2026-08-20 09:17 PDT — r049-rev2 DIRECT_DIST 数值退化修复与重新准入
+
+- 指令来源：r049 允许服务器自主修复普通工程问题；DIRECT_DIST 首轮异常的可复现定位。
+- 执行动作：确认问题不是数据或阈值，而是均匀 absolute axial distribution 的 circular mean 在数值上未定义，造成随机全局角覆盖。将 direct branch 固定为标准宿主角度零残差 reference：零初始化 q 表示零修正，训练目标为 GT 相对宿主角度的 12-bin axial residual，推理仍由 direct q 产生实际角修正；增加 uniform-q 的安全 identity guard。该修复不改数据、K、loss 权重、全训练 schedule、门槛或 PEF 定义，仅使既有 DIRECT_DIST inference 对照可运行。新的四卡 20-iteration residual smoke 正常结束、有限且保存 checkpoint。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/control_heads.py`；`configs/r049_rev2_pef_obb/dota_psc_direct_dist_residual_smoke_20.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_direct_dist_residual_smoke_20/train.log`。
+- 是否触发停止条件：否；原 arm 的异常实例保留为无效工程尝试，修复后的 control 将从零重新运行。禁止端点未触碰。
+- 下一步建议：重新启动 DIRECT_DIST；仅在其第 1 epoch full-val 不再异常偏低时才继续 12 epoch 并恢复顺序监督。
