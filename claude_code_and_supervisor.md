@@ -3819,3 +3819,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`；`dis/coordination.json`。
 - 是否触发停止条件：否；revision 已派发、尚未执行。
 - 下一步建议：服务器执行精确 dispatch；DOTA/PSC 主门通过后才扩六 cells，避免在失败方法上继续烧卡。
+
+## 2026-08-19 21:37 PDT — 服务器启动 r049-rev2
+
+- 指令来源：用户“拉取最新分支，然后执行。”
+- 执行动作：已 fast-forward 至 `46c85d7a88d4612b7120eb0252a4633c86d20591`；核验 worker=`server-primary`、dispatch=`orientbench-b-r049-rev2-pef-multidata-multihost-20260819`、plan commit=`8ff39a512b1b10abee9e6174a536b347ecf3987b`、blob=`d363d08214a142e52ea59ca7bb7f945ec62135e7` 和 SHA-256=`9cdc12b3e2ecb1b34b801387102ef89c1187bfe45bfec572e93ad0cd04e1cded`；四张 A30 均可用，已写唯一 STARTED 记录并开始 G0。
+- 关键产物路径：`audit_bundles/r049_rev2/STARTED.json`；`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：否；未触碰 DOTA-v2.0、SODA-A official test 或旧 T_audit 语义字段。
+- 下一步建议：完成 DOTA/PSC 主 cell 的数据、baseline、配置与环境一致性盘点，再实现并烟测冻结 PEF。
