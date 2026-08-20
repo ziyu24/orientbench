@@ -3979,3 +3979,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/run_repaired_g2_final_exports.sh`。
 - 是否触发停止条件：否；这是在最终导出前完成的路径绑定修复，训练未中断，未触碰禁止端点。
 - 下一步建议：继续由顺序监督器完成四臂训练，随后执行冻结导出与门控裁决。
+
+## 2026-08-20 09:10 PDT — r049-rev2 DIRECT_DIST 首轮异常低，按早停纪律暂停
+
+- 指令来源：r049 G2 每 epoch full-val 监督与 AGENTS.md 首 epoch明显偏低早停规则。
+- 执行动作：CONT 已正常完整完成 12 epochs（final full-val mAP/AP50=`0.5446/0.5450`）。DIRECT_DIST 第 1 epoch full-val 为 `0.0003/0.0000`，显著低于同初始化 CONT 的 `0.0256/0.0260`；已中断该 arm，保留日志和 checkpoint，未继续盲跑。初步定位是其未训练 direct distribution 在推理中直接替换 host angle，近均匀 q 的 circular mean 退化为近零角；是否改成残差/混合推理会改变冻结 DIRECT_DIST 对照定义，服务器不能自行改口径。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_cont/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_direct_dist/train.log`；`experiments/r049_rev2_pef_obb/control_heads.py`。
+- 是否触发停止条件：是，G2 control 的实现/对照定义待确认；不是 PEF 科学 REJECT，禁止端点未触碰。
+- 下一步建议：由 B/用户确认 DIRECT_DIST 是否允许采用“host angle + distribution residual”的可操作定义；确认前不启动 SCALAR_QUALITY/PEF，也不以不等价控制裁决 G2。
