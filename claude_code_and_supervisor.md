@@ -3851,3 +3851,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r049_rev2/METHOD_FREEZE.json`；`configs/r049_rev2_pef_obb/dota_psc_*_full.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_cont/train.log`。
 - 是否触发停止条件：否；当前正常运行，禁止端点未触碰。
 - 下一步建议：CONT 完成后执行 DIRECT_DIST、SCALAR_QUALITY、PEF，并以冻结 G2 阈值一次性裁决。
+
+## 2026-08-19 22:06 PDT — r049-rev2 G2 顺序监督启动
+
+- 指令来源：用户既有“建立监督机制、继续推进”要求。
+- 执行动作：启动独立监督 session；它只在当前四卡 arm 正常写出 12-epoch terminal checkpoint 且无训练异常后，按冻结顺序启动下一 arm。任何异常会保留下一 arm 未启动，等待针对性修复。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_g2_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/supervisor.log`。
+- 是否触发停止条件：否；当前 CONT 仍正常运行，禁止端点未触碰。
+- 下一步建议：监督 CONT→DIRECT_DIST→SCALAR_QUALITY→PEF 连续执行，并只在正式门控或异常时汇报。
