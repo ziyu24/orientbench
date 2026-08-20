@@ -3707,3 +3707,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_posttrain.sh`；`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`。
 - 是否触发停止条件：否；普通执行环境修复，尚未产生 G2 科学结论。
 - 下一步建议：重启已冻结三臂的 raw export/metric/gate supervisor。
+
+## 2026-08-19 20:50 CST — r049 matched-GT 复原修复
+
+- 指令来源：三臂 raw export 完成后的 frozen metric builder 异常。
+- 执行动作：确认 `DumpDetResults` 合规保存了 prediction 与 image metadata、但不保存 GT；metric builder 改为从 r043 已登记的 DIOR test DOTA-format annotation 以 `img_id` 精确重建 GT，并用 `QuadriBoxes -> rbox` 转换后进行原定 class-aware rotated-IoU matching。单 image smoke 已通过。三份 raw pkl 均已完整生成，不重跑 export 或训练。
+- 关键产物路径：`experiments/r049_cora_obb/build_dior_g2_metrics.py`；`top_journal_v3_reaudit_055/data_prep/DIOR/annfiles_dotaformat/test/`。
+- 是否触发停止条件：否；这是只读、已登记 endpoint 的指标输入复原，不涉及数据集扩展、目标域拟合或任何门槛更改。
+- 下一步建议：直接运行原定 matched metrics 与 DIOR G2 frozen adjudicator；不重复三臂训练或 raw export。

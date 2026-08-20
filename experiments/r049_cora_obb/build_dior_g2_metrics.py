@@ -17,10 +17,12 @@ import json
 import math
 import pickle
 from pathlib import Path
+from functools import lru_cache
 
 import numpy as np
 import torch
 from mmcv.ops import box_iou_rotated
+from mmrotate.structures.bbox import QuadriBoxes
 
 ROOT = Path('/home/rspip/cqc/pro/study/orientbench')
 OUT = ROOT / 'outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2'
@@ -30,6 +32,13 @@ ARMS = {
     'VM_NLL': OUT / 'raw_predictions/dior_vm_nll_seed0.pkl',
     'CORA': OUT / 'raw_predictions/dior_cora_seed0.pkl',
 }
+DIOR_TEST_ANN = ROOT / 'top_journal_v3_reaudit_055/data_prep/DIOR/annfiles_dotaformat/test'
+DIOR_CLASSES = (
+    'airplane', 'airport', 'baseballfield', 'basketballcourt', 'bridge',
+    'chimney', 'dam', 'Expressway-Service-area', 'Expressway-toll-station',
+    'golffield', 'groundtrackfield', 'harbor', 'overpass', 'ship', 'stadium',
+    'storagetank', 'tenniscourt', 'trainstation', 'vehicle', 'windmill')
+DIOR_LABELS = {name: idx for idx, name in enumerate(DIOR_CLASSES)}
 
 
 def sha256(path: Path) -> str:
@@ -55,14 +64,39 @@ def le90_error_deg(pred: np.ndarray, gt: np.ndarray) -> float:
     return min(delta, 180. - delta)
 
 
+@lru_cache(maxsize=None)
+def gt_for_image(img_id: str) -> tuple[np.ndarray, np.ndarray]:
+    """Read the frozen r043 DOTA-format test annotation for one DIOR image.
+
+    ``DumpDetResults`` deliberately serializes predictions plus sample metadata,
+    not GT.  This reconstructs exactly the test GT from the already-registered
+    r043 annotation endpoint; it never consults model output or calibrates a
+    metric parameter.
+    """
+    path = DIOR_TEST_ANN / f'{img_id}.txt'
+    if not path.is_file():
+        raise RuntimeError(f'missing frozen DIOR test annotation: {path}')
+    qboxes, labels = [], []
+    for line in path.read_text().splitlines():
+        fields = line.split()
+        if not fields:
+            continue
+        if len(fields) < 10 or fields[8] not in DIOR_LABELS:
+            raise RuntimeError(f'bad DIOR annotation line in {path}: {line!r}')
+        qboxes.append([float(v) for v in fields[:8]])
+        labels.append(DIOR_LABELS[fields[8]])
+    if not qboxes:
+        return np.empty((0, 5), dtype=np.float32), np.empty((0,), dtype=np.int64)
+    rboxes = QuadriBoxes(torch.tensor(qboxes, dtype=torch.float32)).convert_to('rbox').tensor
+    return rboxes.cpu().numpy(), np.asarray(labels, dtype=np.int64)
+
+
 def match_record(rec: dict, arm: str) -> list[dict]:
     pi = rec['pred_instances']
-    gi = rec['gt_instances']
     pb = tensor(pi['bboxes']).numpy()
     ps = tensor(pi['scores']).numpy()
     pl = tensor(pi['labels']).long().numpy()
-    gb = tensor(gi['bboxes']).numpy()
-    gl = tensor(gi['labels']).long().numpy()
+    gb, gl = gt_for_image(str(rec['img_id']))
     native = None
     if arm != 'CONT':
         if 'cora_native_risk' not in pi:
