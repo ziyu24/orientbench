@@ -11,11 +11,11 @@ while ! grep -q 'Saving checkpoint at 1 epochs' "$log" 2>/dev/null; do
 done
 if grep -qiE 'Traceback|ChildFailedError|RuntimeError|OutOfMemory|grad_norm: (nan|inf)' "$log"; then echo G1_ABNORMAL; exit 1; fi
 source /home/rspip/cqc/data/install/yes/bin/activate pcp-obb
-CUDA_VISIBLE_DEVICES=0 python "$root/experiments/r049_rev2_pef_obb/verify_rotated_grid_gradients.py" \
+PYTHONPATH="$root${PYTHONPATH:+:$PYTHONPATH}" CUDA_VISIBLE_DEVICES=0 python "$root/experiments/r049_rev2_pef_obb/verify_rotated_grid_gradients.py" \
   --config "$root/configs/r049_rev2_pef_obb/dota_psc_pef_batched_rotated_grid_static_smoke_500.py" \
   --out "$g1/full_model_gradient.json" >"$g1/full_model_gradient.log" 2>&1
-tmux has-session -t orientbench_r049rev2_grid 2>/dev/null && tmux kill-session -t orientbench_r049rev2_grid || true
-tmux has-session -t orientbench_r049rev2_grid_supervisor 2>/dev/null && tmux kill-session -t orientbench_r049rev2_grid_supervisor || true
+tmux has-session -t =orientbench_r049rev2_grid 2>/dev/null && tmux kill-session -t =orientbench_r049rev2_grid || true
+tmux has-session -t =orientbench_r049rev2_grid_supervisor 2>/dev/null && tmux kill-session -t =orientbench_r049rev2_grid_supervisor || true
 mkdir -p "$g2/dota_psc_cont"
 tmux new-session -d -s orientbench_r049rev2_grid -c "$root"
 tmux send-keys -t orientbench_r049rev2_grid "MASTER_PORT=29821 bash experiments/r049_rev2_pef_obb/run_g2_arm.sh configs/r049_rev2_pef_obb/dota_psc_cont_rotated_grid_full.py > $g2/dota_psc_cont/train.log 2>&1" Enter

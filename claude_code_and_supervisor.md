@@ -3963,3 +3963,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/pef_field.py`；`configs/r049_rev2_pef_obb/dota_psc_pef_rotated_grid_static_smoke_500.py`。
 - 是否触发停止条件：否；这是 G1 实现忠实度修复，非科学早停或异常，禁止端点未触碰。
 - 下一步建议：以修复结构重新完成四卡 500-iteration smoke 和梯度验证，再从新的独立路径重新启动四臂 G2。
+
+## 2026-08-20 23:09 CST — r049-rev2 最终 rotated-grid G1 通过，监督器路径修复
+
+- 指令来源：用户要求解决错误早停并继续当前 r049。
+- 执行动作：最终 2×2 rotated-grid PEF 四卡 500-iteration smoke 正常结束并保存 checkpoint；独立 one-batch full-model gradient admission 确认 backbone、neck、bbox、angle 与 PEF sampler/scorer 五组参数均有非零有限梯度。监督器首次调用该检查时缺失项目 `PYTHONPATH`，已修复为显式项目根路径并将 tmux 会话匹配改为精确匹配；这属于启动器路径异常，不是 G1 或科学门控失败。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_batched_rotated_grid_static_smoke_500/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_batched_rotated_grid_static_smoke_500/full_model_gradient.json`；`experiments/r049_rev2_pef_obb/supervise_rotated_grid_g1_then_g2.sh`。
+- 是否触发停止条件：否；G1 正常通过，未触碰禁止端点。
+- 下一步建议：由修复后的监督器从新的 `g2_rotated_grid/` 目录启动 CONT，并仅在每个 arm 正常完成后顺序推进其余三臂和冻结导出。

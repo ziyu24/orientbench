@@ -2,7 +2,15 @@
 """One-batch full-model finite-gradient admission check for final PEF grid."""
 from __future__ import annotations
 import argparse, json
+import sys
 from pathlib import Path
+
+# Config custom_imports are project-relative.  Running this file directly would
+# otherwise put only ``experiments/r049_rev2_pef_obb`` on sys.path.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 import torch
 from mmengine.config import Config
 from mmengine.runner import Runner
