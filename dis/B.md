@@ -882,3 +882,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - r049 新增 CORA-OBB：在 PSC detector 内对 angle-only counterfactual boxes 学习完整 orientation-harm distribution，使风险梯度进入原生 orientation feature，并以 no-GT native risk 直接对抗 detection score、angle entropy、VM-NLL 和 TTA consistency。
 - Stage A 仅使用已消费的 DIOR-R/SODA-A development train/val；先 seed0 双数据集生死门，再补三种子。DOTA-v2.0、SODA official test 与旧 T_audit 全部继续密封。
 - 过门才取得 TGRS candidate/JPRS potential；失败则 CORA 停止，不靠更多 epoch、seed、阈值或 score fusion 救场。计划：`dis/plans/B/b-r049-cora-obb-native-risk-stagea-20260819/sug.md`。
+
+## 25. 2026-08-19：r049 DIOR G2 有效早停，CORA-v1 关闭
+
+- B 接受服务器正常完成：双 host parity 通过；DIOR-R CONT/VM-NLL/CORA 以同 checkpoint、四卡、三 epoch、FP32 预算完成，并交付 native-risk raw export、matched rows 与冻结裁决。未触碰 SODA-A、DOTA-v2.0、SODA official test 或旧 clean endpoint。
+- CORA-v1 相对 strongest control 的 AP75 为 `-0.027`；相对 VM-NLL 的 AUGRC/Risk@70 改善仅 `0.000404/0.000223`（约 4.95%/1.40% relative）。B verdict 为 `REJECT_EXECUTED_CORA_V1`，不补 seed、不跑 SODA。
+- B 自我审计：冻结的 AUGRC absolute `0.01` 门槛在当前量纲下高于 strongest control 的 `0.008165`，该不等式尺度不合理；同时 affine `base+slope*delta` 不能表达周期/V形 counterfactual harm。两者不改变本轮拒绝，因为 AP75 大幅失败、相对风险增益也近零，但结论不得外推为所有 native-risk 方法都失败。
+- 当前档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于合法目标。CORA-v1 不具备 TGRS/JPRS 主方法资格。

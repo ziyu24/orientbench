@@ -3723,3 +3723,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/metrics/gate_dior_seed0.json`；`docs/paper_jprs_r049/r049_dior_g2_decision.md`；`dis/server_reports/orientbench-b-r049-cora-obb-native-risk-stagea-20260819/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，正常科学早停（非异常）。禁止端点未触碰。
 - 下一步建议：保持 CORA 方法线关闭；仅在用户另行 dispatch 后处理既有 benchmark/diagnostic 主线，禁止以 r049 结果续跑 SODA 或补种子。
+
+## 2026-08-19 21:07 PDT — 用户报告 r049 服务器执行完毕
+
+- 指令来源：用户“服务器执行完毕。”
+- 执行动作：B fast-forward 到 `f20ba9c`，逐项核验 server report、gate、METHOD_FREEZE、三臂配置、CORA 实现、风险指标生成器、裁决器与 validator；接受本轮为正常 gated early stop。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-postexecution-verdict-20260819.md`；`dis/dispatch_history/orientbench-b-r049-cora-obb-native-risk-stagea-20260819.json`；`docs/paper_jprs_r049/r049_dior_g2_decision.md`。
+- 是否触发停止条件：是。DIOR-R 上 CORA AP75 相对 strongest control 下降 `0.027`，AUGRC/Risk@70 改善仅 `0.000404/0.000223`；SODA、额外 seeds 与 clean endpoints 正确停止。
+- 下一步建议：关闭执行槽；不救 CORA-v1。顶刊新路线必须改为能表达完整周期/V形证据的真实 counterfactual feature field，并以 AQE/PQA/VM-NLL 为强边界。
+
+## 2026-08-19 21:09 PDT — r049 验收阶段汇报
+
+- 指令来源：B 主动汇报。
+- 执行动作：向用户确认本轮为正常科学早停；同时指出冻结 AUGRC 绝对门槛量纲不合理、affine counterfactual 参数化不能表达 V 形周期 harm，正在区分方法失败与设计失当。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-postexecution-verdict-20260819.md`。
+- 是否触发停止条件：是，限于 executed CORA-v1；不允许阈值重解释或原配置重跑。
+- 下一步建议：保持 r049 关闭，另立真正不同且有最近邻边界的新方法计划。
