@@ -3739,3 +3739,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r049-postexecution-verdict-20260819.md`。
 - 是否触发停止条件：是，限于 executed CORA-v1；不允许阈值重解释或原配置重跑。
 - 下一步建议：保持 r049 关闭，另立真正不同且有最近邻边界的新方法计划。
+
+## 2026-08-19 21:12 PDT — r049 关闭并形成业务 050 顶刊候选
+
+- 指令来源：用户持续 GPU/CPU 授权与“抓紧推进”。
+- 执行动作：r049 已以 `COMPLETED / PENDING` 关闭并释放派发槽；B 冻结新候选 PEF-OBB，以 candidate-conditioned rotated feature evidence field 替代 affine/scalar risk head，并设置 DIRECT_DIST/SCALAR_QUALITY、双数据集、无目标域 GT transfer 与三 seed 门控。
+- 关键产物路径：`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`；`dis/reviews/B/orientbench-r049-postexecution-verdict-20260819.md`。
+- 是否触发停止条件：r049 是；r050 尚未执行。DOTA-v2.0、SODA official test 与旧 T_audit 继续密封。
+- 下一步建议：提交冻结 r050 plan，核验 plan blob/SHA 后激活业务 050，服务器先做 host parity 与 frozen-head cheap gate。
+
+## 2026-08-19 21:13 PDT — r049 终局与 r050 方向汇报
+
+- 指令来源：B 主动汇报。
+- 执行动作：向用户报告 r049 只否决 CORA-v1、期刊档位仍为 strong JSTARS/Remote Sensing；说明 r050 改用完整周期候选证据场，并以 AQE/O2、VM-NLL、标量质量头和跨数据集无 GT transfer 作边界。
+- 关键产物路径：`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`。
+- 是否触发停止条件：否，r050 为新方法候选；未触碰任何 clean endpoint。
+- 下一步建议：完成 READY/activation 原子事务并推送。

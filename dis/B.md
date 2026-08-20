@@ -889,3 +889,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - CORA-v1 相对 strongest control 的 AP75 为 `-0.027`；相对 VM-NLL 的 AUGRC/Risk@70 改善仅 `0.000404/0.000223`（约 4.95%/1.40% relative）。B verdict 为 `REJECT_EXECUTED_CORA_V1`，不补 seed、不跑 SODA。
 - B 自我审计：冻结的 AUGRC absolute `0.01` 门槛在当前量纲下高于 strongest control 的 `0.008165`，该不等式尺度不合理；同时 affine `base+slope*delta` 不能表达周期/V形 counterfactual harm。两者不改变本轮拒绝，因为 AP75 大幅失败、相对风险增益也近零，但结论不得外推为所有 native-risk 方法都失败。
 - 当前档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于合法目标。CORA-v1 不具备 TGRS/JPRS 主方法资格。
+
+## 26. 2026-08-19：r050 PEF-OBB 周期证据场候选
+
+- r050 不再让同一 feature 直接输出 scalar harm，也不复活 CORA-v1。PEF 对固定 box 的整圈候选角分别执行 rotated feature sampling，以共享 scorer 形成 `theta mod pi` 周期能量场；mode 用于角度修正，概率质量/尾部用于 native risk。
+- 最近邻边界明确为 AQE(TGRS 2023)直接角度分布、FRED(AAAI 2024)一般旋转等变、PQA(AAAI 2026)pixel scalar localization quality、O2-RT-DETR(TGRS 2026)分布细化。PEF 只有在 candidate-conditioned visual evidence 打赢 equal-budget DIRECT_DIST/SCALAR_QUALITY 后才有增量。
+- G1 先冻结 host 训练轻量 heads，DIOR/SODA 各自要求 native-risk AUGRC/Risk@70 相对 strongest baseline 改善至少10%且 AP 不显著回退；双过才进行端到端四卡 seed0。之后必须双向无目标域 GT transfer，才能进入三 seed/Stage B。
+- 计划：`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`。通过只恢复 `JPRS candidate / strong TGRS route`，不预支 ready。
