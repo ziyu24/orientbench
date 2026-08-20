@@ -3,12 +3,11 @@
   "plan_id": "b-r049-rev2-pef-multidata-multihost-20260819",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md",
-  "state": "DRAFT",
-  "plan_commit_sha": null,
-  "plan_blob_oid": null,
-  "plan_sha256": null,
-  "state_reason": "new_business_049_revision_after_explicit_new_data_and_full_detector_training_authorization",
-  "ready_at": null,
-  "updated_at": "2026-08-19T21:27:00-07:00"
+  "state": "READY",
+  "plan_commit_sha": "8ff39a512b1b10abee9e6174a536b347ecf3987b",
+  "plan_blob_oid": "d363d08214a142e52ea59ca7bb7f945ec62135e7",
+  "plan_sha256": "9cdc12b3e2ecb1b34b801387102ef89c1187bfe45bfec572e93ad0cd04e1cded",
+  "state_reason": "committed_revision_ready_for_owner_activation",
+  "ready_at": "2026-08-19T21:29:00-07:00",
+  "updated_at": "2026-08-19T21:29:00-07:00"
 }
-
