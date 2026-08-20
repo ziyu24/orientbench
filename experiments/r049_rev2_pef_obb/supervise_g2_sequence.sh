@@ -10,7 +10,18 @@ base="$root/outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/
 wait_for_normal_arm() {
   local run_dir="$1"
   local log="$run_dir/train.log"
-  while pgrep -f "mmrotate/.mim/tools/train.py.*${run_dir##*/}" >/dev/null; do sleep 30; done
+  local pattern="mmrotate/.mim/tools/train.py.*${run_dir##*/}"
+  # A tmux send-keys launch is asynchronous.  Do not interpret the short
+  # interval before torchrun is visible as a failed training arm.
+  local seen=0
+  for _ in $(seq 1 18); do
+    if pgrep -f "$pattern" >/dev/null; then seen=1; break; fi
+    if grep -q 'Saving checkpoint at 12 epochs' "$log" 2>/dev/null; then break; fi
+    sleep 5
+  done
+  if [ "$seen" -eq 1 ]; then
+    while pgrep -f "$pattern" >/dev/null; do sleep 30; done
+  fi
   grep -q 'Saving checkpoint at 12 epochs' "$log" && ! grep -qiE 'Traceback|ChildFailedError|RuntimeError' "$log"
 }
 
