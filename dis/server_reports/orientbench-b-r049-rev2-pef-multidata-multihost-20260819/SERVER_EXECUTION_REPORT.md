@@ -15,6 +15,7 @@
 - 新 G2 使用隔离目录 `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/`。CONT 已正常完成 12 epoch，final full-val mAP/AP50=`0.5446/0.5450`。
 - DIRECT_DIST 第 1 epoch full-val mAP/AP50=`0.0003/0.0000`，而同初始化 CONT 第 1 epoch 为 `0.0256/0.0260`。按项目首 epoch 显著偏低纪律已中断，保留 `dota_psc_direct_dist/train.log` 和 epoch-1 checkpoint；未继续盲跑。根因是初始近均匀 absolute-q 的 circular mean 在 inference 数值未定义，覆盖了 host angle。
 - 随后将该未定义 circular-mean 数值问题修复为零初始化的 host-angle residual distribution（q 仍是实际 inference 角修正，不是 auxiliary-only loss），并在独立 `dota_psc_direct_dist_residual/` 目录从零完成 12 epoch。其第 1 epoch mAP/AP50=`0.0222/0.0220`，final full-val mAP/AP50=`0.4586/0.4590`；SCALAR_QUALITY 已由顺序监督器启动。原中断 absolute-q 目录保留，不混入指标或导出。
+- SCALAR_QUALITY 在第 1 epoch checkpoint 写入时因 `/home` 文件系统使用率到达 `100%` 异常退出；不是 OOM 或模型数值异常，未产生可用 G2 evidence，PEF 未启动。需先经用户授权归档/清理可再生产物后，才可从零重跑 SCALAR_QUALITY 并继续该 dispatch。
 - 信息墙未变：未触碰 DOTA-v2.0、SODA-A official test、旧 `T_audit`；未运行 G3/G4。该状态不是 `REJECT_PEF_METHOD`。
 
 ## Historical G1 completion (superseded for G2 admission)

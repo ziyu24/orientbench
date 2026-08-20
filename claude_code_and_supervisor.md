@@ -4003,3 +4003,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_direct_dist_residual/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/residual_supervisor.log`。
 - 是否触发停止条件：否；禁止端点未触碰。
 - 下一步建议：完成 residual DIRECT_DIST 的 12 epoch 后继续 SCALAR_QUALITY、PEF 与冻结导出，不在中途用 val 调参。
+
+## 2026-08-20 10:33 PDT — r049-rev2 SCALAR_QUALITY 因磁盘满异常暂停
+
+- 指令来源：r049 顺序监督与运行时异常检查。
+- 执行动作：SCALAR_QUALITY 在第 1 epoch 末保存 checkpoint 时因 `/home` 文件系统 `100%` 使用而异常退出；不是 OOM、数据、模型数值或门控结论。DIRECT_DIST residual 已正常完成，SCALAR 尚未形成可用 full-val 证据，PEF 未启动。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/`。
+- 是否触发停止条件：是，资产/存储环境异常；禁止端点未触碰。
+- 下一步建议：需先按用户授权归档并删除可再生的历史 smoke、无效/已 superseded 训练 checkpoints（当前 r049 库内可释放数 GB），或清理其它项目可再生产物；释放空间后从零重跑 SCALAR_QUALITY，再继续 PEF。
