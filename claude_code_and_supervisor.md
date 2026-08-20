@@ -3675,3 +3675,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/dior_vm_nll_seed0_fp32/train.log`；`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`。
 - 是否触发停止条件：否；AMP 历史运行不纳入 G2 结果。
 - 下一步建议：完成 VM-NLL 与 CORA 的 FP32 训练后，按冻结流程导出、匹配、裁决；仅 DIOR 通过才启动 SODA。
+
+## 2026-08-19 20:38 CST — r049 DIOR 三臂完成后的监督器恢复
+
+- 指令来源：用户授权持续推进；既定自动后处理监督。
+- 执行动作：复核 CONT、VM-NLL、CORA 三个 FP32 臂均完成第 3 次 full-val、无非有限/Traceback/OOM，且均有 best checkpoint。发现先前 detached 后训练 tmux 已退出且日志为空，未执行导出；已在同一冻结脚本下重新启动后训练监督器，不改变任何训练、数据、阈值或门控。
+- 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_posttrain.sh`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/posttrain_supervisor.log`。
+- 是否触发停止条件：否；这是监督器启动缺失的工程恢复，三臂训练本身正常结束。
+- 下一步建议：完成相同 checkpoint 的 raw export、matched rows、DIOR G2 裁决；DIOR 未通过则按计划停止且不启动 SODA。
