@@ -8,11 +8,11 @@ export PYTHONPATH="$root${PYTHONPATH:+:${PYTHONPATH}}"
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 declare -A configs=(
   [dota_psc_cont]=configs/r049_rev2_pef_obb/dota_psc_cont_rotated_grid_full.py
-  [dota_psc_direct_dist]=configs/r049_rev2_pef_obb/dota_psc_direct_dist_rotated_grid_full.py
+  [dota_psc_direct_dist_residual]=configs/r049_rev2_pef_obb/dota_psc_direct_dist_residual_full.py
   [dota_psc_scalar_quality]=configs/r049_rev2_pef_obb/dota_psc_scalar_quality_rotated_grid_full.py
   [dota_psc_pef]=configs/r049_rev2_pef_obb/dota_psc_pef_rotated_grid_full.py
 )
-for arm in dota_psc_cont dota_psc_direct_dist dota_psc_scalar_quality dota_psc_pef; do
+for arm in dota_psc_cont dota_psc_direct_dist_residual dota_psc_scalar_quality dota_psc_pef; do
   out="$base/evaluation/$arm"; mkdir -p "$out"
   torchrun --master_port $((29900 + ${#arm})) --nproc_per_node=4 \
     /home/rspip/cqc/data/install/yes/envs/pcp-obb/lib/python3.10/site-packages/mmrotate/.mim/tools/test.py \

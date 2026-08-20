@@ -23,7 +23,7 @@ from mmcv.ops import box_iou_rotated
 ROOT = Path('/home/rspip/cqc/pro/study/orientbench')
 AR_CUTOFF = 2.1
 ARMS = ('CONT', 'DIRECT_DIST', 'SCALAR_QUALITY', 'PEF')
-DIRS = {'CONT': 'dota_psc_cont', 'DIRECT_DIST': 'dota_psc_direct_dist',
+DIRS = {'CONT': 'dota_psc_cont', 'DIRECT_DIST': 'dota_psc_direct_dist_residual',
         'SCALAR_QUALITY': 'dota_psc_scalar_quality', 'PEF': 'dota_psc_pef'}
 
 
