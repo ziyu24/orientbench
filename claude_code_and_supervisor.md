@@ -3859,3 +3859,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_g2_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/supervisor.log`。
 - 是否触发停止条件：否；当前 CONT 仍正常运行，禁止端点未触碰。
 - 下一步建议：监督 CONT→DIRECT_DIST→SCALAR_QUALITY→PEF 连续执行，并只在正式门控或异常时汇报。
+
+## 2026-08-19 22:17 PDT — r049-rev2 G1 正常通过
+
+- 指令来源：冻结业务 049 的 G1 要求。
+- 执行动作：PEF 500-iteration 四卡全参数 smoke 正常结束；DIRECT_DIST、SCALAR_QUALITY 的四卡 integration smokes 均正常结束；结构测试 4/4 通过，方法冻结文件已存在。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/g1_smoke_summary.md`；`audit_bundles/r049_rev2/METHOD_FREEZE.json`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/`。
+- 是否触发停止条件：否；初始 20-step smoke 的 mAP=0 不构成正式判定。DOTA-v2.0、SODA official test 和旧 T_audit 未触碰。
+- 下一步建议：继续已启动的 G2 四臂完整训练，严格按冻结阈值裁决。
