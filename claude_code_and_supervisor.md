@@ -3899,3 +3899,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/run_g2_final_exports.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/final_exports.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/`。
 - 是否触发停止条件：否；CONT 仍正常执行，禁止端点未触碰。
 - 下一步建议：四臂完成后从导出结果生成 raw-q/risk/matched rows、angle/risk/bootstrap 表并裁决 G2。
+
+## 2026-08-19 23:50 PDT — r049-rev2 监督器异步启动竞态已修复
+
+- 指令来源：运行时监督检查。
+- 执行动作：CONT 已正常完成 12 epoch；DIRECT_DIST 正在第 4 epoch 正常训练。监督器曾在 tmux `send-keys` 发起 DIRECT_DIST 后的极短进程可见性窗口误判该 arm 未启动，写出 `DIRECT_DIST_ABNORMAL`，但训练本身未停止、无 traceback/oom。已修复监督器为等待 torchrun 可见或正常第 12 epoch terminal checkpoint 后再裁决，并重启监督器继续等待当前 DIRECT_DIST。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_g2_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_direct_dist/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/supervisor_geometry_repair.log`。
+- 是否触发停止条件：否；这是监督器竞态，不是训练或科学门控异常；禁止端点未触碰。
+- 下一步建议：DIRECT_DIST 完整结束后由已修复监督器启动 SCALAR_QUALITY，再到 PEF 和最终冻结导出。
