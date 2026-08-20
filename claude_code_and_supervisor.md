@@ -3947,3 +3947,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-postexecution-review-20260820.md`；`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，原先为错误触发且已撤销；当前为可修复的实现验证停止，不是科学 REJECT，dispatch 保持打开。禁止端点未触碰。
 - 下一步建议：完成非恒等 mutation/risk tests、全模型梯度证明和新四臂 G2 后，才允许再次做科学门控裁决。
+
+## 2026-08-20 07:30 PDT — r049-rev2 修复后 G2 已重启
+
+- 指令来源：用户要求解决早停问题并继续当前 r049。
+- 执行动作：完成 per-candidate G1 admission；以独立 `g2_repaired_percandidate/` 路径启动 CONT 的四卡 12-epoch rerun，并启动顺序监督器（CONT → DIRECT_DIST → SCALAR_QUALITY → PEF）。旧 G2 证据不覆盖、不复用。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_repaired_percandidate/dota_psc_cont/train.log`；`experiments/r049_rev2_pef_obb/supervise_g2_repaired_sequence.sh`。
+- 是否触发停止条件：否；CONT 正常运行，四张 GPU 均在工作。禁止端点未触碰。
+- 下一步建议：仅在四臂正常结束及冻结复评完成后做新的 G2 裁决；若任一 arm 异常，监督器停止序列并保留定位证据。
