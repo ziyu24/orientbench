@@ -3811,3 +3811,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`；`dis/sug.md`；`dis/coordination.json`。
 - 是否触发停止条件：否，服务器尚未 STARTED；新 revision 不消费 DOTA-v2.0/SODA official test。
 - 下一步建议：服务器 fast-forward 到 activation commit，先完成 pth_data/data/config freeze，再执行 DOTA/PSC 四卡500 iter全参数 smoke与标准完整训练主门。
+
+## 2026-08-19 21:31 PDT — 向用户交付业务 049 revision
+
+- 指令来源：用户授权新数据/四卡 detector 并排除负结果附录。
+- 执行动作：告知用户旧 r050 已在 STARTED 前撤回；业务049 revision 已在 dispatch commit `809a8f6d8f4bf203818200d935294aad73bc0ede` 激活并推送。明确失败线不进入论文任何版面。
+- 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`；`dis/coordination.json`。
+- 是否触发停止条件：否；revision 已派发、尚未执行。
+- 下一步建议：服务器执行精确 dispatch；DOTA/PSC 主门通过后才扩六 cells，避免在失败方法上继续烧卡。
