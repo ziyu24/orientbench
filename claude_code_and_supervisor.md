@@ -3916,6 +3916,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，正常的冻结科学早停；不是异常结束。未触碰 DOTA-v2.0、SODA-A official test 或旧 `T_audit` 字段。
 - 下一步建议：本 dispatch 已执行完毕；保留内部止损与可复现证据，等待新的合法业务指令。
 
+## 2026-08-20 06:03 PDT — B 验收撤销 r049 完成回执，继续当前 dispatch
+
+- 指令来源：用户“拉取，执行r49”与 B post-execution review。
+- 执行动作：fast-forward 至 `975e58b` 并读取 B 的 review；确认先前 PEF 未按每 candidate/anchor box 生成独立 evidence field，推理丢弃 q/native-risk，关键 mutation/gradient tests 不合格，controls 亦非 operative inference baseline。将 server receipt 更正为 `未执行完毕`、状态 `NOT_ADJUDICATED_IMPLEMENTATION`，先前 G2 AP 数字降级为工程证据；继续修复同一 dispatch，不启动 G3/G4。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-postexecution-review-20260820.md`；`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，implementation/protocol failure；不是科学 REJECT 门控，也不关闭 dispatch。禁止端点未触碰。
+- 下一步建议：实现 per-candidate PEF、q/native-risk export、真实 mutation/gradient tests 和 operative controls，完成 G1 后重新运行 G2。
+
 ## 2026-08-20 05:59 PDT — 用户报告服务器执行完毕，B 拉取验收
 
 - 指令来源：用户“服务器执行完毕。”
