@@ -3683,3 +3683,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_posttrain.sh`；`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/posttrain_supervisor.log`。
 - 是否触发停止条件：否；这是监督器启动缺失的工程恢复，三臂训练本身正常结束。
 - 下一步建议：完成相同 checkpoint 的 raw export、matched rows、DIOR G2 裁决；DIOR 未通过则按计划停止且不启动 SODA。
+
+## 2026-08-19 20:40 CST — r049 DIOR raw export 路径修复
+
+- 指令来源：持续执行中的后训练监督器异常。
+- 执行动作：定位首次 export 失败原因为项目内脚本错误引用了不存在的 `orientbench/third_party`；已改为登记的 `/home/rspip/cqc/pro/study/third_party/mmrotate_1x/tools/test.py`。未改模型、配置、checkpoint、数据、指标或门槛；失败 export 未生成 raw pkl。将以同一三份已冻结 best checkpoint 重启导出流程。
+- 关键产物路径：`experiments/r049_cora_obb/export_dior_g2_seed0.sh`；失败日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/export_logs/dior_cont_seed0_fp32.log`。
+- 是否触发停止条件：否；属于计划允许的一次普通路径工程修复，未触发任何科学早停或禁区。
+- 下一步建议：重新执行三臂 frozen export，随后只运行既定 matched metrics 与 DIOR G2 裁决。
