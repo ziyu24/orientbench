@@ -3875,3 +3875,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`；`experiments/r049_rev2_pef_obb/supervise_g2_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_cont/train.log`。
 - 是否触发停止条件：否；当前没有早停，禁止端点未触碰。
 - 下一步建议：保持当前四卡 CONT 直至第 12 epoch，然后按冻结顺序完成余下三臂并一次性执行 G2 裁决。
+
+## 2026-08-19 22:31 PDT — r049-rev2 G2 前置实现不合格，已止损修复
+
+- 指令来源：用户“你需要解决为何早停啊”。
+- 执行动作：复核 PEF 实现发现已启动 CONT 不是早停：其第 6/12 epoch 正常运行；但原 PEF sampling 使用固定像素半径，没有将 frozen candidate box 的宽高映射进旋转采样 grid，因此不满足 G1 的 candidate-box geometry 要求。已停止这次无效的 CONT（不会作为 G2 结果），保留完整日志；修复为每个 FPN level 使用固定 anchor candidate 的真实宽高，候选角仅旋转同一 box 的采样轴，并新增候选尺寸敏感性测试。该修复不改变数据、对照、K、loss 权重、阈值或任何禁止端点。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/invalid_pre_geometry_cont/train.log`；`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/pef_head.py`；`configs/r049_rev2_pef_obb/dota_psc_pef_geometry_smoke_500.py`。
+- 是否触发停止条件：原 G2 run 因实现不合格而作废并停止；不是科学门控早停。禁止端点未触碰。
+- 下一步建议：先以修复后实现完成四卡 500-iteration smoke；通过后从零重新开始四臂 G2 标准完整训练，单 epoch 波动不得早停。

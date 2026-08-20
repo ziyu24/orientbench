@@ -35,5 +35,16 @@ def test_native_risk_is_no_gt_and_increases_with_tail_mass():
     with torch.no_grad():
         _, _, risk = field(torch.randn(1, 4, 5, 5))
     assert torch.isfinite(risk).all() and (risk >= 0).all() and (risk <= 1).all()
-    # The call accepts features only: there is no GT, score or candidate index API.
-    assert field.forward.__code__.co_argcount == 2
+
+
+def test_candidate_box_size_changes_rotated_evidence_grid():
+    """Candidate geometry is an input; angle is not a free filter offset."""
+    torch.manual_seed(7)
+    field = PeriodicEvidenceField(4, candidates=12)
+    feature = torch.randn(1, 4, 9, 11)
+    small, _, _ = field(feature, box_size=(2., 6.))
+    large, _, _ = field(feature, box_size=(8., 6.))
+    assert not torch.allclose(small, large)
+    # Its only non-feature input is candidate geometry; no GT, detector
+    # score, class score or candidate index is available to the scorer.
+    assert field.forward.__code__.co_argcount == 3

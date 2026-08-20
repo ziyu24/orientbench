@@ -30,6 +30,25 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
         energy, refined, risk = self.pef(x)
         return cls, bbox, angle, energy, refined, risk
 
+    def forward(self, feats):
+        """Build the field against the fixed per-level candidate box.
+
+        The detector's anchor generator supplies the centre/size template for
+        every FPN location.  A candidate angle may rotate its sampling axes,
+        but it cannot change that box; the semantic class is still the host
+        detector's class head and neither its score nor GT enters the scorer.
+        """
+        outputs = []
+        for level, x in enumerate(feats):
+            cls, bbox, angle = super().forward_single(x)
+            anchor = self.prior_generator.base_anchors[level][0].to(x)
+            stride_x, stride_y = self.prior_generator.strides[level]
+            box_size = x.new_tensor(((anchor[2] - anchor[0]).abs() / stride_x,
+                                     (anchor[3] - anchor[1]).abs() / stride_y))
+            energy, refined, risk = self.pef(x, box_size)
+            outputs.append((cls, bbox, angle, energy, refined, risk))
+        return tuple(map(list, zip(*outputs)))
+
     def loss_by_feat(self, cls_scores, bbox_preds, angle_preds, pef_energies,
                      pef_angles, pef_risks, batch_gt_instances, batch_img_metas,
                      batch_gt_instances_ignore=None):
