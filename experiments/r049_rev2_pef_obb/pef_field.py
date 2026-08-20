@@ -56,14 +56,18 @@ class PeriodicEvidenceField(nn.Module):
             width, height = candidate_sizes[anchor]
             for theta in self.candidate_angles.to(feature):
                 c, s = torch.cos(theta), torch.sin(theta)
-                samples = []
-                for u, v in corner_signs:
-                    # [u*w, v*h] is first defined in the candidate's local
-                    # rectangle frame and only then rotated by theta.
-                    offset = self.sample_fraction * torch.stack((u * width * c - v * height * s,
-                                                                  u * width * s + v * height * c)) * norm
-                    samples.append(F.grid_sample(feature, (base + offset).clamp(-1, 1), align_corners=True))
-                all_angle_energy.append(self.scorer(torch.cat((*samples, cls), 1)).squeeze(1))
+                # [u*w, v*h] is first defined in the candidate's local
+                # rectangle frame and only then rotated by theta.  The four
+                # grids are tiled in the output-width dimension so one CUDA
+                # kernel evaluates the full 2x2 candidate grid per theta.
+                u, v = corner_signs[:, 0], corner_signs[:, 1]
+                offsets = self.sample_fraction * torch.stack((u * width * c - v * height * s,
+                                                               u * width * s + v * height * c), -1) * norm
+                grids = (base[:, None] + offsets[None, :, None, None]).clamp(-1, 1)
+                tiled_grid = grids.permute(0, 2, 1, 3, 4).reshape(n, h, 4 * w, 2)
+                tiled = F.grid_sample(feature, tiled_grid, align_corners=True)
+                samples = tiled.reshape(n, feature.shape[1], h, 4, w).permute(0, 1, 3, 2, 4).reshape(n, 4 * feature.shape[1], h, w)
+                all_angle_energy.append(self.scorer(torch.cat((samples, cls), 1)).squeeze(1))
             all_anchor_energy.append(torch.stack(all_angle_energy, 1))
         energy = torch.stack(all_anchor_energy, 1)
         return energy, *self.summarize_q(energy.softmax(2))
