@@ -3,11 +3,18 @@
 
 ## r049-rev2 server execution record
 
-- 状态：`NOT_ADJUDICATED_IMPLEMENTATION`；B 验收确认 G1 实现不满足冻结的 per-candidate / native-risk 要求。
+- 状态：`NOT_ADJUDICATED_IMPLEMENTATION`；最终 2×2 rotated-grid G1 已通过，但 G2 的 DIRECT_DIST 冻结对照在首轮异常低后暂停，尚不能做有效四臂裁决。
 - 已核验：`server-primary` 绑定、冻结 plan commit/blob/SHA、四张 A30 可用、唯一报告路径和写入范围；DOTA/PSC 主资产与历史 checkpoint 的四卡全验证回放通过。
 - 信息墙：尚未访问 DOTA-v2.0、SODA-A official test 或旧 `T_audit` 语义字段。
 - G0 结论：DOTA PSC replay mAP/AP50=`0.5562/0.5560`，与 archived mAP=`0.5562` 一致；DIOR 与 SODA 的已登记扩展资产可用，FAIR1M 的已登记 transformed split 缺失并冻结为可跳过扩展 cell。
-- 下一步：修复当前 dispatch 的 PEF/controls/tests/inference export 后重做合法 G1 与 G2；不运行 G3/G4。
+- 下一步：等待对 DIRECT_DIST operative inference 的冻结定义确认；确认前不启动 SCALAR_QUALITY/PEF，不运行 G3/G4。
+
+## Final rotated-grid G1 and current G2 state
+
+- 最终 PEF 实现以候选 `(w,h,theta,class)` 的局部矩形 2×2 rotated FPN grid 生成 candidate-conditioned field。四卡 500-iteration smoke 正常完成；独立全模型 probe 证明 backbone、neck、bbox、angle head、PEF sampler/scorer 五组均有非零有限梯度：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_batched_rotated_grid_static_smoke_500/full_model_gradient.json`。
+- 新 G2 使用隔离目录 `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/`。CONT 已正常完成 12 epoch，final full-val mAP/AP50=`0.5446/0.5450`。
+- DIRECT_DIST 第 1 epoch full-val mAP/AP50=`0.0003/0.0000`，而同初始化 CONT 第 1 epoch 为 `0.0256/0.0260`。按项目首 epoch 显著偏低纪律已中断，保留 `dota_psc_direct_dist/train.log` 和 epoch-1 checkpoint；未继续盲跑。初步根因是初始近均匀 direct q 的 circular mean 在 inference 直接覆盖 host angle。把 direct q 改为 host-angle residual/mixed inference 会改变当前冻结对照语义，服务器未擅自改变。
+- 信息墙未变：未触碰 DOTA-v2.0、SODA-A official test、旧 `T_audit`；未运行 G3/G4。该状态不是 `REJECT_PEF_METHOD`。
 
 ## Historical G1 completion (superseded for G2 admission)
 
