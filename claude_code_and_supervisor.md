@@ -3843,3 +3843,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/pef_head.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_smoke_500/train.log`。
 - 是否触发停止条件：否；500-step 随机初始化 smoke 的 val mAP=0 不作 G2 科学判定。禁止端点未触碰。
 - 下一步建议：补齐 DIRECT_DIST、SCALAR_QUALITY 与剩余 mutation/no-GT/risk/grads 验证，冻结 `METHOD_FREEZE.json` 后进入完整 G2 四臂训练。
+
+## 2026-08-19 22:02 PDT — r049-rev2 启动 G2 DOTA 主门
+
+- 指令来源：用户“拉取最新分支，然后执行。”及冻结业务 049。
+- 执行动作：已冻结 PEF candidate grid/risk 和 CONT、DIRECT_DIST、SCALAR_QUALITY 对照；DOTA/PSC CONT 的标准 12-epoch、每 epoch full-val、四 GPU 全参数训练已启动，后续臂同一初始化/recipe 串行执行。
+- 关键产物路径：`audit_bundles/r049_rev2/METHOD_FREEZE.json`；`configs/r049_rev2_pef_obb/dota_psc_*_full.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_cont/train.log`。
+- 是否触发停止条件：否；当前正常运行，禁止端点未触碰。
+- 下一步建议：CONT 完成后执行 DIRECT_DIST、SCALAR_QUALITY、PEF，并以冻结 G2 阈值一次性裁决。
