@@ -3955,3 +3955,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_repaired_percandidate/dota_psc_cont/train.log`；`experiments/r049_rev2_pef_obb/supervise_g2_repaired_sequence.sh`。
 - 是否触发停止条件：否；CONT 正常运行，四张 GPU 均在工作。禁止端点未触碰。
 - 下一步建议：仅在四臂正常结束及冻结复评完成后做新的 G2 裁决；若任一 arm 异常，监督器停止序列并保留定位证据。
+
+## 2026-08-20 07:40 PDT — r049-rev2 G2 工程重启前的采样结构加固
+
+- 指令来源：当前 r049 G1 的“真实 rotated FPN sampling grid”冻结要求。
+- 执行动作：在 CONT 第 2 epoch 时主动停止尚未形成证据的重跑序列；将 PEF 从双端点采样加固为候选 `(w,h,theta)` 局部矩形坐标经旋转得到的 2×2 FPN sampling grid。此举不改变 K、数据、风险定义、loss 权重或 controls；旧重跑目录只保留工程日志，不作 G2 证据。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/pef_field.py`；`configs/r049_rev2_pef_obb/dota_psc_pef_rotated_grid_static_smoke_500.py`。
+- 是否触发停止条件：否；这是 G1 实现忠实度修复，非科学早停或异常，禁止端点未触碰。
+- 下一步建议：以修复结构重新完成四卡 500-iteration smoke 和梯度验证，再从新的独立路径重新启动四臂 G2。

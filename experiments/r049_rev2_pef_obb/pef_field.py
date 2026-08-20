@@ -27,8 +27,10 @@ class PeriodicEvidenceField(nn.Module):
         self.candidates = candidates
         self.sample_fraction = float(sample_fraction)
         self.class_embedding = nn.Embedding(num_classes, class_embed_dim)
+        # A 2x2 candidate-aligned rectangle grid: every cell is sampled after
+        # rotating the candidate's own width/height frame by theta.
         self.scorer = nn.Sequential(
-            nn.Conv2d(channels * 2 + class_embed_dim, channels, 1), nn.SiLU(),
+            nn.Conv2d(channels * 4 + class_embed_dim, channels, 1), nn.SiLU(),
             nn.Conv2d(channels, 1, 1))
         self.register_buffer('candidate_angles', torch.arange(candidates) * (math.pi / candidates), persistent=True)
 
@@ -46,15 +48,22 @@ class PeriodicEvidenceField(nn.Module):
                                 torch.linspace(-1, 1, w, device=feature.device, dtype=feature.dtype), indexing='ij')
         base = torch.stack((xx, yy), -1).expand(n, h, w, 2)
         norm = feature.new_tensor((2 / max(w - 1, 1), 2 / max(h - 1, 1)))
+        corner_signs = feature.new_tensor(((-1., -1.), (-1., 1.), (1., -1.), (1., 1.)))
         all_anchor_energy = []
         for anchor in range(anchors):
             cls = self.class_embedding(candidate_classes[:, anchor].long()).permute(0, 3, 1, 2)
             all_angle_energy = []
+            width, height = candidate_sizes[anchor]
             for theta in self.candidate_angles.to(feature):
-                offset = self.sample_fraction * candidate_sizes[anchor] * torch.stack((torch.cos(theta), torch.sin(theta))) * norm
-                plus = F.grid_sample(feature, (base + offset).clamp(-1, 1), align_corners=True)
-                minus = F.grid_sample(feature, (base - offset).clamp(-1, 1), align_corners=True)
-                all_angle_energy.append(self.scorer(torch.cat((plus, minus, cls), 1)).squeeze(1))
+                c, s = torch.cos(theta), torch.sin(theta)
+                samples = []
+                for u, v in corner_signs:
+                    # [u*w, v*h] is first defined in the candidate's local
+                    # rectangle frame and only then rotated by theta.
+                    offset = self.sample_fraction * torch.stack((u * width * c - v * height * s,
+                                                                  u * width * s + v * height * c)) * norm
+                    samples.append(F.grid_sample(feature, (base + offset).clamp(-1, 1), align_corners=True))
+                all_angle_energy.append(self.scorer(torch.cat((*samples, cls), 1)).squeeze(1))
             all_anchor_energy.append(torch.stack(all_angle_energy, 1))
         energy = torch.stack(all_anchor_energy, 1)
         return energy, *self.summarize_q(energy.softmax(2))
