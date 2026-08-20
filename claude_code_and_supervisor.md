@@ -3803,3 +3803,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`。
 - 是否触发停止条件：否。
 - 下一步建议：完成 READY/activation 事务。
+
+## 2026-08-19 21:29 PDT — 业务 049 revision 激活
+
+- 指令来源：用户业务049新数据与四卡 detector 训练授权。
+- 执行动作：将 immutable revision plan 逐字节镜像到根 `dis/sug.md` 并绑定 coordination；dispatch `orientbench-b-r049-rev2-pef-multidata-multihost-20260819`，plan commit `8ff39a512b1b10abee9e6174a536b347ecf3987b`，blob `d363d08214a142e52ea59ca7bb7f945ec62135e7`，SHA-256 `9cdc12b3e2ecb1b34b801387102ef89c1187bfe45bfec572e93ad0cd04e1cded`。
+- 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`；`dis/sug.md`；`dis/coordination.json`。
+- 是否触发停止条件：否，服务器尚未 STARTED；新 revision 不消费 DOTA-v2.0/SODA official test。
+- 下一步建议：服务器 fast-forward 到 activation commit，先完成 pth_data/data/config freeze，再执行 DOTA/PSC 四卡500 iter全参数 smoke与标准完整训练主门。
