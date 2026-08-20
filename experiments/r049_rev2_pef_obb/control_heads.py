@@ -41,7 +41,19 @@ class DirectDistributionAngleBranchRetinaHead(AngleBranchRetinaHead):
         return base
 
     def predict_by_feat(self, cls, bbox, angle, direct, **kwargs):
-        return super().predict_by_feat(cls, bbox, angle, **kwargs)
+        # Equal-budget direct distribution is an operative angle inference
+        # baseline, not merely an auxiliary training loss.
+        refined_codes = []
+        bins = torch.arange(12, device=cls[0].device, dtype=cls[0].dtype) * (torch.pi / 12)
+        for logits in direct:
+            b, _, h, w = logits.shape
+            q = logits.reshape(b, self.num_anchors, 12, h, w).softmax(2)
+            theta = .5 * torch.atan2((q * torch.sin(2 * bins).view(1, 1, -1, 1, 1)).sum(2),
+                                     (q * torch.cos(2 * bins).view(1, 1, -1, 1, 1)).sum(2))
+            code = self.angle_coder.encode(theta.reshape(-1, 1))
+            code = code.reshape(b, self.num_anchors, h, w, self.encode_size).permute(0, 1, 4, 2, 3)
+            refined_codes.append(code.reshape(b, self.num_anchors * self.encode_size, h, w))
+        return super().predict_by_feat(cls, bbox, refined_codes, **kwargs)
 
 
 @MODELS.register_module()
@@ -76,4 +88,7 @@ class ScalarQualityAngleBranchRetinaHead(AngleBranchRetinaHead):
         return base
 
     def predict_by_feat(self, cls, bbox, angle, scalar, **kwargs):
-        return super().predict_by_feat(cls, bbox, angle, **kwargs)
+        # The scalar head predicts angular harm.  Its negative logit is a
+        # detection quality factor at inference, giving a real PQA-like
+        # ranking baseline while retaining the host angle decoder.
+        return super().predict_by_feat(cls, bbox, angle, score_factors=[-x for x in scalar], **kwargs)
