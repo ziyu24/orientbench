@@ -1,6 +1,7 @@
 """PSC RetinaNet head with a true candidate-conditioned PEF auxiliary field."""
 from __future__ import annotations
 
+import math
 import torch
 import torch.nn.functional as F
 from mmrotate.registry import MODELS
@@ -88,4 +89,41 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
             code = self.angle_coder.encode(refined.reshape(-1, 1))
             code = code.reshape(b, a, h, w, self.encode_size).permute(0, 1, 4, 2, 3)
             refined_codes.append(code.reshape(b, a * self.encode_size, h, w))
-        return super().predict_by_feat(cls_scores, bbox_preds, refined_codes, **kwargs)
+        results = super().predict_by_feat(cls_scores, bbox_preds, refined_codes, **kwargs)
+        # Preserve no-GT per-candidate evidence for every final detection.
+        # NMS keeps arbitrary InstanceData fields, so q/risk are available to
+        # the persisted prediction exporter without score fusion.
+        for image_id, result in enumerate(results):
+            if len(result) == 0:
+                result.pef_q = cls_scores[0].new_empty((0, self.pef_candidates))
+                result.pef_native_risk = cls_scores[0].new_empty((0,))
+                result.pef_original_angle = cls_scores[0].new_empty((0,))
+                result.pef_refined_angle = cls_scores[0].new_empty((0,))
+                continue
+            boxes = result.bboxes.tensor if hasattr(result.bboxes, 'tensor') else result.bboxes
+            side = (boxes[:, 2].abs() * boxes[:, 3].abs()).sqrt().clamp_min(1.)
+            level_sizes = boxes.new_tensor([
+                math.sqrt(float(((a[:, 2] - a[:, 0]).abs() * (a[:, 3] - a[:, 1]).abs()).mean()))
+                for a in self.prior_generator.base_anchors])
+            level_ids = (side[:, None].log() - level_sizes.log()[None]).abs().argmin(1)
+            qs, risks, originals = [], [], []
+            for det_id, level in enumerate(level_ids.tolist()):
+                stride_x, stride_y = self.prior_generator.strides[level]
+                h, w = pef_risks[level].shape[-2:]
+                ix = int((boxes[det_id, 0] / stride_x - .5).round().clamp(0, w - 1).item())
+                iy = int((boxes[det_id, 1] / stride_y - .5).round().clamp(0, h - 1).item())
+                anchors = self.prior_generator.base_anchors[level].to(boxes)
+                aw = (anchors[:, 2] - anchors[:, 0]).abs()
+                ah = (anchors[:, 3] - anchors[:, 1]).abs()
+                aspect = (boxes[det_id, 2].abs() / boxes[det_id, 3].abs().clamp_min(1e-6)).log()
+                anchor_id = ((aw / ah).log() - aspect).abs().argmin()
+                energy = pef_energies[level][image_id, anchor_id, :, iy, ix]
+                qs.append(energy.softmax(0))
+                risks.append(pef_risks[level][image_id, anchor_id, iy, ix])
+                raw = angle_preds[level][image_id].reshape(self.num_anchors, self.encode_size, h, w)
+                originals.append(self.angle_coder.decode(raw[anchor_id, :, iy, ix].reshape(1, -1)).reshape(()))
+            result.pef_q = torch.stack(qs)
+            result.pef_native_risk = torch.stack(risks)
+            result.pef_original_angle = torch.stack(originals)
+            result.pef_refined_angle = boxes[:, 4]
+        return results
