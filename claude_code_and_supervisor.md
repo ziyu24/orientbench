@@ -3691,3 +3691,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/export_dior_g2_seed0.sh`；失败日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/export_logs/dior_cont_seed0_fp32.log`。
 - 是否触发停止条件：否；属于计划允许的一次普通路径工程修复，未触发任何科学早停或禁区。
 - 下一步建议：重新执行三臂 frozen export，随后只运行既定 matched metrics 与 DIOR G2 裁决。
+
+## 2026-08-19 20:41 CST — r049 DIOR export evaluator 合并修复
+
+- 指令来源：持续执行中的 raw export 异常。
+- 执行动作：首次路径修复后的 export 因基配置 `test_evaluator.metric` 深合并到 `DumpDetResults` 而失败；为三个仅导出配置加入 `_delete_=True`，使 evaluator 精确替换为 `mmdet.DumpDetResults`。已用 `pcp-obb` 解析核验最终 evaluator 仅含 type/out_file_path。未改训练、数据、checkpoint、风险定义或门槛。
+- 关键产物路径：`configs/r049_cora_obb/dior_{cont,vm_nll,cora}_seed0_export.py`；失败日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/export_logs/dior_cont_seed0_fp32.log`。
+- 是否触发停止条件：否；普通 evaluator 配置路径修复，仍处在 G2 结果生成前。
+- 下一步建议：使用相同冻结 checkpoint 再次运行三臂 export；不启动 SODA、额外 seed 或任何新训练。
