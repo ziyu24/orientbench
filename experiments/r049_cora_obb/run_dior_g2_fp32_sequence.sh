@@ -22,7 +22,7 @@ run_arm() {
   conda run --no-capture-output -n pcp-obb torchrun --standalone --nproc_per_node=4 \
     /home/rspip/cqc/pro/study/third_party/mmrotate_1x/tools/train.py "$config" \
     --launcher pytorch --work-dir "$out" > "$out/train.log" 2>&1
-  if rg -n 'grad_norm: (nan|inf)|loss: (nan|inf)|loss_bbox: (nan|inf)' "$out/train.log"; then
+  if grep -En 'grad_norm: (nan|inf)|loss: (nan|inf)|loss_bbox: (nan|inf)' "$out/train.log"; then
     exit 41
   fi
 }

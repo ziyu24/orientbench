@@ -3699,3 +3699,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`configs/r049_cora_obb/dior_{cont,vm_nll,cora}_seed0_export.py`；失败日志 `outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/export_logs/dior_cont_seed0_fp32.log`。
 - 是否触发停止条件：否；普通 evaluator 配置路径修复，仍处在 G2 结果生成前。
 - 下一步建议：使用相同冻结 checkpoint 再次运行三臂 export；不启动 SODA、额外 seed 或任何新训练。
+
+## 2026-08-19 20:42 CST — r049 detached supervisor PATH 修复
+
+- 指令来源：持续执行中的监督器启动异常。
+- 执行动作：重启 supervisor 时确认其非交互 PATH 无 `rg`，导致在完成前置验证前退出；将两个 r049 shell supervisor 中的仅日志匹配调用替换为系统可用的 `grep -E`，并做 shell syntax 检查。此改动不影响训练或结果计算，只保证同一冻结流程可在 detached 环境执行。
+- 关键产物路径：`experiments/r049_cora_obb/run_dior_g2_posttrain.sh`；`experiments/r049_cora_obb/run_dior_g2_fp32_sequence.sh`。
+- 是否触发停止条件：否；普通执行环境修复，尚未产生 G2 科学结论。
+- 下一步建议：重启已冻结三臂的 raw export/metric/gate supervisor。

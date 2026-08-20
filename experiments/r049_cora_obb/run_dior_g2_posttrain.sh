@@ -17,8 +17,8 @@ done
 for arm in dior_cont_seed0_fp32 dior_vm_nll_seed0_fp32 dior_cora_seed0_fp32; do
   log="$OUT/$arm/train.log"
   test -f "$log"
-  rg -q 'Epoch\(val\) \[3\]\[2935/2935\].*dota/AP50:' "$log"
-  if rg -q 'grad_norm: (nan|inf)|loss: (nan|inf)|loss_bbox: (nan|inf)|Traceback|CUDA out of memory' "$log"; then
+  grep -Eq 'Epoch\(val\) \[3\]\[2935/2935\].*dota/AP50:' "$log"
+  if grep -Eq 'grad_norm: (nan|inf)|loss: (nan|inf)|loss_bbox: (nan|inf)|Traceback|CUDA out of memory' "$log"; then
     echo "posttrain supervisor refuses incomplete/nonfinite arm: $arm" >&2
     exit 41
   fi
