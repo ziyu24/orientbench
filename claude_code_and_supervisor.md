@@ -3867,3 +3867,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/g1_smoke_summary.md`；`audit_bundles/r049_rev2/METHOD_FREEZE.json`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/`。
 - 是否触发停止条件：否；初始 20-step smoke 的 mAP=0 不构成正式判定。DOTA-v2.0、SODA official test 和旧 T_audit 未触碰。
 - 下一步建议：继续已启动的 G2 四臂完整训练，严格按冻结阈值裁决。
+
+## 2026-08-19 22:25 PDT — r049-rev2 早停机制核查与修正
+
+- 指令来源：用户“你需要解决为何早停啊”。
+- 执行动作：核验当前 Goal 仍为 active，G2 CONT 四卡训练正在第 6/12 epoch，未发生训练早停或任务结束；将早停解释和执行边界固定为：不得按单 epoch mAP 波动提前终止，必须先完整取得 CONT、DIRECT_DIST、SCALAR_QUALITY、PEF 四臂的 12-epoch 结果；仅在 G2 的冻结联合指标最终裁决失败后，停止 G3/G4 扩展并写 REJECT_PEF_METHOD。顺序监督器也仅以正常的第 12 epoch checkpoint 作为下一臂启动条件。
+- 关键产物路径：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`；`experiments/r049_rev2_pef_obb/supervise_g2_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/dota_psc_cont/train.log`。
+- 是否触发停止条件：否；当前没有早停，禁止端点未触碰。
+- 下一步建议：保持当前四卡 CONT 直至第 12 epoch，然后按冻结顺序完成余下三臂并一次性执行 G2 裁决。
