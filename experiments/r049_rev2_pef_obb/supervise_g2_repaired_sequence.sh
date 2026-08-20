@@ -31,5 +31,7 @@ else echo DIRECT_DIST_ABNORMAL; exit 1; fi
 if wait_for_normal_arm "$base/dota_psc_scalar_quality"; then
   run_next configs/r049_rev2_pef_obb/dota_psc_pef_repaired_full.py "$base/dota_psc_pef"
 else echo SCALAR_QUALITY_ABNORMAL; exit 1; fi
-if wait_for_normal_arm "$base/dota_psc_pef"; then echo PEF_NORMAL_ALL_G2_ARMS_COMPLETE
+if wait_for_normal_arm "$base/dota_psc_pef"; then
+  tmux send-keys -t "$session" "bash $root/experiments/r049_rev2_pef_obb/run_repaired_g2_final_exports.sh > $base/final_exports.log 2>&1" Enter
+  echo PEF_NORMAL_FINAL_EXPORTS_STARTED
 else echo PEF_ABNORMAL; exit 1; fi
