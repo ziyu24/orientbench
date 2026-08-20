@@ -3971,3 +3971,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_batched_rotated_grid_static_smoke_500/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_batched_rotated_grid_static_smoke_500/full_model_gradient.json`；`experiments/r049_rev2_pef_obb/supervise_rotated_grid_g1_then_g2.sh`。
 - 是否触发停止条件：否；G1 正常通过，未触碰禁止端点。
 - 下一步建议：由修复后的监督器从新的 `g2_rotated_grid/` 目录启动 CONT，并仅在每个 arm 正常完成后顺序推进其余三臂和冻结导出。
+
+## 2026-08-20 23:11 CST — r049-rev2 rotated-grid 冻结导出配置绑定修正
+
+- 指令来源：当前 r049 持续监督。
+- 执行动作：在 CONT 训练早期核查发现最终导出脚本仍指向旧 `repaired_full` 配置；已改为四个对应的 `rotated_grid_full` 配置，确保 epoch-12 prediction、AP 与风险指标和实际训练结构一致。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/run_repaired_g2_final_exports.sh`。
+- 是否触发停止条件：否；这是在最终导出前完成的路径绑定修复，训练未中断，未触碰禁止端点。
+- 下一步建议：继续由顺序监督器完成四臂训练，随后执行冻结导出与门控裁决。
