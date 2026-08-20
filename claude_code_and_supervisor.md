@@ -3763,3 +3763,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`；`dis/sug.md`；`dis/coordination.json`。
 - 是否触发停止条件：否。当前只完成派发，服务器尚未产生 STARTED/结果；clean endpoints 继续密封。
 - 下一步建议：服务器 fast-forward 到 activation commit，核验 plan commit `f92b4324a5fcc7190241f16c850f712618898c51`、blob `fd765f56a6c980986a8d9dbb1c0ec12c7ea1556d`、SHA-256 `ddef746c929f9f88445610f3000467483e6e9064c219a683d5f280b634a62e96` 后执行 G0→G1。
+
+## 2026-08-19 21:18 PDT — 对用户终局汇报并交付业务 050
+
+- 指令来源：用户“服务器执行完毕。”与持续 GPU 授权。
+- 执行动作：向用户确认业务 049 正常结束并接受 `REJECT_EXECUTED_CORA_V1`；当前档位仍为 strong JSTARS/Remote Sensing。业务 050 已在 dispatch commit `7ce70f205a2b05a3f42f7be629e8c0170a7424a6` 激活并推送，服务器可直接执行。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-postexecution-verdict-20260819.md`；`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`；`dis/coordination.json`。
+- 是否触发停止条件：业务 049 正常科学早停；业务 050 尚未开始，未触碰 clean endpoints。
+- 下一步建议：服务器只按 dispatch `orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819`、plan commit `f92b4324a5fcc7190241f16c850f712618898c51` 与 dispatch commit `7ce70f205a2b05a3f42f7be629e8c0170a7424a6` 执行；先完成 G0 parity 和 G1 frozen-head gate。
