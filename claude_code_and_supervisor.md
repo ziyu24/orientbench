@@ -3771,3 +3771,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r049-postexecution-verdict-20260819.md`；`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`；`dis/coordination.json`。
 - 是否触发停止条件：业务 049 正常科学早停；业务 050 尚未开始，未触碰 clean endpoints。
 - 下一步建议：服务器只按 dispatch `orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819`、plan commit `f92b4324a5fcc7190241f16c850f712618898c51` 与 dispatch commit `7ce70f205a2b05a3f42f7be629e8c0170a7424a6` 执行；先完成 G0 parity 和 G1 frozen-head gate。
+
+## 2026-08-19 21:24 PDT — 用户授权业务 049 新数据与四卡 detector 训练
+
+- 指令来源：用户“授权业务049的新数据与四卡detector训练，负结果搞你妈的附录啊？浪费版面费？”
+- 执行动作：确认失败方法结果仅保留内部止损记录，不进入目标论文正文或附录；核验 r050 无 tracked STARTED 后，以 `WITHDRAWN_BEFORE_START` 关闭旧窄版派发，准备业务049新 revision。
+- 关键产物路径：`dis/dispatch_history/orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819.json`；`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/STATE.json`。
+- 是否触发停止条件：r050 未启动，无实验或数据损失；r049 CORA-v1 仍停止，不以扩大算力重跑失败配置。
+- 下一步建议：新 revision 使用 DOTA-v1.0、DIOR-R、FAIR1M、SODA-A 与两 detector family 的四卡完整训练；负结果只作内部 go/no-go，不占投稿版面。
+
+## 2026-08-19 21:25 PDT — 授权纠偏阶段汇报
+
+- 指令来源：B 主动汇报。
+- 执行动作：向用户明确确认不把 r049 负结果放正文/附录；说明不会复活已失败 CORA-v1，而会在确认 r050 未启动后用新数据和完整四卡 detector 训练替换其窄版范围。
+- 关键产物路径：`dis/B.md`；`dis/coordination.json`。
+- 是否触发停止条件：否，新授权扩大后续数据与训练范围；clean endpoint 是否启用仍由新 revision 正式冻结。
+- 下一步建议：提交撤回事务，随后冻结并激活业务049 revision。

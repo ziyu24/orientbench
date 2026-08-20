@@ -896,3 +896,9 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 最近邻边界明确为 AQE(TGRS 2023)直接角度分布、FRED(AAAI 2024)一般旋转等变、PQA(AAAI 2026)pixel scalar localization quality、O2-RT-DETR(TGRS 2026)分布细化。PEF 只有在 candidate-conditioned visual evidence 打赢 equal-budget DIRECT_DIST/SCALAR_QUALITY 后才有增量。
 - G1 先冻结 host 训练轻量 heads，DIOR/SODA 各自要求 native-risk AUGRC/Risk@70 相对 strongest baseline 改善至少10%且 AP 不显著回退；双过才进行端到端四卡 seed0。之后必须双向无目标域 GT transfer，才能进入三 seed/Stage B。
 - 计划：`dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md`。通过只恢复 `JPRS candidate / strong TGRS route`，不预支 ready。
+
+## 27. 2026-08-19：用户扩大业务 049 权限，r050 窄版未启动撤回
+
+- 用户明确授权“业务049的新数据与四卡detector训练”，并明确反对把负结果放入附录。B 采纳：r043-r049 的失败方法只留内部研发台账，不进入目标论文正文、补充材料或消融表，不用版面重复证明失败。
+- r050 尚无 tracked STARTED，故在服务器启动前撤回；其“仅旧 DIOR/SODA + frozen-head”范围不再执行。
+- 授权不用于重跑已失败的 CORA-v1。新 revision 保留 PEF 的 candidate-conditioned periodic evidence 核心，但改为 DOTA-v1.0/DIOR-R/FAIR1M/SODA-A 新数据范围、标准四卡 detector 训练、两 detector family 和严格正贡献门。只有正结果进入稿件。

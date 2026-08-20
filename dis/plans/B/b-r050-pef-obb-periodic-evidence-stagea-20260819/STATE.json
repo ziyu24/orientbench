@@ -3,11 +3,11 @@
   "plan_id": "b-r050-pef-obb-periodic-evidence-stagea-20260819",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r050-pef-obb-periodic-evidence-stagea-20260819/sug.md",
-  "state": "DISPATCHED",
+  "state": "WITHDRAWN",
   "plan_commit_sha": "f92b4324a5fcc7190241f16c850f712618898c51",
   "plan_blob_oid": "fd765f56a6c980986a8d9dbb1c0ec12c7ea1556d",
   "plan_sha256": "ddef746c929f9f88445610f3000467483e6e9064c219a683d5f280b634a62e96",
-  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "state_reason": "withdrawn_before_server_start_after_user_authorized_new_data_and_full_detector_training",
   "ready_at": "2026-08-19T21:14:00-07:00",
-  "updated_at": "2026-08-19T21:15:59-07:00"
+  "updated_at": "2026-08-19T21:24:04-07:00"
 }
