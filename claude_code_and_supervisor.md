@@ -3715,3 +3715,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_cora_obb/build_dior_g2_metrics.py`；`top_journal_v3_reaudit_055/data_prep/DIOR/annfiles_dotaformat/test/`。
 - 是否触发停止条件：否；这是只读、已登记 endpoint 的指标输入复原，不涉及数据集扩展、目标域拟合或任何门槛更改。
 - 下一步建议：直接运行原定 matched metrics 与 DIOR G2 frozen adjudicator；不重复三臂训练或 raw export。
+
+## 2026-08-19 20:57 CST — r049 正常科学早停完成
+
+- 指令来源：用户持续推进；冻结 r049 G2 执行计划。
+- 执行动作：三臂 raw export、r043 frozen test-GT matching、risk metrics 与独立 structural validator 完成。DIOR seed0 G2 裁决为 `REJECT_CORA_METHOD`：CORA AP75 `0.248` 相对 strongest control `0.275` 降低 `0.027`，且 AUGRC/Risk@70 改善仅 `0.000404/0.000223`，未达 `0.01/0.02`。按计划停止，不启动 SODA、额外 seed、G3/G4 或 clean endpoint。CORA math tests 6 passed。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_cora_obb_r049_20260819/g2/metrics/gate_dior_seed0.json`；`docs/paper_jprs_r049/r049_dior_g2_decision.md`；`dis/server_reports/orientbench-b-r049-cora-obb-native-risk-stagea-20260819/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，正常科学早停（非异常）。禁止端点未触碰。
+- 下一步建议：保持 CORA 方法线关闭；仅在用户另行 dispatch 后处理既有 benchmark/diagnostic 主线，禁止以 r049 结果续跑 SODA 或补种子。
