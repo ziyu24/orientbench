@@ -3835,3 +3835,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r049_rev2/asset_inventory.csv`；`experiments/r049_rev2_pef_obb/g0_asset_parity.md`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g0/dota_psc_baseline_parity/test.log`。
 - 是否触发停止条件：否；DOTA-v1.0 + PSC 主 cell 成立。FAIR1M 已登记 transformed split 缺失，按计划仅跳过可选扩展，不以 raw 数据替代。未触碰 DOTA-v2.0、SODA official test 或旧 T_audit。
 - 下一步建议：执行 G1 的 PEF/DIRECT_DIST/SCALAR_QUALITY 实现、结构测试和四卡 500-iteration 全参数 smoke。
+
+## 2026-08-19 21:56 PDT — r049-rev2 G1 PEF 四卡 smoke 完成
+
+- 指令来源：冻结业务 `orientbench-b-r049-rev2-pef-multidata-multihost-20260819`。
+- 执行动作：实现 candidate-conditioned rotated FPN sampling 的 `PeriodicEvidenceField` 与 PSC PEF head；单元测试通过；四张 A30 完成 500-iteration 全参数 DOTA/PSC smoke，`loss_pef` 全程有限且末段为 `0.6180`，末段总梯度范数为 `3.1332`。此前两个张量形状工程异常已定位并修复，最终 smoke 正常结束。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/pef_head.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_smoke_500/train.log`。
+- 是否触发停止条件：否；500-step 随机初始化 smoke 的 val mAP=0 不作 G2 科学判定。禁止端点未触碰。
+- 下一步建议：补齐 DIRECT_DIST、SCALAR_QUALITY 与剩余 mutation/no-GT/risk/grads 验证，冻结 `METHOD_FREEZE.json` 后进入完整 G2 四臂训练。
