@@ -3995,3 +3995,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/control_heads.py`；`configs/r049_rev2_pef_obb/dota_psc_direct_dist_residual_smoke_20.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_direct_dist_residual_smoke_20/train.log`。
 - 是否触发停止条件：否；原 arm 的异常实例保留为无效工程尝试，修复后的 control 将从零重新运行。禁止端点未触碰。
 - 下一步建议：重新启动 DIRECT_DIST；仅在其第 1 epoch full-val 不再异常偏低时才继续 12 epoch 并恢复顺序监督。
+
+## 2026-08-20 09:25 PDT — r049-rev2 DIRECT_DIST residual 重跑通过首 epoch 准入
+
+- 指令来源：修复后 G2 首 epoch parity 检查。
+- 执行动作：DIRECT_DIST residual 从零四卡重跑后，第 1 epoch full-val mAP/AP50=`0.0222/0.0220`，与 CONT 同期 `0.0256/0.0260` 同量级，不再发生全零角覆盖；训练已进入第 2 epoch，residual 顺序监督器持续运行。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_direct_dist_residual/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/residual_supervisor.log`。
+- 是否触发停止条件：否；禁止端点未触碰。
+- 下一步建议：完成 residual DIRECT_DIST 的 12 epoch 后继续 SCALAR_QUALITY、PEF 与冻结导出，不在中途用 val 调参。
