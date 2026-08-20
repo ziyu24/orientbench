@@ -23,12 +23,12 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
 
     def _init_layers(self):
         super()._init_layers()
-        self.pef = PeriodicEvidenceField(self.feat_channels, self.pef_candidates)
+        self.pef = PeriodicEvidenceField(self.feat_channels, self.pef_candidates,
+                                         num_classes=self.num_classes)
 
     def forward_single(self, x):
         cls, bbox, angle = super().forward_single(x)
-        energy, refined, risk = self.pef(x)
-        return cls, bbox, angle, energy, refined, risk
+        return cls, bbox, angle
 
     def forward(self, feats):
         """Build the field against the fixed per-level candidate box.
@@ -41,11 +41,13 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
         outputs = []
         for level, x in enumerate(feats):
             cls, bbox, angle = super().forward_single(x)
-            anchor = self.prior_generator.base_anchors[level][0].to(x)
             stride_x, stride_y = self.prior_generator.strides[level]
-            box_size = x.new_tensor(((anchor[2] - anchor[0]).abs() / stride_x,
-                                     (anchor[3] - anchor[1]).abs() / stride_y))
-            energy, refined, risk = self.pef(x, box_size)
+            anchors = self.prior_generator.base_anchors[level].to(x)
+            sizes = torch.stack(((anchors[:, 2] - anchors[:, 0]).abs() / stride_x,
+                                 (anchors[:, 3] - anchors[:, 1]).abs() / stride_y), 1)
+            b, _, h, w = cls.shape
+            class_ids = cls.reshape(b, self.num_anchors, self.num_classes, h, w).argmax(2)
+            energy, refined, risk = self.pef(x, sizes, class_ids)
             outputs.append((cls, bbox, angle, energy, refined, risk))
         return tuple(map(list, zip(*outputs)))
 
@@ -63,22 +65,14 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
         losses = []
         candidate = self.pef.candidate_angles.to(cls_scores[0])
         for energy, target, weight in zip(pef_energies, angle_targets, angle_weights):
-            # MMRotate target lists are (batch, locations, encode_size),
-            # whereas the candidate field is one shared visual sample per
-            # spatial location.  Retain the supervised anchor with maximal
-            # angle weight at each location; anchor identity never enters PEF.
-            b, _, h, w = energy.shape
-            anchors_per_loc = target.shape[1] // (h * w)
-            target = target.reshape(b, h, w, anchors_per_loc, self.encode_size)
-            weight = weight.reshape(b, h, w, anchors_per_loc)
-            chosen = weight.argmax(-1, keepdim=True)
-            target = target.gather(3, chosen[..., None].expand(-1, -1, -1, -1, self.encode_size)).squeeze(3)
-            w = weight.gather(3, chosen).squeeze(3).float()
-            gt = self.angle_coder.decode(target.reshape(-1, self.encode_size)).reshape_as(energy[:, 0])
-            d = axial_wrap(gt.unsqueeze(1) - candidate.view(1, -1, 1, 1)).abs()
-            index = d.argmin(1)
-            ce = F.cross_entropy(energy, index, reduction='none')
-            losses.append((ce * w).sum() / w.sum().clamp_min(1.))
+            b, a, k, h, w = energy.shape
+            target = target.reshape(b, h, w, a, self.encode_size).permute(0, 3, 1, 2, 4)
+            weight = weight.reshape(b, h, w, a).permute(0, 3, 1, 2).float()
+            gt = self.angle_coder.decode(target.reshape(-1, self.encode_size)).reshape(b, a, h, w)
+            d = axial_wrap(gt.unsqueeze(2) - candidate.view(1, 1, -1, 1, 1)).abs()
+            index = d.argmin(2)
+            ce = F.cross_entropy(energy.permute(0, 1, 3, 4, 2).reshape(-1, k), index.reshape(-1), reduction='none').reshape_as(weight)
+            losses.append((ce * weight).sum() / weight.sum().clamp_min(1.))
         base['loss_pef'] = [x * self.pef_loss_weight for x in losses]
         return base
 
@@ -90,9 +84,8 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
         # shared over its anchor templates, matching the FPN sampling site.
         refined_codes = []
         for refined in pef_angles:
-            b, h, w = refined.shape
+            b, a, h, w = refined.shape
             code = self.angle_coder.encode(refined.reshape(-1, 1))
-            code = code.reshape(b, h, w, self.encode_size).permute(0, 3, 1, 2)
-            code = code.unsqueeze(1).expand(-1, self.num_anchors, -1, -1, -1)
-            refined_codes.append(code.reshape(b, self.num_anchors * self.encode_size, h, w))
+            code = code.reshape(b, a, h, w, self.encode_size).permute(0, 1, 4, 2, 3)
+            refined_codes.append(code.reshape(b, a * self.encode_size, h, w))
         return super().predict_by_feat(cls_scores, bbox_preds, refined_codes, **kwargs)
