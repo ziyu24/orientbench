@@ -21,7 +21,6 @@ import torch
 from mmcv.ops import box_iou_rotated
 
 ROOT = Path('/home/rspip/cqc/pro/study/orientbench')
-BASE = ROOT / 'outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_repaired_percandidate'
 AR_CUTOFF = 2.1
 ARMS = ('CONT', 'DIRECT_DIST', 'SCALAR_QUALITY', 'PEF')
 DIRS = {'CONT': 'dota_psc_cont', 'DIRECT_DIST': 'dota_psc_direct_dist',
@@ -126,10 +125,11 @@ def bootstrap_improvement(control: list[dict], pef: list[dict], reps: int, seed:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(); ap.add_argument('--out', type=Path, default=BASE / 'metrics'); ap.add_argument('--bootstrap-reps', type=int, default=1000); args = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('--base', type=Path, required=True); ap.add_argument('--out', type=Path); ap.add_argument('--bootstrap-reps', type=int, default=1000); args = ap.parse_args()
+    base = args.base; args.out = args.out or base / 'metrics'
     args.out.mkdir(parents=True, exist_ok=True); all_rows, manifest = [], {}
     for arm in ARMS:
-        path = BASE / 'evaluation' / DIRS[arm] / 'predictions.pkl'
+        path = base / 'evaluation' / DIRS[arm] / 'predictions.pkl'
         if not path.is_file(): raise RuntimeError(f'missing export: {path}')
         records = pickle.load(path.open('rb'))
         rows = [row for rec in records for row in match_record(rec, arm)]
