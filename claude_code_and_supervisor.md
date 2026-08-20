@@ -3915,3 +3915,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r049_rev2/G2_GATE_DECISION.json`；`audit_bundles/r049_rev2/G2_GATE_REPORT.md`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/`。
 - 是否触发停止条件：是，正常的冻结科学早停；不是异常结束。未触碰 DOTA-v2.0、SODA-A official test 或旧 `T_audit` 字段。
 - 下一步建议：本 dispatch 已执行完毕；保留内部止损与可复现证据，等待新的合法业务指令。
+
+## 2026-08-20 05:59 PDT — 用户报告服务器执行完毕，B 拉取验收
+
+- 指令来源：用户“服务器执行完毕。”
+- 执行动作：B fast-forward 到 `9b92341`，审查 server report、G2 gate、method freezes、PEF/control heads、tests、configs 与最终导出脚本。确认四臂训练确实运行，但冻结 PEF 方法和 G1 tests 未真实实现。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-postexecution-review-20260820.md`；`experiments/r049_rev2_pef_obb/pef_head.py`；`experiments/r049_rev2_pef_obb/test_pef_field.py`。
+- 是否触发停止条件：是，`NOT_ADJUDICATED_IMPLEMENTATION`，不是科学 `REJECT_PEF_METHOD`。active dispatch 不关闭，不启动 G3/G4或新业务。
+- 下一步建议：本轮按冻结 completion mapping 应回执“未执行完毕”；等待用户要求服务器继续当前 dispatch。
+
+## 2026-08-20 06:01 PDT — r049-rev2 首轮验收汇报
+
+- 指令来源：B 主动汇报。
+- 执行动作：向用户说明四个12-epoch训练虽完成，但 PEF 不是 per-candidate实现、q/native-risk在推理被丢弃、关键 tests 为恒等检查，故服务器完成结论不可采信。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-postexecution-review-20260820.md`。
+- 是否触发停止条件：是，技术/协议未完成；失败结果不进入论文或附录。
+- 下一步建议：不关闭、不派发下一业务。

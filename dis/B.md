@@ -908,3 +908,11 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 主生死门改为 DOTA-v1.0 train→val、PSC 四卡标准完整 schedule，全参数训练 CONT/DIRECT_DIST/SCALAR_QUALITY/PEF；必须同时取得 AP75 `+1.0pp`、角误差相对下降10%、AUGRC/Risk@70相对下降15%，而非靠风险排序牺牲检测精度。
 - 主门通过后扩为六个 full-detector cells，覆盖 DOTA/DIOR/FAIR1M/SODA、PSC/Oriented R-CNN；至少5/6复现，且两个 detector family、三个 datasets 均有通过 cell。再补三 seeds 与零目标 GT transfer。
 - r049-v1 的 CORA 负结果、其他失败方法与本 revision 可能的失败结果均不进入目标论文正文/补充/附录。计划：`dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md`。
+
+## 29. 2026-08-20：r049-rev2 完成回执拒收，PEF 科学未裁决
+
+- 四个 DOTA/PSC 12-epoch 四卡训练和 AP 数字可作为工程记录，但 B 拒收服务器的 `COMPLETE_GATED_SCIENTIFIC_EARLY_STOP / REJECT_PEF_METHOD`。
+- 决定性实现漂移：PEF 只取每层 `base_anchors[level][0]`，每个 FPN 位置只输出一条 q；训练 `argmax` 只留一个 anchor，推理把同一 refined angle 广播给全部 anchors。这不是冻结的 per-positive/per-candidate-box evidence field。
+- `predict_by_feat` 丢弃 q 与 native risk，因而计划要求的 risk/matched-row/bootstrap/zero-GT 门根本不可执行。DIRECT_DIST 与 SCALAR_QUALITY 在推理也分别丢弃其新增输出，不是声称的强推理边界。
+- tests 名义与实质不符：circular-shift 只验证 roll 后概率和仍为1，risk-monotonicity 只验证数值在 `[0,1]`；没有真实旋转平移、分布展宽、candidate collapse或整网梯度 mutation。
+- 正式状态为 `INCOMPLETE / PROTOCOL_DRIFT / NOT_ADJUDICATED_IMPLEMENTATION`；active dispatch 保持打开，不关闭、不派发下一业务。当前期刊档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，失败结果继续不进任何投稿版面。
