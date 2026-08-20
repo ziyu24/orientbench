@@ -57,9 +57,14 @@ class PeriodicEvidenceField(nn.Module):
                 all_angle_energy.append(self.scorer(torch.cat((plus, minus, cls), 1)).squeeze(1))
             all_anchor_energy.append(torch.stack(all_angle_energy, 1))
         energy = torch.stack(all_anchor_energy, 1)
-        q = energy.softmax(2)
-        angles = self.candidate_angles.to(feature).view(1, 1, -1, 1, 1)
+        return energy, *self.summarize_q(energy.softmax(2))
+
+    def summarize_q(self, q: torch.Tensor):
+        """Return axial circular mean and no-GT tail risk from a K-way q."""
+        if q.ndim != 5 or q.shape[2] != self.candidates:
+            raise ValueError('q must have shape [N, anchors, candidates, H, W]')
+        angles = self.candidate_angles.to(q).view(1, 1, -1, 1, 1)
         angle = .5 * torch.atan2((q * torch.sin(2 * angles)).sum(2), (q * torch.cos(2 * angles)).sum(2))
         delta = axial_wrap(angles - angle.unsqueeze(2)).abs()
         risk = (q * (delta >= (math.pi / 6))).sum(2)
-        return energy, angle, risk
+        return angle, risk

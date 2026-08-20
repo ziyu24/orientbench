@@ -15,10 +15,11 @@
 - DIRECT_DIST 和 SCALAR_QUALITY 均完成 four-GPU integration smoke；方法与控制配置已冻结。
 - 复核发现该历史实现未把 candidate box 宽高编码到 sampling grid，故不能作为 G2 admission 证据；完整记录和已中止 CONT 被保留。
 
-## Geometry-repaired G1 admission
+## Repaired per-candidate G1 admission (pre-G2)
 
-- 修复后 PEF 四卡 500-iteration full-parameter smoke 正常结束，final validation 与 checkpoint 正常完成；5/5 PEF field tests 通过。
-- 修复实现以每 FPN level 的 fixed anchor candidate box 宽高决定 rotated sampling axes，候选角是唯一变化的几何量；未改变数据、控制、K、loss weight、阈值或禁止端点。
+- 修复后 PEF 四卡 500-iteration full-parameter smoke 正常结束，final validation 与 checkpoint 正常完成；7/7 PEF field tests 通过，并验证窄/宽 q 的 no-GT tail risk 单调性、轴向循环移位、候选宽高/类别变化及逐 anchor 非坍塌。
+- 全模型反传 probe 正常结束：backbone、neck、bbox regression、PSC angle head、PEF sampler/scorer 均存在非零有限梯度，记录于 `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/per_candidate_gradient_probe.log`。
+- 修复实现以每个 FPN location 的每个 anchor template `(w,h,class)` 生成独立 evidence field，候选角是唯一变化的几何量；推理持久化 `pef_q`、`pef_native_risk`、原始及 refined angle。未改变数据、控制、K、loss weight、阈值或禁止端点。
 
 ## Superseded G2 engineering evidence
 

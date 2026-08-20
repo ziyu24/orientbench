@@ -1,6 +1,7 @@
-# r049-rev2 G2 frozen gate decision
+# r049-rev2 superseded G2 engineering record
 
-Decision: **REJECT_PEF_METHOD**.
+Status: **NOT_ADJUDICATED_IMPLEMENTATION**.  This is not a scientific gate
+decision and must not be used to reject the repaired PEF method.
 
 All four DOTA-v1.0 train→val arms completed their standard 12-epoch,
 four-GPU schedules and were evaluated from their final `epoch_12.pth` with
@@ -14,12 +15,11 @@ AP measures.
 | SCALAR_QUALITY | 0.559 | 0.294 |
 | PEF | 0.500 | 0.258 |
 
-PEF minus CONT is `-0.061` AP50 and `-0.041` AP75.  This fails the frozen G2
-requirements of AP50 delta `>= -0.003` and AP75 gain `>= +0.010`.  Both
-failures are decisive before the remaining conjunctive angle-error, native
-risk, and bootstrap tests; those tests cannot reverse a failed conjunction.
+PEF minus CONT is `-0.061` AP50 and `-0.041` AP75.  The historical source
+implementation was subsequently rejected because it did not implement the
+frozen per-candidate field and did not export q/native risk at inference.
+Consequently these numbers are retained only as engineering evidence.
 
-Consequently G3 and G4 are not run.  This result is internal stop-loss
-evidence only and must not enter a manuscript, supplement, appendix or
-ablation.  No DOTA-v2.0, SODA-A official test, or old `T_audit` semantic field
-was accessed.
+G3 and G4 remain unrun.  After repaired G1 admission, all four G2 arms must
+be rerun before any scientific decision.  No DOTA-v2.0, SODA-A official test,
+or old `T_audit` semantic field was accessed.

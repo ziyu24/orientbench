@@ -3939,3 +3939,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-postexecution-review-20260820.md`。
 - 是否触发停止条件：是，技术/协议未完成；失败结果不进入论文或附录。
 - 下一步建议：不关闭、不派发下一业务。
+
+## 2026-08-20 06:10 PDT — r049-rev2 早停原因更正
+
+- 指令来源：用户“你需要解决为何早停啊。”
+- 执行动作：明确早先停止并非有效的科学早停，而是把四臂训练进程结束错误提升为 dispatch 完成；B 复核后已撤销该结论。当前仅保留 `NOT_ADJUDICATED_IMPLEMENTATION` 的实现/协议停止，正在修复并重跑有效门控。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-postexecution-review-20260820.md`；`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，原先为错误触发且已撤销；当前为可修复的实现验证停止，不是科学 REJECT，dispatch 保持打开。禁止端点未触碰。
+- 下一步建议：完成非恒等 mutation/risk tests、全模型梯度证明和新四臂 G2 后，才允许再次做科学门控裁决。

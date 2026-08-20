@@ -1,0 +1,23 @@
+{
+  "dispatch_id": "orientbench-b-r049-rev2-pef-multidata-multihost-20260819",
+  "status": "PASS_PRE_G2_RERUN",
+  "scope": "implementation admission only; not a G2 scientific decision",
+  "implementation": {
+    "field": "one K=12 axial evidence field per FPN anchor candidate conditioned on anchor (w,h) and class",
+    "inference_exports": ["pef_q", "pef_native_risk", "pef_original_angle", "pef_refined_angle"],
+    "score_or_gt_input_to_pef": false
+  },
+  "validation": {
+    "field_tests": "7 passed",
+    "full_model_gradient_probe": "all five required module groups have nonzero finite gradients",
+    "four_gpu_static_amp_smoke": "500 iterations completed normally with finite logged gradient norms"
+  },
+  "evidence": [
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/pef_field_tests_after_repair.log",
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/per_candidate_gradient_probe.log",
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_per_candidate_static_smoke_500/train_retry.log",
+    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/per_candidate_predict_trace/predictions.pkl"
+  ],
+  "prohibited_endpoints_touched": false,
+  "required_next_step": "Rerun all four G2 arms in distinct repaired work directories before adjudication."
+}
