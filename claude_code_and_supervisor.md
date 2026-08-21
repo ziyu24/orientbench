@@ -4043,3 +4043,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/control_heads.py`；`configs/r049_rev2_pef_obb/dota_psc_scalar_quality_identity_smoke_20.py`。
 - 是否触发停止条件：是，旧 SCALAR_QUALITY 实现实例无效；不是 PEF 门控裁决，禁止端点未触碰。
 - 下一步建议：运行并核验 identity smoke；若 full-val 不再零检测，则从零重启冻结完整 SCALAR_QUALITY，再继续 PEF。
+
+## 2026-08-20 19:36 PDT — r49-rev2 SCALAR_QUALITY identity smoke 结构核验
+
+- 指令来源：SCALAR_QUALITY 初始化修复后的四卡 smoke。
+- 执行动作：20-iteration smoke 的 checkpoint 已核验 `scalar_quality.weight` 近零、bias 约 `-6`，故实际传入 NMS 的 `sigmoid(-scalar)` 约为 `0.9975`，满足 host identity factor。20 iteration 的从零 detector val 仍为 0 是所有 r49 G1 short smoke（包括 CONT/PEF/DIRECT）的共同预期，不能替代完整首 epoch 准入；现从零重启标准完整 SCALAR_QUALITY 并只以其 epoch-1 full-val 判定。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_scalar_quality_identity_v2_smoke_20/epoch_1.pth`。
+- 是否触发停止条件：否；短 smoke 的零 mAP 不作科学结论，正式 arm 保持待审。
+- 下一步建议：完成正式 arm 首 epoch full-val；若仍异常低则停止并报告，否则完成 12 epoch 后启动 PEF。
