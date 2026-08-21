@@ -1,27 +1,28 @@
 {
   "dispatch_id": "orientbench-b-r049-rev2-pef-multidata-multihost-20260819",
   "gate": "G2_DOTA_PSC_FULL_TRAIN_PRIMARY",
-  "decision": "NOT_ADJUDICATED_IMPLEMENTATION",
-  "execution_status": "incomplete_protocol_drift",
+  "decision": "REJECT_PEF_METHOD",
+  "execution_status": "complete_scientific_early_stop",
+  "implementation_admission": "PASS_G1_REAL_PEF_AND_FULL_DETECTOR_SMOKE",
   "final_epoch": 12,
-  "frozen_comparison": {
-    "strongest_control": "CONT",
-    "cont": {"AP50": 0.561, "AP75": 0.299},
-    "direct_dist": {"AP50": 0.508, "AP75": 0.265},
-    "scalar_quality": {"AP50": 0.559, "AP75": 0.294},
-    "pef": {"AP50": 0.5, "AP75": 0.258},
-    "pef_minus_strongest": {"AP50": -0.061, "AP75": -0.041}
+  "scope": "DOTA-v1.0 train -> val; AR>=2.1 matched true positives for angle/risk",
+  "strongest_control": "CONT",
+  "checks": {
+    "mAP_delta_ge_minus_0_003": false,
+    "AP50_delta_ge_minus_0_003": true,
+    "AP75_gain_ge_0_010": false,
+    "mean_angle_error_relative_reduction_ge_10pct": false,
+    "native_risk_AUGRC_relative_reduction_ge_15pct": false,
+    "native_risk_Risk_at_70_relative_reduction_ge_15pct": false,
+    "mother_image_bootstrap_AUGRC_ci_low_gt_0": false,
+    "mother_image_bootstrap_Risk_at_70_ci_low_gt_0": false
   },
-  "frozen_requirements_failed": [
-    "AP50 delta must be >= -0.003; observed -0.061",
-    "AP75 absolute gain must be >= 0.010; observed -0.041"
-  ],
-  "consequence": "Do not run G3 multi-data/multi-host or G4 seeds/transfer. The reported AP values are engineering evidence only because the implementation did not satisfy frozen G1; repair and rerun the current dispatch before any G2 scientific decision.",
-  "evidence": [
-    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_cont/20260820_045257/20260820_045257.json",
-    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_direct_dist/20260820_045501/20260820_045501.json",
-    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_scalar_quality/20260820_045704/20260820_045704.json",
-    "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2/evaluation/dota_psc_pef/20260820_045906/20260820_045906.json"
-  ],
+  "consequence": "Required G2 strict conjunction failed. G3 multi-data/multi-host and G4 seeds/zero-target-GT expansion were not run.",
+  "evidence": {
+    "gate": "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/metrics/gate_dota_psc_repaired.json",
+    "manifest": "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/metrics/manifest.json",
+    "risk_metrics": "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/metrics/risk_metrics.csv",
+    "matched_rows": "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/metrics/matched_tp_rows.jsonl"
+  },
   "prohibited_endpoints_touched": false
 }

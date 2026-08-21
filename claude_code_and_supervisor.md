@@ -4131,3 +4131,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_pef_finalization.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/final_exports.log`。
 - 是否触发停止条件：否；这是监督编排隔离，不改实验内容。
 - 下一步建议：等待 PEF full 正常结束和自动 frozen export；如训练异常，监督器不导出并保留日志。
+
+## 2026-08-21 10:29 PDT — r49-rev2 G2 正常结束并触发科学早停
+
+- 指令来源：冻结计划 `orientbench-b-r049-rev2-pef-multidata-multihost-20260819` 的 G2 严格合取与早停规则。
+- 执行动作：PEF full 在四卡上正常完成 12 epochs、每 epoch full-val；四臂 epoch-12 raw exports 已完成。终局监督器首次在 metrics 重定向前缺少目录而异常退出；已仅修复 `mkdir -p` 编排问题，未重跑训练，并成功生成 matched rows、manifest、bootstrap、风险表和机器裁决。相对 strongest CONT，PEF 未同时满足 mAP/AP75、AR>=2.1 angle-error、native-risk AUGRC/Risk@70 与 bootstrap CI 门槛，裁决为 `REJECT_PEF_METHOD`。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/metrics/gate_dota_psc_repaired.json`；`audit_bundles/r049_rev2/G2_GATE_DECISION.json`；`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，G2 负结果触发正常的科学早停；G3/G4 均未启动。未触碰 DOTA-v2.0、SODA-A official test 或旧 `T_audit`。
+- 下一步建议：关闭本 dispatch；PEF 负结果仅保留内部研发台账，不进入目标论文或附录。

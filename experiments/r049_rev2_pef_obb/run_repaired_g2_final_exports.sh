@@ -28,6 +28,7 @@ for arm in dota_psc_cont dota_psc_direct_dist_residual dota_psc_scalar_quality d
     --cfg-options val_evaluator.iou_thrs='[0.5,0.75]' test_evaluator.iou_thrs='[0.5,0.75]' \
     >"$out/test.log" 2>&1
 done
+mkdir -p "$base/metrics"
 CUDA_VISIBLE_DEVICES='' python "$root/experiments/r049_rev2_pef_obb/build_repaired_g2_metrics.py" --base "$base" --out "$base/metrics" \
   >"$base/metrics/build_metrics.log" 2>&1
 CUDA_VISIBLE_DEVICES='' python "$root/experiments/r049_rev2_pef_obb/adjudicate_repaired_g2.py" --base "$base" \

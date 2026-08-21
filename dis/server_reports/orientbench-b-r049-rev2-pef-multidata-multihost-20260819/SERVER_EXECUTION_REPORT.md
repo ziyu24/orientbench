@@ -1,36 +1,23 @@
-未执行完毕
+执行完毕
 `dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`
 
 ## r049-rev2 server execution record
 
-- 状态：`NOT_ADJUDICATED_IMPLEMENTATION`；最终 2×2 rotated-grid G1 已通过，但 G2 的 DIRECT_DIST 冻结对照在首轮异常低后暂停，尚不能做有效四臂裁决。
-- 已核验：`server-primary` 绑定、冻结 plan commit/blob/SHA、四张 A30 可用、唯一报告路径和写入范围；DOTA/PSC 主资产与历史 checkpoint 的四卡全验证回放通过。
-- 信息墙：尚未访问 DOTA-v2.0、SODA-A official test 或旧 `T_audit` 语义字段。
-- G0 结论：DOTA PSC replay mAP/AP50=`0.5562/0.5560`，与 archived mAP=`0.5562` 一致；DIOR 与 SODA 的已登记扩展资产可用，FAIR1M 的已登记 transformed split 缺失并冻结为可跳过扩展 cell。
-- 下一步：等待对 DIRECT_DIST operative inference 的冻结定义确认；确认前不启动 SCALAR_QUALITY/PEF，不运行 G3/G4。
+- 执行状态：`complete`（G2 科学早停）。`server-primary`、精确 dispatch/plan、DOTA-v1.0 train→val 主资产和四卡训练均已核验；G1 修复后真实 PEF 的 500-iteration 全参数 smoke 正常结束，backbone、neck、bbox、angle head、sampler/scorer 梯度均非零且有限。
+- G2：CONT、DIRECT_DIST、SCALAR_QUALITY、PEF 均从合法同初始化完成 12 epoch、每 epoch full-val，并以 epoch-12 checkpoint 重新导出原始预测、PEF `q`/native-risk、matched rows、manifest 与 bootstrap。
+- 决策：`REJECT_PEF_METHOD`。相对 strongest control CONT，PEF mAP/AP50/AP75 分别为 `0.4137/0.5450/0.2820` 对 `0.4171/0.5450/0.2900`；AR>=2.1 angle MAE 为 `1.9419` 对 `1.8581`，native-risk AUGRC/Risk@70 为 `0.009659/0.019360` 对 `0.009795/0.019692`。严格合取中 mAP tolerance、AP75、angle-error、两项15% risk reduction 和两项 bootstrap CI 均未满足。
+- 早停：按冻结 G2 规则，未启动 G3 多数据/多架构或 G4 多种子/零目标 GT 扩展；该负结果仅保留内部研发台账，不进入目标论文、补充、附录或消融。
+- 禁止端点：未访问 DOTA-v2.0、SODA-A official test 或旧 `T_audit` 语义字段。
 
-## Final rotated-grid G1 and current G2 state
+## Authoritative artifacts
 
-- 最终 PEF 实现以候选 `(w,h,theta,class)` 的局部矩形 2×2 rotated FPN grid 生成 candidate-conditioned field。四卡 500-iteration smoke 正常完成；独立全模型 probe 证明 backbone、neck、bbox、angle head、PEF sampler/scorer 五组均有非零有限梯度：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_batched_rotated_grid_static_smoke_500/full_model_gradient.json`。
-- 新 G2 使用隔离目录 `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/`。CONT 已正常完成 12 epoch，final full-val mAP/AP50=`0.5446/0.5450`。
-- DIRECT_DIST 第 1 epoch full-val mAP/AP50=`0.0003/0.0000`，而同初始化 CONT 第 1 epoch 为 `0.0256/0.0260`。按项目首 epoch 显著偏低纪律已中断，保留 `dota_psc_direct_dist/train.log` 和 epoch-1 checkpoint；未继续盲跑。根因是初始近均匀 absolute-q 的 circular mean 在 inference 数值未定义，覆盖了 host angle。
-- 随后将该未定义 circular-mean 数值问题修复为零初始化的 host-angle residual distribution（q 仍是实际 inference 角修正，不是 auxiliary-only loss），并在独立 `dota_psc_direct_dist_residual/` 目录从零完成 12 epoch。其第 1 epoch mAP/AP50=`0.0222/0.0220`，final full-val mAP/AP50=`0.4586/0.4590`；SCALAR_QUALITY 已由顺序监督器启动。原中断 absolute-q 目录保留，不混入指标或导出。
-- SCALAR_QUALITY 在第 1 epoch checkpoint 写入时因 `/home` 文件系统使用率到达 `100%` 异常退出；不是 OOM 或模型数值异常，未产生可用 G2 evidence，PEF 未启动。需先经用户授权归档/清理可再生产物后，才可从零重跑 SCALAR_QUALITY 并继续该 dispatch。
-- 信息墙未变：未触碰 DOTA-v2.0、SODA-A official test、旧 `T_audit`；未运行 G3/G4。该状态不是 `REJECT_PEF_METHOD`。
+- G1 gradients: `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/full_model_gradient.json`
+- Full training logs: `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_{cont,direct_dist_residual,scalar_quality,pef}/train.log`
+- Final raw exports and metrics: `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/evaluation/` and `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/metrics/`
+- Frozen decision: `audit_bundles/r049_rev2/G2_GATE_DECISION.json`; human table: `audit_bundles/r049_rev2/G2_GATE_REPORT.md`
 
-## Historical G1 completion (superseded for G2 admission)
+## Integrity
 
-- PEF 的 four-GPU 500-iteration 全参数 smoke 正常结束；候选采样、q、refined angle、native risk 与梯度有限性测试通过。
-- DIRECT_DIST 和 SCALAR_QUALITY 均完成 four-GPU integration smoke；方法与控制配置已冻结。
-- 复核发现该历史实现未把 candidate box 宽高编码到 sampling grid，故不能作为 G2 admission 证据；完整记录和已中止 CONT 被保留。
-
-## Repaired per-candidate G1 admission (pre-G2)
-
-- 修复后 PEF 四卡 500-iteration full-parameter smoke 正常结束，final validation 与 checkpoint 正常完成；7/7 PEF field tests 通过，并验证窄/宽 q 的 no-GT tail risk 单调性、轴向循环移位、候选宽高/类别变化及逐 anchor 非坍塌。
-- 全模型反传 probe 正常结束：backbone、neck、bbox regression、PSC angle head、PEF sampler/scorer 均存在非零有限梯度，记录于 `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/per_candidate_gradient_probe.log`。
-- 修复实现以每个 FPN location 的每个 anchor template `(w,h,class)` 生成独立 evidence field，候选角是唯一变化的几何量；推理持久化 `pef_q`、`pef_native_risk`、原始及 refined angle。未改变数据、控制、K、loss weight、阈值或禁止端点。
-
-## Superseded G2 engineering evidence
-
-- CONT、DIRECT_DIST、SCALAR_QUALITY、PEF 均完成 DOTA-v1.0 train→val 12-epoch 四卡完整训练；final `epoch_12.pth` 的 frozen AP50/AP75 复评结果为 CONT=`0.561/0.299`、DIRECT_DIST=`0.508/0.265`、SCALAR_QUALITY=`0.559/0.294`、PEF=`0.500/0.258`。
-- 原先相对 strongest CONT 的 PEF AP50/AP75 为 `-0.061/-0.041`，但 B 验收确认该 PEF 并非冻结的 per-candidate method、未导出 native risk/q，故这些数值仅保留为工程证据，不能构成 `REJECT_PEF_METHOD` 科学裁决。当前 dispatch 不关闭；未触碰禁止端点。
+- `manifest.json` sha256: `3f5ba00fef5b297abc4de05152fb4d755dba23932b31819a7524430d07ede678`
+- `risk_metrics.csv` sha256: `9c36667e3d6fc13225bcf50f7024fc55355f50ec817e98080e80d6856a41a30b`
+- `gate_dota_psc_repaired.json` sha256: `74725665000e82474c94a1c14861c3b746f804ee1c2e05c67f95a5440a32720d`
