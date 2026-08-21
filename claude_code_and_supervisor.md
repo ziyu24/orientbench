@@ -4091,3 +4091,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/train.log`。
 - 是否触发停止条件：否；SCALAR 正常结束，禁止端点未触碰。
 - 下一步建议：验证 G1 smoke 的 500 iteration 正常结束及全模型梯度 JSON 后，才允许启动 PEF full。
+
+## 2026-08-20 20:45 PDT — r49-rev2 PEF G1 数值异常中止并修复
+
+- 指令来源：修复后 PEF host-residual 四卡 G1 smoke 的实时有限梯度门控。
+- 执行动作：smoke 在 iter 50/100 的 `grad_norm` 均为 `nan`，虽各项 loss 有限，仍不满足 G1 的“梯度非零且有限”硬条件，故主动终止，未进入 PEF full。归因到 identity 均匀 q 的零 axial resultant 上 `hypot(0,0)` 的未定义反向方向；以带 `1e-12` squared-norm floor 的 concentration 替换，并新增该零-resultant 反向有限性测试。字段测试现为 9/9 通过。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/train.log`；`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/test_pef_field.py`。
+- 是否触发停止条件：G1 本次 smoke 异常结束；已停止该无效运行，未触碰禁止端点，且未启动 PEF full。
+- 下一步建议：推送修复后重跑同一冻结 G1 四卡 500 iteration smoke；仅梯度 JSON 全项非零且有限时恢复顺序监督。

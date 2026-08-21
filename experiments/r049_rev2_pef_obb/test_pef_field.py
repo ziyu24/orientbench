@@ -88,3 +88,12 @@ def test_identity_field_has_zero_residual_about_host_angle():
     _, residual, risk = field(x, sizes, classes, host)
     assert torch.all(axial_wrap(residual).abs() < 1e-6)
     assert torch.isfinite(risk).all()
+
+
+def test_uniform_field_has_finite_backward_at_zero_resultant():
+    """The identity field must not create NaNs at its zero axial moment."""
+    field = PeriodicEvidenceField(4, 12)
+    logits = torch.zeros(1, 1, 12, 2, 2, requires_grad=True)
+    angle, risk = field.summarize_q(logits.softmax(2))
+    (angle.square().mean() + risk.mean()).backward()
+    assert logits.grad is not None and torch.isfinite(logits.grad).all()

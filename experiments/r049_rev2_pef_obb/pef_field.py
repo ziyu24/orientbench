@@ -102,7 +102,11 @@ class PeriodicEvidenceField(nn.Module):
         angles = self.candidate_angles.to(q).view(1, 1, -1, 1, 1)
         sine = (q * torch.sin(2 * angles)).sum(2)
         cosine = (q * torch.cos(2 * angles)).sum(2)
-        concentration = torch.hypot(sine, cosine)
+        # ``hypot(0, 0)`` has an undefined backward direction.  The intended
+        # identity initialization makes the axial resultant nearly zero, so
+        # use a tiny squared-norm floor to keep the candidate-field gradient
+        # finite while leaving the 1e-3 concentration gate unchanged.
+        concentration = torch.sqrt(sine.square() + cosine.square() + 1e-12)
         angle = .5 * torch.atan2(sine, cosine)
         angle = torch.where(concentration > 1e-3, angle, torch.zeros_like(angle))
         delta = axial_wrap(angles - angle.unsqueeze(2)).abs()
