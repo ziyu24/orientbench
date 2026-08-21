@@ -33,6 +33,12 @@ run_arm() {
 wait_scalar_admission() {
   local log="$base/dota_psc_scalar_quality/train.log"
   local pattern='mmrotate/.mim/tools/train.py.*dota_psc_scalar_quality_rotated_grid_full.py'
+  # A restarted supervisor may resume after the completed control arm; its
+  # recorded normal terminal checkpoint is stronger evidence than re-running
+  # the epoch-1 admission parser.
+  if grep -q 'Saving checkpoint at 12 epochs' "$log" 2>/dev/null; then
+    return 0
+  fi
   while pgrep -f "$pattern" >/dev/null; do
     local line value
     line=$(grep 'Epoch(val) \[1\].*dota/mAP:' "$log" 2>/dev/null | tail -n 1 || true)
