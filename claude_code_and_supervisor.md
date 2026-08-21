@@ -4019,3 +4019,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/cleanup_20260820/REGENERABLE_ARTIFACT_CLEANUP.md`；保留的 r49 checkpoint 位于 `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/`。
 - 是否触发停止条件：否；项目大小已由 63 GiB 降至 15 GiB，禁止数据端点未触碰。
 - 下一步建议：从零重启 r49 SCALAR_QUALITY，再按冻结顺序完成 PEF 与最终导出；后续每次训练完成立即删除冗余 resume checkpoint，只保留 best 与必要审计资料。
+
+## 2026-08-20 18:53 PDT — r49-rev2 SCALAR_QUALITY 从零恢复
+
+- 指令来源：r49 冻结 G2 顺序与项目所有者授权继续执行。
+- 执行动作：在清理后的空间上，用既有 `pcp-obb` 环境、四张 A30、原冻结 config 从零启动 SCALAR_QUALITY；建立只负责等待正常结束后依序启动 PEF 与冻结导出的监督器。未改数据、结构、对照、schedule、阈值或禁止端点。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`experiments/r049_rev2_pef_obb/supervise_g2_remaining_sequence.sh`。
+- 是否触发停止条件：否；四卡均已进入训练。
+- 下一步建议：仅在 SCALAR_QUALITY 或 PEF 异常时读取必要日志并处置；正常结束后运行冻结导出和 G2 裁决。
