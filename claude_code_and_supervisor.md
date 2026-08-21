@@ -4051,3 +4051,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_scalar_quality_identity_v2_smoke_20/epoch_1.pth`。
 - 是否触发停止条件：否；短 smoke 的零 mAP 不作科学结论，正式 arm 保持待审。
 - 下一步建议：完成正式 arm 首 epoch full-val；若仍异常低则停止并报告，否则完成 12 epoch 后启动 PEF。
+
+## 2026-08-20 19:37 PDT — r49-rev2 正式 SCALAR_QUALITY 重启并恢复首 epoch 门控
+
+- 指令来源：identity 初始化 smoke 的参数核验通过。
+- 执行动作：清除首轮无效 scalar runtime 后，以相同冻结 full config、同一四卡 global batch/lr/BN/augmentation 从零重启。顺序监督器增加了机械的 epoch-1 mAP admission：仅低于 `0.005` 才会自动中止；通过则等待完整 12 epochs 后启动 PEF，避免漏检早停。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`experiments/r049_rev2_pef_obb/supervise_g2_remaining_sequence.sh`。
+- 是否触发停止条件：否；当前四卡正常训练。
+- 下一步建议：以完整 epoch-1 full-val 作为唯一 admission 依据。

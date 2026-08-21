@@ -30,6 +30,29 @@ run_arm() {
     "MASTER_PORT=29821 bash $root/experiments/r049_rev2_pef_obb/run_g2_arm.sh $config > $base/$name/train.log 2>&1" Enter
 }
 
+wait_scalar_admission() {
+  local log="$base/dota_psc_scalar_quality/train.log"
+  local pattern='mmrotate/.mim/tools/train.py.*dota_psc_scalar_quality_rotated_grid_full.py'
+  while pgrep -f "$pattern" >/dev/null; do
+    local line value
+    line=$(grep 'Epoch(val) \[1\].*dota/mAP:' "$log" 2>/dev/null | tail -n 1 || true)
+    if [ -n "$line" ]; then
+      value=$(printf '%s\n' "$line" | sed -n 's/.*dota\/mAP: \([0-9.]*\).*/\1/p')
+      if awk "BEGIN { exit !($value >= 0.005) }"; then
+        return 0
+      fi
+      tmux send-keys -t "$train_session" C-c
+      echo "SCALAR_QUALITY_EPOCH1_ADMISSION_FAILED mAP=$value"
+      return 1
+    fi
+    sleep 20
+  done
+  return 1
+}
+
+if ! wait_scalar_admission; then
+  exit 1
+fi
 if ! wait_normal dota_psc_scalar_quality; then
   echo "SCALAR_QUALITY_ABNORMAL"
   exit 1
