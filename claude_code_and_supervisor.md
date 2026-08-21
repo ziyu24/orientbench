@@ -4115,3 +4115,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/full_model_gradient.json`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_pef/train.log`。
 - 是否触发停止条件：否；G1 已通过，PEF full 正常启动，禁止端点未触碰。
 - 下一步建议：完成 PEF full 12 epochs，随后执行冻结 final export/adjudication；若 G2 严格合取不通过，按计划停止扩展。
+
+## 2026-08-20 21:12 PDT — r49-rev2 PEF full 完成监督恢复
+
+- 指令来源：G1 通过后顺序脚本未创建尚不存在的 PEF 输出目录而未成功派发 full arm。
+- 执行动作：已创建计划内 PEF runtime 目录并手动发起同一冻结四卡 full arm；将监督脚本改为幂等地识别“PEF 已在运行/已完成”，避免重启监督器时重复训练，并重新挂载其正常结束→final export 链路。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_g2_remaining_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_pef/train.log`。
+- 是否触发停止条件：否；仅修复运行编排，PEF config、数据、阈值和实验内容未改变。
+- 下一步建议：保持 PEF full 运行至 12 epochs；监督器将在正常结束后执行冻结导出。

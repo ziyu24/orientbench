@@ -89,7 +89,10 @@ CUDA_VISIBLE_DEVICES=0 python "$root/experiments/r049_rev2_pef_obb/verify_rotate
   --config "$root/configs/r049_rev2_pef_obb/dota_psc_pef_host_residual_smoke_500.py" \
   --out "$base/../g1/dota_psc_pef_host_residual_smoke_500/full_model_gradient.json" \
   >"$base/../g1/dota_psc_pef_host_residual_smoke_500/gradient_check.log" 2>&1
-run_arm configs/r049_rev2_pef_obb/dota_psc_pef_rotated_grid_full.py dota_psc_pef
+if ! pgrep -f 'mmrotate/.mim/tools/train.py.*dota_psc_pef_rotated_grid_full.py' >/dev/null \
+   && ! grep -q 'Saving checkpoint at 12 epochs' "$base/dota_psc_pef/train.log" 2>/dev/null; then
+  run_arm configs/r049_rev2_pef_obb/dota_psc_pef_rotated_grid_full.py dota_psc_pef
+fi
 if ! wait_normal dota_psc_pef; then
   echo "PEF_ABNORMAL"
   exit 1
