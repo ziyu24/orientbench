@@ -89,6 +89,13 @@ class ScalarQualityAngleBranchRetinaHead(AngleBranchRetinaHead):
     def _init_layers(self):
         super()._init_layers()
         self.scalar_quality = nn.Conv2d(self.feat_channels, self.num_anchors, 3, padding=1)
+        # ``-scalar_quality`` is passed through the detector's sigmoid score
+        # factor.  A zero/random scalar field halves or suppresses otherwise
+        # valid host detections before this equal-budget control has trained.
+        # Start as an identity quality factor (sigmoid(6) ~= .9975), while the
+        # scalar BCE target remains the same learned angular-harm quantity.
+        nn.init.zeros_(self.scalar_quality.weight)
+        nn.init.constant_(self.scalar_quality.bias, -6.)
 
     def forward_single(self, x):
         cls, bbox, angle = super().forward_single(x)

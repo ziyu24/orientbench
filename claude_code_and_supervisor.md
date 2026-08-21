@@ -4035,3 +4035,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/run_repaired_g2_final_exports.sh`；`experiments/r049_rev2_pef_obb/adjudicate_repaired_g2.py`。
 - 是否触发停止条件：否；修复仅恢复既有冻结最终 epoch 导出，不改变方法、数据、训练或门槛。
 - 下一步建议：继续当前四卡 SCALAR_QUALITY，随后自动运行 PEF 和修复后的冻结导出。
+
+## 2026-08-20 19:29 PDT — r49-rev2 SCALAR_QUALITY 首 epoch 工程退化修复
+
+- 指令来源：AGENTS.md 首 epoch 明显偏低早停规则；SCALAR_QUALITY 的完整 full-val 首轮为 mAP/AP50=`0.0000/0.0000`。
+- 执行动作：已中断该无效运行和后续队列。定位为未训练 scalar quality 的随机 score-factor 会在 detector 阈值前压低全部宿主检测；将新增 scalar branch 初始化为 identity quality factor（zero weight、bias=`-6`，使 `sigmoid(-scalar)` 约为 1），其 BCE harm 目标、loss 权重、推理排名定义、数据和 schedule 均不变。新增四卡 20-iteration identity smoke，必须先通过 host-parity 才重启完整 arm。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/control_heads.py`；`configs/r049_rev2_pef_obb/dota_psc_scalar_quality_identity_smoke_20.py`。
+- 是否触发停止条件：是，旧 SCALAR_QUALITY 实现实例无效；不是 PEF 门控裁决，禁止端点未触碰。
+- 下一步建议：运行并核验 identity smoke；若 full-val 不再零检测，则从零重启冻结完整 SCALAR_QUALITY，再继续 PEF。
