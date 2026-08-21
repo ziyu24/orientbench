@@ -89,6 +89,9 @@ class ScalarQualityAngleBranchRetinaHead(AngleBranchRetinaHead):
     def _init_layers(self):
         super()._init_layers()
         self.scalar_quality = nn.Conv2d(self.feat_channels, self.num_anchors, 3, padding=1)
+
+    def init_weights(self):
+        super().init_weights()
         # ``-scalar_quality`` is passed through the detector's sigmoid score
         # factor.  A zero/random scalar field halves or suppresses otherwise
         # valid host detections before this equal-budget control has trained.

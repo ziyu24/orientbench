@@ -3,4 +3,4 @@ train_cfg = dict(_delete_=True, type='IterBasedTrainLoop', max_iters=20, val_int
 default_hooks = dict(checkpoint=dict(type='CheckpointHook', interval=20, max_keep_ckpts=1))
 work_dir = ('/home/rspip/cqc/pro/study/orientbench/outputs/persistent_artifacts/'
             'orientbench_r049_rev2_pef_obb_20260819/g1/'
-            'dota_psc_scalar_quality_identity_smoke_20')
+            'dota_psc_scalar_quality_identity_v2_smoke_20')
