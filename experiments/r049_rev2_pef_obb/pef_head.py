@@ -55,7 +55,13 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
             native = self.angle_coder.decode(
                 angle.permute(0, 2, 3, 1).reshape(-1, self.encode_size)
             ).reshape(b, h, w, self.num_anchors).permute(0, 3, 1, 2)
-            energy, residual, risk = self.pef(x, sizes, class_ids, native)
+            # The host decoder supplies candidate geometry as a detached
+            # condition.  PEF is an auxiliary evidence selector, not an
+            # alternate loss path through the periodic host-angle decode;
+            # keeping this conditioning value-only prevents the undefined
+            # axial-mean derivative around a uniform initial field from
+            # contaminating the detector's angle/backbone gradients.
+            energy, residual, risk = self.pef(x, sizes, class_ids, native.detach())
             refined = axial_wrap(native + residual)
             outputs.append((cls, bbox, angle, energy, refined, risk))
         return tuple(map(list, zip(*outputs)))

@@ -4099,3 +4099,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/train.log`；`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/test_pef_field.py`。
 - 是否触发停止条件：G1 本次 smoke 异常结束；已停止该无效运行，未触碰禁止端点，且未启动 PEF full。
 - 下一步建议：推送修复后重跑同一冻结 G1 四卡 500 iteration smoke；仅梯度 JSON 全项非零且有限时恢复顺序监督。
+
+## 2026-08-20 20:50 PDT — r49-rev2 PEF G1 第二次有限梯度审计修复
+
+- 指令来源：重启 smoke 后 iter 50 的 `grad_norm=nan` 与单 batch 全模型梯度核验。
+- 执行动作：确认 PEF scorer/sampler 自身梯度有限，但未经隔离的 host-angle 条件反向污染了 angle head/backbone。将 PEF 的宿主角保持为 value-only candidate condition（`native.detach()`）；这不改变每位置真实旋转采样、候选环或 PEF scorer 的训练，且宿主 detector 仍由原冻结损失接收梯度。单 batch 全模型核验现通过：backbone、neck、bbox_reg、angle_head、pef_sampler_scorer 均为非零有限梯度。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/pef_head.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/gradient_debug.log`。
+- 是否触发停止条件：第二次旧 smoke 同样在进入 PEF full 前主动中止；有限梯度门控尚未通过正式 500 iteration 重跑，禁止端点未触碰。
+- 下一步建议：以该修复重新运行完整四卡 500 iteration smoke，再写正式 gradient JSON 后恢复 PEF full。
