@@ -4123,3 +4123,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_g2_remaining_sequence.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_pef/train.log`。
 - 是否触发停止条件：否；仅修复运行编排，PEF config、数据、阈值和实验内容未改变。
 - 下一步建议：保持 PEF full 运行至 12 epochs；监督器将在正常结束后执行冻结导出。
+
+## 2026-08-20 21:13 PDT — r49-rev2 PEF full 独立终局监督
+
+- 指令来源：已运行的 PEF full 不应被恢复脚本的前置 smoke 步骤重复派发。
+- 执行动作：新增独立、只等待现有 PEF full 进程的终局监督器；仅在第 12 epoch 正常保存且日志无异常关键字后，才执行冻结 final export。该监督器不发送任何训练命令。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/supervise_pef_finalization.sh`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/final_exports.log`。
+- 是否触发停止条件：否；这是监督编排隔离，不改实验内容。
+- 下一步建议：等待 PEF full 正常结束和自动 frozen export；如训练异常，监督器不导出并保留日志。
