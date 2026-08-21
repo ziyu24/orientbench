@@ -4060,6 +4060,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；当前四卡正常训练。
 - 下一步建议：以完整 epoch-1 full-val 作为唯一 admission 依据。
 
+## 2026-08-20 19:42 PDT — r49-rev2 SCALAR_QUALITY 通过首 epoch 准入
+
+- 指令来源：冻结的 SCALAR_QUALITY epoch-1 full-val admission。
+- 执行动作：identity 初始化后的 epoch-1 full-val mAP/AP50=`0.0256/0.0260`，与同初始化 CONT 同期完全一致，证明 score-factor 初始 parity 已恢复；顺序监督继续该臂至 12 epochs，未发生早停。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`。
+- 是否触发停止条件：否；四卡训练正常，禁止端点未触碰。
+- 下一步建议：完成完整 SCALAR_QUALITY 后，在已修复的 host-residual PEF 上重做 G1 四卡 500-iteration smoke和梯度核验，再启动 PEF full。
+
 ## 2026-08-20 19:39 PDT — r49-rev2 PEF 初始化路径预防性修复
 
 - 指令来源：SCALAR control 的首 epoch退化归因后，对尚未启动 PEF 的同类 untrained inference 路径进行只读审计。
