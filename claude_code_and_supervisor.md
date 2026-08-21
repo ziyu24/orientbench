@@ -4083,3 +4083,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/pef_head.py`；`experiments/r049_rev2_pef_obb/test_pef_field.py`。
 - 是否触发停止条件：否；这是尚未开始臂的普通数值准入修复，不改数据、K、loss 权重、门槛或 PEF 的候选视觉证据结构。
 - 下一步建议：SCALAR通过首 epoch后继续完成；在启动 PEF full 前执行新的四卡全参数 G1 smoke及梯度核验。
+
+## 2026-08-20 20:42 PDT — r49-rev2 SCALAR_QUALITY 正常完成，进入修复后 PEF G1
+
+- 指令来源：r49 冻结顺序监督器。
+- 执行动作：SCALAR_QUALITY 在四卡、DOTA train→val 冻结口径下正常完成第 12 epoch；终局 val mAP/AP50=`0.5351/0.5350`。监督器随后自动启动修复后 PEF host-residual 的四卡 500-iteration G1 smoke，尚未启动 PEF full。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/train.log`。
+- 是否触发停止条件：否；SCALAR 正常结束，禁止端点未触碰。
+- 下一步建议：验证 G1 smoke 的 500 iteration 正常结束及全模型梯度 JSON 后，才允许启动 PEF full。
