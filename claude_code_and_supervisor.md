@@ -4027,3 +4027,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`experiments/r049_rev2_pef_obb/supervise_g2_remaining_sequence.sh`。
 - 是否触发停止条件：否；四卡均已进入训练。
 - 下一步建议：仅在 SCALAR_QUALITY 或 PEF 异常时读取必要日志并处置；正常结束后运行冻结导出和 G2 裁决。
+
+## 2026-08-20 18:56 PDT — r49-rev2 最终导出路径预检修复
+
+- 指令来源：r49 导出脚本的只读预检；此前清理已按授权移除重复 resume checkpoint。
+- 执行动作：将最终导出严格限定为 epoch 12：优先 `epoch_12.pth`，仅在其已清理时接受文件名明确为 `best_dota_mAP_epoch_12.pth` 的同一最终 epoch 权重，不允许回退到任意早期 best。同步修复裁决器仍指向已废弃 `dota_psc_direct_dist` 目录而非实际完成的 residual arm 的路径错误；已通过 bash/Python 静态校验。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/run_repaired_g2_final_exports.sh`；`experiments/r049_rev2_pef_obb/adjudicate_repaired_g2.py`。
+- 是否触发停止条件：否；修复仅恢复既有冻结最终 epoch 导出，不改变方法、数据、训练或门槛。
+- 下一步建议：继续当前四卡 SCALAR_QUALITY，随后自动运行 PEF 和修复后的冻结导出。

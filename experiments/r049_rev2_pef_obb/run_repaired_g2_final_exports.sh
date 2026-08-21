@@ -14,9 +14,17 @@ declare -A configs=(
 )
 for arm in dota_psc_cont dota_psc_direct_dist_residual dota_psc_scalar_quality dota_psc_pef; do
   out="$base/evaluation/$arm"; mkdir -p "$out"
+  # The cleanup retains an explicitly epoch-12 best checkpoint when it is
+  # byte-for-byte the final-epoch model but removes duplicate resume state.
+  # Never select an earlier best checkpoint for the frozen final-epoch export.
+  checkpoint="$base/$arm/epoch_12.pth"
+  if [ ! -f "$checkpoint" ]; then
+    checkpoint="$base/$arm/best_dota_mAP_epoch_12.pth"
+  fi
+  test -f "$checkpoint"
   torchrun --master_port $((29900 + ${#arm})) --nproc_per_node=4 \
     /home/rspip/cqc/data/install/yes/envs/pcp-obb/lib/python3.10/site-packages/mmrotate/.mim/tools/test.py \
-    "${configs[$arm]}" "$base/$arm/epoch_12.pth" --launcher pytorch --work-dir "$out" --out "$out/predictions.pkl" \
+    "${configs[$arm]}" "$checkpoint" --launcher pytorch --work-dir "$out" --out "$out/predictions.pkl" \
     --cfg-options val_evaluator.iou_thrs='[0.5,0.75]' test_evaluator.iou_thrs='[0.5,0.75]' \
     >"$out/test.log" 2>&1
 done

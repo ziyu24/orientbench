@@ -5,7 +5,7 @@ import argparse, csv, json, re
 from pathlib import Path
 
 ROOT = Path('/home/rspip/cqc/pro/study/orientbench')
-DIRS = {'CONT': 'dota_psc_cont', 'DIRECT_DIST': 'dota_psc_direct_dist', 'SCALAR_QUALITY': 'dota_psc_scalar_quality', 'PEF': 'dota_psc_pef'}
+DIRS = {'CONT': 'dota_psc_cont', 'DIRECT_DIST': 'dota_psc_direct_dist_residual', 'SCALAR_QUALITY': 'dota_psc_scalar_quality', 'PEF': 'dota_psc_pef'}
 AP_RE = re.compile(r'dota/mAP: ([0-9.]+)\s+dota/AP50: ([0-9.]+)\s+dota/AP75: ([0-9.]+)')
 
 def final_ap(path: Path) -> dict:
