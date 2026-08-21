@@ -1,6 +1,0 @@
-Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
-Collecting mmcv-lite==2.0.1
-  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2b/aa/32a2e538e9b2d3fdf86e79bfbf6ca6a0e7d8a6e6ab5adcc5e43a8fccfb65/mmcv_lite-2.0.1-py2.py3-none-any.whl (715 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 715.0/715.0 kB 3.4 MB/s eta 0:00:00
-Installing collected packages: mmcv-lite
-Successfully installed mmcv-lite-2.0.1

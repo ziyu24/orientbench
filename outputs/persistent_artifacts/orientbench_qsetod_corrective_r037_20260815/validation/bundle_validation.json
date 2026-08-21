@@ -1,8 +1,0 @@
-{
-  "max_object_lt_80MiB": true,
-  "non_self_bytes_checked": 563404008,
-  "non_self_objects_checked": 104,
-  "schema_version": 1,
-  "self_reference_rows": 1,
-  "status": "PASS"
-}

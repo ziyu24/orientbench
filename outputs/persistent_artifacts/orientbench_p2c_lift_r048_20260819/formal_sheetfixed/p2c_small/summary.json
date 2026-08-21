@@ -1,9 +1,0 @@
-{
-  "kind": "P2C_LIFT",
-  "best_accuracy": 0.5027726432532348,
-  "hid": 256,
-  "layers": 2,
-  "formal": true,
-  "augmentation": "one uniformly sampled H/V/R transform per train item plus original view",
-  "trainable_parameters": 16545544
-}

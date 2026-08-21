@@ -1,140 +1,0 @@
-load checkpoint from local path: /home/rspip/cqc/pro/study/pth_data/baseline_oriented_rcnn_lsknet_s_fpn_3x_le90/HRSC_trainval_test/best_mAP_epoch_33.pth
-[                                                  ] 0/181, elapsed: 0s, ETA:/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-/home/rspip/cqc/pro/study/third_party/Fourier-Angle-Alignment/mmrotate/utils/setup_env.py:38: UserWarning: Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
-  warnings.warn(
-/home/rspip/cqc/pro/study/third_party/Fourier-Angle-Alignment/mmrotate/utils/setup_env.py:48: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
-  warnings.warn(
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmdet/models/dense_heads/anchor_head.py:116: UserWarning: DeprecationWarning: `num_anchors` is deprecated, for consistency or also use `num_base_priors` instead
-  warnings.warn('DeprecationWarning: `num_anchors` is deprecated, '
-[                                 ] 1/181, 2.5 task/s, elapsed: 0s, ETA:    71s[                                 ] 2/181, 4.7 task/s, elapsed: 0s, ETA:    38s[                                 ] 3/181, 6.4 task/s, elapsed: 0s, ETA:    28s[                                 ] 4/181, 7.9 task/s, elapsed: 1s, ETA:    22s[                                 ] 5/181, 9.2 task/s, elapsed: 1s, ETA:    19s[>                               ] 6/181, 10.4 task/s, elapsed: 1s, ETA:    17s[>                               ] 7/181, 11.5 task/s, elapsed: 1s, ETA:    15s[>                               ] 8/181, 12.4 task/s, elapsed: 1s, ETA:    14s[>                               ] 9/181, 13.2 task/s, elapsed: 1s, ETA:    13s[>                              ] 10/181, 13.6 task/s, elapsed: 1s, ETA:    13s[>                              ] 11/181, 14.1 task/s, elapsed: 1s, ETA:    12s[>>                             ] 12/181, 14.3 task/s, elapsed: 1s, ETA:    12s[>>                             ] 13/181, 14.2 task/s, elapsed: 1s, ETA:    12s[>>                             ] 14/181, 14.5 task/s, elapsed: 1s, ETA:    12s[>>                             ] 15/181, 14.6 task/s, elapsed: 1s, ETA:    11s[>>                             ] 16/181, 14.7 task/s, elapsed: 1s, ETA:    11s[>>                             ] 17/181, 15.1 task/s, elapsed: 1s, ETA:    11s[>>>                            ] 18/181, 15.5 task/s, elapsed: 1s, ETA:    11s[>>>                            ] 19/181, 15.9 task/s, elapsed: 1s, ETA:    10s[>>>                            ] 20/181, 16.2 task/s, elapsed: 1s, ETA:    10s[>>>                            ] 21/181, 16.6 task/s, elapsed: 1s, ETA:    10s[>>>                            ] 22/181, 16.6 task/s, elapsed: 1s, ETA:    10s[>>>                            ] 23/181, 16.7 task/s, elapsed: 1s, ETA:     9s[>>>>                           ] 24/181, 16.3 task/s, elapsed: 1s, ETA:    10s[>>>>                           ] 25/181, 16.5 task/s, elapsed: 2s, ETA:     9s[>>>>                           ] 26/181, 16.6 task/s, elapsed: 2s, ETA:     9s[>>>>                           ] 27/181, 16.4 task/s, elapsed: 2s, ETA:     9s[>>>>                           ] 28/181, 16.7 task/s, elapsed: 2s, ETA:     9s[>>>>                           ] 29/181, 16.9 task/s, elapsed: 2s, ETA:     9s[>>>>>                          ] 30/181, 17.1 task/s, elapsed: 2s, ETA:     9s[>>>>>                          ] 31/181, 17.4 task/s, elapsed: 2s, ETA:     9s[>>>>>                          ] 32/181, 17.4 task/s, elapsed: 2s, ETA:     9s[>>>>>                          ] 33/181, 17.5 task/s, elapsed: 2s, ETA:     8s[>>>>>                          ] 34/181, 17.6 task/s, elapsed: 2s, ETA:     8s[>>>>>                          ] 35/181, 17.3 task/s, elapsed: 2s, ETA:     8s[>>>>>>                         ] 36/181, 17.4 task/s, elapsed: 2s, ETA:     8s[>>>>>>                         ] 37/181, 17.0 task/s, elapsed: 2s, ETA:     8s[>>>>>>                         ] 38/181, 17.1 task/s, elapsed: 2s, ETA:     8s[>>>>>>                         ] 39/181, 16.9 task/s, elapsed: 2s, ETA:     8s[>>>>>>                         ] 40/181, 17.1 task/s, elapsed: 2s, ETA:     8s[>>>>>>>                        ] 41/181, 17.3 task/s, elapsed: 2s, ETA:     8s[>>>>>>>                        ] 42/181, 17.4 task/s, elapsed: 2s, ETA:     8s[>>>>>>>                        ] 43/181, 17.6 task/s, elapsed: 2s, ETA:     8s[>>>>>>>                        ] 44/181, 17.6 task/s, elapsed: 3s, ETA:     8s[>>>>>>>                        ] 45/181, 17.7 task/s, elapsed: 3s, ETA:     8s[>>>>>>>                        ] 46/181, 17.4 task/s, elapsed: 3s, ETA:     8s[>>>>>>>>                       ] 47/181, 17.5 task/s, elapsed: 3s, ETA:     8s[>>>>>>>>                       ] 48/181, 17.4 task/s, elapsed: 3s, ETA:     8s[>>>>>>>>                       ] 49/181, 17.4 task/s, elapsed: 3s, ETA:     8s[>>>>>>>>                       ] 50/181, 17.5 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>                       ] 51/181, 17.3 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>                       ] 52/181, 17.4 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>                      ] 53/181, 17.5 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>                      ] 54/181, 17.5 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>                      ] 55/181, 17.3 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>                      ] 56/181, 17.3 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>                      ] 57/181, 17.3 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>                      ] 58/181, 17.3 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>>                     ] 59/181, 17.4 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>>                     ] 60/181, 17.4 task/s, elapsed: 3s, ETA:     7s[>>>>>>>>>>                     ] 61/181, 17.4 task/s, elapsed: 4s, ETA:     7s[>>>>>>>>>>                     ] 62/181, 17.3 task/s, elapsed: 4s, ETA:     7s[>>>>>>>>>>                     ] 63/181, 17.4 task/s, elapsed: 4s, ETA:     7s[>>>>>>>>>>                     ] 64/181, 17.5 task/s, elapsed: 4s, ETA:     7s[>>>>>>>>>>>                    ] 65/181, 17.5 task/s, elapsed: 4s, ETA:     7s[>>>>>>>>>>>                    ] 66/181, 17.6 task/s, elapsed: 4s, ETA:     7s[>>>>>>>>>>>                    ] 67/181, 17.6 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>                    ] 68/181, 17.5 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>                    ] 69/181, 17.6 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>                    ] 70/181, 17.4 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>                   ] 71/181, 17.4 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>                   ] 72/181, 17.4 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>                   ] 73/181, 17.4 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>                   ] 74/181, 17.3 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>                   ] 75/181, 17.4 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>>                  ] 76/181, 17.2 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>>                  ] 77/181, 17.3 task/s, elapsed: 4s, ETA:     6s[>>>>>>>>>>>>>                  ] 78/181, 17.1 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>                  ] 79/181, 17.2 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>                  ] 80/181, 17.2 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>                  ] 81/181, 17.1 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>>                 ] 82/181, 17.1 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>>                 ] 83/181, 17.0 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>>                 ] 84/181, 17.0 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>>                 ] 85/181, 16.9 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>>                 ] 86/181, 17.0 task/s, elapsed: 5s, ETA:     6s[>>>>>>>>>>>>>>                 ] 87/181, 17.1 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>                ] 88/181, 17.2 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>                ] 89/181, 17.3 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>                ] 90/181, 17.3 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>                ] 91/181, 17.4 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>                ] 92/181, 17.4 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>                ] 93/181, 17.3 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>>               ] 94/181, 17.3 task/s, elapsed: 5s, ETA:     5s[>>>>>>>>>>>>>>>>               ] 95/181, 17.2 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>               ] 96/181, 17.2 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>               ] 97/181, 17.3 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>               ] 98/181, 17.2 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>               ] 99/181, 17.2 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>              ] 100/181, 17.2 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>              ] 101/181, 17.2 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>              ] 102/181, 17.1 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>>             ] 103/181, 17.2 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>>             ] 104/181, 17.0 task/s, elapsed: 6s, ETA:     5s[>>>>>>>>>>>>>>>>>             ] 105/181, 17.1 task/s, elapsed: 6s, ETA:     4s[>>>>>>>>>>>>>>>>>             ] 106/181, 17.0 task/s, elapsed: 6s, ETA:     4s[>>>>>>>>>>>>>>>>>             ] 107/181, 17.0 task/s, elapsed: 6s, ETA:     4s[>>>>>>>>>>>>>>>>>             ] 108/181, 17.0 task/s, elapsed: 6s, ETA:     4s[>>>>>>>>>>>>>>>>>>            ] 109/181, 17.0 task/s, elapsed: 6s, ETA:     4s[>>>>>>>>>>>>>>>>>>            ] 110/181, 17.0 task/s, elapsed: 6s, ETA:     4s[>>>>>>>>>>>>>>>>>>            ] 111/181, 17.0 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>            ] 112/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>            ] 113/181, 17.0 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>            ] 114/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>           ] 115/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>           ] 116/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>           ] 117/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>           ] 118/181, 16.8 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>           ] 119/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>           ] 120/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>>          ] 121/181, 16.9 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>>          ] 122/181, 16.8 task/s, elapsed: 7s, ETA:     4s[>>>>>>>>>>>>>>>>>>>>          ] 123/181, 16.9 task/s, elapsed: 7s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>          ] 124/181, 16.8 task/s, elapsed: 7s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>          ] 125/181, 16.8 task/s, elapsed: 7s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>          ] 126/181, 16.7 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>         ] 127/181, 16.8 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>         ] 128/181, 16.7 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>         ] 129/181, 16.7 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>         ] 130/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>         ] 131/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>         ] 132/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>        ] 133/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>        ] 134/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>        ] 135/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>        ] 136/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>        ] 137/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>        ] 138/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>>       ] 139/181, 16.6 task/s, elapsed: 8s, ETA:     3s[>>>>>>>>>>>>>>>>>>>>>>>       ] 140/181, 16.5 task/s, elapsed: 8s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>       ] 141/181, 16.5 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>       ] 142/181, 16.5 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>       ] 143/181, 16.5 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>       ] 144/181, 16.5 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>      ] 145/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>      ] 146/181, 16.5 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>      ] 147/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>      ] 148/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>      ] 149/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>      ] 150/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>>     ] 151/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>>     ] 152/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>>     ] 153/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>>     ] 154/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>>     ] 155/181, 16.4 task/s, elapsed: 9s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>     ] 156/181, 16.4 task/s, elapsed: 10s, ETA:     2s[>>>>>>>>>>>>>>>>>>>>>>>>>    ] 157/181, 16.5 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>    ] 158/181, 16.5 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>    ] 159/181, 16.5 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>    ] 160/181, 16.5 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>    ] 161/181, 16.5 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>    ] 162/181, 16.6 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 163/181, 16.6 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 164/181, 16.6 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 165/181, 16.7 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 166/181, 16.7 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 167/181, 16.8 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>   ] 168/181, 16.8 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 169/181, 16.8 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 170/181, 16.8 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 171/181, 16.8 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 172/181, 16.8 task/s, elapsed: 10s, ETA:     1s[>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 173/181, 16.8 task/s, elapsed: 10s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>  ] 174/181, 16.7 task/s, elapsed: 10s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 175/181, 16.8 task/s, elapsed: 10s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 176/181, 16.8 task/s, elapsed: 10s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 177/181, 16.7 task/s, elapsed: 11s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 178/181, 16.7 task/s, elapsed: 11s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 179/181, 16.8 task/s, elapsed: 11s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>> ] 180/181, 16.8 task/s, elapsed: 11s, ETA:     0s[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 181/181, 16.8 task/s, elapsed: 11s, ETA:     0s
----------------iou_thr: 0.5---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmdet/models/dense_heads/anchor_head.py:123: UserWarning: DeprecationWarning: anchor_generator is deprecated, please use "prior_generator" instead
-  warnings.warn('DeprecationWarning: anchor_generator is deprecated, '
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 1.000  | 0.998 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.998 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.55---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 1.000  | 0.998 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.998 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.6---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.998  | 0.909 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.909 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.65---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.998  | 0.909 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.909 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.7---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.994  | 0.909 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.909 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.75---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.982  | 0.908 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.908 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.8---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.965  | 0.903 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.903 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.85---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.848  | 0.753 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.753 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.9---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.486  | 0.302 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.302 |
-+-------+-----+------+--------+-------+
-
----------------iou_thr: 0.95---------------
-/home/rspip/cqc/pro/study/third_party/orientbench_p2c_env/runtime_lsk/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
-  warnings.warn(
-
-+-------+-----+------+--------+-------+
-| class | gts | dets | recall | ap    |
-+-------+-----+------+--------+-------+
-| ship  | 541 | 644  | 0.055  | 0.030 |
-+-------+-----+------+--------+-------+
-| mAP   |     |      |        | 0.030 |
-+-------+-----+------+--------+-------+
-OrderedDict([('mAP', 0.7617657274007797), ('AP50', 0.998), ('AP55', 0.998), ('AP60', 0.909), ('AP65', 0.909), ('AP70', 0.909), ('AP75', 0.908), ('AP80', 0.903), ('AP85', 0.753), ('AP90', 0.302), ('AP95', 0.03)])

@@ -1,6 +1,0 @@
-table,rows,field_checks,max_abs_difference
-t2,8,184,1.0061396160665481e-16
-t4,16,224,0.0
-leakage,9,18,0.0
-t3,536,4368,0.0
-bootstrap_replicates,80000,240000,1.734723475976807e-17

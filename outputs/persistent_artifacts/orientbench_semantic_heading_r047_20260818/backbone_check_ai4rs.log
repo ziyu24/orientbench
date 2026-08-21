@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-  File "/home/rspip/cqc/pro/study/third_party/mmrotate_1x/mmrotate/__init__.py", line 33, in <module>
-    assert (mmdet_version >= digit_version(mmdet_minimum_version)
-AssertionError: MMDetection 3.3.0 is incompatible with MMRotate 1.0.0rc1. Please use MMDetection >= 3.0.0rc6, < 3.1.0 instead.
-ERROR conda.cli.main_run:execute(127): `conda run python -` failed. (See above for error)

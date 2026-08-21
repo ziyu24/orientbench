@@ -4011,3 +4011,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/`。
 - 是否触发停止条件：是，资产/存储环境异常；禁止端点未触碰。
 - 下一步建议：需先按用户授权归档并删除可再生的历史 smoke、无效/已 superseded 训练 checkpoints（当前 r049 库内可释放数 GB），或清理其它项目可再生产物；释放空间后从零重跑 SCALAR_QUALITY，再继续 PEF。
+
+## 2026-08-20 18:48 PDT — 项目内可再生产物清理完成
+
+- 指令来源：项目所有者明确授权清理当前项目中训练后可恢复的内容，并要求从约 63 GiB 压缩至 20 GiB 以下。
+- 执行动作：先写入路径级可复现清单，再删除已被替代的历史训练/推理目录、r49 无效分支与 G1 smoke checkpoints，以及完成训练的冗余 resume checkpoints；保留当前 r49 两个 best-mAP checkpoint、梯度有效性 JSON、配置和日志。检测到 `orientbench_panorama_r041_20260817` 仍有写入进程，未干预该目录。
+- 关键产物路径：`audit_bundles/cleanup_20260820/REGENERABLE_ARTIFACT_CLEANUP.md`；保留的 r49 checkpoint 位于 `outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/`。
+- 是否触发停止条件：否；项目大小已由 63 GiB 降至 15 GiB，禁止数据端点未触碰。
+- 下一步建议：从零重启 r49 SCALAR_QUALITY，再按冻结顺序完成 PEF 与最终导出；后续每次训练完成立即删除冗余 resume checkpoint，只保留 best 与必要审计资料。

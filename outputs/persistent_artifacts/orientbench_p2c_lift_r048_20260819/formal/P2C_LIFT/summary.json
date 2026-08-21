@@ -1,8 +1,0 @@
-{
-  "mode": "P2C_LIFT",
-  "best_val_accuracy": 0.8262476894639557,
-  "train_instances": 1207,
-  "val_instances": 541,
-  "formal": true,
-  "four_rank_ddp": true
-}
