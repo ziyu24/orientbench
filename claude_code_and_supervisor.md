@@ -4068,6 +4068,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；四卡训练正常，禁止端点未触碰。
 - 下一步建议：完成完整 SCALAR_QUALITY 后，在已修复的 host-residual PEF 上重做 G1 四卡 500-iteration smoke和梯度核验，再启动 PEF full。
 
+## 2026-08-20 19:43 PDT — r49-rev2 顺序监督加入 PEF 修复后 G1 重验
+
+- 指令来源：PEF host-residual 实现变更后的 G1 必须重新满足结构与梯度准入。
+- 执行动作：暂停旧监督器（SCALAR 本身未中断），将后续顺序冻结为：SCALAR 12 epochs正常结束 -> 四卡 PEF host-residual 500 iteration smoke -> 单 batch 全模型梯度核验 -> PEF full -> 冻结导出。已静态校验新 smoke config 和监督脚本。
+- 关键产物路径：`configs/r049_rev2_pef_obb/dota_psc_pef_host_residual_smoke_500.py`；`experiments/r049_rev2_pef_obb/supervise_g2_remaining_sequence.sh`。
+- 是否触发停止条件：否；仅增加既有 G1 必交核验，未改变 G2/G3 门槛或实验顺序。
+- 下一步建议：恢复监督器并等待 SCALAR 正常完成。
+
 ## 2026-08-20 19:39 PDT — r49-rev2 PEF 初始化路径预防性修复
 
 - 指令来源：SCALAR control 的首 epoch退化归因后，对尚未启动 PEF 的同类 untrained inference 路径进行只读审计。

@@ -50,6 +50,23 @@ wait_scalar_admission() {
   return 1
 }
 
+wait_smoke_normal() {
+  local name="$1"
+  local log="$base/../g1/$name/train.log"
+  local pattern="mmrotate/.mim/tools/train.py.*${name}"
+  local seen=0
+  for _ in $(seq 1 24); do
+    if pgrep -f "$pattern" >/dev/null; then seen=1; break; fi
+    if grep -q 'Saving checkpoint at 1 epochs' "$log" 2>/dev/null; then break; fi
+    sleep 5
+  done
+  if [ "$seen" -eq 1 ]; then
+    while pgrep -f "$pattern" >/dev/null; do sleep 30; done
+  fi
+  grep -q 'Saving checkpoint at 1 epochs' "$log" &&
+    ! grep -qiE 'Traceback|ChildFailedError|RuntimeError|OutOfMemory' "$log"
+}
+
 if ! wait_scalar_admission; then
   exit 1
 fi
@@ -57,6 +74,15 @@ if ! wait_normal dota_psc_scalar_quality; then
   echo "SCALAR_QUALITY_ABNORMAL"
   exit 1
 fi
+run_arm configs/r049_rev2_pef_obb/dota_psc_pef_host_residual_smoke_500.py ../g1/dota_psc_pef_host_residual_smoke_500
+if ! wait_smoke_normal dota_psc_pef_host_residual_smoke_500; then
+  echo "PEF_G1_SMOKE_ABNORMAL"
+  exit 1
+fi
+CUDA_VISIBLE_DEVICES=0 python "$root/experiments/r049_rev2_pef_obb/verify_rotated_grid_gradients.py" \
+  --config "$root/configs/r049_rev2_pef_obb/dota_psc_pef_host_residual_smoke_500.py" \
+  --out "$base/../g1/dota_psc_pef_host_residual_smoke_500/full_model_gradient.json" \
+  >"$base/../g1/dota_psc_pef_host_residual_smoke_500/gradient_check.log" 2>&1
 run_arm configs/r049_rev2_pef_obb/dota_psc_pef_rotated_grid_full.py dota_psc_pef
 if ! wait_normal dota_psc_pef; then
   echo "PEF_ABNORMAL"
