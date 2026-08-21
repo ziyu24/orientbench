@@ -4107,3 +4107,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r049_rev2_pef_obb/pef_head.py`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/gradient_debug.log`。
 - 是否触发停止条件：第二次旧 smoke 同样在进入 PEF full 前主动中止；有限梯度门控尚未通过正式 500 iteration 重跑，禁止端点未触碰。
 - 下一步建议：以该修复重新运行完整四卡 500 iteration smoke，再写正式 gradient JSON 后恢复 PEF full。
+
+## 2026-08-20 21:10 PDT — r49-rev2 PEF G1 通过，PEF full 已启动
+
+- 指令来源：修复后的四卡 500-iteration G1 smoke 与全模型梯度门控。
+- 执行动作：修复后 smoke 500 iterations 正常结束，训练过程 `grad_norm` 有限；其 smoke val 为 `0.0000`，仅属 500-iter 非收敛 smoke，不用于 G2 比较。正式 gradient JSON 确认 backbone、neck、bbox_reg、angle_head、pef_sampler_scorer 五组均非零有限。顺序脚本在 PEF full 目录尚未创建时未能发起命令，已创建计划内目录并启动相同冻结四卡 PEF full；未改变 config、数据或门槛。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/train.log`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g1/dota_psc_pef_host_residual_smoke_500/full_model_gradient.json`；`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_pef/train.log`。
+- 是否触发停止条件：否；G1 已通过，PEF full 正常启动，禁止端点未触碰。
+- 下一步建议：完成 PEF full 12 epochs，随后执行冻结 final export/adjudication；若 G2 严格合取不通过，按计划停止扩展。
