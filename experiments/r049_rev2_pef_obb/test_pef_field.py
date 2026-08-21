@@ -77,3 +77,14 @@ def test_each_anchor_has_its_own_evidence_field():
     energy, _, _ = field(x, sizes, classes)
     assert energy.shape[:3] == (1, 2, 12)
     assert not torch.allclose(energy[:, 0], energy[:, 1])
+
+
+def test_identity_field_has_zero_residual_about_host_angle():
+    field = PeriodicEvidenceField(4, 12)
+    field.init_identity()
+    x = torch.randn(1, 4, 7, 7)
+    sizes, classes = _candidates(x, anchors=1)
+    host = torch.full((1, 1, 7, 7), .37)
+    _, residual, risk = field(x, sizes, classes, host)
+    assert torch.all(axial_wrap(residual).abs() < 1e-6)
+    assert torch.isfinite(risk).all()

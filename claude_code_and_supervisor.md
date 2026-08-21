@@ -4059,3 +4059,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/dota_psc_scalar_quality/train.log`；`experiments/r049_rev2_pef_obb/supervise_g2_remaining_sequence.sh`。
 - 是否触发停止条件：否；当前四卡正常训练。
 - 下一步建议：以完整 epoch-1 full-val 作为唯一 admission 依据。
+
+## 2026-08-20 19:39 PDT — r49-rev2 PEF 初始化路径预防性修复
+
+- 指令来源：SCALAR control 的首 epoch退化归因后，对尚未启动 PEF 的同类 untrained inference 路径进行只读审计。
+- 执行动作：原 PEF 的未训练全局角度 q 会把宿主角替换为任意绝对候选均值。现将候选 ring 定义为宿主预测角周围的 `theta mod pi` 残差 ring；每个候选仍在同一固定 center/size/class 上真实旋转采样，scorer 不读取 GT 或 score，q 的输出仍是完整 periodic field 和 native tail risk。初始化 q 近似均匀时以浓度守卫返回零 residual，即 host identity；保留非零微小 scorer 梯度。字段测试 8/8 通过。此修复须在 PEF full 前重跑四卡 G1 smoke。
+- 关键产物路径：`experiments/r049_rev2_pef_obb/pef_field.py`；`experiments/r049_rev2_pef_obb/pef_head.py`；`experiments/r049_rev2_pef_obb/test_pef_field.py`。
+- 是否触发停止条件：否；这是尚未开始臂的普通数值准入修复，不改数据、K、loss 权重、门槛或 PEF 的候选视觉证据结构。
+- 下一步建议：SCALAR通过首 epoch后继续完成；在启动 PEF full 前执行新的四卡全参数 G1 smoke及梯度核验。

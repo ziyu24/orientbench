@@ -34,8 +34,19 @@ class PeriodicEvidenceField(nn.Module):
             nn.Conv2d(channels, 1, 1))
         self.register_buffer('candidate_angles', torch.arange(candidates) * (math.pi / candidates), persistent=True)
 
+    def init_identity(self) -> None:
+        """Start from an almost-uniform field, hence a zero residual angle.
+
+        A tiny non-zero final scorer weight keeps the candidate sampler and
+        scorer on the gradient path from the first smoke batch, while the
+        concentration guard below still gives exact host-angle identity.
+        """
+        last = self.scorer[-1]
+        nn.init.normal_(last.weight, mean=0., std=1e-5)
+        nn.init.zeros_(last.bias)
+
     def forward(self, feature: torch.Tensor, candidate_sizes: torch.Tensor,
-                candidate_classes: torch.Tensor):
+                candidate_classes: torch.Tensor, host_angles: torch.Tensor | None = None):
         """Return energy/q summaries shaped ``N,A,K,H,W`` / ``N,A,H,W``."""
         n, _, h, w = feature.shape
         candidate_sizes = torch.as_tensor(candidate_sizes, device=feature.device, dtype=feature.dtype)
@@ -44,6 +55,10 @@ class PeriodicEvidenceField(nn.Module):
         anchors = candidate_sizes.shape[0]
         if tuple(candidate_classes.shape) != (n, anchors, h, w):
             raise ValueError('candidate_classes must have shape [N, anchors, H, W]')
+        if host_angles is None:
+            host_angles = feature.new_zeros((n, anchors, h, w))
+        if tuple(host_angles.shape) != (n, anchors, h, w):
+            raise ValueError('host_angles must have shape [N, anchors, H, W]')
         yy, xx = torch.meshgrid(torch.linspace(-1, 1, h, device=feature.device, dtype=feature.dtype),
                                 torch.linspace(-1, 1, w, device=feature.device, dtype=feature.dtype), indexing='ij')
         base = torch.stack((xx, yy), -1).expand(n, h, w, 2)
@@ -54,16 +69,24 @@ class PeriodicEvidenceField(nn.Module):
             cls = self.class_embedding(candidate_classes[:, anchor].long()).permute(0, 3, 1, 2)
             all_angle_energy = []
             width, height = candidate_sizes[anchor]
-            for theta in self.candidate_angles.to(feature):
+            for offset in self.candidate_angles.to(feature):
+                # Candidate angles are an axial ring around the host decoder.
+                # They still change the actual rotated sampling grid at every
+                # FPN location, but a uniform untrained field is a zero
+                # correction rather than an arbitrary global heading.
+                theta = host_angles[:, anchor] + offset
                 c, s = torch.cos(theta), torch.sin(theta)
                 # [u*w, v*h] is first defined in the candidate's local
                 # rectangle frame and only then rotated by theta.  The four
                 # grids are tiled in the output-width dimension so one CUDA
                 # kernel evaluates the full 2x2 candidate grid per theta.
                 u, v = corner_signs[:, 0], corner_signs[:, 1]
-                offsets = self.sample_fraction * torch.stack((u * width * c - v * height * s,
-                                                               u * width * s + v * height * c), -1) * norm
-                grids = (base[:, None] + offsets[None, :, None, None]).clamp(-1, 1)
+                offsets = self.sample_fraction * torch.stack(
+                    (u[None, :, None, None] * width * c[:, None]
+                     - v[None, :, None, None] * height * s[:, None],
+                     u[None, :, None, None] * width * s[:, None]
+                     + v[None, :, None, None] * height * c[:, None]), -1) * norm
+                grids = (base[:, None] + offsets).clamp(-1, 1)
                 tiled_grid = grids.permute(0, 2, 1, 3, 4).reshape(n, h, 4 * w, 2)
                 tiled = F.grid_sample(feature, tiled_grid, align_corners=True)
                 samples = tiled.reshape(n, feature.shape[1], h, 4, w).permute(0, 1, 3, 2, 4).reshape(n, 4 * feature.shape[1], h, w)
@@ -77,7 +100,11 @@ class PeriodicEvidenceField(nn.Module):
         if q.ndim != 5 or q.shape[2] != self.candidates:
             raise ValueError('q must have shape [N, anchors, candidates, H, W]')
         angles = self.candidate_angles.to(q).view(1, 1, -1, 1, 1)
-        angle = .5 * torch.atan2((q * torch.sin(2 * angles)).sum(2), (q * torch.cos(2 * angles)).sum(2))
+        sine = (q * torch.sin(2 * angles)).sum(2)
+        cosine = (q * torch.cos(2 * angles)).sum(2)
+        concentration = torch.hypot(sine, cosine)
+        angle = .5 * torch.atan2(sine, cosine)
+        angle = torch.where(concentration > 1e-3, angle, torch.zeros_like(angle))
         delta = axial_wrap(angles - angle.unsqueeze(2)).abs()
         risk = (q * (delta >= (math.pi / 6))).sum(2)
         return angle, risk

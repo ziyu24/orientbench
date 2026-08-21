@@ -27,6 +27,10 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
         self.pef = PeriodicEvidenceField(self.feat_channels, self.pef_candidates,
                                          num_classes=self.num_classes)
 
+    def init_weights(self):
+        super().init_weights()
+        self.pef.init_identity()
+
     def forward_single(self, x):
         cls, bbox, angle = super().forward_single(x)
         return cls, bbox, angle
@@ -48,7 +52,11 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
                                  (anchors[:, 3] - anchors[:, 1]).abs() / stride_y), 1)
             b, _, h, w = cls.shape
             class_ids = cls.reshape(b, self.num_anchors, self.num_classes, h, w).argmax(2)
-            energy, refined, risk = self.pef(x, sizes, class_ids)
+            native = self.angle_coder.decode(
+                angle.permute(0, 2, 3, 1).reshape(-1, self.encode_size)
+            ).reshape(b, h, w, self.num_anchors).permute(0, 3, 1, 2)
+            energy, residual, risk = self.pef(x, sizes, class_ids, native)
+            refined = axial_wrap(native + residual)
             outputs.append((cls, bbox, angle, energy, refined, risk))
         return tuple(map(list, zip(*outputs)))
 
@@ -70,7 +78,11 @@ class PEFAngleBranchRetinaHead(AngleBranchRetinaHead):
             target = target.reshape(b, h, w, a, self.encode_size).permute(0, 3, 1, 2, 4)
             weight = weight.reshape(b, h, w, a).permute(0, 3, 1, 2).float()
             gt = self.angle_coder.decode(target.reshape(-1, self.encode_size)).reshape(b, a, h, w)
-            d = axial_wrap(gt.unsqueeze(2) - candidate.view(1, 1, -1, 1, 1)).abs()
+            native = self.angle_coder.decode(
+                angle_preds[len(losses)].permute(0, 2, 3, 1).reshape(-1, self.encode_size)
+            ).reshape(b, h, w, a).permute(0, 3, 1, 2).detach()
+            residual_gt = axial_wrap(gt - native)
+            d = axial_wrap(residual_gt.unsqueeze(2) - candidate.view(1, 1, -1, 1, 1)).abs()
             index = d.argmin(2)
             ce = F.cross_entropy(energy.permute(0, 1, 3, 4, 2).reshape(-1, k), index.reshape(-1), reduction='none').reshape_as(weight)
             losses.append((ce * weight).sum() / weight.sum().clamp_min(1.))
