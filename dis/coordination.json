@@ -90,6 +90,7 @@
     "active_sha256": "56aa6bb921cff9f4f5d3d053dfdc48daf876a87ec5635293502d45a5454d46a7",
     "base_sha": "f567b3dfb5fbb3350e705ff9d4d959cf4bde866e",
     "activation_base_sha": "3d5390d2373485e143144666d40697d04647d743",
+    "dispatch_commit_sha": "0d96d7b1474ef9416d3049e4a233837b3130c007",
     "risk_class": "L2",
     "user_authorization": {
       "required": true,

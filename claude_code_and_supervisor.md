@@ -4163,3 +4163,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-final-verdict-20260822.md`；`dis/plans/B/b-r051-cmr-obb-cyclic-marginalized-roi-20260822/sug.md`；`dis/dispatch_history/orientbench-b-r049-rev2-pef-multidata-multihost-20260819.json`。
 - 是否触发停止条件：r049 是；r051 尚未执行。
 - 下一步建议：提交 immutable READY plan 后原子激活业务051；服务器先做一手 prior-art collision audit、baseline parity、exact provenance tests和三 epoch frozen-host生死门。
+
+## 2026-08-22 02:15 PDT — 业务 051 原子激活
+
+- 指令来源：用户持续授权“后续GPU等的不需要授权，都在空着呢，抓紧推进”；业务051 immutable READY plan。
+- 执行动作：将 committed plan 逐字节镜像至根 `dis/sug.md`，在 coordination 绑定 plan commit/blob/SHA-256、L2授权、四卡资源、写入范围和唯一报告路径；状态推进为 `DISPATCHED`。
+- 关键产物路径：`dis/plans/B/b-r051-cmr-obb-cyclic-marginalized-roi-20260822/sug.md`；`dis/sug.md`；`dis/coordination.json`。
+- 是否触发停止条件：否；业务编号051，dispatch commit=`0d96d7b1474ef9416d3049e4a233837b3130c007`，计划字节哈希=`56aa6bb921cff9f4f5d3d053dfdc48daf876a87ec5635293502d45a5454d46a7`。
+- 下一步建议：服务器只执行该精确 dispatch；先完成 G0 一手文献/资产/parity 与 G1 exact candidate provenance，三 epoch cheap gate 失败则正常早停，不启动完整 detector。
