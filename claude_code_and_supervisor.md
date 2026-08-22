@@ -4140,6 +4140,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，G2 负结果触发正常的科学早停；G3/G4 均未启动。未触碰 DOTA-v2.0、SODA-A official test 或旧 `T_audit`。
 - 下一步建议：关闭本 dispatch；PEF 负结果仅保留内部研发台账，不进入目标论文或附录。
 
+## 2026-08-22 10:34 PDT — r51 启动与 G0 环境阻断
+
+- 指令来源：用户目标“拉取，执行51”；活动 dispatch `orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822`。
+- 执行动作：已 fast-forward 至 `5d0866fa1c6694ebd936d585c3c0ece0eac34f4e`，核验 `server-primary`、精确 dispatch commit/plan blob/SHA256；先读取 `pth_data/readme.md`，完成 DOTA train→val 和合法 Oriented R-CNN/PSC baseline inventory，并完成 2019--2026 一手文献 collision audit（未发现冻结 CMR 三要素合取的同构先例）。
+- 关键产物路径：`audit_bundles/r051/STARTED.json`；`audit_bundles/r051/asset_inventory.csv`；`docs/paper_jprs_r051/primary_prior_art_audit.md`；`dis/server_reports/orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：环境阻断。PCI 枚举到四张 A30，但 NVIDIA driver/CUDA runtime 仅暴露三张（`a2:00.0` 缺失）；r51 要求 G1 smoke 与训练均四卡，因此未启动 GPU、未进入 G1，也未触碰禁止端点。
+- 下一步建议：恢复第四张 A30 后重新做四卡 preflight，再继续 G1。
+
 ## 2026-08-22 01:45 PDT — 用户报告服务器执行完毕，B 拉取终验
 
 - 指令来源：用户“服务器执行完毕。”

@@ -1,0 +1,15 @@
+{
+  "dispatch_id": "orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822",
+  "plan_path": "dis/plans/B/b-r051-cmr-obb-cyclic-marginalized-roi-20260822/sug.md",
+  "dispatch_commit_sha": "0d96d7b1474ef9416d3049e4a233837b3130c007",
+  "plan_blob_oid": "a84cb9f97390e518da0bcfafdf268ef858a2c1cd",
+  "plan_sha256": "56aa6bb921cff9f4f5d3d053dfdc48daf876a87ec5635293502d45a5454d46a7",
+  "worker_id": "server-primary",
+  "started_at": "2026-08-22T10:34:00-07:00",
+  "initial_resource_observation": {
+    "physical_a30_pci_devices": 4,
+    "cuda_visible_a30_devices": 3,
+    "requirement": "four GPUs are mandatory for all r051 smoke and training"
+  },
+  "status": "G0_IN_PROGRESS"
+}
