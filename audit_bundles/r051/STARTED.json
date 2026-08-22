@@ -11,5 +11,5 @@
     "cuda_visible_a30_devices": 3,
     "requirement": "four GPUs are mandatory for all r051 smoke and training"
   },
-  "status": "G0_IN_PROGRESS"
+  "status": "NOT_ADJUDICATED_ASSET_ENV"
 }

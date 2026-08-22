@@ -4148,6 +4148,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：环境阻断。PCI 枚举到四张 A30，但 NVIDIA driver/CUDA runtime 仅暴露三张（`a2:00.0` 缺失）；r51 要求 G1 smoke 与训练均四卡，因此未启动 GPU、未进入 G1，也未触碰禁止端点。
 - 下一步建议：恢复第四张 A30 后重新做四卡 preflight，再继续 G1。
 
+## 2026-08-22 10:41 PDT — r51 无 GPU 静态实现预备
+
+- 指令来源：r51 G1 的冻结结构与当前四卡环境阻断并行处理。
+- 执行动作：在不访问数据、不启动 GPU、也不修改 third-party 的前提下，完成项目内 CMR 核心原语：decoded proposal 的 K=12 周期 candidate ring、完整 7x7 shared RoI evidence scorer、circular marginal posterior/refined angle、no-GT tail risk，以及只凭显式 pre-NMS source-row 传播 candidate UID 的 provenance ledger。CPU 结构/mutation/有限反传测试 `4 passed`。
+- 关键产物路径：`experiments/r051_cmr_obb/cmr_core.py`；`experiments/r051_cmr_obb/test_cmr_core.py`。
+- 是否触发停止条件：四卡环境阻断仍存在；这些静态测试不构成 G1 admission，未启动 GPU 和任何数据训练。
+- 下一步建议：恢复第四张 A30 后，将该项目内核心接入 Oriented R-CNN decoded proposal/NMS 路径并运行真正四卡 G1。
+
 ## 2026-08-22 01:45 PDT — 用户报告服务器执行完毕，B 拉取终验
 
 - 指令来源：用户“服务器执行完毕。”
