@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "history_path": "dis/dispatch_history/orientbench-b-r049-rev2-pef-multidata-multihost-20260819.json",
+  "active_dispatch": {
+    "dispatch_id": "orientbench-b-r049-rev2-pef-multidata-multihost-20260819",
+    "plan_id": "b-r049-rev2-pef-multidata-multihost-20260819",
+    "initiator": "B",
+    "activated_by": "B",
+    "activation_authorization_ref": "用户 2026-08-19：『授权业务049的新数据与四卡detector训练，负结果搞你妈的附录啊？浪费版面费？』",
+    "plan_path": "dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md",
+    "plan_commit_sha": "8ff39a512b1b10abee9e6174a536b347ecf3987b",
+    "plan_blob_oid": "d363d08214a142e52ea59ca7bb7f945ec62135e7",
+    "plan_sha256": "9cdc12b3e2ecb1b34b801387102ef89c1187bfe45bfec572e93ad0cd04e1cded",
+    "dispatch_commit_sha": "809a8f6d8f4bf203818200d935294aad73bc0ede",
+    "risk_class": "L2",
+    "server_report_path": "dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md",
+    "status": "DISPATCHED",
+    "activated_at": "2026-08-19T21:29:07-07:00"
+  },
+  "started_ref": {
+    "path": "audit_bundles/r049_rev2/STARTED.json",
+    "commit_sha": "b696865ba8610accc8ec276b4e81f3eac5653bd4",
+    "blob_oid": "168b1ebc9af0790c07c526a56c8167f4971bf236",
+    "sha256": "e0e6c53495fabffbcb358556ba2abceee5f085e0ca5341c2961edf44e986fa24"
+  },
+  "report_ref": {
+    "path": "dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md",
+    "commit_sha": "f567b3dfb5fbb3350e705ff9d4d959cf4bde866e",
+    "blob_oid": "ae71c791db3425764292bc59296e6a44d63b2684",
+    "sha256": "54d81f3834c09b89043657191b9fc7d6288f2cc415dea113ead44b6490d7a256"
+  },
+  "terminal": {
+    "execution_state": "COMPLETED",
+    "completion_mode": "GATED_SCIENTIFIC_EARLY_STOP_AFTER_DOTA_G2",
+    "scientific_state_at_close": "PENDING",
+    "closed_by": "B",
+    "closed_at": "2026-08-22T02:05:00-07:00",
+    "close_reason": "B accepts the normal G2 stop because PEF independently fails AP75 and angle-error gates relative to CONT. Post-NMS q/native-risk provenance is approximate and those risk numbers are excluded, but repairing a method already killed by independent hard gates would not change the decision and would waste resources. G3/G4 were correctly not run.",
+    "closure_authorization_ref": "B owner closure after user reported server completion on 2026-08-22; continuing GPU authorization from 2026-08-19 remains recorded.",
+    "verdict_refs": [
+      "dis/reviews/B/orientbench-r049-rev2-final-verdict-20260822.md"
+    ],
+    "contest_refs": [],
+    "stop_request_refs": [],
+    "protocol_evidence_refs": [
+      "dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md",
+      "dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md",
+      "audit_bundles/r049_rev2/STARTED.json",
+      "audit_bundles/r049_rev2/G1_PERCANDIDATE_REPAIR_ADMISSION.json",
+      "audit_bundles/r049_rev2/G2_GATE_DECISION.json",
+      "audit_bundles/r049_rev2/G2_GATE_REPORT.md",
+      "experiments/r049_rev2_pef_obb/pef_field.py",
+      "experiments/r049_rev2_pef_obb/pef_head.py",
+      "experiments/r049_rev2_pef_obb/control_heads.py"
+    ]
+  }
+}

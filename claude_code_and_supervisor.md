@@ -4139,3 +4139,27 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/g2_rotated_grid/metrics/gate_dota_psc_repaired.json`；`audit_bundles/r049_rev2/G2_GATE_DECISION.json`；`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：是，G2 负结果触发正常的科学早停；G3/G4 均未启动。未触碰 DOTA-v2.0、SODA-A official test 或旧 `T_audit`。
 - 下一步建议：关闭本 dispatch；PEF 负结果仅保留内部研发台账，不进入目标论文或附录。
+
+## 2026-08-22 01:45 PDT — 用户报告服务器执行完毕，B 拉取终验
+
+- 指令来源：用户“服务器执行完毕。”
+- 执行动作：fast-forward 至 `f567b3d`，核验 r049-rev2 server report、G1/G2 audit、PEF/control 实现、测试、四臂配置与最终门控；同时复核项目内大体积清理的授权和范围。
+- 关键产物路径：`dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r049_rev2/G2_GATE_DECISION.json`。
+- 是否触发停止条件：是；PEF 相对 CONT 的 AP75 下降 `0.0080`，AR>=2.1 mean angle error 增加 `4.51%`，G2 正常科学早停。
+- 下一步建议：不运行 G3/G4，不把负结果写进任何投稿版面。
+
+## 2026-08-22 01:50 PDT — r049 清理授权纠偏与方法实现审计汇报
+
+- 指令来源：B 主动核验。
+- 执行动作：先发现服务器提交删除大量历史工作树产物，随后在固定台账中确认项目所有者曾明确授权把可恢复产物从约63 GiB清到20 GiB以下，故撤销“无授权误删”判断；保留“部分正式证据即时可复核性下降”的资产债。继续核验 per-anchor field、q/risk export、mutation tests与operative controls。
+- 关键产物路径：`audit_bundles/cleanup_20260820/REGENERABLE_ARTIFACT_CLEANUP.md`；`experiments/r049_rev2_pef_obb/pef_head.py`。
+- 是否触发停止条件：历史清理不阻断 r049；native-risk provenance 存在保留意见。
+- 下一步建议：正结果路线必须保留 compact raw predictions、metrics、manifest和exact provenance，不能只保留服务器摘要。
+
+## 2026-08-22 02:05 PDT — r049 关闭并冻结业务 051 CMR-OBB
+
+- 指令来源：用户持续 GPU 授权与“抓紧推进”；B owner 对 r049 终局核验。
+- 执行动作：确认 r049 的 q/native-risk 在 NMS 后按最终 box 几何反猜 source anchor，故剔除风险数字；但 AP75与角误差两个独立硬门已确定失败，继续修负方法不会改变裁决。以 `COMPLETED / REJECT_PEF_METHOD` 关闭 r049。冻结业务051：decoded-proposal cyclic Rotated-RoI likelihood marginalization，exact candidate_uid贯穿NMS，先 cheap signal gate再允许完整四卡 detector与多数据/多host扩展。
+- 关键产物路径：`dis/reviews/B/orientbench-r049-rev2-final-verdict-20260822.md`；`dis/plans/B/b-r051-cmr-obb-cyclic-marginalized-roi-20260822/sug.md`；`dis/dispatch_history/orientbench-b-r049-rev2-pef-multidata-multihost-20260819.json`。
+- 是否触发停止条件：r049 是；r051 尚未执行。
+- 下一步建议：提交 immutable READY plan 后原子激活业务051；服务器先做一手 prior-art collision audit、baseline parity、exact provenance tests和三 epoch frozen-host生死门。

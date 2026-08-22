@@ -3,11 +3,11 @@
   "plan_id": "b-r049-rev2-pef-multidata-multihost-20260819",
   "actor": "B",
   "plan_path": "dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md",
-  "state": "DISPATCHED",
+  "state": "COMPLETED",
   "plan_commit_sha": "8ff39a512b1b10abee9e6174a536b347ecf3987b",
   "plan_blob_oid": "d363d08214a142e52ea59ca7bb7f945ec62135e7",
   "plan_sha256": "9cdc12b3e2ecb1b34b801387102ef89c1187bfe45bfec572e93ad0cd04e1cded",
-  "state_reason": "activated_as_root_sug_mirror_bound_in_coordination",
+  "state_reason": "completed_gated_scientific_early_stop_reject_pef_method",
   "ready_at": "2026-08-19T21:29:00-07:00",
-  "updated_at": "2026-08-19T21:29:07-07:00"
+  "updated_at": "2026-08-22T02:05:00-07:00"
 }

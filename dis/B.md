@@ -916,3 +916,17 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - `predict_by_feat` 丢弃 q 与 native risk，因而计划要求的 risk/matched-row/bootstrap/zero-GT 门根本不可执行。DIRECT_DIST 与 SCALAR_QUALITY 在推理也分别丢弃其新增输出，不是声称的强推理边界。
 - tests 名义与实质不符：circular-shift 只验证 roll 后概率和仍为1，risk-monotonicity 只验证数值在 `[0,1]`；没有真实旋转平移、分布展宽、candidate collapse或整网梯度 mutation。
 - 正式状态为 `INCOMPLETE / PROTOCOL_DRIFT / NOT_ADJUDICATED_IMPLEMENTATION`；active dispatch 保持打开，不关闭、不派发下一业务。当前期刊档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，失败结果继续不进任何投稿版面。
+
+## 30. 2026-08-22：r049-rev2 修复后 G2 终止，PEF 路线关闭
+
+- 上轮四个主要实现缺口已有实质修复：按 anchor template 独立生成周期场、候选角真实改变矩形采样、DIRECT_DIST/SCALAR_QUALITY 在推理生效、结构与梯度测试增强；四个 DOTA/PSC arms 均完成冻结 12-epoch 四卡训练。
+- B 不采信 native-risk 数字：最终框没有携带真实 pre-NMS `(level,cell,anchor)`，而是用回归后 box 的面积/中心/长宽比反猜来源，故 q/risk 不是 exact candidate provenance。
+- 但这不值得再开修复轮。PEF 相对 CONT 的 AP75 为 `-0.0080`，AR>=2.1 mean angle error 反而增加 `4.51%`，两项独立硬门已经足以否决严格合取。B 接受 `REJECT_PEF_METHOD`、关闭 r049；风险数字剔除，失败结果不进任何稿件版面。
+- 当前档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，低于合法目标。
+
+## 31. 2026-08-22：业务 051 CMR-OBB 顶刊正路线
+
+- r051 不修 anchor 四点 PEF。新方法 CMR-OBB 以真实 decoded proposal 为干预单元，对 K=12 候选角执行完整 7x7 Rotated RoIAlign，共享编码器形成周期 likelihood，并将 q 直接用于 proposal angle/box/class 的 circular marginalization与 no-GT native risk。
+- novelty 边界明确对抗单 RoI refinement、直接 angle distribution、scalar quality、equivariance与 canonical alignment；G0 若发现同构一手先例，GPU 前终止。
+- 先做 frozen-host 三 epoch cheap signal gate；只有同时改善 AP75、角误差与 native risk 才启动四臂完整 detector 训练，再扩 DOTA/DIOR/SODA、Oriented R-CNN/PSC、三种子和 zero-target-GT transfer。
+- exact candidate_uid 必须从 proposal 穿过 decode/NMS；禁止再用最终 box 反猜 q 来源。只有 G1-G4 全过才恢复 `JPRS candidate / strong TGRS route`。

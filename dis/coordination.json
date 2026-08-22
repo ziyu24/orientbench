@@ -69,65 +69,17 @@
     }
   },
   "closed_dispatch_history_root": "dis/dispatch_history",
-  "active_dispatch": {
-    "dispatch_id": "orientbench-b-r049-rev2-pef-multidata-multihost-20260819",
-    "plan_id": "b-r049-rev2-pef-multidata-multihost-20260819",
-    "initiator": "B",
-    "activated_by": "B",
-    "activation_authorization_ref": "用户 2026-08-19：『授权业务049的新数据与四卡detector训练，负结果搞你妈的附录啊？浪费版面费？』",
-    "scientific_snapshot": {
-      "primary": "60e82f77bac1fbf3c07e6df9aeb1a56d533b2de3",
-      "r049_v1_state": "B_REJECT_EXECUTED_CORA_V1_JOINT_PENDING",
-      "r050_state": "WITHDRAWN_BEFORE_START",
-      "current_venue_floor": "STRONG_JSTARS_OR_REMOTE_SENSING",
-      "target_route": "PEF_OBB_FULL_DETECTOR_MULTIDATA_MULTIHOST_POSITIVE_ROUTE"
-    },
-    "plan_path": "dis/plans/B/b-r049-rev2-pef-multidata-multihost-20260819/sug.md",
-    "plan_commit_sha": "8ff39a512b1b10abee9e6174a536b347ecf3987b",
-    "plan_blob_oid": "d363d08214a142e52ea59ca7bb7f945ec62135e7",
-    "plan_sha256": "9cdc12b3e2ecb1b34b801387102ef89c1187bfe45bfec572e93ad0cd04e1cded",
-    "active_plan_path": "dis/sug.md",
-    "active_plan_blob_oid": "d363d08214a142e52ea59ca7bb7f945ec62135e7",
-    "active_sha256": "9cdc12b3e2ecb1b34b801387102ef89c1187bfe45bfec572e93ad0cd04e1cded",
-    "base_sha": "60e82f77bac1fbf3c07e6df9aeb1a56d533b2de3",
-    "activation_base_sha": "cd2d167b749dc6779ebe6ad86091272c550bdacf",
-    "risk_class": "L2",
-    "user_authorization": {
-      "required": true,
-      "status": "granted",
-      "reference": "用户 2026-08-19：『授权业务049的新数据与四卡detector训练，负结果搞你妈的附录啊？浪费版面费？』"
-    },
-    "resource_scope": {
-      "declared": true,
-      "compute": {"gpu_count_max": 4, "gpu_hours_max": 1400, "cpu_core_hours_max": 3200},
-      "wall_time": {"seconds_max": 1209600},
-      "data": {
-        "allowed_dataset_ids": ["DOTA-v1.0-train-val", "DIOR-R-existing-trainval-test", "FAIR1M-v1.0-existing-trainval-test", "SODA-A-existing-train-val", "existing-valid-PSC-and-Oriented-RCNN-baselines-readonly", "repository-tracked-evidence-readonly"],
-        "read_bytes_max": 8796093022208,
-        "write_bytes_max": 2199023255552
-      },
-      "write": {
-        "allowed_paths": ["experiments/r049_rev2_pef_obb/", "configs/r049_rev2_pef_obb/", "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819/", "audit_bundles/r049_rev2/", "docs/paper_jprs_r049_rev2/", "dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/", "claude_code_and_supervisor.md"],
-        "bytes_max": 2199023255552
-      },
-      "network": {"allowed": true, "allowed_endpoints": ["https://github.com/ziyu24/orientbench.git", "https://github.com/open-mmlab/", "https://pypi.org/", "https://files.pythonhosted.org/", "https://download.pytorch.org/", "https://repo.anaconda.com/", "https://conda.anaconda.org/"]}
-    },
-    "conflict_keys": ["server-execution-slot", "dis/sug.md", "gpu-all-four-r049-rev2-full-detector-training", "outputs/persistent_artifacts/orientbench_r049_rev2_pef_obb_20260819"],
-    "server_report_path": "dis/server_reports/orientbench-b-r049-rev2-pef-multidata-multihost-20260819/SERVER_EXECUTION_REPORT.md",
-    "status": "DISPATCHED",
-    "supersedes": "b-r050-pef-obb-periodic-evidence-stagea-20260819",
-    "activated_at": "2026-08-19T21:29:07-07:00"
-  },
+  "active_dispatch": null,
   "last_closed_dispatch": {
-    "history_path": "dis/dispatch_history/orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819.json",
-    "dispatch_id": "orientbench-b-r050-pef-obb-periodic-evidence-stagea-20260819",
-    "execution_state": "WITHDRAWN_BEFORE_START",
+    "history_path": "dis/dispatch_history/orientbench-b-r049-rev2-pef-multidata-multihost-20260819.json",
+    "dispatch_id": "orientbench-b-r049-rev2-pef-multidata-multihost-20260819",
+    "execution_state": "COMPLETED",
     "scientific_state_at_close": "PENDING",
     "closed_by": "B",
-    "closed_at": "2026-08-19T21:24:04-07:00"
+    "closed_at": "2026-08-22T02:05:00-07:00"
   },
   "open_contests": [
     "dis/contests/C/orientbench-r036-qsetod-scientific-contest-20260815.json"
   ],
-  "updated_at": "2026-08-19T21:29:07-07:00"
+  "updated_at": "2026-08-22T02:05:00-07:00"
 }
