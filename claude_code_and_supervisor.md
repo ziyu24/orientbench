@@ -4195,3 +4195,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r051-cmr-obb-cyclic-marginalized-roi-20260822/sug.md`；`dis/sug.md`；`dis/coordination.json`。
 - 是否触发停止条件：否；业务编号051，dispatch commit=`0d96d7b1474ef9416d3049e4a233837b3130c007`，计划字节哈希=`56aa6bb921cff9f4f5d3d053dfdc48daf876a87ec5635293502d45a5454d46a7`。
 - 下一步建议：服务器只执行该精确 dispatch；先完成 G0 一手文献/资产/parity 与 G1 exact candidate provenance，三 epoch cheap gate 失败则正常早停，不启动完整 detector。
+
+## 2026-08-27 00:50 PDT — 用户询问业务 051 是否执行完毕
+
+- 指令来源：用户“现在服务器是否执行完了？先汇报，不给下一步计划。”
+- 执行动作：B fast-forward 至 `ea6a8ab3d0355efd3223bbcbed9980e1bc2b0235`，只读核验 coordination、唯一服务器报告、STARTED 状态与最近提交；未关闭业务、未派发或设计后续计划。
+- 关键产物路径：`dis/server_reports/orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r051/STARTED.json`。
+- 是否触发停止条件：服务器尚未执行完毕。权威报告首行为“未执行完毕”；四卡已于 2026-08-26 恢复，但当前状态仍为 `G1_SMOKE_RUNNING`，仅见 smoke 稳定性修复提交，尚无 G1 admission、三 epoch cheap-signal gate 或终局回执。
+- 下一步建议：按用户本轮要求不提供下一步计划。
