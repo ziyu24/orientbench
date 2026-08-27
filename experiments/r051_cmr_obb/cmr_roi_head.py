@@ -33,7 +33,9 @@ class CMRStandardRoIHead(StandardRoIHead):
         result = super().bbox_loss(x, sampling_results)
         positive = [res for res in sampling_results if len(res.pos_priors)]
         if not positive:
-            result['loss_cmr'] = result['bbox_feats'].sum() * 0.
+            # DDP requires a differentiable zero on ranks whose sampled image
+            # has no positive RoIs; host features are intentionally frozen.
+            result['loss_cmr'] = sum(parameter.sum() for parameter in self.cmr.parameters()) * 0.
             return result
         priors = [get_box_tensor(res.pos_priors) for res in positive]
         gt_boxes = [get_box_tensor(res.pos_gt_bboxes) for res in positive]
@@ -84,7 +86,11 @@ class CMRStandardRoIHead(StandardRoIHead):
             decoded = self.bbox_head.bbox_coder.decode(roi[:, 1:], bbox_pred, max_shape=meta['img_shape'])
             boxes = get_box_tensor(decoded)
             if rescale:
-                boxes = get_box_tensor(scale_boxes(boxes, [1 / s for s in meta['scale_factor']]))
+                factors = [1 / s for s in meta['scale_factor']]
+                if len(factors) == 2:
+                    factors = [factors[0], factors[1], factors[0], factors[1]]
+                factor = boxes.new_tensor(factors + [1.])
+                boxes = boxes * factor
             classes = self.bbox_head.num_classes
             pair_source = torch.arange(len(boxes), device=boxes.device).repeat_interleave(classes)
             pair_label = torch.arange(classes, device=boxes.device).repeat(len(boxes))
