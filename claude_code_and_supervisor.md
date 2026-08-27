@@ -4164,6 +4164,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；第四卡恢复，当前仅为 G1 工程 smoke，禁止端点未触碰。
 - 下一步建议：核验 smoke 的四卡启动、候选 provenance 与有限梯度；仅通过后才运行冻结 host 的 3-epoch cheap-signal gate。
 
+## 2026-08-27 00:58 PDT — r51 G1 smoke 因外部 GPU 占用 OOM
+
+- 指令来源：r51 G1 四卡 smoke 重跑（candidate UID packing 更新后的预检）。
+- 执行动作：仍按四卡直接发起；GPU 3 上已有 PID `2343045` 占用约 `20.23 GiB`，本任务在 host assigner 分配额外 `56 MiB` 时发生 CUDA OOM。已按用户的“除非 OOM”例外停止该次无效 smoke，未降低为三卡、未改数据或门槛。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/train.log`。
+- 是否触发停止条件：资源异常；此前 UID 更新前的同配置 smoke 曾正常完成 20 iter 和 full-val，但当前更新后的 smoke 需等四卡均有余量后重跑。禁止端点未触碰。
+- 下一步建议：等待外部 PID `2343045` 释放 GPU 后，以同一四卡配置重跑；不自行杀死外部任务。
+
 ## 2026-08-22 01:45 PDT — 用户报告服务器执行完毕，B 拉取终验
 
 - 指令来源：用户“服务器执行完毕。”

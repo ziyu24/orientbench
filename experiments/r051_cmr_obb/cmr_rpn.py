@@ -53,7 +53,12 @@ class CMRProvenanceOrientedRPNHead(OrientedRPNHead):
         results.level_ids = torch.cat(levels)
         results.cell_ids = torch.cat(cells)
         results.proposal_ids = torch.arange(len(results.scores), device=results.scores.device, dtype=torch.long)
-        results.candidate_uid = results.proposal_ids.clone()
+        # ``cell_ids`` is the pre-NMS flattened anchor/cell position within a
+        # level. The packed UID is immutable and independently checkable after
+        # RPN NMS; it is never derived from the final rotated box geometry.
+        if results.cell_ids.numel() and results.cell_ids.max() >= 1_000_000_000:
+            raise RuntimeError('CMR candidate cell id exceeds frozen UID packing range')
+        results.candidate_uid = results.level_ids.long() * 1_000_000_000 + results.cell_ids.long()
         return self._bbox_post_process(results, cfg, rescale, img_meta=img_meta)
 
     def _bbox_post_process(self, results: InstanceData, cfg: ConfigDict,

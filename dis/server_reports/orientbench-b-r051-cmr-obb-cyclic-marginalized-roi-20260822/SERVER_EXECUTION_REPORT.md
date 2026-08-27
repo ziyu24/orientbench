@@ -11,3 +11,7 @@
 ## Required recovery
 
 Restore the missing A30 (`a2:00.0`) to the NVIDIA driver/CUDA runtime so both `nvidia-smi -L` and `torch.cuda.device_count()` report four. Then re-run the four-GPU preflight before beginning G1.
+
+## Update: four-GPU restoration and current G1 resource exception
+
+All four A30 devices are now visible to both `nvidia-smi` and PyTorch. The project-local CMR implementation and first four-GPU 20-iteration smoke completed normally before the subsequent candidate-UID packing refresh. The required refresh smoke was started on all four GPUs, as authorized, but GPU 3 had only 8.88 MiB free because an unrelated PID `2343045` already held about 20.23 GiB; the run ended with CUDA OOM on a 56 MiB allocation. No three-GPU fallback, data/split change, or forbidden endpoint was used. The refresh smoke is pending resource release.
