@@ -4156,6 +4156,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：四卡环境阻断仍存在；这些静态测试不构成 G1 admission，未启动 GPU 和任何数据训练。
 - 下一步建议：恢复第四张 A30 后，将该项目内核心接入 Oriented R-CNN decoded proposal/NMS 路径并运行真正四卡 G1。
 
+## 2026-08-26 10:50 PDT — r51 四卡恢复并启动 G1 CMR smoke
+
+- 指令来源：恢复中的 r51 活动 dispatch。
+- 执行动作：复核 `nvidia-smi` 与 `pcp-obb` PyTorch 均已识别四张 A30。已将 project-local CMR 接入 Oriented R-CNN：RPN 从生成到 RPN NMS 保留 candidate UID/level/cell/proposal identity；RoI head 在 bbox decode 后、最终 NMS 前对每个有效 proposal/class pair 做 K=12、7x7 Rotated RoI candidate evidence，按 NMS 返回的原始 keep indices 保留 q/risk/provenance。静态构建与 4 个 CPU 原语测试均通过；四卡 20-iter smoke 已启动。
+- 关键产物路径：`experiments/r051_cmr_obb/cmr_rpn.py`；`experiments/r051_cmr_obb/cmr_roi_head.py`；`configs/r051_cmr_obb/dota_orcnn_cmr_smoke_20.py`；`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/train.log`。
+- 是否触发停止条件：否；第四卡恢复，当前仅为 G1 工程 smoke，禁止端点未触碰。
+- 下一步建议：核验 smoke 的四卡启动、候选 provenance 与有限梯度；仅通过后才运行冻结 host 的 3-epoch cheap-signal gate。
+
 ## 2026-08-22 01:45 PDT — 用户报告服务器执行完毕，B 拉取终验
 
 - 指令来源：用户“服务器执行完毕。”

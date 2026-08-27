@@ -96,30 +96,38 @@ def make_provenance(batch_ids: Tensor, level_ids: Tensor, cell_ids: Tensor, prop
 class CMRRoIEvidence(nn.Module):
     """Shared 7x7 candidate scorer plus cyclic posterior/marginal primitives."""
 
-    def __init__(self, channels: int, k: int = K_DEFAULT, roi_size: int = ROI_SIZE_DEFAULT) -> None:
+    def __init__(self, channels: int, num_classes: int = 15, k: int = K_DEFAULT,
+                 roi_size: int = ROI_SIZE_DEFAULT) -> None:
         super().__init__()
         if k != K_DEFAULT or roi_size != ROI_SIZE_DEFAULT:
             raise ValueError(f'CMR is frozen at K={K_DEFAULT}, RoI={ROI_SIZE_DEFAULT}x{ROI_SIZE_DEFAULT}')
-        self.k, self.roi_size = k, roi_size
+        self.k, self.roi_size, self.num_classes = k, roi_size, num_classes
         self.encoder = nn.Sequential(
             nn.Conv2d(channels, channels, 3, padding=1), nn.ReLU(inplace=True),
             nn.AdaptiveAvgPool2d(1))
+        self.class_embedding = nn.Embedding(num_classes, channels)
         self.evidence = nn.Linear(channels, 1)
         nn.init.zeros_(self.evidence.weight)
         nn.init.zeros_(self.evidence.bias)
 
-    def score_candidate_features(self, candidate_features: Tensor) -> Tensor:
+    def score_candidate_features(self, candidate_features: Tensor, class_ids: Tensor) -> Tensor:
         """Score [N,K,C,7,7] with exactly one shared encoder/head."""
         if candidate_features.ndim != 5 or candidate_features.shape[1] != self.k:
             raise ValueError(f'expected [N,{self.k},C,{self.roi_size},{self.roi_size}] candidate features')
         if tuple(candidate_features.shape[-2:]) != (self.roi_size, self.roi_size):
             raise ValueError('CMR evidence must consume complete frozen 7x7 rotated RoIs')
         n, k, c, h, w = candidate_features.shape
+        if class_ids.shape != (n,) or class_ids.dtype not in (torch.int32, torch.int64):
+            raise ValueError('class_ids must be integer [N] decoded proposal classes')
+        if (class_ids < 0).any() or (class_ids >= self.num_classes).any():
+            raise ValueError('decoded proposal class outside frozen class vocabulary')
         encoded = self.encoder(candidate_features.reshape(n * k, c, h, w)).flatten(1)
-        return self.evidence(encoded).reshape(n, k)
+        encoded = encoded.reshape(n, k, c) + self.class_embedding(class_ids.long())[:, None]
+        return self.evidence(encoded.reshape(n * k, c)).reshape(n, k)
 
-    def forward_from_features(self, candidate_features: Tensor, source_angles: Tensor) -> Mapping[str, Tensor]:
-        logits = self.score_candidate_features(candidate_features)
+    def forward_from_features(self, candidate_features: Tensor, source_angles: Tensor,
+                              class_ids: Tensor) -> Mapping[str, Tensor]:
+        logits = self.score_candidate_features(candidate_features, class_ids)
         offsets = torch.arange(self.k, device=logits.device, dtype=logits.dtype) * (torch.pi / self.k)
         angles = axial_wrap(source_angles[:, None] + offsets)
         q = logits.softmax(-1)
@@ -128,16 +136,17 @@ class CMRRoIEvidence(nn.Module):
         # This is the likelihood term consumed by the integration head; it is
         # not a post-hoc score fusion and no detector score is read here.
         log_marginal = torch.logsumexp(logits, dim=-1) - torch.log(torch.tensor(float(self.k), device=logits.device))
-        return dict(q=q, candidate_angles=angles, refined_angle=refined,
+        return dict(logits=logits, q=q, candidate_angles=angles, refined_angle=refined,
                     native_risk=risk, concentration=concentration,
                     log_marginal_likelihood=log_marginal)
 
     def forward_with_extractor(self, feats: tuple[Tensor, ...], proposals: Tensor, batch_ids: Tensor,
+                               class_ids: Tensor,
                                roi_extractor: Callable[[tuple[Tensor, ...], Tensor], Tensor]) -> Mapping[str, Tensor]:
         rois = build_candidate_ring(proposals, batch_ids, self.k)
         roi_features = roi_extractor(feats, rois)
         n = len(proposals)
         candidate_features = roi_features.reshape(n, self.k, *roi_features.shape[1:])
-        result = dict(self.forward_from_features(candidate_features, proposals[:, 4]))
+        result = dict(self.forward_from_features(candidate_features, proposals[:, 4], class_ids))
         result['candidate_rois'] = rois
         return result

@@ -11,5 +11,10 @@
     "cuda_visible_a30_devices": 3,
     "requirement": "four GPUs are mandatory for all r051 smoke and training"
   },
-  "status": "NOT_ADJUDICATED_ASSET_ENV"
+  "status": "G1_SMOKE_RUNNING",
+  "four_gpu_preflight": {
+    "nvidia_smi_devices": 4,
+    "torch_cuda_devices": 4,
+    "observed_at": "2026-08-26T10:50:00-07:00"
+  }
 }

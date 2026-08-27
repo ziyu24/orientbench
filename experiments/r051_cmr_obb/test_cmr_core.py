@@ -21,11 +21,12 @@ def test_shared_candidate_evidence_has_circular_shift_and_mutation_response():
     torch.manual_seed(1); module = CMRRoIEvidence(channels=3)
     with torch.no_grad(): module.evidence.weight.fill_(.2)
     feat = torch.randn(2, K_DEFAULT, 3, 7, 7, requires_grad=True)
-    first = module.forward_from_features(feat, _proposals()[:, 4])
-    shifted = module.forward_from_features(feat.roll(1, 1), _proposals()[:, 4])
+    labels = torch.tensor([1, 2])
+    first = module.forward_from_features(feat, _proposals()[:, 4], labels)
+    shifted = module.forward_from_features(feat.roll(1, 1), _proposals()[:, 4], labels)
     assert torch.allclose(shifted['q'], first['q'].roll(1, 1), atol=1e-6)
     altered = feat.detach().clone(); altered[:, 3] += 10
-    changed = module.forward_from_features(altered, _proposals()[:, 4])
+    changed = module.forward_from_features(altered, _proposals()[:, 4], labels)
     assert not torch.allclose(first['q'], changed['q'])
     (first['native_risk'].sum() + first['log_marginal_likelihood'].sum()).backward()
     assert torch.isfinite(feat.grad).all() and feat.grad.abs().sum() > 0
