@@ -2,10 +2,10 @@
 schema_version: 3
 actor: C
 governance_mode: B_C_PEER_EQUAL
-evidence_head: ba2cd67ed268169fcec264ef4a79085fd5c8d7d9
-evidence_cutoff: 2026-08-17
-review_mode: r041_postpull_protocol_drift
-current_route: OER_OBB_STAGE_A_CANDIDATE
+evidence_head: 7ed16de5e631b78a56aa8b4d6811d9137b13bbc1
+evidence_cutoff: 2026-08-27
+review_mode: r051_topjournal_open_attack
+current_route: CMR_ONE_FUNCTIONAL_ADMISSION_CONTESTED
 learned_eqs_role: APPENDIX_FAILED_ONLY
 r022_c_verdict: ADOPT_HONEST_EARLY_STOP_NOT_ADJUDICATED
 r023_c_verdict: ACCEPT_INFERENCE_LAYER_INCONCLUSIVE_MIXED
@@ -17,13 +17,22 @@ r034_c_verdict: ACCEPT_K1_K2_KILL_STRONG_JSTARS_JOINT_FINAL
 r036_c_verdict: CONTESTED_BASELINE_AND_CALIBRATION_SEMANTICS
 r037_c_verdict: REJECT_FULL_COMPLETION_PROTOCOL_DRIFT_CONDITIONAL_G_SET_FAIL
 r041_c_verdict: INCOMPLETE_PROTOCOL_DRIFT_ASSETS_CONDITIONAL_ONLY
-joint_scientific_state: R041_CLOSED_BY_C_WITH_USER_AUTHORIZATION_PENDING
-current_venue_ceiling: TGRS_OR_JPRS_ONLY_IF_NEW_METHOD_SURVIVES
+r051_c_verdict: CONTESTED_NEEDS_ONE_CHEAP_TEST
+joint_scientific_state: R051_IMPLEMENTATION_NOT_ADJUDICATED_PENDING_B_OWNER_CLOSURE
+current_venue_ceiling: TGRS_OR_JPRS_ONLY_IF_CMR_FULL_EVIDENCE_CHAIN_SURVIVES
 current_defensible_level: STRONG_JSTARS_OR_REMOTE_SENSING
-next_required_action: ACTIVATE_C_R042_OER_STAGE_A_CHEAP_KILL
+next_required_action: B_CLOSE_R051_INCOMPLETE_THEN_USER_REVIEW_NEW_L2_CMR_ADMISSION_SPEC
 accepted_requires: B_AND_C_TRACEABLE_MATCHING_VERDICTS
 cc_recommendation: 'no'
 ---
+
+# OrientBench C：r051 后顶刊路线回应
+
+C 的唯一结论是 `CONTESTED_NEEDS_ONE_CHEAP_TEST`。r051 的 angle-only refiner 和退化 DIRECT_DIST 没有实现冻结 CMR，因此负数字不能杀死 CMR；但完整 CMR 的原语分别与 Rotated-RoI refinement、周期角分布、mixture marginalization 和 uncertainty 相邻，“无逐字同构先例”也不能建立顶刊创新。
+
+只允许一次新的、先功能后经验的合取淘汰门：必须用真实 proposal feature 证明 DIRECT_DIST instance-conditioned，用实际 detector loss/autograd/反事实证明 CMR 后验同时改变 class、非 theta box 与 orientation，再在 DOTA-v1.0 consumed development 上以正确 controls 做冻结三 epoch gate。任何功能项或 AP75/角误差/AUGRC/Risk@70 合取失败即永久关闭 CMR；通过也只取得完整多数据、多 host、三 seed、zero-target-GT transfer 的后续资格，不提前升档。
+
+当前真实级别仍为 strong JSTARS / Remote Sensing。TGRS 需要完整跨数据/host/seed/transfer 正证据；JPRS 还需可检验的遥感几何机制，若检测收益仅为小幅度则需要 source-disjoint 独立决策意义。详细回应见 `dis/reviews/C/orientbench-b-r051-topjournal-joint-response-20260827.md`。
 
 # OrientBench C：r041 接管裁决与 OER 下一步
 
