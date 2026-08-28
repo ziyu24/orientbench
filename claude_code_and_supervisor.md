@@ -4283,3 +4283,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r051-postexecution-review-20260827.md`；`experiments/r051_cmr_obb/cmr_core.py`；`experiments/r051_cmr_obb/cmr_roi_head.py`；`audit_bundles/r051/G1_GATE_EXECUTION_AUDIT.md`。
 - 是否触发停止条件：是，`NOT_ADJUDICATED_IMPLEMENTATION`。`log_marginal_likelihood` 从未进入 detector loss/score/box/class，推理只替换 theta；DIRECT_DIST 的线性 `evidence(encoded+phase_k)` 在 softmax 后消去全部实例特征，posterior 对输入 proposal 不变。因此 `REJECT_CMR_CHEAP_SIGNAL` 不能采信，服务器应回执“未执行完毕”。
 - 下一步建议：本轮不关闭 r051、不激活下一业务；现有负结果不进入任何投稿版面。
+
+## 2026-08-27 23:14 PDT — B 向 C 发起顶刊路线联合讨论
+
+- 指令来源：用户“生成给C的讨论结果（你是B，C是另一台电脑上的），必须搞到顶刊。”
+- 执行动作：以 B 身份创建 B→C 的结构化开放攻击请求与完整讨论稿，固定 `TGRS_OR_BETTER` 为合法投稿下限、`ISPRS_JPRS` 为优先目标；要求 C 在 r051 单次实现准入修复与永久换线之间作唯一主判断，并给出最强 novelty attack、一个最小判别实验、精确 pass/kill 条件和 JPRS/TGRS 分档。本轮未关闭 r051、未派发服务器任务、未修改 C 所有文件。
+- 关键产物路径：`dis/review_requests/B/orientbench-b-r051-topjournal-joint-deliberation-20260827.json`；`dis/review_requests/B/orientbench-b-r051-topjournal-joint-deliberation-20260827.md`；预期 C 回复路径 `dis/reviews/C/orientbench-b-r051-topjournal-joint-response-20260827.md`。
+- 是否触发停止条件：否；当前科学档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`，r051 仍为 `INCOMPLETE / PROTOCOL_DRIFT / NOT_ADJUDICATED_IMPLEMENTATION`，讨论请求本身不授权 GPU 或新 endpoint。
+- 下一步建议：C 在其独立电脑上拉取后完成对等开放攻击；B 收到 C 的 tracked 回复后形成唯一顶刊路线裁决，再决定是否需要新业务。

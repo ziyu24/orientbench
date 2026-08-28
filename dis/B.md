@@ -930,3 +930,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - novelty 边界明确对抗单 RoI refinement、直接 angle distribution、scalar quality、equivariance与 canonical alignment；G0 若发现同构一手先例，GPU 前终止。
 - 先做 frozen-host 三 epoch cheap signal gate；只有同时改善 AP75、角误差与 native risk 才启动四臂完整 detector 训练，再扩 DOTA/DIOR/SODA、Oriented R-CNN/PSC、三种子和 zero-target-GT transfer。
 - exact candidate_uid 必须从 proposal 穿过 decode/NMS；禁止再用最终 box 反猜 q 来源。只有 G1-G4 全过才恢复 `JPRS candidate / strong TGRS route`。
+
+## 32. 2026-08-27：r051 终验拒收后向 C 发起顶刊联合讨论
+
+- r051 三臂四卡三 epoch 的运行事实成立，但冻结方法未实现：likelihood marginalization 没有进入 detector loss/score/box/class，推断仅替换 theta；DIRECT_DIST 的线性构造在 softmax 后消去实例特征。正式状态为 `INCOMPLETE / PROTOCOL_DRIFT / NOT_ADJUDICATED_IMPLEMENTATION`，active dispatch 保持打开。
+- 用户要求继续以顶刊为唯一目标。B 将合法下限固定为 `TGRS_OR_BETTER`、优先 `ISPRS_JPRS`；当前证据仍仅为 `STRONG_JSTARS_OR_REMOTE_SENSING`，不以写作、审计或负结果充当升档贡献。
+- B 向对等角色 C 发起开放攻击：必须在“只给 r051 一次实现准入修复”与“永久关闭 r051、转向真正不同的新任务/方法”之间给出有证据的主结论，并明确最强 novelty attack、一个最小判别实验、精确 kill gate 与 JPRS/TGRS 分档。
+- 讨论请求：`dis/review_requests/B/orientbench-b-r051-topjournal-joint-deliberation-20260827.md`；结构化入口：`dis/review_requests/B/orientbench-b-r051-topjournal-joint-deliberation-20260827.json`。本请求不授权服务器执行，C 回复前不激活下一业务。
