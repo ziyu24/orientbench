@@ -4243,3 +4243,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r051_cmr_obb/cmr_roi_head.py`；`experiments/r051_cmr_obb/validate_cmr_provenance.py`；`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/evaluation/`。
 - 是否触发停止条件：否；为实现完整性异常，尚未进入 G1 cheap-signal 判定，未运行 G2/G3/G4。
 - 下一步建议：只有独立 validator 对真实导出及全部破坏性 mutation 均通过，才启动三 epoch 三臂 G1 门控。
+
+## 2026-08-27 19:12 PDT — 业务 051 G1 实现门控通过
+
+- 指令来源：业务051 G1 固定实现/四卡 smoke。
+- 执行动作：以最终 proposal/class UID 实现完成四卡 DOTA val export；独立 validator 在 92,908 个最终检测上通过，并对删除 UID、交换 level/cell、篡改 NMS mapping、重复候选全部拒绝。smoke AP50=0.6970、AP75=0.4440（仅 smoke 运行证据，不作 cheap-signal 裁决）。启动 CMR、DIRECT_DIST、SINGLE_ROI_QUALITY 三个同初始化、同三 epoch、每 epoch full-val 的四卡 arms。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/evaluation/provenance_validation.txt`；`experiments/r051_cmr_obb/run_dota_orcnn_r051_g1_3ep.sh`。
+- 是否触发停止条件：否。
+- 下一步建议：三臂全部结束且 raw export、matched rows、mother-image bootstrap 和 G1 conjunction 完成后，才决定是否允许 G2。
