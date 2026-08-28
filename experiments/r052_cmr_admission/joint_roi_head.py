@@ -1,6 +1,8 @@
 """Local r052 detector-native CMR RoI head; third-party source is untouched."""
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 import torch
 from mmcv.ops import nms_rotated
 from mmengine.structures import InstanceData
@@ -9,6 +11,16 @@ from mmdet.structures.bbox import bbox2roi, get_box_tensor
 from mmrotate.registry import MODELS
 
 from .joint_api import K, ProposalObservationArms, axial_wrap, joint_loss
+
+
+@dataclass
+class PreNMSPayload:
+    """Pickle-safe sidecar with InstanceData-compatible length semantics."""
+    records: dict
+    instance_count: int
+
+    def __len__(self):
+        return self.instance_count
 
 
 def _box_residual(target: torch.Tensor, prior: torch.Tensor) -> torch.Tensor:
@@ -143,7 +155,7 @@ class R052JointRoIHead(StandardRoIHead):
                 result.labels = flat_labels.new_zeros((0,), dtype=torch.long)
                 result.native_risk = flat_scores.new_zeros((0,)); result.proposal_index = result.labels.clone()
                 result.nms_keep_index = result.labels.clone(); result.proposal_uid, result.class_uid, result.candidate_uids = [], [], []
-            result.r052_pre_nms = pre_nms
+            result.r052_pre_nms = PreNMSPayload(pre_nms, len(result))
             results.append(result)
             offset += count
         return results
