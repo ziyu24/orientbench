@@ -1,0 +1,3 @@
+/home/rspip/cqc/data/install/yes/envs/pcp-obb/lib/python3.10/site-packages/mmengine/optim/optimizer/zero_optimizer.py:11: DeprecationWarning: `TorchScript` support for functional optimizers is deprecated and will be removed in a future PyTorch release. Consider using the `torch.compile` optimizer instead.
+  from torch.distributed.optim import \
+{"failed_conjuncts": ["detector_predict_bbox_has_r052_override", "detector_predict_bbox_is_not_host_passthrough", "joint_output_carries_proposal_class_candidate_uids"], "status": "KILL_CMR_IMPLEMENTATION_PRINCIPLE"}

@@ -4339,3 +4339,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/coordination.json`；`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`。
 - 是否触发停止条件：否。
 - 下一步建议：服务器只接受 dispatch id=`orientbench-b-r052-cmr-functional-admission-20260828`、plan path=`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`、dispatch commit=`85d076b853b394db60d57571bcaffc693af33adf`。
+
+## 2026-08-28 01:04 PDT — r052 G1 正式功能准入正常早停
+
+- 指令来源：用户“拉取，执行r052”。
+- 执行动作：在 G0 四卡 identity parity、DOTA-train-only 精确 1,024 frozen positives、四卡 joint smoke 均完成后，提交并执行正式 G1 native detector-path/provenance 合取。运行时对象身份检查确认 `R052JointRoIHead.predict_bbox` 仍解析为 `StandardRoIHead.predict_bbox`；joint 输出不携带 proposal/class/candidate UID。因此 joint likelihood 未进入实际 decode/NMS/raw-export，不能满足冻结的 UID/provenance 与 native marginalization 条件。
+- 关键产物路径：`audit_bundles/r052/G1_FUNCTIONAL_ADMISSION_AUDIT.md`；`audit_bundles/r052/G1_FUNCTIONAL_ADMISSION_TOKEN.json`；`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/formal_native_path_admission/result.json`。
+- 是否触发停止条件：是，正常 `KILL_CMR_IMPLEMENTATION_PRINCIPLE`；G2 未启动且不再授权本 dispatch 的 CMR 修复或训练。未触碰 DOTA-v2.0、SODA-A official test、HRSC 或其它禁止端点。
+- 下一步建议：由 B/C 依各自治理流程拉取并独立裁决该 normal gated early stop；服务器不自行扩展或重开 CMR。
