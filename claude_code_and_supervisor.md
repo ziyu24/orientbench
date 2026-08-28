@@ -4315,3 +4315,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`；`dis/plans/B/b-r052-cmr-functional-admission-20260828/STATE.json`。
 - 是否触发停止条件：否；计划尚为 READY、未激活。当前期刊档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`。
 - 下一步建议：先提交 immutable plan，再以 committed blob/SHA-256 原子激活唯一 dispatch；服务器严格执行业务 052。
+
+## 2026-08-28 00:08 PDT — 业务 052 原子激活
+
+- 指令来源：用户 2026-08-28“批准，进行吧。”；已提交 immutable READY plan。
+- 执行动作：将业务 052 committed plan 逐字节镜像至根 `dis/sug.md`，在 coordination 绑定 plan commit/blob/SHA-256、L2 授权、四卡资源、DOTA-only 数据边界、写入范围与唯一服务器报告路径；状态推进为 `DISPATCHED`。
+- 关键产物路径：`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`；`dis/sug.md`；`dis/coordination.json`；`dis/server_reports/orientbench-b-r052-cmr-functional-admission-20260828/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：否；业务编号 052，plan commit=`673fe2281ed3d84d860f84b87931f017c3944d91`，plan SHA-256=`6c7e122e5d9ff3d4993e7e4e92f4ef2708259be45e6b7a17e8bbead2177fae2d`。
+- 下一步建议：服务器只执行该精确 dispatch；G0/G1/G2 任一正常 gated kill 均按计划结束，不进入未授权扩展。
