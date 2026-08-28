@@ -27,7 +27,7 @@ def main() -> None:
     source.sort(key=lambda x: (hashlib.sha256(str(x['img_id']).encode()).hexdigest(), str(x['img_id'])))
     source = source[:max_images]
     model = init_detector(str(CFG), str(CKPT), device=f'cuda:{rank}')
-    out_root = BASE / 'correction_pre_nms_export'
+    out_root = BASE / os.environ.get('R052_EXPORT_DIR', 'correction_pre_nms_export')
     out_root.mkdir(parents=True, exist_ok=True)
     rows = []
     for source_index in range(rank, len(source), world):
