@@ -21,7 +21,7 @@ from experiments.r052_cmr_admission.joint_roi_head import _box_residual
 
 ROOT = Path('/home/rspip/cqc/pro/study/orientbench')
 BASE = ROOT / 'outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1'
-MANIFEST = BASE / 'correction_pre_nms_export_6000_uid_v2_stream/frozen_1024_pre_nms_positive_proposals.json'
+MANIFEST = BASE / 'correction_pre_nms_export_6000_uid_v3_rpn_provenance/frozen_1024_pre_nms_positive_proposals.json'
 CKPT = BASE / 'correction_cmr_joint_smoke_5/epoch_1.pth'
 CFG = ROOT / 'configs/r052_cmr_admission/dota_orcnn_joint_cmr_smoke_correction.py'
 
