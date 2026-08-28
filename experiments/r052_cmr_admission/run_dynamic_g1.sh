@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 root=/home/rspip/cqc/pro/study/orientbench
-out="$root/outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/dynamic_g1"
+dynamic_dir=${R052_DYNAMIC_DIR:-dynamic_g1}
+out="$root/outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/$dynamic_dir"
 mkdir -p "$out"
 source /home/rspip/cqc/data/install/yes/bin/activate pcp-obb
 export PYTHONPATH="$root"
 export CUDA_VISIBLE_DEVICES=0,1,2,3
+export R052_DYNAMIC_DIR="$dynamic_dir"
 torchrun --master_port 29860 --nproc_per_node=4 "$root/experiments/r052_cmr_admission/run_dynamic_g1.py" >"$out/run.log" 2>&1
 python "$root/experiments/r052_cmr_admission/summarize_dynamic_g1.py" \
   --dynamic-dir "$out" \

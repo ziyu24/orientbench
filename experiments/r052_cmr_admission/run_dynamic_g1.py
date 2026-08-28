@@ -100,8 +100,10 @@ def main() -> None:
         rf, rpriors = build_feature(model, array_pipeline, path, rotated_boxes, image=rotated_image)
         rinf = arm.infer(rf, rpriors[:, 4], uids)
         geometry_q_l1 = (rinf.q - inf.q.detach()).abs().sum(-1)
+        # OpenCV's positive-coordinate convention means the ``-step`` image
+        # rotation used above advances the detector's axial angle by -step.
         geometry_theta = axial_delta(rinf.angles[torch.arange(len(rows), device=device), labels] -
-                                     (inf.angles.detach()[torch.arange(len(rows), device=device), labels] + step))
+                                     (inf.angles.detach()[torch.arange(len(rows), device=device), labels] - step))
         cls = inf.marginal_class_log_probs[torch.arange(len(rows), device=device), labels]
         box = inf.box_residuals[torch.arange(len(rows), device=device), labels, 0]
         theta = inf.angles[torch.arange(len(rows), device=device), labels]
@@ -135,14 +137,16 @@ def main() -> None:
     source_all = torch.cat(direct_sources, dim=0)
     base_q = direct.infer(dfeat_all, source_all, direct_uids).q.detach()
     perm = torch.arange(len(dfeat_all) - 1, -1, -1, device=device)
-    perm_uids = [direct_uids[int(i)] for i in perm]
-    perm_q = direct.infer(dfeat_all[perm], source_all, perm_uids).q[perm.argsort()]
+    # Counterfactual intervention: proposal i keeps its UID/source angle but
+    # receives another proposal's feature.  Do not undo this assignment by
+    # reordering the output, which would merely test batch permutation.
+    perm_q = direct.infer(dfeat_all[perm], source_all, direct_uids).q
     direct_l1 = (base_q - perm_q).abs().sum(-1)
     if len(all_rows) != len(direct_l1):
         raise RuntimeError('dynamic G1 direct permutation lineage mismatch')
     for row, l1 in zip(all_rows, direct_l1.tolist()):
         row['direct_l1'] = float(l1)
-    outdir = BASE / 'dynamic_g1'; outdir.mkdir(parents=True, exist_ok=True)
+    outdir = BASE / os.environ.get('R052_DYNAMIC_DIR', 'dynamic_g1'); outdir.mkdir(parents=True, exist_ok=True)
     (outdir / f'rank{rank}.json').write_text(json.dumps(all_rows) + '\n')
     dist.barrier(); dist.destroy_process_group()
 
