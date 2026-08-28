@@ -4211,3 +4211,19 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/server_reports/orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822/SERVER_EXECUTION_REPORT.md`；`audit_bundles/r051/STARTED.json`。
 - 是否触发停止条件：服务器尚未执行完毕。权威报告首行为“未执行完毕”；四卡已于 2026-08-26 恢复，但当前状态仍为 `G1_SMOKE_RUNNING`，仅见 smoke 稳定性修复提交，尚无 G1 admission、三 epoch cheap-signal gate 或终局回执。
 - 下一步建议：按用户本轮要求不提供下一步计划。
+
+## 2026-08-27 01:xx PDT — 业务 051 的 GPU OOM 阻塞原因核验
+
+- 指令来源：用户“为何？”。
+- 执行动作：复核四卡即时占用。外部 `runs/r003/mission_set_compile.py`（PID 2343045）跨四卡占用约 13.5 / 14.7 / 7.0 / 20.7 GiB；另一外部 MMRotate 训练（PID 3607847）额外占用 GPU2 约 4.3 GiB。051 的四卡 smoke 在该并发下申请额外 56 MiB 时于 GPU3 OOM，非项目代码、数据或配置异常。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/train.log`；`dis/server_reports/orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822/SERVER_EXECUTION_REPORT.md`。
+- 是否触发停止条件：是，资源 OOM；051 冻结计划要求严格四卡，未降为三卡、未终止其他项目进程。
+- 下一步建议：资源释放后立即恢复同一四卡 G1 smoke。
+
+## 2026-08-27 18:41 PDT — 用户授权恢复业务 051
+
+- 指令来源：用户“抓紧推进”。
+- 执行动作：即时核验四卡，GPU0/1/3 空闲，GPU2 仅有外部任务约 5.7 GiB 占用，满足四卡并行余量；重启严格四卡的 G1 CMR smoke。
+- 关键产物路径：`experiments/r051_cmr_obb/run_dota_orcnn_cmr_smoke_20.sh`；`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/train.log`。
+- 是否触发停止条件：否。
+- 下一步建议：仅在 G1 完成、异常或需决策时汇报。

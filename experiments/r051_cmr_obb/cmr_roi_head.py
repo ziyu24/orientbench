@@ -136,6 +136,11 @@ class CMRStandardRoIHead(StandardRoIHead):
             result.cmr_original_box = active_boxes[positions]
             result.cmr_refined_box = refined_boxes[positions]
             result.cmr_source_row = source
+            # Persist the exact flat proposal/class row returned by NMS.  This
+            # gives the independent validator an auditable algebraic link from
+            # the final row back to the pre-NMS decoded proposal/class pair.
+            result.cmr_nms_kept_index = kept
+            result.cmr_nms_class = kept.remainder(classes)
             result.cmr_rpn_level_id = rpn.level_ids[source]
             result.cmr_rpn_cell_id = rpn.cell_ids[source]
             result.cmr_rpn_proposal_id = rpn.proposal_ids[source]

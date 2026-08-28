@@ -12,7 +12,8 @@ import torch
 UID_STRIDE = 1_000_000_000
 REQUIRED = ('candidate_uid', 'cmr_q', 'cmr_native_risk', 'cmr_original_box',
             'cmr_refined_box', 'cmr_source_row', 'cmr_rpn_level_id',
-            'cmr_rpn_cell_id', 'cmr_rpn_proposal_id')
+            'cmr_rpn_cell_id', 'cmr_rpn_proposal_id', 'cmr_nms_kept_index',
+            'cmr_nms_class')
 
 
 def tensor(value):
@@ -44,7 +45,9 @@ def validate_instance(instance) -> None:
             raise ValueError(f'{key} shape mismatch')
     level, cell = tensor(instance.cmr_rpn_level_id).long(), tensor(instance.cmr_rpn_cell_id).long()
     source, proposal = tensor(instance.cmr_source_row).long(), tensor(instance.cmr_rpn_proposal_id).long()
-    if any(x.shape != (n,) for x in (level, cell, source, proposal)):
+    kept = tensor(instance.cmr_nms_kept_index).long()
+    nms_class = tensor(instance.cmr_nms_class).long()
+    if any(x.shape != (n,) for x in (level, cell, source, proposal, kept, nms_class)):
         raise ValueError('CMR provenance component shape mismatch')
     if not torch.equal(uid, level * UID_STRIDE + cell):
         raise ValueError('candidate_uid does not match immutable level/cell provenance')
@@ -52,6 +55,12 @@ def validate_instance(instance) -> None:
         raise ValueError('duplicate final candidate_uid')
     if (source < 0).any() or (proposal < 0).any():
         raise ValueError('negative proposal provenance index')
+    if not torch.equal(source, torch.div(kept, 15, rounding_mode='floor')):
+        raise ValueError('NMS kept index does not point to exported proposal source row')
+    if not torch.equal(nms_class, torch.remainder(kept, 15)):
+        raise ValueError('NMS kept index does not point to exported class row')
+    if not torch.equal(nms_class, tensor(instance.labels).long()):
+        raise ValueError('NMS class mapping does not match final detection label')
 
 
 def run_mutations(instance) -> dict:
@@ -63,6 +72,7 @@ def run_mutations(instance) -> dict:
         'delete_candidate_uid': lambda x: x.pop('candidate_uid'),
         'swap_level': lambda x: setattr(x, 'cmr_rpn_level_id', x.cmr_rpn_level_id.flip(0)),
         'swap_cell': lambda x: setattr(x, 'cmr_rpn_cell_id', x.cmr_rpn_cell_id.flip(0)),
+        'swap_nms_mapping': lambda x: setattr(x, 'cmr_nms_kept_index', x.cmr_nms_kept_index.flip(0)),
         'duplicate_candidate': lambda x: setattr(x, 'candidate_uid', torch.cat([x.candidate_uid[:1], x.candidate_uid[:1], x.candidate_uid[2:]])),
     }
     for name, mutate in cases.items():
