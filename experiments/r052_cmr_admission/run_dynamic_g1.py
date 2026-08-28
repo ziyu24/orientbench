@@ -67,6 +67,10 @@ def main() -> None:
     direct = ProposalObservationArms(arm.channels, arm.joint.num_classes, 'direct').to(device)
     direct.load_state_dict(arm.state_dict())
     all_rows = []
+    # The permutation counterfactual is intentionally assembled across the
+    # rank's entire frozen slice.  Per-image reversal is degenerate for
+    # one-row images and is not the required cross-proposal intervention.
+    direct_features, direct_sources, direct_uids = [], [], []
     for group_index in range(rank, len(groups), world):
         path, rows = groups[group_index]
         boxes = [r['decoded_pre_nms_box'] for r in rows]
@@ -82,9 +86,9 @@ def main() -> None:
         dfeat = f[:, 0].detach().requires_grad_(True)
         dout = direct(dfeat, labels, target, gt[:, 4], source, uids)
         dgrad = torch.autograd.grad((dout.q[:, 1].log() - dout.q[:, 0].log()).sum(), dfeat)[0].norm(dim=1)
-        perm = torch.arange(len(rows) - 1, -1, -1, device=device)
-        dp = direct.infer(dfeat.detach()[perm], source, [uids[int(i)] for i in perm])
-        direct_l1 = (dout.q.detach() - dp.q[perm.argsort()]).abs().sum(-1)
+        direct_features.append(dfeat.detach())
+        direct_sources.append(source.detach())
+        direct_uids.extend(uids)
         cyc = arm.infer(f.detach().roll(1, 1), source, uids)
         cyclic_l1 = (cyc.q - inf.q.roll(1, 1)).abs().sum(-1)
         # Physical ring-step rotation of image and decoded proposal is an
@@ -119,12 +123,23 @@ def main() -> None:
         per_class_change = (inf.marginal_class_log_probs[torch.arange(len(rows), device=device), labels] - shin.marginal_class_log_probs[torch.arange(len(rows), device=device), labels]).abs()
         per_box_change = (inf.box_residuals[torch.arange(len(rows), device=device), labels, 0] - shin.box_residuals[torch.arange(len(rows), device=device), labels, 0]).abs()
         for i, row in enumerate(rows):
-            all_rows.append(dict(proposal_uid=row['proposal_uid'], direct_grad=float(dgrad[i]), direct_l1=float(direct_l1[i]),
+            all_rows.append(dict(proposal_uid=row['proposal_uid'], direct_grad=float(dgrad[i]),
               candidate_var=float(f[i].var(0).mean()), cyclic_l1=float(cyclic_l1[i]), geometry_q_l1=float(geometry_q_l1[i]),
               geometry_theta=float(geometry_theta[i]), cls_grad=float(cls_grad[i]), box_grad=float(box_grad[i]), theta_grad=float(theta_grad[i]),
               shuffle_loss=float(per_loss_change[i]), shuffle_class=float(per_class_change[i]), shuffle_box=float(per_box_change[i]),
               finite=all(finite(z) for z in (out.joint_log_likelihood[i], inf.q[i], inf.native_risk[i], cls_grad[i], box_grad[i], theta_grad[i])),
               normal_loss=float(normal_loss.detach()), detached_loss=float(detached_loss.detach()), normal_evidence_grad=normal_evidence_grad, detached_evidence_grad=detached_evidence_grad))
+    dfeat_all = torch.cat(direct_features, dim=0)
+    source_all = torch.cat(direct_sources, dim=0)
+    base_q = direct.infer(dfeat_all, source_all, direct_uids).q.detach()
+    perm = torch.arange(len(dfeat_all) - 1, -1, -1, device=device)
+    perm_uids = [direct_uids[int(i)] for i in perm]
+    perm_q = direct.infer(dfeat_all[perm], source_all, perm_uids).q[perm.argsort()]
+    direct_l1 = (base_q - perm_q).abs().sum(-1)
+    if len(all_rows) != len(direct_l1):
+        raise RuntimeError('dynamic G1 direct permutation lineage mismatch')
+    for row, l1 in zip(all_rows, direct_l1.tolist()):
+        row['direct_l1'] = float(l1)
     outdir = BASE / 'dynamic_g1'; outdir.mkdir(parents=True, exist_ok=True)
     (outdir / f'rank{rank}.json').write_text(json.dumps(all_rows) + '\n')
     dist.barrier(); dist.destroy_process_group()
