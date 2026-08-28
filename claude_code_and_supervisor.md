@@ -4251,3 +4251,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/evaluation/provenance_validation.txt`；`experiments/r051_cmr_obb/run_dota_orcnn_r051_g1_3ep.sh`。
 - 是否触发停止条件：否。
 - 下一步建议：三臂全部结束且 raw export、matched rows、mother-image bootstrap 和 G1 conjunction 完成后，才决定是否允许 G2。
+
+## 2026-08-27 19:xx PDT — 业务 051 G1 并行资源异常
+
+- 指令来源：用户持续授权 GPU 并行；业务051 G1 三臂四卡执行。
+- 执行动作：CMR、DIRECT_DIST、SINGLE_ROI_QUALITY 同时启动后，DIRECT_DIST 在 GPU3 额外申请 654 MiB 时 OOM；当时另两臂分别约9.55 GiB、8.64 GiB，DIRECT_DIST 本身约4.74 GiB。DIRECT_DIST 已异常结束；CMR 与 SINGLE_ROI_QUALITY 继续运行。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_direct_dist_frozenhost_3ep/train.log`。
+- 是否触发停止条件：资源 OOM，仅该 arm 暂停；未降为三卡、未终止外部进程、未触碰禁止端点，G1 尚未裁决。
+- 下一步建议：待并发 arm 释放显存后，以原四卡配置单独重跑 DIRECT_DIST。
