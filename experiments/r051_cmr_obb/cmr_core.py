@@ -150,3 +150,39 @@ class CMRRoIEvidence(nn.Module):
         result = dict(self.forward_from_features(candidate_features, proposals[:, 4], class_ids))
         result['candidate_rois'] = rois
         return result
+
+    def forward_direct_with_extractor(self, feats: tuple[Tensor, ...], proposals: Tensor,
+                                      batch_ids: Tensor, class_ids: Tensor,
+                                      roi_extractor: Callable[[tuple[Tensor, ...], Tensor], Tensor]) -> Mapping[str, Tensor]:
+        """Strong DIRECT_DIST control: one host-angle RoI, no grid intervention.
+
+        It reuses exactly the CMR encoder, class embedding and scalar evidence
+        head.  A fixed, parameter-free periodic phase code exposes a K-way
+        residual distribution without taking K rotated observations.
+        """
+        rois = torch.cat((batch_ids.to(proposals.dtype)[:, None], proposals), dim=1)
+        feature = roi_extractor(feats, rois)
+        n, c = len(proposals), feature.shape[1]
+        encoded = self.encoder(feature).flatten(1) + self.class_embedding(class_ids.long())
+        channel = torch.arange(c, device=feature.device, dtype=feature.dtype) + 1
+        phase = torch.arange(self.k, device=feature.device, dtype=feature.dtype)[:, None]
+        phase_code = torch.cos(2 * torch.pi * phase * channel[None] / float(self.k))
+        logits = self.evidence((encoded[:, None] + phase_code[None]).reshape(n * self.k, c)).reshape(n, self.k)
+        offsets = torch.arange(self.k, device=feature.device, dtype=feature.dtype) * (torch.pi / self.k)
+        angles = axial_wrap(proposals[:, 4, None] + offsets)
+        q = logits.softmax(-1)
+        refined, concentration = cyclic_mean(q, angles, proposals[:, 4])
+        return dict(logits=logits, q=q, candidate_angles=angles, refined_angle=refined,
+                    native_risk=posterior_tail_risk(q, angles, refined), concentration=concentration,
+                    log_marginal_likelihood=torch.logsumexp(logits, -1) - torch.log(torch.tensor(float(self.k), device=feature.device)))
+
+    def forward_single_with_extractor(self, feats: tuple[Tensor, ...], proposals: Tensor,
+                                      batch_ids: Tensor, class_ids: Tensor,
+                                      roi_extractor: Callable[[tuple[Tensor, ...], Tensor], Tensor]) -> Mapping[str, Tensor]:
+        """SINGLE_ROI_QUALITY control with one host-angle observation only."""
+        rois = torch.cat((batch_ids.to(proposals.dtype)[:, None], proposals), dim=1)
+        feature = roi_extractor(feats, rois)
+        encoded = self.encoder(feature).flatten(1) + self.class_embedding(class_ids.long())
+        quality_logit = self.evidence(encoded).squeeze(-1)
+        return dict(quality_logit=quality_logit, native_risk=quality_logit.sigmoid(),
+                    refined_angle=axial_wrap(proposals[:, 4]))

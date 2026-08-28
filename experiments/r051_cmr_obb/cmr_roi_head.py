@@ -23,9 +23,12 @@ class CMRStandardRoIHead(StandardRoIHead):
     """
 
     def __init__(self, *args, cmr_loss_weight: float = .15,
-                 cmr_num_classes: int = 15, **kwargs):
+                 cmr_num_classes: int = 15, observation_mode: str = 'cmr', **kwargs):
         super().__init__(*args, **kwargs)
+        if observation_mode not in ('cmr', 'direct_dist', 'single_roi_quality'):
+            raise ValueError(f'unknown frozen r051 observation mode: {observation_mode}')
         self.cmr_loss_weight = cmr_loss_weight
+        self.observation_mode = observation_mode
         self.cmr = CMRRoIEvidence(self.bbox_roi_extractor.out_channels,
                                   num_classes=cmr_num_classes)
 
@@ -43,9 +46,18 @@ class CMRStandardRoIHead(StandardRoIHead):
         rois = bbox2roi(priors)
         proposal_boxes = rois[:, 1:]
         target_angles = torch.cat([box[:, 4] for box in gt_boxes])
-        cmr_out = self.cmr.forward_with_extractor(
-            x[:self.bbox_roi_extractor.num_inputs], proposal_boxes,
-            rois[:, 0].long(), labels, self.bbox_roi_extractor)
+        evidence_args = (x[:self.bbox_roi_extractor.num_inputs], proposal_boxes,
+                         rois[:, 0].long(), labels, self.bbox_roi_extractor)
+        if self.observation_mode == 'cmr':
+            cmr_out = self.cmr.forward_with_extractor(*evidence_args)
+        elif self.observation_mode == 'direct_dist':
+            cmr_out = self.cmr.forward_direct_with_extractor(*evidence_args)
+        else:
+            cmr_out = self.cmr.forward_single_with_extractor(*evidence_args)
+            quality_target = (axial_wrap(target_angles - proposal_boxes[:, 4]).abs() / (torch.pi / 2)).clamp(0., 1.)
+            result['loss_cmr'] = F.binary_cross_entropy_with_logits(cmr_out['quality_logit'], quality_target) * self.cmr_loss_weight
+            result['cmr_train_quality'] = cmr_out['native_risk'].mean().detach()
+            return result
         # Training-only likelihood target. No validation/test value selects K,
         # risk, temperature, loss weight, schedule or checkpoint.
         distance = axial_wrap(target_angles[:, None] - cmr_out['candidate_angles']).abs()
@@ -111,12 +123,23 @@ class CMRStandardRoIHead(StandardRoIHead):
             pieces = []
             for begin in range(0, len(active_boxes), 128):
                 end = min(begin + 128, len(active_boxes))
-                pieces.append(self.cmr.forward_with_extractor(
-                    x[:self.bbox_roi_extractor.num_inputs], active_boxes[begin:end],
-                    active_boxes.new_full((end - begin,), image_id, dtype=torch.long),
-                    active_label[begin:end].long(), self.bbox_roi_extractor))
-            cmr_out = {key: torch.cat([piece[key] for piece in pieces], 0)
-                       for key in ('q', 'refined_angle', 'native_risk')}
+                evidence_args = (x[:self.bbox_roi_extractor.num_inputs], active_boxes[begin:end],
+                                 active_boxes.new_full((end - begin,), image_id, dtype=torch.long),
+                                 active_label[begin:end].long(), self.bbox_roi_extractor)
+                if self.observation_mode == 'cmr':
+                    pieces.append(self.cmr.forward_with_extractor(*evidence_args))
+                elif self.observation_mode == 'direct_dist':
+                    pieces.append(self.cmr.forward_direct_with_extractor(*evidence_args))
+                else:
+                    pieces.append(self.cmr.forward_single_with_extractor(*evidence_args))
+            if self.observation_mode == 'single_roi_quality':
+                cmr_out = {
+                    'q': torch.ones((len(active_boxes), 1), device=active_boxes.device),
+                    'refined_angle': torch.cat([piece['refined_angle'] for piece in pieces], 0),
+                    'native_risk': torch.cat([piece['native_risk'] for piece in pieces], 0)}
+            else:
+                cmr_out = {key: torch.cat([piece[key] for piece in pieces], 0)
+                           for key in ('q', 'refined_angle', 'native_risk')}
             refined_boxes = active_boxes.clone(); refined_boxes[:, 4] = cmr_out['refined_angle']
             multi_boxes = boxes[:, None, :].expand(-1, classes, -1).reshape(-1, 5).clone()
             multi_boxes[active] = refined_boxes

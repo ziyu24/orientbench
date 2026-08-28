@@ -4227,3 +4227,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`experiments/r051_cmr_obb/run_dota_orcnn_cmr_smoke_20.sh`；`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/train.log`。
 - 是否触发停止条件：否。
 - 下一步建议：仅在 G1 完成、异常或需决策时汇报。
+
+## 2026-08-27 18:48 PDT — 业务 051 G1 四卡 smoke 完成
+
+- 指令来源：业务051 G1 固定 smoke。
+- 执行动作：四卡 20-iteration CMR smoke 正常结束并完成一次 DOTA val；同时补齐 DIRECT_DIST 与 SINGLE_ROI_QUALITY 的等参数、单观察强对照实现及测试。CMR provenance validator 已扩展为验证 NMS flat-index 到 proposal/class 行的精确映射；因此需以该最终代码重跑 smoke 后再导出验证，旧 smoke 不作为 admission 依据。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/train.log`；`experiments/r051_cmr_obb/test_cmr_core.py`。
+- 是否触发停止条件：否；本次 smoke val 为 mAP 0.6969、AP50 0.6970，仅为运行稳定性证据，未用于门控裁决。
+- 下一步建议：以最终 provenance 代码重跑四卡 smoke，随后导出并执行独立 mutation validator。

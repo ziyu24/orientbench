@@ -45,3 +45,20 @@ def test_provenance_is_selected_by_explicit_pre_nms_rows_and_rejects_mutations()
     assert final['candidate_uid'].tolist() == [2, 0]
     with pytest.raises(ValueError): p.select_final(torch.tensor([3]))
     with pytest.raises(ValueError): p.select_final(torch.tensor([0.]))
+
+
+def test_strong_controls_use_one_host_observation_and_finite_gradients():
+    torch.manual_seed(2); module = CMRRoIEvidence(channels=3)
+    with torch.no_grad(): module.evidence.weight.fill_(.2)
+    feature = torch.randn(2, 3, 7, 7, requires_grad=True)
+    def extractor(_feats, rois):
+        assert rois.shape == (2, 6)  # one host-angle RoI, never a K-ring
+        return feature
+    proposal = _proposals().requires_grad_()
+    batch = torch.tensor([0, 1]); labels = torch.tensor([1, 2])
+    direct = module.forward_direct_with_extractor((), proposal, batch, labels, extractor)
+    single = module.forward_single_with_extractor((), proposal, batch, labels, extractor)
+    assert direct['q'].shape == (2, K_DEFAULT)
+    assert single['native_risk'].shape == (2,)
+    (direct['native_risk'].sum() + single['native_risk'].sum()).backward()
+    assert torch.isfinite(feature.grad).all() and feature.grad.abs().sum() > 0
