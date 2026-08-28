@@ -4380,6 +4380,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；尚未运行正式 G1，不存在 token 或科学裁决。未触碰禁止端点。
 - 下一步建议：马上以该唯一 manifest 在四卡执行全量动态 G1，再按数值合取决定是否允许 G2。
 
+## 2026-08-28 03:20 PDT — r052 动态 G1 正常科学门控结束
+
+- 指令来源：用户“抓紧推进”。
+- 执行动作：在新的唯一 1,024 pre-NMS universe 上完成四卡动态 G1；先修复了两项未提交 token 前发现的 harness 对齐错误，保留全部中间输出。最终完整数值合取失败：global theta 几何等变 median axial delta=`0.531568`（要求 <=`0.05`），shuffle-q 的 class change=`0.0` 与 non-theta box change median=`1.862645149230957e-08`（均未达到 >`1e-6`/95%）。其余动态功能、mutation 及 0.8263% parameter delta 均通过。
+- 关键产物路径：`audit_bundles/r052/G1_DYNAMIC_EXECUTION_AUDIT.md`；`audit_bundles/r052/G1_DYNAMIC_EXECUTION_TOKEN.json`；`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/dynamic_g1_correction_2/summary.json`。
+- 是否触发停止条件：是，正常 `KILL_CMR_IMPLEMENTATION_PRINCIPLE`；G2 未启动。未触碰 DOTA-v2.0、SODA-A official test、HRSC 或其它禁止端点。
+- 下一步建议：本 dispatch 已按冻结门控完整结束；由 B/C 独立复核本次动态 evidence。不得在本 dispatch 下重开 CMR 或启动 G2。
+
 ## 2026-08-28 01:08 PDT — 用户报告业务 052 完成，B 终验拒收
 
 - 指令来源：用户“服务器执行完了。”
