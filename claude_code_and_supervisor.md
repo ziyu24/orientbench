@@ -4348,6 +4348,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，正常 `KILL_CMR_IMPLEMENTATION_PRINCIPLE`；G2 未启动且不再授权本 dispatch 的 CMR 修复或训练。未触碰 DOTA-v2.0、SODA-A official test、HRSC 或其它禁止端点。
 - 下一步建议：由 B/C 依各自治理流程拉取并独立裁决该 normal gated early stop；服务器不自行扩展或重开 CMR。
 
+## 2026-08-28 01:46 PDT — r052 续执行更正启动
+
+- 指令来源：用户要求拉取包含 `6f9c288` 的最新 main，并完整执行 B 的 `orientbench-r052-server-continuation-instruction-20260828.md`。
+- 执行动作：已 fast-forward 至 `6f9c2887deeb1cce0d7266ecec696d91069afcf9`，核验 worker=`server-primary`、activation dispatch commit=`85d076b853b394db60d57571bcaffc693af33adf` 与 plan SHA-256。B 已否决旧 token/回执；保留历史产物，新增 STARTED_CORRECTION，并将回执恢复为未执行完毕。
+- 关键产物路径：`audit_bundles/r052/STARTED_CORRECTION.json`；`dis/reviews/B/orientbench-r052-server-continuation-instruction-20260828.md`。
+- 是否触发停止条件：否；旧静态 G1 结论不具科学裁决效力。新的动态 G1 尚未提交正式 token，G2 未启动。
+- 下一步建议：在 r052 新目录完成 pre-NMS UID、no-GT marginalization、真实 predict/decode/NMS/export 接入，随后重建 1,024 train-only universe 并执行动态 G1。
+
 ## 2026-08-28 01:08 PDT — 用户报告业务 052 完成，B 终验拒收
 
 - 指令来源：用户“服务器执行完了。”

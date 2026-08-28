@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Literal
+from typing import Literal, Sequence
 
 import torch
 from torch import Tensor, nn
@@ -59,6 +59,28 @@ class JointOutput:
     marginal_box_loc: Tensor
     marginal_angle: Tensor
     native_risk: Tensor
+    # These responsibilities are target-conditioned and exist only for the
+    # training NLL.  Inference must use ``InferenceOutput.class_weights``.
+    train_responsibilities: Tensor
+    proposal_uids: tuple[str, ...]
+    class_uids: tuple[tuple[str, ...], ...]
+    candidate_uids: tuple[tuple[tuple[str, ...], ...], ...]
+
+
+@dataclass
+class InferenceOutput:
+    """No-GT detector-native marginalization for every proposal/class pair."""
+    logits: Tensor
+    q: Tensor
+    class_log_probs: Tensor
+    marginal_class_log_probs: Tensor  # [N,C]
+    class_weights: Tensor              # [N,K,C]
+    box_residuals: Tensor              # [N,C,4]
+    angles: Tensor                     # [N,C]
+    native_risk: Tensor                # [N,C]
+    proposal_uids: tuple[str, ...]
+    class_uids: tuple[tuple[str, ...], ...]
+    candidate_uids: tuple[tuple[tuple[str, ...], ...], ...]
 
 
 class SharedJointLikelihood(nn.Module):
@@ -77,45 +99,99 @@ class SharedJointLikelihood(nn.Module):
         self.box_scale_head = nn.Linear(channels, 4)
         self.angle_head = nn.Linear(channels, 2)
 
-    def forward(self, embeddings: Tensor, proposal_classes: Tensor, box_target: Tensor,
-                angle_target: Tensor, source_angles: Tensor,
-                posterior_logits: Tensor | None = None) -> JointOutput:
+    def _candidate_parameters(self, embeddings: Tensor, source_angles: Tensor,
+                    posterior_logits: Tensor | None = None):
+        """Compute shared candidate parameters without touching a GT target."""
         if embeddings.ndim != 3 or embeddings.shape[1] != K:
             raise ValueError('expected N,K,C candidate embeddings with K=12')
         n, k, _ = embeddings.shape
-        if proposal_classes.shape != (n,) or box_target.shape != (n, 4) or angle_target.shape != (n,):
-            raise ValueError('unaligned frozen proposal targets')
+        if source_angles.shape != (n,):
+            raise ValueError('unaligned source angles')
         z = self.trunk(embeddings)
         logits = self.posterior(z).squeeze(-1) if posterior_logits is None else posterior_logits
         if logits.shape != (n, K):
             raise ValueError('posterior logits must be [N,12]')
-        q = logits.softmax(-1)
         class_log_probs = F.log_softmax(self.class_head(z), dim=-1)
-        row = torch.arange(n, device=z.device)[:, None]
-        candidate = torch.arange(k, device=z.device)[None, :]
-        class_ll = class_log_probs[row, candidate, proposal_classes[:, None]]
         box_loc = self.box_loc_head(z)
         box_raw_scale = self.box_scale_head(z)
         angle_params = self.angle_head(z)
         offsets = torch.arange(K, device=z.device, dtype=z.dtype) * (torch.pi / K)
         candidate_angles = axial_wrap(source_angles[:, None] + offsets)
         angle_mean = axial_wrap(candidate_angles + .25 * torch.tanh(angle_params[..., 0]))
-        angle_raw_kappa = angle_params[..., 1]
+        return (logits, class_log_probs, box_loc, box_raw_scale, angle_mean,
+                angle_params[..., 1], candidate_angles)
+
+    @staticmethod
+    def _uids(proposal_uids: Sequence[str] | None, n: int, c: int):
+        if proposal_uids is None:
+            proposal_uids = tuple(f'proposal:{i}' for i in range(n))
+        if len(proposal_uids) != n or len(set(proposal_uids)) != n:
+            raise ValueError('immutable proposal_uids must be unique and aligned')
+        p = tuple(str(x) for x in proposal_uids)
+        class_uids = tuple(tuple(f'{uid}:{cls}' for cls in range(c)) for uid in p)
+        candidate_uids = tuple(
+            tuple(tuple(f'{class_uid}:{k}' for k in range(K)) for class_uid in row)
+            for row in class_uids)
+        return p, class_uids, candidate_uids
+
+    def forward(self, embeddings: Tensor, proposal_classes: Tensor, box_target: Tensor,
+                angle_target: Tensor, source_angles: Tensor,
+                posterior_logits: Tensor | None = None,
+                proposal_uids: Sequence[str] | None = None) -> JointOutput:
+        if embeddings.ndim != 3 or embeddings.shape[1] != K:
+            raise ValueError('expected N,K,C candidate embeddings with K=12')
+        n, k, _ = embeddings.shape
+        if proposal_classes.shape != (n,) or box_target.shape != (n, 4) or angle_target.shape != (n,):
+            raise ValueError('unaligned frozen proposal targets')
+        (logits, class_log_probs, box_loc, box_raw_scale, angle_mean,
+         angle_raw_kappa, candidate_angles) = self._candidate_parameters(
+             embeddings, source_angles, posterior_logits)
+        q = logits.softmax(-1)
+        row = torch.arange(n, device=logits.device)[:, None]
+        candidate = torch.arange(k, device=logits.device)[None, :]
+        class_ll = class_log_probs[row, candidate, proposal_classes[:, None]]
         box_ll = laplace4_log_prob(box_target, box_loc, box_raw_scale)
         angle_ll = axial_von_mises_log_prob(angle_target[:, None], angle_mean, angle_raw_kappa)
         joint_terms = logits.log_softmax(-1) + class_ll + box_ll + angle_ll
         joint = torch.logsumexp(joint_terms, dim=-1)
         resp = joint_terms.softmax(-1)
-        marginal_class = torch.logsumexp(resp + class_ll, dim=-1)
+        # This is explicitly a training-only quantity.  It uses log resp,
+        # never probability-plus-log-probability; no target-conditioned value
+        # is exposed as the detector inference posterior.
+        marginal_class = torch.logsumexp(resp.clamp_min(1e-12).log() + class_ll, dim=-1)
         marginal_box = (resp[..., None] * box_loc).sum(1)
         sin = (resp * torch.sin(2 * angle_mean)).sum(-1)
         cos = (resp * torch.cos(2 * angle_mean)).sum(-1)
         marginal_angle = .5 * torch.atan2(sin, cos)
         risk = (resp * axial_delta(angle_mean - marginal_angle[:, None]) / (torch.pi / 2)).sum(-1)
+        p_uids, c_uids, k_uids = self._uids(proposal_uids, n, self.num_classes)
         return JointOutput(logits, q, class_log_probs, box_loc, box_raw_scale, angle_mean,
                            angle_raw_kappa, candidate_angles, class_ll, box_ll, angle_ll,
                            joint_terms, joint, marginal_class, marginal_box,
-                           axial_wrap(marginal_angle), risk)
+                           axial_wrap(marginal_angle), risk, resp, p_uids, c_uids, k_uids)
+
+    def infer(self, embeddings: Tensor, source_angles: Tensor,
+              proposal_uids: Sequence[str] | None = None,
+              posterior_logits: Tensor | None = None) -> InferenceOutput:
+        """Marginalize solely from proposal evidence — no GT enters this path."""
+        (logits, class_log_probs, box_loc, _box_raw_scale, angle_mean,
+         _angle_raw_kappa, _candidate_angles) = self._candidate_parameters(
+             embeddings, source_angles, posterior_logits)
+        n, _, c = class_log_probs.shape
+        log_q = logits.log_softmax(-1)
+        log_joint_class = log_q[..., None] + class_log_probs
+        marginal_class = torch.logsumexp(log_joint_class, dim=1)
+        weights = log_joint_class.softmax(dim=1)
+        box_residuals = (weights[..., None] * box_loc[:, :, None, :]).sum(1)
+        sin = (weights * torch.sin(2 * angle_mean[:, :, None])).sum(1)
+        cos = (weights * torch.cos(2 * angle_mean[:, :, None])).sum(1)
+        angles = axial_wrap(.5 * torch.atan2(sin, cos))
+        risk = (weights * axial_delta(angle_mean[:, :, None] - angles[:, None, :]) /
+                (torch.pi / 2)).sum(1)
+        p_uids, c_uids, k_uids = self._uids(proposal_uids, n, c)
+        return InferenceOutput(logits, logits.softmax(-1), class_log_probs,
+                               marginal_class, weights, box_residuals, angles,
+                               risk, p_uids, c_uids, k_uids)
 
 
 class ProposalObservationArms(nn.Module):
@@ -148,10 +224,18 @@ class ProposalObservationArms(nn.Module):
         return self.project(torch.tanh(h[:, None, :] * (1. + self.phase[None, :, :])))
 
     def forward(self, features: Tensor, proposal_classes: Tensor, box_target: Tensor,
-                angle_target: Tensor, source_angles: Tensor) -> JointOutput:
+                angle_target: Tensor, source_angles: Tensor,
+                proposal_uids: Sequence[str] | None = None) -> JointOutput:
         embeddings = self.candidate_embeddings(features)
         logits = self.direct_logits(features) if self.mode == 'direct' else None
-        return self.joint(embeddings, proposal_classes, box_target, angle_target, source_angles, logits)
+        return self.joint(embeddings, proposal_classes, box_target, angle_target,
+                          source_angles, logits, proposal_uids)
+
+    def infer(self, features: Tensor, source_angles: Tensor,
+              proposal_uids: Sequence[str] | None = None) -> InferenceOutput:
+        embeddings = self.candidate_embeddings(features)
+        logits = self.direct_logits(features) if self.mode == 'direct' else None
+        return self.joint.infer(embeddings, source_angles, proposal_uids, logits)
 
 
 def joint_loss(out: JointOutput) -> Tensor:
