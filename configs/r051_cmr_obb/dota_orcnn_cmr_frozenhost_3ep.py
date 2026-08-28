@@ -11,6 +11,11 @@ _data_root = '/home/rspip/cqc/data/dataset/dota/dota1.0/split_ss_dota10/'
 train_dataloader = dict(dataset=dict(data_root=_data_root))
 val_dataloader = dict(dataset=dict(data_root=_data_root))
 test_dataloader = dict(dataset=dict(data_root=_data_root))
+# G1/G2 require both AP50 and AP75.  The inherited host config reported only
+# the default 0.50 threshold, so this explicit fixed pair is required before
+# any gate can be adjudicated (not a result-driven threshold change).
+val_evaluator = dict(type='DOTAMetric', metric='mAP', iou_thrs=[.5, .75])
+test_evaluator = dict(type='DOTAMetric', metric='mAP', iou_thrs=[.5, .75])
 
 model = dict(
     rpn_head=dict(type='CMRProvenanceOrientedRPNHead'),
