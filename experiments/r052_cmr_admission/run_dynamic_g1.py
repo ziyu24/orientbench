@@ -111,6 +111,7 @@ def main() -> None:
         normal_loss = joint_loss(out)
         arm.zero_grad(set_to_none=True); normal_loss.backward(retain_graph=True)
         normal_evidence_grad = arm.joint.posterior.weight.grad.norm().item()
+        box_component_grads = arm.joint.box_loc_head.weight.grad.norm(dim=1).tolist()
         arm.zero_grad(set_to_none=True)
         detached_loss = -torch.logsumexp(out.q.detach().clamp_min(1e-12).log() + out.class_log_likelihood + out.box_log_likelihood + out.angle_log_likelihood, -1).mean()
         detached_loss.backward(retain_graph=True)
@@ -128,7 +129,8 @@ def main() -> None:
               geometry_theta=float(geometry_theta[i]), cls_grad=float(cls_grad[i]), box_grad=float(box_grad[i]), theta_grad=float(theta_grad[i]),
               shuffle_loss=float(per_loss_change[i]), shuffle_class=float(per_class_change[i]), shuffle_box=float(per_box_change[i]),
               finite=all(finite(z) for z in (out.joint_log_likelihood[i], inf.q[i], inf.native_risk[i], cls_grad[i], box_grad[i], theta_grad[i])),
-              normal_loss=float(normal_loss.detach()), detached_loss=float(detached_loss.detach()), normal_evidence_grad=normal_evidence_grad, detached_evidence_grad=detached_evidence_grad))
+              normal_loss=float(normal_loss.detach()), detached_loss=float(detached_loss.detach()), normal_evidence_grad=normal_evidence_grad,
+              box_component_grads=[float(x) for x in box_component_grads], detached_evidence_grad=detached_evidence_grad))
     dfeat_all = torch.cat(direct_features, dim=0)
     source_all = torch.cat(direct_sources, dim=0)
     base_q = direct.infer(dfeat_all, source_all, direct_uids).q.detach()
