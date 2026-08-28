@@ -4372,6 +4372,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；尚未进入正式 G1，未触碰禁止端点。
 - 下一步建议：export 正常结束后验证 1,024 UID 唯一性和 mutation rejection，再运行完整动态 G1。
 
+## 2026-08-28 03:16 PDT — r052 真正 pre-NMS universe 已冻结
+
+- 指令来源：用户“抓紧推进”。
+- 执行动作：四卡 low-footprint live detector export 正常结束；从运行时 `r052_pre_nms` 记录冻结了精确 1,024 条 DOTA-v1.0 train proposal。每条具有唯一且路径稳定的 proposal UID、派生 class/candidate UID、原始 decoded RPN box 与 proposal score、class-conditioned decoded pre-NMS box、NMS keep lineage。动态删除/交换/重复/篡改 mutation 均被独立 validator 拒绝。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/correction_pre_nms_export_6000_uid_v3_rpn_provenance/frozen_1024_pre_nms_positive_proposals.json`；SHA-256=`7c9bb83126511ad9a0ac0ac6a972295b81aaeb0351ad652781eec53232605dbf`；`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/correction_pre_nms_export_6000_uid_v3_rpn_provenance/uid_mutation_validation.json`。
+- 是否触发停止条件：否；尚未运行正式 G1，不存在 token 或科学裁决。未触碰禁止端点。
+- 下一步建议：马上以该唯一 manifest 在四卡执行全量动态 G1，再按数值合取决定是否允许 G2。
+
 ## 2026-08-28 01:08 PDT — 用户报告业务 052 完成，B 终验拒收
 
 - 指令来源：用户“服务器执行完了。”
