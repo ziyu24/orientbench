@@ -4356,6 +4356,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；旧静态 G1 结论不具科学裁决效力。新的动态 G1 尚未提交正式 token，G2 未启动。
 - 下一步建议：在 r052 新目录完成 pre-NMS UID、no-GT marginalization、真实 predict/decode/NMS/export 接入，随后重建 1,024 train-only universe 并执行动态 G1。
 
+## 2026-08-28 02:40 PDT — r052 pre-NMS 清单工程异常与空间阻塞
+
+- 指令来源：用户“抓紧推进”。
+- 执行动作：四卡完成 6,000-image detector-native pre-NMS export 并冻结了 1,024 行候选清单；动态 UID mutation validator 发现 `proposal_uid` 使用了单图推断中恒为 `0` 的 batch-local `img_id`，全局仅 265 个唯一 UID。该清单未进入正式 G1、未产生 token。已将 UID 改为优先使用稳定 `img_path` 并推送提交 `0c3560e`。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/correction_pre_nms_export_6000_uid/frozen_1024_pre_nms_positive_proposals.json`（无效、保留）；`experiments/r052_cmr_admission/joint_roi_head.py`；`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/correction_pre_nms_export_6000_uid/uid_mutation_validation.log`。
+- 是否触发停止条件：否；这是正式 G1 前发现并修复的工程 UID 问题，不是科学 gate 的失败。未触碰任何禁止端点。当前磁盘仅余约 5.1GB；保留的错误 export 约 5.3GB，无法在不删除或覆盖既有产物的情况下重跑所需的四卡 export。
+- 下一步建议：获得对这组明确可再生、已标记无效的 r052 export shard/partial 文件的归档后删除授权，再以修复后的 UID 重跑同一 6,000-image export、冻结清单并执行动态 G1。
+
 ## 2026-08-28 01:08 PDT — 用户报告业务 052 完成，B 终验拒收
 
 - 指令来源：用户“服务器执行完了。”
