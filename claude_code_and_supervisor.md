@@ -4323,3 +4323,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`；`dis/sug.md`；`dis/coordination.json`；`dis/server_reports/orientbench-b-r052-cmr-functional-admission-20260828/SERVER_EXECUTION_REPORT.md`。
 - 是否触发停止条件：否；业务编号 052，plan commit=`673fe2281ed3d84d860f84b87931f017c3944d91`，plan SHA-256=`6c7e122e5d9ff3d4993e7e4e92f4ef2708259be45e6b7a17e8bbead2177fae2d`。
 - 下一步建议：服务器只执行该精确 dispatch；G0/G1/G2 任一正常 gated kill 均按计划结束，不进入未授权扩展。
+
+## 2026-08-28 00:09 PDT — 业务 052 派发提交回填
+
+- 指令来源：业务 052 原子激活事务的 committed receipt。
+- 执行动作：将 activation commit `85d076b853b394db60d57571bcaffc693af33adf` 回填至 coordination 的 `dispatch_commit_sha`，完成服务器所需精确三元组绑定。
+- 关键产物路径：`dis/coordination.json`；`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`。
+- 是否触发停止条件：否。
+- 下一步建议：服务器只接受 dispatch id=`orientbench-b-r052-cmr-functional-admission-20260828`、plan path=`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`、dispatch commit=`85d076b853b394db60d57571bcaffc693af33adf`。
