@@ -114,6 +114,11 @@ class CMRStandardRoIHead(StandardRoIHead):
             # same per-candidate shared-scorer computation while bounding VRAM.
             active_source, active_label = pair_source[active], pair_label[active]
             active_boxes = boxes[active_source]
+            # The immutable RPN source UID becomes a decoded proposal/class
+            # UID *before* RCNN NMS.  One RPN proposal can legitimately yield
+            # retained detections in more than one class, so source UID alone
+            # is not a final B=(cx,cy,w,h,class) identity.
+            active_pair_uid = rpn.candidate_uid[active_source] * classes + active_label
             if not len(active_boxes):
                 result.bboxes = boxes.new_zeros((0, 5)); result.scores = boxes.new_zeros(0)
                 result.labels = boxes.new_zeros(0, dtype=torch.long)
@@ -153,7 +158,7 @@ class CMRStandardRoIHead(StandardRoIHead):
                 raise RuntimeError('CMR provenance mismatch: NMS kept a row without candidate evidence')
             source = kept // classes
             result.bboxes, result.scores, result.labels = dets[:, :-1], dets[:, -1], labels
-            result.candidate_uid = rpn.candidate_uid[source]
+            result.candidate_uid = active_pair_uid[positions]
             result.cmr_q = cmr_out['q'][positions]
             result.cmr_native_risk = cmr_out['native_risk'][positions]
             result.cmr_original_box = active_boxes[positions]
@@ -167,5 +172,6 @@ class CMRStandardRoIHead(StandardRoIHead):
             result.cmr_rpn_level_id = rpn.level_ids[source]
             result.cmr_rpn_cell_id = rpn.cell_ids[source]
             result.cmr_rpn_proposal_id = rpn.proposal_ids[source]
+            result.cmr_rpn_candidate_uid = rpn.candidate_uid[source]
             out.append(result)
         return out
