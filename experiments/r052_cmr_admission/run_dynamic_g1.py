@@ -45,7 +45,10 @@ def rotate_boxes(boxes, height, width, step):
     out = []
     for b in boxes:
         x, y = m @ [b[0], b[1], 1.]
-        out.append([float(x), float(y), b[2], b[3], float(b[4] + step)])
+        # The affine matrix above is a clockwise image rotation in this
+        # detector's axial convention, hence the decoded proposal angle moves
+        # by -step along with the pixels.
+        out.append([float(x), float(y), b[2], b[3], float(b[4] - step)])
     return out, m
 
 
