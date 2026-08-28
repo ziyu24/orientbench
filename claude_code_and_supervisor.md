@@ -4259,3 +4259,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_direct_dist_frozenhost_3ep/train.log`。
 - 是否触发停止条件：资源 OOM，仅该 arm 暂停；未降为三卡、未终止外部进程、未触碰禁止端点，G1 尚未裁决。
 - 下一步建议：待并发 arm 释放显存后，以原四卡配置单独重跑 DIRECT_DIST。
+
+## 2026-08-27 19:xx PDT — 业务 051 G1 CMR 资源异常
+
+- 指令来源：业务051 G1 三臂并行后的持续执行。
+- 执行动作：CMR 在 GPU2 额外申请 700 MiB 时 OOM；GPU2 同时有外部 PID 3607847 占用约5.60 GiB、SINGLE_ROI_QUALITY 占用约11.81 GiB。CMR 异常结束；SINGLE_ROI_QUALITY 继续运行。
+- 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_frozenhost_3ep/train.log`。
+- 是否触发停止条件：资源 OOM，仅该 arm 暂停；未降为三卡、未停止外部任务、未触碰禁止端点，G1 不得裁决。
+- 下一步建议：待 SINGLE_ROI_QUALITY 结束释放资源后，CMR 与 DIRECT_DIST 分别以四卡单任务重跑。
