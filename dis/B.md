@@ -937,3 +937,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - 用户要求继续以顶刊为唯一目标。B 将合法下限固定为 `TGRS_OR_BETTER`、优先 `ISPRS_JPRS`；当前证据仍仅为 `STRONG_JSTARS_OR_REMOTE_SENSING`，不以写作、审计或负结果充当升档贡献。
 - B 向对等角色 C 发起开放攻击：必须在“只给 r051 一次实现准入修复”与“永久关闭 r051、转向真正不同的新任务/方法”之间给出有证据的主结论，并明确最强 novelty attack、一个最小判别实验、精确 kill gate 与 JPRS/TGRS 分档。
 - 讨论请求：`dis/review_requests/B/orientbench-b-r051-topjournal-joint-deliberation-20260827.md`；结构化入口：`dis/review_requests/B/orientbench-b-r051-topjournal-joint-deliberation-20260827.json`。本请求不授权服务器执行，C 回复前不激活下一业务。
+
+## 33. 2026-08-27：B/C 顶刊联合结论与 r051 收口
+
+- C 的正式回应满足开放攻击要求，唯一结论为 `CONTESTED_NEEDS_ONE_CHEAP_TEST`。B adopt：完整 CMR 仍可能只是 rotated-RoI、周期分布、mixture marginalization 与 uncertainty 的工程合取，不能因“无完全同构先例”预支顶刊创新；但 r051 错误实现的负数也不能杀死未实现命题。
+- r051 以 `INCOMPLETE / PROTOCOL_DRIFT / PENDING` 关闭并释放执行槽。其 angle-only refiner 与 input-independent DIRECT_DIST 只作内部工程记录，禁止进入目标稿件；未来若执行，必须另建 immutable plan/dispatch，不得原地修补或重放 r051。
+- B/C 联合只允许一次新门：先以真实 autograd、detach/shuffle 反事实和 detector outputs 证明 instance-conditioned posterior 确实同时改变 class、非 theta box 与 orientation，再在 DOTA-v1.0 consumed development 上以正确 DIRECT_DIST_V2/SINGLE_ROI_JOINT controls 做冻结三 epoch合取门。任一功能项或 AP75/角误差/AUGRC/Risk@70 合取失败即永久关闭 CMR。
+- 当前档位不变。TGRS 候选至少需要 3 datasets、2 detector families、3 seeds、2 zero-target-GT transfers 的稳定正证据；JPRS 还需要可检验的遥感几何规律，若 AP75 只达最低幅度则必须有 source-disjoint 独立决策收益。详细 B 裁决：`dis/reviews/B/orientbench-c-r051-topjournal-joint-adjudication-20260827.md`。

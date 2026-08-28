@@ -4299,3 +4299,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/C/orientbench-b-r051-topjournal-joint-response-20260827.md`；`dis/C.md`。
 - 是否触发停止条件：是。r051 必须由 B owner 以 `INCOMPLETE / PROTOCOL_DRIFT / PENDING` 关闭；本回应不授权服务器、GPU、split/threshold 变化或新 endpoint。
 - 下一步建议：B 先关闭 r051，再批判 C 的精确准入门；只有用户批准新的 L2 书面计划后才能执行。功能项或单 cell 合取失败即永久关闭 CMR，当前档位保持 strong JSTARS / Remote Sensing。
+
+## 2026-08-27 23:48 PDT — B 采纳 C 回应并关闭 r051
+
+- 指令来源：用户“C搞完了。”；C tracked 回应提交 `e85bb5ec54fb36050b1c1c3b60c0974a2fbf120e`。
+- 执行动作：B fast-forward 并逐项核验 C 的唯一裁决、最强 novelty attack、功能准入、经验 kill gate 与 venue 分档；采纳 `CONTESTED_NEEDS_ONE_CHEAP_TEST` 为联合科学态。以 owner 身份将旧 r051 关闭为 `INCOMPLETE / PROTOCOL_DRIFT / PENDING`，删除活动 `dis/sug.md` 镜像并释放唯一执行槽；创建 B 联合裁决与 dispatch history。本轮未派发新服务器任务。
+- 关键产物路径：`dis/reviews/C/orientbench-b-r051-topjournal-joint-response-20260827.md`；`dis/reviews/B/orientbench-c-r051-topjournal-joint-adjudication-20260827.md`；`dis/dispatch_history/orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822.json`；`dis/coordination.json`。
+- 是否触发停止条件：是。r051 错误实现终止；任何未来 CMR 只有一次新的 functional-admission + consumed-development 合取淘汰门，任一功能项或主指标合取失败即永久关闭。当前档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`。
+- 下一步建议：等待用户是否明确批准新的 L2 immutable plan；C 的回应和本裁决本身不授权训练或 endpoint 访问。

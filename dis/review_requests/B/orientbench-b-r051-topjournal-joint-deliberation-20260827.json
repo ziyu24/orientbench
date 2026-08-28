@@ -59,5 +59,8 @@
   "activation_authorized": false,
   "server_execution_authorized": false,
   "completion_condition": "C returns one evidence-backed adversarial decision in the required response path. The response must either define one bounded r051 admission gate or define a genuinely different top-journal thesis and one-week kill gate. No server dispatch, training, split change, threshold change or endpoint opening follows from this discussion request alone.",
-  "status": "requested"
+  "response_commit_sha": "e85bb5ec54fb36050b1c1c3b60c0974a2fbf120e",
+  "adjudication_path": "dis/reviews/B/orientbench-c-r051-topjournal-joint-adjudication-20260827.md",
+  "joint_decision": "CONTESTED_NEEDS_ONE_CHEAP_TEST",
+  "status": "responded_and_adjudicated"
 }
