@@ -4307,3 +4307,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/C/orientbench-b-r051-topjournal-joint-response-20260827.md`；`dis/reviews/B/orientbench-c-r051-topjournal-joint-adjudication-20260827.md`；`dis/dispatch_history/orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822.json`；`dis/coordination.json`。
 - 是否触发停止条件：是。r051 错误实现终止；任何未来 CMR 只有一次新的 functional-admission + consumed-development 合取淘汰门，任一功能项或主指标合取失败即永久关闭。当前档位维持 `STRONG_JSTARS_OR_REMOTE_SENSING`。
 - 下一步建议：等待用户是否明确批准新的 L2 immutable plan；C 的回应和本裁决本身不授权训练或 endpoint 访问。
+
+## 2026-08-28 00:05 PDT — 用户批准并冻结业务 052
+
+- 指令来源：用户“批准，进行吧。”
+- 执行动作：B 新建纯数字业务 052 的 immutable READY 计划，只执行一次 CMR functional-admission + DOTA-v1.0 consumed-development 三 epoch 合取淘汰门；不复用 r051 dispatch/产物，不打开新 endpoint。修正 peer 讨论中两个不可执行条件：detach 只裁决梯度、同步几何旋转裁决 relative-index invariance 与 global-theta equivariance。
+- 关键产物路径：`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`；`dis/plans/B/b-r052-cmr-functional-admission-20260828/STATE.json`。
+- 是否触发停止条件：否；计划尚为 READY、未激活。当前期刊档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`。
+- 下一步建议：先提交 immutable plan，再以 committed blob/SHA-256 原子激活唯一 dispatch；服务器严格执行业务 052。

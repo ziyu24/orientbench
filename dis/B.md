@@ -944,3 +944,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - r051 以 `INCOMPLETE / PROTOCOL_DRIFT / PENDING` 关闭并释放执行槽。其 angle-only refiner 与 input-independent DIRECT_DIST 只作内部工程记录，禁止进入目标稿件；未来若执行，必须另建 immutable plan/dispatch，不得原地修补或重放 r051。
 - B/C 联合只允许一次新门：先以真实 autograd、detach/shuffle 反事实和 detector outputs 证明 instance-conditioned posterior 确实同时改变 class、非 theta box 与 orientation，再在 DOTA-v1.0 consumed development 上以正确 DIRECT_DIST_V2/SINGLE_ROI_JOINT controls 做冻结三 epoch合取门。任一功能项或 AP75/角误差/AUGRC/Risk@70 合取失败即永久关闭 CMR。
 - 当前档位不变。TGRS 候选至少需要 3 datasets、2 detector families、3 seeds、2 zero-target-GT transfers 的稳定正证据；JPRS 还需要可检验的遥感几何规律，若 AP75 只达最低幅度则必须有 source-disjoint 独立决策收益。详细 B 裁决：`dis/reviews/B/orientbench-c-r051-topjournal-joint-adjudication-20260827.md`。
+
+## 34. 2026-08-28：用户批准业务 052 单次 CMR 准入门
+
+- 用户明确“批准，进行吧”，构成新业务 052 的 L2 授权。052 不复用 051 dispatch/目录/结果，只执行 B/C 联合确定的一次 functional-admission + DOTA consumed-development 合取淘汰门。
+- B 在可执行规格中纠正两项：`detach(q)` 应保持前向 loss 不变而切断 evidence gradient；图像与 proposal 同步旋转时 proposal-relative posterior 应保持索引不变、global theta 随之旋转，不能错误要求 q 平移一格。
+- G1 必须证明 DIRECT_DIST_V2 instance-conditioned、CMR 真实改变 K 个 Rotated-RoI observation，并由共同 joint-likelihood API 同时改变 class、非 theta box 与 orientation。G2 冻结三 epoch，CMR 必须分别打赢 DIRECT_DIST_V2 与 SINGLE_ROI_JOINT 的全部 AP75/角误差/AUGRC/Risk@70 合取。
+- 任一功能项或经验合取失败永久关闭 CMR；通过仅取得完整顶刊验证资格，不升档。计划：`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`。
