@@ -10,6 +10,7 @@ import torch.nn.functional as F
 
 K = 12
 EPS = 1e-3
+DIRECT_LOGIT_SCALE = 4.0
 
 
 def axial_wrap(x: Tensor) -> Tensor:
@@ -227,14 +228,16 @@ class ProposalObservationArms(nn.Module):
                 angle_target: Tensor, source_angles: Tensor,
                 proposal_uids: Sequence[str] | None = None) -> JointOutput:
         embeddings = self.candidate_embeddings(features)
-        logits = self.direct_logits(features) if self.mode == 'direct' else None
+        logits = (self.direct_logits(features) * DIRECT_LOGIT_SCALE
+                  if self.mode == 'direct' else None)
         return self.joint(embeddings, proposal_classes, box_target, angle_target,
                           source_angles, logits, proposal_uids)
 
     def infer(self, features: Tensor, source_angles: Tensor,
               proposal_uids: Sequence[str] | None = None) -> InferenceOutput:
         embeddings = self.candidate_embeddings(features)
-        logits = self.direct_logits(features) if self.mode == 'direct' else None
+        logits = (self.direct_logits(features) * DIRECT_LOGIT_SCALE
+                  if self.mode == 'direct' else None)
         return self.joint.infer(embeddings, source_angles, proposal_uids, logits)
 
 
