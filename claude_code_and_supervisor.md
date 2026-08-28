@@ -4267,3 +4267,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_frozenhost_3ep/train.log`。
 - 是否触发停止条件：资源 OOM，仅该 arm 暂停；未降为三卡、未停止外部任务、未触碰禁止端点，G1 不得裁决。
 - 下一步建议：待 SINGLE_ROI_QUALITY 结束释放资源后，CMR 与 DIRECT_DIST 分别以四卡单任务重跑。
+
+## 2026-08-27 22:17 PDT — 业务 051 G1 裁决与任务关闭
+
+- 指令来源：用户“拉取，执行51”及持续 GPU 授权；冻结 dispatch orientbench-b-r051-cmr-obb-cyclic-marginalized-roi-20260822。
+- 执行动作：三臂均以严格四卡、同初始化、三 epoch、每 epoch DOTA val 完成；对 CMR/DIRECT_DIST 的先前并发 OOM 按原协议串行四卡恢复后正常结束。三臂 raw export、matched TP、母图 bootstrap、冻结 G1 conjunction 与 SHA-256 文件级证据清单均已生成。CMR 的 evidence-packager 初次因已提交脚本中的转义 docstring 语法错误退出，已修复、编译并重新运行成功；该恢复不改变任何训练、预测或裁决数据。
+- 关键产物路径：outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/metrics/g1_gate.json；outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/metrics/g1_evidence_inventory.json；audit_bundles/r051/G1_GATE_EXECUTION_AUDIT.md。
+- 是否触发停止条件：是，正常科学早停 REJECT_CMR_CHEAP_SIGNAL。CMR 相对 strongest DIRECT_DIST 的 AP50=-0.0160、AP75=-0.0190、AR>=2.1 角误差/AUGRC/Risk@70 均恶化，两个 bootstrap 下界均小于零；未触碰禁止端点。
+- 下一步建议：不启动 G2/G3/G4，不将该负结果写入投稿正文、补充、附录或消融。

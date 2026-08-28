@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-\"\"\"Freeze a reproducible file-level inventory for the completed r051 G1 arms.\"\"\"
+"""Freeze a reproducible file-level inventory for the completed r051 G1 arms."""
 from __future__ import annotations
 
 import argparse
@@ -72,7 +72,7 @@ def main() -> None:
         'can_recompute': True,
     }
     out = base / 'metrics' / 'g1_evidence_inventory.json'
-    out.write_text(json.dumps(result, indent=2) + '\\n')
+    out.write_text(json.dumps(result, indent=2) + '\n')
     print(out)
 
 
