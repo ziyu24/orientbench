@@ -4275,3 +4275,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/metrics/g1_gate.json；outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/metrics/g1_evidence_inventory.json；audit_bundles/r051/G1_GATE_EXECUTION_AUDIT.md。
 - 是否触发停止条件：是，正常科学早停 REJECT_CMR_CHEAP_SIGNAL。CMR 相对 strongest DIRECT_DIST 的 AP50=-0.0160、AP75=-0.0190、AR>=2.1 角误差/AUGRC/Risk@70 均恶化，两个 bootstrap 下界均小于零；未触碰禁止端点。
 - 下一步建议：不启动 G2/G3/G4，不将该负结果写入投稿正文、补充、附录或消融。
+
+## 2026-08-27 23:09 PDT — 用户报告业务 051 执行完毕，B 终验拒收
+
+- 指令来源：用户“服务器执行完了，现在什么情况”。
+- 执行动作：B fast-forward 至 `cefc193cf0587295003aacbb46772c2828d42bc4`，核验服务器回执、G1 execution audit、冻结计划、CMR/DIRECT_DIST/SINGLE_ROI 实现、训练配置、指标生成器、裁决器与 provenance validator。确认三臂四卡三 epoch 运行和 OOM 后串行恢复真实完成，但冻结科学方法与 strongest control 未被实现。
+- 关键产物路径：`dis/reviews/B/orientbench-r051-postexecution-review-20260827.md`；`experiments/r051_cmr_obb/cmr_core.py`；`experiments/r051_cmr_obb/cmr_roi_head.py`；`audit_bundles/r051/G1_GATE_EXECUTION_AUDIT.md`。
+- 是否触发停止条件：是，`NOT_ADJUDICATED_IMPLEMENTATION`。`log_marginal_likelihood` 从未进入 detector loss/score/box/class，推理只替换 theta；DIRECT_DIST 的线性 `evidence(encoded+phase_k)` 在 softmax 后消去全部实例特征，posterior 对输入 proposal 不变。因此 `REJECT_CMR_CHEAP_SIGNAL` 不能采信，服务器应回执“未执行完毕”。
+- 下一步建议：本轮不关闭 r051、不激活下一业务；现有负结果不进入任何投稿版面。
