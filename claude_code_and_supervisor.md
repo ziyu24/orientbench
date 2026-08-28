@@ -4276,6 +4276,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：是，正常科学早停 REJECT_CMR_CHEAP_SIGNAL。CMR 相对 strongest DIRECT_DIST 的 AP50=-0.0160、AP75=-0.0190、AR>=2.1 角误差/AUGRC/Risk@70 均恶化，两个 bootstrap 下界均小于零；未触碰禁止端点。
 - 下一步建议：不启动 G2/G3/G4，不将该负结果写入投稿正文、补充、附录或消融。
 
+## 2026-08-28 00:51 PDT — 业务 052 G0 与 G1 初始化
+
+- 指令来源：用户“拉取，执行r052”。
+- 执行动作：拉取并核验 server-primary、dispatch commit、root mirror 与 SHA-256；G0 四卡 identity-val 正常复现 mAP/AP50=0.7061/0.7060；DOTA-train-only baseline export 后按冻结规则生成精确 1,024 个正 decoded proposals；r052 joint-likelihood CMR 四卡 20-iteration smoke 正常结束。
+- 关键产物路径：audit_bundles/r052/G0_ASSET_AND_DELTA_AUDIT.md；outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/frozen_1024_positive_proposals.json；outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/cmr_joint_smoke_20/train.log。
+- 是否触发停止条件：否。此前两次 smoke 配置兼容异常（Iter loop inheritance、DDP unused parameters）均在未形成正式 G1 token 前于 r052 新目录修复；无数据、阈值或协议变化，未触碰禁止端点。
+- 下一步建议：在冻结 proposal 集上运行正式 G1 的真实候选观察、joint consumption、等变、detach/shuffle 与 provenance 合取；任一失败即停止 CMR，不进入 G2。
+
 ## 2026-08-27 23:09 PDT — 用户报告业务 051 执行完毕，B 终验拒收
 
 - 指令来源：用户“服务器执行完了，现在什么情况”。
