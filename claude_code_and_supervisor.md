@@ -4363,3 +4363,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r052-postexecution-review-20260828.md`。
 - 是否触发停止条件：是，服务器执行异常未完成；当前只能保留已完成的 G0、smoke 与 train-only manifest 工程证据。
 - 下一步建议：按项目规则不处理下一步，等待服务器完成原业务 052 或用户另行指示。
+
+## 2026-08-28 01:39 PDT — 用户要求给出业务 052 服务器续执行指令
+
+- 指令来源：用户“现在给出如何给服务器下指令的指令，让它继续搞”。
+- 执行动作：生成可直接交付服务器的同业务续执行指令；不新建业务、不修改 immutable plan。要求先补 STARTED correction，重建 pre-NMS decoded-proposal manifest，完成实际 predict/decode/NMS/UID 路径，分离 GT-conditioned training responsibility 与 no-GT inference weights，修复 class marginal 公式，再动态执行完整九项 G1；静态检查不得再次充当 formal token。
+- 关键产物路径：`dis/reviews/B/orientbench-r052-server-continuation-instruction-20260828.md`；`dis/reviews/B/orientbench-r052-postexecution-review-20260828.md`。
+- 是否触发停止条件：否；这是用户明确要求的同一 active 052 续执行纠正，不授权新科学路线或新 endpoint。
+- 下一步建议：服务器拉取最新 main 后严格按该指令继续业务 052；只有完整动态 G1 全过才进入 G2。
