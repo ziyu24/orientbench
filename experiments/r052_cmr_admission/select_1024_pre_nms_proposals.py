@@ -27,6 +27,7 @@ def main() -> None:
     chosen = []
     for image_id in sorted(by_id, key=lambda x: (hashlib.sha256(x.encode()).hexdigest(), x)):
         sample, pre = by_id[image_id], by_id[image_id]['pre_nms']
+        final = by_id[image_id]['final_nms']
         boxes = torch.as_tensor(pre['boxes'], dtype=torch.float32)
         labels = torch.as_tensor(pre['labels'], dtype=torch.long)
         gt_boxes = torch.as_tensor(sample['gt_boxes'], dtype=torch.float32)
@@ -55,7 +56,14 @@ def main() -> None:
                                decoded_pre_nms_box=[float(v) for v in boxes[idx].tolist()],
                                matched_gt_index=gt_idx,
                                matched_gt_box=[float(v) for v in gt_boxes[gt_idx].tolist()],
-                               rotated_iou=iou))
+                               rotated_iou=iou,
+                               # Final NMS lineage is exported from the same
+                               # detector invocation. A pre-NMS row need not
+                               # survive NMS, so absence is represented as
+                               # null rather than reconstructed geometrically.
+                               final_nms_keep_indices=[int(final['nms_keep_index'][j])
+                                   for j, uid in enumerate(final['proposal_uid'])
+                                   if uid == pre['proposal_uid'][idx]]))
             if len(chosen) == N_TARGET:
                 break
         if len(chosen) == N_TARGET:

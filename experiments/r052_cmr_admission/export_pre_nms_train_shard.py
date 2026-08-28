@@ -37,6 +37,11 @@ def main() -> None:
         gt = sample['gt_instances']
         rows.append(dict(image_id=str(sample['img_id']), image_path=str(sample['img_path']),
                          source_index=source_index, pre_nms=pre,
+                         final_nms=dict(
+                             nms_keep_index=pred.nms_keep_index.detach().cpu(),
+                             proposal_uid=list(pred.proposal_uid),
+                             class_uid=list(pred.class_uid),
+                             candidate_uids=[list(x) for x in pred.candidate_uids]),
                          gt_boxes=gt['bboxes'].detach().cpu(),
                          gt_labels=gt['labels'].detach().cpu()))
         if len(rows) % 16 == 0:
