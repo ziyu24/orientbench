@@ -4355,3 +4355,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`dis/reviews/B/orientbench-r052-postexecution-review-20260828.md`；`experiments/r052_cmr_admission/joint_api.py`；`experiments/r052_cmr_admission/joint_roi_head.py`；`experiments/r052_cmr_admission/run_g1_native_path_admission.py`；`audit_bundles/r052/STARTED.json`。
 - 是否触发停止条件：是，`INCOMPLETE / PROTOCOL_DRIFT / NOT_ADJUDICATED_IMPLEMENTATION`。STARTED 绑定 plan commit 而非 dispatch commit；没有实现 predict/decode/NMS/UID 路径；正式 runner 只静态确认缺失，未执行注册 G1 合取；GT-conditioned responsibility 无法产生 no-GT inference risk，marginal-class 公式也错误。
 - 下一步建议：按上级规则，服务器未真正完成时不做下一步处理；active 052 保持打开，不关闭、不修复、不派发 successor。服务器首行应为“未执行完毕”。
+
+## 2026-08-28 01:11 PDT — 向用户解释业务 052 未完成含义
+
+- 指令来源：用户“什么意思？”
+- 执行动作：说明服务器并非完成完整 CMR 后得到科学负结果，而是核心 inference/provenance 功能尚未实现时，用静态检查器确认缺失并提前提交 formal token；因此“方法失败”裁决无效。
+- 关键产物路径：`dis/reviews/B/orientbench-r052-postexecution-review-20260828.md`。
+- 是否触发停止条件：是，服务器执行异常未完成；当前只能保留已完成的 G0、smoke 与 train-only manifest 工程证据。
+- 下一步建议：按项目规则不处理下一步，等待服务器完成原业务 052 或用户另行指示。
