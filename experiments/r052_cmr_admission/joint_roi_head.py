@@ -89,7 +89,10 @@ class R052JointRoIHead(StandardRoIHead):
 
     @staticmethod
     def _image_id(meta: dict, batch_id: int) -> str:
-        return str(meta.get('img_id', meta.get('img_path', f'batch-{batch_id}')))
+        # MMDetection's one-image inference commonly sets img_id=0.  That is
+        # only batch-local and would collide across the frozen universe, so
+        # prefer the immutable source path whenever it is available.
+        return str(meta.get('img_path', meta.get('img_id', f'batch-{batch_id}')))
 
     @staticmethod
     def _pre_nms_record(boxes, scores, labels, proposal_uids, class_uids,
