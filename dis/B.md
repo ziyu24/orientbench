@@ -951,3 +951,10 @@ C 的 post-pull 审查（`dis/reviews/C/orientbench-r022-r027-postpull-review-20
 - B 在可执行规格中纠正两项：`detach(q)` 应保持前向 loss 不变而切断 evidence gradient；图像与 proposal 同步旋转时 proposal-relative posterior 应保持索引不变、global theta 随之旋转，不能错误要求 q 平移一格。
 - G1 必须证明 DIRECT_DIST_V2 instance-conditioned、CMR 真实改变 K 个 Rotated-RoI observation，并由共同 joint-likelihood API 同时改变 class、非 theta box 与 orientation。G2 冻结三 epoch，CMR 必须分别打赢 DIRECT_DIST_V2 与 SINGLE_ROI_JOINT 的全部 AP75/角误差/AUGRC/Risk@70 合取。
 - 任一功能项或经验合取失败永久关闭 CMR；通过仅取得完整顶刊验证资格，不升档。计划：`dis/plans/B/b-r052-cmr-functional-admission-20260828/sug.md`。
+
+## 35. 2026-08-28：业务 052 完成回执拒收
+
+- 服务器完成 G0 parity、四卡 smoke 与 1,024 行 train-only manifest，但正式 G1 不是科学早停：它明知 r052 没有 `predict_bbox`、JointOutput 没有 UID，就用源码/对象身份检查确认“未实现”，随后提交 one-shot token 并宣称 `KILL_CMR_IMPLEMENTATION_PRINCIPLE`。
+- STARTED 还绑定了错误的 plan commit `673fe22...`，而不是冻结 dispatch commit `85d076b...`。正式 runner 未在 1,024 proposals 上执行计划要求的 gradient、candidate observation、两类 equivariance、detach/shuffle、UID/NMS mutation 与 parameter-match 合取。
+- 当前 joint API 的 inference 语义也不成立：marginal/risk responsibility 含 GT class/box/angle likelihood，目标不可用时无法部署；`logsumexp(resp + class_ll)` 又把 probability 直接加到 log-probability。所谓 frozen proposals 实际来自标准 test pipeline 的最终 `pred_instances`，UID 在 NMS 后才赋值。
+- B verdict：`INCOMPLETE / PROTOCOL_DRIFT / NOT_ADJUDICATED_IMPLEMENTATION`；拒绝服务器“执行完毕”和 CMR 原理 kill。按上级规则，本轮不关闭 active 052、不设计或派发下一业务。当前档位仍为 `STRONG_JSTARS_OR_REMOTE_SENSING`。

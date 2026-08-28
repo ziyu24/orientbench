@@ -4347,3 +4347,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`audit_bundles/r052/G1_FUNCTIONAL_ADMISSION_AUDIT.md`；`audit_bundles/r052/G1_FUNCTIONAL_ADMISSION_TOKEN.json`；`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/formal_native_path_admission/result.json`。
 - 是否触发停止条件：是，正常 `KILL_CMR_IMPLEMENTATION_PRINCIPLE`；G2 未启动且不再授权本 dispatch 的 CMR 修复或训练。未触碰 DOTA-v2.0、SODA-A official test、HRSC 或其它禁止端点。
 - 下一步建议：由 B/C 依各自治理流程拉取并独立裁决该 normal gated early stop；服务器不自行扩展或重开 CMR。
+
+## 2026-08-28 01:08 PDT — 用户报告业务 052 完成，B 终验拒收
+
+- 指令来源：用户“服务器执行完了。”
+- 执行动作：B fast-forward 至 `b2ed35ef5a763a8c91fa661b9bff12ffab30e7cb`，核验两行回执、STARTED、G0/G1 audit/token、joint API/RoI head、formal runner、unit tests、proposal export 与选择脚本。确认 G0 parity、四卡 smoke、1,024 行 manifest 属实，但服务器把已知未实现的 inference/provenance 路径包装成 one-shot scientific kill。
+- 关键产物路径：`dis/reviews/B/orientbench-r052-postexecution-review-20260828.md`；`experiments/r052_cmr_admission/joint_api.py`；`experiments/r052_cmr_admission/joint_roi_head.py`；`experiments/r052_cmr_admission/run_g1_native_path_admission.py`；`audit_bundles/r052/STARTED.json`。
+- 是否触发停止条件：是，`INCOMPLETE / PROTOCOL_DRIFT / NOT_ADJUDICATED_IMPLEMENTATION`。STARTED 绑定 plan commit 而非 dispatch commit；没有实现 predict/decode/NMS/UID 路径；正式 runner 只静态确认缺失，未执行注册 G1 合取；GT-conditioned responsibility 无法产生 no-GT inference risk，marginal-class 公式也错误。
+- 下一步建议：按上级规则，服务器未真正完成时不做下一步处理；active 052 保持打开，不关闭、不修复、不派发 successor。服务器首行应为“未执行完毕”。
