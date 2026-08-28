@@ -4235,3 +4235,11 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 关键产物路径：`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/train.log`；`experiments/r051_cmr_obb/test_cmr_core.py`。
 - 是否触发停止条件：否；本次 smoke val 为 mAP 0.6969、AP50 0.6970，仅为运行稳定性证据，未用于门控裁决。
 - 下一步建议：以最终 provenance 代码重跑四卡 smoke，随后导出并执行独立 mutation validator。
+
+## 2026-08-27 19:xx PDT — 业务 051 provenance 异常与修复
+
+- 指令来源：业务051 G1 独立 mutation validator。
+- 执行动作：发现导出 pickle 的 `pred_instances` 序列化为字典，修复 validator 的字典/InstanceData 双格式读取；随后发现一个 RPN proposal 可经 RCNN NMS 保留为多个类别，旧 source UID 因而重复。已将最终 immutable UID 改为 pre-NMS 的 proposal/class pair UID，并持久化 RPN source UID 与 exact NMS flat row；开始用同一 smoke checkpoint 重新四卡导出和验证。
+- 关键产物路径：`experiments/r051_cmr_obb/cmr_roi_head.py`；`experiments/r051_cmr_obb/validate_cmr_provenance.py`；`outputs/persistent_artifacts/orientbench_r051_cmr_obb_20260822/g1/dota_orcnn_cmr_smoke_20/evaluation/`。
+- 是否触发停止条件：否；为实现完整性异常，尚未进入 G1 cheap-signal 判定，未运行 G2/G3/G4。
+- 下一步建议：只有独立 validator 对真实导出及全部破坏性 mutation 均通过，才启动三 epoch 三臂 G1 门控。
