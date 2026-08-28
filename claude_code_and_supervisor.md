@@ -4364,6 +4364,14 @@ SUPERVISOR_APPROVED_017_R8_FREEZE_C1_A4_DCAL_ONLY
 - 是否触发停止条件：否；这是正式 G1 前发现并修复的工程 UID 问题，不是科学 gate 的失败。未触碰任何禁止端点。当前磁盘仅余约 5.1GB；保留的错误 export 约 5.3GB，无法在不删除或覆盖既有产物的情况下重跑所需的四卡 export。
 - 下一步建议：获得对这组明确可再生、已标记无效的 r052 export shard/partial 文件的归档后删除授权，再以修复后的 UID 重跑同一 6,000-image export、冻结清单并执行动态 G1。
 
+## 2026-08-28 02:49 PDT — 用户要求继续推进 r052
+
+- 指令来源：用户“抓紧推进”。
+- 执行动作：未删除或覆盖任何历史 artifact；改用四卡低占用 live detector export，只写 IoU-qualified pre-NMS rows。随后发现 B 要求的原始 decoded RPN box 与 proposal score 也必须伴随 UID 保存，已在 RoI head 和 stream exporter 中补齐该 provenance，并以新目录重新开始四卡 6,000-image export。
+- 关键产物路径：`experiments/r052_cmr_admission/export_pre_nms_train_candidates.py`；`experiments/r052_cmr_admission/joint_roi_head.py`；`outputs/persistent_artifacts/orientbench_r052_cmr_admission_20260828/g1/correction_pre_nms_export_6000_uid_v3_rpn_provenance/`。
+- 是否触发停止条件：否；尚未进入正式 G1，未触碰禁止端点。
+- 下一步建议：export 正常结束后验证 1,024 UID 唯一性和 mutation rejection，再运行完整动态 G1。
+
 ## 2026-08-28 01:08 PDT — 用户报告业务 052 完成，B 终验拒收
 
 - 指令来源：用户“服务器执行完了。”
