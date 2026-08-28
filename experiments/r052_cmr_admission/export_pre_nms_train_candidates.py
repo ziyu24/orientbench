@@ -58,6 +58,8 @@ def candidates(sample: dict, pred) -> list[dict]:
                         proposal_index=int(pre['proposal_index'][idx]),
                         class_id=int(labels[idx]), score=float(pre['scores'][idx]),
                         decoded_pre_nms_box=[float(v) for v in boxes[idx].tolist()],
+                        rpn_decoded_box=[float(v) for v in pre['rpn_decoded_boxes'][idx].tolist()],
+                        rpn_proposal_score=float(pre['rpn_proposal_scores'][idx]),
                         matched_gt_index=gt_idx,
                         matched_gt_box=[float(v) for v in gt_boxes[gt_idx].tolist()],
                         rotated_iou=iou,

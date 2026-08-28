@@ -73,7 +73,7 @@ def main() -> None:
     direct_features, direct_sources, direct_uids = [], [], []
     for group_index in range(rank, len(groups), world):
         path, rows = groups[group_index]
-        boxes = [r['decoded_pre_nms_box'] for r in rows]
+        boxes = [r['rpn_decoded_box'] for r in rows]
         f, priors = build_feature(model, pipeline, path, boxes)
         f = f.detach().requires_grad_(True)
         labels = torch.tensor([r['class_id'] for r in rows], device=device)

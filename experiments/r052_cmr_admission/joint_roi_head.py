@@ -96,13 +96,18 @@ class R052JointRoIHead(StandardRoIHead):
 
     @staticmethod
     def _pre_nms_record(boxes, scores, labels, proposal_uids, class_uids,
-                        candidate_uids, risks):
+                        candidate_uids, risks, rpn_boxes, rpn_scores):
         return dict(
             proposal_uid=list(proposal_uids),
             class_uid=[class_uids[i][int(labels[i])] for i in range(len(labels))],
             candidate_uids=[list(candidate_uids[i][int(labels[i])]) for i in range(len(labels))],
             proposal_index=list(range(len(labels))),
             boxes=boxes.detach().cpu(), scores=scores.detach().cpu(),
+            # These are the immutable decoded RPN proposal and its score,
+            # captured before ROI class expansion; boxes above are the
+            # class-conditioned decoded output awaiting final ROI NMS.
+            rpn_decoded_boxes=rpn_boxes.detach().cpu(),
+            rpn_proposal_scores=rpn_scores.detach().cpu(),
             labels=labels.detach().cpu(), native_risk=risks.detach().cpu())
 
     def predict_bbox(self, x, batch_img_metas, rpn_results_list, rcnn_test_cfg,
@@ -115,6 +120,7 @@ class R052JointRoIHead(StandardRoIHead):
                                         rcnn_test_cfg, rescale)
         counts = tuple(len(p) for p in proposals)
         batch_ids, priors = rois[:, 0].long(), rois[:, 1:]
+        rpn_scores = torch.cat([res.scores for res in rpn_results_list])
         proposal_uids = [f'{self._image_id(batch_img_metas[i], i)}:{j}'
                          for i, count in enumerate(counts) for j in range(count)]
         # CMR executes K real, distinct 7x7 rotated RoIAlign observations.
@@ -134,7 +140,8 @@ class R052JointRoIHead(StandardRoIHead):
             top_boxes, top_scores = boxes[arange, labels], scores[arange, labels]
             pre_nms = self._pre_nms_record(
                 top_boxes, top_scores, labels, inference.proposal_uids[sl],
-                inference.class_uids[sl], inference.candidate_uids[sl], risks[arange, labels])
+                inference.class_uids[sl], inference.candidate_uids[sl], risks[arange, labels],
+                priors[sl], rpn_scores[sl])
             class_ids = torch.arange(scores.shape[1], device=scores.device)[None].expand(count, -1)
             flat_boxes, flat_scores = boxes.reshape(-1, 5), scores.reshape(-1)
             flat_labels = class_ids.reshape(-1)
