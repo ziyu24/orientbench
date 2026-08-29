@@ -50,3 +50,8 @@ migration:
     report_expected: PRESENT_BOUND
     report_blob_oid: cd4ad46dd4cf627bbdc6f12abdd2bcdddd1d603f
     report_sha256: 7a77d603ff092ad021fa4fe30f2e6c2bc39ed76db1d2665439ff114ef378eecc
+instruction_policy:
+  layout: HOST_GLOBAL_PLUS_PROJECT_OVERRIDE
+  layout_version: 1
+  host_global_entry: ~/.codex/AGENTS.md
+  project_entry: AGENTS.md
