@@ -1,0 +1,10 @@
+schema_version: 1
+instruction_id: r001
+sequence: 3
+kind: CONTINUE_AND_LOG_ENGINEERING_ADAPTATION
+reason: 系统临时目录无可用空间，令受 guard 允许的项目 runs/r001/tmp 成为本轮 Python 临时目录；不改变实验输入或输出语义。
+changed_paths:
+  - experiments/r001_cmr_g1_correction/run_r001.sh
+  - runs/r001/tmp
+evidence:
+  - .git/cqc-execution/r001/logs/001.stderr.log
