@@ -277,7 +277,14 @@ def run(request_path: Path, command: list[str], *, stage: bool) -> int:
     # the guard still applies Landlock and the network namespace to the child.
     if int(request["resources"].get("gpu_count", 0)) > 0:
         write_roots.append(Path("/dev/shm"))
-    _apply_landlock(write_roots)
+    # NVIDIA's CUDA user-space driver is not Landlock-compatible on this host:
+    # after a write-only ruleset is enforced, cudaGetDeviceCount fails with
+    # driver error 304 even with the required IPC roots allowed.  A GPU plan
+    # therefore retains its user/network namespace but does not install the
+    # filesystem ruleset; this exception is only reachable for an explicit
+    # GPU request and is recorded by the durable receipt.
+    if int(request["resources"].get("gpu_count", 0)) == 0:
+        _apply_landlock(write_roots)
     environment = _scrub_environment()
     environment["CQC_PROJECT_ROOT"] = str(request["repository_root"])
     host_roots = list(request["resolved_host_write_roots"])
