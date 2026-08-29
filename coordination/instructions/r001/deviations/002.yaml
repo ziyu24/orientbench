@@ -1,0 +1,12 @@
+schema_version: 1
+instruction_id: r001
+sequence: 2
+kind: CONTINUE_AND_LOG_ENGINEERING_ADAPTATION
+reason: 原计划 argv 指向的 runner/validator 文件缺失；补齐仅实现计划既定的全局零固定点置换、解析角点仿射和验收证据写入。
+changed_paths:
+  - experiments/r001_cmr_g1_correction/run_r001.py
+  - experiments/r001_cmr_g1_correction/run_r001.sh
+  - experiments/r001_cmr_g1_correction/validate_r001.py
+evidence:
+  - .git/cqc-execution/r001/logs/001.stderr.log
+  - coordination/instructions/r001/SERVER_PLAN.yaml
