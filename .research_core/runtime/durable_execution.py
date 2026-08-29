@@ -998,7 +998,13 @@ def _execution_guard(root: Path) -> tuple[list[str], dict[str, Any]]:
     if path.is_symlink() or not path.is_file():
         raise ValueError("source-commit-bound execution guard is missing")
     contract = _load_yaml(root / ".research_core/contract.yaml")
+    # The contract owns durable-execution settings under its policy block.
+    # Accept the former top-level position only for older migrated contracts.
     expected = contract.get("execution_guard_sha256")
+    if expected is None:
+        expected = contract.get("durable_execution_policy", {}).get(
+            "execution_guard_sha256"
+        )
     actual = hashlib.sha256(path.read_bytes()).hexdigest()
     if type(expected) is not str or SHA256.fullmatch(expected) is None or actual != expected:
         raise ValueError("source-commit-bound execution guard digest changed")
