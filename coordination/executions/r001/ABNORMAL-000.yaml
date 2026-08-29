@@ -1,0 +1,79 @@
+schema_version: 1
+instruction_id: r001
+terminal_journal_sha256: 13a10d15acac31351cc7855ea8a575be3c8c933e87e99ebc376e8a6f7736a1ff
+terminal_journal:
+  schema_version: 1
+  instruction_id: r001
+  dispatch_token: 74aa0df4cf7a55e49ff2e7cbdf63f1aa5c1b9c3adac0071830ee23f02f7646fd
+  plan_ref: coordination/instructions/r001/SERVER_PLAN.yaml
+  plan_sha256: c2ec5c9ba26f5593c7c4d85f79381e386a63b05241f5fc8eb2aa634d6857ae3e
+  source_commit: 7e67f9fe5fe7fffc6495f234b652c765790afab4
+  authority_snapshot:
+    schema_version: 1
+    level: MASTER
+    authorization_ref: null
+    authorization_sha256: null
+    changed_at: INITIALIZED
+  authority_sha256: 8b53c01025b33b0c5a682fc6c32e0e928da4913341fbb37b6d735eb16757d891
+  permission_snapshots: {}
+  placement_receipt:
+    execution_mode: LOCAL_ONLY
+    server_profile: '26'
+    project_id: orientbench
+    instruction_id: r001
+    gpu_device_indexes:
+    - 0
+    gpu_selection:
+      device_indexes:
+      - 0
+      observed_free_mib:
+        '0': 18439
+      requested_mib_per_device: 16000
+      under_target_device_indexes: []
+      all_devices_met_preference: true
+      competition_policy: START_IMMEDIATELY_ALLOW_CROSS_PROJECT_SHARING
+    dataset_routes:
+    - dataset_id: DOTA
+      version: v1.0
+      local_path: /home/rspip/cqc/data/dataset/dota
+      status: OFFICIAL_LOCAL_AVAILABLE
+    dataset_cache_root: null
+    dataset_cache_state_root: null
+    pth_readme: /home/rspip/cqc/study/pth_data/readme.md
+  boundary_guard: {}
+  state: BLOCKED
+  attempt: 0
+  adaptation_sequence: 0
+  worker_pid: null
+  command_pid: null
+  dataset_checkpoint_index: 0
+  dataset_mounts: []
+  checkpoint_index: 0
+  acceptance_checkpoint_index: 0
+  heartbeat_at: '2026-08-29T05:58:39.527837Z'
+  started_at: null
+  deadline_at: '2026-08-29T13:58:39.490006Z'
+  finished_at: '2026-08-29T05:58:39.527850Z'
+  exit_code: null
+  failure_reason: source-commit-bound execution guard digest changed
+  recovery_action: B/C inspect the published command logs, result previews, and acceptance
+    evidence; issue the next r-prefixed correction for an ordinary error, or report
+    a catastrophic scientific-route error to the user
+  terminal_message: 未正常执行完：source-commit-bound execution guard digest changed
+  result_branch: main
+  result_commit: null
+  remote_commit: null
+  stop_requested: false
+  supervision_required: true
+  supervision_status: TERMINAL
+  bc_review_required: true
+  bc_review_reason: B_OR_C_MUST_REVIEW_COMMAND_LOG_RESULT_AND_ACCEPTANCE_THEN_ISSUE_DIRECT_NEXT_R_CORRECTION_IF_ORDINARY
+  bc_review_status: REQUIRED
+  bc_review_receipt: null
+  bc_review_sha256: null
+  bc_review_observed_state: null
+  bc_reviewed_journal_sha256: null
+  bc_correction_instruction_id: null
+command_logs: []
+result_files: []
+recorded_at: '2026-08-29T05:58:39.565993Z'
