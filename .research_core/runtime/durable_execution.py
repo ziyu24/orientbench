@@ -1333,6 +1333,7 @@ def _repairable_claim_preflight(reason: str) -> bool:
         or "no such file or directory" in lowered
         or "cannot find the file" in lowered
         or "cannot find path" in lowered
+        or "execution guard digest changed" in lowered
     )
 
 
@@ -2467,6 +2468,23 @@ def _recover_locked(
         return journal
     if _pid_alive(journal["worker_pid"]):
         return journal
+    # A claim-time guard-resolution error is an ordinary local framework
+    # adaptation, even if an older runtime persisted it as BLOCKED.  Restore
+    # the same instruction to the documented nonterminal repair path before
+    # imposing the B/C abnormal-terminal review requirement.
+    if (
+        journal["state"] == "BLOCKED"
+        and _repairable_claim_preflight(str(journal.get("failure_reason", "")))
+    ):
+        journal = _engineering_pause(
+            root,
+            instruction_id,
+            reason=(
+                "repairable legacy claim preflight: "
+                f"{journal.get('failure_reason')}"
+            ),
+            exit_code=None,
+        )
     if journal["bc_review_required"]:
         raise ValueError("B or C must record an execution review before SERVER recovery")
     if journal["state"] in {"FAILED", "INCOMPLETE", "BLOCKED"}:
