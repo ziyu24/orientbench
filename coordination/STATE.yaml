@@ -1,8 +1,7 @@
 schema_version: 1
-stage: LEGACY_ACTIVE_HOLD
-blockers:
-- LEGACY_ACTIVE_HOLD_r052
-next_action: REVIEW_AND_REISSUE_LEGACY_ACTIVE_HOLD
+stage: R001_READY
+blockers: []
+next_action: SERVER_PULL_EXECUTE_R001
 active_workstream: null
 initialized_stages: []
 permissions:
@@ -15,4 +14,4 @@ permission_authorizations:
   resource_expansion: null
   publish: null
 risks:
-- LEGACY_PLAN_NOT_EXECUTABLE_UNTIL_PEER_REVIEW_AND_NEW_INSTRUCTION
+- R001_CORRECTED_G1_RESULT_PENDING
