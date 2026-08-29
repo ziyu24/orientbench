@@ -1,0 +1,7 @@
+schema_version: 1
+instruction_id: r001
+sequence: 8
+kind: CONTINUE_AND_LOG_ENGINEERING_ADAPTATION
+reason: 修复全 candidate 向量的逐 proposal 汇总标量化；此前提交尚未触发 recovery，故 journal 仍显示旧失败。
+changed_paths:
+  - experiments/r001_cmr_g1_correction/run_r001.py
