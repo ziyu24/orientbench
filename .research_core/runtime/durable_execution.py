@@ -2551,7 +2551,7 @@ def _recover_locked(
                 failure_reason=f"repairable claim preflight remains incomplete: {error}",
             )
         journal = _update(root, instruction_id, placement_receipt=receipt)
-    if journal["state"] == "REPAIR_REQUIRED" and journal.get("boundary_guard") == {}:
+    if journal["state"] == "REPAIR_REQUIRED":
         try:
             _, guard = _execution_guard(root)
         except (OSError, ValueError) as error:
@@ -2561,7 +2561,8 @@ def _recover_locked(
                 heartbeat_at=_utc_now(),
                 failure_reason=f"repairable claim guard remains incomplete: {error}",
             )
-        journal = _update(root, instruction_id, boundary_guard=guard)
+        if journal.get("boundary_guard") != guard:
+            journal = _update(root, instruction_id, boundary_guard=guard)
     checkpoint_index = journal["checkpoint_index"]
     acceptance_checkpoint_index = journal["acceptance_checkpoint_index"]
     if journal["state"] == "REPAIR_REQUIRED" and not claim_verification_wait:

@@ -271,6 +271,12 @@ def run(request_path: Path, command: list[str], *, stage: bool) -> int:
         if os.getuid() != 0 or len(fields) < 3 or fields[:3] == ["0", "0", "4294967295"]:
             raise RuntimeError("unprivileged user/network namespace was not established")
     write_roots = _validate_write_roots(request)
+    # CUDA creates driver-managed IPC allocations below /dev/shm before the
+    # application can redirect its own temporary files.  For an explicitly
+    # GPU-scoped plan this is a runtime prerequisite, not a project artifact;
+    # the guard still applies Landlock and the network namespace to the child.
+    if int(request["resources"].get("gpu_count", 0)) > 0:
+        write_roots.append(Path("/dev/shm"))
     _apply_landlock(write_roots)
     environment = _scrub_environment()
     environment["CQC_PROJECT_ROOT"] = str(request["repository_root"])

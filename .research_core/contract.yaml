@@ -270,7 +270,7 @@ durable_execution_policy:
   factory_bundles_execution_guard: true
   sudo_required: false
   execution_guard_path: .research_core/runtime/execution_guard.py
-  execution_guard_sha256: 162d626743149dab1d376f6b02b94fec874458815cea5ecae350ab5f3ebcbdff
+  execution_guard_sha256: d445f03732ed3466f4a8186b0a12b4f5bff7fa39703cc754649249714642d6a9
   execution_guard_trust: PLAN_SOURCE_COMMIT_BOUND_COOPERATIVE_AGENT
   filesystem_isolation: LANDLOCK_ABI_1_WRITE_DELETE_ALLOWLIST
   undeclared_network_isolation: UNPRIVILEGED_NETWORK_NAMESPACE
