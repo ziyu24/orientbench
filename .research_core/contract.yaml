@@ -1,0 +1,734 @@
+schema_version: 1
+research_core_version: v1.11.3
+required_capabilities:
+- ACCOUNT_INDEPENDENT_WORKERS
+- SYMMETRIC_PEER_INITIATION
+- OWNER_SEPARATED_PLANS
+- IMMUTABLE_DISPATCHED_PLANS
+- SINGLE_HASH_BOUND_DISPATCH
+- FAIL_CLOSED_AUTHORIZATION
+- MASTER_EXECUTION_ONLY
+- THREE_MODE_INTAKE
+- SELF_CONTAINED_RUNTIME
+- NATURAL_LANGUAGE_ROLE_BINDING
+- HOST_LOCAL_DEFAULT_ROLE_BINDING
+- WORKTREE_LOCAL_ROLE_BINDING
+- GIT_NEAR_REALTIME_DIALOGUE
+- L2_POST_DISPATCH_NOTICE
+- USER_DESIGNATED_CRITIQUE_INHERITANCE
+- EPOCH_REPLACEABLE_DISPATCH
+- ADAPTIVE_SERVER_EXECUTION
+- NATURAL_LANGUAGE_PULL_EXECUTE
+- USER_SUPREME_RUNTIME_CONTROL
+- COMPACT_DISPATCH_HISTORY
+- NATIVE_GOAL_PRIMARY_MINIMAL_RUN_RECEIPT
+- A_RESILIENT_COMPUTE_ASSETS
+- USER_SPECIAL_DIRECTIVE_EXECUTION
+- UNIFORM_REBUILDABLE_ARTIFACTS
+- EXPLICIT_PROJECT_MAINTENANCE
+- ROLE_FOCUSED_VALIDATION
+- CHINESE_USER_MATERIALS
+- PROJECT_CONTAINED_EXECUTION_LAYOUT
+- VERSIONED_PAPER_FILENAMES
+- PINNED_RESEARCH_LESSONS
+- MARKDOWN_FIRST_PAPER
+- EXPLICIT_PDF_EXPORT
+- ADVERSARIAL_VENUE_ASSESSMENT
+- SINGLE_HOST_LOCAL_EXECUTION
+- FIXED_SERVER_PROFILE
+- OFFICIAL_LOCAL_DATASET_ROUTING
+- HRSC2016_FIRST_WHEN_APPLICABLE
+- LOCAL_DYNAMIC_GPU_SELECTION
+- PLAN_BOUND_MACHINE_ACCEPTANCE
+- ASYMMETRIC_DATASET_COLLECTIONS
+- SINGLE_CHALLENGE_THEN_ACTION
+- R_PREFIXED_SERVER_INSTRUCTIONS
+- MASTER_DEFAULT_AUTHORITY
+- MASTER_ENGINEERING_AUTONOMY
+- EXPLICIT_DOCTORAL_AUTHORITY
+- DOCTORAL_TOP_VENUE_END_TO_END_OWNERSHIP
+- BC_POST_EXECUTION_REVIEW_AND_CORRECTION
+- CATASTROPHIC_EXECUTION_ERROR_REPORTING
+- DETERMINISTIC_SHM_HOME_MIRROR
+- LEAN_REBUILDABLE_LARGE_WORKSPACE
+- NO_SUDO_LANDLOCK_EXECUTION_GUARD
+- DURABLE_PULL_EXECUTE
+- GIT_REF_VERIFIED_COMPLETION
+- TOP_VENUE_INNOVATION_PRIORITY
+- TGRS_MINIMUM_PUBLICATION_GOAL
+- FINAL_2025_CAS_VENUE_BASELINE
+- EXPLICIT_CAS_ZONE_AND_REFERENCE_JOURNAL
+- BUILT_IN_FOUR_ZONE_JOURNAL_BENCHMARK_LIBRARY
+- EPISTEMICALLY_LABELED_RESEARCH_RESPONSES
+- BC_SCIENTIFIC_POST_COMPLETION_ASSESSMENT
+- SAME_R_ENGINEERING_REPAIR
+- ONE_TWO_FOUR_LOCAL_GPU_TIERS
+- PER_DEVICE_GPU_MEMORY_PREFERENCE
+- CROSS_PROJECT_GPU_COMPETITION
+- NONBLOCKING_GPU_OVERSUBSCRIPTION
+- HOST_LOCAL_SERVER_RESOURCE_INVENTORY
+- HTTPS_ONLY_GIT_REMOTE
+- CONCISE_USER_REPORTING
+- MODEL_ESCALATION_RECOMMENDATION
+- PLAN_AUTHORIZES_LOCAL_COMPUTE
+- ROLE_LAYERED_AGENT_INSTRUCTIONS
+- DEFAULT_UNLOCKED_PROJECT_OPERATION_LOCK
+- CODEX_MANAGED_CONFIGURATION_AND_HELP
+- BC_EXPLICIT_RNNN_EXECUTION_STATUS
+- COPYABLE_SERVER_SHORT_INSTRUCTION
+- REMOTE_MAIN_ONE_TIME_USER_CONTROL
+- ROOT_COMMIT_PINNED_USER_CONTROL_REPOSITORY
+- LINEARIZABLE_PROJECT_CONTROL_TRANSACTIONS
+- AUTHORITATIVE_MAIN_NORMAL_OPERATION_CONTROL_LEDGER
+- DURABLE_JOURNAL_TRANSACTION_LOCK
+- ROLE_END_GIT_FINALIZATION
+- CONCISE_EXECUTION_SUMMARY
+- SERVER_46_SUBSET_CACHE_LEASES
+- IMMUTABLE_MODE_ONE_WAY_WORK_TRACK
+peer_roles:
+- B
+- C
+server_authority: MASTER_DEFAULT_DOCTORAL_EXPLICIT
+active_dispatch_limit: 1
+dispatch_schema_version: 4
+dispatch_epoch_required: true
+server_execution_policy: CONTINUE_AND_LOG_WITHIN_HARD_BOUNDARIES
+fabric_api_version: '2.1'
+collaboration_policy:
+  direct_server_plan_when_discussion_unneeded: true
+  discussion_plan_contains_server_plan: false
+  first_critique_default: SERVER_PLAN
+  max_discussion_rounds: 1
+  final_critique_requires_server_plan: true
+  final_exceptions:
+  - USER_STOP
+  - HARD_PERMISSION
+  - HARD_RESOURCE
+  - HARD_DATA
+  - SECRET_BOUNDARY
+  - DESTRUCTIVE_BOUNDARY
+  post_execution_review:
+    reviewers:
+    - B
+    - C
+    ordinary_correctable_error:
+      separate_issue_registration: FORBIDDEN
+      user_notification: FORBIDDEN
+      next_action: DIRECT_NEXT_R_INSTRUCTION_CORRECTION
+      repeated_discussion: FORBIDDEN
+      append_only_bc_review_receipt: REQUIRED
+      prior_journal_and_evidence_digest_binding: REQUIRED
+      same_instruction_recovery_before_bc_verdict: FORBIDDEN
+      same_instruction_recovery_after_abnormal_terminal: FORBIDDEN
+      review_receipt_consumption: EXACTLY_ONCE_BY_NEXT_R_CORRECTION
+      review_receipt_consumption_transaction: PROJECT_PERSISTED_AND_IDEMPOTENT
+      independent_worktree_review: REQUIRED
+      correction_verification: B_OR_C_REQUIRED
+    catastrophic_error:
+      threshold: SCIENTIFIC_ROUTE_OR_RESULT_CHAIN_FUNDAMENTALLY_INVALID_OR_UNRECOVERABLE_EXTERNAL_DAMAGE
+      user_notification: IMMEDIATE
+      issue_registration: REQUIRED
+      blocks_further_research_until_notice: true
+    successful_completion:
+      scientific_reviewer:
+      - B
+      - C
+      - DOCTORAL_EXPLICIT
+      server_scientific_rating: FORBIDDEN
+      assessment_receipt: REQUIRED_BEFORE_NEXT_NEW_EXPERIMENT
+      assessment_binds_verified_result_commit: true
+      below_tgrs_next_action: CONTINUE_WITH_NEXT_R
+      goal_reached_state: GOAL_REACHED_CANDIDATE_NOT_PUBLICATION_GUARANTEE
+instruction_policy:
+  namespace: PROJECT_GLOBAL
+  format: R_PREFIXED_DECIMAL
+  prefix: r
+  minimum_width: 3
+  first_id: r001
+  monotonically_increasing: true
+  reuse: FORBIDDEN
+  shared_by:
+  - BC_SERVER_PLAN
+  - USER_DIRECTIVE
+role_git_finalization_policy:
+  roles:
+  - B
+  - C
+  - SERVER
+  cross_role_requirement: APPEND_ONLY_ROLE_OWNED_HANDOFF_BEFORE_FINALIZATION
+  changed_work: EXACT_PATH_STAGE_COMMIT_HTTPS_PUSH
+  automatic_git_add_all: FORBIDDEN
+  no_change_empty_commit: FORBIDDEN
+  final_gate: CLEAN_WORKTREE_AND_LOCAL_HEAD_EQUALS_REMOTE_BRANCH
+  bc_branch: main
+  server_branch: main
+  optional_isolation_branch: exec/rNNN
+  failure_reporting: EXPLICIT_NOT_FINALIZED
+server_authority_policy:
+  default: MASTER
+  doctoral_activation: EXPLICIT_DIGEST_BOUND_USER_CONTROL
+  self_upgrade: FORBIDDEN
+  master_nonprinciple_action: CONTINUE_AND_LOG
+  master_scientific_route: FROZEN_BY_BC_SERVER_PLAN
+  master_engineering_autonomy: FULL_WITHIN_SCIENTIFIC_ROUTE_AND_HARD_BOUNDARIES
+  master_continue_without_consultation: true
+  fixed_node_compute_authorization: VALID_RNNN_SERVER_PLAN_OR_USER_DIRECTIVE
+  separate_real_experiment_application: FORBIDDEN
+  master_autonomous_actions:
+  - CONDA_ENVIRONMENT
+  - VIRTUAL_ENVIRONMENT
+  - DEPENDENCY_INSTALL_UPGRADE_DOWNGRADE
+  - ENGINEERING_CODE
+  - ENGINEERING_CONFIGURATION
+  - COMMAND_AND_LAUNCH_STRATEGY
+  - BATCH_AND_PARALLELISM
+  - GPU_AND_CPU_ALLOCATION
+  - EPHEMERAL_STORAGE_AND_DECLARED_SYMLINKS
+  - CHECKPOINT_LOGGING_RETRY_AND_RECOVERY
+  - DISCOVER_EXISTING_FILES_ENVIRONMENTS_DATA_AND_CHECKPOINTS
+  - DISCOVER_VERIFY_AND_REGISTER_HOST_LOCAL_DATASET_REPLICAS_AND_RECOVERY
+  - CREATE_OR_REPAIR_MISSING_NONSCIENTIFIC_INPUTS
+  - RETARGET_EQUIVALENT_PROJECT_LOCAL_PATHS
+  - CONTINUE_SAME_INSTRUCTION_UNTIL_COMPLETE_OR_TRUE_HARD_BLOCKER
+  master_must_not_stop_for:
+  - EXPECTED_FILE_AT_DIFFERENT_DISCOVERABLE_PATH
+  - REPAIRABLE_MISSING_CONFIG_OR_DIRECTORY
+  - REPAIRABLE_CONDA_OR_DEPENDENCY_MISMATCH
+  - REPAIRABLE_ENGINEERING_CODE_OR_LAUNCH_ERROR
+  - REPAIRABLE_DATA_STAGING_OR_ACCEPTANCE_SCRIPT_ERROR
+  master_stop_conditions:
+  - SCIENTIFIC_ROUTE_CHANGE
+  - USER_STOP
+  - SECRET_BOUNDARY
+  - IRREVERSIBLE_DESTRUCTIVE_BOUNDARY
+  - UNAUTHORIZED_RESOURCE_EXPANSION
+  - UNAUTHORIZED_EXTERNAL_WRITE
+  - HARD_DATA_OR_RESOURCE_BLOCKER
+  doctoral_mission: DISCOVER_CRITIQUE_REVISE_AND_EXECUTE_TOP_VENUE_SCIENTIFIC_ROUTE
+  doctoral_end_to_end_ownership: true
+  doctoral_combines:
+  - PEER_RESEARCH_DESIGN
+  - SERVER_EXECUTION
+fabric_policy:
+  physical_node_count_per_project: 1
+  execution_mode: LOCAL_ONLY
+  remote_node_discovery: FORBIDDEN
+  remote_gpu_start: FORBIDDEN
+  desktop_or_bc_node_probe: FORBIDDEN
+  server_profile_resolution: LOCAL_GIT_SETTING_OR_FIXED_PROJECT_PATH
+  gpu_device_selection_owner: LOCAL_SERVER_RUNTIME
+  gpu_device_ids_in_plan_or_git: FORBIDDEN
+  normal_gpu_count: 2
+  quick_validation_gpu_count: 1
+  expanded_gpu_count: 4
+  expanded_gpu_count_requires: RESOURCE_EXPANSION_PERMISSION
+  gpu_memory_request_semantics: PER_SELECTED_DEVICE_PREFERENCE
+  gpu_selection_order: PER_DEVICE_PREFERENCE_THEN_DESCENDING_FREE_MEMORY
+  cross_project_gpu_competition: ALLOWED
+  gpu_reservation_or_wait_queue: FORBIDDEN
+  gpu_oversubscription: START_IMMEDIATELY_UNTIL_ACTUAL_OOM
+  actual_oom_action: SAME_R_ENGINEERING_ADAPT_OR_RETRY
+  host_large_file_policy: LOCAL_EPHEMERAL_ROOT_WITH_DECLARED_LINKS
+dataset_transport_policy:
+  requirement_owner: B_C_OR_DOCTORAL_DATASET_NAME_AND_VERSION
+  datasets_presumed_official: true
+  identity_digest_or_tree_verification: FORBIDDEN
+  runtime_checks:
+  - LOCAL_PATH_OPENABLE
+  - DIRECTORY_NONEMPTY
+  server_26_official_root: /home/rspip/cqc/data/dataset
+  server_26_shm_root: /dev/shm/cqc/data/dataset
+  server_46_official_source: MOUNTED_QUERY_AND_COPY_SOURCE_ONLY
+  server_46_new_data_write_root: /dev/shm/zy/data/dataset
+  server_46_execution_path_pattern: /dev/shm/zy/data/dataset/<canonical-dataset>/<canonical-subset>
+  cache_key: CANONICAL_DATASET_AND_EXACT_SUBSET
+  cache_lease: PROJECT_ID_AND_R_PREFIXED_INSTRUCTION
+  cache_use_count: DERIVED_FROM_UNIQUE_ACTIVE_LEASES
+  cache_copy_commit: TEMPORARY_DIRECTORY_THEN_ATOMIC_RENAME
+  cache_release: DELETE_EXACT_SUBSET_ONLY_WHEN_USE_COUNT_ZERO
+  cache_crash_reconciliation: AUTHORITATIVE_ACTIVE_LEASE_SET
+  plan_fields:
+  - dataset_id
+  - version
+  optional_plan_field: shards
+  hrsc2016_first_when_applicable: true
+  non_applicable_requires_reason: true
+durable_execution_policy:
+  natural_language_entrypoint: 拉取，执行
+  unique_ready_instruction_required: true
+  claim_requires_authority_snapshot_match: true
+  claim_requires_local_dataset_availability: true
+  local_dispatch_identity: PROJECT_SOURCE_COMMIT_INSTRUCTION_SHA256
+  gpu_selection_timing: LOCAL_CLAIM_IMMEDIATELY_BEFORE_EXECUTION
+  execution_summary_max_characters: 50
+  claim_and_recovery_recheck_consumed_controls_online: true
+  runtime_permission_recheck: LOCAL_JOURNAL_BOUND_SNAPSHOT_ONLY
+  runtime_authority_recheck: LOCAL_PLAN_AND_JOURNAL_BOUND_SNAPSHOT
+  source_commit_bound_execution_guard_required: true
+  direct_unguarded_plan_process: FORBIDDEN
+  boundary_enforcement_owner: EMBEDDED_PLAN_SOURCE_COMMIT_BOUND_GUARD
+  factory_bundles_execution_guard: true
+  sudo_required: false
+  execution_guard_path: .research_core/runtime/execution_guard.py
+  execution_guard_sha256: 162d626743149dab1d376f6b02b94fec874458815cea5ecae350ab5f3ebcbdff
+  execution_guard_trust: PLAN_SOURCE_COMMIT_BOUND_COOPERATIVE_AGENT
+  filesystem_isolation: LANDLOCK_ABI_1_WRITE_DELETE_ALLOWLIST
+  undeclared_network_isolation: UNPRIVILEGED_NETWORK_NAMESPACE
+  host_scope_mapping: DETERMINISTIC_DEV_SHM_ACCOUNT_PROJECT_MIRROR
+  manifest_rebuild_steps_must_be_individual_guarded_plan_commands: true
+  workspace_expand_executes_manifest_commands: false
+  workspace_expand_semantics: VERIFY_AND_SEAL_GUARDED_OUTPUTS
+  same_uid_out_of_band_bypass: NOT_PREVENTABLE_WITHOUT_ADMIN_OR_SEPARATE_UNIX_ACCOUNT
+  runtime_guard_digest_recheck: true
+  machine_acceptance_commands_required: true
+  nonempty_expected_results_required: true
+  completion_receipt_required: true
+  completion_natural_language_claim_is_evidence: false
+  master_nonterminal_worker_recovery: SAME_R_PREFIXED_INSTRUCTION_FROM_CHECKPOINT
+  repairable_engineering_failure_state: REPAIR_REQUIRED
+  repairable_engineering_failure_numbering: SAME_R_PREFIXED_INSTRUCTION
+  repairable_claim_preflight_numbering: SAME_R_PREFIXED_INSTRUCTION
+  repair_required_next_action: SERVER_DIAGNOSE_ADAPT_AND_RECOVER_WITHOUT_BC_OR_USER_ROUNDTRIP
+  abnormal_terminal_engineering_correction: BC_REVIEW_THEN_DIRECT_NEXT_R_PREFIXED_INSTRUCTION
+  zero_ready_with_recoverable_nonterminal_instruction: RETURN_AUTONOMOUS_MASTER_RECOVERY_TASK
+  native_goal_primary: true
+  unbounded_observer_loops: FORBIDDEN
+  repeated_status_polling_as_progress: FORBIDDEN
+  journal_is_execution_supervision: MINIMAL_INTERNAL_RUN_RECEIPT_ONLY
+  max_hours_enforced: true
+  lifecycle:
+  - READY
+  - CLAIMED
+  - RUNNING
+  - REPORTING
+  - PUSHED
+  - COMPLETE
+  abnormal_terminal_states:
+  - FAILED
+  - INCOMPLETE
+  - BLOCKED
+  - STOPPED
+  abnormal_terminal_evidence: SELF_CONTAINED_JOURNAL_LOG_RESULT_ACCEPTANCE_DIGEST_BUNDLE
+  abnormal_evidence_freeze_before_terminal_journal: true
+  abnormal_evidence_branch: exec/<instruction-id>
+  abnormal_evidence_publication_retry: execution publish-abnormal --id <instruction-id>
+  durable_journal: true
+  durable_journal_update: PER_RNNN_CROSS_PLATFORM_ADVISORY_LOCK_AND_LOCKED_REREAD
+  completion_stop_linearization: SAME_RNNN_LOCK_STOP_FIRST_PREVENTS_COMPLETE
+  detached_runner: true
+  heartbeat_policy: INTERNAL_ONLY_FOR_GPU_OR_TASKS_ABOVE_30_MINUTES
+  checkpoint_recovery: ONLY_WHEN_COMMAND_OR_TRAINER_SUPPORTS_SAFE_RESUME
+  completion_requires_result_branch_push: false
+  completion_requires_verified_result_commit_push: true
+  completion_requires_remote_ref_match: true
+  reporting_subprocess_control: HEARTBEAT_STOP_LOCK_DEADLINE_AND_STEP_TIMEOUT
+  reporting_retry_checkpoints:
+  - RESULT_COMMIT
+  - PUSHED
+  - REMOTE_COMMIT
+  completion_requires_bc_scientific_assessment: AFTER_SERVER_COMPLETE_BEFORE_NEXT_NEW_EXPERIMENT
+  server_must_not_assess_venue: true
+  production_origin_protocol: HTTPS_ONLY
+  production_server_push_branches:
+  - main
+  - exec/rNNN_ABNORMAL_EVIDENCE_ONLY
+  production_server_push_main: DEFAULT_VERIFIED_RESULT_COMMIT
+  sensitive_control_trust_root: EXACT_PORTABLE_YAML_ON_AUTHORITATIVE_REMOTE_MAIN
+  sensitive_control_identity: UNIQUE_CONTROL_ID
+  sensitive_control_consumption: AUTHORITATIVE_MAIN_APPEND_ONLY_CAS_WITH_STATE_TRANSITION
+  sensitive_control_revocation_ordering: SAME_REMOTE_MAIN_COMPARE_AND_SWAP
+  administrator_history_rewrite: TRUSTED_OPERATOR_OUTSIDE_RUNTIME_GUARANTEE
+user_response_policy:
+  bc_execution_status:
+    applies_when: REPLY_REFERENCES_OR_EVALUATES_R_PREFIXED_INSTRUCTION
+    evidence_source: MACHINE_VERIFIED_JOURNAL_RESULT_OR_BC_REVIEW
+    successful_complete_label: rNNN：执行完成（成功）
+    failed_terminal_label: rNNN：执行结束（失败）
+    not_complete_label: rNNN：未执行完成（状态：<STATE>）
+    unrelated_reply_must_not_invent_instruction_status: true
+    server_natural_language_claim_is_status_evidence: false
+  server_short_instruction:
+    user_copy_format: MARKDOWN_FENCED_TEXT_BLOCK
+    concise_single_command: true
+    prose_inside_block: FORBIDDEN
+    default_command: /goal 拉取，执行
+research_priority_policy:
+  primary: TOP_VENUE_INNOVATION
+  terminal_goal: PUBLISH_AT_TGRS_OR_HIGHER
+  lower_venue_honest_assessment: REQUIRED_BUT_NOT_TERMINAL
+  minimum_benchmark:
+    library_short_name: TGRS
+    project_level: MINIMUM
+  preferred_higher_benchmark:
+    library_short_name: ISPRS JPRS
+    project_level: PREFERRED
+  ranking_system: CHINESE_ACADEMY_OF_SCIENCES_JOURNAL_PARTITION
+  ranking_edition: 2025_FINAL
+  ranking_discontinued_after_2025: true
+  journal_benchmark_library:
+    authority_path: research/venue-benchmarks/CAS-2025-FINAL.yaml
+    schema_version: 2
+    record_count: 5
+    zone_distribution:
+      1: 2
+      2: 1
+      3: 1
+      4: 1
+    benchmark_partition_basis: MAJOR_CATEGORY
+    benchmark_partition_category: EARTH_SCIENCES
+    related_minor_partitions_are_informational_only: true
+    zone_journal_match_required: true
+    runtime_loader: .research_core/runtime/journal_benchmarks.py
+    help_exposes_sources_and_verified_at: true
+    below_zone_one_is_current_level_only: true
+    above_zone_one_conferences_are_separate_comparators:
+    - CVPR
+    - ICCV
+  explicit_zone_values:
+  - 一区
+  - 二区
+  - 三区
+  - 四区
+  every_rating_requires_one_explicit_zone: true
+  every_rating_requires_concrete_reference_journal: true
+  reference_journal_must_match_comparable_paper_venue: true
+  required_fields:
+  - novelty_claim
+  - strongest_prior_difference
+  - top_venue_relevance
+  - decisive_question
+  - minimum_discriminating_experiment
+  - decision_change_condition
+  - premise_check
+  - epistemic_status
+  - cas_2025_venue_assessment
+  - comparable_papers
+  - strongest_rejection_case
+  - model_escalation_recommendation
+  correctness_only_contribution: FORBIDDEN
+  compliance_only_contribution: FORBIDDEN
+  negative_results_only_contribution: FORBIDDEN
+  substantive_response_only: true
+  trivial_status_or_role_acknowledgement_requires_venue_assessment: false
+  factual_claims_require_source_or_explicit_unverified_label: true
+  confirmed_fact_evidence_fields:
+  - statement
+  - evidence_ref
+  - verified_at
+  comparable_paper_fields:
+  - title
+  - venue
+  - year
+  - doi_or_url
+  - verified_at
+  - comparison
+  disagreement_requires_reason_counterexample_or_risk: true
+training_configuration_policy:
+  gpu_training_preferred_count: 2
+  gpu_training_quick_validation_count: 1
+  gpu_training_expanded_count: 4
+  gpu_training_expanded_permission: resource_expansion
+  cross_project_gpu_competition: ALLOWED
+  waiting_for_exclusive_gpu_slot: FORBIDDEN
+  memory_pressure_behavior: START_ON_BEST_AVAILABLE_DEVICES
+  actual_oom_recovery: SAME_R_BATCH_ACCUMULATION_DEVICE_RETRY
+  official_configuration_required: true
+  same_project_configuration_alignment_required: true
+  baseline_directory: research/configuration-baselines
+  baseline_digest_binding: SHA256
+  baseline_required_fields:
+  - baseline_id
+  - task
+  - official_gpu_count
+  - official_global_batch_size
+  - official_optimizer_learning_rate
+  - official_config_refs
+  - prior_project_config_refs
+  - verified_at
+  - notes
+  preserve_official_global_batch_and_optimizer_learning_rate_by_default: true
+  gpu_count_change_uses_per_gpu_batch_or_gradient_accumulation_first: true
+  scientific_scaling_requires_explicit_reason: true
+  host_resource_inventory_owner: SERVER_MASTER
+  host_resource_inventory_paths:
+    server_26: /home/rspip/cqc/study/pth_data/readme.md
+    server_46: /home/rspip/zy/study/pth_data/readme.md
+  legacy_pro_path: FORBIDDEN
+  missing_resource_inventory: CONTINUE_WITHOUT_CHECKPOINT_REFERENCE
+research_outcome_assessment_policy:
+  command: execution scientific-assess --request build/research-outcome-assessment.yaml
+  authors:
+  - B
+  - C
+  - DOCTORAL_EXPLICIT
+  evidence_branch: exec/<instruction-id>
+  required_epistemic_classes:
+  - CONFIRMED_FACTS
+  - REASONABLE_INFERENCES
+  - PERSONAL_JUDGMENTS
+  - CURRENTLY_UNVERIFIABLE
+  cas_edition: 2025_FINAL
+  benchmark_zone_and_label_required: true
+  concrete_reference_journal_required: true
+  built_in_zone_journal_match_required: true
+  reference_journal_must_match_comparable_paper_venue: true
+  comparable_papers_minimum: 1
+  comparable_papers_require_title_venue_year_and_doi_or_url: true
+  strongest_rejection_case_required: true
+  below_floor_action: CONTINUE_WITH_NEXT_R
+  next_new_experiment_binds_prior_assessment: true
+  user_summary_fields:
+  - CONCLUSION
+  - KEY_EVIDENCE
+  - VENUE_GAP
+  - UNIQUE_NEXT_ACTION
+  - BENCHMARK_ZONE_LABEL
+  - REFERENCE_JOURNAL
+  intermediate_log_spam: FORBIDDEN
+  model_escalation_when_current_model_cannot_form_credible_innovation: REQUIRED
+supervision_policy:
+  native_goal_primary: true
+  separate_user_facing_record_required: false
+  gpu_required: false
+  cpu_required_above_minutes: 30
+  purpose: INTERNAL_LIVENESS_ONLY
+  default_interval_minutes: 20
+  escalate_after_no_progress_cycles: 3
+  max_log_tail_bytes: 65536
+  recent_event_limit: 10
+  disk_warning_below_gib: 5
+artifact_policy:
+  manifest_directory: artifacts/manifests
+  recovery_methods:
+  - TRAIN
+  - DOWNLOAD
+  - DERIVE
+  - COPY_FROM_BACKUP
+  lean_project_max_bytes: 104857600
+  lean_measurement_excludes_git_metadata: true
+  lean_limit_required_by_validate_project_and_self_test: true
+  materialized_root: MODE_SELECTED_HOME_OR_DETERMINISTIC_DEV_SHM_PROJECT_ROOT/large-workspaces/<profile>
+  materialized_content_must_be_single_subtree: true
+  expansion_command: workspace expand
+  expansion_role: VERIFY_AND_SEAL_ALREADY_GUARDED_OUTPUTS
+  manifest_rebuild_argv_executed_by_expand: false
+  compaction_command: workspace compact
+  time_for_space_rebuild: SUPPORTED
+  compaction_requires_rebuildable_manifest_closure: true
+  compaction_rehashes_every_artifact: true
+  compaction_rejects_unregistered_nonruntime_content: true
+  profile_lock_required_for_expand_and_compact: true
+  automatic_deletion: ONLY_BY_SERVER_WORKSPACE_COMPACT
+maintenance_policy:
+  explicit_user_request_required: true
+  automatic_cleanup: false
+  minimum_terminal_age_days: 30
+  compact_index: coordination/maintenance/INDEX.yaml
+  archive_directory: coordination/maintenance/archive
+  default_recent_limit: 10
+  git_history_recovery: true
+lessons_policy:
+  repository: ziyu24/cqc_research_lessons
+  initial_git_sha: 23050e5502789845d8ea5a6e031f0083b5d478bb
+  schema: 1
+  lock_file: coordination/lessons/LOCK.yaml
+  applied_file: coordination/lessons/APPLIED.yaml
+  promotions_file: coordination/lessons/PROMOTIONS.yaml
+  index_file: INDEX.yaml
+  max_selected_cards: 8
+  cache_key_fields:
+  - LESSONS_GIT_SHA
+  - CONTEXT_FINGERPRINT
+  normal_operation_source: LOCAL_PINNED_CACHE
+  automatic_fetch: false
+  update_trigger: EXPLICIT_USER_REQUEST
+  promotion_trigger: EXPLICIT_USER_REQUEST
+  shared_writes_automatic: false
+  scientific_evidence: false
+  applicability_states:
+  - APPLY
+  - NOT_APPLICABLE
+  - UNKNOWN
+  enforcement_levels:
+  - BLOCK
+  - WARN
+paper_policy:
+  version_file: paper/VERSION
+  version_scheme: vMAJOR.MINOR.PATCH
+  review_version_file: paper/review/VERSION
+  review_version_scheme: vNNN
+  primary_filename_pattern: manuscript-vMAJOR.MINOR.PATCH
+  versioned_primary_filenames: true
+  review_binds_git_sha: true
+  default_source_format: md
+  figures_directory: paper/assets/figures
+  pdf_generation: EXPLICIT_ONLY
+  pdf_export_command: paper export-pdf
+venue_assessment_policy:
+  request_path: build/paper-assessment.yaml
+  record_command: paper assess --request
+  show_command: paper assessment-show --review
+  scientific_authors:
+  - B
+  - C
+  - DOCTORAL_EXPLICIT
+  server_authority: MASTER_PREPARE_ONLY_DOCTORAL_SCIENTIFIC
+  profile_strategy: PROJECT_ADAPTIVE
+  fit_values:
+  - 不具备投稿条件
+  - 低适配
+  - 条件适配
+  - 高适配
+  rating_changes:
+  - UP
+  - DOWN
+  - UNCHANGED
+  strongest_rejection_case_required: true
+  journal_level_assessment_required: true
+  journal_level_zone_values:
+  - 一区
+  - 二区
+  - 三区
+  - 四区
+  journal_level_concrete_reference_journal_required: true
+  journal_level_built_in_zone_journal_match_required: true
+  fixed_venue_ladder: TGRS_FLOOR_AND_2025_ISPRS_PREFERENCE_ONLY
+  acceptance_probability: FORBIDDEN
+language_policy:
+  user_facing_default: zh-CN
+  english_manuscript_requires_explicit_task: true
+role_instruction_policy:
+  common_entry: AGENTS.md
+  selector: git-config-worktree:paper.worker-id
+  role_entries:
+    B: roles/B/AGENTS.md
+    C: roles/C/AGENTS.md
+    SERVER: roles/SERVER/AGENTS.md
+  common_rules_may_be_overridden: false
+  permanent_identity_branches: FORBIDDEN
+project_operation_lock_policy:
+  state_file: .research_core/PROJECT_LOCK.yaml
+  event_directory: coordination/project-lock/events
+  default_state: UNLOCKED
+  states:
+  - UNLOCKED
+  - LOCKED
+  locked_allowed_operations:
+  - HELP
+  - CONFIG_SHOW
+  - READ_ONLY_STATUS
+  - VALIDATE
+  - LOCK_STATUS
+  - UNLOCK
+  factory_and_project_may_change: true
+  event_chain: APPEND_ONLY_SHA256
+  in_flight_durable_execution: PAUSE_NONTERMINAL_AND_RESUME_SAME_R_AFTER_UNLOCK
+  locked_time_consumes_execution_budget: false
+  caller_claimed_factory_actor_source: FORBIDDEN
+  unlock_control: EXPIRING_DIGEST_BOUND_B_OR_C_EVENT_FOR_EXACT_NEXT_SEQUENCE
+  factory_changes_use_same_project_bc_control_path: true
+  transaction_lock: GIT_COMMON_DIR_CROSS_PLATFORM_OS_ADVISORY_LOCK
+  stale_mtime_break: FORBIDDEN
+  transaction_coverage:
+  - PROJECT_LOCK_TRANSITION
+  - SENSITIVE_PERMISSION_STATE
+  - SERVER_CLAIM_CHECK_AND_JOURNAL_CREATE
+  p1_to_p5_action_in_this_release: FORBIDDEN
+configuration_help_policy:
+  user_edits_configuration_files: FORBIDDEN
+  natural_language_to_codex: REQUIRED
+  help_command: python -m tools.workflow help --section all
+  show_command: python -m tools.workflow config show
+  set_command: python -m tools.workflow config set
+  sensitive_permission_enable: EXPIRING_PLAN_SCOPE_DIGEST_BOUND_B_OR_C_USER_CONTROL
+  sensitive_permission_server_self_enable: FORBIDDEN
+  sensitive_permission_disable: DIRECT_FAIL_SAFE
+  sensitive_permission_authorization_state: PROJECT_GIT_REF_AND_SHA256
+  sensitive_permission_authorization_runtime_recheck: LOCAL_JOURNAL_BOUND_SNAPSHOT_ONLY
+  user_control_remote_identity: AUTHORIZATION_BLOB_OID_NOT_MOVING_MAIN_HEAD
+  user_control_repository_authority: ROOT_COMMIT_PINNED_EXACT_FETCH_AND_PUSH_URL
+  user_control_origin_alias: MUST_MATCH_ROOT_COMMIT_REPOSITORY_AUTHORITY
+  user_control_git_url_rewrite: FORBIDDEN
+  user_control_consumption_ledger: AUTHORITATIVE_MAIN_APPEND_ONLY_HISTORY_FOR_NORMAL_OPERATIONS
+  user_control_consumption_state_commit: SAME_COMPARE_AND_SWAP_COMMIT
+  user_control_deleted_receipt: FAIL_CLOSED_FROM_MAIN_HISTORY
+  user_control_online_verification_boundaries: CONTROL_CONSUMPTION_AND_TASK_CLAIM_OR_RECOVERY
+  consumed_unlock_expiry_semantics: COMPLETED_TRANSITION_REMAINS_VALID
+  server_profile_setting_value: HOST_LOCAL_26_OR_46
+  dataset_root_override_setting_value: HOST_LOCAL_ABSOLUTE_MOUNT_PATH
+  all_runtime_host_local_settings_listed: true
+  help_includes:
+  - FEATURE_GROUPS
+  - COMPLETE_CAPABILITY_IDS
+  - CURRENT_VALUES
+  - CONFIGURATION_SCOPE
+  - MUTABILITY
+  - ACCEPTED_VALUES
+  - CONTROLLED_SETTER
+  - BUILT_IN_JOURNAL_BENCHMARKS_WITH_SOURCES_AND_VERIFIED_AT
+mode_track_policy:
+  creation_mode: IMMUTABLE_REGISTRY_EVIDENCE
+  new_research_allowed_next_tracks:
+  - PAPER_REPRODUCTION
+  - CHAT_HANDOFF
+  transition_direction: ONE_WAY
+  reverse_or_cross_transition: FORBIDDEN
+  mutation_scope: MODE_OVERLAY_FILES_ONLY
+  registry_identity_rewrite: FORBIDDEN
+validation_policy:
+  peer_default: MINIMAL_NECESSARY
+  server_default: TARGETED
+  full_repository_triggers:
+  - FACTORY_RELEASE
+  - CONTRACT_CHANGE
+  - PUBLIC_API_CHANGE
+  - GOVERNANCE_MIGRATION
+  - EXPLICIT_USER_REQUEST
+  active_template_declared_files_must_be_tracked_in_git: true
+  clean_git_worktree_verification_required_before_release: true
+execution_workspace_pattern: <local-project-root>/large-workspaces/<profile>
+history_policy:
+  active_source: coordination/DISPATCH.yaml
+  compact_index: coordination/dispatch/INDEX.yaml
+  archive_directory: coordination/dispatch/archive
+  default_recent_limit: 10
+dispatch_lifecycle:
+- DRAFT
+- READY
+- DISPATCHED
+- RUNNING
+- REPORTED
+- ACCEPTED
+- KILLED
+- CONTESTED
+- INCONCLUSIVE
+- SUPERSEDED
+critique_states:
+- NOT_REQUESTED
+- REQUESTED
+- RECEIVED
+- CONTESTED
+risk_levels:
+  L0: ROLE_CONTRACT
+  L1: ROLE_CONTRACT
+  L2: ROLE_CONTRACT_WITH_POST_NOTICE
+worker_selector: git-config-worktree:paper.worker-id
+worker_default_selector: git-config-global:paper.default-worker-id
+worker_resolution_priority:
+- EXPLICIT_WORKTREE_BINDING
+- HOST_DEFAULT_MATERIALIZED_TO_WORKTREE
+unbound_server_pull_execute_role: SERVER
+tracked_worker_ids:
+  peer-b-primary: PEER_B
+  peer-c-primary: PEER_C
+  server-primary: SERVER
+agent_policy:
+  research_governance_source: REPOSITORY_RESEARCH_CORE_ONLY
+  forbidden_skills:
+  - manage-paper-research
+legacy_import:
+  profile: IN_PLACE_HISTORY_PRESERVING
+  authority_anchor: FIRST_PROJECT_IDENTITY_COMMIT
+  lean_baseline: UNCHANGED_SOURCE_HEAD_FILES_EXEMPT
+  new_or_changed_files_limit_bytes: 104857600
+contract_digest: cc69eca23b90775b95da99feeb3613db0c5abfd1de730c412c7f9233c1e00d04

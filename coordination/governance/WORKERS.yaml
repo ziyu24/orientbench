@@ -1,0 +1,9 @@
+schema_version: 1
+selector: git-config-worktree:paper.worker-id
+workers:
+  peer-b-primary:
+    role: PEER_B
+  peer-c-primary:
+    role: PEER_C
+  server-primary:
+    role: SERVER

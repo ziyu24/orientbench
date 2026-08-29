@@ -1,0 +1,10 @@
+mode: NEW_RESEARCH
+intake_mode: new
+origin_mode: NEW_RESEARCH
+active_track: NEW_RESEARCH
+allowed_next_tracks:
+  - PAPER_REPRODUCTION
+  - CHAT_HANDOFF
+reverse_transition_allowed: false
+initial_status: LEGACY_ACTIVE_HOLD
+initial_next_action: REVIEW_AND_REISSUE_LEGACY_ACTIVE_HOLD

@@ -1,0 +1,18 @@
+schema_version: 1
+stage: LEGACY_ACTIVE_HOLD
+blockers:
+- LEGACY_ACTIVE_HOLD_r052
+next_action: REVIEW_AND_REISSUE_LEGACY_ACTIVE_HOLD
+active_workstream: null
+initialized_stages: []
+permissions:
+  real_experiment: true
+  external_write: false
+  resource_expansion: false
+  publish: false
+permission_authorizations:
+  external_write: null
+  resource_expansion: null
+  publish: null
+risks:
+- LEGACY_PLAN_NOT_EXECUTABLE_UNTIL_PEER_REVIEW_AND_NEW_INSTRUCTION

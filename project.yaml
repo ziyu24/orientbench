@@ -1,0 +1,52 @@
+schema_version: 1
+project_id: orientbench
+title: orientbench 既有研究工程原地治理升级与活动任务桥接
+repository_name: orientbench
+repository_authority_url: https://github.com/ziyu24/orientbench.git
+mode: NEW_RESEARCH
+intake_mode: new
+creation:
+  request_id: LMR0018
+  transaction_id: LEGACY_IMPORT
+  remote_action: COMMIT_AND_PUSH_EXISTING_MAIN
+research_core:
+  version: v1.11.3
+  contract_digest: cc69eca23b90775b95da99feeb3613db0c5abfd1de730c412c7f9233c1e00d04
+publication_goal:
+  terminal_objective: PUBLISH_AT_TGRS_OR_HIGHER
+  journal_benchmark_library: research/venue-benchmarks/CAS-2025-FINAL.yaml
+  minimum_benchmark_short_name: TGRS
+  preferred_higher_benchmark_short_name: ISPRS JPRS
+  ranking_system: CHINESE_ACADEMY_OF_SCIENCES_JOURNAL_PARTITION
+  ranking_edition: 2025_FINAL
+  benchmark_partition_basis: MAJOR_CATEGORY
+  benchmark_partition_category: EARTH_SCIENCES
+  lower_venue_terminal_decision: FORBIDDEN
+agent_policy:
+  research_governance_source: REPOSITORY_RESEARCH_CORE_ONLY
+  forbidden_skills:
+  - manage-paper-research
+migration:
+  schema_version: 1
+  profile: IN_PLACE_HISTORY_PRESERVING
+  request_id: LMR0018
+  request_digest: b9331da59369b8dcfffda35019ed8ef359eb1bb47c209d13483530a5ae6a1f76
+  source_head: 5e7c3ea5b04a6c798542313363fe81172aaaaaeb
+  legacy_state_path: dis/coordination.json
+  active_hold:
+    mode: LEGACY_ACTIVE_HOLD
+    decision_id: D0017
+    decision_option: A
+    round_id: r052
+    plan_path: dis/sug.md
+    plan_blob_oid: d2b1ace1272ac8c59a4ea2ea019ed3923918cd2d
+    plan_sha256: 6c7e122e5d9ff3d4993e7e4e92f4ef2708259be45e6b7a17e8bbead2177fae2d
+    state_sha256: 4154ed1845360676b0a56436480cbedf381f3692563bbfcba208dd936c4f2ea7
+    status_pointer:
+    - active_dispatch
+    - status
+    expected_status: DISPATCHED
+    report_path: dis/server_reports/orientbench-b-r052-cmr-functional-admission-20260828/SERVER_EXECUTION_REPORT.md
+    report_expected: PRESENT_BOUND
+    report_blob_oid: cd4ad46dd4cf627bbdc6f12abdd2bcdddd1d603f
+    report_sha256: 7a77d603ff092ad021fa4fe30f2e6c2bc39ed76db1d2665439ff114ef378eecc
