@@ -1,8 +1,8 @@
 schema_version: 1
-stage: R001_READY
+stage: R001_SERVER_COMPLETE
 blockers: []
-next_action: SERVER_PULL_EXECUTE_R001
-active_workstream: null
+next_action: B_C_SCIENTIFIC_ASSESSMENT_R001
+active_workstream: r001
 initialized_stages: []
 permissions:
   real_experiment: true
@@ -14,4 +14,4 @@ permission_authorizations:
   resource_expansion: null
   publish: null
 risks:
-- R001_CORRECTED_G1_RESULT_PENDING
+- R001_NEGATIVE_G1_RESULT_REQUIRES_SCIENTIFIC_ASSESSMENT
