@@ -1,0 +1,201 @@
+schema_version: 1
+instruction_id: r002
+decision_id: RD0002
+status: READY
+issued_by_role: B
+source_commit: 8c645b3ddae16dc1fc34626c8a8997364fdf11eb
+authority_snapshot:
+  schema_version: 1
+  level: MASTER
+  authorization_ref: null
+  authorization_sha256: null
+  changed_at: INITIALIZED
+science_case:
+  novelty_claim: >-
+    GR-EQS 只有在冻结的跨数据集 universe、连续方向风险定义和选择性指标上可独立复算，且在不损害检测 AP 的前提下稳定改善可靠性，才可能构成 TGRS 或更高水平的方法贡献；当前 r002 的 KILL 结论尚不具备这一科学完整性前提。
+  strongest_prior_difference: >-
+    相比 r014 的 standalone equivariance 与 EQS，GR-EQS 声称通过几何可靠性建模改善跨数据集选择性方向风险；本轮不评价方法新颖性，只区分观察到的负结果究竟来自方法本身，还是角度单位、长边 canonicalization、le90、delta_0.75、匹配、universe 或 risk scaling 漂移。
+  top_venue_relevance: >-
+    TGRS/ISPRS JPRS 级结论必须建立在可审计、可独立复算且跨数据集口径一致的风险与 AP 证据上；哈希清单不能替代实际生成代码、逐行风险、sealed scores 和 bootstrap。
+  decisive_question: >-
+    在完全相同的 r014 A-F row-key 与 cluster universe 上，r014-code/r002-code × r014-data/r002-data 四格交叉复算能否解释 r002 与 r014 的 Risk@90 十倍级漂移，并使 r002 G1 可由 Git 内证据独立复算？
+  minimum_discriminating_experiment: >-
+    只使用现有预测和 CPU，公开实际生成与独立验证代码及可独立复算的 compact scores、risk rows 和 180000 个 synchronized cluster-bootstrap replicates；逐行审计 pred/GT angle 单位、长短边 canonicalization、le90、GT AR、delta_0.75 与 risk，并完成四格交叉复算。
+  decision_change_condition: >-
+    若任一口径或实现 bug 被确认，只允许用现有预测在 CPU 上按冻结 r014 语义重算完整 G1，再由 B/C 重新裁决；若无 bug，只有在四格、逐行证据、bootstrap 与原摘要全部可复核一致后才可重新接受 KILL。任何情况下本轮都不得进入 G2。
+  premise_check:
+    problem_found: true
+    explanation: >-
+      远端 main 的 results/r002_gr_eqs_method_admission 仅含汇总与 SHA-256 manifest，正式 r002 指令、实际生产/验证代码、sealed scores、risk rows 和 bootstrap 均未公开。DIOR-R/A 的 r014 与 r002 都报告 25080 行、3497 clusters，但 standalone Risk@90 分别为 0.1384735195 与 1.5517958439；同一 [0,3] 风险向量在 90% 精确前缀下即使任意重排，均值差的理论上限为 0.3333333333，实际差 1.4133223243，不能由重排序单独解释。
+  epistemic_status:
+    confirmed_facts:
+    - statement: >-
+        权威远端 main 与本地 HEAD 均为 8c645b3ddae16dc1fc34626c8a8997364fdf11eb，提交含 r002 汇总结果但不含 coordination/instructions/r002。
+      evidence_ref: results/r002_gr_eqs_method_admission/README.md
+      verified_at: '2026-08-31'
+    - statement: >-
+        r002 evidence_manifest 列出 157 项内部产物，包括 gr_eqs_g1.py、verify_g1.py、sealed scores 和 bootstrap_replicates.parquet，但 Git 中只提交 manifest 与汇总，independent_verification.json 仅有 ok、18 rows、180000 bootstrap rows 和空 errors。
+      evidence_ref: results/r002_gr_eqs_method_admission/evidence_manifest.json
+      verified_at: '2026-08-31'
+    - statement: >-
+        r014 production risk 为 min(le90(pred,GT)/max(delta_0.75(GT_AR),1 degree),3)，其 DIOR-R/A standalone Risk@90 为 0.13847351953158732；r002 同行数同 clusters 的值为 1.551795843850841。
+      evidence_ref: p3_selector/deployable_proxy_r014/reports/unit_results_r014.csv
+      verified_at: '2026-08-31'
+    - statement: >-
+        r002 相对 r014 的 audit row/cluster 还存在 D:+67/+9、E:-239/+2、F:-261/+2 的 universe 差异。
+      evidence_ref: results/r002_gr_eqs_method_admission/g1_unit_metrics.csv
+      verified_at: '2026-08-31'
+    reasonable_inferences:
+    - r002 至少在 risk rows、角度语义、匹配/universe 或 scaling 中有一项与 r014 漂移；当前摘要不足以定位责任属于 code 还是 data。
+    - FAIR1M/SODA-A 的融合 AP 下降可能最终仍足以触发负门，但不能替代对风险主端点的正确复算，也不能治愈证据链缺失。
+    personal_judgments:
+    - 当前应使用 INCONCLUSIVE_R002_RISK_SEMANTICS，而不是接受 KILL_GR_EQS_METHOD 或启动 G2。
+    - 该项目仍只达到中科院 2025 地球科学大类二区 JSTARS 对标，尚无 TGRS 级可靠性方法证据。
+    currently_unverifiable:
+    - manifest 所列内部 code、sealed scores、risk rows 与 180000 bootstrap 是否真实存在且与列出的 SHA-256 一致。
+    - r002 的 pred/GT angle 实际单位、long-side canonicalization、le90、GT AR、delta_0.75、matching 和 risk scaling 的逐行值。
+  cas_2025_venue_assessment:
+    system: CHINESE_ACADEMY_OF_SCIENCES_JOURNAL_PARTITION
+    reference_journal: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing
+    minimum_benchmark: TGRS
+    conclusion: >-
+      当前只有不可独立复算的 G1 汇总且风险语义存在强异常，真实水平仍按地球科学大类二区 JSTARS 对标；距离一区 TGRS 至少缺可验证的正确 G1、正向方法收益与外部泛化。
+    preferred_benchmark: ISPRS JPRS
+    benchmark_zone_label: 二区
+    benchmark_zone: 2
+    edition: 2025_FINAL
+    reference_journal_short_name: JSTARS
+    partition_basis: MAJOR_CATEGORY
+    partition_category: EARTH_SCIENCES
+    partition_source_url: https://www.ablesci.com/journal/detail?id=5NQk7p
+    scope_source_url: https://www.grss-ieee.org/publications/journal-of-selected-topics-in-applied-earth-observations-and-remote-sensing/
+    verified_at: '2026-08-22'
+    project_level: CURRENT_LEVEL_ONLY
+  comparable_papers:
+  - title: Arbitrarily Oriented Object Detection in Remote Sensing Images Based on Improved YOLOv4-CSP
+    venue: JSTARS
+    year: 2022
+    doi_or_url: https://doi.org/10.1109/JSTARS.2022.3214541
+    verified_at: '2026-08-28'
+    comparison: >-
+      该文代表应用导向的遥感旋转检测改进；本项目当前连风险主端点的独立复算条件都未满足，不能上调到更高等级。
+  - title: Oriented Object Detection for Remote Sensing Images via Object-Wise Rotation-Invariant Semantic Representation
+    venue: TGRS
+    year: 2024
+    doi_or_url: https://doi.org/10.1109/TGRS.2024.3402825
+    verified_at: '2026-08-28'
+    comparison: >-
+      该文提供一区对象级旋转不变语义表征对标；GR-EQS 必须在统一风险语义下证明跨 detector、跨数据集的可靠性增益，而不能依赖不可复算汇总。
+  strongest_rejection_case: >-
+    即使审计后程序正确，GR-EQS 仍可能只是已有 equivariance score、几何特征和正则化融合的工程组合；现有汇总显示 DIOR-R 单元方向混合且 FAIR1M/SODA-A 融合 AP 下降，若无稳健正向 G1/G2 与外部泛化，TGRS 审稿人可直接以创新不足、性能负收益和证据不可复现拒稿。
+  model_escalation_recommendation:
+    recommend_higher_model: false
+    reason: 当前问题是边界清楚的风险语义与证据链审计，不需要更高模型重新设计方法。
+    expected_benefit: 当前模型足以冻结四格交叉复算、逐行字段和裁决逻辑。
+    token_cost: LOW
+execution_summary: CPU审计r002风险语义与证据链
+objective: >-
+  在不训练、不推理、不访问新数据且不修改论文的前提下，使用现有 r014/r002 预测与内部证据资产完成 r002 风险语义和证据公开审计；将决定性代码与 compact evidence 提交到 Git，使 B/C 能在项目仓库中独立重算四格、指标、bootstrap 与最终 G1。
+argv:
+- - bash
+  - experiments/r002_risk_semantics_audit/run_r002_audit.sh
+acceptance_argv:
+- - python
+  - experiments/r002_risk_semantics_audit/validate_r002_audit.py
+  - --result
+  - coordination/instructions/r002/evidence/R002_RISK_AUDIT_RESULT.yaml
+  - --manifest
+  - coordination/instructions/r002/evidence/artifact_manifest.yaml
+datasets: []
+resources:
+  cpu_count: 40
+  gpu_count: 0
+  gpu_tier: CPU_ONLY
+  gpu_memory_mib: 0
+  disk_gib: 30
+  max_hours: 8
+configuration_alignment:
+  mode: NON_TRAINING
+  baseline_ref: null
+  baseline_sha256: null
+  preferred_gpu_count: 0
+  planned_gpu_count: 0
+  official_config_refs: []
+  prior_project_config_refs: []
+  official_global_batch_size: null
+  planned_global_batch_size: null
+  per_gpu_batch_size: null
+  gradient_accumulation_steps: null
+  official_optimizer_learning_rate: null
+  planned_optimizer_learning_rate: null
+  deviation_reason: null
+  resource_inventory_policy: DISCOVER_HOST_LOCAL_THEN_OFFICIAL_AND_PROJECT
+execution_scope:
+  repo_write_roots:
+  - experiments/r002_risk_semantics_audit
+  - coordination/instructions/r002/evidence
+  host_write_scopes: []
+  secret_read_scopes: []
+  network_scopes: []
+expected_results:
+- experiments/r002_risk_semantics_audit/run_r002_audit.sh
+- experiments/r002_risk_semantics_audit/run_r002_audit.py
+- experiments/r002_risk_semantics_audit/validate_r002_audit.py
+- experiments/r002_risk_semantics_audit/source_r002/code_provenance.yaml
+- coordination/instructions/r002/evidence/R002_RISK_AUDIT_RESULT.yaml
+- coordination/instructions/r002/evidence/universe_identity.csv
+- coordination/instructions/r002/evidence/risk_rows.parquet
+- coordination/instructions/r002/evidence/compact_scores.parquet
+- coordination/instructions/r002/evidence/cross_recompute_2x2.csv
+- coordination/instructions/r002/evidence/bootstrap_replicates.parquet
+- coordination/instructions/r002/evidence/corrected_g1_unit_metrics.csv
+- coordination/instructions/r002/evidence/corrected_G1_DECISION.json
+- coordination/instructions/r002/evidence/independent_verification.json
+- coordination/instructions/r002/evidence/artifact_manifest.yaml
+acceptance_criteria: >-
+  机器验收不要求科学结果为正，但必须满足以下合取。第一，发布 r002 实际生成与验证代码，至少覆盖 evidence_manifest 中 code/rebuild_tta.py、build_features.py、attach_labels.py、ap_parity.py、gr_eqs_g1.py、fusion_ap.py、finalize_g1.py、verify_g1.py；逐项核对原 bytes/SHA-256。不得向 Git 写入本地绝对路径、账号、token 或机器身份；若原代码含本地路径，只允许字面量路径规范化，并提交逐项变换表、原 SHA-256、规范化 SHA-256，除此之外不得修改。第二，对 A-F 冻结 r014 row-key、ordered row sequence、cluster membership、score ties 和 90% prefix，提交 universe_identity；A-C 必须解释同行数同 clusters 是否逐 key 相同，D-F 必须列出全部 missing/extra/reassigned keys，禁止只比较 count。第三，提交可独立复算的 risk_rows，逐行至少含 unit、row_key、cluster、match identity、pred/GT raw angle、各自单位、canonical long/short/theta、le90 error degrees、GT AR、delta_0.75 degrees、floor、cap、unscaled risk、standalone score；用合成边界例验证 radian/degree、w/h+90°、0/90°、长边交换、le90 和 cap=3。第四，在完全相同 r014 universe 与同一 standalone score 上运行 r014-code/r002-code × r014-data/r002-data 四格；r014-code 必须动态调用 p3_selector/deployable_proxy_r014/scripts/evaluate_eqs_r014.py 的生产路径，r002-code 必须调用公开的实际代码，不得在 validator 中复制公式自证。四格逐 unit 报告 risk distribution、AUGRC、Risk@70、Risk@90、NRC、coverage、tie 行为及逐行差异归因；r014/r014 cell 须在 1e-10 内复现 r014，r002/r002 cell 须说明能否复现 8c645b3 摘要。第五，提交全部 18 个 unit/seed 的 compact scores 和恰好 180000 个 synchronized cluster-bootstrap replicates；独立验证器从 risk_rows 和 scores 重算所有指标、CI、reverse tests 与 gate，不能只返回 ok/count/errors。第六，若确认 r002 bug，必须只用现有预测和已冻结模型输出在 CPU 上重算完整 G1，保留原结果并另存 corrected_g1_unit_metrics 与 corrected decision；若无 bug，必须以逐行和四格证据解释十倍漂移后才可给出 R002_NO_BUG_KILL_REVALIDATED。若代码/资产缺失、哈希不符、row-key 无法对齐或四格不能闭合，结论只能是 INCONCLUSIVE_R002_EVIDENCE_UNAVAILABLE、INCONCLUSIVE_R002_UNIVERSE_MISMATCH 或 INCONCLUSIVE_R002_RISK_SEMANTICS。无论结果为何均不得启动 G2。
+required_permissions:
+- real_experiment
+hard_boundaries:
+- NO_SCIENTIFIC_ROUTE_CHANGE
+- HONOR_USER_STOP
+- NO_SECRET_ACCESS_OUTSIDE_PLAN
+- NO_IRREVERSIBLE_DESTRUCTIVE_ACTION
+- NO_UNAUTHORIZED_RESOURCE_EXPANSION
+- NO_UNAUTHORIZED_EXTERNAL_WRITE
+- CORRECTION_ONLY_CPU_ONLY
+- NO_GPU_USE
+- NO_TRAINING
+- NO_INFERENCE
+- NO_NEW_DATA_OR_DATASET_ACCESS
+- EXISTING_PREDICTIONS_AND_INTERNAL_EVIDENCE_ONLY
+- EXACT_R014_A_TO_F_ROW_KEY_AND_CLUSTER_UNIVERSE
+- DYNAMICALLY_CALL_ACTUAL_R014_AND_R002_PRODUCTION_CODE
+- NO_FORMULA_COPY_IN_VALIDATOR
+- NO_DROP_MASK_IMPUTE_OR_COHORT_SHRINK
+- NO_SUMMARY_ONLY_VERIFICATION
+- NO_LOCAL_PATH_ACCOUNT_TOKEN_OR_MACHINE_ID_IN_GIT
+- PRESERVE_ORIGINAL_R002_RESULT_FILES
+- NO_HRSC2016_OR_RSAR
+- NO_G2_EXECUTION
+- NO_PAPER_OR_CLAIM_MODIFICATION
+- NEGATIVE_OR_INCONCLUSIVE_RESULT_MUST_BE_REPORTED
+execution_followup:
+  mode: NEW_EXPERIMENT
+  prior_instruction_id: null
+  reviewer_role: null
+  evidence_refs: []
+  review_receipt: null
+  review_sha256: null
+  correction_summary: null
+  post_correction_verification_required: false
+  prior_scientific_assessment: null
+  prior_scientific_assessment_sha256: null
+startup_dataset:
+  dataset_id: null
+  mode: NOT_APPLICABLE
+  reason: 本轮仅审计现有 r014/r002 预测、代码与证据，不启动任何数据集推理、训练或新采样。
+run_path: runs/r002
+supervision_path: coordination/supervision/r002/SUPERVISION.yaml
+result_path: coordination/executions/r002/RESULT.yaml
+result_branch: main
