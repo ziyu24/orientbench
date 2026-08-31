@@ -1,0 +1,13 @@
+{
+  "raw_AP50": 0.34476948215511377,
+  "fusion_AP50": 0.2788957936914987,
+  "raw_AP75": 0.2423240129315477,
+  "fusion_AP75": 0.2196226683418611,
+  "raw_mAP": 0.22325296226458122,
+  "fusion_mAP": 0.19419817764135666,
+  "unit": "D",
+  "heldout_dataset": "FAIR1M-v1.0",
+  "seed": 20260831,
+  "score_sha256": "d086fe6885c7762c3dc85ff1dffb6557fb0e57ea30fbf8b55eee44a36f9e0604",
+  "images": 4362
+}

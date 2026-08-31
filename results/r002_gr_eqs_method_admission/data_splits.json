@@ -1,0 +1,23 @@
+{
+  "DIOR-R_test": {
+    "annotation_tree": {
+      "files": 11738,
+      "sha256": "d9b6622f44de0f65321d3b65957d8f5a3799866e4f703eafb82f16b127a8e0ce"
+    },
+    "image_set_sha256": "932b92c5a855d5128d348d2dd8db0031499d773609e25a35f84c8a2a818cff7e"
+  },
+  "FAIR1M-v1.0_val": {
+    "annotation_tree": {
+      "files": 4362,
+      "sha256": "4070c4b9e29ed0b959a1692b8e84efbe76ee393594955c8e2cf93cb04b7ce486"
+    },
+    "image_set_sha256": "352c77a85b426508bd8b26ee12f21bdb73de93a33e4ccc4733b7783bd1550085"
+  },
+  "SODA-A_val_tiled": {
+    "annotation_tree": {
+      "files": 22994,
+      "sha256": "d0d632bd4a53e475afd7486d1ba5d2eb32af7ef5771cf46563f13a00c9fc76bf"
+    },
+    "image_set_sha256": "7bcd00502c40830c88c9f0d6214d891d6c4935697e40ea75814c83ac39a9a182"
+  }
+}
