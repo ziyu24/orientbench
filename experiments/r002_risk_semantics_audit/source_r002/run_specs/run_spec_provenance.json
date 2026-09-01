@@ -1,0 +1,282 @@
+[
+  {
+    "file": "fabric_dior61_views.yaml",
+    "original_bytes": 429,
+    "original_sha256": "ea0ae5d008ee3a2b67d2300a6f42f3f2ccccb409c09f64badb8c4e18bfabf413",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 362,
+    "normalized_sha256": "dedafac733c8a96b4dcbca01d91a916c5be96b07fce5069a25560bf472469f14"
+  },
+  {
+    "file": "fabric_dior_remaining.yaml",
+    "original_bytes": 361,
+    "original_sha256": "c24cf9a24ce4387de5e38c8b0040ca2929ef581d0a4bbe4227851893957fc7e4",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 333,
+    "normalized_sha256": "9786ee638b4dcfaa265f28ee5d702e46cb5f59f386c87724a01f13402bfaae9a"
+  },
+  {
+    "file": "fabric_dior_views.yaml",
+    "original_bytes": 352,
+    "original_sha256": "d910c4517afade30a682a1358528c3b04fb32e87e46b08ea5a8c086af301880a",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 324,
+    "normalized_sha256": "c0263b61339feda8b462d57f7cce03030ea1be16904ba1f9dee7f6353afc1e05"
+  },
+  {
+    "file": "fabric_fair_views.yaml",
+    "original_bytes": 425,
+    "original_sha256": "f01fcde7c66957d71ace0d9f78584269a59b09e04fa65a21a5c945e90b9f8c46",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 358,
+    "normalized_sha256": "db3480b7c33ff4bc32788ea84f07ba1192b4d2c863f75362019492ddb946bb03"
+  },
+  {
+    "file": "fabric_features_dior22.yaml",
+    "original_bytes": 427,
+    "original_sha256": "e8e6db3fabf17dd51f142ba693009b9c845284f3717031a8f8f663c5f0d52503",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 360,
+    "normalized_sha256": "e0a109e6ac6a87b9140836a91c3b6ad6535c75444b5a727169cdc7f5149bd11b"
+  },
+  {
+    "file": "fabric_features_dior3.yaml",
+    "original_bytes": 424,
+    "original_sha256": "1069bcc1fa56b712c7fd8b411e85712a53f6454a3d61f33455c7a2c0e851b2d6",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 357,
+    "normalized_sha256": "e54d740c4f1359b97836cbfa31727ec580e5ec5204ce0f6d28edb17f91dcd550"
+  },
+  {
+    "file": "fabric_features_dior61.yaml",
+    "original_bytes": 425,
+    "original_sha256": "739e283a8b634103d2cb73382f101d3da53b2c398102b62cb220145860634719",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 358,
+    "normalized_sha256": "592cf9617ca88ef201da4abb30d8dd2b5f009f98784e3133e3a1810ca4957dc7"
+  },
+  {
+    "file": "fabric_features_fair.yaml",
+    "original_bytes": 427,
+    "original_sha256": "788be92ba2068f6b893587d6bc5ad2101601855c6e8cdf2ad18edede5dbc6e76",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 360,
+    "normalized_sha256": "177be64b855649f3bf8b177a85ad42d7e872a9e368c1555486e7527276e67fe0"
+  },
+  {
+    "file": "fabric_features_soda23.yaml",
+    "original_bytes": 427,
+    "original_sha256": "c7ee1db20142c6ddce40b6d3d9e6594bd83b68972fbb050eb4753e606be0e6c8",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 360,
+    "normalized_sha256": "fdcc81e834e16310d72f850735974c619b245c888521d7352dbd5392c7782bed"
+  },
+  {
+    "file": "fabric_features_soda4.yaml",
+    "original_bytes": 424,
+    "original_sha256": "925ca452154ca2af2b5798bff702d237ad0f88fa09a09cdf155b4ed2ff88a9a2",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 357,
+    "normalized_sha256": "6a91775c3439c8dcc3d0a49100b5521c07094eaa38e144367bf609f1b6482da1"
+  },
+  {
+    "file": "fabric_g1.yaml",
+    "original_bytes": 415,
+    "original_sha256": "127953bdfcb02dfa36e15099bf5b96bb64c3b6099befc5aa733c5ccd8a6e083f",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 348,
+    "normalized_sha256": "50a38533b8c1a0d0615a31579e213f81955c67c8f05d66399aee3d506935afc4"
+  },
+  {
+    "file": "fabric_g1_ap.yaml",
+    "original_bytes": 340,
+    "original_sha256": "cdaf722ff6eb45bc464c93f01a2716f667fcbf6f57f18de0a8162f08fc1909c9",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 312,
+    "normalized_sha256": "6e4fd0b1fbf1e360011d74da635ec6f83be8e760f2a629b7eb64528bc8ccdc34"
+  },
+  {
+    "file": "fabric_g1_managed_continuation.yaml",
+    "original_bytes": 337,
+    "original_sha256": "0d85f7e29d4b36e83105733d9321fc2e0bba7c000e56dd26b10b112d57960e7c",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 309,
+    "normalized_sha256": "94f3783cde554202497231037b826e553275aa62eac19ac1dc99a0336472820e"
+  },
+  {
+    "file": "fabric_labels_dior22.yaml",
+    "original_bytes": 402,
+    "original_sha256": "43df52ed0a39c591efa9b509cc8fe72ccd283458e61a35d0a600bd9ab3a69f6d",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 335,
+    "normalized_sha256": "13ef79f5d2d84e4702ec418c72900b7448fb3389bafe4a0a8e55f23bd91d6e67"
+  },
+  {
+    "file": "fabric_labels_dior22_v2.yaml",
+    "original_bytes": 403,
+    "original_sha256": "8336d7546f253135d41dbd250467296c443b275e2707d29c8ec990844c76ca5a",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 336,
+    "normalized_sha256": "bc83ed4afec4fa3b524dcf6eec2728a8f575a8657e6bccd1584c13fb9f1cdc41"
+  },
+  {
+    "file": "fabric_labels_dior3.yaml",
+    "original_bytes": 401,
+    "original_sha256": "696aea871b3009c05d1b6dcba2635a07d132580207a2743061833a0b534c481f",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 334,
+    "normalized_sha256": "2151b6e9413ea8082e591e93a79d252a5a73c8c252ca69e6765c437671b86ea7"
+  },
+  {
+    "file": "fabric_labels_dior3_v2.yaml",
+    "original_bytes": 402,
+    "original_sha256": "aaa513fc53e12ebcc14d18a7213526d0ce0cf01d74d994c2d3bf7df09fe47ef9",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 335,
+    "normalized_sha256": "4865e01aac869ee159168d4b7c5c220e507cd0da81ec9fd651b370ff0056f301"
+  },
+  {
+    "file": "fabric_labels_dior61.yaml",
+    "original_bytes": 400,
+    "original_sha256": "a7ebb2f5236906b8ef1b5df008060da7fa6b7c9f64f740823cfeaf1cc76b9206",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 333,
+    "normalized_sha256": "723c0b1f2d731a863487163345ef32a19369eb2753a1d4542f86b5caf647689d"
+  },
+  {
+    "file": "fabric_labels_fair.yaml",
+    "original_bytes": 405,
+    "original_sha256": "3e383156538c17d11ae26f6dee5530bd306a9b446be53833ee99f41b3c9dd329",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 338,
+    "normalized_sha256": "d5fcc3a4fb8d0208220a9692d1a1b8b47066e368254f1fb1169e09475935f3bd"
+  },
+  {
+    "file": "fabric_labels_soda23.yaml",
+    "original_bytes": 402,
+    "original_sha256": "8047fcf0210ab3c1a0d2ab1341d13a6d99118bd539fa247a36b4b221e263a364",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 335,
+    "normalized_sha256": "93c2acbfc43f842c493a575f1d584a422eaae19d5c9a8c2dafd68831bd0a654a"
+  },
+  {
+    "file": "fabric_labels_soda4.yaml",
+    "original_bytes": 399,
+    "original_sha256": "3d5479b5d6eeb1494345825435b7e6e7a86bf898b4a1787ffb4b02aac2ad923a",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 332,
+    "normalized_sha256": "d8e12b03dde60c0d8588e3493d8518e48f68ae5aeb76b9d6cf1371495b2c3bcf"
+  },
+  {
+    "file": "fabric_parity_dior22.yaml",
+    "original_bytes": 391,
+    "original_sha256": "e4f8039955049e68c2b48a3498c368d3824102fe974e3caac38f757105fd9523",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 324,
+    "normalized_sha256": "0932d0c03e36621f54686b074b237a431b4a0b009ef6863ec0e9db82855e6c97"
+  },
+  {
+    "file": "fabric_parity_dior22_v2.yaml",
+    "original_bytes": 392,
+    "original_sha256": "78e9228e6b02283415f1a62e49c199cce73ac572c624a752ed5de251200957d3",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 325,
+    "normalized_sha256": "2864cfd6be50d1d2b638a4fb5386d205481732444eca762b4ad26d2d1bef95cc"
+  },
+  {
+    "file": "fabric_parity_dior3.yaml",
+    "original_bytes": 390,
+    "original_sha256": "64be273a80b586186b775712dc8c319a2d3710fededd95e1fb2e30f2f79fbe95",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 323,
+    "normalized_sha256": "034274fa663fbbe5a78f305a7c055b0397d0b57356109990ba1cc4be79e499b0"
+  },
+  {
+    "file": "fabric_parity_dior3_v2.yaml",
+    "original_bytes": 391,
+    "original_sha256": "a257abac3e9be810a41b55d1ada784c4315545b327d15430672c996af9c6990b",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 324,
+    "normalized_sha256": "750097eb03c59af2eed0c401e18e6a298c4bd3f5244cda6576a5f4bbe2c8e6d1"
+  },
+  {
+    "file": "fabric_parity_dior61.yaml",
+    "original_bytes": 389,
+    "original_sha256": "761b2c5d0ddb08a7d54067e88da47fdd2868f167cae2cf54f12568dd0636dd72",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 322,
+    "normalized_sha256": "5018460cf839b7a843ffe0df0420cf4ae10e20577c3701e95a1d079ab0a5c6e3"
+  },
+  {
+    "file": "fabric_parity_dior61_v2.yaml",
+    "original_bytes": 392,
+    "original_sha256": "0a1aed84990b76fe2b57679470afd0b9aa838794f0f10bf2b140065c62feaf5c",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 325,
+    "normalized_sha256": "ade02e82bcf4265fe5b8f424d4ba572ae9ef6143a6a81d45f056a04876cc1f53"
+  },
+  {
+    "file": "fabric_parity_fair.yaml",
+    "original_bytes": 394,
+    "original_sha256": "5670ea0443a330157a163fb7ed5227ffc475d6b377d1fab5bb2f37b7306bc5ac",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 327,
+    "normalized_sha256": "9c7f2bc0c968e5e5adca52eb741e4173149ae31e3901ee547f63981423d0ddcd"
+  },
+  {
+    "file": "fabric_parity_soda23.yaml",
+    "original_bytes": 391,
+    "original_sha256": "8de80d893f2b44420c6e78af694352e28b492abb72897ae0193a93313ca80895",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 324,
+    "normalized_sha256": "425cc147f515993efa42dc6397d92455a316d6e75c48db95f9f6178a70b60f1a"
+  },
+  {
+    "file": "fabric_parity_soda4.yaml",
+    "original_bytes": 388,
+    "original_sha256": "262d738e5847b31d8fc35d0092261d589f7904576f939f7c03acc1d49d937d20",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 321,
+    "normalized_sha256": "b5649240bb179351ba01a85f11daf8bd23cfda07cec7a650a6ed731cccfa582e"
+  },
+  {
+    "file": "fabric_restore_fair.yaml",
+    "original_bytes": 386,
+    "original_sha256": "6688ebaf22d8ad57e85204c7370e60ee215334c8aec32f183b3abc13561fdcc3",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 319,
+    "normalized_sha256": "76678a60f9d8e1cf03840d355429d774405c7acac2e32e8886506058818fc87d"
+  },
+  {
+    "file": "fabric_restore_fair_annotations.yaml",
+    "original_bytes": 395,
+    "original_sha256": "976abc4db37eb514609b3c3b952adc78deba302c2b28cd1205538810c76f7093",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 328,
+    "normalized_sha256": "3d13654732000e4080b66563e277a92074e793389b416fad11d7d86fe40baa7b"
+  },
+  {
+    "file": "fabric_restore_soda.yaml",
+    "original_bytes": 386,
+    "original_sha256": "8b01d61cbba4525d1f7bd88ec09446e3ea755fa6454e7d3817f67286fbffa504",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 319,
+    "normalized_sha256": "cb6d3ba3f8d1fd66b9d4570d142792776ac97d033f60f9d7358842c93deda0e1"
+  },
+  {
+    "file": "fabric_soda4_continuation.yaml",
+    "original_bytes": 343,
+    "original_sha256": "f2f8e29f39ba88af1d22fc547c381178c9d218f185cdad8a6ac13c2adc838e3a",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 315,
+    "normalized_sha256": "193a42952a5f45414b0d314ee988a5538044f6d88a4f12c5b73164ffce6a6aae"
+  },
+  {
+    "file": "fabric_soda_views.yaml",
+    "original_bytes": 352,
+    "original_sha256": "6ee1603439c25461796da6f545e351b643736b5d51166d6986a3353ae91764f8",
+    "normalization": "literal local-path substitution only",
+    "normalized_bytes": 324,
+    "normalized_sha256": "8a79e0d8d220e0c5fbc568505a2823164b96076f7a3417c0c311b6c314ce1f77"
+  }
+]

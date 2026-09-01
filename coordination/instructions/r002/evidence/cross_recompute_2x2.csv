@@ -1,0 +1,5 @@
+cell,r014_code_dynamic_imported,r002_code_dynamic_imported,status,reason,units
+r014_code__r014_data,True,True,UNAVAILABLE_R014_RAW_ASSETS,r014_runtime_bundle;r014_matched_fullval_bundle,"A,B,C,D,E,F"
+r014_code__r002_data,True,True,UNAVAILABLE_R014_RAW_ASSETS,r014_runtime_bundle;r014_matched_fullval_bundle,"A,B,C,D,E,F"
+r002_code__r014_data,True,True,UNAVAILABLE_R014_RAW_ASSETS,r014_runtime_bundle;r014_matched_fullval_bundle,"A,B,C,D,E,F"
+r002_code__r002_data,True,True,ORIGINAL_R002_SUMMARY_AVAILABLE_ONLY,production r002 summary is retained; corrected CPU recomputation is separately reported,"A,B,C,D,E,F"

@@ -1,0 +1,201 @@
+schema_version: 1
+decision: INCONCLUSIVE_R002_EVIDENCE_UNAVAILABLE
+artifacts:
+  - path: coordination/instructions/r002/evidence/R002_RISK_AUDIT_RESULT.yaml
+    bytes: 336
+    sha256: 9ba29668a12eab1ecba965f2fdbe751eaa30a4e6475587d51a264b850da14346
+  - path: coordination/instructions/r002/evidence/bootstrap_replicates.parquet
+    bytes: 5859700
+    sha256: 282ac604fef6393c1f28fb252e8dd8d311d69de91d1491de19968f0f679207ea
+  - path: coordination/instructions/r002/evidence/compact_scores.parquet
+    bytes: 21681849
+    sha256: 968b26d0a962557dfcc00ebfdfa49fc3f55892626c77afefe785127cc7a4691e
+  - path: coordination/instructions/r002/evidence/corrected_G1_DECISION.json
+    bytes: 1050
+    sha256: a58254e4c570e27602ae1d8829afa716fea45f7e0aeb1ea965366688a36408e2
+  - path: coordination/instructions/r002/evidence/corrected_g1_unit_metrics.csv
+    bytes: 5685
+    sha256: a160b0759067b0bdea9cf309198ccbc7ca2d6945b2dd6cfba4ba3f0196f4c391
+  - path: coordination/instructions/r002/evidence/corrected_g1_unit_metrics_preliminary.csv
+    bytes: 1428
+    sha256: bd36ecef29d82c91d914f44a4a8abbad3b9f5d23bbb1f7e6255073f3a918f6e7
+  - path: coordination/instructions/r002/evidence/cross_recompute_2x2.csv
+    bytes: 612
+    sha256: 8742e316db4608169e424369d031e6c684f0181b508acaed01b1496c69ff6d30
+  - path: coordination/instructions/r002/evidence/independent_verification.json
+    bytes: 1864
+    sha256: 7c6358750523cbc7a86cd66968e5cc83d90fddcff6f5c3dc1b957442fbcb861d
+  - path: coordination/instructions/r002/evidence/risk_rows.parquet
+    bytes: 89348714
+    sha256: 9e3893ca56bfdd7bbc93ea9063a0fc29addc566bd5d038255dd90cfcd1a44621
+  - path: coordination/instructions/r002/evidence/universe_identity.csv
+    bytes: 45195750
+    sha256: a3e0cb747c00deee69d88b959926b84969a1fb6f80be8cf52bdc1ecd4347422b
+  - path: coordination/instructions/r002/evidence/universe_identity_preliminary.csv
+    bytes: 27797906
+    sha256: 1a7dcfb840419ae02bede43e25ed6b377cd2e100c0bd48f2803b6767d7b326d6
+  - path: coordination/instructions/r002/evidence/universe_identity_summary.csv
+    bytes: 475
+    sha256: 259e2fdab3220acb83bfd43ec7710c1f883fb6b8de4bb201cf1c3748fe47f348
+  - path: experiments/r002_risk_semantics_audit/annotate_original_risk.py
+    bytes: 716
+    sha256: 64d0a18d60099e655cc85b402f4c9c4a89c976b712f1d99a76aaa4ba84a29527
+  - path: experiments/r002_risk_semantics_audit/cross_recompute.py
+    bytes: 1400
+    sha256: c21ea064d38380c2a27add938ee3c208c816c8635e7dde4db15f63fd57e80fdd
+  - path: experiments/r002_risk_semantics_audit/finalize_correction.py
+    bytes: 1329
+    sha256: f826ca89e7f6ac8b16472c8ab6d1438f6d3be2d15bfea266818c0921bdf54b9d
+  - path: experiments/r002_risk_semantics_audit/package_compact_scores.py
+    bytes: 896
+    sha256: 754c062f5ada08d5e1bf86d2b1ed9177295331bb66d791926aa224d4184a75bc
+  - path: experiments/r002_risk_semantics_audit/run_package_compact.sh
+    bytes: 145
+    sha256: db3e59d1781697b550929daf66b9d2f14529520574e0df94368e6837112e1ca8
+  - path: experiments/r002_risk_semantics_audit/run_r002_audit.py
+    bytes: 6912
+    sha256: 9c45726fb21635747a03278737d241fc453ad1a4dc68c93ecc46fa85b8800246
+  - path: experiments/r002_risk_semantics_audit/run_r002_audit.sh
+    bytes: 401
+    sha256: 7021826208c1a280fc2039c10a81dbff9aa4e3bd3e628217a262c810493aef2b
+  - path: experiments/r002_risk_semantics_audit/source_r002/ap_parity.py
+    bytes: 4878
+    sha256: ab67d28763c98e2092b79fad089929d34c654966c3cd6e29507437ef6b1c6992
+  - path: experiments/r002_risk_semantics_audit/source_r002/attach_labels.py
+    bytes: 8389
+    sha256: 0c92c77babdfd7e975fe59f4819c86e8a1e17e094956c9e54dfb1b35a61881a9
+  - path: experiments/r002_risk_semantics_audit/source_r002/build_features.py
+    bytes: 12579
+    sha256: 19bcd1f5183d32a009eb24517438ceade876c3d15b1b825965c3dee8d5644a9e
+  - path: experiments/r002_risk_semantics_audit/source_r002/code_provenance.json
+    bytes: 2734
+    sha256: 7c9bb927fa7f49042e74e661086e736d451eab3d6eaed688c8a80e79580e144a
+  - path: experiments/r002_risk_semantics_audit/source_r002/finalize_g1.py
+    bytes: 2112
+    sha256: fb5bbfffa8acce9d3c1b345aa3ec8cbfb1658e46cccac276abe868a03027ca0a
+  - path: experiments/r002_risk_semantics_audit/source_r002/fusion_ap.py
+    bytes: 6933
+    sha256: 278b72fc0005d2f5f9b4105fdb2325125e82391fc7ace60d6f1f536100c46c71
+  - path: experiments/r002_risk_semantics_audit/source_r002/gr_eqs_g1.py
+    bytes: 10005
+    sha256: 7a69b2a41976536e14ff6417d6ae2e08bd29485459e717f228803dddb8e3815a
+  - path: experiments/r002_risk_semantics_audit/source_r002/rebuild_tta.py
+    bytes: 18010
+    sha256: a64d0bf55cbc78e72ce2618675a5d434ea53430fc13fc57954851c03a18e11a9
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_dior61_views.yaml
+    bytes: 362
+    sha256: dedafac733c8a96b4dcbca01d91a916c5be96b07fce5069a25560bf472469f14
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_dior_remaining.yaml
+    bytes: 333
+    sha256: 9786ee638b4dcfaa265f28ee5d702e46cb5f59f386c87724a01f13402bfaae9a
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_dior_views.yaml
+    bytes: 324
+    sha256: c0263b61339feda8b462d57f7cce03030ea1be16904ba1f9dee7f6353afc1e05
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_fair_views.yaml
+    bytes: 358
+    sha256: db3480b7c33ff4bc32788ea84f07ba1192b4d2c863f75362019492ddb946bb03
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_features_dior22.yaml
+    bytes: 360
+    sha256: e0a109e6ac6a87b9140836a91c3b6ad6535c75444b5a727169cdc7f5149bd11b
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_features_dior3.yaml
+    bytes: 357
+    sha256: e54d740c4f1359b97836cbfa31727ec580e5ec5204ce0f6d28edb17f91dcd550
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_features_dior61.yaml
+    bytes: 358
+    sha256: 592cf9617ca88ef201da4abb30d8dd2b5f009f98784e3133e3a1810ca4957dc7
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_features_fair.yaml
+    bytes: 360
+    sha256: 177be64b855649f3bf8b177a85ad42d7e872a9e368c1555486e7527276e67fe0
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_features_soda23.yaml
+    bytes: 360
+    sha256: fdcc81e834e16310d72f850735974c619b245c888521d7352dbd5392c7782bed
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_features_soda4.yaml
+    bytes: 357
+    sha256: 6a91775c3439c8dcc3d0a49100b5521c07094eaa38e144367bf609f1b6482da1
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_g1.yaml
+    bytes: 348
+    sha256: 50a38533b8c1a0d0615a31579e213f81955c67c8f05d66399aee3d506935afc4
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_g1_ap.yaml
+    bytes: 312
+    sha256: 6e4fd0b1fbf1e360011d74da635ec6f83be8e760f2a629b7eb64528bc8ccdc34
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_g1_managed_continuation.yaml
+    bytes: 309
+    sha256: 94f3783cde554202497231037b826e553275aa62eac19ac1dc99a0336472820e
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_dior22.yaml
+    bytes: 335
+    sha256: 13ef79f5d2d84e4702ec418c72900b7448fb3389bafe4a0a8e55f23bd91d6e67
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_dior22_v2.yaml
+    bytes: 336
+    sha256: bc83ed4afec4fa3b524dcf6eec2728a8f575a8657e6bccd1584c13fb9f1cdc41
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_dior3.yaml
+    bytes: 334
+    sha256: 2151b6e9413ea8082e591e93a79d252a5a73c8c252ca69e6765c437671b86ea7
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_dior3_v2.yaml
+    bytes: 335
+    sha256: 4865e01aac869ee159168d4b7c5c220e507cd0da81ec9fd651b370ff0056f301
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_dior61.yaml
+    bytes: 333
+    sha256: 723c0b1f2d731a863487163345ef32a19369eb2753a1d4542f86b5caf647689d
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_fair.yaml
+    bytes: 338
+    sha256: d5fcc3a4fb8d0208220a9692d1a1b8b47066e368254f1fb1169e09475935f3bd
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_soda23.yaml
+    bytes: 335
+    sha256: 93c2acbfc43f842c493a575f1d584a422eaae19d5c9a8c2dafd68831bd0a654a
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_labels_soda4.yaml
+    bytes: 332
+    sha256: d8e12b03dde60c0d8588e3493d8518e48f68ae5aeb76b9d6cf1371495b2c3bcf
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_dior22.yaml
+    bytes: 324
+    sha256: 0932d0c03e36621f54686b074b237a431b4a0b009ef6863ec0e9db82855e6c97
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_dior22_v2.yaml
+    bytes: 325
+    sha256: 2864cfd6be50d1d2b638a4fb5386d205481732444eca762b4ad26d2d1bef95cc
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_dior3.yaml
+    bytes: 323
+    sha256: 034274fa663fbbe5a78f305a7c055b0397d0b57356109990ba1cc4be79e499b0
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_dior3_v2.yaml
+    bytes: 324
+    sha256: 750097eb03c59af2eed0c401e18e6a298c4bd3f5244cda6576a5f4bbe2c8e6d1
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_dior61.yaml
+    bytes: 322
+    sha256: 5018460cf839b7a843ffe0df0420cf4ae10e20577c3701e95a1d079ab0a5c6e3
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_dior61_v2.yaml
+    bytes: 325
+    sha256: ade02e82bcf4265fe5b8f424d4ba572ae9ef6143a6a81d45f056a04876cc1f53
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_fair.yaml
+    bytes: 327
+    sha256: 9c7f2bc0c968e5e5adca52eb741e4173149ae31e3901ee547f63981423d0ddcd
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_soda23.yaml
+    bytes: 324
+    sha256: 425cc147f515993efa42dc6397d92455a316d6e75c48db95f9f6178a70b60f1a
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_parity_soda4.yaml
+    bytes: 321
+    sha256: b5649240bb179351ba01a85f11daf8bd23cfda07cec7a650a6ed731cccfa582e
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_restore_fair.yaml
+    bytes: 319
+    sha256: 76678a60f9d8e1cf03840d355429d774405c7acac2e32e8886506058818fc87d
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_restore_fair_annotations.yaml
+    bytes: 328
+    sha256: 3d13654732000e4080b66563e277a92074e793389b416fad11d7d86fe40baa7b
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_restore_soda.yaml
+    bytes: 319
+    sha256: cb6d3ba3f8d1fd66b9d4570d142792776ac97d033f60f9d7358842c93deda0e1
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_soda4_continuation.yaml
+    bytes: 315
+    sha256: 193a42952a5f45414b0d314ee988a5538044f6d88a4f12c5b73164ffce6a6aae
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/fabric_soda_views.yaml
+    bytes: 324
+    sha256: 8a79e0d8d220e0c5fbc568505a2823164b96076f7a3417c0c311b6c314ce1f77
+  - path: experiments/r002_risk_semantics_audit/source_r002/run_specs/run_spec_provenance.json
+    bytes: 12262
+    sha256: fc2c4d34c7e4b9b86b6813de60d1902e38d4518cd339c58dd3e22762e176f05d
+  - path: experiments/r002_risk_semantics_audit/source_r002/verify_g1.py
+    bytes: 3127
+    sha256: 0bbd6df49671d8fa3e90ca666dfd4a13f1c2f8655e865a1bbfab908234a633ae
+  - path: experiments/r002_risk_semantics_audit/validate_r002_audit.py
+    bytes: 3137
+    sha256: 435c3aa225d6157a4953d7ac3b47836a6e165b1fb1b87bcf877e43dc6a47916d
+  - path: experiments/r002_risk_semantics_audit/write_result.py
+    bytes: 1351
+    sha256: 2c6f499236c5d3c9e151f52b80834a6a10b2e414c78d94c6296a91baf3b48376
