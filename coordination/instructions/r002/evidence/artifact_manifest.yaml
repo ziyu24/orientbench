@@ -16,9 +16,6 @@ artifacts:
   - path: coordination/instructions/r002/evidence/corrected_g1_unit_metrics.csv
     bytes: 5685
     sha256: a160b0759067b0bdea9cf309198ccbc7ca2d6945b2dd6cfba4ba3f0196f4c391
-  - path: coordination/instructions/r002/evidence/corrected_g1_unit_metrics_preliminary.csv
-    bytes: 1428
-    sha256: bd36ecef29d82c91d914f44a4a8abbad3b9f5d23bbb1f7e6255073f3a918f6e7
   - path: coordination/instructions/r002/evidence/cross_recompute_2x2.csv
     bytes: 612
     sha256: 8742e316db4608169e424369d031e6c684f0181b508acaed01b1496c69ff6d30
@@ -31,9 +28,6 @@ artifacts:
   - path: coordination/instructions/r002/evidence/universe_identity.csv
     bytes: 45195750
     sha256: a3e0cb747c00deee69d88b959926b84969a1fb6f80be8cf52bdc1ecd4347422b
-  - path: coordination/instructions/r002/evidence/universe_identity_preliminary.csv
-    bytes: 27797906
-    sha256: 1a7dcfb840419ae02bede43e25ed6b377cd2e100c0bd48f2803b6767d7b326d6
   - path: coordination/instructions/r002/evidence/universe_identity_summary.csv
     bytes: 475
     sha256: 259e2fdab3220acb83bfd43ec7710c1f883fb6b8de4bb201cf1c3748fe47f348
