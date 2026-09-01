@@ -27,7 +27,7 @@ artifacts:
     sha256: 9e3893ca56bfdd7bbc93ea9063a0fc29addc566bd5d038255dd90cfcd1a44621
   - path: coordination/instructions/r002/evidence/universe_identity.csv
     bytes: 45195750
-    sha256: a3e0cb747c00deee69d88b959926b84969a1fb6f80be8cf52bdc1ecd4347422b
+    sha256: 62b3ae34838156b19d74c3ccac45b6b82520d842938f62fefcb94b96ba3c2990
   - path: coordination/instructions/r002/evidence/universe_identity_summary.csv
     bytes: 475
     sha256: 259e2fdab3220acb83bfd43ec7710c1f883fb6b8de4bb201cf1c3748fe47f348
@@ -188,8 +188,8 @@ artifacts:
     bytes: 3127
     sha256: 0bbd6df49671d8fa3e90ca666dfd4a13f1c2f8655e865a1bbfab908234a633ae
   - path: experiments/r002_risk_semantics_audit/validate_r002_audit.py
-    bytes: 3137
-    sha256: 435c3aa225d6157a4953d7ac3b47836a6e165b1fb1b87bcf877e43dc6a47916d
+    bytes: 10004
+    sha256: 8973ff05e9b04584f57f345fa15ef4952127f1ec78e0211cf0d25779a36d9f9e
   - path: experiments/r002_risk_semantics_audit/write_result.py
     bytes: 1351
     sha256: 2c6f499236c5d3c9e151f52b80834a6a10b2e414c78d94c6296a91baf3b48376

@@ -1,0 +1,8 @@
+schema_version: 1
+instruction_id: r002
+run_id: r002-evidence-closeout-repair-v4
+plan_path: coordination/instructions/r002/SERVER_PLAN.yaml
+status: FAILED_ACCEPTANCE
+cpu_only: true
+gpu_count: 0
+validation_report: coordination/executions/r002/VALIDATION.json

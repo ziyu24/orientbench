@@ -1,0 +1,75 @@
+schema_version: 1
+status: RECOVERED_AND_RECOMPUTED
+purpose: >-
+  Record the FAIR1M r002 annotation recovery performed from the archived
+  producer semantics and distinguish its declared frozen contract from the
+  inconsistent historical D label table.
+authoritative_contract:
+  dataset: FAIR1M-v1.0_val
+  source: results/r002_gr_eqs_method_admission/data_splits.json
+  annotation_tree:
+    files: 4362
+    sha256: 4070c4b9e29ed0b959a1692b8e84efbe76ee393594955c8e2cf93cb04b7ce486
+  image_set_sha256: 352c77a85b426508bd8b26ee12f21bdb73de93a33e4ccc4733b7783bd1550085
+recovery:
+  producer: experiments/r002_risk_semantics_audit/materialize_fair1m_r002_annotations.py
+  archived_producer_reference: outputs/persistent_artifacts/orientbench_r002_execution_archive/original_execution_source/restore_fair_annotations.py
+  output: outputs/persistent_artifacts/orientbench_r002_execution_archive/regenerated_val_annfiles_r002
+  annotation_files: 4362
+  annotation_objects: 79155
+  difficulty_zero_objects: 78644
+  difficulty_one_objects: 511
+  difficulty_semantics: retained_source_polygon_area_at_least_0.7_is_0_else_1
+  observed_tree_sha256: 4070c4b9e29ed0b959a1692b8e84efbe76ee393594955c8e2cf93cb04b7ce486
+  contract_match: true
+  independent_verification:
+    execution: r002-verify-fair-annotation-recovery-v1
+    cpu_only: true
+    exit_code: 0
+    state: COMPLETE
+recompute:
+  execution: r002-full-correction-recompute-v6
+  cpu_only: true
+  exit_code: 0
+  state: COMPLETE
+  fair1m_d_audit:
+    rows: 15148
+    clusters: 1222
+    risk_at_90: 0.19503076628524418
+    key_set_matches_corrected_risk_rows: true
+legacy_label_conflict:
+  source: outputs/persistent_artifacts/orientbench_r002_execution_archive/original_runtime/labels/D.parquet
+  d_audit_rows: 15199
+  d_audit_clusters: 1231
+  recovered_contract_rows: 15148
+  recovered_contract_clusters: 1222
+  recovered_rows_are_subset_of_legacy_labels: true
+  legacy_only_rows: 51
+  interpretation: >-
+    The historical label table cannot simultaneously be the source-derived
+    annotation contract: the recovered tree exactly matches the published
+    data-splits digest, while its difficulty-zero matching universe is 51 rows
+    smaller. This evidence does not silently replace the frozen-universe
+    acceptance criterion; it records an unresolved provenance conflict for
+    adjudication.
+  producer_replay:
+    source: experiments/r002_risk_semantics_audit/source_r002/attach_labels.py
+    recovered_tree_rows: 31818
+    recovered_tree_d_audit_rows: 15148
+    historical_label_rows: 31927
+    historical_label_d_audit_rows: 15199
+    historical_only_matches: 109
+    historical_only_d_audit_matches: 51
+    current_tree_gt_candidates_matching_historical_iou_ar_and_angle: 0
+  conclusion: >-
+    The archived historical label table was produced after a successful
+    FAIR1M annotation-recovery run, but its extra matches cannot be replayed
+    from the surviving tree even by the archived production label code. The
+    missing input is the historical GT geometry version (or its exact runtime
+    conversion dependency), not a recoverable row-order or difficulty-mask
+    choice.
+acceptance_effect: >-
+  The FAIR1M input-tree absence is resolved. Formal r002 acceptance remains
+  inconclusive until the plan's original-D-universe requirement is reconciled
+  with the declared annotation-tree contract and the independent validator's
+  other outstanding checks.
