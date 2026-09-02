@@ -1,0 +1,11 @@
+{
+  "base_config_sha256": "3264494d608643a8922f11466a9316c5f866b49f51246a83d39e47a136bb84ac",
+  "checkpoint": "/home/rspip/cqc/study/pth_data/baseline_rotated_rtmdet_m_fpn_9x_le90/HRSC_trainval_test/best_mAP_9065_epoch_32.pth",
+  "checkpoint_sha256": "f56d1d6a119321269864ab6ad03eb2db84dbb68f161488f0e378288bad6e73b9",
+  "corruption": "clean",
+  "dose": 0.0,
+  "images": 617,
+  "model": "rotated_rtmdet_m",
+  "runtime_config": "runs/r004/inference/trainval/rotated_rtmdet_m/clean/runtime_config.py",
+  "split": "trainval"
+}
