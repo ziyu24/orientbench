@@ -1,3 +1,0 @@
-condition,status,evidence,blocking,required_action
-PREFLIGHT,FAIL,"machine_failures=['one-click command whitelist/no K2-training-inference rerun', 'stratified mutually-blind dual-task machine package']",True,"resolve failed persisted-input or frozen-asset checks, then rerun"
-FINAL,NOT_FROZEN,"preflight_only; blockers=['one-click command whitelist/no K2-training-inference rerun', 'stratified mutually-blind dual-task machine package']",True,run the complete one-click chain after preflight passes

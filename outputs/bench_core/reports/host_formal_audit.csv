@@ -1,3 +1,0 @@
-host,route,block,dataset,val_mAP,n_detections,schema_valid,dcal_n_used,dcal_median_orient_err_deg,dcal_Risk@90,dcal_NRC_AUC,audit_n_used,audit_median_orient_err_deg,audit_Risk@90,audit_NRC_AUC,gate_orientation_reliability,angle_version,near_square_masked,metric_version,not_formal_full_C1_A4
-RHINO,C1/B,B_C1,DOTA-v1.0,0.7201,300000,300000,9848,1.518,2.0134,0.7806,9309,1.524,2.0866,0.7625,PASS,le90_longside_canonical,True,orientation_risk_v1,True
-O2-RTDETR,A4,A_A4,DOTA-v1.5,0.6497,180000,180000,13327,1.772,2.2752,0.5561,13286,1.77,2.3903,0.5488,PASS,le90_longside_canonical,True,orientation_risk_v1,True

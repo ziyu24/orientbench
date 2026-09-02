@@ -1,6 +1,0 @@
-sequence,timestamp,task,action,status,evidence,scientific_asset_read
-1,2026-08-13T22:46:08-07:00,T0,"Synchronize main and resolve post-pull HEAD",COMPLETE,"post_pull_head=98443feb40d786fb7eb8faf8f36444496fe6b2c5",false
-2,2026-08-13T22:47:00-07:00,T0,"Read governance, active plan, coordination, server role, worker registry",COMPLETE,"plan_sha256=5b95da060237d5dc37d77996483c2c7d8e4e0a1b2666e3d6543ecce0bb60d6d4",false
-3,2026-08-13T22:51:02-07:00,T0,"Read pth_data/readme.md and evaluate G0",EARLY_STOP,"worktree_clean=false; index_clean=true; untracked_path_count=6",false
-4,2026-08-13T22:51:02-07:00,T1-T5,"Prohibited after G0 early stop",NOT_RUN,"No source inventory, field matrix, joins, annotation inventory, DOTA replay, or readiness adjudication",false
-5,2026-08-13T22:51:02-07:00,VALIDATION,"Record and independently validate gated-early-stop evidence",COMPLETE,"validation_r031.json",false

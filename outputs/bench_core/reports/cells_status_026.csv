@@ -1,6 +1,0 @@
-cell,ckpt_load,inference,reason
-ARS-DETR cross-dataset,OK missing=0,blocked_runtime,worker crash-loop; DOTA works(025)
-Strip cross-dataset #47,OK missing=2/384,blocked_runtime,worker stall; ckpt proven
-point2rbox,n/a,blocked_upstream_artifact_unavailable,ted.pth empty/9B/401 all sources; weak_nonformal
-HRSC angle,n/a,resolved_with_evidence,mbox_ang direct le90 + mAP 0.906
-training,n/a,no_training_needed,all cells have matching ckpt

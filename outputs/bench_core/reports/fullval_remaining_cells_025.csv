@@ -1,9 +1,0 @@
-dataset,baseline_id,detector,n_used,NRC_AUC,status
-DIOR-R,22,rotated_retinanet_psc,23362,0.5494,fullval_done
-DIOR-R,61,rotated_rtmdet_s,28583,0.4274,fullval_done
-DIOR-R,10,oriented_rcnn_lsknet,29363,0.5294,fullval_done
-FAIR1M-v1.0,24,rotated_retinanet_psc,32100,1.0825,fullval_done
-FAIR1M-v1.0,12,oriented_rcnn_lsknet,53400,0.8256,fullval_done
-SODA-A,23,rotated_retinanet_psc,224991,1.2596,fullval_done
-SODA-A,11,oriented_rcnn_lsknet,273498,0.7632,fullval_done
-DOTA-v1.0,14,ars_detr,194,1.2012,exploratory_done

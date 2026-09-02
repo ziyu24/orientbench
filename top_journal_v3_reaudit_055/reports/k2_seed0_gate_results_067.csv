@@ -1,8 +1,0 @@
-run_id,head,dataset,seed0_status,seed0_ap50,usable_convergence
-K2_final__PSC__DIOR-R__seed0,PSC,DIOR-R,complete,0.534,True
-K2_final__PSC__SODA-A__seed0,PSC,SODA-A,complete,0.598,True
-K2_final__CSL__DIOR-R__seed0,CSL,DIOR-R,complete,0.315,True
-K2_final__CSL__SODA-A__seed0,CSL,SODA-A,complete,0.318,True
-K2_final__DCL__DIOR-R__seed0,DCL,DIOR-R,complete,0.423,True
-K2_final__DCL__SODA-A__seed0,DCL,SODA-A,complete,0.541,True
-K2_final__direct_regression_le90__SODA-A__seed0,direct_regression_le90,SODA-A,failed_training,,False

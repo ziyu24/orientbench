@@ -1,3 +1,0 @@
-run_id,amp_mode,status,ap50,decision
-K2_pilot__direct_regression_le90__DIOR-R__lr0.0025,amp,nan,,nan
-K2_pilot__direct_regression_le90__DIOR-R__lr0.0025,fp32_fallback,nan,,nan

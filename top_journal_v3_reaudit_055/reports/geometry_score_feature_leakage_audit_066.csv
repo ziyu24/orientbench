@@ -1,5 +1,0 @@
-feature,pred_time_available,depends_on_GT,depends_on_target_domain,used_in_fit,note
-detection_score,yes,no,no(input),yes(feature),"detector confidence, always available"
-log(aspect_ratio),yes,no,no(input),yes(feature),from predicted box w/h
-log(sqrt(size)),yes,no,no(input),yes(feature),from predicted box area
-[TRAINING TARGET] angle_error,NO,YES,YES(D_cal GT),yes(regression target),"LEAKAGE: model fit on target-domain GT angle error -> calibration/upper-bound, NOT deployable as-is"

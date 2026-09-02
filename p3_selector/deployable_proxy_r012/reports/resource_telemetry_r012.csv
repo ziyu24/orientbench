@@ -1,3 +1,0 @@
-phase,wall_seconds,cpu_percent,max_rss_bytes,gpu_forward_count,worker_count,status
-A0_provenance,60.03,105,1098461184,0,1,COMPLETED
-downstream,0,0,0,0,0,NOT_RUN_PROVENANCE_GATE

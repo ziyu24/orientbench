@@ -1,8 +1,0 @@
-dataset,split,status,n_objects,mean_roundtrip_iou,frac_iou_ge_0.99,theta_min,theta_max,in_le90_range,ang_in_le90_range,mean_hbb_W_relerr,mean_hbb_H_relerr,hbb_crosscheck_consistent,evidence
-DOTA-v1.0,train,resolved_with_evidence,196,0.92163,0.0,-1.5708,-0.0171,True,,,,,"poly->obb->poly round-trip IoU + theta range [-pi/2,pi/2)"
-DOTA-v1.5,train,resolved_with_evidence,556,0.91581,0.0126,-1.5708,-0.0171,True,,,,,"poly->obb->poly round-trip IoU + theta range [-pi/2,pi/2)"
-DIOR-R,trainval,resolved_with_evidence,285,0.99538,0.8772,-1.5708,-0.0035,True,,,,,"poly->obb->poly round-trip IoU + theta range [-pi/2,pi/2)"
-FAIR1M-v1.0,train,resolved_with_evidence,646,0.96138,0.2245,-1.5708,-0.0333,True,,,,,"poly->obb->poly round-trip IoU + theta range [-pi/2,pi/2)"
-HRSC2016,trainval,uncertain,177,,,,,,True,0.0938,0.1176,False,mbox_ang range + OBB-HBB extent vs annotated box_* (loose -> inconclusive)
-Bench-Core minAreaRect,n/a,resolved_with_evidence,,,,,,,,,,,"le90 [-pi/2,pi/2) normalization round-trips on poly datasets"
-prediction theta unit,n/a,uncertain,,,,,,,,,,,no real detector prediction ingested yet

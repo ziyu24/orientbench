@@ -1,7 +1,0 @@
-candidate_id,dataset,host,variant,checkpoint_count,full_split,provenance_clean,involved_in_B1_B3,native_phase_vectors,three_seed_ready,can_recompute,status,reason
-pth20,DOTA-v1.0,RotatedRetinaNet,PSCD-1x,1,true,true,true,true,false,true,REJECTED_DEVELOPMENT_HOST,Same detector host and coding structure used to motivate the mechanism
-pth27,DOTA-v1.0,RotatedRetinaNet,PSCD-loadfrom-24e,1,true,true,false,true,false,true,REJECTED_NOT_STRUCTURALLY_EXTERNAL,Schedule/load-from change only and no three-seed block
-pth21,DOTA-v1.5,RotatedRetinaNet,PSCD-MS,1,true,false,false,true,false,true,REJECTED_INVALID,Historical baseline registry marks this artifact invalid
-official_fcos,DOTA-v1.0,RotatedFCOS,PSCD-official-public,1,false,true,false,true,false,true,REJECTED_SPLIT_AND_SEEDS,Public trainval/test lineage and one seed do not satisfy project train-to-val confirmation
-b4_fcos_local,DOTA-v1.0,RotatedFCOS,PSCD-official-config-local-train-val,0,true,true,false,true,false,true,SELECTED_FOR_THREE_SEED_TRAINING,New host not used in candidate design; official frozen PSCD frequency configuration
-

@@ -1,4 +1,0 @@
-dataset,baseline_id,detector,n_pred,n_used,median_orient_err_deg,Risk@90,NRC_AUC,formal_scope
-DIOR-R,16,ars_detr,40668,33,4.264,5.1924,0.9985,cross_dataset_exploratory
-FAIR1M-v1.0,18,ars_detr,,,,,,
-SODA-A,17,ars_detr,,,,,,

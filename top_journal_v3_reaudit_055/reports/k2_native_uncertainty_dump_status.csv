@@ -1,7 +1,0 @@
-head,dataset,native_signal,emitted,n_seeds_with_native
-CSL,DIOR-R,softmax_margin,yes,3
-CSL,SODA-A,softmax_margin,yes,3
-DCL,DIOR-R,softmax_margin,yes,3
-DCL,SODA-A,softmax_margin,yes,3
-PSC,DIOR-R,phase_mod,yes,3
-PSC,SODA-A,phase_mod,yes,3

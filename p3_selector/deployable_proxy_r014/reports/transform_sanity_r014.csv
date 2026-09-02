@@ -1,3 +1,0 @@
-test,samples,direction,min_iou,max_angle_deg,status
-synthetic_50_horizontal,50,horizontal,1.0,0.0,PASS
-synthetic_50_vertical,50,vertical,1.0,0.0,PASS

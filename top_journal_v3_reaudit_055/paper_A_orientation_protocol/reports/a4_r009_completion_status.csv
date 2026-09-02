@@ -1,9 +1,0 @@
-component,status,evidence,notes
-provenance,PASS_PROVENANCE_R009,a4_raw_prediction_inventory_r009.csv,Core-6 full-validation identities READY
-positive_track,PASS,a4_fixed_dose_positive_r009.csv,6 units x 8 doses
-gt_directed_track,PASS,a4_fixed_dose_gt_directed_r009.csv,diagnostic upper-bound track
-symmetric_track,PASS,a4_fixed_dose_symmetric_r009.csv,positive/negative dose average
-risk_event,PASS,a4_risk_event_r009.csv,192 rows with ar bins and severe-event rates
-cluster_bootstrap,PASS,a4_cluster_bootstrap_r009.csv,48 rows x 500 image-cluster resamples
-geometry_survival,PASS,a4_geometry_survival_r009.csv,exact tau-0.75 survival at 0/15/30 degrees
-final_gate,PASS_R009_EVIDENCE_CLOSED,a4_evidence_gate_r009.json,evidence closure does not imply deployable selector

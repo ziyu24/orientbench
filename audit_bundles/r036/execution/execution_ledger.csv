@@ -1,8 +1,0 @@
-stage,task,status,detail
-T1,endpoint consumption audit,PASS,2 clean present endpoints; inventory only
-T2,evidence increment,PASS,5/8 witnesses; KILL-E=false
-T3,multimodality,PASS_WITH_DISCLOSED_APPROXIMATION,row-weighted 0.144760; PRUNE-M=false
-T4,source-only calibration,SCIENTIFIC_KILL_C,coverage-transfer tolerance violated
-T5,registered decision,COMPLETE,QSETOD_EVIDENCE_ONLY_KEEP_M candidate
-T6,dual implementation and audit,PASS,"A/B comparator, raw validator, 6 mutations, bundle replay"
-T7,reporting and persistence,PASS,"report, manifests, reproduction entry point"

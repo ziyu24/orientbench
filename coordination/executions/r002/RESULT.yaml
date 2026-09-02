@@ -1,9 +1,0 @@
-schema_version: 1
-instruction_id: r002
-run_id: r002-evidence-closeout-repair-v4
-status: FAILED_ACCEPTANCE
-scientific_status: INCONCLUSIVE_R002_EVIDENCE_UNAVAILABLE
-validator: independent_read_only_r002_closeout_v1
-g1_cells_recomputed: 18
-fair1m_d_universe: {"corrected_clusters": 1222, "corrected_rows": 15148, "original_available": true, "original_clusters": 1231, "original_rows": 15199}
-errors: ["FAIR1M-D cohort drift: original r002 universe was not restored"]

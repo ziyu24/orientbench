@@ -1,5 +1,0 @@
-component,decision,evidence,impact
-A1,PARTIAL_FRONTIER,all_endpoints_nontrivial=20; all_endpoints_practical=12; main_practical_units=['C']; trivial=68; infeasible=554,strict frozen budget frontier
-A2,PASS_TILE_ONLY_WITH_LIMITATION,SODA-A mother scenes cross frozen D_cal/D_audit tile roles; DIOR-R and FAIR1M are split-pure original images,SODA-A formal guarantee is tile/image-level; mother-scene is sensitivity only
-A3,PARTIAL_SCORE_MENU,"{""detection_score"": 0, ""source_supervised_leave_geometry"": 0, ""target_gt_nonlinear_geometry_upper_bound"": 1, ""tta_circular_consistency"": 0}",same-layer score certification
-OVERALL,PROCEED_WITH_DOWNGRADED_RISK_CLAIM,protocol unchanged; failures retained,next-stage permission

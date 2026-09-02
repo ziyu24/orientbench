@@ -1,2 +1,0 @@
-dataset,archetype,baseline_id,D2_orientation_reliability,D2_NRC_AUC,D2_Risk@90,angle_gate,C1,A4
-HRSC2016,lsknet_backbone,13,exploratory,0.8068,7.1819,blocked_angle_uncertain,not_run_cross_dataset,not_run_cross_dataset

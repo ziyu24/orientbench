@@ -1,9 +1,0 @@
-dataset,baseline_id,detector,n_schema,is_synthetic_false,not_detector_output_false
-HRSC2016,13,oriented_rcnn_lsknet,1549,True,True
-DIOR-R,3,oriented_rcnn,6703,True,True
-DIOR-R,22,rotated_retinanet_psc,22031,True,True
-DIOR-R,61,rotated_rtmdet_s,11833,True,True
-FAIR1M-v1.0,5,oriented_rcnn,25659,True,True
-FAIR1M-v1.0,24,rotated_retinanet_psc,65558,True,True
-SODA-A,4,oriented_rcnn,22092,True,True
-SODA-A,23,rotated_retinanet_psc,47078,True,True

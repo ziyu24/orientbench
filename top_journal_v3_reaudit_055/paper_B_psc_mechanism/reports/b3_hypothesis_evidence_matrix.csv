@@ -1,5 +1,0 @@
-hypothesis,status,real_intervention,datasets_supported,seeds_supported,confounding,limitation
-H1,SUPPORTED,historical full-evaluator z_prime=k*z on DIOR-R/SODA-A; frozen-vector decode on FAIR1M,DIOR-R;SODA-A;FAIR1M-vector,9,same checkpoints; ar>=2.1; dataset/seed repeatability; actual head gradients on development units,non-unit k changes boxes/NMS/AP and is mechanism-only
-H2,PARTIALLY_SUPPORTED,direct crossing of dual-frequency candidate-switch surface,DIOR-R;SODA-A;FAIR1M-v1.0,9,fixed radial norm and matched identity; boundary strata and partial controls,offline box-angle counterfactual; full evaluator not rerun
-H3,SUPPORTED,primary-only secondary-only and opposing multi-frequency directions,DIOR-R;SODA-A;FAIR1M-v1.0,9,same vector norm; score/size/class/boundary controls; endpoint separated,causal decode response does not yet establish external score superiority
-H4,PARTIALLY_SUPPORTED,fixed-norm synchronous tangential perturbation plus frozen directional score audit,DIOR-R;SODA-A;FAIR1M-v1.0,9,radial norm fixed; multi-seed endpoint-specific analysis,TTA available only for development seed0; external superiority is B4

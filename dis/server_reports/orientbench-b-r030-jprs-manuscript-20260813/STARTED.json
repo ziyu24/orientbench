@@ -1,7 +1,0 @@
-{
-  "schema_version": 2,
-  "dispatch_id": "orientbench-b-r030-jprs-manuscript-20260813",
-  "worker_id": "server-primary",
-  "state": "STARTED",
-  "scope": "manuscript_and_audit_assets_only_no_new_scientific_computation"
-}

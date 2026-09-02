@@ -1,2 +1,0 @@
-cell,view,smoke_images,roundtrip_min_iou,max_le90_deg,status,reason
-Core-6,identity_hflip_vflip,0,NA,NA,NOT_RUN_PROVENANCE_GATE,FAIR1M full-universe raw identity is incomplete

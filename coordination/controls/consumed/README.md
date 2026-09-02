@@ -1,3 +1,0 @@
-# Consumed external user controls
-
-Each YAML receipt is added with its state transition by one compare-and-swap commit on root-pinned authoritative `main`. During normal B/C/SERVER operation, the runtime rejects a receipt deleted or changed later in reachable main history. Administrators and push-credential holders are trusted; malicious force-push or history rewrite is outside the runtime guarantee. SERVER never pushes a consumption namespace: B/C completes this transaction before claim, and running heartbeats use the journal-bound local snapshot. SERVER's separate normal `main` push is limited to the machine-verified result commit.

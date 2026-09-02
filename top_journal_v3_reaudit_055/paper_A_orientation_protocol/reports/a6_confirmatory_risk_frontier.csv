@@ -1,5 +1,0 @@
-confirmatory_unit,score,alpha,status,nonempty_scene_rate,selected_instance_coverage,selected_count,scene_risk,scene_risk_ucb,scene_event,scene_event_ucb,reason
-none,detection_score,0.001,INFEASIBLE_NO_ELIGIBLE_UNIT,,,0,,,,,confirmatory provenance gate failed before risk inspection
-none,detection_score,0.0025,INFEASIBLE_NO_ELIGIBLE_UNIT,,,0,,,,,confirmatory provenance gate failed before risk inspection
-none,detection_score,0.005,INFEASIBLE_NO_ELIGIBLE_UNIT,,,0,,,,,confirmatory provenance gate failed before risk inspection
-none,detection_score,0.01,INFEASIBLE_NO_ELIGIBLE_UNIT,,,0,,,,,confirmatory provenance gate failed before risk inspection

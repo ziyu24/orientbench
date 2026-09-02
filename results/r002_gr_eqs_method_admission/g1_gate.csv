@@ -1,4 +1,0 @@
-dataset,delta_nrc_all,risk_noninferior,no_significant_reverse,seed_direction_consistent,fusion_AP75_nondec,fusion_AP50_noninferior,fusion_mAP_noninferior,mean_delta_AP75,mean_delta_AP50,mean_delta_mAP
-DIOR-R,False,False,False,True,True,True,True,0.0,0.0,0.0
-FAIR1M-v1.0,False,False,False,True,False,False,False,-0.0020167308761878944,-0.02234232720023599,-0.006569534683144797
-SODA-A,False,False,True,False,False,False,False,-0.0026574233096004762,-0.014051577948130908,-0.005496994780230922

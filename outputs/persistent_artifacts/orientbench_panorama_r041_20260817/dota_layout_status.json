@@ -1,9 +1,0 @@
-{
-  "dota_v10_required_root": "/home/rspip/cqc/data/dataset/dota/split_ss_dota10_dota15/val",
-  "required_entries": ["annfiles/", "images/", "png"],
-  "status": "LAYOUT_UNAVAILABLE",
-  "reason": "required annfiles/ entry was absent; no alternate DOTA layout was substituted",
-  "dota_v15_status": "LAYOUT_UNAVAILABLE",
-  "dota_v15_reason": "corresponding sliced layout was not available; no alternate was substituted",
-  "forbidden_endpoints_after_resume": "none"
-}

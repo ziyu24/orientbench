@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "dispatch_id": "orientbench-b-r041-panorama-repair-20260817",
-  "resumed_at": "2026-08-17T01:13:00-07:00",
-  "authorized_by": "user",
-  "instruction": "继续r41",
-  "scope": "resume the frozen r041 work after the prior early-stop report; retain the forbidden-endpoint incident as an audit fact and prohibit any further DOTA-v2.0 access",
-  "worker_id": "server-primary"
-}

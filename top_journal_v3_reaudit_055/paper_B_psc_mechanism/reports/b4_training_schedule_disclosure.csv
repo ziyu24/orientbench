@@ -1,4 +1,0 @@
-seed,epochs,best_epoch,LR,optimizer,global_batch,GPUs,precision,checkpoint_selection,config,checkpoint_sha256,training_status
-0,12,12,0.0025,SGD,8,4,FP32,AP50 primary; AP75 secondary,configs/b4_external_variant/seed0.py,e2b7edcc30417384ada93a8cc08889c3912b710b051640b586531958ac5c965a,COMPLETE
-1,12,11,0.0025,SGD,8,4,FP32,AP50 primary; AP75 secondary,configs/b4_external_variant/seed1.py,c6991079cc1ae72bd2508349c27312b6f844d387f7987184a36f5931ab9bb0e2,COMPLETE
-2,12,11,0.0025,SGD,8,4,FP32,AP50 primary; AP75 secondary,configs/b4_external_variant/seed2.py,f60d06dfbaa8db0b2b1f15497777eba50d5fd8009c7c42e6aba9ceadbd67dda7,COMPLETE

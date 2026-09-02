@@ -1,2 +1,0 @@
-decision,outcome,reversing_heads,n_complete_blocks,failed_heads,note
-PASS,A,PSC,6,KLD|direct_regression_le90,only PSC reverses under full convergence -> phase-based angle coder intrinsic confidence reverse-ranks angle risk

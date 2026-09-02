@@ -1,3 +1,0 @@
-split,n_ids,n_ann_written,n_missing_xml,n_objects,n_empty_ann,n_warnings,n_images_linked
-trainval,11725,11725,0,68073,0,0,11725
-test,11738,11738,0,124445,0,0,11738

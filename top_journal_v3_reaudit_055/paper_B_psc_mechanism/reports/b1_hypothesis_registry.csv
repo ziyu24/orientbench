@@ -1,5 +1,0 @@
-hypothesis,frozen_claim,intervention,minimum_support,confounders,status
-H1,radial magnitude affects decode threshold loss or boundary response,z_prime=k*z,repeatable decoded-angle or risk response in at least two datasets and multiple seeds without training,size;class;score;feature_norm;boundary,REGISTERED
-H2,wrapping or candidate boundary conditions concentrate failures,direct candidate-switch boundary crossing,repeatable risk response and candidate-switch evidence,boundary prevalence;size;class;seed,REGISTERED
-H3,multi-frequency disagreement or unwrap gap tracks risk better than magnitude,primary-only secondary-only and conflicting phase perturbations,controlled disagreement change followed by risk response and non-monotonicity to phase_mod,score;size;class;boundary,REGISTERED
-H4,directional confidence has uncertainty semantics distinct from radial norm,fixed-norm tangential and TTA direction perturbations,coherent directional response across datasets and seeds,score;feature_norm;class;seed,REGISTERED

@@ -1,7 +1,0 @@
-timestamp,pid,cmd,gpu_ids,is_this_project,role,status,log_path,current_run,next_action
-2026-07-07 05:27:21 PDT,158884,pt_main_thread,gpu,no(D17_external),external_training,running,n/a,D17_stage009,DO_NOT_TOUCH
-2026-07-07 05:27:21 PDT,158885,pt_main_thread,gpu,no(D17_external),external_training,running,n/a,D17_stage009,DO_NOT_TOUCH
-2026-07-07 05:27:21 PDT,158886,pt_main_thread,gpu,no(D17_external),external_training,running,n/a,D17_stage009,DO_NOT_TOUCH
-2026-07-07 05:27:21 PDT,158887,pt_main_thread,gpu,no(D17_external),external_training,running,n/a,D17_stage009,DO_NOT_TOUCH
-2026-07-07 05:27:21 PDT,none,watch_r1_oom_retry_062,n/a,yes,queue_watcher,DEAD_finished,top_journal_v3_reaudit_055/logs/r1_angle_coder/queue_062.log,none,START_EVAL_063
-2026-07-07 05:27:21 PDT,none,r1_training_queue,n/a,yes,training,COMPLETE_30run_terminal,top_journal_v3_reaudit_055/reports/r1_angle_coder_queue_status_062.csv,none,18-run eval pending -> launch now

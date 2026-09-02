@@ -1,9 +1,0 @@
-2026-08-18T20:00:26-07:00 GOVERNANCE_ONLY verified worker/dispatch/plan mirror/L2/resource/write/network scope; no business asset opened
-2026-08-18T20:00:26-07:00 STARTED_CREATED dis/server_reports/orientbench-b-r045-prospective-axis-drift-decision-20260818/STARTED.json
-2026-08-18T20:00:26-07:00 STARTED_PUSHED commit=714edef2ab7ba320caea9e20378a2024c86ec3c1 endpoint=https://github.com/ziyu24/orientbench.git
-2026-08-18T20:01:00-07:00 T0_ALLOWED_READ pth_data/readme.md baseline metadata only
-2026-08-18T20:01:00-07:00 T0_ALLOWED_READ four frozen split files bytes/hash/header only
-2026-08-18T20:01:00-07:00 T0_ALLOWED_READ r014/r040/r041 manifests/provenance/status/evaluator parity records only
-2026-08-18T20:01:00-07:00 T0_ALLOWED_READ six candidate config/log/checkpoint and identity-prediction files for presence/size/SHA-256 only
-2026-08-18T20:02:00-07:00 T0_ALLOWED_READ prediction serialization type probe attempted in environment lacking torch; no rows or target outcomes decoded
-2026-08-18T20:03:41-07:00 PRESEAL_ASSERT hrsc_d_audit_gt_opened=false hrsc_d_audit_outcome_opened=false hrsc_d_cal_gt_or_outcome_opened=false

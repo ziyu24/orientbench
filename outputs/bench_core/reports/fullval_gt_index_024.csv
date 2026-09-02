@@ -1,4 +1,0 @@
-dataset,n_images,n_obb_objects,n_invalid_geometry,gt_sha256,scratch_gt_path
-SODA-A,12832,449644,0,68805e7d7098054a62977b3b34bc718cd565b9bb1b89db5118350340b3cc0a5b,/dev/shm/cqc/orientbench/predictions/SODA-A/SODA-A_fullval_gt.jsonl
-DIOR-R,5863,35436,3,31e2c7003c40904400abc7f5358b1599da42fb6a45e8d86749f0e23ffe8b4865,/dev/shm/cqc/orientbench/predictions/DIOR-R/DIOR-R_fullval_gt.jsonl
-FAIR1M-v1.0,3896,78638,6,22b7446f9d2bada54606471951c8d66618e9484179a2c9e6dc84aaa3bf45766e,/dev/shm/cqc/orientbench/predictions/FAIR1M-v1.0/FAIR1M-v1.0_fullval_gt.jsonl

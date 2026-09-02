@@ -1,7 +1,0 @@
-{
-  "schema_version": 2,
-  "dispatch_id": "orientbench-b-r029-bundle-closure-20260813",
-  "worker_id": "server-primary",
-  "state": "STARTED",
-  "scope": "pure_bundle_closure_no_scientific_computation"
-}

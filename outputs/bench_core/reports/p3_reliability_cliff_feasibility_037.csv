@@ -1,8 +1,0 @@
-dataset,detector,near_square_p99,well_defined_p99,p99_cliff_delta,near_square_NRC,well_defined_NRC
-DIOR-R,orcnn,89.84,8.46,81.39,0.9731,0.4728
-DIOR-R,psc,89.99,7.78,82.21,0.9349,0.4891
-DIOR-R,lsknet,89.73,7.87,81.86,0.8939,0.4816
-DIOR-R,strip,89.62,8.09,81.53,1.0081,0.4742
-FAIR1M-v1.0,psc,89.9,8.82,81.07,1.1676,0.9803
-SODA-A,psc,90.0,7.91,82.09,0.9595,0.9679
-SODA-A,orcnn,89.97,9.1,80.88,0.9527,0.8535

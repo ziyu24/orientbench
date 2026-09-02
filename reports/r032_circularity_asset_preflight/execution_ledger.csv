@@ -1,8 +1,0 @@
-step,status,action,scientific_output
-T0,PASS,identity closure and STARTED committed/pushed before asset reads,False
-T1,PASS,read-only source inventory,False
-T2,PASS_WITH_GAPS,8x12 field matrix; official raw-object ID gap recorded,False
-T3,PASS,schema/key coverage inventory only,False
-T4,PASS,four official annotation manifests and DOTA provenance,False
-T5,PASS,manuscript support locations,False
-T6,ASSET_GAP_R032,r033 not authorized by readiness,False

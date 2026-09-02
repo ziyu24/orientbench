@@ -1,9 +1,0 @@
-{
-  "se_worst": 0.04351764206889742,
-  "worst_fold": "SODA-A",
-  "power_at_delta_0_02": 0.11795537464528316,
-  "MDE80": 0.10820552299361187,
-  "formula": "Phi(0.02/se_worst-1.6448536269514722); MDE80=(1.6448536269514722+0.8416212335729143)*se_worst",
-  "target_data_used": false,
-  "gate_authority": false
-}

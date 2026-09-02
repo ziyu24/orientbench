@@ -1,2 +1,0 @@
-decision,supporting_cells,n_bins_total,n_bins_nonlinear_sig,note
-PASS,A|B|C|E,15,11,fixed-size-bin 内 nonlinear geometry 稳定优于 score+ar+size linear，>=2 cells 且非单一 size-bin 驱动

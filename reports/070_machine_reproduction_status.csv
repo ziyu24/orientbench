@@ -1,8 +1,0 @@
-check,status,evidence
-9 pilots,PASS,3 heads x 3 frozen LR candidates; DCL lr=0.01 rejected by frozen quality gate after AMP+FP32
-9 finals,PASS,3 heads x 3 seeds; all full-val evaluations COMPLETE
-four-GPU scheduling,PASS,"all 18 statuses gpu_count=4 devices=0,1,2,3"
-seed0 gate,PASS,all seed0 status mtimes precede seed1/2
-persistent artifact chain,PASS,46 hashes verified; no /dev/shm dependency
-annotation package,PASS,A/B blind packages and browser/merge/analysis smoke passed
-human results,HUMAN_BLOCKED,0 real mutually blind pairs; not synthesized

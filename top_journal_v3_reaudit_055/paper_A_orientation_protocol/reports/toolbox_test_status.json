@@ -1,6 +1,0 @@
-{
-  "unit_tests": "PASS",
-  "synthetic_cli": "PASS",
-  "persistent_artifact_regression": "PASS",
-  "all_pass": true
-}

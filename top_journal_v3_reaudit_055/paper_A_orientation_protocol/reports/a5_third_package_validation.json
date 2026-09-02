@@ -1,9 +1,0 @@
-{
-  "tasks": 150,
-  "start": "PASS",
-  "save": "PASS",
-  "restore": "PASS",
-  "export_test_outputs": "PASS",
-  "formal_outputs_untouched": true,
-  "all_pass": true
-}

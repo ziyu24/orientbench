@@ -1,9 +1,0 @@
-component,decision,evidence
-A1,PARTIAL_FRONTIER,075 frozen
-A2,PASS_TILE_ONLY_WITH_LIMITATION,075 frozen
-A3,PARTIAL_SCORE_MENU,075 frozen
-A4,PARTIAL_ALIGNMENT,K1 full-evaluator endpoints + actual-geometry tolerance; complete fixed-dose AP grid unavailable
-A5,PARTIAL_TWO_ANNOTATOR_WITH_GT,"two annotators vs official GT complete; third task frozen, real results pending"
-A6,NO_ELIGIBLE_CONFIRMATORY_UNIT,all existing independent candidates fail confirmatory provenance/persistence gate
-TOOLBOX,PASS,"CLI, unit, synthetic and persistent regression"
-OVERALL,A_MEASUREMENT_ONLY,no broad deployable certification; measurement evidence remains

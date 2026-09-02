@@ -1,4 +1,0 @@
-baseline_id,detector_id,archetype,subset_mAP,n_pred,n_gt,n_matched_used,n_near_square_masked,median_orient_err_deg,Risk@70_deg,Risk@90_deg,AURC,NRC_AUC,nrc_pass_max,gate_orientation_reliability,metric_version,split
-1,oriented_rcnn_r50,two_stage_regression,0.7144,11126,10470,9292,130,1.571,1.9454,2.1339,1.734,0.6717,1.0,PASS,orientation_risk_v1,D_audit
-20,rotated_retinanet_psc_r50,angle_coder_psc,0.5815,8625,10470,7044,157,1.526,2.1046,2.1524,1.8269,0.7401,1.0,PASS,orientation_risk_v1,D_audit
-32,rotated_rtmdet_s,one_stage_realtime,0.7023,10847,10470,9316,121,1.599,1.9367,2.1228,1.7036,0.6172,1.0,PASS,orientation_risk_v1,D_audit

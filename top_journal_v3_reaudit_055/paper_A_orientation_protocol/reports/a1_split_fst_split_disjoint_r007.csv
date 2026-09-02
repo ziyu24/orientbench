@@ -1,7 +1,0 @@
-evaluation_unit,dataset,detector,fit_scene_count,calib_scene_count,audit_scene_count,fit_cal_intersection,fit_audit_intersection,cal_audit_intersection,all_intersections_disjoint
-A,DIOR-R,rotated_retinanet_psc,1673,1794,3494,0,0,0,True
-B,DIOR-R,oriented_rcnn,1749,1870,3641,0,0,0,True
-C,DIOR-R,rotated_rtmdet_s,1731,1877,3690,0,0,0,True
-D,FAIR1M-v1.0,rotated_retinanet_psc,638,646,1221,0,0,0,True
-E,SODA-A,rotated_retinanet_psc,1971,1858,4076,0,0,0,True
-F,SODA-A,oriented_rcnn,2011,1886,4120,0,0,0,True

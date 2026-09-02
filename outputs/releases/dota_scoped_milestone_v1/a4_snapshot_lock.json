@@ -1,1 +1,0 @@
-{"host":"a4_host","best_checkpoint":"outputs/training/a4_host/best_dota_mAP_epoch_70.pth","best_sha256":"3e32fa11114ced82c2fb5ecdb25031ff45c1d2815b034a315b1af11ef8487e32","latest_checkpoint":"outputs/training/a4_host/epoch_72.pth","snapshot_rule":"best val dota/mAP; D_audit NOT consulted","locked_time":"2026-06-27 19:37:07 CST"}

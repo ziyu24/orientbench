@@ -1,7 +1,0 @@
-check_id,scope,method,current_status,blocking_for
-dota_le90_sign,DOTA-v1.0/v1.5 GT,poly8 -> cv2.minAreaRect -> theta; cross-check sign vs mmrotate poly2obb_le90 on a sample,uncertain,DOTA angle-error gate
-dior_le90_sign,DIOR-R GT,robndbox corners -> minAreaRect vs raw <angle>; compare sign/range,uncertain,DIOR angle-error gate
-fair1m_le90_sign,FAIR1M-v1.0 GT,points polygon -> minAreaRect; verify le90 range/sign on a sample,uncertain,FAIR1M angle-error gate
-hrsc_mbox_le90_equiv,HRSC2016 GT,mbox_ang (rad) vs le90: confirm convention & sign; visual + numeric on sample,uncertain,HRSC angle-error gate (highest priority)
-prediction_theta_unit,prediction ingestion,confirm each real prediction theta is radians & le90 (angle_unit/angle_version fields),uncertain,any real-prediction angle gate
-minarearect_normalization,Bench-Core geometry,"verify poly8_to_obb le90 normalization [-pi/2,pi/2) matches detector convention",derived_unverified,GT<->pred angle alignment

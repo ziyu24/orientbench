@@ -1,6 +1,0 @@
-claim,support,status,binding
-AP@0.5 对约束角度扰动结构性弱敏感（ΔAP@0.5=0）,conditional,仅在表1六单元 full-val 重算完成后保留; 现进行中(DIOR#22 已重算),必须绑定 evaluator(torch VOC-AP==DOTAMetric) + full-val GT sha256 + n_gt
-表1 旧绝对 AP 锚点(如 DIOR#22=0.6964),forbidden,SUPERSEDED (partial-GT 35436 + 错误图像子集 + /dev/shm 丢失),"进 superseded 表, 不得作主表"
-任何主表数值依赖 /dev/shm GT,forbidden,禁止,复算链已加 /dev/shm 主表GT 检查
-DIOR#22 full-val AP@0.5≈0.53,main(established),K1 full-val: DOTAMetric 0.531 / S1a 0.5297 / VOC-AP 0.5311; baseline 自报 0.537,full-val GT sha 894f5dac(124445)
-评测器 PASS = 表1 PASS,forbidden,禁止等同; 表1 需六单元重算完成才 PASS,

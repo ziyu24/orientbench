@@ -1,8 +1,0 @@
-schema_version: 1
-dialogue_id: CD0001
-opened_by: C
-topic: r003 AIRO 与因果方向可辨识性的顶刊路线
-trigger: NORMAL
-conflict_set:
-- AIRO_TOP_JOURNAL_ROUTE
-created_at: '2026-09-02T04:16:53.455979Z'

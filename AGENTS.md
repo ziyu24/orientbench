@@ -1,23 +1,11 @@
-# orientbench 项目特有规则
+# OrientBench 项目规则
 
-instruction layout：`HOST_GLOBAL_PLUS_PROJECT_OVERRIDE / v2`。本文件只补充各主机
-`~/.codex/AGENTS.md` 的公共角色规则，不复制 B、C 或 SERVER 职责。
-
-任何项目动作前读取 `project.yaml`、`.research_core/PROJECT_LOCK.yaml`、
-`coordination/STATE.yaml`、`coordination/NOW.md`、活动 `rNNN` 科学计划和最近 Git
-提交。第一条报告包含当前状态、阻塞项和唯一下一步。`STATE`、`DISPATCH`、旧journal
-和分支显示冲突时，以有效科学计划、主机`cqc-fabric run status`和远端结果ref为准，
-不得让旧状态文件阻止SERVER执行。
-`LOCKED` 时只允许帮助、只读状态、校验、锁状态和用户明确解锁。
-
-- 项目：`orientbench`；创建模式：`NEW_RESEARCH`。
-- 权威仓库：`https://github.com/ziyu24/orientbench.git`。
-- 科学范围以 `research/BRIEF.md`、模式入口和已激活计划为准。
-- 科学边界以有效计划为准；SERVER工程执行统一使用主机全局
-  `/home/rspip/.local/bin/cqc-fabric run`。
-- 项目内旧`dispatch`、execution guard、claim、多层journal和`main`吸收状态只作历史
-  兼容，不构成训练启动或机器完成门。
-
-## 项目特有覆盖
-
-- 当前无额外覆盖。
+- 项目类型：`QUICK`。范围是遥感旋转目标检测中的方向可靠性、可辨识性与风险评估。
+- 每次动作先读取 `lab/discussion.md`、`lab/sug.md`、`lab/result.md`、`lab/failed_methods.md` 和最近 Git 提交。
+- 修改前理解 `src/orientbench/` 的现有边界；采用清楚、可维护、可测试的架构，不为假设需求增加框架或抽象层。
+- 源码与测试只放 `src/`，实验配置只放 `configs/`，其他文档只放 `doc/`，科学协作只放四个 `lab/` 文件。
+- 项目或新问题的首次验证优先使用 HRSC2016；不适配或数据不可用时可改用其他数据集，并在 `lab/discussion.md` 用一句话说明。
+- 当前没有活动 SERVER 指令；历史 r003 未执行。只有 `lab/sug.md` 新增明确 `rNNN` 小节后，SERVER 才执行 `/goal 拉取，完成 lab/sug.md 中 rNNN`。
+- 运行产物只放项目运行根的 `runs/`，不进入普通 Git。数据、依赖、权重和环境使用主机全局固定目录。
+- 旧控制面、审批、锁、认领、epoch、角色状态机、协调树和多层回执已归档，不得恢复。
+- 历史全量树、证据 ref 与恢复方法见 `doc/ARCHIVE.md`；不得把负向冻结写成正式 KILL，也不得把未执行计划写成结果。

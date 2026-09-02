@@ -1,5 +1,0 @@
-dataset,psc_NRC,psc_mAP,track_B_reverse_calibrated
-DIOR-R,0.549,0.537,False
-DOTA-v1.0,1.057,0.556,True
-FAIR1M-v1.0,1.083,0.346,True
-SODA-A,1.26,0.599,True

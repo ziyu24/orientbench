@@ -1,6 +1,0 @@
-component,result,metric,value
-G2_double_prime,PASS,within-size-bin nonlinear vs score+ar+size linear,21/21 bin×cell CI>0 (primary ar1.6)
-Deployable hardening,STABLE-PASS,non-DOTA unseen beats size-linear / retained,12/12 / mean 0.645
-Route-C offline proxy,STABLE-PASS,non-DOTA beats size-linear / retained,10/10 / 0.718
-Route-C real TTA,STABLE-PASS (tested),beats size-linear (no target GT),DIOR 2/2 + SODA/FAIR1M (044)
-Track A PSC mechanism,intrinsic miscalib candidate SUPPORTED,phase_mod NRC>1 sig,3/3 PSC cells

@@ -1,7 +1,0 @@
-cell,perturb,angle_touched,base_AP50,pert_AP50,dAP50,base_AP75,pert_AP75,dAP75,angle_risk_change
-DIOR-R/3,"center_shift=0.1*sqrt(area),scale=1.0",no,0.7999,0.7683,-0.0316,0.585,0.2062,-0.3789,0 (angle unchanged)
-DIOR-R/3,"center_shift=0.2*sqrt(area),scale=1.0",no,0.7999,0.567,-0.2329,0.585,0.0008,-0.5842,0 (angle unchanged)
-DIOR-R/3,"center_shift=0.0*sqrt(area),scale=0.85",no,0.7999,0.7615,-0.0384,0.585,0.0843,-0.5007,0 (angle unchanged)
-DIOR-R/22,"center_shift=0.1*sqrt(area),scale=1.0",no,0.6964,0.668,-0.0283,0.498,0.176,-0.322,0 (angle unchanged)
-DIOR-R/22,"center_shift=0.2*sqrt(area),scale=1.0",no,0.6964,0.5163,-0.18,0.498,0.0004,-0.4975,0 (angle unchanged)
-DIOR-R/22,"center_shift=0.0*sqrt(area),scale=0.85",no,0.6964,0.6573,-0.0391,0.498,0.0573,-0.4406,0 (angle unchanged)

@@ -1,7 +1,0 @@
-artifacts:
-  G1_RESULT.yaml: 41c693f6fc370d975b8d1b00ebf010724732697b3e6c43836a61365afb9953f2
-  g1_rows.json: fb24a579bf5d8604a6e4cd3c200bc259a4679aee498c9212523c2b7cb0847be0
-  geometry_controls.json: d12ff074ccff74aa09d6f5e72335e93add2785e90bd5e86ba561c944e6a18697
-can_recompute: true
-command: bash experiments/r001_cmr_g1_correction/run_r001.sh
-schema_version: 1

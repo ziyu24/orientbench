@@ -1,3 +1,0 @@
-dataset,baseline_id,detector,n_audit,tta_match_frac,mean_rtc_deg,NRC_score,NRC_sizelin,NRC_geo,NRC_realTTA,realTTA_beats_sizelin,realTTA_beats_geo
-DIOR-R,61,rtmdet,14037,0.996,1.66,0.495,0.501,0.3394,0.3314,True,True
-FAIR1M-v1.0,5,orcnn,21563,0.995,2.16,0.7869,0.6605,0.567,0.5366,True,True

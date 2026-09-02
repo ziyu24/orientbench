@@ -1,4 +1,0 @@
-transform,roundtrip_mean_IoU,roundtrip_min_IoU,mean_center_err_px,mean_angle_err_deg,inverse_reliable
-hflip,1.0,1.0,0.0,0.0,True
-vflip,1.0,1.0,0.0,0.0,True
-rot90,1.0,1.0,0.0,0.0,True

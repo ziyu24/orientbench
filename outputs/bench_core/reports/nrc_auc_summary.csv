@@ -1,6 +1,0 @@
-dataset,split,n,n_matched,n_preds,AURC,Risk@70,Risk@90,NRC_AUC,oracle_AURC,random_AURC,degenerate_flag,risk_mode,iou_method,approximate_iou,not_detector_performance
-DIOR-R,trainval,978,978,1019,1.83954,2.22137,3.65011,0.04481,1.66983,5.45728,False,synthetic_prediction_angle_error,shapely_polygon,False,True
-DOTA-v1.0,train,2174,2174,2774,3.36897,4.47591,6.70332,0.02868,3.21345,8.6364,False,synthetic_prediction_angle_error,shapely_polygon,False,True
-DOTA-v1.5,train,6140,6140,6727,2.55928,3.27784,5.2196,0.0333,2.40363,7.07751,False,synthetic_prediction_angle_error,shapely_polygon,False,True
-FAIR1M-v1.0,train,2753,2753,2874,3.17861,4.17371,6.56766,0.02833,3.02316,8.50977,False,synthetic_prediction_angle_error,shapely_polygon,False,True
-HRSC2016,trainval,326,326,613,2.98775,4.08097,5.5048,0.04158,2.83196,6.57882,False,synthetic_prediction_angle_error,shapely_polygon,False,True

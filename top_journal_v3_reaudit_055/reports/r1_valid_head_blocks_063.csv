@@ -1,7 +1,0 @@
-angle_head,dataset,n_seeds,mean_AP50_val,mean_AP75_self,mean_angle_error,mean_NRC_native,std_NRC_native,min_NRC_native,max_NRC_native,mean_NRC_score,all_seed_native_reverse_NRCgt1,native_CI_lo_min,eligible_for_mechanism_interpretation,note
-CSL,DIOR-R,3,0.3107,0.0708,15.6122,0.8942,0.001,0.8929,0.8953,1.0628,False,0.8689,only_after_full_3seed_matrix_and_preregistered_A_or_B,3-seed complete
-CSL,SODA-A,3,0.3463,0.0417,19.1646,0.9993,0.0978,0.9213,1.1373,1.1393,False,0.8974,only_after_full_3seed_matrix_and_preregistered_A_or_B,3-seed complete
-DCL,DIOR-R,3,0.329,0.1086,3.1981,0.2022,0.0105,0.194,0.217,0.7068,False,0.1786,only_after_full_3seed_matrix_and_preregistered_A_or_B,3-seed complete
-DCL,SODA-A,3,0.5257,0.1744,3.4377,0.3669,0.0021,0.3652,0.3698,1.0002,False,0.352,only_after_full_3seed_matrix_and_preregistered_A_or_B,3-seed complete
-PSC,DIOR-R,3,0.536,0.3497,1.6988,1.2055,0.0038,1.2008,1.2102,0.5736,True,1.1685,only_after_full_3seed_matrix_and_preregistered_A_or_B,3-seed complete
-PSC,SODA-A,3,0.5983,0.2693,2.349,1.1462,0.0122,1.1293,1.1574,0.9559,True,1.1143,only_after_full_3seed_matrix_and_preregistered_A_or_B,3-seed complete

@@ -1,6 +1,0 @@
-dataset,split,n_objects,near_square,dense_coherent,dense_incoherent,sparse_bg_strong,evidence_weak,domain_fragile,rotated_valid_mismatch,pending_threshold_freeze
-DIOR-R,trainval,1019,129,45,4,42,328,0,0,True
-DOTA-v1.0,train,2774,53,10,0,68,273,0,0,True
-DOTA-v1.5,train,6727,56,9,1,84,1081,0,0,True
-FAIR1M-v1.0,train,2874,210,36,1,201,1085,0,0,True
-HRSC2016,trainval,613,0,20,1,52,374,0,0,True

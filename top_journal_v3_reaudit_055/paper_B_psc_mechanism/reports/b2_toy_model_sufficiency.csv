@@ -1,2 +1,0 @@
-decision,grid_rows,informative_rows,near_random_rows,reverse_rows,reverse_nonextreme_rows,toy_is_sufficiency_only,real_network_mechanism_proved
-SUPPORTS_MECHANISM_SUFFICIENCY,729,380,317,32,10,True,False

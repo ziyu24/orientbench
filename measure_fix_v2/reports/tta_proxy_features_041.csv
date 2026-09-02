@@ -1,7 +1,0 @@
-cell,n,mean_local_angle_consistency_rad,feature_set
-FAIR1M-v1.0/24,28869,0.4315,score+geometry+local_angle_consistency(GT-free)
-SODA-A/23,208605,0.3163,score+geometry+local_angle_consistency(GT-free)
-DIOR-R/22,21622,0.2721,score+geometry+local_angle_consistency(GT-free)
-DIOR-R/3,26338,0.3113,score+geometry+local_angle_consistency(GT-free)
-DIOR-R/10,27097,0.3204,score+geometry+local_angle_consistency(GT-free)
-DOTA-v1.0/20,13733,0.1535,score+geometry+local_angle_consistency(GT-free)

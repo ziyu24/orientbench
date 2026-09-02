@@ -1,3 +1,0 @@
-dataset,baseline_id,n_audit,tta_match_frac,mean_rtc_deg,NRC_score,NRC_sizelin,NRC_geo,NRC_realTTA,AURC_realTTA,Risk@70,realTTA_beats_sizelin,realTTA_beats_geo
-SODA-A,23,105343,0.994,1.45,0.9823,0.6109,0.3893,0.3785,1.2708,1.614,True,True
-FAIR1M-v1.0,24,13796,0.99,1.95,0.896,0.7576,0.5185,0.4992,1.591,1.99,True,True

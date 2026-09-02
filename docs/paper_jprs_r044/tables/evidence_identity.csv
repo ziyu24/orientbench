@@ -1,7 +1,0 @@
-evidence_family,identity,canonical_source,allowed_use
-controlled perturbation,formal full-evaluator,top_journal_v3_reaudit_055/reports/pre_submission_s1s5_v1/s1a_full_pipeline_perturbation_v1.csv,headline measurement-validity result
-geometry-normalized risk,formal,top_journal_v3_reaudit_055/reports/m4_geometry_normalized_risk.csv,estimand and cross-unit descriptive rates
-image-level LTT,formal,top_journal_v3_reaudit_055/reports/m3_image_level_ltt.csv,image-level finite-sample risk control
-masked NRC,audited descriptive,top_journal_v3_reaudit_055/reports/a0_masked_nrc_bootstrap_ci_055.csv,within-setting ranking illustration
-human double annotation,human study,reports/m4_human_annotation_primary_summary_073.csv,noise anchor and threshold semantics
-DOTA-v1.0,post-outcome audited external replication,audit_bundles/r028/dota/r026_hypotheses.csv,local train/val only; no public-test comparison

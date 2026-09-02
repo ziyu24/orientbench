@@ -1,5 +1,0 @@
-alpha,strat_violation,global_cov,global_tail,strat_cov,strat_tail,global_violation,strat_reduces_violation,target,source
-0.05,True,0.1552,0.0988,0.056,0.0987,True,True,SODA#23,DIOR#22
-0.05,True,0.3826,0.0873,0.2907,0.0584,True,True,SODA#4,DIOR#3
-0.05,False,0.0213,0.0518,0.011,0.0418,True,True,FAIR1M#24,DIOR#22
-0.05,False,0.5564,0.0289,0.6319,0.0341,False,False,DIOR#3,SODA#4

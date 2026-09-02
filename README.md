@@ -1,7 +1,11 @@
-# orientbench
+# OrientBench
 
-[人类入口](docs/HUMAN_GUIDE.md)
+OrientBench 是遥感旋转目标检测方向可靠性与可辨识性的极简研究项目。
 
-项目功能、当前配置和受控设置入口由Codex运行 `python -m tools.workflow help --section all` 查询；用户无需手工编辑配置。项目默认 `UNLOCKED`，锁状态见 `.research_core/PROJECT_LOCK.yaml`；切换后由Codex提交到`main`，各端fast-forward核验后跨端生效。
+- 源码：`src/orientbench/`
+- 测试：`src/tests/`
+- 配置：`configs/`
+- 文档与历史恢复：`doc/`
+- B/C讨论、SERVER指令、结果与失败路线：`lab/`
 
-本项目固定使用内容寻址的 research lessons；规则、显式更新/同步口令与恢复边界见 `coordination/lessons/README.md`。
+当前没有活动 SERVER 指令，历史 r003 没有执行。继续研究时先更新 `lab/discussion.md`，再把收敛后的单项科学任务写入 `lab/sug.md`。

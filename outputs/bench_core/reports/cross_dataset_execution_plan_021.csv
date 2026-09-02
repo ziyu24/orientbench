@@ -1,8 +1,0 @@
-dataset,archetype,baseline_id,env,status,note
-HRSC2016,lsknet_backbone,13,ai4rs_train(reuse),already_run,real OBB GT(xml); angle_uncertain
-HRSC2016,oriented_rcnn,6,mr_dev1x,ready_to_run,not run this batch (representative=lsknet)
-DIOR-R,oriented_rcnn,3,mr_dev1x,blocked_missing_obb_gt,images present; obb annfiles empty (only HBB xml)
-DIOR-R,lsknet_backbone,10,ai4rs_train(reuse),blocked_missing_obb_gt,same
-FAIR1M-v1.0,oriented_rcnn,5,mr_dev1x,blocked_missing_gt,split_ss_fair1m1.0 absent; val_20 annfiles empty
-ALL,point2rbox_v2,64,-,weak_nonformal_blocked_network,network download in __init__
-ALL,arsdetr,-,none(0.1.0),blocked_dependency,mmrotate 0.1.0 no env; NOT RHINO substitute

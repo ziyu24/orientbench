@@ -1,8 +1,0 @@
-cell,dataset,detector,n_pred,n_matched,included_main,note
-DOTA-v1.0/20,DOTA-v1.0,rotated_retinanet_psc,2428,486,no,subset/invalid
-DIOR-R/22,DIOR-R,rotated_retinanet_psc,212448,29994,yes,full-val
-FAIR1M-v1.0/24,FAIR1M-v1.0,rotated_retinanet_psc,484332,54768,yes,full-val
-SODA-A/23,SODA-A,rotated_retinanet_psc,1449379,309218,yes,full-val
-DIOR-R/3,DIOR-R,oriented_rcnn,60881,32161,yes,full-val
-DIOR-R/61,DIOR-R,rotated_rtmdet_s,110036,32696,yes,full-val
-SODA-A/4,SODA-A,oriented_rcnn,676208,376756,yes,full-val

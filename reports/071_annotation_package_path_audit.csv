@@ -1,4 +1,0 @@
-check,status,path,evidence
-070_claimed_package,FOUND,/home/rspip/cqc/pro/study/orientbench/annotation_tools/m4_angle_annotation,070 package exists in outer orientbench root
-authoritative_project_root,MISSING_BEFORE_071,/home/rspip/cqc/pro/study/orientbench/top_journal_v3_reaudit_055/annotation_tools,user ls matched top_journal_v3_reaudit_055
-root_cause,PATH_SCOPE_ERROR,/home/rspip/cqc/pro/study/orientbench/annotation_tools/m4_angle_annotation,070 materialized outside the authoritative manuscript/project subroot and did not state that distinction

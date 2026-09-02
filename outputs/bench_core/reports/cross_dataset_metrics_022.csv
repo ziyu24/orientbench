@@ -1,9 +1,0 @@
-dataset,baseline_id,detector,n_used,median_orient_err_deg,Risk@90,NRC_AUC,angle_status,map_sanity,formal_scope
-HRSC2016,13,oriented_rcnn_lsknet,240,5.875,7.1819,0.8068,blocked_angle_uncertain,0.9061,cross_dataset_exploratory
-DIOR-R,3,oriented_rcnn,3281,1.132,1.6932,0.5235,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
-DIOR-R,22,rotated_retinanet_psc,2659,0.857,1.6569,0.5898,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
-DIOR-R,61,rotated_rtmdet_s,3291,1.227,1.7819,0.4435,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
-FAIR1M-v1.0,5,oriented_rcnn,6770,1.888,2.6035,0.8644,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
-FAIR1M-v1.0,24,rotated_retinanet_psc,4261,1.731,2.4999,1.0343,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
-SODA-A,4,oriented_rcnn,11890,1.963,2.8482,0.8397,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory
-SODA-A,23,rotated_retinanet_psc,8239,1.686,2.6616,1.1688,le90_via_quadriboxes_uncertain,,cross_dataset_exploratory

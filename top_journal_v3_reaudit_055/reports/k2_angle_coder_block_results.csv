@@ -1,7 +1,0 @@
-head,dataset,n_seeds,native_signal,mean_AP50,mean_NRC_native,mean_NRC_score,all_seed_reverse_CIgt1
-CSL,DIOR-R,3,softmax_margin,0.3124,0.9749,0.9388,False
-CSL,SODA-A,3,softmax_margin,0.3486,1.0222,1.0272,False
-DCL,DIOR-R,3,softmax_margin,0.4298,0.2474,0.6657,False
-DCL,SODA-A,3,softmax_margin,0.5469,0.3815,0.8515,False
-PSC,DIOR-R,3,phase_mod,0.5375,1.2504,0.61,True
-PSC,SODA-A,3,phase_mod,0.5865,1.1527,0.8048,True

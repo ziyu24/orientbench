@@ -1,4 +1,0 @@
-baseline_id,detector_id,stage,reason
-7,oriented_rcnn_lsknet_s,inference,LSKNet backbone not registered in available mmrotate (needs LSKNet repo on path/install)
-14,arsdetr_r50,inference,"ARSDETR not registered (needs ARS-DETR fork mmrotate); DETR-like, NOT RHINO"
-64,point2rbox_v2,inference,weak/pseudo supervision; real inference semantics not standard test — skipped

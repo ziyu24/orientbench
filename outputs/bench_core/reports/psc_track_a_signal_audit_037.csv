@@ -1,5 +1,0 @@
-dataset,baseline_id,saved_pred_keys,has_angle_logits,has_angle_distribution,has_angle_quality,has_angle_uncertainty,only_final_regression,track_a_in_saved_preds,architecture,track_a_extractable_via_forward_dump
-DOTA-v1.0,20,,False,False,False,False,True,False,PSCCoder dual_freq num_step=3 encode_size=6 (6-D phase code = intrinsic angle repr),True
-FAIR1M-v1.0,24,bboxes;labels;scores,False,False,False,False,True,False,PSCCoder dual_freq num_step=3 encode_size=6 (6-D phase code = intrinsic angle repr),True
-SODA-A,23,bboxes;scores;labels,False,False,False,False,True,False,PSCCoder dual_freq num_step=3 encode_size=6 (6-D phase code = intrinsic angle repr),True
-DIOR-R,22,bboxes;scores;labels,False,False,False,False,True,False,PSCCoder dual_freq num_step=3 encode_size=6 (6-D phase code = intrinsic angle repr),True

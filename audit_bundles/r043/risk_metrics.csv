@@ -1,3 +1,0 @@
-dataset,status,reason
-DIOR-R,NOT_COMPUTED_EARLY_STOP,SAUR violates AP50 survival at epoch 1
-SODA-A,NOT_COMPUTED_EARLY_STOP,SAUR violates AP50 survival at epoch 1
