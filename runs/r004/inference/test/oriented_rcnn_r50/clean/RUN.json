@@ -1,0 +1,11 @@
+{
+  "base_config_sha256": "10f4fcec7676d702cedac21fcd12d7a444e1fc451db6042911c56cb20af0b49c",
+  "checkpoint": "/home/rspip/cqc/study/pth_data/baseline_oriented_rcnn_r50_fpn_3x_le90/HRSC_trainval_test/best_dota_mAP_epoch_34.pth",
+  "checkpoint_sha256": "9a22a0d164b20c054d0ab91f06c12ce88eb3f3611430ffb2653dc05b7fc1412c",
+  "corruption": "clean",
+  "dose": 0.0,
+  "images": 453,
+  "model": "oriented_rcnn_r50",
+  "runtime_config": "/home/rspip/cqc/study/orientbench/runs/r004/inference/test/oriented_rcnn_r50/clean/runtime_config.py",
+  "split": "test"
+}
