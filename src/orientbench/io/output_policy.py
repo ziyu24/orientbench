@@ -1,7 +1,7 @@
 """Prediction output path policy.
 
 All future prediction outputs MUST live under
-outputs/predictions/{dataset}/{baseline_id}/ inside the project. Writing to
+runs/predictions/{dataset}/{baseline_id}/ inside the project. Writing to
 pth_data, third_party, or the project root is forbidden. Filenames embed
 baseline_id / dataset / split / timestamp.
 """
