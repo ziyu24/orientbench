@@ -1,5 +1,15 @@
 # 主要失败路线
 
+## COI / 干预式轴向可辨识响应（r004）
+
+- 状态：`KILL_COI_R004`。
+- 触发事实：HRSC2016 official held-out test 的八个预注册 detector×corruption×dose
+  `DeltaY` 单元都小于 0.02；最大值仅 0.017163。
+- 证据限制：该裁决只约束 theta-hidden oracle-localization、该两 detector family、冻结
+  HRSC 资产、四个 trainval 选择的成像剂量和该完整总体结局，不声称基本信息上限。
+- 禁止重入：不得重选 test 剂量、删除对象、改为 pooled/global 平均、替换 detector family，
+  或将普通漏检变化表述为 COI 机制成立。
+
 ## CMR
 
 - 状态：关闭。
@@ -25,4 +35,3 @@ Q-SetOD的r037集合门没有witness。精确代码、指标和裁决从`doc/ARC
 ## 非失败项
 
 AIRO/COI的r003从未执行，不能写入失败路线。它仅作为`lab/discussion.md`中的未决候选保留。
-

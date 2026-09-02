@@ -66,18 +66,15 @@ def main() -> None:
     ids = [x.strip() for x in (args.dataset_root / "splits" / f"{args.split}.txt").read_text().splitlines() if x.strip()]
     label = "clean" if args.corruption == "clean" else f"{args.corruption}_{args.dose:g}"
     root = (args.run_root / "inference" / args.split / args.model / label).resolve()
-    image_dir = root / "images"
-    image_dir.mkdir(parents=True, exist_ok=True)
+    shared_images = (args.run_root / "interventions" / args.split / label / "images").absolute()
+    shared_images.parent.mkdir(parents=True, exist_ok=True)
     if args.corruption == "clean":
         # Keep the data canonical: a symlink, not a project-local data copy.
-        if image_dir.exists() and not image_dir.is_symlink() and any(image_dir.iterdir()):
-            raise RuntimeError(f"refuse to replace populated clean image dir: {image_dir}")
-        if image_dir.is_dir() and not image_dir.is_symlink():
-            image_dir.rmdir()
-        _link(args.dataset_root / "images", image_dir)
+        _link(args.dataset_root / "images", shared_images)
     else:
+        shared_images.mkdir(parents=True, exist_ok=True)
         for image_id in ids:
-            out = image_dir / f"{image_id}.bmp"
+            out = shared_images / f"{image_id}.bmp"
             if out.exists():
                 continue
             inp = cv2.imread(str(args.dataset_root / "images" / f"{image_id}.bmp"), cv2.IMREAD_COLOR)
@@ -87,7 +84,7 @@ def main() -> None:
                 raise RuntimeError(f"cannot write intervention image {out}")
     adapter = root / "adapter"
     (adapter / "FullDataSet").mkdir(parents=True, exist_ok=True)
-    _link(image_dir, adapter / "FullDataSet" / "AllImages")
+    _link(shared_images, adapter / "FullDataSet" / "AllImages")
     _link(args.dataset_root / "annfiles", adapter / "FullDataSet" / "Annotations")
     _link(args.dataset_root / "splits", adapter / "ImageSets")
     from mmengine.config import Config

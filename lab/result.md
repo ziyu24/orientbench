@@ -1,5 +1,42 @@
 # SERVER 执行结果
 
+## r004
+
+### 结论
+
+`KILL_COI_R004`。这是 HRSC2016 detector-side causal falsifier 的有效失败，不能改名为
+信息论上限、通用定律或人机共同规律，也不能以 pooled 平均或改阈值续行。
+
+### 已冻结资产与资格
+
+- HRSC2016 official trainval/test 为 617/453 图像，ID 交集为零。
+- Oriented R-CNN R50 与 Rotated RTMDet-M 均使用已索引的 HRSC trainval→test le90
+  checkpoint；trainval clean parity 分别为 mAP 0.9083 与 AP07 mAP 0.9087。
+- 两个独立合成实现通过常量/径向、单瓣/四重对称、旋转、pi 周期与 blur/downsample
+  单调夹具。trainval 无角度资格赛冻结 blur 1.50/1.25 与 downsample 2.00/1.75；所有
+  两模型保留率至少 99.4%。
+
+### 决定性主损失门
+
+official test 固定 clean 总体使用 center、area、无序边长的一对一匹配，未使用 theta、
+angle error 或 oriented IoU。逐图等权的完整总体 `DeltaY` 为：
+
+| detector | blur 1.50 | blur 1.25 | downsample 2.00 | downsample 1.75 |
+| --- | ---: | ---: | ---: | ---: |
+| Oriented R-CNN R50 | 0.017163 | 0.013542 | 0.004849 | 0.003347 |
+| Rotated RTMDet-M | 0.002654 | 0.000931 | 0.000208 | 0.000328 |
+
+八个单元均未达到预注册 `DeltaY>0.02` 的点估计要求；最大值为 0.017163。按 r004 合取
+合同，主损失 Holm-8 门已失败，后续角度贡献、机制回归和强基线门不能挽救该路线。
+
+### 证据与重建
+
+大型 raw predictions、运行配置、冻结剂量和主损失审计均在项目 `runs/r004/`；其 fabric
+运行记录为 `r004-select-trainval-common-doses`、`r004-infer-test-oriented-frozen`、
+`r004-infer-test-rtmdet-frozen` 与 `r004-primary-loss-audit`。可复算实现为
+`src/orientbench/r004/quick_gate.py`；它使用 long-side canonical le90，并将每一对象精确分为
+missing 与 retained-angle contribution。
+
 ## r001
 
 ### 假设
@@ -92,4 +129,3 @@ AIRO/COI候选拟检验图像条件方向可辨识性。
 ### 重建方式
 
 不从旧协调树恢复执行。若未来继续，B/C必须在新协议中重新形成科学指令。
-
