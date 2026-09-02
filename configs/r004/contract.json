@@ -1,0 +1,7 @@
+{
+  "dataset": "HRSC2016 official trainval/test",
+  "models": ["Oriented R-CNN R50", "Rotated RTMDet-M"],
+  "corruptions": {"blur_sigma_px": [0.5, 0.75, 1.0, 1.25, 1.5], "downsample_factor": [1.25, 1.5, 1.75, 2.0]},
+  "selection": "two strongest common doses retaining at least 90% clean matched objects in both models, selected on trainval only",
+  "inference": {"score_nms": "checkpoint-config frozen", "angle": "le90"}
+}
