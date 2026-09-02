@@ -1,0 +1,168 @@
+{
+  "eligible": true,
+  "matching": "center<=0.5*sqrt(GT area), area ratio [0.25,4], unordered-side log error<=log(4); no theta, angle error, or oriented IoU",
+  "models": {
+    "oriented_rcnn_r50": [
+      {
+        "clean_matched": 1744,
+        "corruption": "blur",
+        "dose": 0.5,
+        "retained": 1743,
+        "retention": 0.9994266055045872
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "blur",
+        "dose": 0.75,
+        "retained": 1742,
+        "retention": 0.9988532110091743
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "blur",
+        "dose": 1.0,
+        "retained": 1742,
+        "retention": 0.9988532110091743
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "blur",
+        "dose": 1.25,
+        "retained": 1742,
+        "retention": 0.9988532110091743
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "blur",
+        "dose": 1.5,
+        "retained": 1734,
+        "retention": 0.9942660550458715
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "downsample",
+        "dose": 1.25,
+        "retained": 1742,
+        "retention": 0.9988532110091743
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "downsample",
+        "dose": 1.5,
+        "retained": 1743,
+        "retention": 0.9994266055045872
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "downsample",
+        "dose": 1.75,
+        "retained": 1743,
+        "retention": 0.9994266055045872
+      },
+      {
+        "clean_matched": 1744,
+        "corruption": "downsample",
+        "dose": 2.0,
+        "retained": 1743,
+        "retention": 0.9994266055045872
+      }
+    ],
+    "rotated_rtmdet_m": [
+      {
+        "clean_matched": 1747,
+        "corruption": "blur",
+        "dose": 0.5,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "blur",
+        "dose": 0.75,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "blur",
+        "dose": 1.0,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "blur",
+        "dose": 1.25,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "blur",
+        "dose": 1.5,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "downsample",
+        "dose": 1.25,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "downsample",
+        "dose": 1.5,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "downsample",
+        "dose": 1.75,
+        "retained": 1747,
+        "retention": 1.0
+      },
+      {
+        "clean_matched": 1747,
+        "corruption": "downsample",
+        "dose": 2.0,
+        "retained": 1747,
+        "retention": 1.0
+      }
+    ]
+  },
+  "prediction_sha256": {
+    "runs/r004/inference/trainval/oriented_rcnn_r50/blur_0.5/predictions.pkl": "16c1d202ec5996af6242a5406e5894bf633288bc49dd872bd599072ee6b75db1",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/blur_0.75/predictions.pkl": "119af518504c13a9ea4733d1e86695d9c7ccbcf0dd02b1f05fb8a53f77692a00",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/blur_1.25/predictions.pkl": "244a2b3ed72f9a5e5d66afa1428b880a45d4f1b05fb010d05af0d5d936bcf5dc",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/blur_1.5/predictions.pkl": "7b105637ade6fab492f750f081d91d6b273881db2bf5f3b41c21a250fdc2a8b4",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/blur_1/predictions.pkl": "ec67c7a6861f0664acd1a4c15446e77a37c5db30d77f620367b2f4e452978f38",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/clean/predictions.pkl": "c90a4d6142b9e7b310c537b9e86d94257186b0a1d0a91baffdc81241cada401f",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_1.25/predictions.pkl": "4f70e2fa6e3bd5ce8ba32faa521ce98c4ce94bc335f81b2d51f9f98167e1bc9d",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_1.5/predictions.pkl": "91509f5d688d711f740f779c3dc39ba065fa6bd8113d0e9ec60321bf5154247b",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_1.75/predictions.pkl": "cbeb1fbcd47a4a07010238b269828f6778f79aa729b5d3bc404dc5b6b80516dd",
+    "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_2/predictions.pkl": "a50bf51625586b97f48e88689391c334a5b19c58e96897b78595ed69608230a8",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/blur_0.5/predictions.pkl": "54e7568839968b94d80e496deb7f189e6a6810d0e936a7b1b074187b13e65a24",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/blur_0.75/predictions.pkl": "cdb239213d597c613400746f3c01cff7d30a81405fade103a94aebe38194c405",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/blur_1.25/predictions.pkl": "18841eb03e1e759c096977755efc42fe34dcbeb015e8cbfb8abb57753c36b291",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/blur_1.5/predictions.pkl": "56d0cd32557823284f847707c51bdac837636d2ea28a311f7238e6a5d0df38b7",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/blur_1/predictions.pkl": "db3b2c74826562e18031464166bc60f633f7c7b0780059d9fe65281e92532cf3",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/clean/predictions.pkl": "174b6ecf225a9be0c79ad25ea801d1ead0b09a7f96fb6aabf5c4c0f281ef6589",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_1.25/predictions.pkl": "788f11e0ba1ca4fa9dbee6d1c7b4e22d2d2949abfa4887be4ac894cff5b81144",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_1.5/predictions.pkl": "98f24bdf83e8d32ee4711438ad14c03facac4976c4a491371f059dd5b8e5b4a9",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_1.75/predictions.pkl": "bf4fb70e02f53ce954354ade51a17c174a2283515006d7189432d9f4277ad63a",
+    "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_2/predictions.pkl": "42f95bd094f6a79d2b1a9ed7aa6f0f7304d5094c8ae6031adec4186a27b71dfa"
+  },
+  "selected": {
+    "blur": [
+      1.5,
+      1.25
+    ],
+    "downsample": [
+      2.0,
+      1.75
+    ]
+  }
+}
