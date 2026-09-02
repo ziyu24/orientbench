@@ -9,15 +9,11 @@ from __future__ import annotations
 
 import os
 import re
+from pathlib import Path
 from typing import Optional, Tuple
 
-PROJECT_ROOT = "/home/rspip/cqc/pro/study/orientbench"
-PREDICTIONS_ROOT = os.path.join(PROJECT_ROOT, "outputs", "predictions")
-FORBIDDEN_PREFIXES = [
-    "/home/rspip/cqc/pro/study/pth_data",
-    "/home/rspip/cqc/pro/study/third_party",
-    "/home/rspip/cqc/data/dataset",
-]
+PROJECT_ROOT = os.fspath(Path(__file__).resolve().parents[3])
+PREDICTIONS_ROOT = os.path.join(PROJECT_ROOT, "runs", "predictions")
 
 
 def _sanitize(s: str) -> str:
@@ -37,12 +33,9 @@ def build_prediction_output_path(dataset: str, baseline_id, split: str,
 def validate_output_path(path: str) -> Tuple[bool, Optional[str]]:
     """Return (ok, reason). ok only if path is under PREDICTIONS_ROOT."""
     ap = os.path.abspath(path)
-    for bad in FORBIDDEN_PREFIXES:
-        if ap.startswith(os.path.abspath(bad) + os.sep) or ap == os.path.abspath(bad):
-            return False, f"forbidden location (under {bad})"
-    # project root but not predictions -> reject (no root clutter)
+    # Only the project-local run directory is writable; everything else is rejected.
     if not ap.startswith(os.path.abspath(PREDICTIONS_ROOT) + os.sep):
         if ap.startswith(os.path.abspath(PROJECT_ROOT) + os.sep):
-            return False, "inside project but not under outputs/predictions"
-        return False, "outside outputs/predictions"
+            return False, "inside project but not under runs/predictions"
+        return False, "outside runs/predictions"
     return True, None

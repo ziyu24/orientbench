@@ -11,12 +11,14 @@ import csv
 import json
 import os
 import re
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_ROOTS = [
-    "/home/rspip/cqc/pro/study/pth_data",
-    "/home/rspip/cqc/pro/study/orientbench/outputs",
-    "/home/rspip/cqc/pro/study/orientbench/pth_data",
+    os.fspath(PROJECT_ROOT.parent / "pth_data"),
+    os.fspath(PROJECT_ROOT / "runs"),
+    os.fspath(PROJECT_ROOT / "outputs"),  # read-only compatibility with old runs
 ]
 
 CANDIDATE_EXTS = {".json", ".jsonl", ".csv", ".pkl", ".pickle"}
