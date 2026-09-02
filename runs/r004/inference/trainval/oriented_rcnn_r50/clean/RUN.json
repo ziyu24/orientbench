@@ -6,6 +6,6 @@
   "dose": 0.0,
   "images": 617,
   "model": "oriented_rcnn_r50",
-  "runtime_config": "runs/r004/inference/trainval/oriented_rcnn_r50/clean/runtime_config.py",
+  "runtime_config": "/home/rspip/cqc/study/orientbench/runs/r004/inference/trainval/oriented_rcnn_r50/clean/runtime_config.py",
   "split": "trainval"
 }
