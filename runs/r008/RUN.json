@@ -1,0 +1,36 @@
+{
+  "command": [
+    "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+    "src/orientbench/r008/audit.py",
+    "--dataset-root",
+    "/home/rspip/cqc/data/dataset",
+    "--third-party-root",
+    "/home/rspip/cqc/study/third_party",
+    "--out",
+    "runs/r008/artifacts/asset_qualification.json"
+  ],
+  "config": "configs/r008/asset_qualification.yaml",
+  "exit_code": 0,
+  "finished_at": "2026-09-03T13:07:44.668834Z",
+  "gpu_count": 0,
+  "inputs": [
+    "dataset:/home/rspip/cqc/data/dataset",
+    "pth_data:/home/rspip/cqc/study/pth_data"
+  ],
+  "outputs": [
+    {
+      "path": "runs/r008/artifacts/asset_qualification.json",
+      "rebuildable": true
+    }
+  ],
+  "project_root": "/home/rspip/cqc/study/orientbench",
+  "result_summary": "lab/result.md#r008",
+  "run_id": "r008",
+  "schema_version": 1,
+  "selected_gpus": [],
+  "source_commit": "d0e54cea25e10ae11166a947c1f37c857d3f3960",
+  "started_at": "2026-09-03T13:07:44.466489Z",
+  "status": "COMPLETE",
+  "worker_pid": 1068447,
+  "worker_start_ticks": 99068344
+}

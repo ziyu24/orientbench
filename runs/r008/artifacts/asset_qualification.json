@@ -1,0 +1,113 @@
+{
+  "classifiers": [
+    {
+      "available": false,
+      "model": "resnet50",
+      "reason_codes": [
+        "INITIALIZATION_WEIGHT_UNVERIFIED"
+      ]
+    },
+    {
+      "available": false,
+      "model": "vit_b16",
+      "reason_codes": [
+        "INITIALIZATION_WEIGHT_UNVERIFIED"
+      ]
+    }
+  ],
+  "data": {
+    "candidate": "RarePlanes_real",
+    "components": 0,
+    "license": false,
+    "local_roots": [],
+    "locations": 0,
+    "objects": 0,
+    "present": false,
+    "real_records": 0,
+    "reason_codes": [
+      "RAREPLANES_LOCAL_ASSET_ABSENT"
+    ]
+  },
+  "fixtures": {
+    "mutation": true,
+    "pi": true,
+    "vertex_cycle": true,
+    "wh_swap": true
+  },
+  "future_protocol_schema": {
+    "component_bootstrap": true,
+    "h1a": true,
+    "h1b": true,
+    "h2_max_jsd": true,
+    "test_gt_free_deployment_score": true
+  },
+  "information_wall": "No model, prediction, attribute-error, angle-error, or risk data loaded.",
+  "protocol": "r008-read-only-rareplanes-qualification-v1",
+  "readiness": [
+    {
+      "available": true,
+      "family": "oriented_rcnn",
+      "implementation_roots": [
+        "/home/rspip/cqc/study/third_party/mmrotate_034"
+      ],
+      "obb_semantics": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "RAREPLANES_INTERFACE_AND_WEIGHT_UNVERIFIED"
+      ],
+      "weight": false
+    },
+    {
+      "available": true,
+      "family": "rotated_rtmdet",
+      "implementation_roots": [
+        "/home/rspip/cqc/study/third_party/ai4rs"
+      ],
+      "obb_semantics": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "RAREPLANES_INTERFACE_AND_WEIGHT_UNVERIFIED"
+      ],
+      "weight": false
+    },
+    {
+      "available": true,
+      "family": "ars_detr",
+      "implementation_roots": [
+        "/home/rspip/cqc/study/third_party/ARS-DETR"
+      ],
+      "obb_semantics": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "RAREPLANES_INTERFACE_AND_WEIGHT_UNVERIFIED"
+      ],
+      "weight": false
+    },
+    {
+      "available": false,
+      "family": "o2_rtdetr",
+      "implementation_roots": [],
+      "obb_semantics": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "IMPLEMENTATION_ROOT_ABSENT",
+        "RAREPLANES_INTERFACE_AND_WEIGHT_UNVERIFIED"
+      ],
+      "weight": false
+    },
+    {
+      "available": false,
+      "family": "fred",
+      "implementation_roots": [],
+      "obb_semantics": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "IMPLEMENTATION_ROOT_ABSENT",
+        "RAREPLANES_INTERFACE_AND_WEIGHT_UNVERIFIED"
+      ],
+      "weight": false
+    }
+  ],
+  "split_manifest": null,
+  "token": "ASSET_UNAVAILABLE_R008"
+}
