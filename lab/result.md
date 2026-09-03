@@ -236,3 +236,35 @@ AIRO/COI候选拟检验图像条件方向可辨识性。
 ### 重建方式
 
 不从旧协调树恢复执行。若未来继续，B/C必须在新协议中重新形成科学指令。
+
+## r006
+
+### 协议与执行
+
+在 HRSC2016 official held-out test 上，按冻结的 r004 Oriented R-CNN R50 与
+Rotated RTMDet-M checkpoint、score/NMS 和输入语义完成 clean-assigned output-lattice
+双轴整数平移扫描。ORCNN 的 eligible strides 为 4、8，RTMDet 的为 8、16；列表由
+trainval clean census 在 test 前冻结。扫描、canvas test parity、主统计和第二实现的 execution
+refs 分别为 `exec/r006-test-orcnn-biaxial-sweep@60302f3464dd04ccb6333693ad089b5859172b95`、
+`exec/r006-test-rtmdet-biaxial-sweep@ff3736eb66eccb9cfe0b9cb45fc089feebeda099`、
+`exec/r006-test-canvas-parity-retry1@10a64aae0fd7a1e9c05e89d5d035b6f90448c9d5`、
+`exec/r006-test-primary-analysis-retry1@3a1871e0b19b5888d29a72b8bf2c2378527e149b` 和
+`exec/r006-test-independent-verify-retry1@102767f1cf5fac42b92095cd8200ee2563dc7baf`。
+
+### 执行有效性
+
+两个模型均通过 phase-0 canvas parity：保留率约 99.92%，ORCNN/RTMDet 的 image-equal
+mean le90 绝对差为 0.0243°/0.0578°，AP75 绝对差为 0.001952/0.000664，均在预注册界内。
+三次 phase-0 确定性与 matcher/source-level 逐行独立复算通过；第二实现不导入主统计或 r005
+matcher，实现差为零，并通过 pi 轴向等价和非零角扰动 mutation tests。
+
+但正式 test 中 ORCNN stride 8 的 y 轴冻结总体为 252 对象；shift 10、12、13、14 的保留率分别为
+89.68%、89.29%、88.49%、89.29%，低于每 shift 90% 的预注册下限。该 stratum 的 test 不能解释
+为 clean-assigned active path，不能以其余 shift、stride、模型或统计结果补救。
+
+### 结论
+
+`INCONCLUSIVE_R006_EXECUTION_VALIDITY`。这不是 KILL，也不支持 ADMIT；不得改变边距、pad、
+stride、阈值或重开同一 official test 来修复。主统计的 10,000 次同步 image-cluster draws、完整
+逐条件 source-level 预测和独立复算均保留于上述 execution refs；普通 Git 仅保留可复算源码、配置
+和本结论。
