@@ -184,7 +184,10 @@ def _predict(model: torch.nn.Module, trace: SourceTrace, canvas: Canvas, image_i
     batch = model.data_preprocessor({"inputs": [raw], "data_samples": [sample]}, False)
     trace.clear()
     with torch.no_grad():
-        output = model.test_step(batch)[0]
+        # test_step requests rescale=True and clips to the original image.  The
+        # r006 canvas is deliberately the inference coordinate system, so its
+        # reversible coordinate map is applied below instead.
+        output = model.predict(batch["inputs"], batch["data_samples"], rescale=False)[0]
     pred = output.pred_instances
     boxes = _tensor(pred.bboxes).detach().cpu().numpy().astype(float)
     source = trace.source_strides(pred, output.metainfo)
