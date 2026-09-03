@@ -3,8 +3,13 @@ from __future__ import annotations
 
 import argparse
 import sys
+from pathlib import Path
 
-from .verify import main as verify
+if __package__:
+    from .verify import main as verify
+else:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+    from orientbench.r007.verify import main as verify
 
 
 if __name__ == "__main__":
