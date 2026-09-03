@@ -2,7 +2,9 @@
 
 ## 当前状态
 
-- 当前没有已完成的新实验。r003 从未执行，旧签字和旧执行计划均不继承。
+- r005 correction-only 已完成并由 B 独立复算；唯一可接受结论为
+  `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。这不是 `KILL`，也不准入跨数据集阶段。
+- r003 从未执行，旧签字和旧执行计划均不继承。
 - r001 只关闭既定 CMR，r002 只把既定 GR-EQS 负向冻结；二者都不能证明所有方向可靠性机制无效。
 - 当前证据仍只支持 JSTARS 对标，尚不能声称达到 TGRS 或 ISPRS JPRS。
 
@@ -77,3 +79,26 @@ G/P/N 的 `J_eff/M_15`，也没有计算操纵 Holm-32、test 非坍塌、10000 
 下一步只允许复用已经生成的 clean 与四个干预预测做 correction-only CPU 闭环。不得重推理、
 重选剂量、换模型、删对象或在 test 上调 matcher。只有同一 matcher、真实操纵有效性和独立
 复算全部成立后，负向点估计才可正式关闭 COI。当前期刊证据仍只支持 JSTARS 对标。
+
+## r005 B 最终验收
+
+B 从 Git 中公开的逐对象表和 bootstrap draws 独立复算，确认统一 matcher 后的 16 个
+split×detector×condition cell 在两实现间 key 对称差为 0、所有逐行量最大绝对差为 0；八个
+test `DeltaY` 与报告完全一致，最大值为 0.017158。逐对象恒等式
+`DeltaY=C_miss+C_ang` 与图内等权、图间等权聚合也以零误差复现。
+
+真实 G/P/N 表共 124168 行且无重复 key。trainval normalizer 最大复算差为 `3.55e-15`，32 个
+操纵点估计最大复算差为 `8.33e-17`，seed 5005 的 10000 次 PCG64 图像抽样矩阵可逐元素重建。
+决定性事实是八个 G 主臂 `clean-high>0.20` 裕量全部为负：J_eff 在 blur/downsample 的裕量约
+-0.048/-0.152，M15 约 -0.178/-0.194；两 detector 结论一致。因此前三类操纵合取不成立，
+按冻结优先级只能接受 `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。
+
+复核同时发现两项实现限制。第一，六个 N 臂中 93126 个应复用 clean-G noise scale 的记录有
+71207 个实际使用了各自 clean-N scale，最大差约 3.82；因此 nuisance envelope 不能作为合格
+specificity 证据。第二，ORCNN 操纵点估计使用 434 张有对象图，而 bootstrap registry 含 437
+张并把其余图置零后仍以 437 为分母，导致其 bootstrap 分布与点估计总体不完全一致。这两项
+都不影响当前保守裁决，因为 G 主臂八个 SESOI 点估计本身已经失败；但它们禁止未来引用 N
+envelope、CI 或 Holm p 作为正向证据。
+
+r004/r005 至此停止：不得重调 test 剂量、降低 0.20 门、重推理或换模型救回，也不得把
+inconclusive 写成机制已被证伪。当前仍只支持 JSTARS 对标；没有 TGRS/JPRS 升档依据。

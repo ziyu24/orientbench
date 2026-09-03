@@ -8,6 +8,9 @@
   test `DeltaY` 点估计都不大于 0.02，最大 0.017158，且八个非坍塌界限均通过。
 - 未成立的前提：真实 HRSC G/P/N Holm-32 中八个 `clean-high>0.20` 格（J_eff/M15、两模型、
   两 corruption）均失败；这属于前三类操纵失败，不能转写为 KILL 或失败路线。
+- B 独立复算已确认上述八个点估计，但 N 臂 noise scale 未统一复用 clean-G，ORCNN bootstrap
+  又在 434 张有对象图的点估计外加入零填充图并使用 437 分母；相关 envelope、CI 与 p 不得
+  作为正向证据。这些缺陷不改变保守的 inconclusive token。
 - 禁止重入：不得以重推理、重选 test 剂量、删除对象、pooled/global 平均、替换 detector family
   或降低标准化效应阈值来挽救或关闭该路线。
 

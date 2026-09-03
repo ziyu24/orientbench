@@ -77,7 +77,28 @@ draws 的种子为 5005。每格给出标准化方向统计量 `theta` 与 Holm-
   `runs/r005/loss_audit_comparison.json` 是独立重算及比较。
 - `runs/r005/manipulation_audit.json` 和
   `runs/r005/manipulation_bootstrap_draws.npz` 保留 Holm-32、非坍塌和全部同步 draws。运行产物
-  由对应 fabric result ref 保存，普通 Git 只提交可重建代码、测试、规格及本结论。
+  由对应 fabric result ref 保存；本次这些大型文件也被提交到普通 Git，发布违规见下方 B 审计。
+
+### B 独立验收
+
+B 接受唯一 token `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`，不接受 `KILL` 或 `ADMIT`。独立
+复算结果如下：
+
+- 16 个 loss cell 的两实现 key 对称差为 0、逐行量最大绝对差为 0；所有
+  `DeltaY=C_miss+C_ang` 恒等式和图像等权汇总均以零误差重现。
+- 124168 条 G/P/N 特征无重复 key；trainval normalizer 最大差 `3.55e-15`，32 个操纵点估计
+  最大差 `8.33e-17`。10000×437 的抽样索引与 seed 5005 的 PCG64 重放逐元素一致。
+- 八个 `clean-high>0.20` 裕量全部为负，因此无论 p 值如何都不能通过操纵有效性门。这一事实
+  足以确认当前必须是 inconclusive，而非有效科学 KILL。
+
+另有两项不改变 token、但限制证据复用的问题：六个 N 臂应复用 clean-G noise scale，实际
+93126 条相关记录中有 71207 条不一致，最大差约 3.82；ORCNN 点估计使用 434 张图，而 bootstrap
+以包含 437 张图的共同 registry 为固定分母并对缺失图填零。故 N envelope、ORCNN CI 与 Holm p
+不得作为后续正向证据。
+
+本次 `main` 实际跟踪了七个 `runs/r005` 文件，合计约 54.8 MB，与“大型运行产物不进入普通
+Git”的项目规则及上一段最后一句不一致。该发布违规不改变上述保守科学裁决，但不得作为未来
+继续跟踪大型产物的先例。
 
 ## r004 — 历史基线与原验收记录
 

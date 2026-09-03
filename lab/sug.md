@@ -1,7 +1,8 @@
 # SERVER 科学指令
 
-历史 r003 已停止且未执行，不得恢复。r004 的 SERVER 负向声明未通过 B 独立验收；当前唯一
-活动指令为 r005 correction-only 闭环。
+历史 r003 已停止且未执行，不得恢复。r005 correction-only 已完成并由 B 独立验收为
+`INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。当前没有活动 SERVER 指令；不得重复执行 r004/r005、
+重调 test 剂量或降低门槛。
 
 ## r005 — r004 matcher、操纵与证据闭环
 
