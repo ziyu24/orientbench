@@ -88,7 +88,9 @@ class SourceTrace:
     def _roi_input(self, module: torch.nn.Module, inputs: tuple[Any, ...]) -> None:
         rois = inputs[1].detach()
         self.rois = rois
-        self.levels = module.map_roi_levels(rois[:, 1:], len(module.featmap_strides)).detach()
+        # Rotated RoIs include a leading batch index.  The extractor's mapper
+        # indexes width/height at columns 3/4 of that six-column layout.
+        self.levels = module.map_roi_levels(rois, len(module.featmap_strides)).detach()
 
     def _bbox_output(self, module: torch.nn.Module, inputs: tuple[Any, ...], output: Any) -> None:
         self.bbox_output = tuple(part.detach() for part in output)
