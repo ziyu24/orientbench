@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: orientbench
-run_id: r006-trainval-orcnn-smoke-retry5
+run_id: r006-trainval-orcnn-smoke-retry6
 project_root: /home/rspip/cqc/study/orientbench
 command: [/bin/bash, -lc, 'PYTHONPATH=src /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python -m orientbench.r006.inference --model oriented_rcnn_r50 --pth-root /home/rspip/cqc/study/pth_data --images /home/rspip/cqc/data/dataset/HRSC2016/images --ids /home/rspip/cqc/data/dataset/HRSC2016/splits/trainval.txt --out runs/r006/trainval_orcnn_smoke.pkl --limit 1']
 datasets: []

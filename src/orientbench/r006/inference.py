@@ -125,7 +125,8 @@ class SourceTrace:
                 raise RuntimeError("missing RoI provenance hook")
             cls_score, bbox_pred = self.bbox_output
             candidate_scores = torch.softmax(cls_score, dim=-1)[:, 0]
-            decoded = self.model.roi_head.bbox_head.bbox_coder.decode(self.rois[:, 1:], bbox_pred)
+            decoded = self.model.roi_head.bbox_head.bbox_coder.decode(
+                self.rois[:, 1:], bbox_pred, max_shape=img_meta["img_shape"])
             candidate_boxes = _tensor(decoded).detach()
             level_index = self._match(final, scores, candidate_boxes, candidate_scores, self.levels)
             strides = self.model.roi_head.bbox_roi_extractor.featmap_strides
