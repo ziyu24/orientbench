@@ -291,3 +291,28 @@ OBB angle。
 `ASSET_UNAVAILABLE_R007`。这是资产不可用，不是科学 PASS/KILL，也不是对 acquisition-axis
 机制的反证；项目回到 `NO_ACTIVE_TASK`。不得下载、补造或由普通 north-up 栅格、文件名、图像边缘
 或目标方向猜测 acquisition axis，且本结果不自动授权 r008。
+
+## r008
+
+### 范围与执行
+
+本轮只读核验 RarePlanes 真实数据、来源分量划分前提、五个 detector family 与两个下游分类器的
+既有资产；没有训练、推理、模型 import/forward、属性误差、方向误差、风险排序或论文修改。
+
+### 资产与 readiness
+
+在固定主机数据根中未发现预注册的 `RarePlanes`、`RarePlanes_real`、`RarePlanes_Public` 或
+`rareplanes` 数据根。因此没有可解析的 253 条真实 WorldView-3 records、112 locations、约 14700
+objects、full GeoJSON、许可、image/annotation 一致性或 `loc_id↔CAT/source-product` component
+lineage；固定 25 test / 25 calibration / 至少 50 training component split 和四属性支持表均不能合法
+生成。不得以名称相近数据、synthetic 部分或默认同地点 test split 替代。
+
+现有树仅可识别 ARS-DETR、ai4rs rotated-RTDETR 与若干 mmrotate 相关实现根；它们均缺
+RarePlanes 单类接口、初始化权重与 OBB 语义闭环。O2-RTDETR、FRED、ResNet-50 与 ViT-B/16 的
+本轮所需实现/权重亦未核验。几何 fixture（RP1、w/h+90°、顶点等价和非零 mutation）通过；第二
+实现独立重查数据根及五 family 顺序，结果一致。
+
+### 唯一裁决
+
+`ASSET_UNAVAILABLE_R008`。这是顶刊验证组合的资产不足，不是 H1/H2 的科学 PASS/KILL；不得
+下载、拼接、伪造资产或自动启动 r009。项目回到 `NO_ACTIVE_TASK`。
