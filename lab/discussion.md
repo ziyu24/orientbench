@@ -200,3 +200,50 @@ r007 严禁计算 OBB 轴与 acquisition axis 的相对角、关联或任何模�
 `INCONCLUSIVE_R007_ASSET_AUDIT`。三者都不是科学 PASS/KILL，也不自动授权 r008。C 最终
 复核固定分箱、双传感器与信息墙后给出 `C_FINAL_SIGNED_R007_ASSET_QUALIFICATION`，B 已逐项
 写入唯一 SERVER 任务。
+
+## 外部专家复审与 r007 后续暂停
+
+外部专家在审阅项目全量结果后给出 `REVISE`：现有工作可形成扎实的方向可靠性测量论文，现实
+定位仍是 strong JSTARS；直接以当前证据冲 TGRS/JPRS 不成立。继续新增小型 selector、角度 head、
+相似光学 OBB benchmark 或仅证明“角度重要”不会自然形成顶刊贡献。SAR acquisition-axis 虽有
+潜在物理价值，但在资产元数据、AIS true heading 与匹配链尚未证实时不应成为本项目主线。
+
+B 接受这项总裁决。外部意见到达前，SERVER 已完成 r007 只读审计：主机固定数据根中的
+RSDD-SAR 与 SAR-AIRcraft 候选均不存在，双实现一致给出 `ASSET_UNAVAILABLE_R007`。这只是
+资产不可用，不是 SAR 机制 KILL；与专家“暂停 SAR”的意见一致。未来若另立传感器物理项目须
+重新形成独立目标，不得由本项目自动恢复。
+
+## r008：RarePlanes 顶刊验证资产资格门
+
+专家指出，现稿真正缺少的不是第六个角度分数，而是可量化的独立下游后果。唯一保留问题收敛
+为：预测 OBB 驱动飞机定向归一化和细粒度属性识别时，方向误差是否造成至少 2 个百分点的因果
+决策损失；若造成损失，一个不由 test GT 拟合的方向扰动—决策稳定性分数能否在 90% 自动覆盖率
+下降低该损失。
+
+RarePlanes 官方资料报告 253 个 WorldView-3 real image records、112 个地点、约 14700 个飞机、有序
+nose--wing--tail diamond、细粒度属性及 off-nadir、分辨率等成像元数据，适合纯
+location/source-component-held-out 验证。官方同时提示 `wing_position` 一致性有限；未来将
+wing type 的 straight/nonstraight、engine count 与 propulsion 的预注册合并类作为三个
+co-primary，role 只作派生语义
+的 secondary endpoint。普通 OBB 统一按 minimum-area rectangle 的 long-side RP1 轴向处理，
+不能把 nose--tail 航向或经纬度坐标中的伪角偷给部署模型。
+
+当前仓库和历史主树均无 RarePlanes 数据或既有实验，FRED 也没有本项目现成闭环；ARS-DETR 与
+O2-RTDETR 的历史资产来自其他数据集，不能证明 RarePlanes 就绪。C 因此反对把五模型三 seeds
+训练与资产发现自动串在同一任务中，B 接受。r008 只做数据、许可、diamond/属性语义、
+`loc_id↔CAT/source-product` 连通分量 split、五 detector families、CNN/ViT 及强基线输入的
+只读资格审计；不训练、不推理、不读取模型性能。全门通过只允许 B/C 另签唯一一次 r009 顶刊
+验证，不代表 H1/H2、方法或期刊已成立。
+
+RarePlanes 标签和本次固定 split 均是公开可重建资产，故未来 test 只能称为“预注册、程序性
+信息墙下的 single-use component-held-out test”，不能称 external blind 或真正 sealed test。
+未来 r009 若获签，必须先在 calibration 地点通过 GT `±10°` 破坏和 predicted-to-GT angle
+rescue 的 H1 因果价值门；H1 不过便不计算 test 性能。H1 通过后才允许冻结唯一 max-JSD 方向扰动
+分数与强非 oracle 基线并一次揭示 test。外部建议的 RarePlanes 600 目标、三人互盲标注不能由
+SERVER 自动完成；即使自动 H1/H2 全过，也只能生成盲标包并等待真实人工记录，不能直接宣称
+JPRS 证据闭环。
+
+C 最终复核后给出 `C_FINAL_SIGNED_R008_ASSET_SPLIT_QUALIFICATION`：来源独立单位、full GeoJSON
+对象 census、long-side RP1 几何、三个 co-primary 固定分组、secondary role、公开 single-use
+test 边界和 READY token 均已闭合。B 接受该签字；r008 即使 READY 也只允许另行设计 r009，
+不得自动训练或推理。

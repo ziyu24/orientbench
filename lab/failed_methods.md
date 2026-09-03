@@ -42,6 +42,11 @@ RotatedFCOS-PSCD 上得到 0/24 候选同时胜过 phase modulation 与 detectio
 或 AQE-like quality branch 重新包装成 B6 repair；除非未来提出改变推断对象且能正面超过同预算
 VM-NLL/AQE 强基线的新机制，否则这条 repair 路线保持停止。
 
+外部专家全量复审后，所有以“比 detection score 多赢一点”为目标的小型 selector、额外角度
+quality head、TTA 标量融合及仅换相似 OBB 数据集的增量实验统一停止。后续不得换名恢复这些
+路线；未来唯一允许验证的是既有方向误差是否造成独立下游决策损失，以及直接的方向扰动是否
+能识别该决策风险，不得扩展为新的角误差预测器菜单。
+
 ## 非失败项
 
 AIRO/COI的r003从未执行，不能写入失败路线。它仅作为`lab/discussion.md`中的未决候选保留。
@@ -49,3 +54,7 @@ AIRO/COI的r003从未执行，不能写入失败路线。它仅作为`lab/discus
 r006 为 `INCONCLUSIVE_R006_EXECUTION_VALIDITY`，不是 TAL 科学失败。ORCNN stride 8 的 y 轴
 若干 shift 未达到冻结总体 90% 保留率，因此不得改变执行门或重开同一 HRSC official test；其
 结果也不得外推为不存在任何 translation-to-angle leakage。
+
+r007 已只读确认主机固定数据根不存在 RSDD-SAR 与 SAR-AIRcraft 候选，状态为
+`ASSET_UNAVAILABLE_R007`。这是资产不可用，不是 SAR 科学失败；本项目内暂停 SAR。若未来
+恢复，必须作为独立的传感器物理问题重新立项，不能直接重跑原 r007。

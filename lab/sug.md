@@ -1,113 +1,166 @@
 # SERVER 科学指令
 
-当前没有活动 SERVER 指令。r007 已完成为 `ASSET_UNAVAILABLE_R007`；不得自动启动下一轮。
-以下保留其已执行的资产资格协议，作为结论的边界记录。
+本文件是当前任务单槽；只有下面一个活动任务。r007 已完成为 `ASSET_UNAVAILABLE_R007`，不得
+继续。r008 只做 RarePlanes 资产与来源分量划分资格审计，不是模型实验或科学 PASS/KILL；任何状态
+都不得自动启动训练、推理或 r009。
 
-## 历史 r007：SAR acquisition-axis 元数据资产资格门
+## r008 — RarePlanes 顶刊验证资产与来源分量划分资格门
 
 ### 1. 目的与结论边界
 
-待检验的未来命题是：SAR 成像的 range/azimuth 轴会对旋转目标的方向可靠性产生可区别于普通
-像素坐标偏置的物理各向异性。现有光学数据和只带旋转框的 SAR 切片不能识别这个命题；r007
-只判断主机既有数据是否足以设计后续实验，不计算机制效应。
+外部专家建议本项目停止小型 selector/head 和 SAR，唯一保留的顶刊问题是：OBB 方向误差是否
+实质损害细粒度飞机属性决策，以及无 test GT 的方向扰动—决策稳定性是否能在固定覆盖率下降低
+该风险。RarePlanes 真实 WorldView-3 数据因具有独立地点、有序飞机 diamond、细粒度属性和
+成像元数据而被指定为唯一候选。
 
-r007 不训练、不推理、不读取任何模型输出，不下载或补造数据，不计算检测误差、关联、显著性
-或论文指标。`READY` 仅允许 B/C 另立 r008；它不是科学结果、方法准入或期刊升档。
+r008 只回答现有主机资产能否支持一次严格的 component-held-out r009。不得训练或推理 detector/
+classifier，不得计算 H1/H2、角误差与属性错误的关系、风险排序或论文指标，不得修改论文。
+`READY` 仅允许 B/C 设计并签署 r009，不代表方法成立或期刊升档。
+
+HRSC2016 不用于本轮，因为 r004--r006 已打开其 official test，且它没有本问题所需的多属性飞机
+决策标签；这构成本次首次验证不用 HRSC2016 的科学理由。
 
 ### 2. 只读候选范围
 
-- 只检查主机固定数据目录中已经存在、具有本地可核验版本与使用许可的 SAR 数据。公开名称可
-  用于识别候选，但目录存在本身不算可用；不得联网下载、解压替换或从其他项目复制资产。
-- 一个独立域必须对应一个真实独立 SAR sensor/platform。同一传感器的 ascending/descending、
-  look direction、polarization 或 imaging mode 只能作为域内 acquisition strata，不能冒充第二域。
-- `scene` 固定指一次原始 acquisition/product，不是 tile、chip 或增强样本。同源切片必须回并到
-  同一 scene；重复对象和重叠切片不得重复计数。
+- 只检查主机固定数据、第三方实现和权重索引中已经存在且可读取的资产。不得联网下载、从其他
+  项目复制、生成伪权重，或用相似数据/模型替代缺失项。
+- 数据只允许 RarePlanes 全部真实部分；synthetic imagery、合成 labels 和官方混入同地点
+  observations 的默认 test split 均不得进入未来确认设计。
+- 记录数据版本、许可和允许用途；目录或文件名存在不等于可用，必须从原始影像、metadata 与
+  annotation 实际解析并核对。
 
-### 3. 坐标与标签合同
+### 3. 数据、地点与来源资格
 
-每个 scene 必须从原始产品 metadata 或 geolocation grid 独立解析并记录：sensor/platform、
-source product identity、acquisition time、orbit direction、look direction、slant/ground-range 类型、
-projection/geotransform、range/azimuth pixel spacing，以及 range/azimuth 轴在 OBB 所在 pixel/map
-frame 中的方向。轴方向不得从文件名、图像边缘、目标分布或图像内容猜测；north-up 图像边缘
-不得冒充 acquisition axis。
+第一实现与独立第二实现分别从原始记录解析，至少核对：
 
-资格分层对每个 scene 只取一次 ground-range axis 在共同 Earth-fixed/local-ENU map frame 中相对
-真北的 RP1 axial azimuth，规范到 `[0°,180°)`。azimuth axis 只用于正交性、handedness 与坐标
-变换校验，不得作为第二条观测或第二个 stratum；annotation-frame 中的轴方向也只用于未来对象
-配准，不进入 READY 的多取向支持门。
+1. 官方量级的 253 个 WorldView-3 real image records、112 个 `loc_id` 和约 14700 个真实飞机；
+   分别报告 `(loc_id,CAT)` observations、unique CAT/source products、tiles、locations、objects、
+   重复与缺失，禁止把 253 条 observation 预先宣称为 253 个独立 acquisition，也禁止为命中
+   名义数字丢弃异常记录。
+2. `RarePlanes_Public_All_Annotations.geojson` 是对象 census 的唯一权威；带约 20% overlap 的
+   tiled annotations 只做图像定位和一致性核对，不得再次计数或单独进入 split。
+3. 构造 `loc_id <-> CAT/source-product` 二部图；共享任一 source product 的地点属于同一
+   connected component。再用 metadata 中的机场身份和地理 footprint 合并重复地理位置；最终
+   component 才是不可拆分的最高层 cluster，所有日期、observation、tile 与对象随其移动。
+4. off-nadir、target azimuth、scan direction、pan resolution、weather、sensor 与 acquisition time
+   的字段语义、单位、缺失率和取值范围；不得把缺失值填补成常数。
+5. 许可、版本、source lineage、image/annotation 一致性和对象键唯一性全部可复核。
 
-每个对象必须唯一回链 scene，并记录 class、ignored、原始 polygon/OBB、label semantics 与生成
-方式。明确区分 SAR appearance box、map-footprint 派生框、人工 polygon/minAreaRect 等来源。
-主计数只使用非忽略且 long-side aspect ratio `>=2.1` 的对象。对象轴由 polygon 复核后按 RP1
-long-side canonicalization 表示；顶点循环移位、顶点逆序和 `w/h + 90°` 必须保持轴向恒等。
+全局真实数据不足以形成 25 calibration、25 single-use test 和至少 50 training connected
+components，记资产不可用；不得用 observation、tile、loc_id 或共享 CAT 的地点冒充独立单位。
 
-若存在 AIS，只在 time、space 与 track identity 均唯一回链时登记为外部锚，并严格区分 true
-heading 与 course over ground；AIS 不是 READY 必需条件，也不得用于填补 acquisition metadata
-或 OBB。
+### 4. diamond、OBB 与属性语义
 
-### 4. 信息墙
+- 原始 diamond 顶点顺序必须明确为 nose--left wing--tail--right wing，但本项目不把 nose--tail
+  360° heading 当 detector 方向。唯一主几何是四点 polygon 在影像 pixel frame 中所得的
+  minimum-area rectangle，并唯一规范为 `(theta_long, L, S)`，其中 `L>=S`、`theta_long` 是
+  long-side RP1 轴向。未来所有 detector/crop/H1/H2 都只用这一对；不得混入 fuselage axis。
+- 若 GeoJSON 为 EPSG:4326，必须先经对应 GeoTIFF geotransform 或局部投影变到 pixel/metric
+  frame，禁止直接在 longitude/latitude 上计算角、边长或 min-area rectangle。顶点循环、顶点
+  逆序、角度单位和 `w/h+90°` mutation 后 `(theta_long,L,S)` 必须等价。
+- 三个 co-primary appearance decisions 现在固定，不得在看到 split 或性能后删类：
+  `wing_group={straight, nonstraight}`，其中 full GeoJSON 原始字符串 `straight -> straight`，
+  `swept|delta|variable swept -> nonstraight`；若出现任何其他非空原始字符串，记 schema 不可裁定，
+  不得由实现自行猜测或静默归组；
+  `engine_group={0-or-1, 2, 3-or-4}`；
+  `propulsion_group={jet, propeller-or-unpowered}`。映射只由官方原始 `wing_type`、`num_engines`、
+  `propulsion` 生成；unknown/missing 不插补。
+- `role_group={civil(role_id 1--3), military-support(role_id 4 or 7),
+  military-combat(role_id 5 or 6)}` 仅为 secondary endpoint，因为 role 含层级/派生语义，不能
+  充当第四次独立机制复现或救回任一 co-primary 失败。`wing_position` 明确排除。
+- 对三个 co-primary 和 secondary role 分别给出 class×component 支持表。每个冻结 class 必须
+  至少提供 training `100 objects/10 components`、calibration `20 objects/5 components`、test
+  `20 objects/5 components`；否则资产门失败，不得事后再合并、删除或换属性。
 
-r007 只可报告 acquisition-axis 的边际分布与 OBB 轴的边际分布、计数、缺失、重复、键关系和
-schema。禁止计算、保存或查看 `theta_OBB - theta_axis`、二者的联合表、任何 association/p 值、
-模型预测或方向误差；不得按这些未来结局筛选 sensor、scene、stratum 或对象。
+### 5. outcome-blind 来源分量划分
 
-可提交的 compact 证据不得同时包含可由共同键连接的逐 scene axis 值与逐 object OBB theta。
-scene-axis 与 object-angle 的逐行审计资产必须分离封存，任何生产或验证进程都不得把两者加载到
-同一表；公开的 lineage/key 审计只含身份关系而不含任何角值，axis 与 OBB angle 只分别发布无
-共同标识符的边际聚合。独立实现分别从原始记录复核两侧，并只输出逐字段差异摘要。
+- 先按上一节 connected component 聚合并按规范化 component ID 排序，再用 PCG64 seed
+  `20260903` 做一次固定 permutation；前 25 个 component 为 preregistered single-use test、
+  随后 25 个为
+  calibration，其余为 training pool，且必须留下至少 50 个 training components。
+- permutation 和 split assignment 只能读取 component identity，不得读取属性值、方向、类别频率、
+  模型输出或未来风险；不得为改善 class balance 手工移动地点。split 冻结后才可由独立 census
+  进程生成上一节的属性支持表。
+- RarePlanes 标签与本次 split 都是公开可重建资产，因此这里不是外部私密 blind test。唯一可
+  声称的纪律是 preregistered、程序性信息墙与 single-use component-held-out evaluation；未来
+  论文不得使用 `sealed test`、`external blind test` 或同义夸大措辞。
+- r008 不读取任何模型性能。test annotation 可由 census 进程只用于 schema/计数/支持核验，
+  但不得与未来 prediction key 共表；输出只含分层计数，不含可直接恢复 test 对象属性与方向的
+  联合逐行表。
+- 未来 r009 必须复用本次固定 split；若任一预注册属性支持不足，r008 只能报告不足，禁止在
+  r009 开 test 后改 split、删类或换属性。
 
-所有缺失字段逐字段公开，不插补。READY 计数一律在 joint-complete、去重后的冻结总体上计算；
-不得先丢失不可读对象再补样或用 chip 数替代 scene 数。
+### 6. 五 detector 与两个下游模型的 readiness
 
-### 5. 唯一资产门
+只做现有资产的 import/config/build 级只读检查，不进行 dataset forward、训练或推理：
 
-每个候选 sensor/platform 域分别检查，只有同时满足以下全部条件才是合格域：
+- 五个严格不同 detector family 必须逐一可识别：Oriented R-CNN、Rotated RTMDet、ARS-DETR、
+  O2-RTDETR、FRED。换 backbone 不算新 family；ARS-DETR 不得冒充其他 DETR，普通 RT-DETR
+  不得冒充 O2-RTDETR，旋转增强不得冒充 FRED 的全流程等变实现。
+- 每个 family 必须有可加载的真实实现、RarePlanes 单类 detector 数据接口、OBB 输出角约定、
+  可用初始化权重和足以执行三 seeds 的训练/评价配置。允许 SERVER 为未来列出最小适配工作，
+  但不得在本轮编写替代模型或开始训练。
+- 两个下游模型固定为 ResNet-50 与 ViT-B/16；必须有可加载实现和初始化权重，并能在同一 crop
+  合同下输出四属性各自的完整概率向量。
+- 核对未来所需通用非 oracle 基线输入是否可产出：detection score、predicted AR/size、分类
+  entropy/margin、TTA 角离散度、三 seed ensemble disagreement、photometric/center/scale
+  perturbation stability、off-nadir 与 resolution。AQE/PQA/O2 原生质量只在对应实现真实输出时
+  登记，不得伪造为全模型共有信号。
 
-1. 本地版本、许可文本和本项目研究使用范围可核验；原始 metadata、图像与 OBB annotation 能
-   形成唯一 source-product→scene→chip→object 链。
-2. joint-complete metadata 覆盖率按 scene 分母和 eligible-object 分母分别均 `>=95%`。
-3. 去重后至少 `200` 个独立原始 scenes，且至少 `1000` 个非忽略、AR `>=2.1` 对象。
-4. ground-range axial azimuth 使用 `[0°,180°)` 上固定的 18 个 10° 半开 bins：
-   `[0°,10°),...,[170°,180°)`，bin center 固定为 `5°,15°,...,175°`；`180°` 归入 `0°`。
-   至少两个非空 bin 的中心 RP1 距离 `>=20°`，且每个 bin 至少 `50` 个独立 scenes 和
-   `250` 个 joint-complete eligible objects。每 scene 只按 metadata ground-range axis 归入一个
-   bin；不得看完分布后改边、合并箱，或使用 azimuth/annotation-frame 轴补足门槛。
-5. acquisition axis 已从原始坐标严格变换到 annotation frame；range/azimuth 正交性、坐标轴
-   handedness、角度单位和 pixel/map round-trip 夹具全部通过。
-6. 按 source scene 可形成互斥划分；同一地理 footprint 的跨时相重复 acquisition 以 geographic
-   connected component 成组隔离。若有可配对重复采集，只披露数量，不得替代上述硬门。
+五个 detector family 或两个下游模型任一缺必要实现/权重/语义时，完整顶刊组合不具备资格；
+不得以四模型结论、近邻 architecture 或新增小 head 降格补齐。
 
-最终 READY 必须至少有两个合格且 sensor/platform 不同的域；任何一个传感器都不能由同传感器
-的多个轨道、视向或模式重复计数。
+### 7. 未来 r009 的冻结可行性检查
 
-### 6. 可复算证据
+不运行实验，只生成并验证以下未来协议骨架：
 
-提交实际解析、坐标变换、去重、分组和验证代码及自动测试，并生成以下 compact 证据：
+- `H1a`：calibration component 上的 GT box 固定中心及 ordered `(L,S)`，仅作
+  `theta_long_GT±10°` 配对扰动；两个分类器的三个 co-primary 等权 balanced error 至少恶化
+  2 个百分点，component-cluster CI 下界大于 0。
+- `H1b`：每个 detector 同一预测固定中心及 ordered `(L,S)`，只把 predicted long-side theta
+  替换为 GT long-side theta；
+  错误绝对下降至少 2 个百分点且相对下降至少 20%，两个分类器各至少 4/5 families 同向。
+- `H2` 唯一候选：固定预测框，仅在 `{-10°,-5°,0°,5°,10°}` 上改变轴向 crop；对每个属性计算
+  原输出与扰动输出的 Jensen--Shannon divergence，并以跨属性/扰动最大值作为风险。它不得与
+  score 或其他特征融合，也不得学习 test error。
+- test 主门：90% coverage 相比 calibration 选定的最强非 oracle baseline，balanced error 绝对
+  改善至少 2 个百分点、相对至少 20%、component-cluster CI 上界小于 0；AURC 相对改善至少 15%，
+  70% coverage 不反转，两个分类器各至少 4/5 families，且三个 co-primary 全部同向；secondary
+  role 只披露，不能救回或否决主门。
+- 未来最高独立单位为 connected component；三个 detector seeds 等权，所有 arm 用同步
+  component-cluster bootstrap。test 性能只计算一次，任何阈值、属性、模型和 coverage 不得
+  事后修改；这只是 single-use protocol，不得称外部盲测。
 
-- 数据版本/许可与候选 census；
-- 不带逐 scene 身份的 axis/metadata 边际表、不带逐 object 身份的 OBB geometry 边际表，以及
-  两侧各自的字段缺失率表；
-- source-product→scene→chip→object 键审计、重复对象审计和 geographic grouping 审计；
-- acquisition-axis 边际分层计数与 OBB 轴边际直方图，二者不得进入同一联合表；
-- 坐标变换、RP1 canonicalization、round-trip 和非零 mutation 夹具结果；
-- 冻结资格判定及逐门 reason code。
+只验证这些字段、估计量和强基线能否由当前 schema 唯一实现；不得填入真实预测、属性错误、
+相关性、p 值或模拟的 PASS/KILL。若骨架需要 test GT 才能生成部署分数，资格直接失败。
 
-第二实现必须直接从原始 metadata 与 annotation 重新解析，不能读取第一实现的 compact 表，
-也不能跨信息墙连接逐行 axis 与 OBB theta。
-categorical/key 逐项一致；连续坐标误差不超过 `1e-6` pixel，轴向角误差不超过 `0.01°`，所有
-域计数和资格 token 必须完全一致。大表不进入普通 Git；可复算代码、配置、compact 结论和项目
-结果文档必须提交。
+### 8. 可复算证据
 
-### 7. 三态裁决
+提交实际解析、去重、地理分组、diamond/OBB canonicalization、split 生成、模型 readiness 与独立
+验证代码和测试，并生成 compact 证据：
 
-按以下优先级给出且只给出一个状态：
+- 数据版本/许可/census、observation--CAT/source-product--loc_id--component lineage、full/tiled
+  重复与缺失审计；
+- 不含模型结果的固定 split manifest，以及 split×attribute×class 的对象/component 支持表；
+- diamond/OBB/heading/RP1 语义说明与等价、非零 mutation fixtures；
+- 五 detector、两个 classifier 的逐项 readiness 及不可替代 reason codes；
+- 未来 H1/H2 估计量、信息墙、强基线、component bootstrap 和一次 test performance calculation
+  的 schema-only 合同；
+- 第二实现从原始记录独立解析后的 key、计数、连续量容差和最终 token 比较。
 
-1. 原始文件损坏、解析器不能完成、坐标合同无法判定，或两实现超差且不能由原始记录裁定：
-   `INCONCLUSIVE_R007_ASSET_AUDIT`。
-2. 执行有效，但许可、来源链、metadata 覆盖、数量、分层或双 sensor/platform 任一硬门失败：
-   `ASSET_UNAVAILABLE_R007`，项目回到 `NO_ACTIVE_TASK`。
-3. 至少两个独立 sensor/platform 域通过全部硬门，且第二实现逐键一致：
-   `READY_FOR_BC_R008_DESIGN`。
+大清单和逐对象表只留运行产物；普通 Git 只提交源码、配置、测试、compact 证据与
+`lab/result.md` 结论。两实现对数据键和 split 必须完全一致；几何连续量容差由 fixture 在读取
+数据前固定，并报告实际最大差。
 
-任何状态都不得输出科学 PASS/KILL、不得评价 acquisition-axis 机制是否成立、不得启动 r008、
-训练、推理或改论文。SERVER 完成后只提交证据与本轮资产结论，等待 B/C 复核。
+### 9. 三态裁决
+
+按以下优先级只输出一个状态：
+
+1. 原始文件损坏、许可/版本无法判定、解析或坐标语义不确定，或两实现不一致且不能从原记录
+   裁定：`INCONCLUSIVE_R008_ASSET_AUDIT`。
+2. 执行有效，但真实数据、独立地点、四属性支持、五 detector families、两个 classifiers、必要
+   baseline 输入或 split 任一硬门不足：`ASSET_UNAVAILABLE_R008`。
+3. 全部数据、标签、split、模型和协议资格门通过：`READY_FOR_BC_R009_DESIGN`。
+
+三个状态都不是 H1/H2 科学结果，不修改当前 strong-JSTARS 期刊判断，也不得自动训练、推理、
+生成 600×3 人工标签、修改论文或启动 r009。SERVER 提交本轮证据后停止，等待 B/C 复核。
