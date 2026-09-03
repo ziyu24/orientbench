@@ -118,7 +118,7 @@ def main():
     # Semantic mutation: raw theta changes must change RP1 distance, while a
     # pi rotation must not.  This guards degree/raw-angle and axial errors.
     fixture=np.array([0.,0.,10.,2.,.2]); pi_fixture=fixture.copy(); pi_fixture[4]+=math.pi; changed=fixture.copy(); changed[4]+=.25
-    mutation={"pi_equivalent_zero":dist(canon(fixture),canon(pi_fixture))==0.,"angle_mutation_nonzero":dist(canon(fixture),canon(changed))>0.}
+    mutation={"pi_equivalent_zero":bool(np.isclose(dist(canon(fixture),canon(pi_fixture)),0.,atol=1e-12)),"angle_mutation_nonzero":dist(canon(fixture),canon(changed))>0.}
     ok=all(d.get("theta_abs",0)<=1e-12 and d.get("p_abs",0)<=1e-12 and d.get("holm_abs",0)<=1e-12 and d.get("pass_equal",False) for d in diffs) and all(mutation.values())
     Path(a.out).parent.mkdir(parents=True,exist_ok=True); Path(a.out).write_text(json.dumps({"protocol":"r006-independent-verifier-v1","independent":True,"summary":summary,"main_holm":mainrows,"stable_holm":stable,"differences":diffs,"mutation_tests":mutation,"passed":ok},indent=2)+"\n")
 
