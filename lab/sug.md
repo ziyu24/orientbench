@@ -1,10 +1,9 @@
 # SERVER 科学指令
 
-本文件是当前任务单槽；只有下面一个活动任务。r007 已完成为 `ASSET_UNAVAILABLE_R007`，不得
-继续。r008 只做 RarePlanes 资产与来源分量划分资格审计，不是模型实验或科学 PASS/KILL；任何状态
-都不得自动启动训练、推理或 r009。
+当前没有活动 SERVER 指令。r007 与 r008 已分别完成为 `ASSET_UNAVAILABLE_R007` 和
+`ASSET_UNAVAILABLE_R008`；不得自动启动训练、推理或 r009。以下保留 r008 协议作为结论边界。
 
-## r008: RarePlanes 顶刊验证资产与来源分量划分资格门
+## 历史 r008：RarePlanes 顶刊验证资产与来源分量划分资格门
 
 ### 1. 目的与结论边界
 
