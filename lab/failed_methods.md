@@ -36,6 +36,16 @@ Q-SetOD的r037集合门没有witness。精确代码、指标和裁决从`doc/ARC
 后续不得只换名称、阈值、数据子集或追加同类消融重新进入；新候选必须改变核心可观测量、
 干预或推断对象。
 
+PSC 的 H1/H3 局部解码/调制响应只保留为 bounded mechanism evidence；更晚权威重审在外部
+RotatedFCOS-PSCD 上得到 0/24 候选同时胜过 phase modulation 与 detection score，并给出
+`FAIL_CANDIDATE_GATE / STOP_B6`。不得把 unit phase、独立 concentration、axial von-Mises
+或 AQE-like quality branch 重新包装成 B6 repair；除非未来提出改变推断对象且能正面超过同预算
+VM-NLL/AQE 强基线的新机制，否则这条 repair 路线保持停止。
+
 ## 非失败项
 
 AIRO/COI的r003从未执行，不能写入失败路线。它仅作为`lab/discussion.md`中的未决候选保留。
+
+r006 为 `INCONCLUSIVE_R006_EXECUTION_VALIDITY`，不是 TAL 科学失败。ORCNN stride 8 的 y 轴
+若干 shift 未达到冻结总体 90% 保留率，因此不得改变执行门或重开同一 HRSC official test；其
+结果也不得外推为不存在任何 translation-to-angle leakage。

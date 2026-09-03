@@ -150,3 +150,53 @@ r006 只是一轮 HRSC2016 跨两架构的机制生死门，不训练、不聚�
 在未触碰的第二传感器/数据集与第三架构上确认，并与 direct/PSC 或 CSL、Structure-Tensor angle
 coder、BlurPool、APS、LPS、TIPS 做正面对照，最终同时改善 AP75、角误差和 shift consistency
 且不损伤 mAP/AP50，才有讨论 TGRS/JPRS 的基础。当前不升档。
+
+## r006 执行收口与禁止重开
+
+SERVER 已完成 r006 的扫描、canvas parity、主统计和第二实现复算。B 接受其唯一状态为
+`INCONCLUSIVE_R006_EXECUTION_VALIDITY`：ORCNN stride 8 的 y 轴冻结总体在 shift 10、12、13、14
+只有 89.68%、89.29%、88.49%、89.29% 保留率，低于逐 shift 90% 的预注册下限。其余 parity、
+确定性和复算即使通过也不能替代这个失败的执行前提。不得调整 padding、margin、stride、阈值，
+也不得再次打开同一 HRSC official test；这不是 TAL 的科学 KILL 或 ADMIT。
+
+## r007 候选清理：拒绝旧路线换名
+
+B 提出的“多模型一致 + 人类/official-GT 偏差”候选被 C 否决。其核心仍是旧 A5/M4 同批双人
+标注上的 label discrepancy，多模型一致只能增加相关性三角证据，不能排除共同训练标签、角度
+规范或架构偏置；AR>=2.1 的 DIOR+SODA 双人数值样本上限约 211，旧审计中单人相对 GT 的
+`>=10°` 事件又只有约 1--2%，不足以支撑新的稀有事件机制。
+
+B 随后复查旧 PSC 解码机制，曾考虑用 unit phase 与独立 concentration 构造 gauge-separated
+axial likelihood。C 指出更晚的权威重审已经把候选门改判为 `FAIL_CANDIDATE_GATE / STOP_B6`：
+外部 RotatedFCOS-PSCD 上没有候选同时胜过 phase modulation 与 detection score。单位相位、
+mean--concentration 解耦和 axial von-Mises proper likelihood 也都是已有 directional-distribution
+工具；该提案实质是旧 B6 repair，而不是新路线。B 接受否决，不签发训练任务。hard-FPN routing
+同样因 PANet/AugFPN/GRoIE/ProFPN 等软层融合先验过密而不占用新任务号。
+
+## r007 唯一下一步：SAR acquisition-axis 资产资格门
+
+B/C 共同认为，若要从当前 JSTARS 级回顾性相关推进到可能支撑 TGRS/JPRS 的新科学对象，最有
+价值的方向是区分“普通 raster/网络偏置”与“真实 SAR acquisition range/azimuth 成像各向异性”。
+但这个问题不能用只带 JPEG/XML 旋转框的切片伪造：例如官方 RSDD-SAR 说明其 7000 个切片来自
+高分三号与 TerraSAR-X 的 127 景数据，并提供旋转框、极化和分辨率，但公开说明本身不足以证明
+每个对象可回链 acquisition-axis 坐标；SAR-AIRcraft-1.0 的公开页也只明确图像尺度、模式、极化
+和框位置。因而首要风险是资产不可识别，而不是模型不够复杂。
+
+C 要求 r007 只能做 asset qualification：两个域必须来自两个独立 sensor/platform；同一传感器
+的轨道、视向或模式只作域内分层；每个 acquisition axis 必须由原始产品 metadata/geolocation
+变换到 OBB frame，不能从 north-up 边缘或目标分布猜测。每域须有至少 200 个原始 acquisition
+scenes、1000 个 joint-complete 高长宽比对象，以及两个相隔至少 20°、各含至少 50 scenes 和
+250 对象的 acquisition-axis strata。scene 与对象分母的 joint-complete metadata 覆盖均须
+至少 95%，许可、去重、地理分组和双实现也必须闭合。
+
+这里的 strata 只按每个 scene 的 ground-range axis 在共同 Earth-fixed/local-ENU frame 中相对
+真北的 `[0°,180°)` 轴向方位，以固定 10° 半开 bins 建立；azimuth axis 只作正交校验，不能把
+同一 scene 平凡地计成第二取向，chip/raster 旋转也不能制造支持。compact 证据不同时公开带共同
+键的逐 scene axis 与逐 object OBB theta；两边只给无共同标识符的边际量，lineage 表不含角值。
+
+r007 严禁计算 OBB 轴与 acquisition axis 的相对角、关联或任何模型结果，避免在设计未来假设
+前偷看效应。全门通过只记 `READY_FOR_BC_R008_DESIGN`；资产门失败记
+`ASSET_UNAVAILABLE_R007` 并回到 `NO_ACTIVE_TASK`；解析或双实现不可裁定才记
+`INCONCLUSIVE_R007_ASSET_AUDIT`。三者都不是科学 PASS/KILL，也不自动授权 r008。C 最终
+复核固定分箱、双传感器与信息墙后给出 `C_FINAL_SIGNED_R007_ASSET_QUALIFICATION`，B 已逐项
+写入唯一 SERVER 任务。
