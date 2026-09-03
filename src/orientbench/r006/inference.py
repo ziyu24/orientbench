@@ -109,7 +109,10 @@ class SourceTrace:
             order = torch.argsort(delta)
             index = next((int(ix) for ix in order.tolist() if int(ix) not in used), None)
             if index is None or float(delta[index]) > 2e-3:
-                raise RuntimeError("cannot exactly associate a final prediction with a source candidate")
+                raise RuntimeError(
+                    "cannot exactly associate final prediction with source candidate; "
+                    f"best_delta={float(delta[order[0]]):.8g}, final={box[:4].tolist()}, "
+                    f"candidate={boxes[order[0], :4].tolist()}")
             used.add(index)
             answer.append(int(levels[index]))
         return answer
