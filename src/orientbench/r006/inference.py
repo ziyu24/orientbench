@@ -175,7 +175,9 @@ def _predict(model: torch.nn.Module, trace: SourceTrace, canvas: Canvas, image_i
              device: str) -> dict[str, Any]:
     raw = torch.from_numpy(np.ascontiguousarray(canvas.image.transpose(2, 0, 1)))
     meta = {
-        "img_id": image_id, "ori_shape": canvas.original_shape, "img_shape": canvas.image.shape[:2],
+        # The model may request rescaled prediction during test_step.  Canvas is
+        # its own coordinate frame; source-coordinate conversion happens below.
+        "img_id": image_id, "ori_shape": canvas.image.shape[:2], "img_shape": canvas.image.shape[:2],
         "pad_shape": canvas.image.shape[:2], "scale_factor": (1.0, 1.0),
     }
     sample = DetDataSample(metainfo=meta)
