@@ -163,7 +163,7 @@ def _load_model(model_name: str, pth_root: Path, device: str) -> tuple[torch.nn.
     cfg = Config.fromfile(pth_root / spec["config"])
     cfg.model.train_cfg = None
     model = MODELS.build(cfg.model)
-    load_checkpoint(model, pth_root / spec["checkpoint"], map_location="cpu")
+    load_checkpoint(model, str(pth_root / spec["checkpoint"]), map_location="cpu")
     model.to(device).eval()
     return model, cfg
 
