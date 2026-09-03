@@ -38,10 +38,12 @@ def cond(sweep, axis, shift, repeat=0):
             return {str(r["img_id"]):r for r in c["records"]}
     raise RuntimeError(f"missing condition {axis}/{shift}/{repeat}")
 
-def boot(values, indices):
+def boot(values, global_draws, global_images):
     ids=sorted(values); x=np.asarray([values[i] for i in ids],float)
-    samples=x[indices].mean(1); point=float(x.mean())
-    p=(1+int(np.count_nonzero((samples-point)>=point)))/(len(indices)+1)
+    local={image:n for n,image in enumerate(ids)}; lookup=np.asarray([local.get(image,-1) for image in global_images],dtype=np.int32)
+    picked=lookup[global_draws]; valid=picked>=0
+    samples=(x[np.maximum(picked,0)]*valid).sum(1)/valid.sum(1); point=float(x.mean())
+    p=(1+int(np.count_nonzero((samples-point)>=point)))/(len(global_draws)+1)
     return point,p,np.quantile(samples,[.025,.975]).tolist(),ids
 
 def holm(rows):
@@ -92,18 +94,18 @@ def unit(gt, sweep, stride, axis):
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument("--r004-root",required=True); p.add_argument("--census",required=True); p.add_argument("--orcnn",required=True); p.add_argument("--rtmdet",required=True); p.add_argument("--draws",required=True); p.add_argument("--primary",required=True); p.add_argument("--out",required=True); a=p.parse_args()
-    census=json.loads(Path(a.census).read_text()); primary=json.loads(Path(a.primary).read_text()); draws=np.load(a.draws)
+    census=json.loads(Path(a.census).read_text()); primary=json.loads(Path(a.primary).read_text()); draws=np.load(a.draws); global_draws=draws["global_draws"]; global_images=[str(x) for x in draws["global_image_ids"]]
     sweeps={"oriented_rcnn_r50":read(a.orcnn),"rotated_rtmdet_m":read(a.rtmdet)}; mainrows=[]; stable=[]; summary={}
     for name,sweep in sweeps.items():
         gt={str(r["img_id"]):arr(r["gt_instances"]["bboxes"]) for r in read(Path(a.r004_root)/f"inference/test/{name}/clean/predictions.pkl")}
         summary[name]={}
         for stride in census[name]["eligible_strides"]:
             for axis in ("x","y"):
-                u=unit(gt,sweep,stride,axis); key=f"{name}/{stride}/{axis}"; idx=draws[key]
+                u=unit(gt,sweep,stride,axis)
                 summary[name][f"{stride}/{axis}"]={k:u[k] for k in ("objects","retention","stable_objects","stable_images","stable_coverage","valid")}
                 for label,v in (("A-0.01",{i:x-.01 for i,x in u["metrics"]["A"].items()}),("A-R-0.005",{i:u["metrics"]["A"][i]-u["metrics"]["R"][i]-.005 for i in u["metrics"]["A"]}),("A-2R",{i:u["metrics"]["A"][i]-2*u["metrics"]["R"][i] for i in u["metrics"]["A"]})):
-                    theta,q,ci,_=boot(v,idx); mainrows.append({"model":name,"stride":stride,"axis":axis,"gate":label,"theta":theta,"p":q,"ci95":ci})
-                theta,q,ci,_=boot({i:u["metrics"]["stableA"][i]-u["metrics"]["stableR"][i]-.0025 for i in u["metrics"]["stableA"]},idx); stable.append({"model":name,"stride":stride,"axis":axis,"gate":"Astable-Rstable-0.0025","theta":theta,"p":q,"ci95":ci})
+                    theta,q,ci,_=boot(v,global_draws,global_images); mainrows.append({"model":name,"stride":stride,"axis":axis,"gate":label,"theta":theta,"p":q,"ci95":ci})
+                theta,q,ci,_=boot({i:u["metrics"]["stableA"][i]-u["metrics"]["stableR"][i]-.0025 for i in u["metrics"]["stableA"]},global_draws,global_images); stable.append({"model":name,"stride":stride,"axis":axis,"gate":"Astable-Rstable-0.0025","theta":theta,"p":q,"ci95":ci})
     holm(mainrows); holm(stable)
     def keyed(rows): return {(x["model"],x["stride"],x["axis"],x["gate"]):x for x in rows}
     diffs=[]

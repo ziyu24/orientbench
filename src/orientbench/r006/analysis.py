@@ -35,11 +35,18 @@ def _holm(rows):
         rows[index]["passed"] = bool(rows[index]["theta"] > 0 and rows[index]["holm_p"] <= .05)
 
 
-def _boot(values, indices):
+def _boot(values, global_draws, global_images):
     # values is image_id -> complete-denominator image mean.
     images = sorted(values); x = np.asarray([values[i] for i in images], float)
-    sampled = x[indices].mean(1); point = float(x.mean())
-    p = (1 + int(np.count_nonzero((sampled-point) >= point))) / (len(indices)+1)
+    local = {image: index for index, image in enumerate(images)}
+    lookup = np.asarray([local.get(image, -1) for image in global_images], dtype=np.int32)
+    picked = lookup[global_draws]; valid = picked >= 0
+    # One frozen official-image draw is used by every unit.  Objects outside a
+    # unit's pre-frozen registry are excluded from both numerator and
+    # denominator, never converted to zero-valued observations.
+    sampled = (x[np.maximum(picked, 0)] * valid).sum(1) / valid.sum(1)
+    point = float(x.mean())
+    p = (1 + int(np.count_nonzero((sampled-point) >= point))) / (len(global_draws)+1)
     return point, p, np.quantile(sampled, [.025, .975]).tolist()
 
 
@@ -132,19 +139,18 @@ def _unit(gt_map, sweep, stride, axis):
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument("--r004-root",type=Path,required=True); parser.add_argument("--census",type=Path,required=True); parser.add_argument("--orcnn",type=Path,required=True); parser.add_argument("--rtmdet",type=Path,required=True); parser.add_argument("--out",type=Path,required=True); parser.add_argument("--draws",type=Path,required=True); args=parser.parse_args()
     census=json.loads(args.census.read_text()); sweeps={"oriented_rcnn_r50":_read(args.orcnn),"rotated_rtmdet_m":_read(args.rtmdet)}
-    gt_paths={name:args.r004_root/f"inference/test/{name}/clean/predictions.pkl" for name in sweeps}; units={}; main_rows=[]; stable_rows=[]; rng=np.random.default_rng(6006); draw_store={}
+    gt_paths={name:args.r004_root/f"inference/test/{name}/clean/predictions.pkl" for name in sweeps}; gt_maps={name:{str(r["img_id"]):_array(r["gt_instances"]["bboxes"]) for r in _read(path)} for name,path in gt_paths.items()}
+    global_images=sorted(set().union(*(set(rows) for rows in gt_maps.values()))); rng=np.random.default_rng(6006); global_draws=rng.integers(0,len(global_images),size=(10000,len(global_images)),dtype=np.int16)
+    units={}; main_rows=[]; stable_rows=[]; draw_store={"global_image_ids":np.asarray(global_images),"global_draws":global_draws}
     for name,sweep in sweeps.items():
-        gt_map={str(r["img_id"]):_array(r["gt_instances"]["bboxes"]) for r in _read(gt_paths[name])}; det=_determinism(gt_map,sweep); eligible=census[name]["eligible_strides"]
+        gt_map=gt_maps[name]; det=_determinism(gt_map,sweep); eligible=census[name]["eligible_strides"]
         units[name]={"determinism":det,"eligible":eligible,"axes":{}}
         for stride in eligible:
             for axis in ("x","y"):
                 unit=_unit(gt_map,sweep,stride,axis); units[name]["axes"][f"{stride}/{axis}"]=unit
-                draw_key=f"{name}/{stride}/{axis}"; images=sorted(unit["metrics"]["A"])
-                indices=rng.integers(0, len(images), size=(10000, len(images)), dtype=np.int16)
-                draw_store[draw_key]=indices
                 for label, values in (("A-0.01",{i:v-.01 for i,v in unit["metrics"]["A"].items()}),("A-R-0.005",{i:unit["metrics"]["A"][i]-unit["metrics"]["R"][i]-.005 for i in unit["metrics"]["A"]}),("A-2R",{i:unit["metrics"]["A"][i]-2*unit["metrics"]["R"][i] for i in unit["metrics"]["A"].items()})):
-                    theta,p,ci=_boot(values,indices); main_rows.append({"model":name,"stride":stride,"axis":axis,"gate":label,"theta":theta,"p":p,"ci95":ci})
-                vals={i:unit["metrics"]["stableA"][i]-unit["metrics"]["stableR"][i]-.0025 for i in unit["metrics"]["stableA"]}; theta,p,ci=_boot(vals,indices); stable_rows.append({"model":name,"stride":stride,"axis":axis,"gate":"Astable-Rstable-0.0025","theta":theta,"p":p,"ci95":ci})
+                    theta,p,ci=_boot(values,global_draws,global_images); main_rows.append({"model":name,"stride":stride,"axis":axis,"gate":label,"theta":theta,"p":p,"ci95":ci})
+                vals={i:unit["metrics"]["stableA"][i]-unit["metrics"]["stableR"][i]-.0025 for i in unit["metrics"]["stableA"]}; theta,p,ci=_boot(vals,global_draws,global_images); stable_rows.append({"model":name,"stride":stride,"axis":axis,"gate":"Astable-Rstable-0.0025","theta":theta,"p":p,"ci95":ci})
     _holm(main_rows); _holm(stable_rows)
     for name in sweeps:
         family=False
