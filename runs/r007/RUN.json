@@ -1,0 +1,42 @@
+{
+  "attempts": [
+    {
+      "exit_code": 1,
+      "finished_at": "2026-09-03T10:10:15.022645Z",
+      "source_commit": "f40f4c5d4b8b6e7f3cd0954c7f89434389f17369",
+      "started_at": "2026-09-03T10:10:14.820090Z",
+      "status": "FAILED"
+    }
+  ],
+  "command": [
+    "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+    "src/orientbench/r007/run_qualification.py",
+    "--dataset-root",
+    "/home/rspip/cqc/data/dataset",
+    "--out",
+    "runs/r007/artifacts/asset_qualification.json"
+  ],
+  "config": "configs/r007/asset_qualification.yaml",
+  "exit_code": 0,
+  "finished_at": "2026-09-03T10:11:48.557156Z",
+  "gpu_count": 0,
+  "inputs": [
+    "dataset:/home/rspip/cqc/data/dataset"
+  ],
+  "outputs": [
+    {
+      "path": "runs/r007/artifacts/asset_qualification.json",
+      "rebuildable": true
+    }
+  ],
+  "project_root": "/home/rspip/cqc/study/orientbench",
+  "result_summary": "lab/result.md#r007",
+  "run_id": "r007",
+  "schema_version": 1,
+  "selected_gpus": [],
+  "source_commit": "23a8ed01c39a28bddc668cfc997654dc55f2e123",
+  "started_at": "2026-09-03T10:11:48.354700Z",
+  "status": "COMPLETE",
+  "worker_pid": 689428,
+  "worker_start_ticks": 98012733
+}

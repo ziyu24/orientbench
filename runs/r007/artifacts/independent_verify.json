@@ -1,0 +1,30 @@
+{
+  "fixtures": {
+    "mutation": true,
+    "pi_identity": true,
+    "right_angle": true
+  },
+  "passed": true,
+  "protocol": "r007-independent-asset-census-v1",
+  "records": [
+    {
+      "candidate": "rsdd_sar",
+      "claimed_platform": "GF-3_or_TerraSAR-X",
+      "local_root": null,
+      "reason_codes": [
+        "LOCAL_SAR_ASSET_ABSENT"
+      ],
+      "root_present": false
+    },
+    {
+      "candidate": "sar_aircraft",
+      "claimed_platform": "SAR-AIRcraft-1.0",
+      "local_root": null,
+      "reason_codes": [
+        "LOCAL_SAR_ASSET_ABSENT"
+      ],
+      "root_present": false
+    }
+  ],
+  "token": "ASSET_UNAVAILABLE_R007"
+}

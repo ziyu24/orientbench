@@ -1,0 +1,63 @@
+{
+  "axis_metadata_marginals": [],
+  "candidates": [
+    {
+      "axis_metadata_object_coverage": 0.0,
+      "axis_metadata_scene_coverage": 0.0,
+      "candidate": "rsdd_sar",
+      "claimed_platform": "GF-3_or_TerraSAR-X",
+      "declared_roots": [
+        "RSDD-SAR",
+        "RSDD",
+        "rsdd"
+      ],
+      "eligible_object_count": 0,
+      "license_evidence": false,
+      "local_root": null,
+      "qualified": false,
+      "reason_codes": [
+        "LOCAL_SAR_ASSET_ABSENT"
+      ],
+      "root_present": false,
+      "scene_count": 0,
+      "valid_axis_bins": [],
+      "version_evidence": false
+    },
+    {
+      "axis_metadata_object_coverage": 0.0,
+      "axis_metadata_scene_coverage": 0.0,
+      "candidate": "sar_aircraft",
+      "claimed_platform": "SAR-AIRcraft-1.0",
+      "declared_roots": [
+        "SAR-AIRcraft-1.0",
+        "SAR-AIRcraft",
+        "sar_aircraft"
+      ],
+      "eligible_object_count": 0,
+      "license_evidence": false,
+      "local_root": null,
+      "qualified": false,
+      "reason_codes": [
+        "LOCAL_SAR_ASSET_ABSENT"
+      ],
+      "root_present": false,
+      "scene_count": 0,
+      "valid_axis_bins": [],
+      "version_evidence": false
+    }
+  ],
+  "dataset_root": "/home/rspip/cqc/data/dataset",
+  "fixtures": {
+    "nonzero_mutation": true,
+    "orthogonal_range_azimuth": true,
+    "rp1_180_identity": true,
+    "rp1_vertex_order_identity": true,
+    "ten_degree_bins": true
+  },
+  "geographic_grouping_audit": [],
+  "information_wall": "No scene-axis row and object-OBB-angle row were loaded or emitted together.",
+  "lineage_key_audit": [],
+  "obb_geometry_marginals": [],
+  "protocol": "r007-read-only-sar-asset-qualification-v1",
+  "token": "ASSET_UNAVAILABLE_R007"
+}
