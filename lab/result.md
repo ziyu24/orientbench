@@ -4,8 +4,9 @@
 
 ### 结论
 
-`KILL_COI_R004`。这是 HRSC2016 detector-side causal falsifier 的有效失败，不能改名为
-信息论上限、通用定律或人机共同规律，也不能以 pooled 平均或改阈值续行。
+SERVER 声明为 `KILL_COI_R004`；B 独立验收不接受该声明，当前正式科学状态为
+`INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。八个负向点估计保留为未验收的描述性结果，不能
+改名为信息论上限、通用定律或人机共同规律，也不能据此关闭 COI。
 
 ### 已冻结资产与资格
 
@@ -16,7 +17,7 @@
   单调夹具。trainval 无角度资格赛冻结 blur 1.50/1.25 与 downsample 2.00/1.75；所有
   两模型保留率至少 99.4%。
 
-### 决定性主损失门
+### SERVER 报告的主损失门
 
 official test 固定 clean 总体使用 center、area、无序边长的一对一匹配，未使用 theta、
 angle error 或 oriented IoU。逐图等权的完整总体 `DeltaY` 为：
@@ -26,16 +27,28 @@ angle error 或 oriented IoU。逐图等权的完整总体 `DeltaY` 为：
 | Oriented R-CNN R50 | 0.017163 | 0.013542 | 0.004849 | 0.003347 |
 | Rotated RTMDet-M | 0.002654 | 0.000931 | 0.000208 | 0.000328 |
 
-八个单元均未达到预注册 `DeltaY>0.02` 的点估计要求；最大值为 0.017163。按 r004 合取
-合同，主损失 Holm-8 门已失败，后续角度贡献、机制回归和强基线门不能挽救该路线。
+八个单元均未达到预注册 `DeltaY>0.02` 的点估计要求；最大值为 0.017163。这些数值若在
+有效试验中独立复现，足以使主损失合取门失败，后续角度贡献、机制回归和强基线门不能救回。
+
+### B 独立验收失败原因
+
+- trainval 剂量选择使用全候选按代价排序的一对一匹配；test 快速门使用按 GT 输入顺序逐项
+  占用预测的匹配。构造反例已证明两者能冻结出不同 clean 总体，违反“同一 matcher”前提。
+- 公开实现没有对真实 HRSC test 计算 G/P/N 的 `J_eff/M_15`、操纵 Holm-32 与 nuisance
+  envelope，因此没有证明干预有效改变预注册可观测量。按协议，这一前提缺失只能是
+  `INCONCLUSIVE_R004`，不能进入科学 KILL。
+- 主损失实现只写出八个聚合点估计，没有逐对象固定总体、test 非坍塌计数、10000 次同步
+  bootstrap、Holm 结果或第二实现重算。Git 中也没有可供 B 独立读取的 test 预测或 compact
+  audit；当前无法从公开证据复现表中数值。
 
 ### 证据与重建
 
-大型 raw predictions、运行配置、冻结剂量和主损失审计均在项目 `runs/r004/`；其 fabric
+SERVER 声称大型 raw predictions、运行配置、冻结剂量和主损失审计均在项目 `runs/r004/`；其 fabric
 运行记录为 `r004-select-trainval-common-doses`、`r004-infer-test-oriented-frozen`、
 `r004-infer-test-rtmdet-frozen` 与 `r004-primary-loss-audit`。可复算实现为
 `src/orientbench/r004/quick_gate.py`；它使用 long-side canonical le90，并将每一对象精确分为
-missing 与 retained-angle contribution。
+missing 与 retained-angle contribution。r005 必须在不新增推理的前提下修复 matcher、补齐
+真实操纵与独立复算，之后才能更新最终裁决。
 
 ## r001
 

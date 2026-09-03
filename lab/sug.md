@@ -1,6 +1,62 @@
 # SERVER 科学指令
 
-历史 r003 已停止且未执行，不得恢复。当前唯一活动指令为 r004。
+历史 r003 已停止且未执行，不得恢复。r004 的 SERVER 负向声明未通过 B 独立验收；当前唯一
+活动指令为 r005 correction-only 闭环。
+
+## r005 — r004 matcher、操纵与证据闭环
+
+### 科学目的与边界
+
+本轮不产生新的 detector 结果，只判断 r004 已报告的八个负向 `DeltaY` 是否来自原协议定义的
+有效试验。必须复用 r004 已生成的两 detector、clean 与四个冻结干预条件的全部预测和原图；
+不得重新推理、训练、重选剂量、换模型、改 score/NMS、删除对象或查看 test 后调整匹配规则。
+
+### 同一冻结 matcher
+
+trainval 与 test 必须调用同一个 matcher 实现、同一代价、同一 gate 和同一确定性 tie-break。
+冻结语义沿用 r004：仅使用 class、center、area 与无序边长，先构造全部合格候选，按
+`(cost, gt_index, pred_index)` 全局排序后做一对一贪心；禁止 theta、angle error 和 oriented
+IoU。matcher 必须返回 GT-pred 配对而不只是 GT 集合，并同时用于剂量资格赛、clean 总体与
+所有干预条件。
+
+必须加入能区分旧两种算法的两 GT、两预测反例：一个预测同时是两个 GT 的候选，另一个只对
+首个 GT 合格；全局代价排序应保留两个 GT，按 GT 顺序占用只能保留一个。若统一实现不能通过
+该反例，或原始预测不再可读，本轮只能 `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。
+
+### 真实操纵有效性
+
+在完全相同的修正 clean 总体上，按 r004 冻结定义从真实 HRSC 图像计算 G、固定 P 和六个 N
+臂的 `J_eff/M_15`。每个对象复用 clean G 或 clean P 的 noise scale、共同有效支持、epsilon、
+trainval 均值与 image-cluster SD；不得逐条件重新归一化。计算原注册的 manipulation Holm-32
+和每个 detector×corruption×dose 的 test 保留率、对象数与图像数。
+
+前三类操纵 `clean-low>0`、`low-high>0`、标准化 `clean-high>0.20` 任一失败，或任一 test
+单元低于 70% 保留、100 个对象、50 张图，结果必须是 `INCONCLUSIVE_R004`；不得用已报告的
+低 `DeltaY` 解释为科学失败。前三类成立而 `clean-high-EN>0` 失败时，才可按预注册
+specificity 规则给 `KILL_COI_R004`。
+
+### 修正主损失与停止规则
+
+对修正 clean 总体逐对象保存 clean/干预配对、`e0/e1`、retained、`Y0/Y1`、
+`C_miss=(1-D1)*(1-e0/90)`、`C_ang=D1*(e1-e0)/90` 与 `DeltaY`；先图内等权，再图间等权。
+第二个独立实现必须从同一冻结输入重新计算 matcher、总体 key、全部逐行量和八个点估计，并
+报告两实现最大绝对差、key 差集和每单元样本计数。
+
+若真实操纵有效且任一修正 `DeltaY` 点估计不大于 0.02，主损失合取门即为有效失败，可正式
+给 `KILL_COI_R004`，无需用后续模型救回。只有八个点估计都大于 0.02 时，才继续完成 r004
+原注册的 10000 次同步图像簇 bootstrap、Holm-8、角度贡献 Holm-4、G 机制 Holm-4 和强基线
+Holm-6；全部通过才允许 `ADMIT_COI_CROSS_DATASET_STAGE`。
+
+### 证据要求与裁决
+
+运行根必须保存冻结输入清单、完整逐对象表、真实 G/P/N 特征、32 项操纵表、test 非坍塌表、
+两实现复算与所有使用到的 bootstrap draws。`lab/result.md` 必须逐表报告全部 gate、样本计数、
+实现差异与唯一 token，不能只写八个汇总数或引用运行名称。
+
+唯一允许的裁决是：输入、matcher、真实操纵或独立复算不成立时
+`INCONCLUSIVE_R004_PROTOCOL_VALIDITY`；有效试验任一科学门失败时 `KILL_COI_R004`；原 r004
+全部门通过时 `ADMIT_COI_CROSS_DATASET_STAGE`。本轮禁止新推理、新模型、新数据、论文修改、
+期刊升档或恢复任何已消费路线。
 
 ## r004 — HRSC2016 干预式轴向可辨识响应生死门
 

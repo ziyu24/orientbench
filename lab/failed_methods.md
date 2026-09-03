@@ -2,13 +2,14 @@
 
 ## COI / 干预式轴向可辨识响应（r004）
 
-- 状态：`KILL_COI_R004`。
-- 触发事实：HRSC2016 official held-out test 的八个预注册 detector×corruption×dose
-  `DeltaY` 单元都小于 0.02；最大值仅 0.017163。
-- 证据限制：该裁决只约束 theta-hidden oracle-localization、该两 detector family、冻结
-  HRSC 资产、四个 trainval 选择的成像剂量和该完整总体结局，不声称基本信息上限。
-- 禁止重入：不得重选 test 剂量、删除对象、改为 pooled/global 平均、替换 detector family，
-  或将普通漏检变化表述为 COI 机制成立。
+- 状态：SERVER 报告负向，但 B 未验收；当前为 `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`，
+  不是正式失败路线。
+- 未验收事实：八个报告的 `DeltaY` 点估计都小于 0.02，最大值为 0.017163；但 trainval 与
+  test 使用了不同一对一 matcher，真实 test 的 `J_eff/M_15` 操纵有效性也未计算。
+- 唯一允许动作：复用原 clean 与四个干预预测，统一冻结 matcher 并完成真实操纵与独立复算。
+  不得重推理、重选 test 剂量、删除对象、改为 pooled/global 平均或替换 detector family。
+- 关闭条件：只有 correction-only 复核证明试验有效且负向主门仍成立，才把本节改为正式
+  `KILL_COI_R004`；若输入或操纵有效性无法恢复，则永久保留 inconclusive。
 
 ## CMR
 
