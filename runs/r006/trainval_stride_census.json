@@ -1,0 +1,66 @@
+{
+  "all_models_have_eligible_stride": true,
+  "oriented_rcnn_r50": {
+    "eligible_strides": [
+      4,
+      8
+    ],
+    "matched_objects": 1745,
+    "phase0_file": "runs/r006/trainval_orcnn_phase0.pkl",
+    "strides": [
+      {
+        "eligible": true,
+        "fraction": 0.7742120343839541,
+        "images": 449,
+        "objects": 1351,
+        "stride": 4
+      },
+      {
+        "eligible": true,
+        "fraction": 0.22177650429799428,
+        "images": 297,
+        "objects": 387,
+        "stride": 8
+      },
+      {
+        "eligible": false,
+        "fraction": 0.0040114613180515755,
+        "images": 7,
+        "objects": 7,
+        "stride": 16
+      }
+    ]
+  },
+  "protocol": "r006-trainval-active-stride-census-v1",
+  "rotated_rtmdet_m": {
+    "eligible_strides": [
+      8,
+      16
+    ],
+    "matched_objects": 1747,
+    "phase0_file": "runs/r006/trainval_rtmdet_phase0.pkl",
+    "strides": [
+      {
+        "eligible": true,
+        "fraction": 0.34917000572409845,
+        "images": 249,
+        "objects": 610,
+        "stride": 8
+      },
+      {
+        "eligible": true,
+        "fraction": 0.6468231253577561,
+        "images": 523,
+        "objects": 1130,
+        "stride": 16
+      },
+      {
+        "eligible": false,
+        "fraction": 0.004006868918145392,
+        "images": 6,
+        "objects": 7,
+        "stride": 32
+      }
+    ]
+  }
+}
