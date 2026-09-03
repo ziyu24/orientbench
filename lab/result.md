@@ -268,3 +268,26 @@ matcher，实现差为零，并通过 pi 轴向等价和非零角扰动 mutation
 stride、阈值或重开同一 official test 来修复。主统计的 10,000 次同步 image-cluster draws、完整
 逐条件 source-level 预测和独立复算均保留于上述 execution refs；普通 Git 仅保留可复算源码、配置
 和本结论。
+
+## r007
+
+### 范围与执行
+
+这是只读 SAR acquisition-axis 资产资格审计：未训练、推理、下载、解压、复制数据，也未读取模型
+输出、OBB--axis 相对角或任何联合表。审计只枚举主机固定数据根中预先列出的 RSDD-SAR 与
+SAR-AIRcraft 候选目录；未将其他光学数据误识别为 SAR。
+
+### 资产与双实现结果
+
+两个候选在 `/home/rspip/cqc/data/dataset` 下均无本地根目录，因而没有可核验的数据版本、许可、
+原始产品 metadata、source-product→scene→chip→object lineage、scene、eligible object 或
+ground-range axis strata。主实现与独立实现对两个候选的名称、平台、根不存在状态及 reason code
+`LOCAL_SAR_ASSET_ABSENT` 完全一致。RP1 180° 恒等、10° 固定半开 bin、range/azimuth 正交与非零
+mutation fixtures 均通过；compact 输出按信息墙分离 axis/OBB 边际，且没有共同键的逐行 axis 与
+OBB angle。
+
+### 唯一裁决
+
+`ASSET_UNAVAILABLE_R007`。这是资产不可用，不是科学 PASS/KILL，也不是对 acquisition-axis
+机制的反证；项目回到 `NO_ACTIVE_TASK`。不得下载、补造或由普通 north-up 栅格、文件名、图像边缘
+或目标方向猜测 acquisition axis，且本结果不自动授权 r008。
