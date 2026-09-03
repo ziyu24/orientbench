@@ -317,6 +317,28 @@ RarePlanes 单类接口、初始化权重与 OBB 语义闭环。O2-RTDETR、FRED
 `ASSET_UNAVAILABLE_R008`。这是顶刊验证组合的资产不足，不是 H1/H2 的科学 PASS/KILL；不得
 下载、拼接、伪造资产或自动启动 r009。项目回到 `NO_ACTIVE_TASK`。
 
+## r009
+
+### 修正审计
+
+按 r009 的完整有界合同，主实现对固定 dataset 根进行了大小写不敏感、符号链接解析、最大五层的
+目录别名与官方内容签名枚举；覆盖 `RarePlanes-Public`、`RarePlanes_Public`、`RarePlanes`、
+`RarePlanes_real`、`rareplanes`，并检索 full annotations 与 metadata 官方文件签名。没有发现候选
+目录或内容签名，且没有搜索异常。独立实现不导入主候选集合，重新枚举后 candidate set 完全一致。
+
+### 模型与权重 readiness
+
+审计实际读取 third-party 内部项目树和 `pth_data/readme.md`：Oriented R-CNN、Rotated RTMDet 与
+ARS-DETR 存在相关实现；O2-RTDETR/FRED 没有可识别的已登记内部项目或权重。所有 family 仍缺
+RarePlanes 接口、确定的 OBB 语义和可核验的初始化权重闭环；现有 classifier 实现亦缺针对四固定
+属性输出的权重/适配闭环。这些均如实记为缺失或 `ADAPTATION_REQUIRED`，没有以目录名或常量冒充。
+
+### 唯一裁决
+
+`ASSET_UNAVAILABLE_R009`。RarePlanes real 数据资产本身不存在，故 r008 的 component/split/属性
+支持门不能执行；此结论不是 H1/H2 科学结果，也不授权下载、训练、推理或 r010。项目回到
+`NO_ACTIVE_TASK`。
+
 ### B 独立验收
 
 B 不接受上述资产结论，当前状态改为 `INCONCLUSIVE_R008_ASSET_AUDIT`。主审计只检查四个
