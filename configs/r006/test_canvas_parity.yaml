@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: orientbench
-run_id: r006-test-canvas-parity
+run_id: r006-test-canvas-parity-retry1
 project_root: /home/rspip/cqc/study/orientbench
 command: [/bin/bash, -lc, 'PYTHONPATH=src /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python -m orientbench.r006.parity --r004-root runs/r004 --split test --orcnn runs/r006/test_orcnn_biaxial_sweep.pkl --rtmdet runs/r006/test_rtmdet_biaxial_sweep.pkl --out runs/r006/test_canvas_parity.json']
 datasets: []

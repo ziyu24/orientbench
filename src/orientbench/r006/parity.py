@@ -60,7 +60,7 @@ def _ap75(standard: list[dict], canvas: dict[str, dict], use_07: bool) -> tuple[
         original_boxes = _array(record["pred_instances"]["bboxes"])
         original_scores = _array(record["pred_instances"]["scores"]).reshape(-1, 1)
         phase = canvas[image_id]
-        phase_boxes = np.asarray(phase["bboxes"], dtype=float)
+        phase_boxes = np.asarray(phase["bboxes"], dtype=float).reshape(-1, 5)
         phase_scores = np.asarray(phase["scores"], dtype=float).reshape(-1, 1)
         standard_dets.append([np.concatenate([original_boxes, original_scores], 1)])
         canvas_dets.append([np.concatenate([phase_boxes, phase_scores], 1)])
@@ -84,7 +84,7 @@ def _check(standard_path: Path, canvas_path: Path) -> dict:
         gt = _array(record["gt_instances"]["bboxes"])
         standard_boxes = _array(record["pred_instances"]["bboxes"])
         phase = canvas[image_id]
-        canvas_boxes = np.asarray(phase["bboxes"], dtype=float)
+        canvas_boxes = np.asarray(phase["bboxes"], dtype=float).reshape(-1, 5)
         std_set, std_angle = _per_image_angle(gt, standard_boxes)
         canvas_set, canvas_angle = _per_image_angle(gt, canvas_boxes)
         overlap = std_set & canvas_set
