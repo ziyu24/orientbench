@@ -1,0 +1,160 @@
+{
+  "r004_root": "/home/rspip/cqc/study/orientbench/runs/r004",
+  "prediction_files": [
+    {
+      "path": "runs/r004/inference/test/oriented_rcnn_r50/blur_1.25/predictions.pkl",
+      "bytes": 1602905,
+      "sha256": "b1319108d28ba41f92bb0bf225254c61b37665285741dfe01225c170fdce3e02"
+    },
+    {
+      "path": "runs/r004/inference/test/oriented_rcnn_r50/blur_1.5/predictions.pkl",
+      "bytes": 1607031,
+      "sha256": "70c9aed62cda60028f5facb7a8e9a3bb16df63acf8b725e7eba53a150e86c4ba"
+    },
+    {
+      "path": "runs/r004/inference/test/oriented_rcnn_r50/clean/predictions.pkl",
+      "bytes": 1597843,
+      "sha256": "571c1446b63585ce986cea13feb6e9f657c4d7319354de213924567a5fea85d9"
+    },
+    {
+      "path": "runs/r004/inference/test/oriented_rcnn_r50/downsample_1.75/predictions.pkl",
+      "bytes": 1599362,
+      "sha256": "df8be762cac3e42b05620344ab94d005158a18eb33d11aac3961f30bcbe65760"
+    },
+    {
+      "path": "runs/r004/inference/test/oriented_rcnn_r50/downsample_2/predictions.pkl",
+      "bytes": 1598088,
+      "sha256": "32675548be8fca4f477af4a4e9974828f7c1497f03bb82f9494518715bf2635f"
+    },
+    {
+      "path": "runs/r004/inference/test/rotated_rtmdet_m/blur_1.25/predictions.pkl",
+      "bytes": 1393951,
+      "sha256": "1789bf33849ebee57b00afea4e3794917c80dea67404a2974ef0ca9506dc222f"
+    },
+    {
+      "path": "runs/r004/inference/test/rotated_rtmdet_m/blur_1.5/predictions.pkl",
+      "bytes": 1394357,
+      "sha256": "725e8aa074bed8c9cbaa3c498c79da48b4e10f0dabde40c688b5453976540b8b"
+    },
+    {
+      "path": "runs/r004/inference/test/rotated_rtmdet_m/clean/predictions.pkl",
+      "bytes": 1391374,
+      "sha256": "f4fb785ff4d5acb8683dc7c4ebcbc80f9189d334ec45cebe4d3243d5911daa79"
+    },
+    {
+      "path": "runs/r004/inference/test/rotated_rtmdet_m/downsample_1.75/predictions.pkl",
+      "bytes": 1396009,
+      "sha256": "15b495b0559203fb29254dd4ece16a40f03f15a09d454d1e674ca3b5b1d68b83"
+    },
+    {
+      "path": "runs/r004/inference/test/rotated_rtmdet_m/downsample_2/predictions.pkl",
+      "bytes": 1394210,
+      "sha256": "18eee66c9bd6e708b8b26f2db1d62a31d62f6922bd83cd86e9d163586ac21d04"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/blur_0.5/predictions.pkl",
+      "bytes": 2164392,
+      "sha256": "16c1d202ec5996af6242a5406e5894bf633288bc49dd872bd599072ee6b75db1"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/blur_0.75/predictions.pkl",
+      "bytes": 2164528,
+      "sha256": "119af518504c13a9ea4733d1e86695d9c7ccbcf0dd02b1f05fb8a53f77692a00"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/blur_1/predictions.pkl",
+      "bytes": 2164381,
+      "sha256": "ec67c7a6861f0664acd1a4c15446e77a37c5db30d77f620367b2f4e452978f38"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/blur_1.25/predictions.pkl",
+      "bytes": 2173158,
+      "sha256": "244a2b3ed72f9a5e5d66afa1428b880a45d4f1b05fb010d05af0d5d936bcf5dc"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/blur_1.5/predictions.pkl",
+      "bytes": 2179253,
+      "sha256": "7b105637ade6fab492f750f081d91d6b273881db2bf5f3b41c21a250fdc2a8b4"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/clean/predictions.pkl",
+      "bytes": 2165408,
+      "sha256": "c90a4d6142b9e7b310c537b9e86d94257186b0a1d0a91baffdc81241cada401f"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_1.25/predictions.pkl",
+      "bytes": 2167792,
+      "sha256": "4f70e2fa6e3bd5ce8ba32faa521ce98c4ce94bc335f81b2d51f9f98167e1bc9d"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_1.5/predictions.pkl",
+      "bytes": 2165554,
+      "sha256": "91509f5d688d711f740f779c3dc39ba065fa6bd8113d0e9ec60321bf5154247b"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_1.75/predictions.pkl",
+      "bytes": 2166730,
+      "sha256": "cbeb1fbcd47a4a07010238b269828f6778f79aa729b5d3bc404dc5b6b80516dd"
+    },
+    {
+      "path": "runs/r004/inference/trainval/oriented_rcnn_r50/downsample_2/predictions.pkl",
+      "bytes": 2164411,
+      "sha256": "a50bf51625586b97f48e88689391c334a5b19c58e96897b78595ed69608230a8"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/blur_0.5/predictions.pkl",
+      "bytes": 1900188,
+      "sha256": "54e7568839968b94d80e496deb7f189e6a6810d0e936a7b1b074187b13e65a24"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/blur_0.75/predictions.pkl",
+      "bytes": 1900492,
+      "sha256": "cdb239213d597c613400746f3c01cff7d30a81405fade103a94aebe38194c405"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/blur_1/predictions.pkl",
+      "bytes": 1900205,
+      "sha256": "db3b2c74826562e18031464166bc60f633f7c7b0780059d9fe65281e92532cf3"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/blur_1.25/predictions.pkl",
+      "bytes": 1902205,
+      "sha256": "18841eb03e1e759c096977755efc42fe34dcbeb015e8cbfb8abb57753c36b291"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/blur_1.5/predictions.pkl",
+      "bytes": 1903996,
+      "sha256": "56d0cd32557823284f847707c51bdac837636d2ea28a311f7238e6a5d0df38b7"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/clean/predictions.pkl",
+      "bytes": 1898518,
+      "sha256": "174b6ecf225a9be0c79ad25ea801d1ead0b09a7f96fb6aabf5c4c0f281ef6589"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_1.25/predictions.pkl",
+      "bytes": 1904487,
+      "sha256": "788f11e0ba1ca4fa9dbee6d1c7b4e22d2d2949abfa4887be4ac894cff5b81144"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_1.5/predictions.pkl",
+      "bytes": 1904013,
+      "sha256": "98f24bdf83e8d32ee4711438ad14c03facac4976c4a491371f059dd5b8e5b4a9"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_1.75/predictions.pkl",
+      "bytes": 1904693,
+      "sha256": "bf4fb70e02f53ce954354ade51a17c174a2283515006d7189432d9f4277ad63a"
+    },
+    {
+      "path": "runs/r004/inference/trainval/rotated_rtmdet_m/downsample_2/predictions.pkl",
+      "bytes": 1903598,
+      "sha256": "42f95bd094f6a79d2b1a9ed7aa6f0f7304d5094c8ae6031adec4186a27b71dfa"
+    }
+  ],
+  "canonical_clean_images": "/home/rspip/cqc/data/dataset/HRSC2016/images",
+  "intervention_roots": {
+    "trainval": "/home/rspip/cqc/study/orientbench/runs/r004/interventions/trainval",
+    "test": "/home/rspip/cqc/study/orientbench/runs/r004/interventions/test"
+  }
+}
