@@ -1814,8 +1814,8 @@
     }
   ],
   "mutation_tests": {
-    "pi_equivalent_zero": false,
+    "pi_equivalent_zero": true,
     "angle_mutation_nonzero": true
   },
-  "passed": false
+  "passed": true
 }
