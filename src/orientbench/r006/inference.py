@@ -97,15 +97,15 @@ class SourceTrace:
         self.rtm_output = tuple(tuple(part.detach() for part in group) for group in output)
 
     @staticmethod
-    def _match(final: torch.Tensor, scores: torch.Tensor, boxes: torch.Tensor,
-               levels: torch.Tensor) -> list[int]:
+    def _match(final: torch.Tensor, final_scores: torch.Tensor, boxes: torch.Tensor,
+               candidate_scores: torch.Tensor, levels: torch.Tensor) -> list[int]:
         """Exact decoded-box/score association, with a strict numeric tolerance."""
         answer: list[int] = []
         used: set[int] = set()
-        for box, score in zip(final, scores):
+        for box, score in zip(final, final_scores):
             delta = (boxes[:, :4] - box[:4]).abs().sum(1)
             # score disambiguates duplicate decoded boxes before NMS.
-            delta = delta + (scores - score).abs() * 1e3
+            delta = delta + (candidate_scores - score).abs() * 1e3
             order = torch.argsort(delta)
             index = next((int(ix) for ix in order.tolist() if int(ix) not in used), None)
             if index is None or float(delta[index]) > 2e-3:
@@ -124,7 +124,7 @@ class SourceTrace:
             candidate_scores = torch.softmax(cls_score, dim=-1)[:, 0]
             decoded = self.model.roi_head.bbox_head.bbox_coder.decode(self.rois[:, 1:], bbox_pred)
             candidate_boxes = _tensor(decoded).detach()
-            level_index = self._match(final, scores, candidate_boxes, self.levels)
+            level_index = self._match(final, scores, candidate_boxes, candidate_scores, self.levels)
             strides = self.model.roi_head.bbox_roi_extractor.featmap_strides
             return [int(strides[index]) for index in level_index]
         if self.rtm_output is None:
