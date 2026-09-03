@@ -130,6 +130,11 @@ class SourceTrace:
             candidate_boxes = _tensor(decoded).detach()
             level_index = self._match(final, scores, candidate_boxes, candidate_scores, self.levels)
             strides = self.model.roi_head.bbox_roi_extractor.featmap_strides
+            if any(level < 0 or level >= len(strides) for level in level_index):
+                raise RuntimeError(
+                    f"invalid hooked RoI levels {sorted(set(level_index))}; "
+                    f"extractor strides={list(strides)}, raw range="
+                    f"[{int(self.levels.min())}, {int(self.levels.max())}]")
             return [int(strides[level]) for level in level_index]
         if self.rtm_output is None:
             raise RuntimeError("missing RTMDet provenance hook")
