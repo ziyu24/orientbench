@@ -57,7 +57,12 @@ def _resize_and_canvas(image: np.ndarray, scale: tuple[int, int], axis: str, shi
     sx = resized.shape[1] / image.shape[1]
     sy = resized.shape[0] / image.shape[0]
     height, width = resized.shape[:2]
-    canvas = np.full((height + 2 * margin, width + 2 * margin, 3), pad, dtype=image.dtype)
+    # RTMDet's PAFPN requires each spatial dimension to be divisible by its
+    # largest head stride.  Extra pixels are fixed right/bottom canvas only;
+    # they never alter the translated source pixels or their inverse map.
+    canvas_h = int(math.ceil((height + 2 * margin) / 32) * 32)
+    canvas_w = int(math.ceil((width + 2 * margin) / 32) * 32)
+    canvas = np.full((canvas_h, canvas_w, 3), pad, dtype=image.dtype)
     dx, dy = (shift, 0) if axis == "x" else (0, shift)
     canvas[margin + dy:margin + dy + height, margin + dx:margin + dx + width] = resized
     return Canvas(canvas, (sx, sy), (margin + dx, margin + dy), image.shape[:2])
