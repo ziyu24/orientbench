@@ -2,8 +2,8 @@ schema_version: 1
 project_id: orientbench
 run_id: r007-sar-asset-qualification
 project_root: /home/rspip/cqc/study/orientbench
-command: [/bin/bash, -lc, 'PYTHONPATH=src /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python -m orientbench.r007.qualification --dataset-root /home/rspip/cqc/data/dataset --out runs/r007/asset_qualification.json']
+command: [/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python, -m, orientbench.r007.run_qualification, --dataset-root, /home/rspip/cqc/data/dataset, --out, runs/r007/artifacts/asset_qualification.json]
 datasets: []
 resources: {run_kind: CPU, gpu_count: 0, gpu_memory_mib: 0}
-result_paths: [runs/r007/asset_qualification.json]
+result_paths: [runs/r007/artifacts/asset_qualification.json]
 publish_on_success: true

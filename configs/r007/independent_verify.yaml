@@ -2,8 +2,8 @@ schema_version: 1
 project_id: orientbench
 run_id: r007-sar-asset-independent-verify
 project_root: /home/rspip/cqc/study/orientbench
-command: [/bin/bash, -lc, 'PYTHONPATH=src /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python -m orientbench.r007.verify --dataset-root /home/rspip/cqc/data/dataset --primary runs/r007/asset_qualification.json --out runs/r007/independent_verify.json']
+command: [/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python, -m, orientbench.r007.run_verify, --dataset-root, /home/rspip/cqc/data/dataset, --primary, runs/r007/artifacts/asset_qualification.json, --out, runs/r007/artifacts/independent_verify.json]
 datasets: []
 resources: {run_kind: CPU, gpu_count: 0, gpu_memory_mib: 0}
-result_paths: [runs/r007/independent_verify.json]
+result_paths: [runs/r007/artifacts/independent_verify.json]
 publish_on_success: true
