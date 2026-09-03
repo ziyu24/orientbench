@@ -102,3 +102,51 @@ envelope、CI 或 Holm p 作为正向证据。
 
 r004/r005 至此停止：不得重调 test 剂量、降低 0.20 门、重推理或换模型救回，也不得把
 inconclusive 写成机制已被证伪。当前仍只支持 JSTARS 对标；没有 TGRS/JPRS 升档依据。
+
+## r006 新候选：平移到轴向角的特征格相位泄漏
+
+B 在停止 COI 后重新检索项目历史和外部先验。通用 CNN 的像素平移不稳定、下采样 alias、
+[BlurPool](https://proceedings.mlr.press/v97/zhang19a.html) 与
+[adaptive polyphase sampling](https://openaccess.thecvf.com/content/CVPR2021/html/Chaman_Truly_Shift-Invariant_Convolutional_Neural_Networks_CVPR_2021_paper.html)、
+[TIPS](https://openaccess.thecvf.com/content/WACV2025/html/Saha_Improving_Shift_Invariance_in_Convolutional_Neural_Networks_with_Translation_Invariant_WACV_2025_paper.html)
+已直接研究；已有 [object-detection shift-equivariance](https://arxiv.org/abs/2008.05787) 工作也在
+COCO 和 DOTA 水平框上报告过一像素平移造成的 AP 波动。因此“detector 不具 shift equivariance”
+不是本项目的新命题，简单把 BlurPool、APS、LPS 或 TIPS 搬到旋转检测也不足以成为顶刊贡献。
+
+定向检索尚未找到直接检验下述更窄问题的工作：在物体与 GT 方向完全不变时，无插值整数平移
+是否通过多尺度采样格的 polyphase 改变，被定向 detector 专门泄漏成 RP1 轴向角振荡；该角振荡
+是否在中心、无序边长、分数和匹配均稳定的对象上仍存在。这个问题不同于 PSC 的“角编码相位”、
+旧 OER/GR-EQS 的输出排序或融合、旧 CMR/PEF 的候选角修正，也不同于 r004/r005 的图像模糊与
+降采样可观测量。
+
+C 的首要反例是：多尺度 Oriented R-CNN 和 RTMDet 同时经过多个 stride 路径，“存在 active
+stride 8”不等于整个输出以 8 为周期。若只扫描两个 8 像素周期，真实的 stride 16/32 泄漏会被
+误判为不复现。B 接受这一反例并撤回共同 stride 8 方案。r006 必须从 clean 计算图封存每个最终
+预测的实际角特征来源：两阶段模型记录最终 RoI extraction level，单阶段模型记录胜出候选的
+pre-NMS head level；只按 trainval 预先定义有足够支持的全部 active stride 建层，test 不得按
+结果挑 stride。每个层固定使用最先出现的两个完整周期，并把 level switch 当作不稳定而不是静默
+重分层。
+
+C 同时要求三项有效性边界，B 全部接受：平移必须发生在最终 resize 后的网络输入格点，避免前处理
+插值；所有条件使用同一扩边 canvas，逆移后的对象邻域逐值相同并隔离边界；同一输入重复推理必须
+先证明计算确定性。输出角只能从 polygon/长边 canonical 后的 `exp(i2theta)` 计算 RP1 距离，
+禁止直接比较 raw theta，以免 w/h 交换、90 度 canonicalization 或角编码边界制造伪振荡。
+
+最危险的直接近邻是 2024 年的
+[Structure Tensor OBB](https://arxiv.org/abs/2411.10497)，其公开材料声称同时改善 rotation 与
+spatial-shift robustness；但其 tensor 是 OBB 参数表示，且现有实验没有分离 fixed-GT-angle 的
+shift-only、逐实例 source-stride 相位归因。这个差异只留下一个很窄的候选空隙，不能写成“首个”
+或“理论创新”。
+
+B/C 对结论边界也一致：执行有效时，只有两个 detector family 都在各自至少一个预注册 eligible
+stride 上同时通过水平、垂直全部门，才准入下一阶段；任何部分通过、单轴、单架构或非周期结果都
+统一关闭这条“跨架构、双轴、clean-assigned output-lattice TAL”路线。该 KILL 不能外推成不存在
+任何 translation-to-angle leakage。C 在复核三分区、phase-0 stride provenance、固定前两周期、
+canvas/phasor、all-shift mask 与各总体 bootstrap 分母后给出
+`C_FINAL_SIGNED_R006_DIAGNOSTIC`。
+
+r006 只是一轮 HRSC2016 跨两架构的机制生死门，不训练、不聚合多视图、不修框、不输出可靠性
+排序。即使通过，也只说明存在值得处理的 OBB 专属 translation-to-angle leakage；下一阶段仍须
+在未触碰的第二传感器/数据集与第三架构上确认，并与 direct/PSC 或 CSL、Structure-Tensor angle
+coder、BlurPool、APS、LPS、TIPS 做正面对照，最终同时改善 AP75、角误差和 shift consistency
+且不损伤 mAP/AP50，才有讨论 TGRS/JPRS 的基础。当前不升档。

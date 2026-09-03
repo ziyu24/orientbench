@@ -1,8 +1,147 @@
 # SERVER 科学指令
 
 历史 r003 已停止且未执行，不得恢复。r005 correction-only 已完成并由 B 独立验收为
-`INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。当前没有活动 SERVER 指令；不得重复执行 r004/r005、
-重调 test 剂量或降低门槛。
+`INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。当前唯一活动 SERVER 指令为 r006；不得重复执行
+r004/r005、重调 test 剂量或降低门槛。
+
+## r006 — clean-assigned 特征格相位的双轴平移到角泄漏生死门
+
+### 科学问题与边界
+
+检验一个有限命题：对同一遥感目标实施不改变像素内容和 GT 方向的整数平移时，多尺度 detector
+的 clean-assigned output-lattice 相位是否产生可重复的 RP1 轴向角振荡；该振荡是否跨
+Oriented R-CNN 与 Rotated RTMDet 两种架构，并且不能由匹配、中心、无序边长、分数或一般
+检测不稳定解释。
+
+本轮不是通用 shift-equivariance 的首发现，也不是新 angle coder、TTA、预测融合、风险排序或
+框修正。不得训练、平均多个角、选择“最好平移”、修改输出或报告性能增益。结果只决定是否允许
+下一轮设计 OBB 专属的 phase-consistent 方法；即使通过，也不构成 TGRS/JPRS 结论。
+
+### 数据、模型与一次揭示
+
+- 首次验证固定为训练外的 HRSC2016 official held-out test。official trainval 只用于 clean
+  parity、模型层级来源与 active stride 支持度冻结；test 只整体揭示一次。
+- detector 固定为 r004 已核实的 Oriented R-CNN R50 与 Rotated RTMDet-M。两者必须保持原
+  checkpoint、score/NMS、预处理、角度约定与输出语义；不得以换 backbone 或第三模型救回。
+- clean 标准推理先与既有结果做 identity parity。输入、split、模型、角度或层级 provenance
+  任一不可核实，只能给 `INCONCLUSIVE_R006_EXECUTION_VALIDITY`。
+
+### 无插值整数平移
+
+平移必须施加在最终 resize 后、normalization 前的网络输入格点。先把同一 clean tensor 放入
+固定大小的共同扩边 canvas，再沿水平或垂直方向移动整数像素；所有条件的 tensor 形状、后续
+预处理、pad value 与批处理语义完全相同。不得在原图阶段平移后重新 resize，不得做亚像素插值、
+旋转、缩放或改变图像内容。
+
+每个变换都必须保存逆移审计：有效对象邻域在逆平移后逐值等于 clean，GT center 只加同一整数
+位移，GT polygon、w/h 与 theta 不变。边界影响对象按 trainval 冻结的 receptive-field 安全边距
+在构造总体前排除，test 不得按结果扩大边距。每个模型对完全相同的 clean canvas 独立重复三次；
+匹配 key 必须一致，canonical angle 的最大差不得超过 0.05 度，否则本轮无效。
+
+扩边 canvas 的 phase-0 还必须与同一模型的标准 clean 推理做逆移 parity：至少保留 95% 的标准
+clean matched GT，图像等权 mean le90 的绝对差不超过 0.5 度，AP75 的绝对差不超过 0.005。
+任一模型不满足时说明 canvas 自身改变了任务，结果只能是执行无效；不得在 test 上更换 pad 或边距。
+
+### active stride 与扫描集合
+
+不得假设整个多尺度网络只有一个共同周期。clean 推理必须为每个最终预测封存其角特征的实际来源：
+Oriented R-CNN 使用最终 RoI extraction level 的 input-pixel stride，Rotated RTMDet 使用进入
+NMS 的胜出候选 head level stride。层级记录必须穿过解码与 NMS，并由独立 hook 复核；不能只从
+box size 反推。
+
+每个模型的 stride `s` 只在 trainval clean matched predictions 中同时满足占该模型至少 15%、
+至少 200 个对象和 100 张 source images 时成为 eligible active stride。该列表在打开 test 前
+冻结；不得根据 test 信号挑选、合并或替换 stride。任一模型没有 eligible stride 时停止并给
+`INCONCLUSIVE_R006_EXECUTION_VALIDITY`。
+
+若 eligible strides 是嵌套的二次幂，沿水平与垂直轴分别运行
+`d=0,...,2*s_max-1`；否则运行到 `2*LCM(eligible strides)-1`。每个 stride 的正式估计量只使用
+其最先出现的 `d=0,...,2*s-1` 两个完整周期，不得在结果后挑周期；其他条件只作相位一致性审计。
+clean 匹配对象按 phase-0 的 clean source stride 进入冻结的 `U_f,s`。干预后 source level 改变
+必须显式记为 level switch，不能把对象重分配到新层或删除。
+
+### 匹配、角度与固定总体
+
+沿用 r005 已独立验证的全候选、全局排序、一对一 theta-free matcher；只能使用 class、center、
+area 与无序边长，禁止 theta、angle error、oriented IoU 或结果后调 gate。每个条件把预测 center
+逆平移到 clean 坐标后再匹配同一个冻结 GT 总体。
+
+每个输出先转 polygon，再以长边 canonical 得到轴向单位复数 `u=exp(i*2*theta)`；角差固定为
+`d_pi(theta1,theta2)=0.5*abs(arg(u1*conj(u2)))`，范围 0 至 90 度。不得直接比较 raw theta，
+不得继承未核实的 w/h 加 90 度或 le90 字段。独立实现必须逐行重建 polygon、canonical angle、
+source stride、匹配与全部统计量。
+
+每个 `U_f,s` 在每个正式 shift 条件中必须维持同 source level 且成功匹配至少 90%，并至少保留
+100 个对象和 50 张图。任一 eligible stratum 不满足即试验不能解释该 active path，裁为
+`INCONCLUSIVE_R006_EXECUTION_VALIDITY`；不得缩总体或只保留 survivor。
+
+### 周期相位估计量
+
+对模型 `f`、eligible stride `s`、轴 `a`，令 `theta_i(d)` 为对象 `i` 在平移 `d` 后的
+canonical angle。若一对条件没有同时保持匹配和 source level，其角贡献记零并另记不稳定，主量
+始终以完整 `U_f,s` 为分母。定义每对象的周期内摆动与同相位跨周期不复现量：
+
+`A_i = mean_{c in {0,1}, p=1,...,s-1} I_valid * d_pi(theta_i(c*s+p),theta_i(c*s))/90`
+
+`R_i = mean_{p=0,...,s-1} I_valid * d_pi(theta_i(p+s),theta_i(p))/90`。
+
+先在每张 source image 内对对象等权，再对图像等权，得到 `A_f,s,a` 与 `R_f,s,a`。`A` 表示
+周期内角输出摆动，`R` 表示相同相位在下一周期不能复现的量。每个 unit 登记三项越大越支持的
+统计量：`A-0.01`、`A-R-0.005`、`A-2R`。它们分别要求至少 0.9 度的完整总体轴向摆动、至少
+0.45 度超过非周期项、且同相位不复现量小于周期内摆动的一半。
+
+同时逐条件报告完整总体上的 miss/level-switch、score、逆移中心、无序长短边、HBB IoU、OBB
+angle error 与 AP/AP75 波动；这些描述量不得替代角相位主门，也不得选择最佳相位。
+
+### 定位稳定的角度专属性 witness
+
+为排除一般 box 抖动，对每个 `U_f,s` 预先构造一个 all-shift 交集：对象必须在该轴全部
+`0,...,2s-1` 条件中保持同 source level，且相对 clean 的逆移中心误差始终不超过无方向尺度的
+2%，两条无序边的绝对 log-ratio 始终不超过 0.02，绝对 score 变化始终不超过 0.05。A 与 R
+必须使用完全相同的交集，禁止为两个量使用不同 pair mask；统计仍以完整 `U_f,s` 为分母。
+
+该 witness 必须覆盖至少 50% 的 `U_f,s`、100 个对象和 50 张图；否则说明一般定位/检测波动
+足以支配现象，在执行有效的前提下关闭 OBB 专属机制。对每个 unit 定义
+`A_stable-R_stable-0.0025`，要求角相位效应在严格稳定对象上仍至少有 0.225 度的完整总体增量。
+
+### 统计合同与裁决
+
+- 使用 10000 次 source-image cluster bootstrap；同一次 image multiplicity 同步用于所有
+  shifts、strides、两轴和两模型。每个 `U_f,s` 在 phase-0 单独冻结其非空 source-image
+  registry；点估计与每个 replicate 都只在该 registry 上按抽样 multiplicity 先图内等权、再作
+  图间加权均值，分母严格为该 registry 的 multiplicity 总和。共同官方图像可复用同步随机数，
+  但 registry 外图像不得以零填充进入分母。
+- 所有 unit 的三个主统计量组成一个预注册 Holm family，大小固定为
+  `3 * eligible(model,stride,axis) 数`；所有 stable witness 统计量组成第二个 Holm family，
+  大小为 `eligible(model,stride,axis) 数`。对越大越支持的 `theta` 和零阈值，单侧
+  null-recentered p 固定为
+  `(1 + count((theta_b-theta_hat) >= theta_hat)) / 10001`；Holm-adjusted p 是唯一显著性裁决，
+  普通 percentile CI 只报告。
+- 一个 detector family 只有在至少一个预注册 eligible stride 的水平、垂直两个轴上，三项主门
+  与 stable witness 全部点估计大于零且对应 Holm-adjusted p 不超过 0.05，才形成 family
+  witness。不得以 outcome 后选 stride、单轴、pooled detector 或最大 AP 波动救回。
+- 两个 detector family 都形成 witness，且所有资产、确定性、canvas、匹配、source-level、
+  retention 与独立复算检查通过，唯一正结果为 `ADMIT_BIAXIAL_TAL_METHOD_STAGE`。
+- 在执行有效时，凡不满足“两个 detector family 均形成上述同一 stride 双轴 witness”的任何
+  结果——包括部分 stride 通过、单轴、单架构或只存在非周期 shift variance——唯一科学结果
+  均为 `KILL_CROSS_FAMILY_BIAXIAL_TAL_R006`。该 token 只关闭本轮预注册的跨架构、双轴、
+  clean-assigned output-lattice 路线，不能写成不存在任何 translation-to-angle leakage。
+- 输入、层级 provenance、变换恒等性、重复确定性、eligible stratum、匹配、retention、统计
+  或独立复算任一无效，唯一结果为 `INCONCLUSIVE_R006_EXECUTION_VALIDITY`；不得换数据、模型、
+  stride、边距或阈值继续同一 test。
+
+### 证据与后续边界
+
+必须保存可复算的版本化实现与配置、trainval stride census、test 冻结总体、逐条件 source-level
+与 matcher 表、完整逐对象角/中心/边长/score 记录、canvas 与重复确定性 fixtures、全部 bootstrap
+draws、Holm 表以及第二实现逐行差异。大型预测和逐行运行产物只保留在项目运行根，不进入普通
+Git；Git 只提交源码、配置与四个科学文档的结论。
+
+若 `ADMIT`，下一轮才允许设计 phase-consistent 方法，并必须在未触碰的第二传感器/数据集和至少
+第三种架构上验证，同时以 direct/PSC 或 CSL、Structure-Tensor angle coder、BlurPool、APS、
+LPS、TIPS 和普通 shift-consistency training 为强基线；最终要同时改善 AP75、轴向角误差和
+shift consistency，且 mAP/AP50 非劣，才可讨论 TGRS/JPRS。r006 本身禁止论文改写、期刊升档
+或恢复任何已消费路线。
 
 ## r005 — r004 matcher、操纵与证据闭环
 
