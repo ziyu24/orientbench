@@ -316,3 +316,17 @@ RarePlanes 单类接口、初始化权重与 OBB 语义闭环。O2-RTDETR、FRED
 
 `ASSET_UNAVAILABLE_R008`。这是顶刊验证组合的资产不足，不是 H1/H2 的科学 PASS/KILL；不得
 下载、拼接、伪造资产或自动启动 r009。项目回到 `NO_ACTIVE_TASK`。
+
+### B 独立验收
+
+B 不接受上述资产结论，当前状态改为 `INCONCLUSIVE_R008_ASSET_AUDIT`。主审计只检查四个
+顶层目录别名，未覆盖官方常见的 `RarePlanes-Public`，也未按 full annotation/metadata 等内容
+签名或 dataset 索引查找；因此 `present=false` 不能证明主机无数据。
+
+模型 readiness 同样未实际闭合：程序把全部 weight 与两个 classifier availability 直接写为
+false，执行命令没有读取已声明的权重索引；O2-RTDETR 只检查一个顶层别名，没有解析历史已知
+的 ai4rs 内部 project。独立验证重复同一四别名，只确认主结果已经给出 unavailable，并未独立
+核验 third-party 或权重资产。唯一自动测试只覆盖几何 fixture。
+
+这些问题不证明 RarePlanes 已存在，只说明当前搜索不足以裁定不存在。r009 必须在不下载、训练
+或推理的前提下修正资产枚举与独立验证；在此之前不得启动顶刊验证。

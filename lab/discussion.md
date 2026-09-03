@@ -247,3 +247,21 @@ C 最终复核后给出 `C_FINAL_SIGNED_R008_ASSET_SPLIT_QUALIFICATION`：来源
 对象 census、long-side RP1 几何、三个 co-primary 固定分组、secondary role、公开 single-use
 test 边界和 READY token 均已闭合。B 接受该签字；r008 即使 READY 也只允许另行设计 r009，
 不得自动训练或推理。
+
+## r008 SERVER 结果与 B 驳回
+
+SERVER 给出 `ASSET_UNAVAILABLE_R008`，但实现没有执行已签署的完整资产核验。数据搜索只对
+固定数据根直接拼接四个目录名，遗漏官方常见的 `RarePlanes-Public`，也没有读取 dataset 索引、
+按 full annotation/metadata 内容签名或对候选做有界枚举。故“这四个目录不存在”不能推出
+“RarePlanes real 资产不存在”。
+
+模型侧的负结论也由常量产生：五个 family 的 weight 与 OBB/RarePlanes readiness 均直接写为
+false，ResNet-50、ViT-B/16 availability 也直接写为 false；权重索引虽被运行记录声明为输入，
+实际命令和程序没有读取。O2-RTDETR 未检查 ai4rs 内已知的 rotated-RTDETR project，反而把
+ai4rs 根存在当作 Rotated RTMDet 的 availability。独立验证再次使用同一四目录别名，未独立
+检查 third-party 和权重，只验证主程序已输出 unavailable。
+
+B 因此把当前状态限定为 `INCONCLUSIVE_R008_ASSET_AUDIT`。这不是说资产存在，而是现有证据
+不能证明不存在；H1/H2 仍未运行，期刊判断不变。唯一下一步是 r009 correction-only：完整但
+有界地查 dataset 索引、官方内容签名、真实内部项目与相关权重，并由不共享候选表的第二实现
+复核。r009 仍不训练、不推理、不下载，也不自动授权后续顶刊实验。
