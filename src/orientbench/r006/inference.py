@@ -130,7 +130,7 @@ class SourceTrace:
             candidate_boxes = _tensor(decoded).detach()
             level_index = self._match(final, scores, candidate_boxes, candidate_scores, self.levels)
             strides = self.model.roi_head.bbox_roi_extractor.featmap_strides
-            return [int(strides[index]) for index in level_index]
+            return [int(strides[level]) for level in level_index]
         if self.rtm_output is None:
             raise RuntimeError("missing RTMDet provenance hook")
         cls_scores, bbox_preds, angle_preds = self.rtm_output
@@ -157,7 +157,7 @@ class SourceTrace:
         levels = self._match(final, scores, torch.cat(candidate_boxes), torch.cat(candidate_scores),
                              torch.cat(candidate_levels))
         strides = [int(pair[0]) for pair in head.prior_generator.strides]
-        return [strides[index] for index in levels]
+        return [strides[level] for level in levels]
 
 
 def _load_model(model_name: str, pth_root: Path, device: str) -> tuple[torch.nn.Module, Config]:
