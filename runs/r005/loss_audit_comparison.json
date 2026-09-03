@@ -1,0 +1,278 @@
+{
+  "cells": {
+    "oriented_rcnn_r50/trainval/blur_1.5": {
+      "production_objects": 1744,
+      "independent_objects": 1744,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.004372045131755194,
+        "C_ang": 0.000605591587675636,
+        "DeltaY": 0.004977636719430831
+      },
+      "independent_means": {
+        "C_miss": 0.004372045131755194,
+        "C_ang": 0.000605591587675636,
+        "DeltaY": 0.004977636719430831
+      }
+    },
+    "oriented_rcnn_r50/trainval/blur_1.25": {
+      "production_objects": 1744,
+      "independent_objects": 1744,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0006252849544708025,
+        "C_ang": 0.00030531220478483104,
+        "DeltaY": 0.0009305971592556334
+      },
+      "independent_means": {
+        "C_miss": 0.0006252849544708025,
+        "C_ang": 0.00030531220478483104,
+        "DeltaY": 0.0009305971592556334
+      }
+    },
+    "oriented_rcnn_r50/trainval/downsample_2": {
+      "production_objects": 1744,
+      "independent_objects": 1744,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.00022899753091169876,
+        "C_ang": -0.00013102623897989207,
+        "DeltaY": 9.797129193180669e-05
+      },
+      "independent_means": {
+        "C_miss": 0.00022899753091169876,
+        "C_ang": -0.00013102623897989207,
+        "DeltaY": 9.797129193180669e-05
+      }
+    },
+    "oriented_rcnn_r50/trainval/downsample_1.75": {
+      "production_objects": 1744,
+      "independent_objects": 1744,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.00022899753091169876,
+        "C_ang": -0.0001246885195824899,
+        "DeltaY": 0.00010430901132920887
+      },
+      "independent_means": {
+        "C_miss": 0.00022899753091169876,
+        "C_ang": -0.0001246885195824899,
+        "DeltaY": 0.00010430901132920887
+      }
+    },
+    "oriented_rcnn_r50/test/blur_1.5": {
+      "production_objects": 1196,
+      "independent_objects": 1196,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.017166059805004335,
+        "C_ang": -8.078716061905056e-06,
+        "DeltaY": 0.017157981088942433
+      },
+      "independent_means": {
+        "C_miss": 0.017166059805004335,
+        "C_ang": -8.078716061905056e-06,
+        "DeltaY": 0.017157981088942433
+      }
+    },
+    "oriented_rcnn_r50/test/blur_1.25": {
+      "production_objects": 1196,
+      "independent_objects": 1196,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.01344033645053491,
+        "C_ang": 7.478468991408386e-05,
+        "DeltaY": 0.013515121140448992
+      },
+      "independent_means": {
+        "C_miss": 0.01344033645053491,
+        "C_ang": 7.478468991408386e-05,
+        "DeltaY": 0.013515121140448992
+      }
+    },
+    "oriented_rcnn_r50/test/downsample_2": {
+      "production_objects": 1196,
+      "independent_objects": 1196,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0044803915828261305,
+        "C_ang": 0.00036757134552606096,
+        "DeltaY": 0.004847962928352191
+      },
+      "independent_means": {
+        "C_miss": 0.0044803915828261305,
+        "C_ang": 0.00036757134552606096,
+        "DeltaY": 0.004847962928352191
+      }
+    },
+    "oriented_rcnn_r50/test/downsample_1.75": {
+      "production_objects": 1196,
+      "independent_objects": 1196,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0031578121806712777,
+        "C_ang": 0.00018475583290269851,
+        "DeltaY": 0.0033425680135739763
+      },
+      "independent_means": {
+        "C_miss": 0.0031578121806712777,
+        "C_ang": 0.00018475583290269851,
+        "DeltaY": 0.0033425680135739763
+      }
+    },
+    "rotated_rtmdet_m/trainval/blur_1.5": {
+      "production_objects": 1747,
+      "independent_objects": 1747,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0011422696957161481,
+        "DeltaY": 0.0011422696957161481
+      },
+      "independent_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0011422696957161481,
+        "DeltaY": 0.0011422696957161481
+      }
+    },
+    "rotated_rtmdet_m/trainval/blur_1.25": {
+      "production_objects": 1747,
+      "independent_objects": 1747,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0006665968970257708,
+        "DeltaY": 0.0006665968970257708
+      },
+      "independent_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0006665968970257708,
+        "DeltaY": 0.0006665968970257708
+      }
+    },
+    "rotated_rtmdet_m/trainval/downsample_2": {
+      "production_objects": 1747,
+      "independent_objects": 1747,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.00029563849383151515,
+        "DeltaY": 0.00029563849383151515
+      },
+      "independent_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.00029563849383151515,
+        "DeltaY": 0.00029563849383151515
+      }
+    },
+    "rotated_rtmdet_m/trainval/downsample_1.75": {
+      "production_objects": 1747,
+      "independent_objects": 1747,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.00016312355563349268,
+        "DeltaY": 0.00016312355563349268
+      },
+      "independent_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.00016312355563349268,
+        "DeltaY": 0.00016312355563349268
+      }
+    },
+    "rotated_rtmdet_m/test/blur_1.5": {
+      "production_objects": 1210,
+      "independent_objects": 1210,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0017567596212570008,
+        "C_ang": 0.0008970227306309134,
+        "DeltaY": 0.0026537823518879146
+      },
+      "independent_means": {
+        "C_miss": 0.0017567596212570008,
+        "C_ang": 0.0008970227306309134,
+        "DeltaY": 0.0026537823518879146
+      }
+    },
+    "rotated_rtmdet_m/test/blur_1.25": {
+      "production_objects": 1210,
+      "independent_objects": 1210,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0002739379687438616,
+        "C_ang": 0.0006570267101913171,
+        "DeltaY": 0.0009309646789351786
+      },
+      "independent_means": {
+        "C_miss": 0.0002739379687438616,
+        "C_ang": 0.0006570267101913171,
+        "DeltaY": 0.0009309646789351786
+      }
+    },
+    "rotated_rtmdet_m/test/downsample_2": {
+      "production_objects": 1210,
+      "independent_objects": 1210,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0002079571224190725,
+        "DeltaY": 0.0002079571224190725
+      },
+      "independent_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0002079571224190725,
+        "DeltaY": 0.0002079571224190725
+      }
+    },
+    "rotated_rtmdet_m/test/downsample_1.75": {
+      "production_objects": 1210,
+      "independent_objects": 1210,
+      "key_symmetric_difference": 0,
+      "key_examples": [],
+      "max_abs_difference": 0.0,
+      "production_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0003282567147160994,
+        "DeltaY": 0.0003282567147160994
+      },
+      "independent_means": {
+        "C_miss": 0.0,
+        "C_ang": 0.0003282567147160994,
+        "DeltaY": 0.0003282567147160994
+      }
+    }
+  },
+  "max_abs_difference": 0.0,
+  "total_key_symmetric_difference": 0
+}
