@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: orientbench
-run_id: r006-test-primary-analysis
+run_id: r006-test-primary-analysis-retry1
 project_root: /home/rspip/cqc/study/orientbench
 command: [/bin/bash, -lc, 'PYTHONPATH=src /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python -m orientbench.r006.analysis --r004-root runs/r004 --census runs/r006/trainval_stride_census.json --orcnn runs/r006/test_orcnn_biaxial_sweep.pkl --rtmdet runs/r006/test_rtmdet_biaxial_sweep.pkl --out runs/r006/test_primary_analysis.json --draws runs/r006/test_primary_bootstrap_draws.npz']
 datasets: []

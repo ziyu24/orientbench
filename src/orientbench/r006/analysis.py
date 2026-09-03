@@ -148,7 +148,11 @@ def main():
         for stride in eligible:
             for axis in ("x","y"):
                 unit=_unit(gt_map,sweep,stride,axis); units[name]["axes"][f"{stride}/{axis}"]=unit
-                for label, values in (("A-0.01",{i:v-.01 for i,v in unit["metrics"]["A"].items()}),("A-R-0.005",{i:unit["metrics"]["A"][i]-unit["metrics"]["R"][i]-.005 for i in unit["metrics"]["A"]}),("A-2R",{i:unit["metrics"]["A"][i]-2*unit["metrics"]["R"][i] for i in unit["metrics"]["A"].items()})):
+                metric_a, metric_r = unit["metrics"]["A"], unit["metrics"]["R"]
+                gate_values = (("A-0.01", {image: value - .01 for image, value in metric_a.items()}),
+                               ("A-R-0.005", {image: metric_a[image] - metric_r[image] - .005 for image in metric_a}),
+                               ("A-2R", {image: metric_a[image] - 2 * metric_r[image] for image in metric_a}))
+                for label, values in gate_values:
                     theta,p,ci=_boot(values,global_draws,global_images); main_rows.append({"model":name,"stride":stride,"axis":axis,"gate":label,"theta":theta,"p":p,"ci95":ci})
                 vals={i:unit["metrics"]["stableA"][i]-unit["metrics"]["stableR"][i]-.0025 for i in unit["metrics"]["stableA"]}; theta,p,ci=_boot(vals,global_draws,global_images); stable_rows.append({"model":name,"stride":stride,"axis":axis,"gate":"Astable-Rstable-0.0025","theta":theta,"p":p,"ci95":ci})
     _holm(main_rows); _holm(stable_rows)
