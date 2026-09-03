@@ -35,13 +35,12 @@ def _holm(rows):
         rows[index]["passed"] = bool(rows[index]["theta"] > 0 and rows[index]["holm_p"] <= .05)
 
 
-def _boot(values, rng, draws=10000):
+def _boot(values, indices):
     # values is image_id -> complete-denominator image mean.
     images = sorted(values); x = np.asarray([values[i] for i in images], float)
-    indices = rng.integers(0, len(x), size=(draws, len(x)), dtype=np.int32)
     sampled = x[indices].mean(1); point = float(x.mean())
-    p = (1 + int(np.count_nonzero((sampled-point) >= point))) / (draws+1)
-    return point, p, np.quantile(sampled, [.025, .975]).tolist(), images, indices
+    p = (1 + int(np.count_nonzero((sampled-point) >= point))) / (len(indices)+1)
+    return point, p, np.quantile(sampled, [.025, .975]).tolist()
 
 
 def _phase0(sweep):
@@ -140,9 +139,12 @@ def main():
         for stride in eligible:
             for axis in ("x","y"):
                 unit=_unit(gt_map,sweep,stride,axis); units[name]["axes"][f"{stride}/{axis}"]=unit
+                draw_key=f"{name}/{stride}/{axis}"; images=sorted(unit["metrics"]["A"])
+                indices=rng.integers(0, len(images), size=(10000, len(images)), dtype=np.int16)
+                draw_store[draw_key]=indices
                 for label, values in (("A-0.01",{i:v-.01 for i,v in unit["metrics"]["A"].items()}),("A-R-0.005",{i:unit["metrics"]["A"][i]-unit["metrics"]["R"][i]-.005 for i in unit["metrics"]["A"]}),("A-2R",{i:unit["metrics"]["A"][i]-2*unit["metrics"]["R"][i] for i in unit["metrics"]["A"].items()})):
-                    theta,p,ci,images,draws=_boot(values,rng); main_rows.append({"model":name,"stride":stride,"axis":axis,"gate":label,"theta":theta,"p":p,"ci95":ci}); draw_store[f"{name}/{stride}/{axis}"]=np.asarray(draws,dtype=np.int16)
-                vals={i:unit["metrics"]["stableA"][i]-unit["metrics"]["stableR"][i]-.0025 for i in unit["metrics"]["stableA"]}; theta,p,ci,_,_=_boot(vals,rng); stable_rows.append({"model":name,"stride":stride,"axis":axis,"gate":"Astable-Rstable-0.0025","theta":theta,"p":p,"ci95":ci})
+                    theta,p,ci=_boot(values,indices); main_rows.append({"model":name,"stride":stride,"axis":axis,"gate":label,"theta":theta,"p":p,"ci95":ci})
+                vals={i:unit["metrics"]["stableA"][i]-unit["metrics"]["stableR"][i]-.0025 for i in unit["metrics"]["stableA"]}; theta,p,ci=_boot(vals,indices); stable_rows.append({"model":name,"stride":stride,"axis":axis,"gate":"Astable-Rstable-0.0025","theta":theta,"p":p,"ci95":ci})
     _holm(main_rows); _holm(stable_rows)
     for name in sweeps:
         family=False

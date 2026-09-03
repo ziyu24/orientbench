@@ -40,7 +40,16 @@ def _per_image_angle(gt: np.ndarray, boxes: np.ndarray) -> tuple[set[int], dict[
 
 
 def _load_canvas(path: Path) -> dict[str, dict]:
-    return {str(record["img_id"]): record for record in _read(path)["records"]}
+    payload = _read(path)
+    # A full r006 sweep stores phase zero as a registered condition; the
+    # trainval preflight stores it directly as records.  Both refer to the
+    # same raw, pre-NMS-rescale coordinate contract.
+    if "conditions" in payload:
+        for condition in payload["conditions"]:
+            if condition["axis"] == "x" and condition["shift"] == 0 and condition["repeat"] == 0:
+                return {str(record["img_id"]): record for record in condition["records"]}
+        raise RuntimeError(f"missing x/0/repeat-0 phase zero in {path}")
+    return {str(record["img_id"]): record for record in payload["records"]}
 
 
 def _ap75(standard: list[dict], canvas: dict[str, dict], use_07: bool) -> tuple[float, float]:
@@ -107,11 +116,12 @@ def main() -> None:
     parser.add_argument("--r004-root", type=Path, required=True)
     parser.add_argument("--orcnn", type=Path, required=True)
     parser.add_argument("--rtmdet", type=Path, required=True)
+    parser.add_argument("--split", choices=("trainval", "test"), default="trainval")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     checks = {
-        "oriented_rcnn_r50": _check(args.r004_root / "inference/trainval/oriented_rcnn_r50/clean/predictions.pkl", args.orcnn),
-        "rotated_rtmdet_m": _check(args.r004_root / "inference/trainval/rotated_rtmdet_m/clean/predictions.pkl", args.rtmdet),
+        "oriented_rcnn_r50": _check(args.r004_root / f"inference/{args.split}/oriented_rcnn_r50/clean/predictions.pkl", args.orcnn),
+        "rotated_rtmdet_m": _check(args.r004_root / f"inference/{args.split}/rotated_rtmdet_m/clean/predictions.pkl", args.rtmdet),
     }
     for check in checks.values():
         check["passes_canvas_parity"] = bool(check["retention"] >= .95 and check["mean_le90_abs_delta_deg"] <= .5
