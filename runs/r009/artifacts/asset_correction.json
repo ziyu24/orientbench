@@ -1,0 +1,110 @@
+{
+  "candidate_hits": [],
+  "classifiers": [
+    {
+      "four_head_adaptation": "ADAPTATION_REQUIRED",
+      "implementation": true,
+      "model": "resnet50",
+      "reason_codes": [
+        "RAREPLANES_FOUR_HEAD_ADAPTATION_REQUIRED"
+      ],
+      "weight_index_hit": false
+    },
+    {
+      "four_head_adaptation": "ADAPTATION_REQUIRED",
+      "implementation": true,
+      "model": "vit_b16",
+      "reason_codes": [
+        "RAREPLANES_FOUR_HEAD_ADAPTATION_REQUIRED"
+      ],
+      "weight_index_hit": false
+    }
+  ],
+  "dataset_root_entries": [
+    ".cache",
+    ".gitattributes",
+    "DIOR",
+    "HRSC2016",
+    "REGENERATE_SHM_DATA.md",
+    "SODA-A",
+    "cifar",
+    "dota",
+    "dota-v1.0",
+    "fair1m1.0",
+    "regenerate_shm_data.sh"
+  ],
+  "detectors": [
+    {
+      "family": "oriented_rcnn",
+      "implementation": true,
+      "internal_projects": [
+        "mmrotate_034",
+        "mmrotate_1x"
+      ],
+      "obb_semantics_verified": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "IMPLEMENTATION_OR_WEIGHT_UNAVAILABLE"
+      ],
+      "weight_index_hit": false
+    },
+    {
+      "family": "rotated_rtmdet",
+      "implementation": true,
+      "internal_projects": [
+        "mmrotate_034",
+        "mmrotate_1x"
+      ],
+      "obb_semantics_verified": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "IMPLEMENTATION_OR_WEIGHT_UNAVAILABLE"
+      ],
+      "weight_index_hit": false
+    },
+    {
+      "family": "ars_detr",
+      "implementation": true,
+      "internal_projects": [
+        "ars-detr"
+      ],
+      "obb_semantics_verified": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "ADAPTATION_REQUIRED"
+      ],
+      "weight_index_hit": true
+    },
+    {
+      "family": "o2_rtdetr",
+      "implementation": false,
+      "internal_projects": [],
+      "obb_semantics_verified": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "IMPLEMENTATION_OR_WEIGHT_UNAVAILABLE"
+      ],
+      "weight_index_hit": false
+    },
+    {
+      "family": "fred",
+      "implementation": false,
+      "internal_projects": [],
+      "obb_semantics_verified": false,
+      "rareplanes_interface": false,
+      "reason_codes": [
+        "IMPLEMENTATION_OR_WEIGHT_UNAVAILABLE"
+      ],
+      "weight_index_hit": false
+    }
+  ],
+  "fixtures": {
+    "aliases_scanned": true,
+    "content_signature_scanned": true,
+    "no_model_import": true
+  },
+  "protocol": "r009-bounded-content-signature-audit-v1",
+  "real_candidate_count": 0,
+  "search_errors": [],
+  "token": "ASSET_UNAVAILABLE_R009"
+}
