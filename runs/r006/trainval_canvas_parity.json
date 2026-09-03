@@ -1,0 +1,7438 @@
+{
+  "all_passes_canvas_parity": true,
+  "checks": {
+    "oriented_rcnn_r50": {
+      "ap75_abs_delta": 0.0022423863410949707,
+      "canvas_ap75": 0.9568107724189758,
+      "canvas_mean_le90_deg": 0.8052807510580979,
+      "mean_le90_abs_delta_deg": 0.003957934499484339,
+      "passes_canvas_parity": true,
+      "per_image": [
+        {
+          "canvas_matched": 1,
+          "image_id": "100000001",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000002",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000004",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000006",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000007",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000008",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000009",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000010",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000011",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001290",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001291",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001292",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001293",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001295",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001296",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001298",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001299",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001300",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001302",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001303",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001304",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001306",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001307",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001310",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001311",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001312",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001314",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001317",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001318",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001319",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001320",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001321",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001323",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001324",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001327",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001328",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001329",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001330",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001334",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001335",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001336",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001337",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001338",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001341",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001344",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001345",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001346",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001348",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001350",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001351",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001352",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001353",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001354",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001355",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001357",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 12,
+          "image_id": "100001358",
+          "retained_standard": 12,
+          "standard_matched": 12
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001360",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001361",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001362",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001363",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001364",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001365",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001366",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001367",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001368",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001370",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001371",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001372",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001373",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001374",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001376",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001378",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001382",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001383",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001386",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001388",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001390",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001393",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001395",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001396",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001397",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001398",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001400",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001401",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001403",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001404",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001405",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001407",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001408",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001411",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001413",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001415",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001418",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001419",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001420",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001421",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001425",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001426",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001428",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001432",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001434",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001435",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001436",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001437",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001438",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001446",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001447",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001450",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001451",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001456",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001459",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001460",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001462",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001463",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001464",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001466",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001470",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001473",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001474",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001475",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 11,
+          "image_id": "100001476",
+          "retained_standard": 11,
+          "standard_matched": 11
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001478",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001479",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001485",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001488",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001489",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001492",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001493",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001494",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001496",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001497",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001498",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001500",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001501",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001504",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001506",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001508",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001510",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001511",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001514",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001516",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001518",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001519",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001521",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001522",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001523",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001524",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001525",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001526",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001530",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001535",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001536",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001539",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001546",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001547",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001550",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001551",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001553",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001556",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001557",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001558",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001559",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001563",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001564",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001566",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001569",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001571",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001575",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001576",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001577",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001578",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001579",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001580",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001585",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001586",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001587",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001588",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001590",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001593",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001598",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001600",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001601",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001603",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 13,
+          "image_id": "100001604",
+          "retained_standard": 13,
+          "standard_matched": 13
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001605",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001606",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001607",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001611",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001612",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001614",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001617",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001618",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001619",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001620",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001621",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001622",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001623",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001624",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001625",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001626",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001627",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001629",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001630",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001631",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001632",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001634",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001637",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001640",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001641",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001643",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001647",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001648",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001650",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001651",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001653",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001654",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001655",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001656",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001657",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001661",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001663",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001665",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001666",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001668",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001670",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001671",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001676",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001677",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001678",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001679",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001680",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000622",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000627",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000629",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000631",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000632",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000636",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000637",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000638",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000640",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000641",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000642",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000644",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000646",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000649",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000651",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000652",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000655",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000657",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000660",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000662",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000664",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000665",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000667",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000668",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000669",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000670",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000675",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000678",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000681",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000682",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000683",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000684",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000687",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000689",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000691",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000692",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000693",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000694",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000699",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000701",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000703",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000704",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000705",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000709",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000711",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000712",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000714",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000715",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000717",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000719",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000721",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000723",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000724",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000726",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000727",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000730",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000733",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000734",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000737",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000738",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000741",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000742",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000743",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000744",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100000748",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000749",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000750",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000753",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000754",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000755",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000756",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000757",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000758",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000759",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000760",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000761",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000762",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000764",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000765",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000766",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000767",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000768",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000769",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000770",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000772",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000775",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000777",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000780",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000781",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000782",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000784",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000786",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000787",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000788",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000791",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000795",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000796",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000797",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000798",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000799",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000801",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000806",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000808",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000809",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000810",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000813",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000816",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000818",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000819",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000820",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000821",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000822",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000823",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000827",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000829",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000837",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000838",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000839",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000840",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000841",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000843",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000847",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000851",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000852",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000853",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000859",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000860",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000861",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000864",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000866",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000868",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000869",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000870",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000872",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000874",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000875",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000877",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000878",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000879",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000880",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000882",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000883",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000884",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000885",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000886",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000887",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000888",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000891",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000893",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000895",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000896",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000897",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000899",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000900",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000901",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000902",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000903",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000905",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000906",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000910",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000911",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000915",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000916",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000917",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000918",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000921",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000922",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000923",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000924",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000926",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000928",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000930",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000932",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000933",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000935",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000936",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000937",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000940",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000941",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000943",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000944",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000947",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000948",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000949",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000953",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000955",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000956",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000958",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000960",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000961",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000962",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000963",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000964",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000966",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000968",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000969",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000972",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000973",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000974",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000976",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000977",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000978",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000979",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000980",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000981",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000982",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000985",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000986",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000987",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000988",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000990",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000992",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000993",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000994",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000995",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000997",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000998",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001001",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001002",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001003",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001007",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001008",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001009",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001012",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001015",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001016",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001019",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001020",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001021",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001023",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001024",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001025",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001026",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001027",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001028",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001030",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001031",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001033",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001034",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001037",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001038",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001042",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001044",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001047",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001050",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001052",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001053",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001055",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001057",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001062",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001063",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001064",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001068",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001069",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001070",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001071",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001074",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001078",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001079",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001080",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001081",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001082",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001083",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001084",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001086",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001088",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001089",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001090",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001093",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001094",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001095",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001096",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001097",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001098",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001100",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001110",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001113",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001114",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001115",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001118",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001121",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001122",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001124",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001125",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001128",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001129",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001130",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001131",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001132",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001135",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001136",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001137",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001138",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001139",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001142",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001146",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001148",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001150",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001154",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001155",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001157",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001159",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001163",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001165",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001167",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001168",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001169",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001170",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001173",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001174",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001182",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001183",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001184",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001187",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001189",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001190",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001191",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001192",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001193",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001194",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001195",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001196",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001197",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001199",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001200",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001201",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001204",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001207",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001208",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001209",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001210",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001212",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001213",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001214",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001216",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001217",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001218",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001219",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001222",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001223",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001224",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001225",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001226",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001227",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001228",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001229",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001230",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001231",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001233",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001234",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001235",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001238",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001239",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001240",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001242",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001243",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001245",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001246",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001247",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001250",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001251",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001253",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001254",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001256",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001259",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001260",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001261",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001262",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001263",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001264",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001265",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001266",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001267",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001271",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001273",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001275",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001276",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001277",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001278",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001279",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001281",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001283",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001284",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001285",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001287",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001289",
+          "retained_standard": 3,
+          "standard_matched": 3
+        }
+      ],
+      "retained_standard": 1744,
+      "retention": 1.0,
+      "standard_ap75": 0.9590531587600708,
+      "standard_matched": 1744,
+      "standard_mean_le90_deg": 0.8092386855575823
+    },
+    "rotated_rtmdet_m": {
+      "ap75_abs_delta": 0.0002002120018005371,
+      "canvas_ap75": 0.9079446792602539,
+      "canvas_mean_le90_deg": 0.7252284072120481,
+      "mean_le90_abs_delta_deg": 0.01707264457448532,
+      "passes_canvas_parity": true,
+      "per_image": [
+        {
+          "canvas_matched": 1,
+          "image_id": "100000001",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000002",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000004",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000006",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000007",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000008",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000009",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000010",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000011",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001290",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001291",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001292",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001293",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001295",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001296",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001298",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001299",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001300",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001302",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001303",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001304",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001306",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001307",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001310",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001311",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001312",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001314",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001317",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001318",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001319",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001320",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001321",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001323",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001324",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001327",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001328",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001329",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001330",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001334",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001335",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001336",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001337",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001338",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001341",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001344",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001345",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001346",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001348",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001350",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001351",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001352",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001353",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001354",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001355",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001357",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 12,
+          "image_id": "100001358",
+          "retained_standard": 12,
+          "standard_matched": 12
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001360",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001361",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001362",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001363",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001364",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001365",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001366",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001367",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001368",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001370",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001371",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001372",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001373",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001374",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001376",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001378",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001382",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001383",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001386",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001388",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001390",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001393",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001395",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001396",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001397",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001398",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001400",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001401",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001403",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001404",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001405",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001407",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001408",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001411",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001413",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001415",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001418",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001419",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001420",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001421",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001425",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001426",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001428",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001432",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001434",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001435",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001436",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001437",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001438",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001446",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001447",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001450",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001451",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001456",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001459",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001460",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001462",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001463",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001464",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001466",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001470",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001473",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001474",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001475",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 11,
+          "image_id": "100001476",
+          "retained_standard": 11,
+          "standard_matched": 11
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001478",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001479",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001485",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001488",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001489",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001492",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001493",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001494",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001496",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001497",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001498",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001500",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001501",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001504",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001506",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001508",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001510",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001511",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001514",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001516",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001518",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001519",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001521",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001522",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001523",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001524",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001525",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001526",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001530",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001535",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001536",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001539",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001546",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001547",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001550",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001551",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001553",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001556",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001557",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001558",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001559",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001563",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001564",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001566",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001569",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001571",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001575",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001576",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001577",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001578",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001579",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001580",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001585",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001586",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001587",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001588",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001590",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001593",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001598",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001600",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001601",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001603",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 13,
+          "image_id": "100001604",
+          "retained_standard": 13,
+          "standard_matched": 13
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001605",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001606",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001607",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001611",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001612",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001614",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001617",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001618",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001619",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001620",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001621",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001622",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001623",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001624",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001625",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001626",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001627",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001629",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001630",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001631",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001632",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001634",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001637",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001640",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001641",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001643",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001647",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001648",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001650",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001651",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001653",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001654",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001655",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001656",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001657",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001661",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001663",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001665",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001666",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001668",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001670",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001671",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001676",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001677",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001678",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001679",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001680",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000622",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000627",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000629",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000631",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000632",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000636",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000637",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000638",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000640",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000641",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000642",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000644",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000646",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000649",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000651",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000652",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000655",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000657",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000660",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000662",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000664",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000665",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000667",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000668",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000669",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000670",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000675",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000678",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000681",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000682",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000683",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000684",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000687",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000689",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000691",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000692",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000693",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000694",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000699",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000701",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000703",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000704",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000705",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000709",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000711",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000712",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000714",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000715",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000717",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000719",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000721",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000723",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000724",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000726",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000727",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000730",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000733",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000734",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000737",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000738",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000741",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000742",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000743",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000744",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100000748",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000749",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000750",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000753",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000754",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000755",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000756",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000757",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000758",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000759",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000760",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000761",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000762",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000764",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000765",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000766",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000767",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000768",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000769",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000770",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000772",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000775",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000777",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000780",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000781",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000782",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000784",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000786",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000787",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000788",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000791",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000795",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000796",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000797",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000798",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000799",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000801",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000806",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000808",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000809",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000810",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000813",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000816",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000818",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000819",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000820",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000821",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000822",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000823",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000827",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000829",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000837",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000838",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000839",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000840",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000841",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000843",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000847",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000851",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000852",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000853",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000859",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000860",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000861",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000864",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000866",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000868",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000869",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000870",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000872",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000874",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000875",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000877",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000878",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000879",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000880",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000882",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000883",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000884",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100000885",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000886",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000887",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000888",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000891",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000893",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000895",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000896",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000897",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000899",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000900",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000901",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000902",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000903",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000905",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000906",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000910",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000911",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000915",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000916",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000917",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000918",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000921",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000922",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000923",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000924",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000926",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000928",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000930",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000932",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000933",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000935",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000936",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000937",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000940",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000941",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000943",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000944",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000947",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000948",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000949",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000953",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000955",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000956",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000958",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000960",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000961",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000962",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000963",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000964",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000966",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000968",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000969",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000972",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100000973",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000974",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000976",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000977",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000978",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000979",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000980",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000981",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000982",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000985",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000986",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000987",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000988",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000990",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100000992",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100000993",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000994",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000995",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100000997",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100000998",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001001",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001002",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001003",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001007",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001008",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001009",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001012",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001015",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001016",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001019",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001020",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001021",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001023",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001024",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001025",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001026",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001027",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001028",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001030",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001031",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001033",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001034",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001037",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001038",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001042",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001044",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001047",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001050",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001052",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001053",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001055",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001057",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001062",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001063",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001064",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001068",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001069",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001070",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001071",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001074",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001078",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001079",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001080",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001081",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001082",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001083",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001084",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001086",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001088",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001089",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001090",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001093",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001094",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001095",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001096",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001097",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001098",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001100",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001110",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001113",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001114",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001115",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001118",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001121",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001122",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001124",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001125",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001128",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001129",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001130",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001131",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001132",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001135",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001136",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001137",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001138",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001139",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001142",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001146",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001148",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001150",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001154",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001155",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001157",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001159",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001163",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001165",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001167",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001168",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001169",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001170",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001173",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001174",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001182",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001183",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001184",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001187",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001189",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001190",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001191",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001192",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001193",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001194",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001195",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001196",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001197",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001199",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001200",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001201",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001204",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001207",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001208",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001209",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001210",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001212",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 9,
+          "image_id": "100001213",
+          "retained_standard": 9,
+          "standard_matched": 9
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001214",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001216",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001217",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001218",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001219",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001222",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001223",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001224",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001225",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001226",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 10,
+          "image_id": "100001227",
+          "retained_standard": 10,
+          "standard_matched": 10
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001228",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001229",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001230",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001231",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001233",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001234",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001235",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001238",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001239",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001240",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001242",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001243",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001245",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001246",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001247",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001250",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001251",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001253",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001254",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001256",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001259",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001260",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001261",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001262",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001263",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001264",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001265",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 7,
+          "image_id": "100001266",
+          "retained_standard": 7,
+          "standard_matched": 7
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001267",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001271",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001273",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001275",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001276",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 1,
+          "image_id": "100001277",
+          "retained_standard": 1,
+          "standard_matched": 1
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001278",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001279",
+          "retained_standard": 3,
+          "standard_matched": 3
+        },
+        {
+          "canvas_matched": 6,
+          "image_id": "100001281",
+          "retained_standard": 6,
+          "standard_matched": 6
+        },
+        {
+          "canvas_matched": 5,
+          "image_id": "100001283",
+          "retained_standard": 5,
+          "standard_matched": 5
+        },
+        {
+          "canvas_matched": 8,
+          "image_id": "100001284",
+          "retained_standard": 8,
+          "standard_matched": 8
+        },
+        {
+          "canvas_matched": 4,
+          "image_id": "100001285",
+          "retained_standard": 4,
+          "standard_matched": 4
+        },
+        {
+          "canvas_matched": 2,
+          "image_id": "100001287",
+          "retained_standard": 2,
+          "standard_matched": 2
+        },
+        {
+          "canvas_matched": 3,
+          "image_id": "100001289",
+          "retained_standard": 3,
+          "standard_matched": 3
+        }
+      ],
+      "retained_standard": 1747,
+      "retention": 1.0,
+      "standard_ap75": 0.9081448912620544,
+      "standard_matched": 1747,
+      "standard_mean_le90_deg": 0.7081557626375627
+    }
+  },
+  "protocol": "r006-canvas-phase0-parity-v1"
+}
