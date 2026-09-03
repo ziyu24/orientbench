@@ -2,14 +2,14 @@
 
 ## COI / 干预式轴向可辨识响应（r004）
 
-- 状态：SERVER 报告负向，但 B 未验收；当前为 `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`，
-  不是正式失败路线。
-- 未验收事实：八个报告的 `DeltaY` 点估计都小于 0.02，最大值为 0.017163；但 trainval 与
-  test 使用了不同一对一 matcher，真实 test 的 `J_eff/M_15` 操纵有效性也未计算。
-- 唯一允许动作：复用原 clean 与四个干预预测，统一冻结 matcher 并完成真实操纵与独立复算。
-  不得重推理、重选 test 剂量、删除对象、改为 pooled/global 平均或替换 detector family。
-- 关闭条件：只有 correction-only 复核证明试验有效且负向主门仍成立，才把本节改为正式
-  `KILL_COI_R004`；若输入或操纵有效性无法恢复，则永久保留 inconclusive。
+- 状态：r005 已以同一 global theta-free matcher 完成 correction-only 复核，当前仍是
+  `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`，不是正式失败路线。
+- 已核实：16 个 split×detector×condition 独立复算的 key 差集为 0、逐行最大绝对差为 0；八个
+  test `DeltaY` 点估计都不大于 0.02，最大 0.017158，且八个非坍塌界限均通过。
+- 未成立的前提：真实 HRSC G/P/N Holm-32 中八个 `clean-high>0.20` 格（J_eff/M15、两模型、
+  两 corruption）均失败；这属于前三类操纵失败，不能转写为 KILL 或失败路线。
+- 禁止重入：不得以重推理、重选 test 剂量、删除对象、pooled/global 平均、替换 detector family
+  或降低标准化效应阈值来挽救或关闭该路线。
 
 ## CMR
 

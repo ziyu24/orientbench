@@ -8,6 +8,79 @@ SERVER 声明为 `KILL_COI_R004`；B 独立验收不接受该声明，当前正�
 `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。八个负向点估计保留为未验收的描述性结果，不能
 改名为信息论上限、通用定律或人机共同规律，也不能据此关闭 COI。
 
+## r005
+
+### 唯一裁决
+
+`INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。
+
+这是一次 correction-only 闭环：未做新的 detector 推理、训练、剂量选择、模型/数据替换或
+论文修改。r005 修复了 r004 的 matcher 与证据缺口，但真实操纵 Holm-32 的前三类中
+`clean-high>0.20` 有 8 项失败。因此试验有效性未成立，低 `DeltaY` 不能触发
+`KILL_COI_R004`。
+
+### 冻结输入、matcher 与独立复算
+
+- 冻结输入清单由 `r005-frozen-input-manifest` 发布在
+  `refs/heads/exec/r005-frozen-input-manifest@73a96f3d`；所有输入均为 r004 的 clean/四剂量
+  预测、原 HRSC 图像及固定 trainval/test split。
+- trainval 与 test 均调用同一 theta-free exhaustive matcher：候选只由 class、归一化 center、
+  area、无序边长决定，按 `(cost, gt_index, pred_index)` 全局排序并一对一贪心。它返回完整
+  GT--prediction 配对，不读取 theta、angle error 或 oriented IoU。
+- 两 GT/两预测反例已由 `src/tests/test_r005_matcher.py` 通过：一个共同候选及一个仅首 GT
+  候选时，全局 matcher 保留两对，而 GT 顺序占用仅保留一对。
+- 从同一 pkl 输入重新构造候选、总体 key 与全部逐行量的独立实现覆盖 16 个 split×detector×
+  condition cell：总 key 对称差为 0，逐行量最大绝对差为 0。
+
+### 修正主损失与非坍塌
+
+下表是 clean 固定总体、逐对象分解后图内等权再图间等权的 `DeltaY`。括号为
+`objects / retained / images`；每个 test 单元均满足至少 70% 保留、100 对象和 50 图像。
+
+| detector | blur 1.50 | blur 1.25 | downsample 2.00 | downsample 1.75 |
+| --- | --- | --- | --- | --- |
+| Oriented R-CNN R50 | 0.017158 (1196/1167/434) | 0.013515 (1196/1173/434) | 0.004848 (1196/1189/434) | 0.003343 (1196/1191/434) |
+| Rotated RTMDet-M | 0.002654 (1210/1206/437) | 0.000931 (1210/1209/437) | 0.000208 (1210/1210/437) | 0.000328 (1210/1210/437) |
+
+八个点估计都不大于 0.02；若操纵有效，它们会使主损失合取门失败。但 r005 的裁决顺序先判定
+操纵有效性，故这些数字在本轮只是不足以支持 COI 的描述性证据，不能作为正式 KILL 的依据。
+
+### 真实 G/P/N 与 Holm-32
+
+真实 HRSC 原图上先计算 G、固定 clean-P 与六个 clean-N 臂的 `J_eff/M15`，复用 clean noise
+scale、共同有效支持、trainval image-cluster 均值/SD 与 epsilon；10000 次同步 image-cluster
+draws 的种子为 5005。每格给出标准化方向统计量 `theta` 与 Holm-adjusted p；`+` 表示通过
+`theta>0` 且 Holm p≤0.05，`-` 表示失败。
+
+| detector / quantity | corruption | clean-low | low-high | clean-high (>0.20) | clean-high-EN |
+| --- | --- | --- | --- | --- | --- |
+| ORCNN / J_eff | blur | +0.122378 / .003200 + | +0.029263 / .003200 + | -0.048359 / 1.000000 - | -0.156791 / 1.000000 - |
+| ORCNN / J_eff | downsample | +0.042572 / .003200 + | +0.005203 / .003200 + | -0.152225 / 1.000000 - | -0.260657 / 1.000000 - |
+| ORCNN / M15 | blur | +0.017572 / .003200 + | +0.004017 / .003200 + | -0.178410 / 1.000000 - | -0.233470 / 1.000000 - |
+| ORCNN / M15 | downsample | +0.005776 / .003200 + | +0.000425 / .003200 + | -0.193799 / 1.000000 - | -0.248859 / 1.000000 - |
+| RTMDet / J_eff | blur | +0.122312 / .003200 + | +0.029243 / .003200 + | -0.048445 / 1.000000 - | -0.160459 / 1.000000 - |
+| RTMDet / J_eff | downsample | +0.042558 / .003200 + | +0.005203 / .003200 + | -0.152239 / 1.000000 - | -0.264253 / 1.000000 - |
+| RTMDet / M15 | blur | +0.017595 / .003200 + | +0.004027 / .003200 + | -0.178378 / 1.000000 - | -0.237032 / 1.000000 - |
+| RTMDet / M15 | downsample | +0.005780 / .003200 + | +0.000422 / .003200 + | -0.193798 / 1.000000 - | -0.252452 / 1.000000 - |
+
+各 test retained/object/image 依次为 ORCNN blur 1167/1196/434、1173/1196/434、
+1189/1196/434、1191/1196/434；RTMDet blur 1206/1210/437、1209/1210/437、
+1210/1210/437、1210/1210/437，故八项非坍塌检查全过。前三类合取为假，envelope 合取也为假，
+非坍塌合取为真。按照 r005 的预注册分支，这不是 specificity KILL，而是试验无效的 inconclusive。
+
+### 可复算证据
+
+- `refs/heads/exec/r005-real-gpn-observables-normal-equation@ce75a64b232779f101b0becb7efe25ac08d3d2bd`
+  包含真实逐对象 G/P/N 特征和该 run 的冻结规格。
+- `runs/r005/loss_audit.json` 保留完整逐对象 clean/干预配对、`e0/e1`、retained、`Y0/Y1`、
+  `C_miss`、`C_ang` 和 `DeltaY`；`runs/r005/independent_loss_audit.json` 与
+  `runs/r005/loss_audit_comparison.json` 是独立重算及比较。
+- `runs/r005/manipulation_audit.json` 和
+  `runs/r005/manipulation_bootstrap_draws.npz` 保留 Holm-32、非坍塌和全部同步 draws。运行产物
+  由对应 fabric result ref 保存，普通 Git 只提交可重建代码、测试、规格及本结论。
+
+## r004 — 历史基线与原验收记录
+
 ### 已冻结资产与资格
 
 - HRSC2016 official trainval/test 为 617/453 图像，ID 交集为零。
