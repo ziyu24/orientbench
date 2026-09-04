@@ -8,7 +8,7 @@ Image.MAX_IMAGE_PIXELS = None  # Official COG dimensions are verified in G0.
 from torch import nn
 from torch.utils.data import Dataset,DataLoader
 from torchvision.models import resnet50,vit_b_16
-from torchvision.transforms.functional import affine,resize
+import torch.nn.functional as F
 
 SEEDS=(1201,1202,1203); EPOCHS=8; BS=24
 def lab(p):
@@ -18,12 +18,16 @@ class Planes(Dataset):
  def __init__(self,rows,root):self.r=rows;self.root=root
  def __len__(self):return len(self.r)
  def __getitem__(self,i):
-  r=self.r[i];s=int(r['side']);x,y=r['center'];box=(int(x-s/2),int(y-s/2),int(x+s/2),int(y+s/2))
-  # COG is tiled: request only the pre-frozen source canvas, never a full raster/cache.
+  r=self.r[i];s=int(r['side']);x,y=r['center']
+  # This reads the sole, frozen source canvas; COG pixels are never read during a fit.
   a=np.load(r['canvas'],allow_pickle=False);q=torch.from_numpy(a.transpose(2,0,1)).float()/255.
-  # one bilinear affine render from the fixed source canvas; no geometric augmentation.
-  q=affine(q,angle=-math.degrees(r['theta']),translate=[0,0],scale=max(1e-6,1.2*max(r['L'],r['S'])/s),shear=[0.,0.],interpolation=__import__('torchvision').transforms.InterpolationMode.BILINEAR)
-  return resize(q,[224,224],antialias=True),torch.tensor(r['labels'],dtype=torch.float32)
+  # One bilinear output->source affine: physical 1.20L x 1.20S, no crop/resize cascade.
+  u=torch.linspace(-1+1/224,1-1/224,224); v=torch.linspace(-1+1/224,1-1/224,224)
+  yy,xx=torch.meshgrid(v,u,indexing='ij'); th=float(r['theta']); c,sn=math.cos(th),math.sin(th)
+  px=c*(.6*r['L']*xx)-sn*(.6*r['S']*yy)+(x-int(x-r['side']/2))
+  py=sn*(.6*r['L']*xx)+c*(.6*r['S']*yy)+(y-int(y-r['side']/2))
+  grid=torch.stack((2*(px+.5)/s-1,2*(py+.5)/s-1),-1).unsqueeze(0)
+  return F.grid_sample(q.unsqueeze(0),grid,mode='bilinear',padding_mode='zeros',align_corners=False).squeeze(0),torch.tensor(r['labels'],dtype=torch.float32)
 class Heads(nn.Module):
  def __init__(self,kind):
   super().__init__();self.backbone=resnet50(weights=None) if kind=='resnet50' else vit_b_16(weights=None);n=self.backbone.fc.in_features if kind=='resnet50' else self.backbone.heads.head.in_features
