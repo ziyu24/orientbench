@@ -2,6 +2,8 @@
 
 ## 当前状态
 
+- r009 correction-only 已完成并通过独立验证：主机固定数据资产中没有 RarePlanes real，唯一结论为
+  `ASSET_UNAVAILABLE_R009`。这只是本地资产缺失，不是 H1/H2 科学失败。
 - r005 correction-only 已完成并由 B 独立复算；唯一可接受结论为
   `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。这不是 `KILL`，也不准入跨数据集阶段。
 - r003 从未执行，旧签字和旧执行计划均不继承。
@@ -265,3 +267,24 @@ B 因此把当前状态限定为 `INCONCLUSIVE_R008_ASSET_AUDIT`。这不是说�
 不能证明不存在；H1/H2 仍未运行，期刊判断不变。唯一下一步是 r009 correction-only：完整但
 有界地查 dataset 索引、官方内容签名、真实内部项目与相关权重，并由不共享候选表的第二实现
 复核。r009 仍不训练、不推理、不下载，也不自动授权后续顶刊实验。
+
+## r009 最终验收与 r010 顶刊资产落地
+
+r009 已完成上述修正。主实现覆盖 `RarePlanes-Public` 等五种目录别名和官方 full annotation、
+metadata 内容签名，搜索无异常；独立实现没有导入主候选集合，给出 `passed=true`、
+`candidate_set_equal=true`。B 因此接受 `ASSET_UNAVAILABLE_R009`，并删除结果文件中遗留的 r008
+旧驳回段落。该 token 的含义只是“当前主机没有资产”，不能外推为 RarePlanes 官方数据不存在。
+
+官方 [AWS Open Data RarePlanes 登记](https://registry.opendata.aws/rareplanes/) 仍提供无账号读取的
+`rareplanes-public` 资源，许可为 CC BY-SA 4.0；官方登记的 real 部分为 253 景 WorldView-3、112
+地点和约 14700 个飞机实例。官方
+[数据说明](https://github.com/jdc08161063/RarePlanes/blob/master/datasets/README.md) 同时表明 real 与
+synthetic 可分开取得。因而当前唯一合理操作不是换数据、恢复 selector 或转向 SAR，而是只把
+顶刊一次性验证所需的官方 real 数据及合法模型初始化资产物化到主机固定资产体系。
+
+r010 是资产落地，不是第二次科学验证：只取得 RarePlanes real、许可、元数据、完整标注与原始
+影像，构造不泄漏的 source-component 划分，并补齐五个既定 detector family 与两个分类器的合法
+实现/初始化来源；不下载 synthetic，不训练、不推理、不读取 H1/H2 结果。只有全部闭合才记
+`READY_FOR_BC_R011_FINAL_VALIDATION`，随后 B/C 只再签一次包含 H1 因果价值门和 H2 决策风险门的
+正式实验。若官方资源不可访问、许可不允许、来源分量或属性支持不足、关键模型族不能合法复现，
+则停止顶刊扩展并回到 JSTARS 收敛；不得再找近似数据集替代。

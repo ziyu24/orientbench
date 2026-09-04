@@ -339,16 +339,10 @@ RarePlanes 接口、确定的 OBB 语义和可核验的初始化权重闭环；�
 支持门不能执行；此结论不是 H1/H2 科学结果，也不授权下载、训练、推理或 r010。项目回到
 `NO_ACTIVE_TASK`。
 
-### B 独立验收
+### B 最终验收
 
-B 不接受上述资产结论，当前状态改为 `INCONCLUSIVE_R008_ASSET_AUDIT`。主审计只检查四个
-顶层目录别名，未覆盖官方常见的 `RarePlanes-Public`，也未按 full annotation/metadata 等内容
-签名或 dataset 索引查找；因此 `present=false` 不能证明主机无数据。
-
-模型 readiness 同样未实际闭合：程序把全部 weight 与两个 classifier availability 直接写为
-false，执行命令没有读取已声明的权重索引；O2-RTDETR 只检查一个顶层别名，没有解析历史已知
-的 ai4rs 内部 project。独立验证重复同一四别名，只确认主结果已经给出 unavailable，并未独立
-核验 third-party 或权重资产。唯一自动测试只覆盖几何 fixture。
-
-这些问题不证明 RarePlanes 已存在，只说明当前搜索不足以裁定不存在。r009 必须在不下载、训练
-或推理的前提下修正资产枚举与独立验证；在此之前不得启动顶刊验证。
+B 接受 `ASSET_UNAVAILABLE_R009`。主审计已修复 r008 的四别名常量问题，实际覆盖
+`RarePlanes-Public` 等五种目录别名和官方内容签名；搜索无异常。独立实现重新枚举后给出
+`passed=true`、`candidate_set_equal=true`，与主实现共同确认当前主机固定数据资产中没有
+RarePlanes real。该结论只证明本地资产缺失，不证明官方公开数据不可取得，也不是 H1/H2 的
+科学负结果。

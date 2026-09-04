@@ -1,82 +1,81 @@
 # SERVER 科学指令
 
-当前没有活动 SERVER 指令。r009 已完成为 `ASSET_UNAVAILABLE_R009`；不得训练、推理、下载数据、
-计算 H1/H2、修改论文或自动启动后续实验。以下保留其协议作为结论边界。
+## r010：RarePlanes 官方 real 资产落地与最终验证就绪
 
-## 历史 r009：RarePlanes 资产搜索与模型 readiness 修正审计
+### 1. 目标
 
-### 1. 修正目标
+r009 已确认当前主机没有 RarePlanes real，但官方 AWS Open Data 资源仍公开可读。r010 直接取得并
+冻结唯一一次顶刊验证所需的官方 real 数据、来源分量划分、五个 detector family 与两个分类器的
+合法实现和初始化资源。本轮不训练、不推理、不计算 H1/H2，不下载 synthetic，也不修改论文。
 
-r008 的 `ASSET_UNAVAILABLE_R008` 不予验收：数据搜索只查四个顶层目录别名，遗漏官方常见的
-`RarePlanes-Public` 名称和内容特征；两个分类器与权重状态被直接写成 unavailable；O2-RTDETR
-没有检查已知的 ai4rs 内部实现位置；独立验证又复用了同一别名集合。
+### 2. 官方数据的最小获取范围
 
-r009 必须真实回答：主机固定资产中是否存在可用 RarePlanes real 数据、五个 detector family、
-两个下游 classifier 及其必要权重。不得继续用常量或目录名猜测代替核验。
+- 只从官方 RarePlanes Open Data 来源获取 real 部分；禁止镜像、二次加工版本和 synthetic 部分。
+- 必须包含并逐项校验 CC BY-SA 4.0 许可、版本/来源说明、完整 real 元数据、full annotations、
+  253 条 WorldView-3 real image records 对应的官方 real 影像产品，以及从影像到对象标注的唯一回链。
+- 先取得官方清单并计算预计字节数；只同步上述必需对象。禁止为方便而递归同步整个公开资源。
+- 对每个取得对象记录官方键、字节数并完成内容完整性校验；缺失、重复、损坏、real/synthetic 混淆或许可
+  不可核验均不得静默补齐。
 
-### 2. 数据资产的完整有界搜索
+### 3. 唯一来源分量与 single-use 划分
 
-- 先读取主机固定 dataset 索引，再只在该固定数据根内进行大小写不敏感、符号链接解析后的有界
-  枚举；不得扫描数据根之外的磁盘。
-- 同时按目录别名和内容签名寻找候选。目录别名至少覆盖 `RarePlanes-Public`、
-  `RarePlanes_Public`、`RarePlanes`、`RarePlanes_real` 与 `rareplanes`；内容签名至少覆盖
-  full annotations、metadata、license、real imagery 和 real tiled annotations 的官方文件名/结构。
-  任一内容签名命中都必须继续解析，不能因父目录名称不同而判 absent。
-- 对所有候选报告 canonical identity、regular-file/readability、real/synthetic 分离、许可、版本、
-  full GeoJSON、metadata、原始影像和 tiled 影像的实际存在性。候选损坏或语义不明不能写 absent。
-- 若找到可用 real 数据，继续完成 r008 已冻结的 full-GeoJSON 唯一对象 census、
-  `loc_id↔CAT/source-product` 二部图连通分量、地理重复合并、25 test/25 calibration/至少50
-  training components、三个 co-primary 与 secondary role 支持表，以及 pixel-frame
-  `(theta_long,L,S)` 几何 fixtures；不得采用官方混地点 default split 或重复统计 tiled objects。
+- 对象 census 只以 full GeoJSON 为权威；官方 tiled annotations 只作回链核验，不重复计数。
+- 以 `loc_id↔CAT/source-product` 二部图连通分量为基础，再合并地理 footprint 重叠分量；同一
+  source product、地点或重叠地理分量不得跨 split。
+- 在看任何模型输出前，将规范化 component key 排序后用 PCG64 固定种子 1010 做一次确定性置换：
+  前 25 个 component 为 test，接着 25 个为 calibration，其余为 train；不足 100 个 component
+  直接判资产不足，不更换种子。
+- test 只能称为预注册、程序性信息墙下的 single-use component-held-out test，不得称 external
+  blind。r010 不得读取 test 的模型结果或下游损失。
+- 主几何只使用从 GeoJSON 经正式投影/GeoTIFF 变换进入 image-pixel frame 后的 minimum-area
+  rectangle long-side RP1 `(theta_long,L,S)`；nose-tail 航向和经纬度角不得替代普通 OBB 轴向角。
 
-### 3. 五 detector 与两个 classifier 的真实核验
+### 4. 固定属性支持门
 
-- 读取固定 third-party 注册信息和与本任务相关的权重索引条目；不得把权重状态预填为 false，
-  也不得仅以顶层目录是否存在判断 family。
-- 分别解析 Oriented R-CNN、Rotated RTMDet、ARS-DETR、O2-RTDETR、FRED 的真实内部实现位置、
-  config 可加载性、RarePlanes 单类数据接口可适配性、OBB 输出角语义和必要初始化权重。
-- O2-RTDETR 必须检查 ai4rs 中已登记的 rotated-RTDETR project；Rotated RTMDet 不能仅因 ai4rs
-  根存在就判 available。ARS-DETR、普通 RT-DETR 与 O2-RTDETR 不得互相冒充；换 backbone 不算
-  新 family；普通旋转增强不得冒充 FRED。
-- ResNet-50 与 ViT-B/16 必须从实际 classifier 实现和相关权重索引核验，报告可加载性及四输出
-  head 的最小适配状态。不得在本轮训练或用随机初始化冒充 ready。
-- 只允许 CPU 上的 import/config/build/readability 检查，不运行任何 dataset forward、模型推理
-  或训练。确实需要代码适配但资产存在时，记录为 `ADAPTATION_REQUIRED`，不能写成资产 absent。
+三个 co-primary 预先固定为：
 
-### 4. 独立验证
+1. wing：`straight` 对 `swept-back|delta|variable-sweep`；
+2. engine count：`2` 对 `0|1|3|4`；
+3. propulsion：`jet` 对 `propeller|unpowered`。
 
-第二实现不得导入主审计模块，也不得读取主审计的候选列表或 availability 判定。它必须：
+以上是固定二分类映射；缺失、未知或其他原值不进入该属性，不得在看到计数后重映射。`role` 只作
+secondary endpoint，`wing_position` 排除。每个 co-primary 的每个类别必须在
+train/calibration/test 分别至少有 100/20/20 个 joint-complete 对象；任一 co-primary 无法形成至少
+二分类则判资产不足。不得换 split、删困难 component 或看模型性能后改映射。
 
-1. 独立读取 dataset 与权重索引；
-2. 独立按官方内容签名枚举 RarePlanes real 候选；
-3. 独立解析五 family 的实际内部实现位置及两个 classifier 权重；
-4. 逐项比较数据候选、real 文件集合、模型 family 身份、权重存在性、readiness reason code、
-   component/split/属性计数和最终 token。
+### 5. 最终验证所需模型资产
 
-两实现候选集合或关键判定不一致、任一搜索异常被吞掉、内容签名命中却未解析，均为
-`INCONCLUSIVE_R009_ASSET_AUDIT`，不得用主实现 token 反向证明自己。
+- detector family 固定为 Oriented R-CNN、Rotated RTMDet、ARS-DETR、O2-RTDETR、FRED；换
+  backbone 不得冒充新 family。
+- classifier 固定为 ResNet-50 与 ViT-B/16。只取得许可兼容的官方实现、不可变版本和通用初始化
+  权重；RarePlanes 属性 head 后续由 train split 训练，本轮不得训练。
+- 复用已存在且可核验的实现/权重；仅对 r009 证明缺失的项目取得官方来源。所有新增来源必须记录
+  许可、版本、内容完整性和最小适配缺口，且不得用普通 RT-DETR 冒充 O2-RTDETR、用旋转增强冒充
+  FRED、用 ARS-DETR 权重冒充其他 family。
+- CPU 配置构建与接口单元测试允许；dataset forward、模型推理、性能读取和随机初始化占位禁止。
 
-### 5. 可复算证据
+### 6. 独立核验与可复算证据
 
-提交实际搜索、索引解析、数据解析、模型/权重 readiness 和独立验证代码及测试，并生成：
+第二实现不得读取主实现的 availability 判定，必须从官方清单、已取得文件及注册索引重新核验：
 
-- dataset 索引的 RarePlanes 相关条目、数据根有界枚举摘要、目录别名与内容签名命中表；
-- 每个候选的 real/synthetic、许可、full/tiled/metadata/image 完整性与 reason code；
-- 五 detector 和两个 classifier 的内部实现、配置、权重与语义 readiness 表；
-- 数据可用时的 component lineage、固定 split、属性支持与几何 fixture compact 结果；
-- 两实现逐项差异表、mutation tests 和唯一最终 token。
+- official key、bytes、许可和 real-only 完整性；
+- full GeoJSON 对象 census、影像/标注回链、component 图及 split key 完全一致；
+- 三个 co-primary 的逐 split 支持计数和 long-side RP1 fixtures；
+- 五 detector 与两个 classifier 的实现身份、版本、初始化资源和许可。
 
-大清单只留运行产物；普通 Git 只提交可复算源码、配置、测试、compact 证据和
-`lab/result.md` 结论。
+普通 Git 只提交获取/验证代码、配置、compact 清单、计数、差异摘要和最终结论；原始影像、权重及
+大型清单留在主机固定资产或运行产物中，不进入普通 Git。
 
-### 6. 唯一裁决
+### 7. 唯一裁决
 
 按优先级只输出一个状态：
 
-1. 搜索、解析或双实现不可裁定：`INCONCLUSIVE_R009_ASSET_AUDIT`；
-2. 核验有效，但 RarePlanes real 数据、来源分量/属性支持、五 detector、两个 classifier 或必要
-   权重任一不足：`ASSET_UNAVAILABLE_R009`；
-3. 全部资格门真实通过：`READY_FOR_BC_R010_DESIGN`。
+1. 官方清单、下载、许可、完整性、解析或双实现不一致且无法裁定：
+   `INCONCLUSIVE_R010_ASSET_MATERIALIZATION`；
+2. 核验有效，但 real 数据、component 数、属性支持、任一必需模型实现或合法初始化资源不足：
+   `ASSET_UNAVAILABLE_R010`；
+3. 数据、split、属性及全部模型资产均通过：`READY_FOR_BC_R011_FINAL_VALIDATION`。
 
-三个状态均不是 H1/H2 科学结果，不改变当前 strong-JSTARS 判断。任何结果都不得下载资产、
-启动训练/推理、恢复 SAR、修改论文或自动启动 r010；SERVER 提交证据后停止，等待 B/C 复核。
+只有第三种状态允许 B/C 另签唯一一次 H1/H2 正式验证；它本身不是科学 PASS，也不授权 SERVER
+自动训练或推理。第二种状态意味着停止 RarePlanes 顶刊扩展并按 JSTARS 收敛，不得继续换近似
+数据集、恢复 selector/head 或恢复 SAR。
