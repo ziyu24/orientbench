@@ -483,7 +483,7 @@ footprint lineage 或模型 readiness 已通过。
 
 ### 83-component 结论的撤销
 
-旧审计直接使用 CSV 的 raw `cat_id`。其中 26 行被表格软件写成科学计数法：
+旧审计直接使用 CSV 的 raw `cat_id`。其中 26 行在官方 CSV 原字节中呈现为科学计数法字符串：
 `1.04001E+15` 21 行、`1.04E+12` 4 行、`1.04E+11` 1 行，导致无关地点被伪合并为一个
 25-location 巨分量。对每行保留 raw 值，并仅在 `image_id` 后缀为 16 位十六进制、与 full
 GeoJSON CAT 集合及影像键唯一一致时规范恢复，可得 227 个 CAT，恰与 GeoJSON 的 227 个 CAT
