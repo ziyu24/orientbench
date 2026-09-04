@@ -71,10 +71,13 @@ RarePlanes”的表述全部失效。
 因此本项既不是方法失败，也不授权训练或最终验证；只能由 r011 做一次不读取科学 outcome 的证据链
 修复。不得通过换 seed、拆 component、替代模型或改类别门来制造 READY。
 
-## r011 资产阻断（非科学失败）
+## r011 更正：证据修复未闭合，不是资产或科学失败
 
-r011 已修复 r010 的 CAT/COG/lineage/分割证据链，数据门通过；但实际模型 build/load 仍被三项
-可复核的资产条件阻断：ARS-DETR 的 MMCV 1.7.2 与其 `<=1.6.0` 要求冲突，O2-RTDETR 的 MMCV
-2.3.4 与 bundled mmrotate 1.0.0rc1 的 `<=2.2.0` 要求冲突，FRED 无可用的官方实现及合法初始化。
-唯一状态为 `ASSET_UNAVAILABLE_R011`，不是方法失败或正式 KILL。不得用替代实现、代理模型或下载外部
-资产绕开该结论；在新的明确授权前不得启动任何性能实验。
+r011 的机器 token `ASSET_UNAVAILABLE_R011` 未通过 B 验收，正式状态为
+`INCONCLUSIVE_R011_EVIDENCE_REPAIR`。发布产物与登记执行的源码、结束时间和产物位置矛盾；既有
+lexical component key 被改成 numeric tuple 后重随机化 split；支持门未进入裁决，逐键 lineage、
+footprint 独立实现和模型严格 load 也没有闭合。ARS-DETR/O2 的版本冲突与 FRED 的常量式缺失记录
+因此都不能充当最终资产裁决。
+
+该轮未读取 H1/H2 outcome，不能列为方法失败，也不能声称 RarePlanes 路线已关闭。唯一允许的
+后续是先以 outcome-blind G0 修正这些证据；只有 G0 全过才可执行 H1a-only calibration 生死门。

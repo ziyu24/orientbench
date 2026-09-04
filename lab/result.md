@@ -18,6 +18,10 @@
   `cat_id` 被科学计数法破坏，规范恢复后为 102 个 footprint 合并前 component。由于正式地理
   footprint 合并和模型 build/load 尚未闭环，当前状态改为
   `INCONCLUSIVE_R010_ASSET_AUDIT_INVALID`，不是 READY，也不是科学 KILL。
+- r011 的机器 token `ASSET_UNAVAILABLE_R011` 也未通过 B 验收：发布产物与所登记执行的源码、
+  时间和产物位置不可能同时成立，且 split 被未预注册地从 lexical key 改为 numeric tuple；
+  lineage、支持门、footprint 双实现和模型严格加载均未闭合。正式状态为
+  `INCONCLUSIVE_R011_EVIDENCE_REPAIR`，H1/H2 仍为零条科学结果。
 
 ## 可保留的稳定测量事实
 
@@ -522,9 +526,11 @@ RarePlanes”的理由正式撤销，但当前也绝不升级为 READY。唯一�
 
 ## r011
 
-### 已闭合的数据与几何证据
+以下前两节只记录 SERVER 机器报告，未获 B 验收；正式科学状态以第三节为准。
 
-双实现独立解析 253 条 metadata 行，并把 26 条科学计数法形式的 raw `cat_id` 仅在 `image_id`
+### SERVER 机器报告的数据与几何证据（未验收）
+
+SERVER 报告双实现独立解析 253 条 metadata 行，并把 26 条科学计数法形式的 raw `cat_id` 仅在 `image_id`
 16 位十六进制后缀、full GeoJSON CAT 集和唯一 COG 键三方一致时恢复。两实现均得到 227 CAT。
 读取全部 253 个 COG 的 header（未读像素）：CRS 均为 EPSG:4326。以 affine、宽高导出的实际
 影像 footprint 按严格正面积相交建图，边数为 0，最终为 102 个 component（97 个单点、4 个双点、
@@ -537,9 +543,9 @@ tiles/6,812 annotations，train 为 5,815/18,393，全部 source 与 annotation 
 RP1 的 w/h+90°、边界相切、非零 footprint、CAT 表示及 calibration 19/20 等 mutation fixture 均通过。
 这些仅是设计/资产证据，未训练、未推理、未读取 H1/H2 outcome。
 
-### 模型 readiness 与唯一裁决
+### SERVER 机器报告的模型 readiness 与裁决（未验收）
 
-两份独立运行记录对 build/load 结论一致。Oriented R-CNN、Rotated RTMDet、ResNet-50、ViT-B/16
+机器报告称两份独立运行记录对 build/load 结论一致。Oriented R-CNN、Rotated RTMDet、ResNet-50、ViT-B/16
 均完成实际 config build 和严格 state-dict load。ARS-DETR 因现有环境的 MMCV 1.7.2 与其要求
 `<=1.6.0` 不兼容而无法初始化；O2-RTDETR 因 MMCV 2.3.4 与其 bundled mmrotate 1.0.0rc1 的
 `<=2.2.0` 要求不兼容；FRED 没有本地主机可用的官方/作者实现及合法初始化，未以 surrogate 替代。
@@ -547,3 +553,35 @@ RP1 的 w/h+90°、边界相切、非零 footprint、CAT 表示及 calibration 1
 
 这不是科学 PASS/KILL，也不授权训练、GPU 推理、H1/H2、HRSC、RSAR 或论文修改；r012 也未启动。
 全部实际代码、run spec、双实现 raw audit、模型记录和最终汇总已随 r011 result ref 发布。
+
+### B 独立复核与正式科学状态
+
+B 不接受机器的 `ASSET_UNAVAILABLE_R011`，正式状态改为
+`INCONCLUSIVE_R011_EVIDENCE_REPAIR`。可保留的描述性事实只有：官方输入表面复现
+253 metadata rows、26 个科学计数法 raw CAT、227 个 canonical CAT、253 个 COG，以及两实现均报告
+102 个基础 component 和 0 条 footprint edge；这些尚不足以证明最终 data/model readiness。
+
+决定性原因如下：
+
+- `RUN.json` 绑定修复前 `573d439`，并在 RP1 修复提交产生前结束；它声明输出在 `artifacts`，发布
+  证据却位于 `repair_artifacts`，且内容反映结束后才提交的修复逻辑。没有与发布产物对应的新运行
+  回执或输入/输出哈希，因此 provenance 自相矛盾。
+- r010 已公开的规范 key 是字符串 `loc:...`；r011 改为数值 tuple 排序后再用同一 PCG64(1010)，
+  未预注册地重随机化了 single-use split。原 lexical split 的 test/calibration/train 为
+  `25/25/52 components`、`1,919/7,418/5,370 objects`；r011 numeric split 变成
+  `3,766/6,747/4,194 objects`，三个分区仅分别重合 5/10/28 个 component。r011 numeric test 不得沿用。
+- support 数值本身在 numeric split 上通过，但 support 门没有进入 finalizer；所谓 19/20 mutation
+  只是恒真布尔表达式。指令要求的逐 split×class 最大 component 占比和 Kish effective count 未输出；
+  numeric calibration 最大 component 占 `55.343%`，overall Kish 仅约 `2.928`。
+- tiled lineage 只检查粗属性 signature 是否存在于全局集合，没有建立
+  `annotation→tile→source COG→full object` 的唯一、多重性和完备回链。粗签名重算显示 test 的
+  6,812 annotations 只有 3,807 个 unique signatures，train 的 18,393 只有 10,899 个；full flags
+  为 3,807+10,900，至少一个 train full object 的差异未解释。
+- 两个 footprint 实现共享同一简化 CRS 判断、经纬度面积近似和阈值，没有公布 footprint key、
+  最小间距裕量或真正独立 geospatial 路径；独立实现也没有 projection/pixel-frame/RP1 fixtures。
+- ORCNN/RTMDet 用 `strict=False` 加载后直接写空 missing/unexpected keys；FRED 缺失仍由常量产生；
+  ARS-DETR/O2-RTDETR 报的是所选运行环境版本冲突，而不是科学资产不存在。静态 schema dict 也没有
+  实例化 RarePlanes adapter。故模型来源、许可、版本、兼容 load 与第二实现均未闭合。
+
+r011 没有读取 H1/H2 outcome，故以上问题没有消耗科学 test；但任何后续任务必须恢复事前已有的
+lexical split，并先 outcome-blind 修正上述 G0 证据，不能把 r011 numeric test 当作新冻结 test。

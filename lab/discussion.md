@@ -3,8 +3,11 @@
 ## 当前状态
 
 - 已复核当前精简树、`09381f7a360e5ad730e77157fb427401555620f5` 归档父树、全部主要结果表、
-  失败路线、未执行轮次和最近提交；项目不是只有当前 r001--r010。两套主线存在同号 r 轮次，
+  失败路线、未执行轮次和最近提交；项目不是只有当前 r001--r011。两套主线存在同号 r 轮次，
   全项目总账以归档/当前前缀区分并已写入 `lab/result.md`。
+- r011 的机器结论 `ASSET_UNAVAILABLE_R011` 未通过 B 验收。发布证据没有对应的修复后执行记录，
+  split 又把既有 lexical `loc:` key 改成 numeric tuple 后重新置换；lineage、支持门、footprint
+  双实现和模型严格加载也未闭合。当前正式状态是 `INCONCLUSIVE_R011_EVIDENCE_REPAIR`。
 - r010 的 `83 components / ASSET_UNAVAILABLE_R010` 不能接受。官方 CSV 有 26 行 raw `cat_id`
   被科学计数法破坏；以满足严格三方一致条件的 `image_id` 后缀恢复后，227 个 CAT 与 GeoJSON
   集合完全一致，得到 102 个 footprint 合并前 component。正式地理 footprint 与模型 readiness
@@ -356,7 +359,40 @@ calibration-only 功效规则，不能用对象数宣称已有功效；每个模
 匹配。若唯一剩余缺口是 FRED，仍输出 `ASSET_UNAVAILABLE_R011`，只报告四 family 修订可行，等待
 用户明确决定，SERVER 不得自行删模型或用近似替代。
 
-r011 不训练、不推理、不读取 H1/H2，也不打开 single-use test 性能。只有
-`READY_FOR_BC_R012_FINAL_CAUSAL_VALIDATION` 才允许 B/C 另行签署一次顺序门控的 r012；r012 先做
-分类器 H1a，失败即停，再做 detector angle-rescue H1b，只有 H1 和 calibration 功效都通过才一次
-打开 H2 test。这是当前唯一顶刊操作，不能再分叉为新 selector、head、SAR 或相似 benchmark。
+上述是 r011 执行前的联合设计：原计划只有
+`READY_FOR_BC_R012_FINAL_CAUSAL_VALIDATION` 才另签包含 H1a/H1b/H2 的最终实验。下面的执行后审计
+证明 r011 未达到可验收终态，因此不沿用其 numeric split，也不直接启动原定全链实验；新的 r012
+改为先补 outcome-blind G0，并只在 G0 通过后执行必要性最强、代价最小的 H1a。
+
+## r011 验收失败与 r012 的最小顶刊生死门
+
+B 对已发布 r011 逐代码和逐证据复核后，拒绝机器的 `ASSET_UNAVAILABLE_R011`。其最直接的反证是：
+登记执行在 RP1 修复提交之前已经结束，登记产物位置也不是后来发布的 repair 产物位置，而发布
+内容却使用了修复后的逻辑。它不能证明发布证据来自所登记执行。进一步，r010 已公开的 component
+规范 key 是 lexical 字符串 `loc:...`；r011 改用 numeric tuple 排序后再置换，使 102 个 component
+中只有 43 个留在原分区。lexical split 的 test/calibration/train 是 25/25/52 components、
+1,919/7,418/5,370 objects，r011 numeric split 则变为 3,766/6,747/4,194 objects。没有任何 H1/H2
+outcome 被读取，因此应恢复事前 lexical split，而不是在两个 split 中择优。
+
+其余缺口同样属于执行有效性而非资产不足：支持门没有进入 finalizer；calibration 19/20 fixture
+只是恒真表达式；粗属性 signature 没有形成 annotation→tile→COG→full object 的唯一 lineage，
+且 full train 10,900 个对象与 tiled 的 10,899 个 unique signature 仍差 1；两个 footprint 实现
+共享同一简化判定；detector 用非严格加载后硬写空 missing/unexpected keys，FRED 缺失也仍由常量
+产生。故当前不得把 r011 写成数据门通过或模型资产确定失败。
+
+B/C 不再等待五 detector 资产，也不把 H1a 与 H1b/H2 混跑。H1a 是整个顶刊扩展的必要前提：若在
+GT 中心、尺度和同一预提取 source canvas 固定时，仅把规范化算子的角参数改为 `theta±10°` 都不能
+稳定增加独立属性 balanced error，则没有理由继续训练 detector 或发明无 GT selector。这个量是
+规范化算子的总效应，包含仿射重采样与背景支持变化，不包装成像素不变的纯角度效应。新的唯一
+r012 因而严格分两段：先做
+outcome-blind G0，恢复 lexical split 并闭合 footprint、lineage、支持、几何与两分类器身份；G0
+任一项失败即零训练。只有 G0 通过，才用 train components 训练 ResNet-50 与 ViT-B/16 各三个
+固定 seed，并在 calibration components 一次性执行 H1a；test 不提取 crop、不前向、不计算性能。
+
+C 先给出 H1a-only 条件签署；统计红队随后把主量冻结为 2 architecture × 3 attribute 的六个
+co-primary、class-balanced × component-equal 风险、同步 component bootstrap、clean utility 与
+同时区间。B 再锁定全 footprint pair 的投影/容差、共同 eligible、exactly six fits 和禁止以任何
+train `±10°` response 选模型后，C 给出 `C_FINAL_SIGNED_R012_H1A_ONLY`，统计红队给出
+`STATS_FINAL_PASS`。六格必须全部达到 2pp 实质门且有同时区间支持，才能记 `PASS_R012_H1A`；
+执行有效且有功效但失败则记 `KILL_R012_H1A`；证据、实现或功效不足统一记
+`INCONCLUSIVE_R012_H1A`。PASS 也只准 B/C 另议 H1b/H2，不代表 JPRS/TGRS 已成立。
