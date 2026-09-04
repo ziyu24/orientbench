@@ -1,0 +1,18 @@
+protocol: r012-h1a-v1
+architectures: [resnet50, vit_b16]
+seeds: [1201, 1202, 1203]
+fits: 6
+train_split: frozen_g0_train_components_only
+input:
+  source_canvas: "ceil(1.25 * sqrt(L^2 + S^2)) square, complete COG interior"
+  view: "one bilinear affine render, theta, physical extent 1.20L x 1.20S, 224x224"
+  augmentations: []
+  normalization: "raw RGB / 255"
+optimizer:
+  name: AdamW
+  lr: 0.0003
+  weight_decay: 0.0001
+  batch_size: 24
+epochs: 8
+checkpoint: final_epoch_only
+calibration: "closed until all six final checkpoints and source/crop code are frozen"
