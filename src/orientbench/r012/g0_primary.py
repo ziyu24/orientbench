@@ -9,7 +9,7 @@ import numpy as np
 from shapely.geometry import Polygon
 import tifffile
 
-HEX = re.compile(r"[0-9A-F]{16}\\Z")
+HEX = re.compile(r"[0-9A-F]{16}\Z")
 R_AUTH = 6371007.180918475
 
 def digest(x): return hashlib.sha256(json.dumps(x, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
