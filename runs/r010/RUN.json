@@ -1,0 +1,49 @@
+{
+  "command": [
+    "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+    "src/orientbench/r010/finalize.py",
+    "--root",
+    "/home/rspip/cqc/data/dataset/RarePlanes-Public",
+    "--third-party",
+    "/home/rspip/cqc/study/third_party",
+    "--pth-index",
+    "/home/rspip/cqc/study/pth_data/readme.md",
+    "--pth-root",
+    "/home/rspip/cqc/study/pth_data",
+    "--out-dir",
+    "runs/r010/artifacts"
+  ],
+  "config": "configs/r010/asset_materialization.yaml",
+  "exit_code": 0,
+  "finished_at": "2026-09-04T09:19:43.855813Z",
+  "gpu_count": 0,
+  "inputs": [
+    "dataset:RarePlanes-Public",
+    "pth_data:rareplanes_initialization",
+    "public:https://rareplanes-public.s3.amazonaws.com/"
+  ],
+  "outputs": [
+    {
+      "path": "runs/r010/artifacts/materialization.json",
+      "rebuildable": true
+    },
+    {
+      "path": "runs/r010/artifacts/independent_verify.json",
+      "rebuildable": true
+    },
+    {
+      "path": "runs/r010/artifacts/final.json",
+      "rebuildable": true
+    }
+  ],
+  "project_root": "/home/rspip/cqc/study/orientbench",
+  "result_summary": "lab/result.md#r010",
+  "run_id": "r010",
+  "schema_version": 1,
+  "selected_gpus": [],
+  "source_commit": "74baa23f5ffe663ff9dfb4f75a336a54043bf5f5",
+  "started_at": "2026-09-04T09:19:17.018485Z",
+  "status": "COMPLETE",
+  "worker_pid": 3507795,
+  "worker_start_ticks": 106337598
+}

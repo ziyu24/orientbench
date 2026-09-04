@@ -1,0 +1,244 @@
+{
+  "component_algorithm": "loc_id-CAT-source_product graph; GeoJSON location attachment; PCG64(1010)",
+  "component_count": 83,
+  "image_lineage": {
+    "all_one_to_one": true,
+    "path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/image_archive_index.json"
+  },
+  "license": {
+    "cc_by_sa_4_0_verified": true
+  },
+  "models": {
+    "passed": false,
+    "provenanced": [
+      "ars_detr",
+      "o2_rtdetr",
+      "oriented_rcnn",
+      "resnet50",
+      "rotated_rtmdet",
+      "vit_b16"
+    ],
+    "required": [
+      "ars_detr",
+      "fred",
+      "o2_rtdetr",
+      "oriented_rcnn",
+      "resnet50",
+      "rotated_rtmdet",
+      "vit_b16"
+    ]
+  },
+  "objects": [
+    {
+      "byte_match": true,
+      "bytes": 20605,
+      "exists": true,
+      "expected_bytes": 20605,
+      "local_path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/LICENSE.txt",
+      "official_key": "LICENSE.txt",
+      "sha256": "f627ad059128fa5246a21e25759c1d33e35c4bb6287d636c4b970f7df57e7eba"
+    },
+    {
+      "byte_match": true,
+      "bytes": 12529647,
+      "exists": true,
+      "expected_bytes": 12529647,
+      "local_path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/real/metadata_annotations/RarePlanes_Public_All_Annotations.geojson",
+      "official_key": "real/metadata_annotations/RarePlanes_Public_All_Annotations.geojson",
+      "sha256": "3e4786590cb350038d18120732787b1a6586408ab0685d344ef0730815e79ecb"
+    },
+    {
+      "byte_match": true,
+      "bytes": 48458,
+      "exists": true,
+      "expected_bytes": 48458,
+      "local_path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/real/metadata_annotations/RarePlanes_Public_Metadata.csv",
+      "official_key": "real/metadata_annotations/RarePlanes_Public_Metadata.csv",
+      "sha256": "005eb9c6c4ab0f0fea1f8402f202066b6f4d29617ef263f72b1be34dea35edec"
+    },
+    {
+      "byte_match": true,
+      "bytes": 12535089,
+      "exists": true,
+      "expected_bytes": 12535089,
+      "local_path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/real/metadata_annotations/RarePlanes_Test_Coco_Annotations_tiled.json",
+      "official_key": "real/metadata_annotations/RarePlanes_Test_Coco_Annotations_tiled.json",
+      "sha256": "aff68b77e526d89308145a94994bfa3822f0fc6fe6d31b9dc6f7b8291de76190"
+    },
+    {
+      "byte_match": true,
+      "bytes": 33539381,
+      "exists": true,
+      "expected_bytes": 33539381,
+      "local_path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/real/metadata_annotations/RarePlanes_Train_Coco_Annotations_tiled.json",
+      "official_key": "real/metadata_annotations/RarePlanes_Train_Coco_Annotations_tiled.json",
+      "sha256": "d51f4fc97422934c8f3846207d6ec453dfbb69ae0432537731104a8f0e4c1540"
+    },
+    {
+      "byte_match": true,
+      "bytes": 1372184300,
+      "exists": true,
+      "expected_bytes": 1372184300,
+      "local_path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/real/tarballs/test/RarePlanes_test_PS-RGB_cog.tar.gz",
+      "official_key": "real/tarballs/test/RarePlanes_test_PS-RGB_cog.tar.gz",
+      "sha256": "8f259c87b08d8ecb3b7d2691944c20a74384ee40884f17a32ba6bc8d9c71381a"
+    },
+    {
+      "byte_match": true,
+      "bytes": 2402034321,
+      "exists": true,
+      "expected_bytes": 2402034321,
+      "local_path": "/home/rspip/cqc/data/dataset/RarePlanes-Public/real/tarballs/train/RarePlanes_train_PS-RGB_cog.tar.gz",
+      "official_key": "real/tarballs/train/RarePlanes_train_PS-RGB_cog.tar.gz",
+      "sha256": "48c07cd97d0010e089f3333abde8fac5d6622aff7bff8c65736bdc91df25eb7d"
+    }
+  ],
+  "official_source": "s3://rareplanes-public/",
+  "parse_ok": true,
+  "protocol": "r010-real-materialization-v1",
+  "real_metadata": {
+    "all_annotation_locs_in_metadata": true,
+    "geojson_loc_ids": 112,
+    "geojson_objects": 14707,
+    "image_records": 253,
+    "metadata_loc_ids": 112,
+    "unique_image_records": 253
+  },
+  "split_components": {
+    "calibration": [
+      "loc:30",
+      "loc:2",
+      "loc:96",
+      "loc:125",
+      "loc:14",
+      "loc:72",
+      "loc:1",
+      "loc:68",
+      "loc:8",
+      "loc:73",
+      "loc:47",
+      "loc:11",
+      "loc:42",
+      "loc:109",
+      "loc:65",
+      "loc:24,25,27,33,35,44,51,54,55,59,60,66,84,86,87,88,91,94,100,106,107,108,111,113,116",
+      "loc:22",
+      "loc:102",
+      "loc:53",
+      "loc:57,71",
+      "loc:10",
+      "loc:21",
+      "loc:23",
+      "loc:46",
+      "loc:120"
+    ],
+    "test": [
+      "loc:19",
+      "loc:3",
+      "loc:93",
+      "loc:29",
+      "loc:81,83",
+      "loc:127",
+      "loc:20",
+      "loc:112",
+      "loc:114",
+      "loc:31",
+      "loc:26",
+      "loc:85",
+      "loc:61",
+      "loc:76",
+      "loc:52",
+      "loc:97",
+      "loc:6,28,77,92",
+      "loc:69",
+      "loc:90",
+      "loc:45",
+      "loc:5",
+      "loc:105",
+      "loc:80",
+      "loc:130",
+      "loc:49"
+    ],
+    "train": [
+      "loc:58",
+      "loc:9",
+      "loc:75",
+      "loc:37",
+      "loc:63",
+      "loc:115",
+      "loc:50",
+      "loc:56",
+      "loc:15",
+      "loc:124",
+      "loc:36",
+      "loc:62",
+      "loc:79",
+      "loc:43",
+      "loc:18",
+      "loc:123",
+      "loc:103",
+      "loc:67",
+      "loc:4",
+      "loc:119",
+      "loc:39",
+      "loc:82",
+      "loc:98",
+      "loc:128",
+      "loc:99",
+      "loc:101",
+      "loc:7",
+      "loc:13",
+      "loc:117",
+      "loc:78",
+      "loc:126",
+      "loc:48",
+      "loc:118"
+    ]
+  },
+  "support": {
+    "engine_count": {
+      "calibration": {
+        "2": 3990,
+        "other": 4793
+      },
+      "test": {
+        "2": 1798,
+        "other": 1231
+      },
+      "train": {
+        "2": 1666,
+        "other": 1229
+      }
+    },
+    "propulsion": {
+      "calibration": {
+        "jet": 2884,
+        "nonjet": 5899
+      },
+      "test": {
+        "jet": 1464,
+        "nonjet": 1565
+      },
+      "train": {
+        "jet": 1466,
+        "nonjet": 1429
+      }
+    },
+    "wing": {
+      "calibration": {
+        "nonstraight": 2454,
+        "straight": 6329
+      },
+      "test": {
+        "nonstraight": 1350,
+        "straight": 1679
+      },
+      "train": {
+        "nonstraight": 1312,
+        "straight": 1583
+      }
+    }
+  },
+  "support_gate_passed": true,
+  "token": "ASSET_UNAVAILABLE_R010"
+}

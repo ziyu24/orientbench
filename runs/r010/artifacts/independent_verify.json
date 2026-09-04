@@ -1,0 +1,42 @@
+{
+  "components": 0,
+  "data_gate": false,
+  "imagery_one_to_one": false,
+  "license_ok": true,
+  "model_ids": [
+    "ars_detr",
+    "o2_rtdetr",
+    "oriented_rcnn",
+    "resnet50",
+    "rotated_rtmdet",
+    "vit_b16"
+  ],
+  "objects": 0,
+  "parsed": false,
+  "protocol": "r010-independent-v1",
+  "rows": 0,
+  "source_bytes_ok": false,
+  "split_keys": {
+    "calibration": [],
+    "test": [],
+    "train": []
+  },
+  "support": {
+    "engine_count": {
+      "calibration": {},
+      "test": {},
+      "train": {}
+    },
+    "propulsion": {
+      "calibration": {},
+      "test": {},
+      "train": {}
+    },
+    "wing": {
+      "calibration": {},
+      "test": {},
+      "train": {}
+    }
+  },
+  "token": "INCONCLUSIVE_R010_ASSET_MATERIALIZATION"
+}

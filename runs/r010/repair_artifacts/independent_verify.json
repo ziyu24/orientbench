@@ -1,0 +1,155 @@
+{
+  "components": 83,
+  "data_gate": false,
+  "imagery_one_to_one": true,
+  "license_ok": true,
+  "model_ids": [
+    "ars_detr",
+    "o2_rtdetr",
+    "oriented_rcnn",
+    "resnet50",
+    "rotated_rtmdet",
+    "vit_b16"
+  ],
+  "objects": 14707,
+  "parsed": true,
+  "protocol": "r010-independent-v1",
+  "rows": 253,
+  "source_bytes_ok": true,
+  "split_keys": {
+    "calibration": [
+      "loc:30",
+      "loc:2",
+      "loc:96",
+      "loc:125",
+      "loc:14",
+      "loc:72",
+      "loc:1",
+      "loc:68",
+      "loc:8",
+      "loc:73",
+      "loc:47",
+      "loc:11",
+      "loc:42",
+      "loc:109",
+      "loc:65",
+      "loc:24,25,27,33,35,44,51,54,55,59,60,66,84,86,87,88,91,94,100,106,107,108,111,113,116",
+      "loc:22",
+      "loc:102",
+      "loc:53",
+      "loc:57,71",
+      "loc:10",
+      "loc:21",
+      "loc:23",
+      "loc:46",
+      "loc:120"
+    ],
+    "test": [
+      "loc:19",
+      "loc:3",
+      "loc:93",
+      "loc:29",
+      "loc:81,83",
+      "loc:127",
+      "loc:20",
+      "loc:112",
+      "loc:114",
+      "loc:31",
+      "loc:26",
+      "loc:85",
+      "loc:61",
+      "loc:76",
+      "loc:52",
+      "loc:97",
+      "loc:6,28,77,92",
+      "loc:69",
+      "loc:90",
+      "loc:45",
+      "loc:5",
+      "loc:105",
+      "loc:80",
+      "loc:130",
+      "loc:49"
+    ],
+    "train": [
+      "loc:58",
+      "loc:9",
+      "loc:75",
+      "loc:37",
+      "loc:63",
+      "loc:115",
+      "loc:50",
+      "loc:56",
+      "loc:15",
+      "loc:124",
+      "loc:36",
+      "loc:62",
+      "loc:79",
+      "loc:43",
+      "loc:18",
+      "loc:123",
+      "loc:103",
+      "loc:67",
+      "loc:4",
+      "loc:119",
+      "loc:39",
+      "loc:82",
+      "loc:98",
+      "loc:128",
+      "loc:99",
+      "loc:101",
+      "loc:7",
+      "loc:13",
+      "loc:117",
+      "loc:78",
+      "loc:126",
+      "loc:48",
+      "loc:118"
+    ]
+  },
+  "support": {
+    "engine_count": {
+      "calibration": {
+        "2": 3990,
+        "other": 4793
+      },
+      "test": {
+        "2": 1798,
+        "other": 1231
+      },
+      "train": {
+        "2": 1666,
+        "other": 1229
+      }
+    },
+    "propulsion": {
+      "calibration": {
+        "jet": 2884,
+        "nonjet": 5899
+      },
+      "test": {
+        "jet": 1464,
+        "nonjet": 1565
+      },
+      "train": {
+        "jet": 1466,
+        "nonjet": 1429
+      }
+    },
+    "wing": {
+      "calibration": {
+        "nonstraight": 2454,
+        "straight": 6329
+      },
+      "test": {
+        "nonstraight": 1350,
+        "straight": 1679
+      },
+      "train": {
+        "nonstraight": 1312,
+        "straight": 1583
+      }
+    }
+  },
+  "token": "ASSET_UNAVAILABLE_R010"
+}

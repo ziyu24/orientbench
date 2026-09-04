@@ -1,0 +1,8 @@
+{
+  "agreement": true,
+  "independent_token": "INCONCLUSIVE_R010_ASSET_MATERIALIZATION",
+  "primary_token": "INCONCLUSIVE_R010_ASSET_MATERIALIZATION",
+  "protocol": "r010-finalizer-v1",
+  "token": "INCONCLUSIVE_R010_ASSET_MATERIALIZATION",
+  "training_or_inference_run": false
+}

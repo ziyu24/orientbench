@@ -1,0 +1,8 @@
+{
+  "agreement": true,
+  "independent_token": "ASSET_UNAVAILABLE_R010",
+  "primary_token": "ASSET_UNAVAILABLE_R010",
+  "protocol": "r010-finalizer-v1",
+  "token": "ASSET_UNAVAILABLE_R010",
+  "training_or_inference_run": false
+}
