@@ -54,9 +54,11 @@ r011 只修复并独立验证 RarePlanes 的来源标识、真实地理 footprin
   mutation 证明没有再次共同误译为 100。
 - 输出每个 split 和属性类的对象数、component 数、最大 component 对象占比与 Kish effective
   component 数；这些是设计诊断，不能把大量对象行写成大量独立重复。
-- 现在冻结未来主估计量为 `class-balanced × component-equal`：先在每个 component 内算类别平衡
-  结局，再对 component 等权；所有 family、seed、coverage 必须同步重采 component。禁止对象池化
-  后仅套 cluster bootstrap。
+- 现在冻结未来主估计量为 `class-balanced × component-equal`：对每个属性类别 `c`，先在每个含
+  `c` 的 component 内对对象损失取均值，再在所有含 `c` 的 component 间等权，最后对两个类别的
+  风险各以 `1/2` 权重平均。family、seed、coverage 的比较必须在同一 `component×class` 支持集上
+  配对；component bootstrap 同步重采，并在每个 replicate 内完整重算该估计量。禁止丢弃单类
+  component、将缺类记零、对象池化后仅套 cluster bootstrap，或按结果改变权重。
 - 冻结未来 calibration-only 功效门：目标差为 2 个百分点、双侧 95% 区间、80% 功效；仅在后续
   calibration 产生 component-level 差值后估计方差。功效不足则 test 保持未打开并输出
   `INCONCLUSIVE_POWER`，不得降低 2pp 门。r011 不模拟或读取任何科学 outcome，不得宣称已有功效。

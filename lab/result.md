@@ -76,7 +76,7 @@ target-domain GT angle error，只能作为 diagnostic upper bound，不能充�
 | 路线 | 可复核结果 | 科学裁决与边界 |
 | --- | --- | --- |
 | PSC 候选 B3/B4 | 本域 27/58 候选同时胜 phase modulation 与 score；外部 RotatedFCOS-PSCD 为 0/24 | `FAIL_CANDIDATE_GATE / STOP_B6`；局部解码响应可描述，repair 不得复活 |
-| 旧 score-cause r004--r007 | score-ranking limit 0/90；33 项 structural、57 项 oracle/data/grid；split-FST 仅 14 qualified rows、只覆盖 A/B/C 与 DIOR；r007 validity fixtures 全 false | r004 `FAIL_SCORE_LIMIT_DOMINANT`；r005 attribution inconclusive；r006 `FAIL_NO_BROAD_TARGET_FREE_DEVELOPMENT`；r007 invalid |
+| 旧 score-cause r004--r007 | score-ranking limit 0/90；33 项 structural、57 项 oracle/data/grid；split-FST 仅 14 qualified rows、只覆盖 A/B/C 与 DIOR；r007 的 exact-integer、boundary、taint、split-FST-sim 四项关键 validity 为 false，lineage 为 true | r004 `FAIL_SCORE_LIMIT_DOMINANT`；r005 attribution inconclusive；r006 `FAIL_NO_BROAD_TARGET_FREE_DEVELOPMENT`；r007 invalid |
 | r034 循环性审计 | 616,184 行；DIOR/DOTA/FAIR/SODA 为 5900/458/2142/576 clusters；12 个 primary、0 witness | `K1=true, K2=true, SURVIVAL=false`；旧 selector-signature 主张终局降级 |
 | r023 mixed gate | 405 hypotheses、5 个 unit witness、2 个 dataset witness、无 passing signature；A/B 10,000 replicates 最大差 0 | `INCONCLUSIVE_MIXED`，不能由零复算误差升级为方法成功 |
 | r036/r037 Q-SetOD | r036 被 C 标为 `CONTESTED`；r037 `G_EVIDENCE=4/8`、`G_SET=0/8`，且 A/B 仅 4 行标签差、validator 与 A 相似度 `0.930769` | 正式 protocol drift；只能描述部分标量信号，集合运输未成立 |
@@ -91,7 +91,9 @@ target-domain GT angle error，只能作为 diagnostic upper bound，不能充�
 
 归档 r003（A6R 资产缺失）、r012（来源/zero-pred 缺口）、r020/r021/r022/r024/r031（技术或治理
 早停）、r032（仅资产）、r038/r050（运行前撤回）、r040/r041（资产/推理修复）均没有可写成
-科学 PASS/KILL 的结果。
+科学 PASS/KILL 的结果。归档 r008--r010、r013、r016--r018、r033、r035、r039 只涉及 quarantine、
+证据闭环、机械回执、稿件/提案或未激活计划；除本总账另行列出的复算事实外，不构成新的科学
+PASS/KILL。
 
 r014 的表面正结果在 r015 法证后永久降为 `FAIL_PROTOCOL_R014`；同步重算的 DIOR、FAIR、SODA
 探索量分别为 `0.1733 [0.1458,0.2020]`、`0.2436 [0.2048,0.2848]`、
