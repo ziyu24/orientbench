@@ -18,7 +18,7 @@ class Planes(Dataset):
  def __getitem__(self,i):
   r=self.r[i];im=self.cache.get(r['image'])
   if im is None:
-   a=tifffile.imread(self.root/r['image']+'.tif');im=torch.from_numpy(a[:,:,:3].transpose(2,0,1)).float()/255.;self.cache[r['image']]=im
+   a=tifffile.imread(self.root/(r['image']+'.tif'));im=torch.from_numpy(a[:,:,:3].transpose(2,0,1)).float()/255.;self.cache[r['image']]=im
   s=int(r['side']);x,y=r['center'];q=im[:,int(y-s/2):int(y+s/2),int(x-s/2):int(x+s/2)]
   # one bilinear affine render from the fixed source canvas; no geometric augmentation.
   q=affine(q,angle=-math.degrees(r['theta']),translate=[0,0],scale=max(1e-6,1.2*max(r['L'],r['S'])/s),shear=[0.,0.],interpolation=__import__('torchvision').transforms.InterpolationMode.BILINEAR)
