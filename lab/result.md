@@ -1,4 +1,127 @@
-# SERVER 执行结果
+# 全项目科学结果总账
+
+本文件同时覆盖两套同号轮次：`09381f7a360e5ad730e77157fb427401555620f5` 及其以前的
+归档科学主线（旧 r001--r052），以及极简改造后的当前 r001--r010。裸 `rNNN` 不能跨两套主线
+直接等同；下文凡涉及归档结果均明确写“归档主线”。
+
+## 全项目总裁决（2026-09-04）
+
+- 已建立的主结果是“构造性方向扰动可被 AP50 完全掩盖，却显著损伤高 IoU 矩形评价；高长宽比
+  矩形的解析角度容差更紧”，并有六个完整检测单元、八个几何风险单元、600 个人工目标及
+  图像级有限样本分析支撑。它尚不是独立现实下游影响。
+- 尚未建立的结果是“方向可靠性会改善独立遥感决策，而且其风险可在无测试 GT 时被识别并控制”。
+  唯一前瞻应用实验 r045 为负；此后所有 selector/head/融合路线均失败、降级或未裁决。
+- 当前没有一个正向新方法或新理论足以支撑 TGRS/JPRS。现有证据适合一篇强 JSTARS 级测量与
+  审计论文；RarePlanes 路线只是在争取一次独立下游因果验证资格，并非新增 benchmark 数量。
+- r010 的 `83 components / ASSET_UNAVAILABLE_R010` 已被独立审计推翻：26 行官方 CSV
+  `cat_id` 被科学计数法破坏，规范恢复后为 102 个 footprint 合并前 component。由于正式地理
+  footprint 合并和模型 build/load 尚未闭环，当前状态改为
+  `INCONCLUSIVE_R010_ASSET_AUDIT_INVALID`，不是 READY，也不是科学 KILL。
+
+## 可保留的稳定测量事实
+
+### 六单元受控方向扰动
+
+后期权威 full-validation 表为归档
+`top_journal_v3_reaudit_055/reports/table1_fullval_final_065.csv`。在只改变方向、保持其他检测输出
+不变的构造性扰动中，六单元 AP50 均严格不变，而 AP75 大幅下降：
+
+| 数据/单元 | AP50 原始→扰动 | AP75 原始→扰动 | 平均角误差 原始→扰动 |
+| --- | ---: | ---: | ---: |
+| DIOR-R / 22 | 0.5368→0.5368 | 0.3503→0.0384 | 8.947°→39.189° |
+| DIOR-R / 3 | 0.6448→0.6448 | 0.4275→0.0484 | 8.665°→40.041° |
+| DIOR-R / 61 | 0.6462→0.6462 | 0.4515→0.0532 | 9.087°→40.541° |
+| FAIR1M / 24 | 0.3462→0.3462 | 0.2422→0.0665 | 4.631°→36.516° |
+| SODA-A / 23 | 0.5991→0.5991 | 0.2735→0.0448 | 5.230°→34.416° |
+| SODA-A / 4 | 0.7295→0.7295 | 0.3805→0.0278 | 5.148°→35.893° |
+
+因此权威范围是 AP75 下降 `0.1757--0.3983`、平均角误差增加 `29.186--31.885°`。旧 r044
+稿件写入的 AP50 和 AP75 下降 `0.1731--0.6166` 已被该 full-validation 表取代，不得继续引用。
+
+### 几何、风险与人工锚点
+
+- 同心同尺度矩形在 `AR=2.1` 时的 `IoU=0.75` 方向容差为 `15.3297°`。这是解析几何阈值，
+  不是观测预测框的真实 IoU 事件。
+- 八单元几何归一 severe-risk 的 eligible 数依次为
+  `49,502 / 54,297 / 53,671 / 31,801 / 197,529 / 235,428 / 33,029 / 34,383`，对应率为
+  `0.0081 / 0.0082 / 0.0167 / 0.0052 / 0.0036 / 0.0053 / 0.0019 / 0.0029`。该事件仍由同一
+  矩形 IoU 几何定义，不能当作独立现实后果。
+- 图像级 LTT 在 `alpha=0.03` 时，A--F 六单元均选择 `coverage=1.0`；校准 HB UCB 为
+  `0.0153817 / 0.0161449 / 0.0258754 / 0.00536176 / 0.00307779 / 0.00300844`。它证明冻结
+  calibration 获得 HB 证书且 held-out 经验风险相容，但没有形成非平凡拒识决策；有限样本保证仍
+  依赖 exchangeability，也不证明部署域迁移。
+- 人工双标共 600 个目标、450 个双人数值对；轴向分歧均值 `2.3112°`，图像簇 95% CI
+  `[1.9970°, 2.7854°]`，`P(>5°)=0.0800`、95% CI `[0.055679,0.105621]`，
+  `P(>10°)=0.008889`、95% CI `[0.002208,0.017897]`；`AR>=2.1` 时 `n=308`、均值
+  `2.2823°`。这是标注者分歧，不是 official GT error。
+- DOTA 的 ORCNN/RTMDet `POST_OUTCOME_AUDITED_EXTERNAL_REPLICATION` 得到 AP50
+  `0.706069/0.716127`、AP75 `0.451742/0.486848`。ORCNN 的 AUGRC/Risk@70 DoD 为
+  `0.0126695 [0.0073611,0.0186728]` / `0.0240725 [0.0130121,0.0367018]`，均不满足 witness；
+  RTMDet 为 `0.0159727 [0.0092158,0.0236151]` / `0.0339429 [0.0191244,0.0513364]`，均满足；
+  equal-unit 为 `0.0143211 [0.0083368,0.0210285]` / `0.0290077 [0.0164741,0.0436297]`，均满足。
+  这不是前瞻确认，且随后被 r034 的定义循环/AR 主导审计降级。
+
+### 归档 r011 评价器与机制边界
+
+归档 r011 完成 42/42 evaluator golden checks；官方、clean-room、authority 三实现的六单元
+AP50/AP75 均在 `0.002` 内一致。144 个 P/D/S grid 中，`D15`、`S15` 均获 6/6 支持，AP75
+单调性 6/6、AR survival 6/6；但 P3 仅 4/11 eligible folds，leave-dataset 为 0/6，联合结论为
+`TGRS_NOT_REACHED_R011`。它稳固了测量实现和有限机制边界，没有产生可迁移方法。
+
+归档固定尺寸非线性诊断在 15 bins 中 11 个显著，支持单元 A/B/C/E；但拟合目标直接使用
+target-domain GT angle error，只能作为 diagnostic upper bound，不能充当部署风险分数。
+
+## 归档主线：方法与机制裁决
+
+| 路线 | 可复核结果 | 科学裁决与边界 |
+| --- | --- | --- |
+| PSC 候选 B3/B4 | 本域 27/58 候选同时胜 phase modulation 与 score；外部 RotatedFCOS-PSCD 为 0/24 | `FAIL_CANDIDATE_GATE / STOP_B6`；局部解码响应可描述，repair 不得复活 |
+| 旧 score-cause r004--r007 | score-ranking limit 0/90；33 项 structural、57 项 oracle/data/grid；split-FST 仅 14 qualified rows、只覆盖 A/B/C 与 DIOR；r007 validity fixtures 全 false | r004 `FAIL_SCORE_LIMIT_DOMINANT`；r005 attribution inconclusive；r006 `FAIL_NO_BROAD_TARGET_FREE_DEVELOPMENT`；r007 invalid |
+| r034 循环性审计 | 616,184 行；DIOR/DOTA/FAIR/SODA 为 5900/458/2142/576 clusters；12 个 primary、0 witness | `K1=true, K2=true, SURVIVAL=false`；旧 selector-signature 主张终局降级 |
+| r023 mixed gate | 405 hypotheses、5 个 unit witness、2 个 dataset witness、无 passing signature；A/B 10,000 replicates 最大差 0 | `INCONCLUSIVE_MIXED`，不能由零复算误差升级为方法成功 |
+| r036/r037 Q-SetOD | r036 被 C 标为 `CONTESTED`；r037 `G_EVIDENCE=4/8`、`G_SET=0/8`，且 A/B 仅 4 行标签差、validator 与 A 相似度 `0.930769` | 正式 protocol drift；只能描述部分标量信号，集合运输未成立 |
+| r042 OER | 八个 `Delta_AUGRC` 全负：`-0.0004563,-0.0004223,-0.0003500,-0.0005216,-0.0002698,-0.0001390,-0.0001190,-0.0000190` | `REJECT_OER_METHOD` |
+| r043 SAUR | DIOR `0.5370→0.3340`，SODA `0.5990→0.4320` | 拒绝该冻结实现；公式 gate 偏差禁止外推到所有 SAUR 类方法 |
+| r045 前瞻应用迁移 | HRSC 98 图；连续风险收益 `-0.00195195`，95% CI `[-0.00759691,0.00355364]`；severe 收益 0 | `APPLICATION_SHIFT_FAIL`；这是当前最关键的下游负证据 |
+| r046/r047 AHC | 开发 accuracy `0.84288` vs whole-crop `0.87431`；正确 T_cal UCB `0.15661/0.18904/0.17297` | 协议漂移，`NOT_ADJUDICATED`；不得包装成正式方法结果 |
+| r048 P2C | base accuracy/角误差/AUGRC `0.506470/87.741°/0.423795`，whole-crop `0.885397/21.336°/0.024484` | `REJECT_P2C_LIFT_DEVELOPMENT` |
+| r049 CORA-v1 | AP50/AP75 `0.491/0.248` vs control `0.496/0.275`；AUGRC/R70 增益仅 `0.000404/0.000223` | `REJECT_EXECUTED_CORA_V1`，仅约束 v1 |
+| r049-rev2 PEF | PEF vs control：mAP `0.4137/0.4171`、AP75 `0.2820/0.2900`、角 MAE `1.9419°/1.8581°` | `REJECT_PEF_METHOD`；native q 不能精确穿过 NMS，不引用其风险数 |
+| r051/r052 CMR | r051 实现未消费其边缘似然；r052 geometry equivariance median `0.531568` | r051 `NOT_ADJUDICATED_IMPLEMENTATION`；该 CMR 实现由 geometry 门关闭，shuffle 数无效 |
+
+归档 r003（A6R 资产缺失）、r012（来源/zero-pred 缺口）、r020/r021/r022/r024/r031（技术或治理
+早停）、r032（仅资产）、r038/r050（运行前撤回）、r040/r041（资产/推理修复）均没有可写成
+科学 PASS/KILL 的结果。
+
+r014 的表面正结果在 r015 法证后永久降为 `FAIL_PROTOCOL_R014`；同步重算的 DIOR、FAIR、SODA
+探索量分别为 `0.1733 [0.1458,0.2020]`、`0.2436 [0.2048,0.2848]`、
+`0.1645 [0.1062,0.2300]`，HRSC 为 `0.060167 [-0.014323,0.143800]`。r016 的 replicate 最大差
+`9.714e-17` 只证明数值复算，不恢复 confirmatory 身份。
+
+r019 的描述性 aggregate linear-v-EQS 为 `0.0671856 [0.0279736,0.1117938]`，standalone guard
+却为 `-0.025558 [-0.037808,-0.014127]`；后续权威状态是
+`INVALIDATED_R019_PROTOCOL_DRIFT_FAIL_IMPLEMENTATION_FAIL_TIMELOCK`。旧 r030 supplement 仍写
+`FAIL_EXTERNAL_DOTA_EQS_RC_R019`，属于未修正的历史稿件 claim，不得沿用。
+
+归档 r044 稿共 8,150 词、57/57 claim checker，只证明旧稿对旧输入自洽；venue gate 为 G1--G3
+通过、G4 失败，两名内部红队均给 novelty `3/5`、其余维度 `4/5`，正式
+`NOT_JPRS_READY`。其受控扰动表又已被后期 full-validation 表替代，不能把“协作者审阅冻结”解释为
+顶刊 ready。
+
+## 当前极简主线：总览
+
+- r001：CMR geometry theta 中位 `0.242523789 rad=13.8956°`，超过 `0.05 rad=2.8648°`；
+  该定义关闭，两个 shuffle 证据无效。
+- r002：三个数据集 risk non-inferiority 未全过，18/18 选择 `lambda=0`，融合与 raw 恒等；
+  FAIR1M-D 从 `15199/1231` 漂到 `15148/1222`，故只作负向冻结，不签正式 KILL。
+- r003：未执行。
+- r004/r005：八个 `DeltaY` 最大 `0.017158<0.02`，但真实操纵有效性、N scale 与 bootstrap
+  分母存在决定性问题；`INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。
+- r006：ORCNN stride-8 y 轴若干 shift 保留率 `88.49%--89.68%<90%`；
+  `INCONCLUSIVE_R006_EXECUTION_VALIDITY`。
+- r007：SAR 固定资产不存在；`ASSET_UNAVAILABLE_R007`，只说明资产不可用，SAR 已暂停。
+- r008/r009：RarePlanes 本地资产资格/修正审计，不是科学实验；r009 仅证明当时本地无资产。
+- r010：官方 real 资产已取得，但资产审计实现无效，详见本文件末尾更正。
 
 ## r004
 
@@ -349,25 +472,46 @@ RarePlanes real。该结论只证明本地资产缺失，不证明官方公开�
 
 ## r010
 
-### 官方 real 资产与完整性
+### 仍成立的官方资产事实
 
-仅从官方 `s3://rareplanes-public/` 取得 CC BY-SA 4.0 许可、full GeoJSON、metadata CSV、两份
-tiled annotations，以及 test/train 两份 PS-RGB COG 影像包；没有取得或读取 synthetic。最终逐对象
-字节校验通过，COG archive 与 253 条 metadata image_id 的一对一回链通过。首次 runner 执行及时
-识别出两份 tiled annotations 的不完整传输，未将其作为有效证据；按官方 Content-Length 重取后，
-以相同 CPU-only 代码重新执行主审计和不导入主实现的独立复核，二者结论一致。
+官方 real 资产已取得，未混入 synthetic。独立读取官方 HTTPS 原文件复现：metadata CSV 为
+48,458 bytes、253 行、253 个唯一 `image_id`、112 个 `loc_id`；full GeoJSON 为 12,529,647
+bytes、14,707 个 plane Polygon。许可、官方对象字节和上述 census 仍成立；这些事实不等于 split、
+footprint lineage 或模型 readiness 已通过。
 
-### 固定 split 与属性门
+### 83-component 结论的撤销
 
-full GeoJSON census 为 14,707 个对象、253 条唯一 WorldView-3 image records。按固定
-`loc_id↔CAT/source-product` 连通图和 PCG64(1010) 置换，实际只有 83 个连通 component；地理
-footprint 合并只能进一步减少 component，因而不可能满足预注册的至少 100 个 component 门。虽然
-三个固定 co-primary 的 train/calibration/test 支持均超过 100/20/20，component 门已独立失败。
+旧审计直接使用 CSV 的 raw `cat_id`。其中 26 行被表格软件写成科学计数法：
+`1.04001E+15` 21 行、`1.04E+12` 4 行、`1.04E+11` 1 行，导致无关地点被伪合并为一个
+25-location 巨分量。对每行保留 raw 值，并仅在 `image_id` 后缀为 16 位十六进制、与 full
+GeoJSON CAT 集合及影像键唯一一致时规范恢复，可得 227 个 CAT，恰与 GeoJSON 的 227 个 CAT
+完全相等；修正后的 footprint 合并前图为 102 个 component（97 个单点、4 个双点、1 个七点），
+不是 83。
 
-### 模型资产与唯一裁决
+按同一规范 key、同一 PCG64(1010) 确定性重算的候选 split 为：test `25 components / 26 locs /
+1,919 objects`，calibration `25 / 32 / 7,418`，train `52 / 54 / 5,370`。三个 co-primary 的
+六类对象支持均超过冻结的 train/calibration/test `100/20/20` 门。旧 83-component split 与其
+全部对象比例、支持表整体失效；仅 40/112 个地点仍处于同一分区，不能局部修补或沿用旧 test。
+由于尚未训练、推理或读取任何 H1/H2 性能，这一确定性源字段更正尚未消费 single-use test。
 
-已有合法来源可核验 Oriented R-CNN、Rotated RTMDet、ARS-DETR、O2-RTDETR、ResNet-50 和
-ViT-B/16 的实现/通用初始化；FRED 的官方实现和合法初始化未公开可得，未以任何近似或旋转增强
-替代。主、独立复核一致输出 `ASSET_UNAVAILABLE_R010`：这是预注册 component 数不足且 FRED
-资产不足的组合资产结论，不是 H1/H2 科学 KILL 或 PASS。不得启动 B/C r011、训练、推理或以近似
-数据集/模型补位；顶刊 RarePlanes 扩展到此停止，项目回到 JSTARS 收敛。
+### 尚未闭合的执行有效性
+
+- r010 声称执行了 geographic-footprint merge，代码实际只连接 loc、CAT 和 image 键，没有读取
+  253 个 COG 的 CRS、affine、宽高并计算地表 footprint 相交。102 只比 100 多 2，仍不能据此
+  宣布数据门通过。
+- tiled annotations 只做了大小检查，没有完成 full GeoJSON、tile、COG、对象的逐键唯一回链；
+  long-side RP1、投影和 w/h+90° 的真实几何 fixture 也未实现。
+- 模型清单以目录/许可/通用权重存在代替真实 config build 与 state-dict 兼容性；同一 ResNet-50
+  权重被用于不匹配的 RTMDet/CSPNeXt、O2/R50vd 等架构，ViT 实现与权重来源也未闭合。FRED
+  availability 是硬编码，所谓独立验证又读取主实现生成的同一清单，因此不能把“其余六项 READY、
+  FRED 独立确认缺失”当作已验证事实。
+- repair artifacts 没有对应的独立运行记录；主、独立代码还把三个 split 的对象支持门共同误译为
+  100，而签署协议是 `100/20/20`。本次对象数恰均超过 100，不改变上述源字段诊断，但说明双实现
+  没有真正独立翻译合同。
+
+### B 更正后的唯一裁决
+
+`INCONCLUSIVE_R010_ASSET_AUDIT_INVALID`。旧 `ASSET_UNAVAILABLE_R010` 及“83<100 已关闭
+RarePlanes”的理由正式撤销，但当前也绝不升级为 READY。唯一允许的 r011 是 correction/design-only：
+双实现闭合 CAT、真实 COG footprint、lineage、component-equal 统计合同和模型 build/load；不得
+训练、推理、读取 H1/H2、修改论文或自动进入最终验证。

@@ -59,10 +59,14 @@ r007 已只读确认主机固定数据根不存在 RSDD-SAR 与 SAR-AIRcraft 候
 `ASSET_UNAVAILABLE_R007`。这是资产不可用，不是 SAR 科学失败；本项目内暂停 SAR。若未来
 恢复，必须作为独立的传感器物理问题重新立项，不能直接重跑原 r007。
 
-## r010：RarePlanes 顶刊扩展
+## r010 更正：不是失败路线
 
-状态：`ASSET_UNAVAILABLE_R010`，不是科学 KILL。官方 real 数据和影像回链均已实际物化并校验，
-但固定 `loc_id↔CAT/source-product` 图在 PCG64(1010) 协议下只有 83 个 component，低于不可更改的
-100 个下限；任何 footprint 合并都不会增加该数。另，FRED 的官方实现与合法通用初始化未公开可得。
-不得调整 seed、component 定义、类别映射、近似 detector 或替代数据集来挽救同一 RarePlanes 顶刊
-路线；不得启动 r011/H1/H2。此项不评价方向风险或任何模型性能。
+旧 `ASSET_UNAVAILABLE_R010` 的 component 理由已撤销。官方 metadata CSV 有 26 行 raw `cat_id`
+被科学计数法破坏，直接使用后把无关地点伪合并；经 `image_id` 后缀、GeoJSON CAT 与影像键三方
+约束的规范恢复后，footprint 合并前为 102 个 component，而非 83。旧 split 及“83<100 已关闭
+RarePlanes”的表述全部失效。
+
+当前状态为 `INCONCLUSIVE_R010_ASSET_AUDIT_INVALID`：真实 COG footprint 合并、对象 lineage、
+模型 config/build/state-dict 兼容性和独立验证仍未闭合。FRED 也尚未形成合格的独立资产结论。
+因此本项既不是方法失败，也不授权训练或最终验证；只能由 r011 做一次不读取科学 outcome 的证据链
+修复。不得通过换 seed、拆 component、替代模型或改类别门来制造 READY。

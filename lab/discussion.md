@@ -2,13 +2,20 @@
 
 ## 当前状态
 
-- r009 correction-only 已完成并通过独立验证：主机固定数据资产中没有 RarePlanes real，唯一结论为
-  `ASSET_UNAVAILABLE_R009`。这只是本地资产缺失，不是 H1/H2 科学失败。
+- 已复核当前精简树、`09381f7a360e5ad730e77157fb427401555620f5` 归档父树、全部主要结果表、
+  失败路线、未执行轮次和最近提交；项目不是只有当前 r001--r010。两套主线存在同号 r 轮次，
+  全项目总账以归档/当前前缀区分并已写入 `lab/result.md`。
+- r010 的 `83 components / ASSET_UNAVAILABLE_R010` 不能接受。官方 CSV 有 26 行 raw `cat_id`
+  被科学计数法破坏；以满足严格三方一致条件的 `image_id` 后缀恢复后，227 个 CAT 与 GeoJSON
+  集合完全一致，得到 102 个 footprint 合并前 component。正式地理 footprint 与模型 readiness
+  仍未闭环，故当前唯一状态为 `INCONCLUSIVE_R010_ASSET_AUDIT_INVALID`，不是 READY。
 - r005 correction-only 已完成并由 B 独立复算；唯一可接受结论为
   `INCONCLUSIVE_R004_PROTOCOL_VALIDITY`。这不是 `KILL`，也不准入跨数据集阶段。
 - r003 从未执行，旧签字和旧执行计划均不继承。
 - r001 只关闭既定 CMR，r002 只把既定 GR-EQS 负向冻结；二者都不能证明所有方向可靠性机制无效。
-- 当前证据仍只支持 JSTARS 对标，尚不能声称达到 TGRS 或 ISPRS JPRS。
+- 经不继承历史标签的重新评估，当前证据上限仍是 strong JSTARS；尚不能声称达到 TGRS 或
+  ISPRS JPRS。唯一仍可能改变该结论的是一次跨来源 component-held-out 的独立下游因果与无 GT
+  决策风险验证。
 
 ## 从 AIRO 到干预式轴向可辨识响应
 
@@ -288,3 +295,68 @@ r010 是资产落地，不是第二次科学验证：只取得 RarePlanes real�
 `READY_FOR_BC_R011_FINAL_VALIDATION`，随后 B/C 只再签一次包含 H1 因果价值门和 H2 决策风险门的
 正式实验。若官方资源不可访问、许可不允许、来源分量或属性支持不足、关键模型族不能合法复现，
 则停止顶刊扩展并回到 JSTARS 收敛；不得再找近似数据集替代。
+
+## 全项目复核后的 r010 更正
+
+B 没有接受 SERVER 的 r010 token，而是从官方 HTTPS 原文件独立重算。metadata CSV 的 253 行中，
+26 行 `cat_id` 被压成三个科学计数法字符串；r010 主、独立实现都直接把这些伪值加入 union-find，
+于是把本无关的地点合成 25-location 巨分量并得到 83。保留 raw 值、只在后缀格式、GeoJSON CAT
+集合和影像键三方唯一一致时从 `image_id` 恢复后，metadata 与 GeoJSON 都是同一组 227 CAT，基础
+图为 102 components（97 单点、4 双点、1 七点）。这属于源字段 canonicalization 修错，不是看到
+结果后降低 100-component 门。
+
+旧 83 图上的 train/calibration/test 对象数和支持表整体失效。按同一 PCG64(1010) 重新计算的候选
+结构为 52/25/25 components，对象数为 5,370/7,418/1,919，三项属性的六个类别对象支持均超过
+冻结门；但这仍只是 footprint 合并前结果。r010 代码并未读取 COG 的 CRS、affine、宽高计算地表
+footprint，102 又只比门槛多 2，因此任何正式 READY 仍须等待真实 overlap edge 的双实现复核。
+
+模型侧也没有形成 READY：FRED 缺失被硬编码，所谓独立验证复用了主实现清单；其余条目主要验证
+目录、许可和一个通用权重存在，未证明 RTMDet/CSPNeXt、O2/R50vd、ViT 等实现与 checkpoint
+架构兼容，更未做真实 config build/state-dict load。由此 B 将 r010 更正为
+`INCONCLUSIVE_R010_ASSET_AUDIT_INVALID`。这既撤销错误的资产停止结论，也拒绝把 102 直接包装成
+实验就绪。
+
+## 为什么取得 RarePlanes，以及它究竟要回答什么
+
+取得新数据不是为了把数据集数从五个增加到六个。DIOR-R、FAIR1M、SODA-A、DOTA 和 HRSC2016
+已经充分覆盖“AP50 可掩盖方向误差、长目标更敏感、score 不是方向质量”的测量问题；继续追加相似
+OBB benchmark 只会重复同一几何结论。HRSC2016 又是单类船舶数据，缺少独立细粒度属性，不能回答
+“方向错误是否真正改变遥感决策”。这就是本次新问题不继续优先用 HRSC 的科学原因。
+
+RarePlanes real 的作用是提供 WorldView-3 来源、独立 location/source-product component、飞机
+细粒度属性及成像元数据，把评估终点从 OBB 的 IoU/角误差换成独立属性决策。唯一顶刊命题是两段
+合取：H1 证明只改变方向会造成至少 2 个百分点的下游 balanced-error 损失，并且把预测角替换为
+GT 角能产生实质 rescue；H2 证明无需 test GT 的方向扰动—决策稳定性在固定 90% 自动覆盖下，
+相对最强非 oracle 基线带来绝对至少 2pp、相对至少 20% 的错误下降及至少 15% 的 AURC 改善。
+H1 或 H2 任一失败，顶刊扩展停止，现有测量稿按 JSTARS 收敛。SAR 已暂停，小 selector/head 也不再
+进入候选池。
+
+## 不继承旧标签的期刊重评
+
+当前最强正证据是六单元受控扰动、八单元几何风险、600 目标人工双标和图像级风险控制；最强负证据
+是唯一前瞻 r045 应用迁移收益 `-0.00195195`、95% CI `[-0.00759691,0.00355364]`，以及随后所有
+候选方法没有留下正向胜者。现稿证明了指标缺口，却没有证明独立决策后果、可部署控制收益或新的
+成像/检测机制。全项目 616,184 行也不能冒充 616,184 个独立重复，真正统计层级仍是来源 component、
+图像和模型单元。
+
+因此独立结论是：现在可形成 strong JSTARS 级的严谨测量/审计稿；JPRS 只有在 RarePlanes H1+H2
+和后续真实三人互盲锚点同时闭环后才成为可信目标；TGRS 还需要更强的成像物理或实质检测方法创新，
+当前不得承诺。最强拒稿理由可以压缩为一句：论文严谨证明了现有检测指标不能充分表达方向可靠性，
+却没有证明这种可靠性在独立遥感决策中造成并能被无 GT 方法控制的非平凡收益。
+
+## B/C 对 r011 的联合裁决
+
+B 提出 r011 只做一次证据链 correction/design，C 进行独立红队后给出
+`C_FINAL_SIGNED_R011_EVIDENCE_CHAIN_REPAIR`。C 接受其科学理由：大胆不等于立刻烧算力；先把唯一
+single-use test 的独立单位、统计估计量和模型身份锁死，才有资格用一次实验真正推翻或支持顶刊命题。
+
+C 的三条硬边界已全部写入当前唯一指令：READY 必须建立在真实 COG footprint 合并后的最终
+component，而不是中间数 102；r011 只能冻结 class-balanced × component-equal 估计与
+calibration-only 功效规则，不能用对象数宣称已有功效；每个模型必须真实 build/load 且权重架构
+匹配。若唯一剩余缺口是 FRED，仍输出 `ASSET_UNAVAILABLE_R011`，只报告四 family 修订可行，等待
+用户明确决定，SERVER 不得自行删模型或用近似替代。
+
+r011 不训练、不推理、不读取 H1/H2，也不打开 single-use test 性能。只有
+`READY_FOR_BC_R012_FINAL_CAUSAL_VALIDATION` 才允许 B/C 另行签署一次顺序门控的 r012；r012 先做
+分类器 H1a，失败即停，再做 detector angle-rescue H1b，只有 H1 和 calibration 功效都通过才一次
+打开 H2 test。这是当前唯一顶刊操作，不能再分叉为新 selector、head、SAR 或相似 benchmark。

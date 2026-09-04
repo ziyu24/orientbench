@@ -1,81 +1,104 @@
 # SERVER 科学指令
 
-## r010：RarePlanes 官方 real 资产落地与最终验证就绪
+## r011：RarePlanes CAT、地理 footprint 与模型就绪证据链最终修正
 
-### 1. 目标
+### 1. 目标与边界
 
-r009 已确认当前主机没有 RarePlanes real，但官方 AWS Open Data 资源仍公开可读。r010 直接取得并
-冻结唯一一次顶刊验证所需的官方 real 数据、来源分量划分、五个 detector family 与两个分类器的
-合法实现和初始化资源。本轮不训练、不推理、不计算 H1/H2，不下载 synthetic，也不修改论文。
+r010 的 `83 components` 来自 26 行 raw `cat_id` 科学计数法损坏，不能继续作为资产结论。
+r011 只修复并独立验证 RarePlanes 的来源标识、真实地理 footprint、唯一 lineage、split/统计合同和
+模型 build/load readiness；不训练、不做数据集模型 forward 或推理、不读取任何 H1/H2 性能、不计算
+风险排序、不修改论文，也不自动启动后续实验。
 
-### 2. 官方数据的最小获取范围
+本轮不是科学 PASS/KILL。HRSC2016 是单类方向检测集，缺少本问题所需的独立细粒度下游属性，
+因此不适合这次资产与决策任务；不得用 HRSC 或相似 OBB 数据替代 RarePlanes。
 
-- 只从官方 RarePlanes Open Data 来源获取 real 部分；禁止镜像、二次加工版本和 synthetic 部分。
-- 必须包含并逐项校验 CC BY-SA 4.0 许可、版本/来源说明、完整 real 元数据、full annotations、
-  253 条 WorldView-3 real image records 对应的官方 real 影像产品，以及从影像到对象标注的唯一回链。
-- 先取得官方清单并计算预计字节数；只同步上述必需对象。禁止为方便而递归同步整个公开资源。
-- 对每个取得对象记录官方键、字节数并完成内容完整性校验；缺失、重复、损坏、real/synthetic 混淆或许可
-  不可核验均不得静默补齐。
+### 2. CAT 源字段规范恢复
 
-### 3. 唯一来源分量与 single-use 划分
+- 永久保留 metadata CSV 的 raw `cat_id`。canonical CAT 只允许从同一行 `image_id` 第一个下划线
+  后的完整后缀恢复，并必须同时满足：16 位大写十六进制；存在于 full GeoJSON 的 CAT 集合；与
+  官方影像产品键唯一回链。格式正常的 raw `cat_id` 必须与该后缀逐字一致。
+- 只有同时满足上述条件，才把 26 个科学计数法值标记为 `SOURCE_CSV_FORMAT_CORRUPTION`；任何
+  格式、集合或唯一性不一致均进入 inconclusive，禁止猜测、截断、补零或人工映射。
+- 主实现与不共享 parser、正则、常量或中间表的第二实现必须逐键一致复现：253 metadata 行、
+  26 个损坏值、227 个 canonical CAT、与 GeoJSON CAT 交集 227、footprint 合并前 102 个
+  component；预期结构为 97 个单点、4 个双点和 1 个七点。
+- 加入科学计数法伪合并、非法后缀、集合缺失、重复回链和至少一个非零 mutation fixture；若 mutation
+  不能使验证失败，证据无效。
 
-- 对象 census 只以 full GeoJSON 为权威；官方 tiled annotations 只作回链核验，不重复计数。
-- 以 `loc_id↔CAT/source-product` 二部图连通分量为基础，再合并地理 footprint 重叠分量；同一
-  source product、地点或重叠地理分量不得跨 split。
-- 在看任何模型输出前，将规范化 component key 排序后用 PCG64 固定种子 1010 做一次确定性置换：
-  前 25 个 component 为 test，接着 25 个为 calibration，其余为 train；不足 100 个 component
-  直接判资产不足，不更换种子。
-- test 只能称为预注册、程序性信息墙下的 single-use component-held-out test，不得称 external
-  blind。r010 不得读取 test 的模型结果或下游损失。
-- 主几何只使用从 GeoJSON 经正式投影/GeoTIFF 变换进入 image-pixel frame 后的 minimum-area
-  rectangle long-side RP1 `(theta_long,L,S)`；nose-tail 航向和经纬度角不得替代普通 OBB 轴向角。
+### 3. 真实 COG footprint、对象 lineage 与最终 component
 
-### 4. 固定属性支持门
+- 对 253 个官方 real COG 逐一读取 CRS、affine、宽、高及必要的 geospatial header，构造像素外边界
+  在共同地理坐标中的地表 footprint。不得由飞机框分布、文件名、地点名或对象经纬度包络代替影像
+  footprint。
+- 在适当的共同地理或局部等面积坐标中，只将不同基础 component 间 `interior` 正面积重叠记为
+  overlap edge；仅边界接触不合并。数值容差只能由一像素地面面积和预先冻结的几何 fixture 确定，
+  不得看到 component 数后调整。
+- 两个独立实现分别构造 footprint，必须对 253 个 footprint key、每条 overlap edge、最终
+  component 成员与规范 key 逐项一致。第二实现不得读取主实现的 edge 或 component 判定。
+- 完成 full GeoJSON 对象、official tiled annotation、metadata record 与 COG 的逐键唯一回链；
+  tiled annotation 只作 lineage 核验，不重复计入 14,707 个对象 census。对投影、pixel frame、
+  minimum-area long-side RP1、`w/h+90°` 等价和非零角扰动设置双实现 fixture。
+- 旧 83-component manifest、split、支持表和结论必须保留为历史并明确标记 `INVALID_SOURCE_ID_PARSE`，
+  不得静默覆盖或局部沿用。
 
-三个 co-primary 预先固定为：
+### 4. 唯一 split、属性支持与未来统计合同
 
-1. wing：`straight` 对 `swept-back|delta|variable-sweep`；
-2. engine count：`2` 对 `0|1|3|4`；
-3. propulsion：`jet` 对 `propeller|unpowered`。
+- 只有最终 footprint component 数不少于 100，才把规范 component key 排序并以 PCG64(1010)
+  一次置换：前 25 个为 single-use test，后 25 个为 calibration，其余为 train。必须整体重新生成，
+  不得沿用旧 83-component split、换 seed、拆分大 component 或按对象数调分区。
+- 三个 co-primary 固定为：wing 的 raw `straight` 对 `{swept, delta, variable swept}`；engine count
+  的 `2` 对 `{0,1,3,4}`；propulsion 的 `jet` 对 `{propeller, unpowered}`。其他、缺失和未知值只
+  记缺失，不得重映射；`role` 仅作 secondary，`wing_position` 排除。
+- 每个 co-primary 的每一类在 train/calibration/test 的对象支持至少为 `100/20/20`，包含该类的
+  component 支持至少为 `10/5/5`。阈值按 split 分开实现，并以 calibration 19 失败、20 通过等
+  mutation 证明没有再次共同误译为 100。
+- 输出每个 split 和属性类的对象数、component 数、最大 component 对象占比与 Kish effective
+  component 数；这些是设计诊断，不能把大量对象行写成大量独立重复。
+- 现在冻结未来主估计量为 `class-balanced × component-equal`：先在每个 component 内算类别平衡
+  结局，再对 component 等权；所有 family、seed、coverage 必须同步重采 component。禁止对象池化
+  后仅套 cluster bootstrap。
+- 冻结未来 calibration-only 功效门：目标差为 2 个百分点、双侧 95% 区间、80% 功效；仅在后续
+  calibration 产生 component-level 差值后估计方差。功效不足则 test 保持未打开并输出
+  `INCONCLUSIVE_POWER`，不得降低 2pp 门。r011 不模拟或读取任何科学 outcome，不得宣称已有功效。
 
-以上是固定二分类映射；缺失、未知或其他原值不进入该属性，不得在看到计数后重映射。`role` 只作
-secondary endpoint，`wing_position` 排除。每个 co-primary 的每个类别必须在
-train/calibration/test 分别至少有 100/20/20 个 joint-complete 对象；任一 co-primary 无法形成至少
-二分类则判资产不足。不得换 split、删困难 component 或看模型性能后改映射。
+### 5. 模型与分类器的真实 readiness
 
-### 5. 最终验证所需模型资产
+- 固定核验 Oriented R-CNN、Rotated RTMDet、ARS-DETR、O2-RTDETR、FRED 五个 detector family，
+  以及 ResNet-50、ViT-B/16 两个分类器；换 backbone、普通 RT-DETR、旋转增强或近似实现不得冒充
+  缺失 family。
+- 每项必须核验官方或作者实现身份、许可、不可变版本、与实际架构匹配的合法初始化；执行真实
+  config build 和 state-dict load，公开 missing/unexpected keys。允许未来任务专用输出 head 尚未
+  初始化，但 backbone、neck、核心 detector/classifier 不得错配。
+- 特别检查并否决把同一 ResNet-50 权重同时当作 RTMDet/CSPNeXt、O2/R50vd 等不同架构的就绪证据，
+  以及把一种 ViT 实现与另一来源权重混配。FRED 不得由近似模型替代。
+- 只用 synthetic schema fixture 核验 RarePlanes adapter、单类 OBB 输出、三个属性输出维度及
+  long-side RP1 语义；不得对 real train/calibration/test 做模型 forward，也不得读取性能。
 
-- detector family 固定为 Oriented R-CNN、Rotated RTMDet、ARS-DETR、O2-RTDETR、FRED；换
-  backbone 不得冒充新 family。
-- classifier 固定为 ResNet-50 与 ViT-B/16。只取得许可兼容的官方实现、不可变版本和通用初始化
-  权重；RarePlanes 属性 head 后续由 train split 训练，本轮不得训练。
-- 复用已存在且可核验的实现/权重；仅对 r009 证明缺失的项目取得官方来源。所有新增来源必须记录
-  许可、版本、内容完整性和最小适配缺口，且不得用普通 RT-DETR 冒充 O2-RTDETR、用旋转增强冒充
-  FRED、用 ARS-DETR 权重冒充其他 family。
-- CPU 配置构建与接口单元测试允许；dataset forward、模型推理、性能读取和随机初始化占位禁止。
+### 6. 独立证据与公开范围
 
-### 6. 独立核验与可复算证据
-
-第二实现不得读取主实现的 availability 判定，必须从官方清单、已取得文件及注册索引重新核验：
-
-- official key、bytes、许可和 real-only 完整性；
-- full GeoJSON 对象 census、影像/标注回链、component 图及 split key 完全一致；
-- 三个 co-primary 的逐 split 支持计数和 long-side RP1 fixtures；
-- 五 detector 与两个 classifier 的实现身份、版本、初始化资源和许可。
-
-普通 Git 只提交获取/验证代码、配置、compact 清单、计数、差异摘要和最终结论；原始影像、权重及
-大型清单留在主机固定资产或运行产物中，不进入普通 Git。
+- 第二实现必须直接读取官方原始 metadata、GeoJSON、tiled annotation、COG header、模型来源与
+  权重，不得导入主实现或复用主实现生成的 availability、edge、component、split、support、模型
+  清单或合同常量。
+- 普通版本库只提交实现、测试、compact key/edge/component 哈希、split 与支持计数、模型
+  build/load 摘要、两实现差异摘要及最终结论；原始影像、权重、逐对象大表和完整 footprint 留在
+  运行证据中。
+- 结论必须追加更正 r010：撤销 `83 components` 和由此产生的 `ASSET_UNAVAILABLE_R010` 数据理由，
+  将 r010 记为 `INCONCLUSIVE_R010_ASSET_AUDIT_INVALID`；不得改写或删除旧证据。
 
 ### 7. 唯一裁决
 
-按优先级只输出一个状态：
+按以下优先级只输出一个主状态：
 
-1. 官方清单、下载、许可、完整性、解析或双实现不一致且无法裁定：
-   `INCONCLUSIVE_R010_ASSET_MATERIALIZATION`；
-2. 核验有效，但 real 数据、component 数、属性支持、任一必需模型实现或合法初始化资源不足：
-   `ASSET_UNAVAILABLE_R010`；
-3. 数据、split、属性及全部模型资产均通过：`READY_FOR_BC_R011_FINAL_VALIDATION`。
+1. CAT、COG/CRS、footprint、lineage、几何 fixture、模型 load 或双实现存在无法裁定的不一致：
+   `INCONCLUSIVE_R011_EVIDENCE_REPAIR`；
+2. 执行有效，但最终 component 少于 100、任一支持门失败、或任一当前必需 detector/classifier 的
+   合法实现、兼容初始化、adapter/build/load 不足：`ASSET_UNAVAILABLE_R011`；
+3. 最终数据、split、支持、几何、五 detector 与两 classifier 全部通过：
+   `READY_FOR_BC_R012_FINAL_CAUSAL_VALIDATION`。
 
-只有第三种状态允许 B/C 另签唯一一次 H1/H2 正式验证；它本身不是科学 PASS，也不授权 SERVER
-自动训练或推理。第二种状态意味着停止 RarePlanes 顶刊扩展并按 JSTARS 收敛，不得继续换近似
-数据集、恢复 selector/head 或恢复 SAR。
+若第二种状态的唯一剩余模型缺口恰为 FRED，可额外报告非状态字段
+`four_family_amendment_feasible=true`；主状态仍不得改为 READY，SERVER 不得自行删掉 FRED。只有
+用户随后明确批准 outcome-blind 四 family 修订，且未来固定要求 4/4，B/C 才能另行设计 r012。
+
+任何状态都不自动授权训练、推理、打开 single-use test、开始 r012、恢复 selector/head、转回 SAR
+或修改论文。r011 的 READY 只表示最终因果验证具备设计资格，不是方法成功或期刊升档。
