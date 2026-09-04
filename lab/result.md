@@ -1,8 +1,9 @@
 # 全项目科学结果总账
 
-本文件同时覆盖两套同号轮次：`09381f7a360e5ad730e77157fb427401555620f5` 及其以前的
-归档科学主线（旧 r001--r052），以及极简改造后的当前 r001--r010。裸 `rNNN` 不能跨两套主线
-直接等同；下文凡涉及归档结果均明确写“归档主线”。
+本文件同时覆盖两套同号轮次：旧科学序列 r001--r052 截止于
+`5e7c3ea`，当前同号序列自 `7e67f9f` 开始；简化前完整树可从归档父提交
+`09381f7a360e5ad730e77157fb427401555620f5` 读取，但该快照本身已包含当前序列到 r003 的内容。
+裸 `rNNN` 不能跨两套序列直接等同；下文以“归档主线/当前主线”明确区分。
 
 ## 全项目总裁决（2026-09-04）
 
@@ -59,7 +60,8 @@
   `0.0126695 [0.0073611,0.0186728]` / `0.0240725 [0.0130121,0.0367018]`，均不满足 witness；
   RTMDet 为 `0.0159727 [0.0092158,0.0236151]` / `0.0339429 [0.0191244,0.0513364]`，均满足；
   equal-unit 为 `0.0143211 [0.0083368,0.0210285]` / `0.0290077 [0.0164741,0.0436297]`，均满足。
-  这不是前瞻确认，且随后被 r034 的定义循环/AR 主导审计降级。
+  这不是前瞻确认。r034 只终结由这些量导出的 selector/剩余图像机制解释，不推翻 AP、matched
+  census 或上述 post-outcome descriptive DoD 数值本身。
 
 ### 归档 r011 评价器与机制边界
 
@@ -87,7 +89,7 @@ target-domain GT angle error，只能作为 diagnostic upper bound，不能充�
 | r048 P2C | base accuracy/角误差/AUGRC `0.506470/87.741°/0.423795`，whole-crop `0.885397/21.336°/0.024484` | `REJECT_P2C_LIFT_DEVELOPMENT` |
 | r049 CORA-v1 | AP50/AP75 `0.491/0.248` vs control `0.496/0.275`；AUGRC/R70 增益仅 `0.000404/0.000223` | `REJECT_EXECUTED_CORA_V1`，仅约束 v1 |
 | r049-rev2 PEF | PEF vs control：mAP `0.4137/0.4171`、AP75 `0.2820/0.2900`、角 MAE `1.9419°/1.8581°` | `REJECT_PEF_METHOD`；native q 不能精确穿过 NMS，不引用其风险数 |
-| r051/r052 CMR | r051 实现未消费其边缘似然；r052 geometry equivariance median `0.531568` | r051 `NOT_ADJUDICATED_IMPLEMENTATION`；该 CMR 实现由 geometry 门关闭，shuffle 数无效 |
+| 旧 r051/r052 CMR | r051 实现未消费其边缘似然；旧 r052 geometry equivariance median `0.531568` | r051 `NOT_ADJUDICATED_IMPLEMENTATION`；当前 r001 后审发现旧 shuffle 字段不受 q，故两项 shuffle 作废，但旧/当前 geometry 门分别仍足以关闭该实现 |
 
 归档 r003（A6R 资产缺失）、r012（来源/zero-pred 缺口）、r020/r021/r022/r024/r031（技术或治理
 早停）、r032（仅资产）、r038/r050（运行前撤回）、r040/r041（资产/推理修复）均没有可写成
