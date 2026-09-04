@@ -90,13 +90,17 @@ def rp1(vertices):
     edges=[(vertices[(i+1)%4][0]-vertices[i][0],vertices[(i+1)%4][1]-vertices[i][1]) for i in range(4)]
     dx,dy=max(edges,key=lambda p:p[0]*p[0]+p[1]*p[1]); return math.atan2(dy,dx)%math.pi
 
+def rp1_from_wh(theta, width, height):
+    """Canonical long-side axis for two equivalent `(theta, w, h)` encodings."""
+    return (theta if width >= height else theta + math.pi / 2) % math.pi
+
 def mutations():
     good=rp1(((0,0),(4,0),(4,1),(0,1)))
     return {"scientific_notation_rejected_without_valid_suffix": not bool(HEX16.fullmatch("1.04001E+15")),
             "illegal_suffix_rejected": not bool(HEX16.fullmatch("1040010049B46C0Z")),
             "nonzero_footprint_mutation": metric_area(Polygon(((0,0),(1,0),(1,1),(0,1))),0)>0,
             "edge_touch_does_not_overlap": Polygon(((0,0),(1,0),(1,1),(0,1))).intersection(Polygon(((1,0),(2,0),(2,1),(1,1)))).area == 0,
-            "rp1_wh_swap_90_equivalent": abs(((good+math.pi/2)%math.pi)-good) < 1e-12,
+            "rp1_wh_swap_90_equivalent": abs(rp1_from_wh(0.0,4.0,1.0)-rp1_from_wh(math.pi/2,1.0,4.0)) < 1e-12,
             "rp1_nonzero_mutation": abs(rp1(((0,0),(0,4),(-1,4),(-1,0)))-good)>1e-6,
             "calibration_19_fails_20_passes": (19 < 20) and (20 >= 20)}
 
