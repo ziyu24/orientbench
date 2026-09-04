@@ -4,6 +4,7 @@ import argparse,csv,json,math,random
 from pathlib import Path
 import numpy as np, torch
 from PIL import Image
+Image.MAX_IMAGE_PIXELS = None  # Official COG dimensions are verified in G0.
 from torch import nn
 from torch.utils.data import Dataset,DataLoader
 from torchvision.models import resnet50,vit_b_16
@@ -14,13 +15,12 @@ def lab(p):
  return [int(p['wing_type']=='straight'),int(p['num_engines']==2),int(p['propulsion']=='jet')]
 def accepted(p):return p['wing_type'] in {'straight','swept','delta','variable swept'} and int(p['num_engines']) in {0,1,2,3,4} and p['propulsion'] in {'jet','propeller','unpowered'}
 class Planes(Dataset):
- def __init__(self,rows,root):self.r=rows;self.root=root;self.cache={}
+ def __init__(self,rows,root):self.r=rows;self.root=root
  def __len__(self):return len(self.r)
  def __getitem__(self,i):
-  r=self.r[i];im=self.cache.get(r['image'])
-  if im is None:
-   a=np.asarray(Image.open(self.root/(r['image']+'.tif')).convert('RGB'));im=torch.from_numpy(a.transpose(2,0,1)).float()/255.;self.cache[r['image']]=im
-  s=int(r['side']);x,y=r['center'];q=im[:,int(y-s/2):int(y+s/2),int(x-s/2):int(x+s/2)]
+  r=self.r[i];s=int(r['side']);x,y=r['center'];box=(int(x-s/2),int(y-s/2),int(x+s/2),int(y+s/2))
+  # COG is tiled: request only the pre-frozen source canvas, never a full raster/cache.
+  a=np.asarray(Image.open(self.root/(r['image']+'.tif')).crop(box).convert('RGB'));q=torch.from_numpy(a.transpose(2,0,1)).float()/255.
   # one bilinear affine render from the fixed source canvas; no geometric augmentation.
   q=affine(q,angle=-math.degrees(r['theta']),translate=[0,0],scale=max(1e-6,1.2*max(r['L'],r['S'])/s),shear=[0.,0.],interpolation=__import__('torchvision').transforms.InterpolationMode.BILINEAR)
   return resize(q,[224,224],antialias=True),torch.tensor(r['labels'],dtype=torch.float32)
