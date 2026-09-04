@@ -9,4 +9,4 @@ command: >-
   /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python
   src/orientbench/r012/finalize_g0.py
   --root /home/rspip/cqc/data/dataset/RarePlanes-Public
-  --out-dir runs/r012/g0
+  --out-dir runs/r012/artifacts
