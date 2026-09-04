@@ -70,3 +70,11 @@ RarePlanes”的表述全部失效。
 模型 config/build/state-dict 兼容性和独立验证仍未闭合。FRED 也尚未形成合格的独立资产结论。
 因此本项既不是方法失败，也不授权训练或最终验证；只能由 r011 做一次不读取科学 outcome 的证据链
 修复。不得通过换 seed、拆 component、替代模型或改类别门来制造 READY。
+
+## r011 资产阻断（非科学失败）
+
+r011 已修复 r010 的 CAT/COG/lineage/分割证据链，数据门通过；但实际模型 build/load 仍被三项
+可复核的资产条件阻断：ARS-DETR 的 MMCV 1.7.2 与其 `<=1.6.0` 要求冲突，O2-RTDETR 的 MMCV
+2.3.4 与 bundled mmrotate 1.0.0rc1 的 `<=2.2.0` 要求冲突，FRED 无可用的官方实现及合法初始化。
+唯一状态为 `ASSET_UNAVAILABLE_R011`，不是方法失败或正式 KILL。不得用替代实现、代理模型或下载外部
+资产绕开该结论；在新的明确授权前不得启动任何性能实验。

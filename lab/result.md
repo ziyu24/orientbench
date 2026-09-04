@@ -519,3 +519,31 @@ GeoJSON CAT 集合及影像键唯一一致时规范恢复，可得 227 个 CAT�
 RarePlanes”的理由正式撤销，但当前也绝不升级为 READY。唯一允许的 r011 是 correction/design-only：
 双实现闭合 CAT、真实 COG footprint、lineage、component-equal 统计合同和模型 build/load；不得
 训练、推理、读取 H1/H2、修改论文或自动进入最终验证。
+
+## r011
+
+### 已闭合的数据与几何证据
+
+双实现独立解析 253 条 metadata 行，并把 26 条科学计数法形式的 raw `cat_id` 仅在 `image_id`
+16 位十六进制后缀、full GeoJSON CAT 集和唯一 COG 键三方一致时恢复。两实现均得到 227 CAT。
+读取全部 253 个 COG 的 header（未读像素）：CRS 均为 EPSG:4326。以 affine、宽高导出的实际
+影像 footprint 按严格正面积相交建图，边数为 0，最终为 102 个 component（97 个单点、4 个双点、
+1 个七点）；组件哈希为 `34fda94b2f05c5a5846b96de88b84a305ba262bf5e4ad46c96d081a31c17e3f5`。
+旧 83-component 结论因此只是历史无效证据，不能再引用。
+
+PCG64(1010) component split 与 six-class object/component 支持门均通过；test/calibration/train
+为 25/25/52 个 component。完整 GeoJSON、COG 与 tiled 标注 lineage 已逐键闭合：test 为 2,710
+tiles/6,812 annotations，train 为 5,815/18,393，全部 source 与 annotation signature 可回链。
+RP1 的 w/h+90°、边界相切、非零 footprint、CAT 表示及 calibration 19/20 等 mutation fixture 均通过。
+这些仅是设计/资产证据，未训练、未推理、未读取 H1/H2 outcome。
+
+### 模型 readiness 与唯一裁决
+
+两份独立运行记录对 build/load 结论一致。Oriented R-CNN、Rotated RTMDet、ResNet-50、ViT-B/16
+均完成实际 config build 和严格 state-dict load。ARS-DETR 因现有环境的 MMCV 1.7.2 与其要求
+`<=1.6.0` 不兼容而无法初始化；O2-RTDETR 因 MMCV 2.3.4 与其 bundled mmrotate 1.0.0rc1 的
+`<=2.2.0` 要求不兼容；FRED 没有本地主机可用的官方/作者实现及合法初始化，未以 surrogate 替代。
+因此 `four_family_amendment_feasible=false`，唯一裁决是 `ASSET_UNAVAILABLE_R011`。
+
+这不是科学 PASS/KILL，也不授权训练、GPU 推理、H1/H2、HRSC、RSAR 或论文修改；r012 也未启动。
+全部实际代码、run spec、双实现 raw audit、模型记录和最终汇总已随 r011 result ref 发布。
