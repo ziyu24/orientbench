@@ -38,7 +38,7 @@ def main():
  for i,f in enumerate(F):
   q=f['properties'];key='loc:'+str(int(q['loc_id']))
   # component membership is resolved from frozen G0 keys, never calibration/test labels.
-  if not any(str(int(q['loc_id'])) in z.split(':',1)[1].split(',') for z in split) or i not in byid or not accepted(q):continue
+  if int(q['Public_Train']) != 1 or not any(str(int(q['loc_id'])) in z.split(':',1)[1].split(',') for z in split) or i not in byid or not accepted(q):continue
   x=byid[i];rows.append({'image':src[(int(q['loc_id']),q['cat_id'])],'center':x['center'],'side':x['canvas_side'],'L':x['L'],'S':x['S'],'theta':x['theta'],'labels':lab(q)})
  device='cuda';m=Heads(a.kind).to(device);weights=Path('/home/rspip/cqc/study/pth_data/rareplanes_initialization')/('resnet50-11ad3fa6.pth' if a.kind=='resnet50' else 'vit_b_16-c867db91.pth');state=torch.load(weights,map_location='cpu',weights_only=True);m.backbone.load_state_dict(state,strict=True)
  dl=DataLoader(Planes(rows,a.root/'real/imagery/train/PS-RGB_cog'),batch_size=BS,shuffle=True,num_workers=4,pin_memory=True);opt=torch.optim.AdamW(m.parameters(),lr=3e-4,weight_decay=1e-4);loss=nn.CrossEntropyLoss()
