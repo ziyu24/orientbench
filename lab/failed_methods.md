@@ -58,3 +58,11 @@ r006 为 `INCONCLUSIVE_R006_EXECUTION_VALIDITY`，不是 TAL 科学失败。ORCN
 r007 已只读确认主机固定数据根不存在 RSDD-SAR 与 SAR-AIRcraft 候选，状态为
 `ASSET_UNAVAILABLE_R007`。这是资产不可用，不是 SAR 科学失败；本项目内暂停 SAR。若未来
 恢复，必须作为独立的传感器物理问题重新立项，不能直接重跑原 r007。
+
+## r010：RarePlanes 顶刊扩展
+
+状态：`ASSET_UNAVAILABLE_R010`，不是科学 KILL。官方 real 数据和影像回链均已实际物化并校验，
+但固定 `loc_id↔CAT/source-product` 图在 PCG64(1010) 协议下只有 83 个 component，低于不可更改的
+100 个下限；任何 footprint 合并都不会增加该数。另，FRED 的官方实现与合法通用初始化未公开可得。
+不得调整 seed、component 定义、类别映射、近似 detector 或替代数据集来挽救同一 RarePlanes 顶刊
+路线；不得启动 r011/H1/H2。此项不评价方向风险或任何模型性能。

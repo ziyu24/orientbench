@@ -346,3 +346,28 @@ B 接受 `ASSET_UNAVAILABLE_R009`。主审计已修复 r008 的四别名常量�
 `passed=true`、`candidate_set_equal=true`，与主实现共同确认当前主机固定数据资产中没有
 RarePlanes real。该结论只证明本地资产缺失，不证明官方公开数据不可取得，也不是 H1/H2 的
 科学负结果。
+
+## r010
+
+### 官方 real 资产与完整性
+
+仅从官方 `s3://rareplanes-public/` 取得 CC BY-SA 4.0 许可、full GeoJSON、metadata CSV、两份
+tiled annotations，以及 test/train 两份 PS-RGB COG 影像包；没有取得或读取 synthetic。最终逐对象
+字节校验通过，COG archive 与 253 条 metadata image_id 的一对一回链通过。首次 runner 执行及时
+识别出两份 tiled annotations 的不完整传输，未将其作为有效证据；按官方 Content-Length 重取后，
+以相同 CPU-only 代码重新执行主审计和不导入主实现的独立复核，二者结论一致。
+
+### 固定 split 与属性门
+
+full GeoJSON census 为 14,707 个对象、253 条唯一 WorldView-3 image records。按固定
+`loc_id↔CAT/source-product` 连通图和 PCG64(1010) 置换，实际只有 83 个连通 component；地理
+footprint 合并只能进一步减少 component，因而不可能满足预注册的至少 100 个 component 门。虽然
+三个固定 co-primary 的 train/calibration/test 支持均超过 100/20/20，component 门已独立失败。
+
+### 模型资产与唯一裁决
+
+已有合法来源可核验 Oriented R-CNN、Rotated RTMDet、ARS-DETR、O2-RTDETR、ResNet-50 和
+ViT-B/16 的实现/通用初始化；FRED 的官方实现和合法初始化未公开可得，未以任何近似或旋转增强
+替代。主、独立复核一致输出 `ASSET_UNAVAILABLE_R010`：这是预注册 component 数不足且 FRED
+资产不足的组合资产结论，不是 H1/H2 科学 KILL 或 PASS。不得启动 B/C r011、训练、推理或以近似
+数据集/模型补位；顶刊 RarePlanes 扩展到此停止，项目回到 JSTARS 收敛。
