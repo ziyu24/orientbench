@@ -151,13 +151,17 @@ def main() -> None:
     required = {"oriented_rcnn", "rotated_rtmdet", "ars_detr", "o2_rtdetr", "fred", "resnet50", "vit_b16"}
     good_models = {x.get("id") for x in model_assets.get("assets", []) if x.get("license") and x.get("revision") and x.get("sha256") and x.get("local_path") and Path(x["local_path"]).exists()}
     models_ok = required <= good_models
-    data_ok = parse_ok and len(rows) == 253 and len(set(image_ids)) == 253 and feature_locs <= row_locs and len(comps) >= 100 and support_ok
+    lineage_path = root / "image_archive_index.json"
+    lineage = json.loads(lineage_path.read_text()) if lineage_path.is_file() else {}
+    lineage_ok = lineage.get("all_one_to_one") is True
+    data_ok = parse_ok and lineage_ok and len(rows) == 253 and len(set(image_ids)) == 253 and feature_locs <= row_locs and len(comps) >= 100 and support_ok
     token = "READY_FOR_BC_R011_FINAL_VALIDATION" if data_ok and models_ok else "ASSET_UNAVAILABLE_R010" if parse_ok else "INCONCLUSIVE_R010_ASSET_MATERIALIZATION"
     out = {"protocol": "r010-real-materialization-v1", "official_source": "s3://rareplanes-public/", "objects": objects,
            "license": {"cc_by_sa_4_0_verified": license_ok}, "parse_ok": parse_ok,
            "real_metadata": {"image_records": len(rows), "unique_image_records": len(set(image_ids)), "geojson_objects": len(features),
                              "geojson_loc_ids": len(feature_locs), "metadata_loc_ids": len(row_locs), "all_annotation_locs_in_metadata": feature_locs <= row_locs},
            "component_algorithm": "loc_id-CAT-source_product graph; GeoJSON location attachment; PCG64(1010)",
+           "image_lineage": {"path": str(lineage_path), "all_one_to_one": lineage_ok},
            "component_count": len(comps), "split_components": {k: ["loc:" + ",".join(map(str, x)) for x in v] for k, v in split_groups.items()},
            "support": support, "support_gate_passed": support_ok,
            "models": {"required": sorted(required), "provenanced": sorted(x for x in good_models if x), "passed": models_ok},
