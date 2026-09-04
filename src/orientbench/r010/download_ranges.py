@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import concurrent.futures
 import os
+import time
 import urllib.request
 from pathlib import Path
 
@@ -19,14 +20,22 @@ def fetch(url: str, target: Path, expected: int, workers: int, block: int, resta
     fd = os.open(partial, os.O_WRONLY)
     def one(span):
         start, end = span
-        request = urllib.request.Request(url, headers={"Range": f"bytes={start}-{end}"})
-        with urllib.request.urlopen(request, timeout=180) as response:
-            data = response.read()
-            received = response.headers.get("Content-Range", "")
-        if len(data) != end - start + 1 or not received.startswith(f"bytes {start}-{end}/"):
-            raise RuntimeError(f"range validation failed {start}-{end}: {received}, {len(data)} bytes")
-        offset = 0
-        while offset < len(data): offset += os.pwrite(fd, data[offset:], start + offset)
+        failure = None
+        for attempt in range(6):
+            try:
+                request = urllib.request.Request(url, headers={"Range": f"bytes={start}-{end}"})
+                with urllib.request.urlopen(request, timeout=240) as response:
+                    data = response.read()
+                    received = response.headers.get("Content-Range", "")
+                if len(data) != end - start + 1 or not received.startswith(f"bytes {start}-{end}/"):
+                    raise RuntimeError(f"range validation failed {start}-{end}: {received}, {len(data)} bytes")
+                offset = 0
+                while offset < len(data): offset += os.pwrite(fd, data[offset:], start + offset)
+                return
+            except Exception as exc:  # transient proxy/S3 range interruptions
+                failure = exc
+                time.sleep(2 ** attempt)
+        raise RuntimeError(f"range {start}-{end} failed after retries") from failure
     try:
         with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
             list(pool.map(one, spans))
