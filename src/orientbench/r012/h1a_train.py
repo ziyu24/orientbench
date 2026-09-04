@@ -50,6 +50,7 @@ def main():
  else: state.pop('heads.head.weight');state.pop('heads.head.bias')
  m.backbone.load_state_dict(state,strict=True)
  canvas={int(x['object_id']):a.canvases/x['canvas'] for x in json.load(open(a.canvases/'manifest.json'))['records']}
+ if len(rows) != 4065 or len(canvas) != 4065 or set(x['object_id'] for x in rows) != set(canvas): raise RuntimeError('frozen-train-canvas identity mismatch')
  for r in rows: r['canvas']=str(canvas[int(r['object_id'])])
  dl=DataLoader(Planes(rows,Path('/')),batch_size=BS,shuffle=True,num_workers=4,pin_memory=True);opt=torch.optim.AdamW(m.parameters(),lr=3e-4,weight_decay=1e-4);loss=nn.CrossEntropyLoss()
  for _ in range(EPOCHS):
