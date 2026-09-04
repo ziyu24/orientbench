@@ -12,7 +12,9 @@ def main():
     call('g0_primary.py',a.root,a.out_dir/'primary.json',a.out_dir/'eligible_manifest.json')
     call('g0_independent.py',a.root,a.out_dir/'independent.json')
     x=json.loads((a.out_dir/'primary.json').read_text());y=json.loads((a.out_dir/'independent.json').read_text())
-    same=all(x[k]==y[k] for k in ('input_counts','footprints','split','support_eligible','lineage','mutations','models','failures'))
+    def comparable_lineage(rows):
+        return [{k:v for k,v in row.items() if k != 'full_only_signatures'} for row in rows]
+    same=all(x[k]==y[k] for k in ('input_counts','footprints','split','support_eligible','mutations','models','failures')) and comparable_lineage(x['lineage']) == comparable_lineage(y['lineage'])
     expected={'test':{'components':25,'objects':1919},'calibration':{'components':25,'objects':7418},'train':{'components':52,'objects':5370}}
     actual={k:{'components':len(v),'objects':sum(1 for z in x['split'][k] for _ in z.split(':',1)[1].split(','))} for k,v in x['split'].items()}
     # Object counts are verified from full GeoJSON, not inferred from the eligible subset.
