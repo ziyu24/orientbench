@@ -1,0 +1,61 @@
+{
+  "protocol": "r011-independent-model-v1",
+  "records": [
+    {
+      "build": true,
+      "id": "oriented_rcnn",
+      "load": true,
+      "missing": [],
+      "returncode": 0,
+      "unexpected": []
+    },
+    {
+      "build": true,
+      "id": "rotated_rtmdet",
+      "load": true,
+      "missing": [],
+      "returncode": 0,
+      "unexpected": []
+    },
+    {
+      "build": false,
+      "error": "MMCV==1.7.2 is used but incompatible. Please install mmcv>=1.4.5, <=1.6.0.",
+      "error_type": "AssertionError",
+      "id": "ars_detr",
+      "load": false,
+      "returncode": 0
+    },
+    {
+      "build": false,
+      "error": "MMCV 2.3.4 is incompatible with mmrotate 1.0.0rc1. Please use MMCV >= 2.0.0rc4, <= 2.2.0 instead.",
+      "error_type": "AssertionError",
+      "id": "o2_rtdetr",
+      "load": false,
+      "returncode": 0
+    },
+    {
+      "build": true,
+      "id": "resnet50",
+      "load": true,
+      "missing": [],
+      "returncode": 0,
+      "unexpected": []
+    },
+    {
+      "build": true,
+      "id": "vit_b16",
+      "load": true,
+      "missing": [],
+      "returncode": 0,
+      "unexpected": []
+    },
+    {
+      "build": false,
+      "error": "No local author implementation or matching legal initialization; no substitute was tested.",
+      "error_type": "OfficialImplementationUnavailable",
+      "id": "fred",
+      "load": false,
+      "returncode": null
+    }
+  ]
+}

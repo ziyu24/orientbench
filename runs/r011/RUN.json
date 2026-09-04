@@ -1,0 +1,55 @@
+{
+  "command": [
+    "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+    "src/orientbench/r011/finalize.py",
+    "--root",
+    "/home/rspip/cqc/data/dataset/RarePlanes-Public",
+    "--out-dir",
+    "runs/r011/artifacts"
+  ],
+  "config": "configs/r011/evidence_repair.yaml",
+  "exit_code": 0,
+  "finished_at": "2026-09-04T12:12:54.679052Z",
+  "gpu_count": 0,
+  "inputs": [
+    "dataset:RarePlanes-Public",
+    "pth_data:rareplanes_initialization",
+    "public:https://rareplanes-public.s3.amazonaws.com/"
+  ],
+  "outputs": [
+    {
+      "path": "runs/r011/artifacts/primary_data.json",
+      "rebuildable": true
+    },
+    {
+      "path": "runs/r011/artifacts/independent_data.json",
+      "rebuildable": true
+    },
+    {
+      "path": "runs/r011/artifacts/primary_models.json",
+      "rebuildable": true
+    },
+    {
+      "path": "runs/r011/artifacts/independent_models.json",
+      "rebuildable": true
+    },
+    {
+      "path": "runs/r011/artifacts/schema_fixture.json",
+      "rebuildable": true
+    },
+    {
+      "path": "runs/r011/artifacts/final.json",
+      "rebuildable": true
+    }
+  ],
+  "project_root": "/home/rspip/cqc/study/orientbench",
+  "result_summary": "lab/result.md#r011",
+  "run_id": "r011",
+  "schema_version": 1,
+  "selected_gpus": [],
+  "source_commit": "573d439644011dc31c71d79970b8e63d3446e913",
+  "started_at": "2026-09-04T12:05:20.580308Z",
+  "status": "COMPLETE",
+  "worker_pid": 432782,
+  "worker_start_ticks": 107333949
+}

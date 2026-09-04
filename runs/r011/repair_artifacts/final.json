@@ -1,0 +1,39 @@
+{
+  "data_agreement": true,
+  "data_components": 102,
+  "four_family_amendment_feasible": false,
+  "model_readiness": {
+    "ars_detr": [
+      false,
+      false
+    ],
+    "fred": [
+      false,
+      false
+    ],
+    "o2_rtdetr": [
+      false,
+      false
+    ],
+    "oriented_rcnn": [
+      true,
+      true
+    ],
+    "resnet50": [
+      true,
+      true
+    ],
+    "rotated_rtmdet": [
+      true,
+      true
+    ],
+    "vit_b16": [
+      true,
+      true
+    ]
+  },
+  "models_agreement": true,
+  "protocol": "r011-final-v1",
+  "schema_fixture_valid": true,
+  "token": "ASSET_UNAVAILABLE_R011"
+}

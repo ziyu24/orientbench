@@ -1,0 +1,400 @@
+{
+  "base_components": {
+    "count": 102,
+    "size_histogram": {
+      "1": 97,
+      "2": 4,
+      "7": 1
+    }
+  },
+  "canonical_cat_count": 227,
+  "canonical_rows": 253,
+  "cog_count": 253,
+  "cog_errors": [],
+  "component_object_sizes": [
+    33,
+    29,
+    190,
+    264,
+    61,
+    39,
+    65,
+    26,
+    233,
+    130,
+    37,
+    10,
+    5,
+    27,
+    303,
+    20,
+    70,
+    24,
+    32,
+    119,
+    56,
+    148,
+    142,
+    18,
+    11,
+    54,
+    29,
+    142,
+    16,
+    73,
+    19,
+    67,
+    101,
+    83,
+    16,
+    408,
+    484,
+    62,
+    100,
+    7,
+    40,
+    33,
+    3734,
+    74,
+    61,
+    163,
+    56,
+    393,
+    22,
+    161,
+    107,
+    18,
+    70,
+    25,
+    65,
+    128,
+    284,
+    50,
+    148,
+    102,
+    23,
+    21,
+    28,
+    411,
+    25,
+    14,
+    15,
+    110,
+    44,
+    37,
+    323,
+    15,
+    82,
+    105,
+    156,
+    136,
+    1182,
+    130,
+    188,
+    7,
+    87,
+    17,
+    35,
+    51,
+    67,
+    21,
+    121,
+    34,
+    83,
+    163,
+    68,
+    19,
+    238,
+    19,
+    151,
+    126,
+    139,
+    162,
+    141,
+    176,
+    81,
+    169
+  ],
+  "data_ok": true,
+  "footprint": {
+    "component_hash": "34fda94b2f05c5a5846b96de88b84a305ba262bf5e4ad46c96d081a31c17e3f5",
+    "crs": [
+      "EPSG:4326"
+    ],
+    "edge_count": 0,
+    "edge_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "final_components": 102,
+    "size_histogram": {
+      "1": 97,
+      "2": 4,
+      "7": 1
+    },
+    "tolerance": "max(one_pixel_area_m2)*1e-6"
+  },
+  "geojson_cat_count": 227,
+  "lineage": [
+    {
+      "all_annotation_signatures_in_geojson": true,
+      "all_tile_sources_known": true,
+      "annotations": 6812,
+      "file": "RarePlanes_Test_Coco_Annotations_tiled.json",
+      "tiles": 2710
+    },
+    {
+      "all_annotation_signatures_in_geojson": true,
+      "all_tile_sources_known": true,
+      "annotations": 18393,
+      "file": "RarePlanes_Train_Coco_Annotations_tiled.json",
+      "tiles": 5815
+    }
+  ],
+  "mutations": {
+    "calibration_19_fails_20_passes": true,
+    "edge_touch_does_not_overlap": true,
+    "illegal_suffix_rejected": true,
+    "nonzero_footprint_mutation": true,
+    "rp1_nonzero_mutation": true,
+    "rp1_wh_swap_90_equivalent": true,
+    "scientific_notation_rejected_without_valid_suffix": true
+  },
+  "protocol": "r011-primary-data-v1",
+  "raw_metadata_rows": 253,
+  "row_errors": [],
+  "source_csv_format_corruption": [
+    "100_1040010039437200",
+    "106_1040010043890900",
+    "108_1040010043890900",
+    "111_1040010028163500",
+    "116_1040010017731200",
+    "24_1040010011273000",
+    "25_1040010017165100",
+    "27_1040010038955600",
+    "28_1040010041747E00",
+    "30_104001002394E000",
+    "33_1040010003449400",
+    "35_1040010037542500",
+    "44_1040010049288700",
+    "54_1040010024086400",
+    "55_1040010048841900",
+    "59_1040010047789700",
+    "60_1040010046430200",
+    "66_1040010037570000",
+    "6_1040010009874E00",
+    "77_1040010040119E00",
+    "86_1040010043890900",
+    "87_1040010043467100",
+    "88_1040010043467100",
+    "91_1040010039040600",
+    "92_1040010041354E00",
+    "94_1040010031916400"
+  ],
+  "split": {
+    "calibration": [
+      "loc:10",
+      "loc:56",
+      "loc:51,54,84,86,106,108,113",
+      "loc:55",
+      "loc:23",
+      "loc:7",
+      "loc:126",
+      "loc:98",
+      "loc:26",
+      "loc:73",
+      "loc:120",
+      "loc:36",
+      "loc:119",
+      "loc:72",
+      "loc:6",
+      "loc:91",
+      "loc:96",
+      "loc:33",
+      "loc:46",
+      "loc:62",
+      "loc:68",
+      "loc:2",
+      "loc:48",
+      "loc:60",
+      "loc:103"
+    ],
+    "test": [
+      "loc:45",
+      "loc:31",
+      "loc:130",
+      "loc:76",
+      "loc:44,107",
+      "loc:53",
+      "loc:43",
+      "loc:115",
+      "loc:92",
+      "loc:9",
+      "loc:77",
+      "loc:114",
+      "loc:67",
+      "loc:123",
+      "loc:30",
+      "loc:58",
+      "loc:47",
+      "loc:66",
+      "loc:90",
+      "loc:124",
+      "loc:21",
+      "loc:118",
+      "loc:87,88",
+      "loc:101",
+      "loc:27"
+    ],
+    "train": [
+      "loc:59",
+      "loc:97",
+      "loc:1",
+      "loc:39",
+      "loc:42",
+      "loc:109",
+      "loc:112",
+      "loc:82",
+      "loc:8",
+      "loc:65",
+      "loc:61",
+      "loc:93",
+      "loc:80",
+      "loc:63",
+      "loc:81,83",
+      "loc:102",
+      "loc:4",
+      "loc:79",
+      "loc:35",
+      "loc:37",
+      "loc:18",
+      "loc:28",
+      "loc:20",
+      "loc:11",
+      "loc:69",
+      "loc:52",
+      "loc:29",
+      "loc:19",
+      "loc:125",
+      "loc:94",
+      "loc:5",
+      "loc:75",
+      "loc:50",
+      "loc:15",
+      "loc:49",
+      "loc:117",
+      "loc:127",
+      "loc:100",
+      "loc:99",
+      "loc:24",
+      "loc:111",
+      "loc:128",
+      "loc:3",
+      "loc:78",
+      "loc:25",
+      "loc:13",
+      "loc:116",
+      "loc:85",
+      "loc:22",
+      "loc:57,71",
+      "loc:14",
+      "loc:105"
+    ]
+  },
+  "split_ok": true,
+  "support": {
+    "engine": {
+      "calibration": {
+        "2": {
+          "components": 24,
+          "objects": 3525
+        },
+        "other": {
+          "components": 24,
+          "objects": 3222
+        }
+      },
+      "test": {
+        "2": {
+          "components": 25,
+          "objects": 1727
+        },
+        "other": {
+          "components": 25,
+          "objects": 2039
+        }
+      },
+      "train": {
+        "2": {
+          "components": 47,
+          "objects": 2202
+        },
+        "other": {
+          "components": 52,
+          "objects": 1992
+        }
+      }
+    },
+    "propulsion": {
+      "calibration": {
+        "jet": {
+          "components": 19,
+          "objects": 2775
+        },
+        "other": {
+          "components": 24,
+          "objects": 3972
+        }
+      },
+      "test": {
+        "jet": {
+          "components": 19,
+          "objects": 1356
+        },
+        "other": {
+          "components": 25,
+          "objects": 2410
+        }
+      },
+      "train": {
+        "jet": {
+          "components": 34,
+          "objects": 1683
+        },
+        "other": {
+          "components": 50,
+          "objects": 2511
+        }
+      }
+    },
+    "wing": {
+      "calibration": {
+        "other": {
+          "components": 17,
+          "objects": 2349
+        },
+        "straight": {
+          "components": 24,
+          "objects": 4398
+        }
+      },
+      "test": {
+        "other": {
+          "components": 17,
+          "objects": 1251
+        },
+        "straight": {
+          "components": 25,
+          "objects": 2515
+        }
+      },
+      "train": {
+        "other": {
+          "components": 32,
+          "objects": 1516
+        },
+        "straight": {
+          "components": 51,
+          "objects": 2678
+        }
+      }
+    }
+  }
+}
