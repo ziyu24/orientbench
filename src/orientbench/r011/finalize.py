@@ -14,6 +14,6 @@ def main():
  pre={x['id']:(x['build'],x['load']) for x in pm['records']};vre={x['id']:(x['build'],x['load']) for x in vm['records']};models_same=pre==vre
  all_ready=all(x[0] and x[1] for x in pre.values())
  token='INCONCLUSIVE_R011_EVIDENCE_REPAIR' if not(data_same and models_same and schema['fixture_valid'] and all(pdat['mutations'].values()) and all(vdat['mutations'].values())) else ('READY_FOR_BC_R012_FINAL_CAUSAL_VALIDATION' if pdat['data_ok'] and pdat['split_ok'] and all_ready else 'ASSET_UNAVAILABLE_R011')
-summary={'protocol':'r011-final-v1','data_agreement':data_same,'models_agreement':models_same,'data_components':pdat['footprint']['final_components'],'model_readiness':pre,'schema_fixture_valid':schema['fixture_valid'],'token':token,'four_family_amendment_feasible':token=='ASSET_UNAVAILABLE_R011' and all(pre[x][0] and pre[x][1] for x in pre if x != 'fred') and not pre['fred'][0]}
+ summary={'protocol':'r011-final-v1','data_agreement':data_same,'models_agreement':models_same,'data_components':pdat['footprint']['final_components'],'model_readiness':pre,'schema_fixture_valid':schema['fixture_valid'],'token':token,'four_family_amendment_feasible':token=='ASSET_UNAVAILABLE_R011' and all(pre[x][0] and pre[x][1] for x in pre if x != 'fred') and not pre['fred'][0]}
  (a.out_dir/'final.json').write_text(json.dumps(summary,indent=2,sort_keys=True)+'\n')
 if __name__=='__main__':main()
