@@ -585,3 +585,35 @@ B 不接受机器的 `ASSET_UNAVAILABLE_R011`，正式状态改为
 
 r011 没有读取 H1/H2 outcome，故以上问题没有消耗科学 test；但任何后续任务必须恢复事前已有的
 lexical split，并先 outcome-blind 修正上述 G0 证据，不能把 r011 numeric test 当作新冻结 test。
+
+## r012
+
+### G0
+
+G0 的主、独立实现对同一官方 RarePlanes 元数据、full GeoJSON、COG header 与 tiled lineage
+给出一致结果：253 metadata/COG rows、26 个保留 raw CAT 的科学计数法损坏值、227 个 canonical
+CAT、14,707 个 full objects，及 lexical-PCG64(1010) 的 25/25/52 component split。两实现对
+共同 eligible census、支持门和 strict core state-dict load 均通过；G0 结果为
+`G0_PASS_H1A_TRAINING_AUTHORIZED`。G0 未打开 test 像素、未做模型前向或性能计算。
+
+### H1a
+
+正式 recipe、冻结训练 canvas 程序及其 source commit 已在拟合前提交。官方训练 COG 仅用于
+4,065 个 eligible train object 的一次性 canvas 预提取；canvas manifest SHA-256 为
+`1586f6864d21e3fda49565b4f9dded15ebe770696e4fd992170cf41ecf10d99a`。ResNet-50 seeds
+1201、1202 各完成 final epoch checkpoint，SHA-256 分别为
+`85e5c3f3afb2192c6e9d9bfe77f0a5f065f75111e3ed7a80d2f03ec34a409401` 与
+`85ce91648e56f26657714625548f9b9a1011b9c08208a026e944eed4064eeee1`。
+
+随后并发调度的 ResNet-50/1203、ViT-B/16/1201、ViT-B/16/1202 均在产生 final-epoch
+checkpoint 前被外部终止；三个重定向日志为空，且系统日志未给出 Python exception 或 OOM 证据。
+ViT-B/16/1203 未启动。由于冻结合同规定训练失败即为执行无效，不能将两个已完成模型与任何
+部分运行混合，也不得重试来凑满“恰六次”拟合。
+
+因此唯一裁决为 `INCONCLUSIVE_R012_H1A`，reason=`TRAINING_FAILURE`。calibration 未打开，
+未构造 calibration/test 性能结果，未执行 bootstrap；test 像素、test crop、test model forward
+和 test performance 均为零。r012 不产生 H1a PASS 或 KILL，也不授权 H1b/H2、detector、risk/
+coverage、SAR、HRSC、论文修改或其他扩展。
+
+运行证据位于 `runs/r012/h1a/`（`fit_manifest.json`、`final.json`、canvas manifest、两个完整
+checkpoint 与对应日志）；大文件不进入普通 Git。相关实现与固定配置已推送至 main。
