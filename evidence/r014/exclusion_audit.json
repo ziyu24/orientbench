@@ -1,0 +1,37 @@
+{
+  "model_forward": false,
+  "protocol": "r014-exclusion-audit-v1",
+  "records": [
+    {
+      "canvas_side": 67,
+      "cat_id": "104001002F92BB00",
+      "center": [
+        5913.373157994125,
+        31.04957430795115
+      ],
+      "complete_canvas": false,
+      "eligibility_reason": "incomplete_canvas_out_of_bounds",
+      "image_height": 1581,
+      "image_width": 10651,
+      "loc_id": 105,
+      "object_id": 9082,
+      "source_cog": "105_104001002F92BB00"
+    },
+    {
+      "canvas_side": 63,
+      "cat_id": "104001002F92BB00",
+      "center": [
+        6448.793415286739,
+        -10.82468658928247
+      ],
+      "complete_canvas": false,
+      "eligibility_reason": "incomplete_canvas_out_of_bounds",
+      "image_height": 1581,
+      "image_width": 10651,
+      "loc_id": 105,
+      "object_id": 10788,
+      "source_cog": "105_104001002F92BB00"
+    }
+  ],
+  "test_opened": false
+}
