@@ -7,13 +7,17 @@
 
 ## 全项目总裁决（2026-09-04）
 
+- 本次全项目创新重评及官方数据只读复算见 `doc/INNOVATION_REASSESSMENT_20260904.md`。
+  r013 保留 `INCONCLUSIVE_R013_H1A`，但原因优先改为输入身份/实现无效，不能接受仅 POWER。
 - 已建立的主结果是“构造性方向扰动可被 AP50 完全掩盖，却显著损伤高 IoU 矩形评价；高长宽比
   矩形的解析角度容差更紧”，并有六个完整检测单元、八个几何风险单元、600 个人工目标及
   图像级有限样本分析支撑。它尚不是独立现实下游影响。
 - 尚未建立的结果是“方向可靠性会改善独立遥感决策，而且其风险可在无测试 GT 时被识别并控制”。
-  唯一前瞻应用实验 r045 为负；此后所有 selector/head/融合路线均失败、降级或未裁决。
-- 当前没有一个正向新方法或新理论足以支撑 TGRS/JPRS。现有证据适合一篇强 JSTARS 级测量与
-  审计论文；RarePlanes 路线只是在争取一次独立下游因果验证资格，并非新增 benchmark 数量。
+  r045 的负结果仅针对由 GT_AR 与角误差合成的几何代理损失，不是实测下游应用；此后所有
+  selector/head/融合路线均失败、降级或未裁决。
+- 独立比较现有文献后，当前有领域测量/审计论文的核心素材，JSTARS 是合理候选定位；但撤回
+  “strong JSTARS 已成立”。尚无足够新的机制、方法或独立应用价值说服 B/C 达到 TGRS/JPRS。
+  RarePlanes H1a 即使修复并 PASS，也不自动越过已有飞机方向规范化与旋转等变工作的创新边界。
 - r010 的 `83 components / ASSET_UNAVAILABLE_R010` 已被独立审计推翻：26 行官方 CSV
   `cat_id` 被科学计数法破坏，规范恢复后为 102 个 footprint 合并前 component。由于正式地理
   footprint 合并和模型 build/load 尚未闭环，当前状态改为
@@ -43,6 +47,16 @@
 因此权威范围是 AP75 下降 `0.1757--0.3983`、平均角误差增加 `29.186--31.885°`。旧 r044
 稿件写入的 AP50 和 AP75 下降 `0.1731--0.6166` 已被该 full-validation 表取代，不得继续引用。
 
+本次生成代码复核收紧解释：构造扰动读取 matched GT，只处理原 TP@0.5，以 1° 步长搜索仍满足
+IoU>.5 的最大角。因此 AP50 不变是构造约束，不能解释为自然方向错误普遍被掩盖。
+
+非 oracle 固定剂量 S 臂补充了更强边界：在预测 AR≥2.1 的输出框上分别施加 +15°/-15°，
+完整计算 AP 再取平均；六单元 AP50 降 `2.88--9.51pp`，AP75 降 `3.74--17.20pp`。
+DIOR/22 的 AP50 为 53.68→50.43、AP75 为35.03→22.81；SODA/4 为72.95→63.44、
+38.05→20.85。正确主张是高 IoU 评价更敏感，不是 AP50 普遍不敏感。该表来自归档
+`top_journal_v3_reaudit_055/paper_A_orientation_protocol/reports/fixed_dose_tracks_r011.csv`，
+其评价器/基线版本不能与前表逐行混拼。
+
 ### 几何、风险与人工锚点
 
 - 同心同尺度矩形在 `AR=2.1` 时的 `IoU=0.75` 方向容差为 `15.3297°`。这是解析几何阈值，
@@ -55,10 +69,14 @@
   `0.0153817 / 0.0161449 / 0.0258754 / 0.00536176 / 0.00307779 / 0.00300844`。它证明冻结
   calibration 获得 HB 证书且 held-out 经验风险相容，但没有形成非平凡拒识决策；有限样本保证仍
   依赖 exchangeability，也不证明部署域迁移。
+  该风险只统计 IoU≥.5 已匹配且 GT_AR≥2.1 的对象，空 eligible/retained 图记零，漏检和 FP
+  不进入该风险；held-out 图中含 eligible 对象比例为59.2/61.7/62.5/57.0/35.4/35.8%。因此
+  它不是完整检测系统的安全证书。
 - 人工双标共 600 个目标、450 个双人数值对；轴向分歧均值 `2.3112°`，图像簇 95% CI
   `[1.9970°, 2.7854°]`，`P(>5°)=0.0800`、95% CI `[0.055679,0.105621]`，
   `P(>10°)=0.008889`、95% CI `[0.002208,0.017897]`；`AR>=2.1` 时 `n=308`、均值
-  `2.2823°`。这是标注者分歧，不是 official GT error。
+  `2.2823°`。这是条件于双方数值可标的标注者分歧，不是 official GT error 或全600目标噪声
+  地板；103 个目标双方均为 ambiguous，不能把它们隐去后声称普遍2.31°精度。
 - DOTA 的 ORCNN/RTMDet `POST_OUTCOME_AUDITED_EXTERNAL_REPLICATION` 得到 AP50
   `0.706069/0.716127`、AP75 `0.451742/0.486848`。ORCNN 的 AUGRC/Risk@70 DoD 为
   `0.0126695 [0.0073611,0.0186728]` / `0.0240725 [0.0130121,0.0367018]`，均不满足 witness；
@@ -88,7 +106,7 @@ target-domain GT angle error，只能作为 diagnostic upper bound，不能充�
 | r036/r037 Q-SetOD | r036 被 C 标为 `CONTESTED`；r037 `G_EVIDENCE=4/8`、`G_SET=0/8`，且 A/B 仅 4 行标签差、validator 与 A 相似度 `0.930769` | 正式 protocol drift；只能描述部分标量信号，集合运输未成立 |
 | r042 OER | 八个 `Delta_AUGRC` 全负：`-0.0004563,-0.0004223,-0.0003500,-0.0005216,-0.0002698,-0.0001390,-0.0001190,-0.0000190` | `REJECT_OER_METHOD` |
 | r043 SAUR | DIOR `0.5370→0.3340`，SODA `0.5990→0.4320` | 拒绝该冻结实现；公式 gate 偏差禁止外推到所有 SAUR 类方法 |
-| r045 前瞻应用迁移 | HRSC 98 图；连续风险收益 `-0.00195195`，95% CI `[-0.00759691,0.00355364]`；severe 收益 0 | `APPLICATION_SHIFT_FAIL`；这是当前最关键的下游负证据 |
+| r045 前瞻几何代理迁移 | HRSC 98 图；连续风险收益 `-0.00195195`，95% CI `[-0.00759691,0.00355364]`；severe 收益 0 | 历史 token 为 `APPLICATION_SHIFT_FAIL`，但实际 loss=`min(1,GT_AR/2*sin(angle_error))`；仅反对该冻结策略的几何代理跨域收益，不是实测应用反证 |
 | r046/r047 AHC | 开发 accuracy `0.84288` vs whole-crop `0.87431`；正确 T_cal UCB `0.15661/0.18904/0.17297` | 协议漂移，`NOT_ADJUDICATED`；不得包装成正式方法结果 |
 | r048 P2C | base accuracy/角误差/AUGRC `0.506470/87.741°/0.423795`，whole-crop `0.885397/21.336°/0.024484` | `REJECT_P2C_LIFT_DEVELOPMENT` |
 | r049 CORA-v1 | AP50/AP75 `0.491/0.248` vs control `0.496/0.275`；AUGRC/R70 增益仅 `0.000404/0.000223` | `REJECT_EXECUTED_CORA_V1`，仅约束 v1 |
@@ -631,6 +649,11 @@ Xid 或重启证据；但完整 kernel journal、dmesg、process accounting 与�
 
 ## r013
 
+### SERVER 机器报告（未获 B 科学验收）
+
+以下拟合、像素、信息墙、mutation 和数字均是服务器报告；不能把源码和摘要已推送等同于原始
+证据已公开，也不能把本节后半的机器 POWER 当作 B 当前裁决。正式纠偏见下一节。
+
 r013 先复核 r012 G0 compact input 和 4,065 个 train canvas manifest，随后对 ResNet-50、ViT-B/16
 各执行 seed 1201/1202/1203 的六次全新 final-epoch fit。每个模型均从架构匹配初始化重新开始，未加载、
 热启动、平均或比较 r012 参数。双架构单 batch 预检均为 finite，optimizer step 均为零。六个 checkpoint
@@ -653,3 +676,38 @@ RP1 `theta/theta+180` 平均推理。test component 的 canvas/pixel/model forwa
 也不得据此输出 KILL、PASS、开启 H1b/H2、detector、risk/coverage、SAR、HRSC 或论文修改。完整 raw
 predictions、draws、replicates、模型身份、独立验证和 final token 位于 `runs/r013/`；可复算代码与本结论
 已推送至 main。
+
+### B 独立审计：输入错源优先于 POWER
+
+正式状态保留 `INCONCLUSIVE_R013_H1A`，原因优先为 `INPUT_IDENTITY / IMPLEMENTATION_INVALID`。
+上节“实现门通过”“仅功效不足”撤销；机器六格值只保留为潜在受污染、未独立复算的历史报告。
+
+B 与独立审计分别从官方 metadata/完整 GeoJSON 重建既有 lexical-PCG64(1010) split：253 个
+image records、227 CAT、102 components、calibration 7,418 个 full objects。代码
+`src/orientbench/r013/prepare_calibration.py:21` 只用 CAT 建字典，第26行依此取图，重复 CAT
+后值覆盖前值；G0 的几何却来自正确的 `(loc_id,CAT)` 对应影像，并已保存 `source_cog`。
+
+按公开生成器与冻结总体，2,318个 full objects 会被配到错误 COG，涉及20个 loc–CAT 键、两个
+component。报告共同
+eligible=7,416，故至少2,316个 eligible 会受影响；无实际 manifest 不给最终精确排除数。
+31.25% 是对象比例，不是 component-equal 权重。例如 loc44 的对象189/214/216应读取
+`44_1040010043B54900`，却被映射为`107_1040010043B54900`；独立 COG header 核验确认它们
+是不同机场、不同宽高和 affine，不是同图别名。这不是跨 split 泄漏，而是标签、原图像素几何
+与另一影像错配；三臂自洽也无法恢复“同一飞机”的因果单位。
+
+同时，真实 render mutation 并未独立验证：theta180 项硬写 True，验证器相信生产者布尔值。
+统计 verifier 未完整核对 power/区间/clean utility，finalizer 未纳入完整输入及模型身份。
+本次没有服务器实际执行源码/产物的完整绑定，不能断言所有报告数字确由该代码版本产生；若
+SERVER 实际使用另一个修复版本，仍须公开实际代码及证据，不能以未发布实现替当前报告验收。
+远端 main 和 execution refs 未提供 r012/r013 compact raw、draws 与输入/模型 manifests，故 B
+无法独立复现六格数值或证明报告的零 test 访问。完整代码定位、只读复算程序、输入 SHA 与创新
+边界见 `doc/INNOVATION_REASSESSMENT_20260904.md`。
+
+4,065 train eligible 的来源也须澄清：新 train split 的5,370 full objects中4,068旧
+Public_Train=1、1,302旧flag=0；再取旧train交集及几何资格得到4,065。r013合同明确继承此集，
+故不是本轮暗改，但G0完整新train支持不能当作实际训练支持。
+
+建议后续仅 correction-only：先公开旧证据、逐对象核验来源，模型身份成立时复用六个既有模型
+重建同一calibration三臂并独立复算；不重训、不改split/样本/阈值、不删受影响component、不
+打开test。修复结果是透明重建，不是新的前瞻盲验证；即使PASS也不自动授权H1b/H2或升档。
+本次未控制SERVER，未签新实验；r013执行已结束，单槽归于NO_ACTIVE_TASK。

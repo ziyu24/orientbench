@@ -1,5 +1,19 @@
 # 主要失败路线
 
+## r013：输入身份无效，不是 H1a 科学失败
+
+2026-09-04 B/C复核拒绝机器“实现有效，仅POWER”解释，保留 `INCONCLUSIVE_R013_H1A`，
+原因优先为 `INPUT_IDENTITY / IMPLEMENTATION_INVALID`。calibration提取器把CAT当唯一影像键，
+而官方253个image records仅有227个CAT；按既有split重建，7,418个full objects中2,318个
+会错配source COG（20个loc–CAT键、两个component）。G0原像素几何被用于另一地点的影像，
+manifest文件摘要与统计双实现均无法证明“同一飞机”成立。完整复算与来源见
+`doc/INNOVATION_REASSESSMENT_20260904.md`。
+
+这不是跨split泄漏，也不证明方向属性效应为零；六格效应、区间与功效不能当作已验收结果。
+不得删受影响component、补seed、加大扰动、调阈值或打开test挽救。若后续授权修复，只能在
+输入和模型身份成立后复用既有六模型，透明重建同一calibration；不重训或静默替换训练数据。
+该修复不是新的前瞻验证，更不是顶刊创新。当前没有新SERVER任务。
+
 ## COI / 干预式轴向可辨识响应（r004）
 
 - 状态：r005 已以同一 global theta-free matcher 完成 correction-only 复核，当前仍是
