@@ -1,0 +1,38 @@
+{
+  "all_mutations_rejected": true,
+  "components": 25,
+  "decision": {
+    "models_retrained": false,
+    "reason": "INPUT_OR_IMPLEMENTATION",
+    "status": "INCONCLUSIVE_R013_H1A",
+    "test_opened": false
+  },
+  "field_differences": {
+    "clean_q": 8.881784197001252e-16,
+    "clean_risk": 5.551115123125783e-17,
+    "clean_sd": 6.938893903907228e-18,
+    "clean_simultaneous_upper": 1.1102230246251565e-16,
+    "delta": 2.7755575615628914e-17,
+    "power": 0.0,
+    "q": 3.1086244689504383e-15,
+    "sd": 6.938893903907228e-18,
+    "simultaneous_lower": 5.551115123125783e-17,
+    "simultaneous_upper": 6.245004513516506e-17
+  },
+  "mutations": {
+    "degree_radian": "theta_radian_canonical",
+    "missing_model": "six_models_required",
+    "nan": "probability_range",
+    "out_of_range_probability": "probability_range",
+    "wrong_label_row": "argmax_error_contract",
+    "wrong_probability_row": "two_view_average",
+    "wrong_source": "source_identity",
+    "zero_class_denominator": "zero_class_denominator"
+  },
+  "objects": 7416,
+  "original_execution_identity_recoverable": false,
+  "protocol": "r014-independent-acceptance-v1",
+  "published_max_abs_difference": 3.1086244689504383e-15,
+  "reorder_accepted": true,
+  "zero_variance_q": 0.0
+}

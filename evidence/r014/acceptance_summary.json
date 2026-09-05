@@ -1,0 +1,51 @@
+{
+  "calibration_old_changed_rows": 2318,
+  "calibration_pixel_nonzero_difference_count": 0,
+  "calibration_rows": 7416,
+  "geojson_sha256": "3e4786590cb350038d18120732787b1a6586408ab0685d344ef0730815e79ecb",
+  "metadata_sha256": "005eb9c6c4ab0f0fea1f8402f202066b6f4d29617ef263f72b1be34dea35edec",
+  "model_forward": false,
+  "models": [
+    {
+      "exists": true,
+      "name": "resnet50_1201.pt",
+      "sha256": "66845652fb6f154ee7adcafeabd631bb271b0acdd77671e9424c08360f21a908"
+    },
+    {
+      "exists": true,
+      "name": "resnet50_1202.pt",
+      "sha256": "f3d5d508e20cf4ddd26475887c810790ba210f6f6146c6924817c3514589df4a"
+    },
+    {
+      "exists": true,
+      "name": "resnet50_1203.pt",
+      "sha256": "effab58dbc5987d7102225444e3e7c07172a5fd6bbbc11951fe96c61ba265314"
+    },
+    {
+      "exists": true,
+      "name": "vit_b16_1201.pt",
+      "sha256": "298154dd6705dd4d41cd9838796994927e800e6dff32393fe1cd033f03e9b7e3"
+    },
+    {
+      "exists": true,
+      "name": "vit_b16_1202.pt",
+      "sha256": "b9356497defa24c4d4cd88c2fd4e54261270294d38adcbc06d54bdd134e71783"
+    },
+    {
+      "exists": true,
+      "name": "vit_b16_1203.pt",
+      "sha256": "c72e35c845923ddbb1b94e68418b3ec702dd1e5c35a344e746fef09dda2c2f01"
+    }
+  ],
+  "original_execution_identity_recoverable": false,
+  "original_execution_records": {
+    "r013_calibration_manifest": false,
+    "r013_fit_manifest": false,
+    "r013_preflight": true,
+    "r013_train_canvas_manifest": true
+  },
+  "protocol": "r014-remaining-acceptance-v1",
+  "test_opened": false,
+  "train_old_changed_rows": 0,
+  "train_rows": 4065
+}

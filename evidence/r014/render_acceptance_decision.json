@@ -1,0 +1,12 @@
+{
+  "input_sha256": "4c3c03bc3b3bdc7b9e743bb8ed1c2f0c1d91e495ba8d7e8c1c9ebb8f10139ac8",
+  "max_reference_abs": 2.5480985641479492e-05,
+  "max_theta180_exchange_abs": 2.950429916381836e-05,
+  "model_forward": false,
+  "pass": true,
+  "pixel_tolerance": 5e-05,
+  "protocol": "r014-render-acceptance-decision-v1",
+  "synthetic_plus10_pixel_response": 1.0,
+  "test_opened": false,
+  "tolerance_basis": "post-hoc reconstruction precision: float32 production trig versus float64 reference constants"
+}
