@@ -31,6 +31,6 @@ def main():
   for s in range(3):
    for arm in range(3):
     for k in range(3):rp[m,s,k,arm]=.5*(cm[m,s,arm,k,:,0][ok[k,:,0]].mean()+cm[m,s,arm,k,:,1][ok[k,:,1]].mean())
- pt=(((rp[...,1]+rp[...,2])/2-rp[...,0]).mean(1)).reshape(6);sd=d.reshape(50000,6).std(0,ddof=1);q=float(np.quantile(np.max(np.abs((d.reshape(50000,6)-pt)/sd),1),.95,method='linear'));summary=json.load(open(a.summary));valid=bool(np.allclose(pt,summary['delta'],atol=1e-12) and np.allclose(sd,summary['sd'],atol=1e-12) and abs(q-summary['q'])<1e-12)
+ pt=(((rp[...,1]+rp[...,2])/2-rp[...,0]).mean(1)).reshape(6);sd=d.reshape(50000,6).std(0,ddof=1);q=float(np.quantile(np.max(np.abs((d.reshape(50000,6)-pt)/sd),1),.95,method='linear'));summary=json.load(open(a.summary));valid=bool(np.allclose(pt,np.asarray(summary['delta']).reshape(6),atol=1e-12) and np.allclose(sd,summary['sd'],atol=1e-12) and abs(q-summary['q'])<1e-12)
  a.out.write_text(json.dumps({'independent':True,'raw_rows':int(len(oid)),'components':int(len(np.unique(comp))),'all_heads_nonconstant':bool((~single).all()),'head_nonconstant':(~single).tolist(),'delta':pt.tolist(),'sd':sd.tolist(),'q':q,'matches_summary':valid,'mutation_all_pass':all(all(json.loads(str(x['mutation'])).values()) for x in z)},sort_keys=True,indent=2)+'\n')
 if __name__=='__main__':main()
