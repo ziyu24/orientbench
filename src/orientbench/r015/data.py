@@ -21,7 +21,9 @@ def angle(seed,epoch,object_id,strategy):
 def render(windows,rows,strategy,n,seed,epoch,second=False,eval_phi=None):
  device=windows.device;b=len(rows);z=2*n;u=torch.arange(z,device=device,dtype=torch.float32)*(2/z)+(-1+1/z);v=u;yy,xx=torch.meshgrid(v,u,indexing='ij');L=torch.tensor([r['L'] for r in rows],device=device)[:,None,None];S=torch.tensor([r['S'] for r in rows],device=device)[:,None,None];rho=.60*torch.sqrt(L.square()+S.square());theta=[]
  for r in rows:
-  base=eval_phi if eval_phi is not None else angle(seed,epoch,r['object_id'],strategy)
+  if eval_phi == 'fixed':
+   base=float(np.random.Generator(np.random.PCG64(np.random.SeedSequence([15015,r['object_id']]))).uniform(0,math.pi)) if strategy=='I' else 0.
+  else: base=eval_phi if eval_phi is not None else angle(seed,epoch,r['object_id'],strategy)
   theta.append(base if strategy=='I' else float(r['theta'])+base)
  t=torch.tensor(theta,device=device)[:,None,None]+(math.pi if second else 0.);c,s=torch.cos(t),torch.sin(t);cx=torch.tensor([r['center'][0]-r['origin']['left'] for r in rows],device=device)[:,None,None];cy=torch.tensor([r['center'][1]-r['origin']['top'] for r in rows],device=device)[:,None,None];side=torch.tensor([r['origin']['side'] for r in rows],device=device)[:,None,None]
  if strategy=='T':ax=.60*L;ay=.60*S;mask=None
