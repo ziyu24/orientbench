@@ -16,11 +16,12 @@ def source_path(root,image):
   if p.is_file():return p
  raise FileNotFoundError(image)
 def raster(entry,path):
+ with Image.open(path) as image:return raster_from_image(entry,image)
+def raster_from_image(entry,image):
  rho=.60*math.hypot(entry['L'],entry['S']);cx,cy=entry['center'];left=math.floor(cx-rho)-2;top=math.floor(cy-rho)-2;side=math.ceil(2*rho)+4
- with Image.open(path) as image:
-  w,h=image.size
-  if min(left,top,w-(left+side),h-(top+side))<0:raise RuntimeError(('window-boundary',entry['object_id']))
-  a=np.asarray(image.crop((left,top,left+side,top+side)).convert('RGB'),dtype=np.uint8).copy()
+ w,h=image.size
+ if min(left,top,w-(left+side),h-(top+side))<0:raise RuntimeError(('window-boundary',entry['object_id']))
+ a=np.asarray(image.crop((left,top,left+side,top+side)).convert('RGB'),dtype=np.uint8).copy()
  return a,{'left':left,'top':top,'side':side,'rho':rho}
 def actual(window,origin,theta,n=96):
  # Actual r015 batch operator: 2N pixel-centre grid, bilinear, circular support, area average.
@@ -39,13 +40,20 @@ def reference(window,origin,theta,n=96):
 def main():
  p=argparse.ArgumentParser();p.add_argument('--dataset',type=Path,required=True);p.add_argument('--g0',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
  if a.out.exists():raise RuntimeError('r015 preflight output exists')
- g=json.load(open(a.g0));eligible={x['object_id']:x for x in json.load(open(a.g0.parent/'eligible_manifest.json'))};features=json.load(open(a.dataset/'real/metadata_annotations/RarePlanes_Public_All_Annotations.geojson'))['features'];meta=list(csv.DictReader(open(a.dataset/'real/metadata_annotations/RarePlanes_Public_Metadata.csv')));sources={(int(x['loc_id']),x['image_id'].split('_',1)[1]):x['image_id'] for x in meta};locs=split_locs(g);rows={'train':[],'calibration':[]}
+ g=json.load(open(a.g0));eligible={x['object_id']:x for x in json.load(open(a.g0.parent/'eligible_manifest.json'))};features=json.load(open(a.dataset/'real/metadata_annotations/RarePlanes_Public_All_Annotations.geojson'))['features'];meta=list(csv.DictReader(open(a.dataset/'real/metadata_annotations/RarePlanes_Public_Metadata.csv')));sources={(int(x['loc_id']),x['image_id'].split('_',1)[1]):x['image_id'] for x in meta};locs=split_locs(g);rows={'train':[],'calibration':[]};pending=[]
  for oid,f in enumerate(features):
   q=f['properties'];part=next((k for k,v in locs.items() if int(q['loc_id']) in v),None)
   if part not in rows or oid not in eligible or not accepted(q) or (part=='train' and int(q['Public_Train'])!=1):continue
   e=dict(eligible[oid]);image=sources.get((int(q['loc_id']),q['cat_id']))
   if image is None or image!=e['source_cog']:raise RuntimeError(('loc-cat-source',oid))
-  path=source_path(a.dataset,image);window,origin=raster(e,path);e.update({'object_id':oid,'loc_id':int(q['loc_id']),'cat_id':q['cat_id'],'image_id':image,'labels':labels(q),'origin':origin,'window_sha256':hashlib.sha256(window.tobytes()).hexdigest()});rows[part].append(e)
+  e.update({'object_id':oid,'loc_id':int(q['loc_id']),'cat_id':q['cat_id'],'image_id':image,'labels':labels(q),'partition':part});pending.append(e)
+ grouped={}
+ for e in pending:grouped.setdefault(e['image_id'],[]).append(e)
+ for image,items in grouped.items():
+  with Image.open(source_path(a.dataset,image)) as source:
+   for e in items:
+    window,origin=raster_from_image(e,source);e.update({'origin':origin,'window_sha256':hashlib.sha256(window.tobytes()).hexdigest()})
+ for e in sorted(pending,key=lambda z:z['object_id']):rows[e.pop('partition')].append(e)
  if len(rows['train'])!=4065 or len(rows['calibration'])!=7416:raise RuntimeError(('universe',len(rows['train']),len(rows['calibration'])))
  # One lowest-ID object per source forms a real source/raster reference set.
  chosen=[];seen=set()
