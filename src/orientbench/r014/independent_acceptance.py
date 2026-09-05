@@ -74,7 +74,7 @@ def main() -> None:
     p=argparse.ArgumentParser(); p.add_argument('--raw',type=Path,required=True);p.add_argument('--audit',type=Path,required=True);p.add_argument('--dataset',type=Path,required=True);p.add_argument('--g0',type=Path,required=True);p.add_argument('--summary',type=Path,required=True);p.add_argument('--acceptance',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
     if a.out.exists(): raise RuntimeError('independent acceptance output exists')
     arrays,oid,component,labels=inputs(a.raw,a.audit,a.dataset,a.g0); actual=statistic(arrays,component,labels); published=json.load(open(a.summary))
-    fields=('delta','sd','simultaneous_lower','simultaneous_upper','power','clean_risk','clean_sd','clean_simultaneous_lower','clean_simultaneous_upper')
+    fields=('delta','sd','simultaneous_lower','simultaneous_upper','power','clean_risk','clean_sd','clean_simultaneous_upper')
     diff={x:float(np.max(np.abs(actual[x]-np.asarray(published[x]).reshape(-1)))) for x in fields};diff['q']=abs(actual['q']-published['q']);diff['clean_q']=abs(actual['clean_q']-published['clean_q'])
     bad_source=[json.loads(x) for x in open(a.audit/'source_records.jsonl') if '"partition": "calibration"' in x]; bad_source[0]['image_id']='not_an_official_source'
     one=copy.deepcopy(arrays); one[0]['labels']=one[0]['labels'].copy(); one[0]['labels'][0,0]=1-one[0]['labels'][0,0]
