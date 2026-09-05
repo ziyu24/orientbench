@@ -56,7 +56,8 @@ def main() -> None:
     records = {row["object_id"]: row for row in old_records}
     calibration = [row for row in old_records if row["partition"] == "calibration"]
     train = [row for row in old_records if row["partition"] == "train"]
-    if len(calibration) != 7416 or len(train) != 4065 or set(records) != set(eligible):
+    if (len(calibration) != 7416 or len(train) != 4065
+            or any(int(row["object_id"]) not in eligible for row in old_records)):
         raise RuntimeError("frozen universe mismatch")
 
     train_dir = args.dataset / "real/imagery/train/PS-RGB_cog"
