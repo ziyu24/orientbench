@@ -1,0 +1,4 @@
+protocol: r015-matched-support-v1
+stage: model_preflight
+forbidden: [test_pixels, calibration, training, detector, selector]
+input: actual materialized r015 training windows only
