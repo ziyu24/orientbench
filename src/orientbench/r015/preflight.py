@@ -28,14 +28,7 @@ def actual(window,origin,theta,n=96):
  z=2*n;u=torch.arange(z,dtype=torch.float32)*(2/z)+(-1+1/z);v=u;yy,xx=torch.meshgrid(v,u,indexing='ij');rho=origin['rho'];c,s=math.cos(theta),math.sin(theta);cx=origin['center'][0]-origin['left'];cy=origin['center'][1]-origin['top'];px=c*rho*xx-s*rho*yy+cx;py=s*rho*xx+c*rho*yy+cy;side=origin['side'];grid=torch.stack((2*(px+.5)/side-1,2*(py+.5)/side-1),-1)[None];image=torch.from_numpy(window.transpose(2,0,1)).float()[None]/255.;out=F.grid_sample(image,grid,mode='bilinear',padding_mode='zeros',align_corners=False);mask=(xx.square()+yy.square()<=1)[None,None];mean=torch.tensor([.485,.456,.406])[None,:,None,None];out=torch.where(mask,out,mean);return F.avg_pool2d(out,2)
 def reference(window,origin,theta,n=96):
  # Separate float64 coordinates and manual bilinear sampling, no actual renderer call.
- z=2*n;ans=np.empty((3,z,z),np.float64);rho=origin['rho'];c,s=math.cos(theta),math.sin(theta);cx=origin['center'][0]-origin['left'];cy=origin['center'][1]-origin['top'];h,w=window.shape[:2]
- for iy in range(z):
-  y=-1+(2*iy+1)/z
-  for ix in range(z):
-   x=-1+(2*ix+1)/z
-   if x*x+y*y>1:ans[:,iy,ix]=(.485,.456,.406);continue
-   px=c*rho*x-s*rho*y+cx;py=s*rho*x+c*rho*y+cy;x0=math.floor(px);y0=math.floor(py);dx=px-x0;dy=py-y0
-   q=(window[y0,x0]*(1-dx)*(1-dy)+window[y0,x0+1]*dx*(1-dy)+window[y0+1,x0]*(1-dx)*dy+window[y0+1,x0+1]*dx*dy)/255.;ans[:,iy,ix]=q
+ z=2*n;rho=origin['rho'];c,s=math.cos(theta),math.sin(theta);cx=origin['center'][0]-origin['left'];cy=origin['center'][1]-origin['top'];axis=-1+(2*np.arange(z,dtype=np.float64)+1)/z;y,x=np.meshgrid(axis,axis,indexing='ij');inside=x*x+y*y<=1;px=c*rho*x-s*rho*y+cx;py=s*rho*x+c*rho*y+cy;x0=np.floor(px).astype(np.int64);y0=np.floor(py).astype(np.int64);dx=px-x0;dy=py-y0;ans=np.empty((z,z,3),np.float64);ans[:]=(.485,.456,.406);q=(window[y0,x0]*(1-dx)[...,None]*(1-dy)[...,None]+window[y0,x0+1]*dx[...,None]*(1-dy)[...,None]+window[y0+1,x0]*(1-dx)[...,None]*dy[...,None]+window[y0+1,x0+1]*dx[...,None]*dy[...,None])/255.;ans[inside]=q[inside];ans=ans.transpose(2,0,1)
  return torch.from_numpy(ans)[None].float().reshape(1,3,z,z).reshape(1,3,n,2,n,2).mean((3,5))
 def main():
  p=argparse.ArgumentParser();p.add_argument('--dataset',type=Path,required=True);p.add_argument('--g0',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
