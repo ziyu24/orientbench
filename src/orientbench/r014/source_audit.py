@@ -48,12 +48,14 @@ def main():
  def source(image):return (train_dir if image in in_train else cal_dir)/(image+'.tif')
  a.out.mkdir(parents=True);corr=a.out/'corrected_calibration_canvases';corr.mkdir();records=[]
  # Direct per-object source read is intentionally separate from r013's grouped CAT-only producer.
+ images={}
  for part in ('train','calibration'):
   old_dir=a.old_train if part=='train' else a.old_cal
   for oid,q,e in expected[part]:
    key=(int(q['loc_id']),q['cat_id']);right=correct.get(key);wrong=old.get(q['cat_id'])
    if right is None or wrong is None:raise RuntimeError(('source-key',oid,key))
-   right_canvas=crop(Image.open(source(right)),e);old_canvas=np.load(old_dir/(str(oid)+'.npy'),allow_pickle=False)
+   if right not in images:images[right]=Image.open(source(right))
+   right_canvas=crop(images[right],e);old_canvas=np.load(old_dir/(str(oid)+'.npy'),allow_pickle=False)
    if old_canvas.shape!=right_canvas.shape:raise RuntimeError(('shape',oid,old_canvas.shape,right_canvas.shape))
    changed=not np.array_equal(old_canvas,right_canvas);px=int(np.count_nonzero(old_canvas!=right_canvas))
    rec={'partition':part,'object_id':oid,'loc_id':int(q['loc_id']),'cat_id':q['cat_id'],'image_id':right,'g0_source_cog':e['source_cog'],'old_cat_only_source':wrong,'affected':right!=wrong,'old_canvas_sha256':sha(old_dir/(str(oid)+'.npy')),'correct_canvas_sha256':hashlib.sha256(right_canvas.tobytes()).hexdigest(),'pixel_different':changed,'pixel_channel_difference_count':px,'shape':list(right_canvas.shape)}
