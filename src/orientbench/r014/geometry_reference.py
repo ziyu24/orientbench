@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np,tifffile
 from PIL import Image
 from shapely.geometry import Polygon
+Image.MAX_IMAGE_PIXELS=None
 def headers(root):
  out={}
  for archive in root.glob('real/tarballs/*/RarePlanes_*_PS-RGB_cog.tar.gz'):
