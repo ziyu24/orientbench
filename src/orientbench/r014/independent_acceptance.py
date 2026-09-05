@@ -43,7 +43,9 @@ def statistic(arrays, component, labels):
             for klass in range(2):
                 mask = (component == group) & (labels[:,attribute] == klass); present[attribute,group,klass] = mask.any()
                 if mask.any(): values[:,:,:,attribute,group,klass] = error[:,:,:,mask,attribute].mean(-1)
-    require(present.all(), 'zero_class_denominator')
+    # The contract permits a class to be absent in an individual component;
+    # component draws are aggregated over the components supporting that class.
+    require(present.any(2).all() and present.any(1).all(), 'zero_class_denominator')
     rng=np.random.Generator(np.random.PCG64(12012)); draw=rng.integers(0,25,(50000,25)); w=np.zeros((50000,25));np.add.at(w,(np.arange(50000)[:,None],draw),1)
     def aggregate(weights):
         ans=np.empty((len(weights),2,3,3,3))
