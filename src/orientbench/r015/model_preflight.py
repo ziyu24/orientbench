@@ -35,6 +35,15 @@ def main() -> None:
         raise RuntimeError("CUDA required")
     device = torch.device("cuda:0")
     windows = windows.to(device)
+    # The actual training operator must be invariant to harmless batch padding.
+    batched = render(windows, rows, "I", 96, 1501, 0, False)
+    padding_error = 0.0
+    for index, row in enumerate(rows):
+        one_window, one_rows = collate([Windows([row], args.windows)[0]])
+        one = render(one_window.to(device), one_rows, "I", 96, 1501, 0, False)
+        padding_error = max(padding_error, float((batched[index:index + 1] - one).abs().max()))
+    if padding_error > 1e-6:
+        raise RuntimeError(("batch-padding-render", padding_error))
     outcomes = []
     for kind in ("resnet50", "vit_b16"):
         for size in (96, 224):
@@ -54,7 +63,8 @@ def main() -> None:
             torch.cuda.empty_cache()
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps({"protocol": "r015-model-preflight-v1", "outcome_blind": True,
-                                    "test_opened": False, "checks": outcomes}, sort_keys=True, indent=2) + "\n")
+                                    "test_opened": False, "padding_max_abs": padding_error,
+                                    "checks": outcomes}, sort_keys=True, indent=2) + "\n")
 
 
 if __name__ == "__main__":
