@@ -1,0 +1,5 @@
+protocol: r015-matched-support-v1
+stage: preflight
+forbidden: [test_pixels, model_forward, training, detector, selector]
+dataset: /home/rspip/cqc/data/dataset/RarePlanes-Public
+g0: runs/r012/final_repair_artifacts/primary.json
