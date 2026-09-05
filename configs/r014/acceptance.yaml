@@ -1,0 +1,10 @@
+protocol: r014-remaining-acceptance-v1
+scope: read-only source and artifact acceptance
+forbidden: [training, model_forward, test_pixels, test_crops, test_performance]
+inputs:
+  dataset: /home/rspip/cqc/data/dataset/RarePlanes-Public
+  g0: runs/r012/final_repair_artifacts/primary.json
+  corrected_audit: runs/r014/source_audit
+outputs:
+  - runs/r014/artifacts/acceptance/summary.json
+  - runs/r014/artifacts/acceptance/pixel_records.jsonl
