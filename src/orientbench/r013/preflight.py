@@ -1,9 +1,10 @@
 """One no-update, train-only r013 resource and input-identity preflight."""
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse, hashlib, json, sys
 from pathlib import Path
 import torch
 from torch import nn
+sys.path.insert(0,str(Path(__file__).parents[2]))
 
 def sha(p):
  h=hashlib.sha256()
