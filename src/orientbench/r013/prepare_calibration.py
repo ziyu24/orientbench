@@ -24,10 +24,12 @@ def main():
   q=f['properties'];loc=int(q['loc_id'])
   if not any(str(loc) in z.split(':',1)[1].split(',') for z in cal) or i not in eligible or not accepted(q):continue
   image=bycat[q['cat_id']]; jobs.setdefault((int(q['Public_Train']),image),[]).append((i,eligible[i]))
- # Extract precisely the calibration-only COGs that are absent from official train imagery.
+ # Public_Train is an annotation field, not a trustworthy archive route: use archive membership.
  dest=a.root/'real/imagery/calibration/PS-RGB_cog'; dest.mkdir(parents=True,exist_ok=True)
+ train_archive=a.root/'real/tarballs/train/RarePlanes_train_PS-RGB_cog.tar.gz'
  archive=a.root/'real/tarballs/test/RarePlanes_test_PS-RGB_cog.tar.gz'
- need=[image for (public,image) in jobs if not public and not (dest/(image+'.tif')).exists()]
+ with tarfile.open(train_archive,'r:gz') as tf: train_images={Path(x.name).stem for x in tf.getmembers() if x.isfile()}
+ need=[image for (_,image) in jobs if image not in train_images and not (dest/(image+'.tif')).exists()]
  if need:
   with tarfile.open(archive,'r:gz') as tf:
    for image in need:
@@ -35,8 +37,8 @@ def main():
     if src is None:raise RuntimeError(image)
     (dest/(image+'.tif')).write_bytes(src.read())
  records=[];a.out.mkdir(parents=True,exist_ok=False)
- for (public,image),group in jobs.items():
-  source=(a.root/'real/imagery/train/PS-RGB_cog' if public else dest)/(image+'.tif');im=Image.open(source)
+ for (_,image),group in jobs.items():
+  source=(a.root/'real/imagery/train/PS-RGB_cog' if image in train_images else dest)/(image+'.tif');im=Image.open(source)
   for object_id,e in group:
    side=int(e['canvas_side']);x,y=e['center'];box=(int(x-side/2),int(y-side/2),int(x+side/2),int(y+side/2))
    canvas=np.asarray(im.crop(box).convert('RGB'),dtype=np.uint8).copy()
