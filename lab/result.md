@@ -628,3 +628,28 @@ Xid 或重启证据；但完整 kernel journal、dmesg、process accounting 与�
 因此可确认的是外部同时终止；约 180 秒的父命令、会话或执行器时限只是高置信推断，不是已证明
 根因，也不能严格排除系统级 OOM。本次复核不改变唯一科学状态
 `INCONCLUSIVE_R012_H1A` / `TRAINING_FAILURE`，不产生 H1a 正向或负向结果。
+
+## r013
+
+r013 先复核 r012 G0 compact input 和 4,065 个 train canvas manifest，随后对 ResNet-50、ViT-B/16
+各执行 seed 1201/1202/1203 的六次全新 final-epoch fit。每个模型均从架构匹配初始化重新开始，未加载、
+热启动、平均或比较 r012 参数。双架构单 batch 预检均为 finite，optimizer step 均为零。六个 checkpoint
+的 SHA-256、preflight 和 canvas 身份记录均在 `runs/r013/`；所有六次训练正常完成。
+
+模型封存后一次性冻结了 7,416 个 calibration eligible canvas，随后仅对 calibration 执行三臂和
+RP1 `theta/theta+180` 平均推理。test component 的 canvas/pixel/model forward/performance 均为零。
+六个 compact raw prediction 表均有 `3×7416×3` 概率，像素 identity、非零角扰动、theta+180 pair-order
+及 w/h+90 补偿 mutation 均通过。独立验证器不导入生成器或统计实现，从 raw tables 重算 25 component、
+50,000 个 PCG64(12012) 同步 bootstrap draws，逐格 Delta、标准差和 simultaneous q 与生成器一致。
+
+六格（ResNet wing/engine/propulsion，ViT wing/engine/propulsion）Delta 为
+`[0.004671, 0.005044, 0.020956, -0.001333, 0.009405, -0.015793]`；simultaneous upper 为
+`[0.034201, 0.023530, 0.039691, 0.037985, 0.033825, 0.026484]`，没有任一格排除 2pp；对应功效为
+`[0.20112, 0.58798, 0.55370, 0.08172, 0.31790, 0.07354]`。六格 clean simultaneous upper 均小于
+0.5（最大 `0.397037`），18 个 head 均非单一类别。因此 clean utility 和实现门通过，但最小功效远低于
+0.80。
+
+唯一裁决为 `INCONCLUSIVE_R013_H1A`，reason=`POWER`。不得把其中单格 2.096pp 点估计包装为正向结果，
+也不得据此输出 KILL、PASS、开启 H1b/H2、detector、risk/coverage、SAR、HRSC 或论文修改。完整 raw
+predictions、draws、replicates、模型身份、独立验证和 final token 位于 `runs/r013/`；可复算代码与本结论
+已推送至 main。
