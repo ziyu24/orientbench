@@ -62,49 +62,45 @@ def main() -> None:
 
     train_dir = args.dataset / "real/imagery/train/PS-RGB_cog"
     calibration_dir = args.dataset / "real/imagery/calibration/PS-RGB_cog"
-    image_cache: dict[str, Image.Image] = {}
     per_object: list[dict[str, object]] = []
+    calibration_groups: dict[str, list[tuple[dict[str, object], dict[str, object], dict[str, object]]]] = {}
     for record in calibration:
-        object_id = int(record["object_id"])
-        entry = eligible[object_id]
-        props = features[object_id]["properties"]
+        object_id = int(record["object_id"]); entry = eligible[object_id]; props = features[object_id]["properties"]
         image_id = sources.get((int(props["loc_id"]), props["cat_id"]))
-        if image_id is None or image_id != entry["source_cog"]:
-            raise RuntimeError(f"independent source mismatch for {object_id}")
+        if image_id is None or image_id != entry["source_cog"]: raise RuntimeError(f"independent source mismatch for {object_id}")
+        calibration_groups.setdefault(image_id, []).append((record, entry, props))
+    for image_id, group in calibration_groups.items():
         path = train_dir / f"{image_id}.tif"
         if not path.exists():
             path = calibration_dir / f"{image_id}.tif"
         if not path.is_file():
             raise RuntimeError(f"missing source COG {image_id}")
-        image_cache.setdefault(image_id, Image.open(path))
-        actual = crop(image_cache[image_id], entry)
-        stored = np.load(args.audit / "corrected_calibration_canvases" / f"{object_id}.npy", allow_pickle=False)
-        old = np.load(args.old_calibration / f"{object_id}.npy", allow_pickle=False)
-        if actual.shape != stored.shape or actual.shape != old.shape:
-            raise RuntimeError(f"canvas shape mismatch for {object_id}")
-        channels = int(np.count_nonzero(actual != stored))
-        per_object.append({
-            "object_id": object_id,
-            "loc_id": int(props["loc_id"]),
-            "cat_id": props["cat_id"],
-            "image_id": image_id,
-            "stored_canvas_sha256": sha256(args.audit / "corrected_calibration_canvases" / f"{object_id}.npy"),
-            "independent_canvas_sha256": hashlib.sha256(actual.tobytes()).hexdigest(),
-            "different_channels": channels,
-            "old_canvas_different_channels": int(np.count_nonzero(actual != old)),
-        })
+        with Image.open(path) as image:
+            for record, entry, props in group:
+                object_id = int(record["object_id"]); actual = crop(image, entry)
+                stored = np.load(args.audit / "corrected_calibration_canvases" / f"{object_id}.npy", allow_pickle=False)
+                old = np.load(args.old_calibration / f"{object_id}.npy", allow_pickle=False)
+                if actual.shape != stored.shape or actual.shape != old.shape: raise RuntimeError(f"canvas shape mismatch for {object_id}")
+                per_object.append({"object_id": object_id, "loc_id": int(props["loc_id"]), "cat_id": props["cat_id"], "image_id": image_id,
+                    "stored_canvas_sha256": sha256(args.audit / "corrected_calibration_canvases" / f"{object_id}.npy"), "independent_canvas_sha256": hashlib.sha256(actual.tobytes()).hexdigest(),
+                    "different_channels": int(np.count_nonzero(actual != stored)), "old_canvas_different_channels": int(np.count_nonzero(actual != old))})
 
     train_changed = 0
+    train_groups: dict[str, list[tuple[dict[str, object], dict[str, object]]]] = {}
     for record in train:
         object_id = int(record["object_id"])
         entry = eligible[object_id]
         props = features[object_id]["properties"]
         image_id = sources[(int(props["loc_id"]), props["cat_id"])]
+        train_groups.setdefault(image_id, []).append((record, entry))
+    for image_id, group in train_groups.items():
         path = train_dir / f"{image_id}.tif"
         if not path.is_file():
             raise RuntimeError(f"missing train source {image_id}")
-        image_cache.setdefault(image_id, Image.open(path))
-        train_changed += int(not np.array_equal(crop(image_cache[image_id], entry), np.load(args.old_train / f"{object_id}.npy", allow_pickle=False)))
+        with Image.open(path) as image:
+            for record, entry in group:
+                object_id = int(record["object_id"])
+                train_changed += int(not np.array_equal(crop(image, entry), np.load(args.old_train / f"{object_id}.npy", allow_pickle=False)))
 
     model_names = [f"{kind}_{seed}.pt" for kind in ("resnet50", "vit_b16") for seed in (1201, 1202, 1203)]
     model_files = [{"name": name, "exists": (args.models / name).is_file(), "sha256": sha256(args.models / name) if (args.models / name).is_file() else None} for name in model_names]
@@ -115,7 +111,7 @@ def main() -> None:
         "r013_calibration_manifest": (args.old_calibration.parent / "manifest.json").is_file(),
     }
     args.out.mkdir(parents=True)
-    (args.out / "pixel_records.jsonl").write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in per_object))
+    (args.out / "pixel_records.jsonl").write_text("".join(json.dumps(row, sort_keys=True) + "\n" for row in sorted(per_object, key=lambda row: row["object_id"])))
     summary = {
         "protocol": "r014-remaining-acceptance-v1",
         "test_opened": False,
