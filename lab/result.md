@@ -617,3 +617,14 @@ coverage、SAR、HRSC、论文修改或其他扩展。
 
 运行证据位于 `runs/r012/h1a/`（`fit_manifest.json`、`final.json`、canvas manifest、两个完整
 checkpoint 与对应日志）；大文件不进入普通 Git。相关实现与固定配置已推送至 main。
+
+### C 的 26 服务器只读复核
+
+C 在服务器项目内确认 r012 已无存活进程。ResNet-50 seeds 1201、1202 完成；ResNet-50/1203、
+ViT-B/16/1201、ViT-B/16/1202 的空日志在同一时刻创建，均未产生 traceback 或 final-epoch
+checkpoint，ViT-B/16/1203 未启动。final 证据约 173.5 秒后开始写入。用户级日志没有对应 OOM、
+Xid 或重启证据；但完整 kernel journal、dmesg、process accounting 与退出信号不可得。
+
+因此可确认的是外部同时终止；约 180 秒的父命令、会话或执行器时限只是高置信推断，不是已证明
+根因，也不能严格排除系统级 OOM。本次复核不改变唯一科学状态
+`INCONCLUSIVE_R012_H1A` / `TRAINING_FAILURE`，不产生 H1a 正向或负向结果。

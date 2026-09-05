@@ -396,3 +396,27 @@ train `±10°` response 选模型后，C 给出 `C_FINAL_SIGNED_R012_H1A_ONLY`�
 `STATS_FINAL_PASS`。六格必须全部达到 2pp 实质门且有同时区间支持，才能记 `PASS_R012_H1A`；
 执行有效且有功效但失败则记 `KILL_R012_H1A`；证据、实现或功效不足统一记
 `INCONCLUSIVE_R012_H1A`。PASS 也只准 B/C 另议 H1b/H2，不代表 JPRS/TGRS 已成立。
+
+## r012 外部终止复核与 r013 决策
+
+C 只读登录 26 服务器复核了当前项目。事实是：项目处于与远端一致的完整提交，工作树干净，r012
+已经没有存活进程；ResNet-50 的 seeds 1201、1202 分别约 94 秒和 97 秒完成，另外三个拟合的空日志
+在 2026-09-04 23:56:58 +08:00 同时创建，均未留下 Python traceback、final-epoch 模型或训练输出，
+ViT-B/16 seed 1203 未启动。final 证据约 173.5 秒后开始写入并裁决 TRAINING_FAILURE。用户级日志
+没有对应 OOM、Xid 或重启记录，当前四张 A30 也可正常识别。
+
+可以确认的是三个拟合被训练程序之外的事件同时终止，而不是三个模型各自正常失败。高置信推断是
+父命令、交互会话或执行器存在约 180 秒的外部时限；这比三个相互独立的 Python/CUDA 故障同时发生
+更符合时序。未知项仍然存在：当前账号无权读取完整 kernel journal/dmesg，也没有 process
+accounting 或退出信号记录，因此不能把“180 秒超时”写成已证明事实，也不能严格排除系统级 OOM。
+上述复核不产生新的科学 outcome，r012 仍只能是 INCONCLUSIVE_R012_H1A，而不是 H1a 失败。
+
+用户批准的唯一补救是 r013：科学问题、六格估计量、2pp 门、同步 component bootstrap、clean
+utility 和 calibration/test 信息墙全部不变；r012 的两个完整模型及所有部分状态永久排除，六次
+fit 从冻结的架构匹配初始化全新开始。正式拟合前仅允许不更新参数的单批次资源预检。任一正式拟合
+失败即整轮 inconclusive，不补跑、不混合。只有六个 final-epoch 模型全部封存后才一次性打开
+calibration。
+
+r013 PASS 仍只是 H1a 必要性证据，下一步必须是 predicted-angle→GT-angle 的 H1b rescue；之后才
+可能设计不使用 test GT 的 H2 风险控制、来源独立确认与真实三人互盲锚点。r013 KILL 则关闭
+RarePlanes 顶刊扩展。当前论文级别在 r013 结果回来前仍是 strong JSTARS，不因重新执行而升档。
