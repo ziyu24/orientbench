@@ -49,7 +49,7 @@ def main():
  draw=np.concatenate(draws)[:50000];R=np.concatenate(rep)[:50000];delta=(((R[...,1]+R[...,2])/2)-R[...,0]).mean(2);dpoint=(((point[...,1]+point[...,2])/2)-point[...,0]).mean(1)
  flat=delta.reshape(50000,6);dp=dpoint.reshape(6);sd=flat.std(0,ddof=1);M=np.max(np.abs((flat-dp)/sd),1);q=float(np.quantile(M,.95,method='linear'));lo=dp-q*sd;hi=dp+q*sd;power=np.mean(.020+flat-dp-q*sd>0,0)
  clean=R[...,0].mean(2).reshape(50000,6);cp=point[...,0].mean(1).reshape(6);cs=clean.std(0,ddof=1);cq=float(np.quantile(np.max(np.abs((clean-cp)/cs),1),.95,method='linear'));clo=cp-cq*cs;chi=cp+cq*cs
- utility=np.array([[not np.all(hard[ai,si,:,k]==hard[ai,si,0,k]) for k in range(3)] for ai in range(2) for si in range(3)]).reshape(2,3,3)
+ utility=np.array([[not np.all(hard[ai,si,0,:,k]==hard[ai,si,0,0,k]) for k in range(3)] for ai in range(2) for si in range(3)]).reshape(2,3,3)
  np.save(a.out/'bootstrap_draws.npy',draw);np.savez_compressed(a.out/'bootstrap_replicates.npz',risk=R,delta=delta,clean=clean)
  payload={'protocol':'r013-h1a-v1','zero_denominator_draws':zero,'point_risk':point.tolist(),'delta':dpoint.tolist(),'sd':sd.tolist(),'q':q,'simultaneous_lower':lo.tolist(),'simultaneous_upper':hi.tolist(),'power':power.tolist(),'clean_risk':cp.tolist(),'clean_q':cq,'clean_simultaneous_lower':clo.tolist(),'clean_simultaneous_upper':chi.tolist(),'all_heads_nonconstant':bool(utility.all()),'head_nonconstant':utility.tolist(),'raw_shape':list(prob.shape)}
  (a.out/'summary.json').write_text(json.dumps(payload,sort_keys=True,indent=2)+'\n')
