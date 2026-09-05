@@ -1,0 +1,9 @@
+{
+  "affected_calibration_eligible": 2318,
+  "models_retrained": false,
+  "protocol": "r014-correction-only-v1",
+  "reason": "POWER",
+  "status": "INCONCLUSIVE_R013_H1A",
+  "test_opened": false,
+  "valid": true
+}

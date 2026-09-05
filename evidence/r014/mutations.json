@@ -1,0 +1,15 @@
+{
+  "all_pass": true,
+  "angle_nonzero": true,
+  "identity": true,
+  "reject_missing_model": true,
+  "reject_nan": true,
+  "reject_row_mismatch": true,
+  "reject_wrong_source": true,
+  "theta180_pair_order": true,
+  "wh_plus90": true,
+  "zero_variance_interval": [
+    0.0,
+    0.0
+  ]
+}

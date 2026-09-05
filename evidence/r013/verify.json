@@ -1,0 +1,61 @@
+{
+  "all_heads_nonconstant": true,
+  "components": 25,
+  "delta": [
+    0.004671202098922393,
+    0.005044298301833329,
+    0.020955739361674202,
+    -0.0013332129645254598,
+    0.009404876666885128,
+    -0.0157927195495511
+  ],
+  "head_nonconstant": [
+    [
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ],
+    [
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ]
+  ],
+  "independent": true,
+  "matches_summary": true,
+  "mutation_all_pass": true,
+  "q": 2.659084631419583,
+  "raw_rows": 7416,
+  "sd": [
+    0.011105125284504148,
+    0.0069517208826845815,
+    0.007045586579166968,
+    0.014786485668986177,
+    0.009183565882958883,
+    0.01589879506194684
+  ]
+}
