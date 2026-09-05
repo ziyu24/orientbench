@@ -1,0 +1,6 @@
+protocol: r015-matched-support-v1
+stage: frozen_36_fit_matrix
+gpu_workers: 1
+matrix: [I, O, T] x [resnet50, vit_b16] x [96, 224] x [1501, 1502, 1503]
+forbidden: [calibration, test_pixels, hyperparameter_search, detector, selector]
+checkpointing: exact-resume-model-optimizer-sampler-rng; epoch30-epoch40-model-evidence
