@@ -690,7 +690,8 @@ image records、227 CAT、102 components、calibration 7,418 个 full objects。
 按公开生成器与冻结总体，2,318个 full objects 会被配到错误 COG，涉及20个 loc–CAT 键、两个
 component。报告共同
 eligible=7,416，故至少2,316个 eligible 会受影响；无实际 manifest 不给最终精确排除数。
-31.25% 是对象比例，不是 component-equal 权重。例如 loc44 的对象189/214/216应读取
+31.25% 是对象比例，不是 component-equal 权重。例如 loc44 的项目对象189/214/216（按冻结
+GeoJSON顺序枚举，不是官方永久ID）应读取
 `44_1040010043B54900`，却被映射为`107_1040010043B54900`；独立 COG header 核验确认它们
 是不同机场、不同宽高和 affine，不是同图别名。这不是跨 split 泄漏，而是标签、原图像素几何
 与另一影像错配；三臂自洽也无法恢复“同一飞机”的因果单位。

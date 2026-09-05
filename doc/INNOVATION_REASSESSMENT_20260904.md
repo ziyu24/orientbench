@@ -44,7 +44,8 @@ compact 原始预测、draws、canvas/model manifest 的可读取发布，因此
 `eligible_manifest` 还明确保存了 `source_cog`。当前提取器没有消费这一身份字段，而把原图的
 像素中心、L/S 用于另一幅图。shape 和文件 SHA 一致无法证明裁到的是声明的飞机。
 
-官方数据是 253 个 image records、227 个 CAT，CAT 并非 image 主键。例如对象 189、214、216
+官方数据是 253 个 image records、227 个 CAT，CAT 并非 image 主键。例如项目对象189、214、216
+（按冻结 GeoJSON 顺序枚举的 object_id，不是官方永久标识）
 属于 `loc=44, CAT=1040010043B54900`；正确图为 `44_1040010043B54900`，代码却选
 `107_1040010043B54900`。独立审计的官方 COG header 显示前者位于 Henderson、4768×9250，
 后者位于 North Las Vegas、9706×4810，地理 affine 也不同；不是同图别名。
@@ -112,6 +113,7 @@ groups = defaultdict(list)
 for loc in sorted(parent):
     groups[root(loc)].append(loc)
 keys = sorted('loc:' + ','.join(map(str, xs)) for xs in groups.values())
+key_of = {int(v): key for key in keys for v in key[4:].split(',')}
 order = np.random.Generator(np.random.PCG64(1010)).permutation(len(keys))
 cal = {int(v) for j in order[25:50] for v in keys[int(j)][4:].split(',')}
 objects, bad, bad_keys = [], [], set()
@@ -127,10 +129,12 @@ for oid, feature in enumerate(features):
 print(json.dumps(dict(metadata_rows=len(meta), cats=len(producer), components=len(keys),
     cal_full_objects=len(objects), wrong_source_objects=len(bad),
     affected_loc_cat_keys=len(bad_keys),
+    affected_components=sorted({key_of[loc] for loc, cat in bad_keys}),
     input_sha256=[hashlib.sha256(b).hexdigest() for b in raw]), indent=2))
 ```
 
 本次 B 与独立审计重建结果均为 `253 / 227 / 102 / 7418 / 2318 / 20`。
+两个受影响 component 为 `loc:44,107`、`loc:51,54,84,86,106,108,113`。
 官方 CSV SHA-256：`005eb9c6c4ab0f0fea1f8402f202066b6f4d29617ef263f72b1be34dea35edec`；
 GeoJSON：`3e4786590cb350038d18120732787b1a6586408ab0685d344ef0730815e79ecb`。
 来源：[官方 metadata](https://rareplanes-public.s3.amazonaws.com/real/metadata_annotations/RarePlanes_Public_Metadata.csv)、
