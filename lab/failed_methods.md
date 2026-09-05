@@ -1,5 +1,13 @@
 # 主要失败路线
 
+## r014终态：原训练身份链不可恢复
+
+剩余只读验收完成了全量7,416 calibration canvas独立像素比较、4,065 train canvas比较、
+真实生产render参考检查及真实输入反例拒绝；没有发现新的来源或render语义错误。
+但原r013 `fit_manifest.json`和calibration冻结manifest缺失；现存模型文件内容与SHA-256不能证明
+指定初始化、8 epoch训练完成、训练输入绑定及calibration打开时点。该历史事实不能由r014新记录追认，
+故终态为`INCONCLUSIVE_R013_H1A / INPUT_OR_IMPLEMENTATION`，不启动新实验。
+
 ## r014补记：统计可复算，不等于干预与来源全部有效
 
 2026-09-05已发布的修正概率支持B完整复算：7,416对象、25 components、50,000同步draws，
