@@ -1,0 +1,14 @@
+protocol: r013-h1a-v1
+inherit:
+  g0: runs/r012/final_repair_artifacts/primary.json
+  train_canvas_manifest_sha256: 1586f6864d21e3fda49565b4f9dded15ebe770696e4fd992170cf41ecf10d99a
+isolation: "no r012 learned parameters may be loaded, averaged, compared, or selected"
+architectures: [resnet50, vit_b16]
+seeds: [1201, 1202, 1203]
+fits: 6
+optimizer: {name: AdamW, lr: 0.0003, weight_decay: 0.0001, batch_size: 24}
+epochs: 8
+augmentations: []
+render: "single bilinear theta affine, 1.20L x 1.20S, 224x224, raw RGB/255"
+checkpoint: final_epoch_only
+preflight: "one train batch per architecture; forward/backward finite check; no optimizer step or saved model"
