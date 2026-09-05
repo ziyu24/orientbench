@@ -25,9 +25,12 @@ def render(windows,rows,strategy,n,seed,epoch,second=False,eval_phi=None):
    base=float(np.random.Generator(np.random.PCG64(np.random.SeedSequence([15015,r['object_id']]))).uniform(0,math.pi)) if strategy=='I' else 0.
   else: base=eval_phi if eval_phi is not None else angle(seed,epoch,r['object_id'],strategy)
   theta.append(base if strategy=='I' else float(r['theta'])+base)
- t=torch.tensor(theta,device=device)[:,None,None]+(math.pi if second else 0.);c,s=torch.cos(t),torch.sin(t);cx=torch.tensor([r['center'][0]-r['origin']['left'] for r in rows],device=device)[:,None,None];cy=torch.tensor([r['center'][1]-r['origin']['top'] for r in rows],device=device)[:,None,None];side=torch.tensor([r['origin']['side'] for r in rows],device=device)[:,None,None]
+ t=torch.tensor(theta,device=device)[:,None,None]+(math.pi if second else 0.);c,s=torch.cos(t),torch.sin(t);cx=torch.tensor([r['center'][0]-r['origin']['left'] for r in rows],device=device)[:,None,None];cy=torch.tensor([r['center'][1]-r['origin']['top'] for r in rows],device=device)[:,None,None]
  if strategy=='T':ax=.60*L;ay=.60*S;mask=None
  else:ax=ay=rho;mask=(xx.square()+yy.square()<=1)[None,None]
- px=c*ax*xx-s*ay*yy+cx;py=s*ax*xx+c*ay*yy+cy;grid=torch.stack((2*(px+.5)/side-1,2*(py+.5)/side-1),-1);out=F.grid_sample(windows,grid,mode='bilinear',padding_mode='zeros',align_corners=False)
+ # collate pads each real window at top-left.  grid_sample coordinates must use
+ # the common padded canvas, not a row's original side length.
+ canvas_h,canvas_w=windows.shape[-2:]
+ px=c*ax*xx-s*ay*yy+cx;py=s*ax*xx+c*ay*yy+cy;grid=torch.stack((2*(px+.5)/canvas_w-1,2*(py+.5)/canvas_h-1),-1);out=F.grid_sample(windows,grid,mode='bilinear',padding_mode='zeros',align_corners=False)
  if mask is not None:out=torch.where(mask,out,MEAN.to(device)[None,:,None,None])
  out=F.avg_pool2d(out,2);return (out-MEAN.to(device)[None,:,None,None])/STD.to(device)[None,:,None,None]
