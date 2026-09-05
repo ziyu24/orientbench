@@ -1,0 +1,5 @@
+protocol: r015-preflight-validator-v1
+stage: independent_preflight_validation
+forbidden: [test_pixels, model_forward, training, detector, selector]
+input: runs/r015/artifacts/preflight.json
+output: runs/r015/artifacts/preflight_validation.json

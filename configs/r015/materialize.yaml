@@ -1,0 +1,6 @@
+protocol: r015-window-materialization-v1
+stage: bounded_source_window_materialization
+forbidden: [test_pixels, model_forward, training, detector, selector]
+dataset: /home/rspip/cqc/data/dataset/RarePlanes-Public
+input: runs/r015/artifacts/preflight.json
+output: runs/r015/artifacts/windows
