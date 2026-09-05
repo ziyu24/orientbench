@@ -711,4 +711,43 @@ Public_Train=1、1,302旧flag=0；再取旧train交集及几何资格得到4,065
 建议后续仅 correction-only：先公开旧证据、逐对象核验来源，模型身份成立时复用六个既有模型
 重建同一calibration三臂并独立复算；不重训、不改split/样本/阈值、不删受影响component、不
 打开test。修复结果是透明重建，不是新的前瞻盲验证；即使PASS也不自动授权H1b/H2或升档。
+
+## r014
+
+r014 是来源身份 correction-only，不是新训练或新方法。旧 r013 产物、模型、raw predictions、draws、
+统计和原裁决均保留；用 r014 统计程序从 preserved r013 averaged raw probabilities 重建旧六格，
+Delta 与 q 的最大绝对差均为 `0`，故历史机器报告的数值本身可复现，但其像素来源错误，不能作为
+有效 H1a 证据。
+
+逐键审计官方 metadata、完整 GeoJSON、G0 lexical split 与 frozen manifest 得到：253 image records、
+227 canonical CAT、14,707 full objects；train/calibration/test 分别为 54/32/26 locations（对应
+52/25/25 components）。实际训练保持 5,370 train full → 4,068 `Public_Train=1` → 4,065 common
+eligible，对应 wing `3023/1042`、engine `1682/2383`、propulsion `1195/2870` 的正/负支持。4,065
+个旧 train canvas 与 `(loc_id,CAT,image_id,source_cog)` 正确来源的独立重建逐像素一致，六个 r013
+final-epoch checkpoint 的参数未变化且仅 strict-load/eval 使用。
+
+calibration 为 7,418 full、7,416 eligible；缺失对象 ID 9082、10788 均为 loc 105 / CAT
+`104001002F92BB00`，理由是未进入原 frozen eligible manifest。公开 r013 生成代码的 CAT-only
+字典后值覆盖使 2,318 个 eligible 对象（20 个 loc–CAT 键、两个 component）错配到另一 COG，且这些
+2,318 个旧 canvas 与正确来源像素均实际不同。修正 canvas 单独保存在 r014，不覆盖旧 canvas。独立
+GeoJSON→COG affine 几何对全部 eligible 的 L/S、center、RP1 theta、canvas side 零 mismatch；固定
+reference set 的 2,385 个 corrected canvas 第二路径逐像素差也为零。
+
+仅复用原六模型从正确 canvas 产生完整三臂、两视图概率。模型参数本体 SHA-256 在每次评估前后相同；
+概率有限、在 `[0,1]` 且二类和为 1。identity、非零角响应、w/h+90 补偿、theta+180 pair order、
+错 source/错行/NaN/缺模型拒绝和零方差夹具均由独立 mutation fixture 通过。修正 raw 与旧 raw 的
+对象、component、标签集合相同；受影响对象的最大概率差介于 `0.8659–1.0000`，未受影响行只保留
+浮点级差异（最大 `4.875e-4`）。
+
+从完整修正 probabilities 以 float64 重算 50,000 个 PCG64(12012) 同步 component draws。独立实现
+不导入生成器/统计模块，六格 Delta、sd、q 与主实现最大 Delta 差 `2.78e-17`。修正 Delta 为
+`[0.005070, 0.005082, 0.021439, -0.000307, 0.009485, -0.014622]`，simultaneous upper 为
+`[0.034394, 0.023599, 0.040060, 0.038661, 0.033944, 0.027798]`，功效为
+`[0.20396, 0.58606, 0.56040, 0.08280, 0.31648, 0.07378]`。clean simultaneous upper 最大
+`0.392332<0.5`，18 个 clean head 均非单一类别。
+
+因此 r014 correction-only 的唯一裁决为 `INCONCLUSIVE_R013_H1A`，reason=`POWER`。这是对有效来源
+重建后的冻结功效诊断，不是 KILL 或 PASS；不得用单格 2.144pp 点估计声称正结果，不得追加 seed、
+样本、训练、H1b/H2、detector、test 或论文修改。旧 r013 `INPUT_IDENTITY/IMPLEMENTATION_INVALID`
+优先原因已被本轮来源审计和重建闭合，但历史 r013 机器数值仍保留为受污染记录，不能覆盖或替代本节。
 本次未控制SERVER，未签新实验；r013执行已结束，单槽归于NO_ACTIVE_TASK。
