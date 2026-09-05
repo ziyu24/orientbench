@@ -809,6 +809,9 @@ r014当前仅完成原有验收缺口；不重训、不再模型前向、不打�
 本次没有训练、模型前向、test像素、test crop或test性能计算。独立从官方metadata恢复
 `(loc_id,CAT)→image_id`后，逐像素比较全部7,416个calibration canvas，差异为0；相对旧canvas
 有2,318行改变。全部4,065个旧训练canvas比较仍为零差异。逐对象记录已进入结果证据。
+原calibration未纳入的对象9082与10788均来自`105_104001002F92BB00`，其center y分别为
+31.05与-10.82、所需canvas边长67与63，超出影像边界；具体资格原因是
+`incomplete_canvas_out_of_bounds`，而非仅称“未进入manifest”。
 
 实际生产render在87个calibration source（覆盖全部20个受影响loc--CAT键）上与不导入生产
 坐标函数的独立reference比较：最大像素差2.54810e-5，theta+180度视图换序最大差2.95043e-5。
