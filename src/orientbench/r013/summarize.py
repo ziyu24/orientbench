@@ -12,7 +12,7 @@ def component_values(prob,labels,component):
     for c in range(2):
      for j in range(25):
       m=(component==j)&(labels[:,k]==c);has[k,j,c]=m.any()
-      if m.any():out[ai,si,:,k,j,c]=np.mean(hard[ai,si,:,m,k] != c,axis=1)
+      if m.any():out[ai,si,:,k,j,c]=np.mean(hard[ai,si][:,m,k] != c,axis=1)
  return out,has,hard
 def risks(counts,values,has):
  b=len(counts)
