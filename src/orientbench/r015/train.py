@@ -34,6 +34,8 @@ def run(job,device,records,window_root,out):
     x=x.to(device,non_blocking=True);left=render(x,batch,strategy,size,seed,0,False,eval_phi='fixed');right=render(x,batch,strategy,size,seed,0,True,eval_phi='fixed');o=(model(left)+model(right))/2;y=torch.tensor([r['labels'] for r in batch],device=device);values.append(float(sum(nn.functional.cross_entropy(o[:,j],y[:,j],weight=weights[j]) for j in range(3))/3))
   return float(np.mean(values))
  log=[];step=0
+ def checkpoint(epoch,path):
+  torch.save({'protocol':'r015-matched-support-v1','strategy':strategy,'kind':kind,'size':size,'seed':seed,'epoch':epoch,'state_dict':model.state_dict(),'optimizer':opt.state_dict(),'sampler':{'scheme':'epoch_lexical_pcg64','seed':seed*1000+epoch},'rng':{'python':random.getstate(),'numpy':np.random.get_state(),'torch':torch.get_rng_state(),'cuda':torch.cuda.get_rng_state(device)}},path)
  for epoch in range(40):
   generator=torch.Generator().manual_seed(seed*1000+epoch);dl=DataLoader(ds,batch_size=24,shuffle=True,generator=generator,num_workers=2,pin_memory=True,collate_fn=collate)
   model.train();losses=[]
@@ -43,8 +45,10 @@ def run(job,device,records,window_root,out):
    for group in opt.param_groups:group['lr']=3e-4*lr(step)
    losses.append(float(loss.detach()))
   log.append({'epoch':epoch+1,'mean_train_loss':float(np.mean(losses)),'lr':opt.param_groups[0]['lr'],'optimizer_steps':step,'objects':len(ds)})
+  # This overwrite is the exact recovery checkpoint; epoch30/40 are retained evidence.
+  checkpoint(epoch+1,target/'resume.pt')
   if epoch+1 in (30,40):
-   log[-1]['fixed_train_loss']=fixed_loss();torch.save({'protocol':'r015-matched-support-v1','strategy':strategy,'kind':kind,'size':size,'seed':seed,'epoch':epoch+1,'state_dict':model.state_dict(),'optimizer':opt.state_dict(),'rng':{'python':random.getstate(),'numpy':np.random.get_state(),'torch':torch.get_rng_state()}},target/f'epoch{epoch+1}.pt')
+   log[-1]['fixed_train_loss']=fixed_loss();checkpoint(epoch+1,target/f'epoch{epoch+1}.pt')
  (target/'train.json').write_text(json.dumps({'tag':tag,'initialization_sha256':initial_hash,'epochs':log,'final_sha256':sha(target/'epoch40.pt')},sort_keys=True,indent=2)+'\n')
 def worker(rank,jobs,records,window_root,out):
  for job in jobs[rank::4]:run(job,rank,records,window_root,out)
