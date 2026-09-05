@@ -50,9 +50,10 @@ def statistic(arrays, component, labels):
     def aggregate(weights):
         ans=np.empty((len(weights),2,3,3,3))
         for attribute in range(3):
-            left=np.einsum('bj,msj->bms',weights,values[:,:,:,attribute,:,0])/(weights@present[attribute,:,0])[:,None,None]
-            right=np.einsum('bj,msj->bms',weights,values[:,:,:,attribute,:,1])/(weights@present[attribute,:,1])[:,None,None]
-            ans[:,:,:,attribute]=.5*(left+right)
+            for arm in range(3):
+                left=np.einsum('bj,msj->bms',weights,values[:,:,arm,attribute,:,0])/(weights@present[attribute,:,0])[:,None,None]
+                right=np.einsum('bj,msj->bms',weights,values[:,:,arm,attribute,:,1])/(weights@present[attribute,:,1])[:,None,None]
+                ans[:,:,:,attribute,arm]=.5*(left+right)
         return ans
     risk=aggregate(w); point=aggregate(np.ones((1,25)))[0]
     replicate=((risk[...,1]+risk[...,2])*.5-risk[...,0]).mean(2).reshape(50000,6); delta=((point[...,1]+point[...,2])*.5-point[...,0]).mean(1).reshape(6)
