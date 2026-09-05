@@ -12,9 +12,11 @@ def sha(p):
   for b in iter(lambda:f.read(1<<20),b''):h.update(b)
  return h.hexdigest()
 def main():
- p=argparse.ArgumentParser();p.add_argument('--g0',type=Path,required=True);p.add_argument('--canvases',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--g0',type=Path,required=True);p.add_argument('--final',type=Path,required=True);p.add_argument('--canvases',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
  g=json.load(open(a.g0)); c=json.load(open(a.canvases/'manifest.json'))
- if g.get('status') != 'G0_PASS_H1A_TRAINING_AUTHORIZED' or len(c['records']) != 4065: raise RuntimeError('r013 inherited-input identity')
+ final=json.load(open(a.final))
+ if (final.get('status') != 'G0_PASS_H1A_TRAINING_AUTHORIZED' or len(c['records']) != 4065 or
+     c.get('g0_primary_sha256') != sha(a.g0)): raise RuntimeError('r013 inherited-input identity')
  # The preflight is intentionally one batch, train imagery only, and never calls optimizer.step.
  from orientbench.r012.h1a_train import Heads, Planes, lab
  e={x['object_id']:x for x in json.load(open(a.g0.parent/'eligible_manifest.json'))}
@@ -35,5 +37,5 @@ def main():
   ans[kind]={'output_shape':list(out.shape),'finite':bool(torch.isfinite(out).all()),'optimizer_steps':0}
   del m,out,loss; torch.cuda.empty_cache()
  a.out.parent.mkdir(parents=True,exist_ok=True)
- a.out.write_text(json.dumps({'protocol':'r013-h1a-v1','g0_sha256':sha(a.g0),'canvas_manifest_sha256':sha(a.canvases/'manifest.json'),'architectures':ans,'calibration_opened':False,'test_opened':False},sort_keys=True,indent=2)+'\n')
+ a.out.write_text(json.dumps({'protocol':'r013-h1a-v1','g0_sha256':sha(a.g0),'g0_final_sha256':sha(a.final),'canvas_manifest_sha256':sha(a.canvases/'manifest.json'),'architectures':ans,'calibration_opened':False,'test_opened':False},sort_keys=True,indent=2)+'\n')
 if __name__=='__main__':main()
