@@ -1,0 +1,5 @@
+protocol: r015-independent-verifier-v1
+stage: independent_recomputation
+input: [runs/r015/artifacts/evaluation, runs/r015/artifacts/statistics]
+forbidden: [test_pixels, model_selection, hyperparameter_search, detector, selector]
+output: runs/r015/artifacts/verification.json
