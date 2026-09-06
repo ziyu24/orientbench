@@ -863,6 +863,22 @@ B在透明重建范围内手工按冻结顺序判断：clean utility有效、全
 不恢复旧r013错图结果的前瞻资格。有缺陷的自动验收器没有被追认为全面通过或修复完成。
 
 r014不再追加修复轮次，结案时回到NO_ACTIVE_TASK。当前期刊创新判断不因纠错升级。
+
+## r015 同支持方向价值探索（2026-09-06）
+
+36 个冻结拟合（I/O/T × ResNet-50/ViT-B/16 × 96/224 × 三种子）均正常完成；训练完成前未读取
+calibration，测试像素从未打开。之后一次性对固定 7,416 calibration 对象、25 个冻结来源 component
+产生 36 份完整概率，并以 PCG64(15015) 进行 50,000 次同步 component bootstrap。独立验证器从 raw
+probabilities 和保存的 draws 重算全部 46 维，`bootstrap_match=true`，最大差
+`7.45e-09`。
+
+主继续门不通过：96 输入的 `G2(0)=R_I2-R_O0` 为 ResNet-50 `-0.01242`
+（同时95% CI `[-0.05354,0.02870]`），ViT-B/16 `0.00623`
+（`[-0.01626,0.02873]`）；两者均未达到预设 `>=0.02` 且下界 `>0`。因此裁决为
+`STOP_R015_DIRECTION_SIDE_INFORMATION_EXPLORATION`：本轮有限预算内没有支持“轴对齐特权信息在固定
+圆形支持/像素预算下稳定带来独立属性收益”的证据。不得追加 seed、epoch、对象或以224结果救回；这不外推为
+所有方向方法、真实业务价值或等变模型无效。证据：`runs/r015/artifacts/{preflight.json,
+preflight_validation.json,model_preflight.json,fits,evaluation,statistics,verification.json}`。
 随后用户要求新的执行方案，B已另签r015：同支持/像素预算的方向侧信息探索，
 明确GT方向特权、强旋转增强反例与紧裁剪诊断。该计划尚未运行，不能写成结果，
 也不恢复旧无增强H1a或改变其INCONCLUSIVE结论。
