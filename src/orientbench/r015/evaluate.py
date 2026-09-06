@@ -20,6 +20,9 @@ def records(preflight: Path, windows: Path):
     for row in p['records']['calibration']:
         q = dict(row)
         q['window'] = m[str(q['object_id'])]['window']
+        # The frozen component universe is the original source location, not a
+        # post-hoc image grouping.  Preflight preserves it as loc_id.
+        q['component'] = q['loc_id']
         result.append(q)
     if len(result) != 7416:
         raise RuntimeError('calibration universe')
