@@ -1,0 +1,8 @@
+protocol: r015-matched-support-v1
+stage: fixed_component_bootstrap
+bootstrap_draws: 50000
+components: 25
+family_dimensions: 46
+forbidden: [test_pixels, model_selection, hyperparameter_search, detector, selector]
+input: runs/r015/artifacts/evaluation
+output: runs/r015/artifacts/statistics
