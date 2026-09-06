@@ -75,8 +75,8 @@ def fit(fit_dir: Path, device: int, rows, root: Path, out: Path):
         'conditions': conditions, 'objects': len(rows), 'test_opened': False}, indent=2, sort_keys=True) + '\n')
 
 
-def worker(rank, dirs, rows, root, out):
-    for directory in dirs[rank::4]:
+def worker(rank, workers, dirs, rows, root, out):
+    for directory in dirs[rank::workers]:
         fit(directory, rank, rows, root, out)
 
 
@@ -86,15 +86,17 @@ def main():
     parser.add_argument('--windows', type=Path, required=True)
     parser.add_argument('--fits', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--gpus', type=int, default=1)
     args = parser.parse_args()
     dirs = sorted(args.fits.glob('*/train.json'))
     dirs = [x.parent for x in dirs]
-    if len(dirs) != 36 or torch.cuda.device_count() != 4:
-        raise RuntimeError(('frozen fit matrix or gpu count', len(dirs), torch.cuda.device_count()))
+    if len(dirs) != 36 or args.gpus not in (1, 2, 3, 4) or torch.cuda.device_count() != args.gpus:
+        raise RuntimeError(('frozen fit matrix or gpu count', len(dirs), torch.cuda.device_count(), args.gpus))
     if args.out.exists():
         raise RuntimeError('evaluation output exists')
     args.out.mkdir(parents=True)
-    mp.spawn(worker, args=(dirs, records(args.preflight, args.windows), args.windows, args.out), nprocs=4, join=True)
+    mp.spawn(worker, args=(args.gpus, dirs, records(args.preflight, args.windows), args.windows, args.out),
+             nprocs=args.gpus, join=True)
     if len(list(args.out.glob('*/probabilities.npz'))) != 36:
         raise RuntimeError('incomplete evaluation')
     (args.out / 'manifest.json').write_text(json.dumps({'protocol': 'r015-matched-support-v1', 'fits': 36,

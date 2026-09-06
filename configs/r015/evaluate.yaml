@@ -1,0 +1,6 @@
+protocol: r015-matched-support-v1
+stage: frozen_calibration_inference
+gpu_workers: 1
+input: frozen epoch40 models from all 36 fits
+forbidden: [test_pixels, model_selection, hyperparameter_search, detector, selector]
+output: runs/r015/artifacts/evaluation
