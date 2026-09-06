@@ -13,16 +13,17 @@ from orientbench.r015.data import Windows, collate, render
 from orientbench.r015.model import Heads
 
 
-def records(preflight: Path, windows: Path):
+def records(preflight: Path, windows: Path, g0: Path):
     p = json.loads(preflight.read_text())
     m = json.loads((windows / 'manifest.json').read_text())['objects']
+    groups = json.loads(g0.read_text())['split']['calibration']
+    component = {int(loc): group for group, item in enumerate(groups)
+                 for loc in item.split(':', 1)[1].split(',')}
     result = []
     for row in p['records']['calibration']:
         q = dict(row)
         q['window'] = m[str(q['object_id'])]['window']
-        # The frozen component universe is the original source location, not a
-        # post-hoc image grouping.  Preflight preserves it as loc_id.
-        q['component'] = q['loc_id']
+        q['component'] = component[int(q['loc_id'])]
         result.append(q)
     if len(result) != 7416:
         raise RuntimeError('calibration universe')
@@ -87,6 +88,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--preflight', type=Path, required=True)
     parser.add_argument('--windows', type=Path, required=True)
+    parser.add_argument('--g0', type=Path, required=True)
     parser.add_argument('--fits', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--gpus', type=int, default=1)
@@ -98,7 +100,7 @@ def main():
     if args.out.exists():
         raise RuntimeError('evaluation output exists')
     args.out.mkdir(parents=True)
-    mp.spawn(worker, args=(args.gpus, dirs, records(args.preflight, args.windows), args.windows, args.out),
+    mp.spawn(worker, args=(args.gpus, dirs, records(args.preflight, args.windows, args.g0), args.windows, args.out),
              nprocs=args.gpus, join=True)
     if len(list(args.out.glob('*/probabilities.npz'))) != 36:
         raise RuntimeError('incomplete evaluation')
