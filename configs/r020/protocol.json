@@ -1,0 +1,33 @@
+{
+  "task": "r020",
+  "question": "After train-fixed translation, does a real complementary image improve risk over applying the same two existing models to the anchor image alone?",
+  "existing_models": [1701,1702],
+  "model_scope": "Two models are components of the compared two-forward actions, not optimization replications; no new seed or network training",
+  "data_manifest_sha256": "343faf434f4997046fdb632b63ce7d2c3a77d02f932ebf527e1d203d226e0bae",
+  "checkpoint_sha256": {
+    "1701": "a75d7297894642c3023d630c20d8b6ccb2c64b8b46b8116b3b3f40fc63206bc8",
+    "1702": "9e7e462135de34775990e778173b32d117baefff11a583c40e04c9e5256eeaea"
+  },
+  "foreground_fraction": 0.10128044595523755,
+  "view_order": ["1030010003472200","103001000392F600","10300100036D5200","1030010003315300"],
+  "margin_pixels": 32,
+  "first_model_translation": "Reuse B-audited r019 shifts unchanged",
+  "second_model_translation": "Same r019 train-only global integer shift fitting; 256 train regions, four means of fixed pixel BCE, search each coordinate [-32,32], same tie rule and direct check",
+  "evaluation": "Reuse r018 two-model base probabilities, 128 regions/16 blocks; actual cached labels primary, direct448 labels sensitivity",
+  "primary_support": "Central384 with train-fixed shifts; zero-shift Central384 descriptive",
+  "same_image_action": "S_i=(p1701(i)+p1702(i))/2; two forwards and one image",
+  "cross_image_action": "C_ij12=(p1701(i)+p1702(j))/2; C_ij21=(p1702(i)+p1701(j))/2; two forwards and two images per assignment",
+  "assignment_aggregation": "Evaluate both pre-fixed model assignments, average their losses; equivalent to uniform assignment selected without labels. Never pool four probabilities or choose better assignment",
+  "co_primary": ["G_A=L(S_A)-mean_assignment L(C_AV)","G_B=L(S_B)-mean_assignment L(C_BU)"],
+  "statistics": "Tile mean within block, equal16 blocks; PCG64(17017),20000 paired draws; each co-primary uses two-sided97.5% percentile interval (Bonferroni, approximate bootstrap coverage); 95% descriptive intervals also reported",
+  "secondary": "Individual assignments, redundancy AU/BV, crossed I, per-action losses and block IoU; assignment IoU ratios first then average",
+  "scope": "Post-hoc one-pass benchmark; equal model inventory and inference count, different image acquisition requirements; not measured economic cost or all-alternative optimality",
+  "new_neural_network_fits": 0,
+  "new_forward_images": 1024,
+  "new_download_bytes": 0,
+  "gpu_hours_total": 1,
+  "wall_hours_total": 3,
+  "prediction_bytes_limit": 2000000000,
+  "no_official_validation_or_test": true,
+  "no_automatic_followup": true
+}
