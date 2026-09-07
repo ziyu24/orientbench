@@ -1,0 +1,74 @@
+{
+  "task": "r017",
+  "question": "Does a real complementary view improve building-footprint loss over a matched redundant view, for both opposite anchor directions?",
+  "estimand": "Exploratory total-view benchmark benefit; no PSF mechanism, causal isolation, acquisition-policy novelty, or cross-sensor claim.",
+  "dataset": "SpaceNet4 official training partition only",
+  "data_manifest": "configs/r017/data_manifest.json",
+  "training_tiles": 256,
+  "calibration_tiles": 128,
+  "calibration_geographic_blocks": 16,
+  "geographic_block_m": 2700,
+  "train_calibration_min_gap_m": 450,
+  "image_side": 448,
+  "input": {
+    "channels": "First three PS-RGBNIR channels, RGB",
+    "scale": "clip(raw / 3000, 0, 1), then ImageNet RGB normalization",
+    "resample": "Entire 900x900 tile to 448x448 by bilinear interpolation; identical map bounds for all views",
+    "label": "Rasterize official building polygons directly on the 448x448 grid, pixel-center rule, preserve holes; valid empty FeatureCollections remain negatives",
+    "invalid": "Zero-byte labels were excluded before selection. Do not infer nodata from black pixels. Nonfinite/nodata/geographic support must be shared across all four views."
+  },
+  "model": {
+    "name": "torchvision fcn_resnet50",
+    "num_classes": 1,
+    "aux_loss": false,
+    "backbone_initialization": "ImageNet ResNet50 resnet50-11ad3fa6.pth",
+    "initialization_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+    "trainable": "All backbone and decoder parameters",
+    "seeds": [1701, 1702],
+    "epochs": 30,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "optimizer_betas": [0.9, 0.999],
+    "optimizer_epsilon": 1e-8,
+    "precision": "FP32",
+    "micro_batch": 4,
+    "gradient_accumulation": 2,
+    "scheduler": "none",
+    "augmentation": "Uniform D4 image/label joint transforms only",
+    "selection": "Use epoch 30 for both seeds; no calibration-based checkpoint selection"
+  },
+  "loss": {
+    "foreground_fraction": "Equal mean of the foreground fraction within each of the 256 unique training masks, using each tile's four-view common valid mask; matches the image-average objective",
+    "training": "Per-image BCEWithLogits, true-class weights computed once from unique training masks, divide by valid pixel count, then average images",
+    "foreground_weight": "1 / (2 * training_foreground_fraction)",
+    "background_weight": "1 / (2 * (1 - training_foreground_fraction))",
+    "evaluation": "Same fixed weighted binary log loss, clip probabilities to [1e-6, 1-1e-6]",
+    "fusion": "Mean probabilities in common map coordinates; never mean logits or hard labels"
+  },
+  "comparisons": {
+    "anchor_a": "1030010003472200",
+    "anchor_b": "103001000392F600",
+    "candidate_u": "10300100036D5200",
+    "candidate_v": "1030010003315300",
+    "delta_a": "loss(A,U) - loss(A,V)",
+    "delta_b": "loss(B,V) - loss(B,U)",
+    "primary": "(delta_a + delta_b) / 2",
+    "secondary": ["All four single-view losses", "All four pair losses", "Two-pass 0/90-degree TTA for A and B", "Building foreground IoU at fixed 0.5 threshold", "Constant 0.5 predictor (training-optimal constant for fixed balanced log loss)", "Training-prevalence constant predictor"]
+  },
+  "statistics": {
+    "order": "Per tile and seed, then equal mean of tiles within each calibration block, equal mean of two seeds, equal mean of 16 blocks",
+    "bootstrap": "PCG64(17017), 20000 paired block resamples, percentile 95% interval for the single primary quantity",
+    "secondary_intervals": "Descriptive only; no simultaneous significance or journal claim",
+    "scope": "Conditional on four acquisitions from one Atlanta pass; blocks and seeds do not create independent passes"
+  },
+  "execution_limits": {
+    "total_download_bytes": 12000000000,
+    "gpu_hours_total": 12,
+    "fits_total": 2,
+    "no_official_validation_or_test": true,
+    "no_calibration_decode_until_both_fits_complete": true,
+    "no_extra_seed_epoch_model_or_threshold_search": true,
+    "no_automatic_scaleup": true
+  }
+}
