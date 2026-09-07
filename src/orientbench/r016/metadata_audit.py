@@ -53,9 +53,8 @@ def s3_prefix(prefix: str) -> str:
 
 
 def prefixes(xml: bytes) -> list[str]:
-    return re.findall(rb"<Prefix>([^<]+)</Prefix>", xml)[1:].__iter__() and [
-        x.decode("utf-8") for x in re.findall(rb"<CommonPrefixes><Prefix>([^<]+)</Prefix>", xml)
-    ]
+    return [x.decode("utf-8") for x in re.findall(
+        rb"<CommonPrefixes><Prefix>([^<]+)</Prefix>", xml)]
 
 
 def _bdecode(raw: bytes, index: int = 0):
@@ -126,6 +125,8 @@ def main() -> None:
     train_torrent = (source_dir / "dfc2019_track3_trainval.torrent").read_bytes()
     package_files = torrent_files(train_torrent)
     metadata = next((x for x in package_files if x["path"] == "Track3-Metadata.zip"), None)
+    mvoi_prefixes = prefixes((source_dir / "sn4_atlanta.xml").read_bytes())
+    mvoi_acquisitions = [p.rsplit("/", 2)[-2] for p in mvoi_prefixes if "catid_" in p]
     conflicts = {
         "mvoi": {
             "published_vs_collection_ids_requiring_native_resolution": [
@@ -145,7 +146,9 @@ def main() -> None:
         "MVOI": {"version": "SpaceNet4/MVOI", "city": "Atlanta", "sensor_product": "unknown",
                  "catalog_identity": "unresolved", "native_gsd": "unknown", "time": "unknown",
                  "satellite_angles": "unknown", "sun_angles": "unknown", "rpc_coordinate_system": "unknown",
-                 "psf_mtf_noise_calibration": "unknown", "training_common_support": "unknown"},
+                 "psf_mtf_noise_calibration": "unknown", "training_common_support": "unknown",
+                 "directory_witness": {"source": "sn4_atlanta.xml", "candidate_product_prefixes": mvoi_acquisitions,
+                                       "interpretation": "Directory names are not native acquisition identity records and do not resolve published ID conflicts."}},
         "US3D_DFC2019_Track3": {"version": "DFC2019 Track 3 v1.0.0", "cities": ["JAX", "OMA"],
                  "sensor_product": "WorldView-3 RGB/MSI (README assertion)", "catalog_identity": "unknown",
                  "native_gsd": "unknown", "time": "unknown", "satellite_angles": "unknown",
@@ -155,8 +158,15 @@ def main() -> None:
     }
     counts = {
         "MVOI": {"catalogue_proxy": [{"case": r["case"], "period_deg": r["period_deg"], "triplets": r["catalogue_triplets"], "anchors": r["distinct_anchors"]} for r in table_audit["results"]],
+                 "directed_listing_candidate_products": len(mvoi_acquisitions),
+                 "identity_stage": {"pass": 0, "fail": 0, "unknown": len(mvoi_acquisitions), "reason": "native identity, units and conflict resolution unavailable"},
+                 "common_training_unit_stage": {"pass": 0, "fail": 0, "unknown": len(mvoi_acquisitions), "reason": "no permitted training member/boundary text obtained"},
+                 "sun_time_stage": {"pass": 0, "fail": 0, "unknown": len(mvoi_acquisitions), "reason": "native time and solar fields unavailable"},
                  "verified_native_triplets": 0, "unknown_native_eligibility": "all", "conclusion": "information insufficient to determine matched support"},
-        "US3D_DFC2019_Track3": {"verified_native_triplets": 0, "unknown_native_eligibility": "all", "conclusion": "information insufficient to determine matched support"},
+        "US3D_DFC2019_Track3": {"identity_stage": {"pass": 0, "fail": 0, "unknown": "all", "reason": "official metadata file requires login"},
+                                  "common_training_unit_stage": {"pass": 0, "fail": 0, "unknown": "all", "reason": "training member/boundary text unavailable without restricted package"},
+                                  "sun_time_stage": {"pass": 0, "fail": 0, "unknown": "all", "reason": "official metadata file requires login"},
+                                  "verified_native_triplets": 0, "unknown_native_eligibility": "all", "conclusion": "information insufficient to determine matched support"},
         "not_evidence_of": ["common geographic training support", "same event", "time/sun matching", "PSF mechanism", "task benefit", "causal identification"],
     }
     (out / "source_manifest.json").write_text(json.dumps(source_manifest, indent=2, sort_keys=True))
