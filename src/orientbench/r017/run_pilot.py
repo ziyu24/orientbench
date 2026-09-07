@@ -81,6 +81,11 @@ def acquire(items: list[dict], root: Path, ledger: Path, limit: int) -> dict:
             record.update(status="complete", sha256=hashlib.sha256(destination.read_bytes()).hexdigest())
         except Exception as exc:
             record.update(status="failed", error=str(exc))
+            attempts = sum(r.get("key") == key and r.get("status") == "failed" for r in records)
+            if attempts < 4:
+                _write(ledger, records)
+                time.sleep(2 ** attempts)
+                return acquire(items, root, ledger, limit)
             raise
         finally:
             _write(ledger, records)
