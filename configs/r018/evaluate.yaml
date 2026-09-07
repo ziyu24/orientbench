@@ -1,0 +1,14 @@
+task: r018
+kind: evaluation_only_correction
+command:
+  - /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python
+  - src/orientbench/r018/evaluate.py
+limits:
+  gpu_hours: 1
+  prediction_bytes: 2000000000
+prohibitions:
+  - training
+  - optimizer
+  - backward
+  - download
+  - official_validation_or_test
