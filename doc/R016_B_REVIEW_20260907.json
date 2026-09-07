@@ -1,0 +1,197 @@
+{
+  "accounting_limit": "Counters reset on program invocation; retained bodies do not establish all attempts' traffic.",
+  "all_attempts_download_bytes": null,
+  "decision": "End bounded r016 with native support unknown. No model training or automatic next task.",
+  "mvoi": {
+    "counts_unit_correction": "27 denotes candidate product directories, not triples or independent verified acquisitions.",
+    "directory_listing_truncated": "false",
+    "example_child_prefixes": [
+      "spacenet/SN4_buildings/train/AOI_6_Atlanta/nadir10_catid_1030010003993E00/MS/",
+      "spacenet/SN4_buildings/train/AOI_6_Atlanta/nadir10_catid_1030010003993E00/PAN/",
+      "spacenet/SN4_buildings/train/AOI_6_Atlanta/nadir10_catid_1030010003993E00/PS-RGBNIR/"
+    ],
+    "native_record_support": "unknown",
+    "other_prefixes": [
+      "spacenet/SN4_buildings/train/AOI_6_Atlanta/geojson_buildings/"
+    ],
+    "product_prefix_count": 27,
+    "sampled_product_directories": 1,
+    "search_limit": "One product directory was listed. No exhaustive native-metadata absence claim is supported.",
+    "training_common_members_obtained": false
+  },
+  "published_table_counts": [
+    {
+      "anchors": 10,
+      "case": "primary",
+      "period_deg": 360.0,
+      "triplets": 18
+    },
+    {
+      "anchors": 0,
+      "case": "primary",
+      "period_deg": 180.0,
+      "triplets": 0
+    },
+    {
+      "anchors": 1,
+      "case": "sensitivity_1",
+      "period_deg": 360.0,
+      "triplets": 1
+    },
+    {
+      "anchors": 0,
+      "case": "sensitivity_1",
+      "period_deg": 180.0,
+      "triplets": 0
+    },
+    {
+      "anchors": 12,
+      "case": "sensitivity_2",
+      "period_deg": 360.0,
+      "triplets": 35
+    },
+    {
+      "anchors": 1,
+      "case": "sensitivity_2",
+      "period_deg": 180.0,
+      "triplets": 1
+    },
+    {
+      "anchors": 13,
+      "case": "sensitivity_3",
+      "period_deg": 360.0,
+      "triplets": 43
+    },
+    {
+      "anchors": 2,
+      "case": "sensitivity_3",
+      "period_deg": 180.0,
+      "triplets": 2
+    }
+  ],
+  "published_table_exact_json_equal": false,
+  "published_table_float_tolerance": 1e-10,
+  "published_table_max_float_difference": 1.4210854715202004e-14,
+  "published_table_structure_counts_ids_equal": true,
+  "retained_sources_bytes": 141003,
+  "scope": "Offline review of retained responses, not a new native-metadata search or experiment.",
+  "server_run_record": {
+    "command": [
+      "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+      "src/orientbench/r016/run_metadata_audit.py",
+      "--dataset-root",
+      "/home/rspip/cqc/data/dataset",
+      "--out",
+      "runs/r016/artifacts",
+      "--table",
+      "doc/MVOI_TABLE8_TRANSCRIPTION_20260906.csv",
+      "--config",
+      "configs/r016/protocol.json"
+    ],
+    "config": "configs/r016/metadata_audit.yaml",
+    "exit_code": 0,
+    "finished_at": "2026-09-07T02:38:39.054409Z",
+    "gpu_count": 0,
+    "inputs": [
+      "dataset:/home/rspip/cqc/data/dataset",
+      "public:https://spacenet-dataset.s3.amazonaws.com/",
+      "public:https://github.com/pubgeo/dfc2019"
+    ],
+    "outputs": [
+      {
+        "path": "runs/r016/artifacts/source_manifest.json",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r016/artifacts/stepwise_counts.json",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r016/artifacts/complete_triplet_list.json",
+        "rebuildable": true
+      }
+    ],
+    "project_root": "/home/rspip/cqc/study/orientbench",
+    "result_summary": "lab/result.md#r016",
+    "run_id": "r016",
+    "schema_version": 1,
+    "selected_gpus": [],
+    "source_commit": "d66268c2d7d9ba822fc79a6fd39f82a31b95f693",
+    "started_at": "2026-09-07T02:38:25.436715Z",
+    "status": "COMPLETE",
+    "worker_pid": 2240539,
+    "worker_start_ticks": 129852441
+  },
+  "server_summary": {
+    "cpu_only": true,
+    "downloaded_bytes": 141003,
+    "expanded_bytes": 0,
+    "finished_at": "2026-09-07T02:38:38.870439+00:00",
+    "labels_or_outcomes_read": false,
+    "model_run": false,
+    "pixels_decoded": false
+  },
+  "snapshot_sha256": "a2c3050296e7c2c9a1d7d0301af21641a5f2e041e54ad91287772a7fd7874ac2",
+  "source_checks": [
+    {
+      "bytes": 620,
+      "sha256": "aa160c0c02148e921bd921709ce2d7183fe74bc70b841cabe6eb0fecbdbf203b",
+      "source": "artifacts/sources/sn4_root.xml",
+      "url": "https://spacenet-dataset.s3.amazonaws.com/?list-type=2&prefix=spacenet/SN4_buildings/&delimiter=/"
+    },
+    {
+      "bytes": 393,
+      "sha256": "2d444253e76a445b94cb973c62ea67cf84c66f3566f8707a77568c26634aaa3c",
+      "source": "artifacts/sources/sn4_train.xml",
+      "url": "https://spacenet-dataset.s3.amazonaws.com/?list-type=2&prefix=spacenet/SN4_buildings/train/&delimiter=/"
+    },
+    {
+      "bytes": 3772,
+      "sha256": "2a69172185bcb20ba17a332b3a72ced28d86c6b7a269180aa53ce4ee2e8e0a97",
+      "source": "artifacts/sources/sn4_atlanta.xml",
+      "url": "https://spacenet-dataset.s3.amazonaws.com/?list-type=2&prefix=spacenet/SN4_buildings/train/AOI_6_Atlanta/&delimiter=/"
+    },
+    {
+      "bytes": 734,
+      "sha256": "3433ba518a12239781354ca7795099aa1d9cbe3f5d89d1a0ba8e95bc5499e51f",
+      "source": "artifacts/sources/sn4_example.xml",
+      "url": "https://spacenet-dataset.s3.amazonaws.com/?list-type=2&prefix=spacenet/SN4_buildings/train/AOI_6_Atlanta/nadir10_catid_1030010003993E00/&delimiter=/"
+    },
+    {
+      "bytes": 6310,
+      "sha256": "fcfce89ce8ab5c125248e50d5ce23b491a76250590cb20c9e0b723f141492e97",
+      "source": "artifacts/sources/dfc2019_readme.md",
+      "url": "https://raw.githubusercontent.com/pubgeo/dfc2019/master/data/README.md"
+    },
+    {
+      "bytes": 37746,
+      "sha256": "6779c9bda990e32ebf482a4aa3b28e74db9aca288857c8236edf08d7e9c817c5",
+      "source": "artifacts/sources/dfc2019_track3_trainval.torrent",
+      "url": "https://raw.githubusercontent.com/pubgeo/dfc2019/master/data/DFC2019_track3_trainval_v1.0.0.torrent"
+    },
+    {
+      "bytes": 91428,
+      "sha256": "b9ff8f184788f7a03c893ee4b87d06746e2ab1b067e80d4e20933acd9a9b0af6",
+      "source": "artifacts/sources/dfc2019_dataport.html",
+      "url": "https://ieee-dataport.org/open-access/data-fusion-contest-2019-dfc2019"
+    }
+  ],
+  "stderr_has_earlier_import_failure": true,
+  "stderr_interpretation": "Retained error has no per-attempt time binding; current artifacts exist, but a complete attempt history is not proved.",
+  "us3d": {
+    "authenticated_access_and_cost": "not verified; no promise that login alone supplies the package",
+    "metadata_entry_targets_access_modal": true,
+    "metadata_manifest_entries": [
+      {
+        "bytes": 141825,
+        "path": "Track3-Metadata.zip"
+      }
+    ],
+    "native_package_obtained": false,
+    "page_has_generic_subscription_modal": true,
+    "page_has_login_access_notice": true,
+    "page_has_open_access_logged_in_notice": true,
+    "torrent_decoder": "Reuses SERVER bencode parser; not independent decoding.",
+    "torrent_has_http_webseed": false
+  }
+}
