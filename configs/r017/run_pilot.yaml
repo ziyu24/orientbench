@@ -1,0 +1,9 @@
+task: r017
+kind: frozen_real_multiview_crossed_pilot
+command:
+  - /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python
+  - src/orientbench/r017/run_pilot.py
+limits:
+  download_bytes: 12000000000
+  gpu_hours: 12
+  fits: 2
