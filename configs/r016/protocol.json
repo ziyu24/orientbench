@@ -1,0 +1,45 @@
+{
+  "task": "r016",
+  "question": "Do native multi-view acquisition records support a matched anchor/redundant/complementary comparison?",
+  "primary_geometry": {
+    "redundant_azimuth_max_deg": 10.0,
+    "redundant_ray_max_deg": 5.0,
+    "complementary_angle_min_deg": 60.0,
+    "complementary_ray_min_deg": 15.0,
+    "candidate_off_nadir_difference_max_deg": 2.0,
+    "candidate_gsd_ratio_max": 1.05
+  },
+  "geometry_sensitivity": [
+    {"candidate_off_nadir_difference_max_deg": 1.0, "candidate_gsd_ratio_max": 1.05},
+    {"candidate_off_nadir_difference_max_deg": 3.0, "candidate_gsd_ratio_max": 1.1},
+    {"candidate_off_nadir_difference_max_deg": 5.0, "candidate_gsd_ratio_max": 1.15}
+  ],
+  "native_additional_checks": {
+    "candidate_sun_vector_difference_max_deg": 3.0,
+    "triplet_acquisition_span_primary_seconds": 600,
+    "triplet_acquisition_span_diagnostic_seconds": 604800,
+    "candidate_time_distance_to_anchor_difference_diagnostic_seconds": 86400,
+    "same_sensor_and_product_required": true,
+    "same_geographic_training_unit_required": true,
+    "native_gsd_required": true,
+    "native_ground_viewing_angle_convention_required_for_ray_check": true,
+    "unresolved_source_identity_conflicts_excluded_from_verified_support": true,
+    "missing_values_are_unknown_not_pass": true,
+    "independently_calibrated_psf_required_for_psf_mechanism": true
+  },
+  "scope": {
+    "datasets": ["SpaceNet4-MVOI", "US3D-DFC2019-Track3"],
+    "training_partition_metadata_only": true,
+    "allow_source_catalogues_and_native_text_metadata": true,
+    "allow_training_file_name_and_bound_lists": true,
+    "allow_imagery_or_label_pixel_download": false,
+    "allow_pixel_decode": false,
+    "allow_model_forward_or_fit": false,
+    "allow_test_or_validation_outcomes": false,
+    "allow_automatic_followup_training": false,
+    "download_bytes_max": 50000000,
+    "expanded_bytes_max": 200000000,
+    "wall_time_hours_max": 2
+  },
+  "interpretation": "Necessary support diagnostics only. Thresholds fixed after B inspected published geometry; not physical constants or prospective outcome evidence. No result from this task authorizes training."
+}
