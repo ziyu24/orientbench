@@ -57,12 +57,39 @@ def prefixes(xml: bytes) -> list[str]:
     ]
 
 
+def _bdecode(raw: bytes, index: int = 0):
+    """Tiny bencode reader for the public torrent manifest only."""
+    token = raw[index:index + 1]
+    if token == b"i":
+        end = raw.index(b"e", index)
+        return int(raw[index + 1:end]), end + 1
+    if token == b"l":
+        values, index = [], index + 1
+        while raw[index:index + 1] != b"e":
+            value, index = _bdecode(raw, index)
+            values.append(value)
+        return values, index + 1
+    if token == b"d":
+        values, index = {}, index + 1
+        while raw[index:index + 1] != b"e":
+            key, index = _bdecode(raw, index)
+            value, index = _bdecode(raw, index)
+            values[key] = value
+        return values, index + 1
+    colon = raw.index(b":", index)
+    length = int(raw[index:colon])
+    start = colon + 1
+    return raw[start:start + length], start + length
+
+
 def torrent_files(raw: bytes) -> list[dict]:
-    # The public torrent is a bencoded manifest; only the length/path entries
-    # are used.  No peer-to-peer client is invoked.
-    matches = re.findall(rb"6:lengthi(\d+)e4:pathl(\d+):([^e]+)e", raw)
-    return [{"bytes": int(length), "path": name[:int(size)].decode("utf-8", "replace")}
-            for length, size, name in matches]
+    # No peer-to-peer client is invoked; this reads only the public manifest.
+    document, end = _bdecode(raw)
+    if end != len(raw):
+        raise ValueError("trailing torrent manifest content")
+    return [{"bytes": item[b"length"],
+             "path": "/".join(part.decode("utf-8", "replace") for part in item[b"path"])}
+            for item in document[b"info"][b"files"]]
 
 
 def main() -> None:
