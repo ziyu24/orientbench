@@ -1,0 +1,47 @@
+{
+  "task": "r018",
+  "scope": "Evaluation-only correction of actual r017 fits; no new training or original-protocol recovery",
+  "existing_seeds": [
+    1701,
+    1702
+  ],
+  "new_fits": 0,
+  "data_manifest_sha256": "343faf434f4997046fdb632b63ce7d2c3a77d02f932ebf527e1d203d226e0bae",
+  "original_rows_sha256": "de2d18ca6bdef82da69edc45698914cd103f60a0a7156fe675c274a933f37b38",
+  "checkpoint_sha256": {
+    "1701": "a75d7297894642c3023d630c20d8b6ccb2c64b8b46b8116b3b3f40fc63206bc8",
+    "1702": "9e7e462135de34775990e778173b32d117baefff11a583c40e04c9e5256eeaea"
+  },
+  "foreground_fraction": 0.10128044595523755,
+  "training_tiles": 256,
+  "calibration_tiles": 128,
+  "calibration_blocks": 16,
+  "view_order": [
+    "1030010003472200",
+    "103001000392F600",
+    "10300100036D5200",
+    "1030010003315300"
+  ],
+  "label_analyses": [
+    "actual_cached_labels",
+    "direct448_label_sensitivity"
+  ],
+  "retain_actual_cached_image_preprocessing": true,
+  "recompute_class_weights": false,
+  "tta": "0 and 90 degrees; inverse-rotate the complete 2D prediction; identical-grid probability average",
+  "primary": "(L(A,U)-L(A,V)+L(B,V)-L(B,U))/2",
+  "tta_gains": [
+    "L(TTA_A)-L(A,V)",
+    "L(TTA_B)-L(B,U)"
+  ],
+  "statistics": "Tile mean within block, equal two existing seeds, equal 16 blocks; PCG64(17017),20000 paired draws; first-block occurrence in frozen manifest order",
+  "secondary_intervals": "Descriptive only; correction on previously used calibration, not a fresh confirmation",
+  "iou": "Sum intersections/unions within each seed-block; ratio first, then equal seeds and blocks; report undefined denominator",
+  "replay_tolerance": 1e-05,
+  "new_download_bytes": 0,
+  "gpu_hours_total": 1,
+  "prediction_bytes_limit": 2000000000,
+  "no_official_validation_or_test": true,
+  "no_new_seed_epoch_model_threshold_or_cohort": true,
+  "no_automatic_followup": true
+}
