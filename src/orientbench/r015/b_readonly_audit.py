@@ -152,4 +152,3 @@ def main(root, dataset):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--dataset',type=Path,required=True)
     a=p.parse_args();main(a.root,a.dataset)
-

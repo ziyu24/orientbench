@@ -85,4 +85,3 @@ def main(root):
                     sort_keys=True))
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);a=p.parse_args();main(a.root)
-
