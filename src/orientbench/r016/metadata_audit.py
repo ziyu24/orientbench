@@ -21,6 +21,7 @@ from orientbench.probes.multiview_geometry_support import audit
 MAX_DOWNLOAD = 50_000_000
 S3 = "https://spacenet-dataset.s3.amazonaws.com/?list-type=2&prefix="
 GITHUB = "https://raw.githubusercontent.com/pubgeo/dfc2019/master/data/"
+DFCPORT = "https://ieee-dataport.org/open-access/data-fusion-contest-2019-dfc2019"
 
 
 def fetch_text(url: str, target: Path, total: list[int]) -> dict:
@@ -115,6 +116,7 @@ def main() -> None:
         ("sn4_example.xml", s3_prefix("spacenet/SN4_buildings/train/AOI_6_Atlanta/nadir10_catid_1030010003993E00/")),
         ("dfc2019_readme.md", GITHUB + "README.md"),
         ("dfc2019_track3_trainval.torrent", GITHUB + "DFC2019_track3_trainval_v1.0.0.torrent"),
+        ("dfc2019_dataport.html", DFCPORT),
     ]:
         source_manifest["sources"].append(fetch_text(url, source_dir / name, total))
     source_manifest["downloaded_bytes"] = total[0]
@@ -136,7 +138,7 @@ def main() -> None:
         "us3d": {
             "track3_metadata_package": metadata,
             "native_text_metadata_obtained": False,
-            "reason": "Official public torrent lists Track3-Metadata.zip as a 13,409,681,556-byte package, beyond the 50,000,000-byte cap; it was not downloaded or unpacked.",
+            "reason": "The public manifest identifies Track3-Metadata.zip as 141,825 bytes, within budget, but the official DataPort page requires login before its file URL is exposed. No login, P2P client, package download, or unpacking was attempted.",
         },
     }
     native_spec = {

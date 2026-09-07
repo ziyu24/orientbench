@@ -97,6 +97,10 @@ quality head、TTA 标量融合及仅换相似 OBB 数据集的增量实验统�
 
 ## 非失败项
 
+## r016 元数据支持核查：资产信息不足，非方法失败
+
+SpaceNet4/MVOI 与 US3D/DFC2019 Track 3 在本轮受限原生文本核查中都未形成可核实的同一训练地理单位三联；MVOI 原生记录未取得且身份冲突未解决，US3D 的小型 metadata 包需要官方登录。该状态是 `INCONCLUSIVE_R016_METADATA_SUPPORT`，不表示没有真实多视角、没有任务收益或方法失败；不得把公开目录级计数改写为因果、PSF 或新颖性结论。
+
 AIRO/COI的r003从未执行，不能写入失败路线。它仅作为`lab/discussion.md`中的未决候选保留。
 
 r006 为 `INCONCLUSIVE_R006_EXECUTION_VALIDITY`，不是 TAL 科学失败。ORCNN stride 8 的 y 轴
