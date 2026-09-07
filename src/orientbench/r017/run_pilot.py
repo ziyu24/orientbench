@@ -215,7 +215,9 @@ def train(manifest: dict, root: Path, out: Path, weights: Path, device: str) -> 
                     image = np.rot90(image, k, axes=(-2, -1)); label = np.rot90(label, k); valid = np.rot90(valid, k)
                     if flip: image = image[:, :, ::-1]; label = label[:, ::-1]; valid = valid[:, ::-1]
                     xs.append(np.ascontiguousarray(image)); ys.append(np.ascontiguousarray(label)); ms.append(np.ascontiguousarray(valid))
-                x = torch.from_numpy(np.stack(xs)).to(device); y = torch.from_numpy(np.stack(ys)).to(device); m = torch.from_numpy(np.stack(ms)).to(device)
+                x = torch.from_numpy(np.stack(xs)).to(device)
+                y = torch.from_numpy(np.stack(ys)).to(device=device, dtype=torch.float32)
+                m = torch.from_numpy(np.stack(ms)).to(device=device, dtype=torch.float32)
                 logits = model(_normalise(x))["out"][:, 0]
                 weights_px = torch.where(y > .5, 1 / (2 * pi), 1 / (2 * (1 - pi)))
                 per = (F.binary_cross_entropy_with_logits(logits, y, reduction="none") * weights_px * m).sum((1, 2)) / m.sum((1, 2))
