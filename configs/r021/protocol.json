@@ -1,0 +1,60 @@
+{
+  "task": "r021",
+  "data_manifest_sha256": "965b0a1ffb8df8b57b54a4fe81ad679ed1f2542872abcde2b4e1bace223edee9",
+  "old_manifest_sha256": "343faf434f4997046fdb632b63ce7d2c3a77d02f932ebf527e1d203d226e0bae",
+  "checkpoint_sha256": {
+    "1701": "a75d7297894642c3023d630c20d8b6ccb2c64b8b46b8116b3b3f40fc63206bc8",
+    "1702": "9e7e462135de34775990e778173b32d117baefff11a583c40e04c9e5256eeaea"
+  },
+  "foreground_fraction": 0.10128044595523755,
+  "model_roles": {
+    "first": 1701,
+    "second": 1702,
+    "epoch": 30,
+    "new_neural_network_fits": 0
+  },
+  "sampling": "Deterministic center grid [4::8,4::8] on aligned 384x384; no random sampling or new training seeds.",
+  "forecast": {
+    "probability_bins": 16,
+    "boundary_contexts": 5,
+    "flat_gradient_threshold": 0.01,
+    "geometry_bandwidth": 0.25,
+    "prior_pseudocounts": 32,
+    "ridge_mean_loss_penalty": 0.01,
+    "ridge_features": 33,
+    "calibration": "One additive gain bias per predictor on 64 development-calibration regions; no model selection within predictor."
+  },
+  "alignment": {
+    "margin": 32,
+    "search": "All integer dy,dx in [-32,32], fit128 only, equal regions, direct/FFT tolerance1e-10",
+    "held_transfer": "Nearest development nominal horizontal look vector; fixed manifest view order ties."
+  },
+  "baseline_order": [
+    "stop",
+    "max_separation",
+    "near_nadir",
+    "geometry",
+    "ridge"
+  ],
+  "baseline_selection": "Minimum block-equal development-calibration policy risk; first baseline order wins exact ties; frozen before held pixels.",
+  "decision": "Candidate with maximum predicted positive gain; zero or negative means same-anchor second-model action; fixed manifest view order breaks positive ties.",
+  "action_cost": "Exactly two frozen network forwards per action including anchor; offline counterfactual enumeration uses 2048 new image forwards in total.",
+  "coprimary": [
+    "risk(selected development baseline)-risk(transport policy)",
+    "MAE(ridge marginal gain)-MAE(transport marginal gain)"
+  ],
+  "success": "Both actual-label co-primary paired block-bootstrap 97.5% lower bounds >0. All other intervals descriptive; no tuning or additional source/seed after outcome.",
+  "bootstrap": {
+    "rng": "PCG64",
+    "seed": 17021,
+    "replicates": 20000,
+    "unit": "8 held geographic blocks, mean anchors within region then equal regions then equal blocks",
+    "interval": "percentile 97.5%, approximate Bonferroni for two co-primary; weak eight-block uncertainty limitation"
+  },
+  "label_policy": "Actual900-raster nearest448 primary; direct448 sensitivity, both central384. No official validation/test. Held labels opened after all forecasts/actions saved.",
+  "scope": "Metadata-only selection. Held product IDs and geographic blocks; same city/pass/sensor, not independent acquisitions or cross-city validation. Nominal look geometry is a retrospective ideal-plan proxy.",
+  "download_bytes_limit": 8000000000,
+  "prediction_bytes_limit": 4000000000,
+  "gpu_hours_total": 2,
+  "wall_hours_total": 8
+}
