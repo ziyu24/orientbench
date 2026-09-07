@@ -239,7 +239,7 @@ def train(manifest: dict, root: Path, out: Path, weights: Path, device: str) -> 
 def evaluate(manifest: dict, out: Path, device: str) -> dict:
     import torch
     cache, pi = out / "cache" / "calibration", _json(out / "training_loss_definition.json")["foreground_fraction"]
-    blocks = {t: tuple(map(int, t.split("_"))) for t in manifest["calibration_tiles"]}
+    blocks = {t: tuple(int(v) // 2700 for v in t.split("_")) for t in manifest["calibration_tiles"]}
     rows = []
     for seed in (1701, 1702):
         ckpt = torch.load(out / "checkpoints" / f"seed{seed}_epoch30.pt", map_location="cpu", weights_only=False)
@@ -272,9 +272,21 @@ def evaluate(manifest: dict, out: Path, device: str) -> dict:
     block_values = {str(k): {metric: float(np.mean(vals)) for metric, vals in v.items()} for k, v in per.items()}
     primary = np.array([v["primary"] for v in block_values.values()])
     rng = np.random.Generator(np.random.PCG64(17017)); draws = primary[rng.integers(0, len(primary), (20000, len(primary)))].mean(1)
+    metric_summary = {metric: float(np.mean([values[metric] for values in block_values.values()]))
+                      for metric in sorted(next(iter(block_values.values())))}
+    iou_block_equal = {}
+    for name in ("a", "b", "u", "v", "au", "av", "bv", "bu"):
+        values = []
+        for block in block_values:
+            matched = [r for r in rows if str(r["block"]) == block]
+            intersection = sum(r[f"iou_{name}_intersection"] for r in matched)
+            union = sum(r[f"iou_{name}_union"] for r in matched)
+            values.append(None if union == 0 else intersection / union)
+        iou_block_equal[name] = float(np.mean([v for v in values if v is not None])) if any(v is not None for v in values) else None
     summary = {"foreground_fraction": pi, "blocks": len(block_values), "block_equal_primary": float(primary.mean()),
                "primary_95_ci": [float(np.quantile(draws, .025)), float(np.quantile(draws, .975))],
                "bootstrap_seed": 17017, "bootstrap_draws": 20000, "block_values": block_values,
+               "metric_block_equal": metric_summary, "iou_block_equal": iou_block_equal,
                "rows": len(rows), "constant_half_loss": float(np.log(2)),
                "constant_prevalence_loss": float(np.mean([r["loss_constant_prevalence"] for r in rows]))}
     _write(out / "evaluation_summary.json", summary)
