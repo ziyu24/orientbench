@@ -1,0 +1,72 @@
+{
+  "task": "r022",
+  "data_manifest_sha256": "965b0a1ffb8df8b57b54a4fe81ad679ed1f2542872abcde2b4e1bace223edee9",
+  "old_manifest_sha256": "343faf434f4997046fdb632b63ce7d2c3a77d02f932ebf527e1d203d226e0bae",
+  "checkpoint_sha256": {
+    "1701": "a75d7297894642c3023d630c20d8b6ccb2c64b8b46b8116b3b3f40fc63206bc8",
+    "1702": "9e7e462135de34775990e778173b32d117baefff11a583c40e04c9e5256eeaea"
+  },
+  "foreground_fraction": 0.10128044595523755,
+  "model_roles": {
+    "first": 1701,
+    "second": 1702,
+    "epoch": 30,
+    "new_neural_network_fits": 0
+  },
+  "sampling": "Deterministic center grid [4::8,4::8] on aligned 384x384; no random sampling or new training seeds.",
+  "forecast": {
+    "probability_bins": 16,
+    "boundary_contexts": 5,
+    "flat_gradient_threshold": 0.01,
+    "geometry_bandwidth": 0.25,
+    "prior_pseudocounts": 32,
+    "ridge_mean_loss_penalty": 0.01,
+    "ridge_features": 33,
+    "calibration": "One additive gain bias per predictor on 64 development-calibration regions; no model selection within predictor."
+  },
+  "alignment": {
+    "margin": 32,
+    "search": "All integer dy,dx in [-32,32], fit128 only, equal regions, direct/FFT tolerance1e-10",
+    "held_transfer": "Nearest development nominal horizontal look vector; fixed manifest view order ties."
+  },
+  "baseline_order": [
+    "stop",
+    "max_separation",
+    "near_nadir",
+    "geometry",
+    "ridge"
+  ],
+  "baseline_selection": "Minimum block-equal development-calibration policy risk; first baseline order wins exact ties; frozen before held pixels.",
+  "decision": "Candidate with maximum predicted positive gain; zero or negative means same-anchor second-model action; fixed manifest view order breaks positive ties.",
+  "action_cost": "Exactly two network forwards per action including anchor; r022 only 512 new image forwards, all development reused.",
+  "coprimary": [
+    "risk(selected development baseline)-risk(transport policy)",
+    "MAE(ridge marginal gain)-MAE(transport marginal gain)"
+  ],
+  "success": "Both actual-label co-primary paired block-bootstrap 97.5% lower bounds >0. All other intervals descriptive; no tuning or additional source/seed after outcome.",
+  "bootstrap": {
+    "rng": "PCG64",
+    "seed": 17021,
+    "replicates": 20000,
+    "unit": "8 held geographic blocks, mean anchors within region then equal regions then equal blocks",
+    "interval": "percentile 97.5%, approximate Bonferroni for two co-primary; weak eight-block uncertainty limitation"
+  },
+  "label_policy": "Actual900-raster nearest448 primary; direct448 sensitivity, both central384. No official validation/test. Held labels opened after all forecasts/actions saved.",
+  "scope": "Metadata-only selection. Held product IDs and geographic blocks; same city/pass/sensor, not independent acquisitions or cross-city validation. Nominal look geometry is a retrospective ideal-plan proxy. Native border no-data accepted explicitly before held outcomes; not the original full-native-support experiment.",
+  "download_bytes_limit": 20000000,
+  "prediction_bytes_limit": 1000000000,
+  "gpu_hours_total": 0.5,
+  "wall_hours_total": 1,
+  "frozen_source_sha256": {
+    "forecaster.npz": "d93015cb862ef35d39af05cf497e8acd6c8812ccb55fcefd7db3856afdb03dcb",
+    "calibration.json": "bc9403b11c45c5dcc00f1b18255ccd6393d61e9b3f7a79cd281f9a260f4ac62d",
+    "frozen_shifts.json": "507f7873f693470803ab83a27b8f303cf3012a63c4bb61c5bdb87f96160920f5",
+    "input_bindings.json": "6ffef64eb1f795e38e9fa3bff30606419af1b3393b378402b540c9786736fc8c",
+    "development_calibration_raw.json": "b557eb9be36bfd54014ef6d934688e00a1754fb4892d0224311030ffecf02609",
+    "training_loss_surfaces.npz": "c87688e137b34c72fad1bc4633cc14fb814009f55d970440ea6d4a799b3976f1",
+    "protocol_binding.json": "134dcacb30cfe15877ee10016ec39dde43a38b64dd67326e14df0fa0ab3b8516"
+  },
+  "support_amendment": "Explicit pre-outcome amendment after observing native border masks: retain original native finite RGB values including no-data zeros; require all four bilinear contributors for every original 384 core sample and both frozen shifted cores. No member removal, new crop or masked risk. Border missingness can affect predictions through network receptive fields; r021 full-native condition remains failed.",
+  "development_reuse": "All r021 model parameters, ridge, bias, strongest baseline and shifts reused byte-for-byte; no refit or development forwards.",
+  "label_download_policy": "Only 64 held labels, manifest total 6990246 bytes, after saved decisions. No image download. Nonrecursive single attempt ledger includes failed received bytes."
+}

@@ -1,0 +1,122 @@
+{
+  "observed_start_utc": "2026-09-07T23:14:43.575508+00:00",
+  "observed_end_utc": "2026-09-07T23:15:58.568247+00:00",
+  "scope": "Read-only hash verification, all 256 held native support checks, full 64-region development probability/forecast replay. No network forward or held labels/outcomes.",
+  "source_files": {
+    "calibration.json": {
+      "bytes": 12769,
+      "sha256": "bc9403b11c45c5dcc00f1b18255ccd6393d61e9b3f7a79cd281f9a260f4ac62d"
+    },
+    "forecaster.npz": {
+      "bytes": 195950,
+      "sha256": "d93015cb862ef35d39af05cf497e8acd6c8812ccb55fcefd7db3856afdb03dcb"
+    },
+    "training_loss_surfaces.npz": {
+      "bytes": 511931,
+      "sha256": "c87688e137b34c72fad1bc4633cc14fb814009f55d970440ea6d4a799b3976f1"
+    },
+    "development_calibration_raw.json": {
+      "bytes": 869857,
+      "sha256": "b557eb9be36bfd54014ef6d934688e00a1754fb4892d0224311030ffecf02609"
+    },
+    "download_ledger.json": {
+      "bytes": 174716,
+      "sha256": "0dc40ce1c09f83ef710ef515b90de60facc0fcea94db53b60f65ff4d3fe52791"
+    },
+    "frozen_shifts.json": {
+      "bytes": 4860,
+      "sha256": "507f7873f693470803ab83a27b8f303cf3012a63c4bb61c5bdb87f96160920f5"
+    },
+    "protocol_binding.json": {
+      "bytes": 180,
+      "sha256": "134dcacb30cfe15877ee10016ec39dde43a38b64dd67326e14df0fa0ab3b8516"
+    },
+    "input_bindings.json": {
+      "bytes": 356563,
+      "sha256": "6ffef64eb1f795e38e9fa3bff30606419af1b3393b378402b540c9786736fc8c"
+    }
+  },
+  "verified_binding_counts": {
+    "existing": 384,
+    "new_predictions": 384,
+    "images": 1024
+  },
+  "incomplete_native_support": [
+    {
+      "tile": "741251_3743589",
+      "view": "1030010002B7D800",
+      "native_invalid": 490,
+      "native_bbox_yx": [
+        0,
+        758,
+        6,
+        899
+      ],
+      "invalid_nonzero_rgb_values": 0,
+      "invalid_core": 0,
+      "invalid_shifted_cores": [
+        0,
+        0
+      ]
+    },
+    {
+      "tile": "742151_3743589",
+      "view": "1030010002B7D800",
+      "native_invalid": 1347,
+      "native_bbox_yx": [
+        0,
+        0,
+        2,
+        448
+      ],
+      "invalid_nonzero_rgb_values": 0,
+      "invalid_core": 0,
+      "invalid_shifted_cores": [
+        0,
+        0
+      ]
+    },
+    {
+      "tile": "740351_3743589",
+      "view": "1030010002B7D800",
+      "native_invalid": 13440,
+      "native_bbox_yx": [
+        0,
+        0,
+        21,
+        899
+      ],
+      "invalid_nonzero_rgb_values": 0,
+      "invalid_core": 0,
+      "invalid_shifted_cores": [
+        0,
+        0
+      ]
+    },
+    {
+      "tile": "739901_3743589",
+      "view": "1030010002B7D800",
+      "native_invalid": 14788,
+      "native_bbox_yx": [
+        0,
+        0,
+        21,
+        899
+      ],
+      "invalid_nonzero_rgb_values": 0,
+      "invalid_core": 0,
+      "invalid_shifted_cores": [
+        0,
+        0
+      ]
+    }
+  ],
+  "development_loss_max_abs_difference": 2.220446049250313e-16,
+  "development_forecast_max_abs_difference": 3.469446951953614e-18,
+  "development_summary_max_abs_difference": 5.551115123125783e-17,
+  "selected_baseline": "max_separation",
+  "held_prediction_files": 0,
+  "held_outcome_files_present": [],
+  "held_label_files_existing": 0,
+  "download_accounting": "Retained recursive retry ledgers do not establish total traffic or non-exceedance. Image content hashes establish identity, not historical download bytes."
+}
