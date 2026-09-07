@@ -1,0 +1,15 @@
+task: r016
+kind: bounded_native_metadata_audit
+command:
+  - /home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python
+  - -m
+  - orientbench.r016.metadata_audit
+limits:
+  cpu_hours: 2
+  download_bytes: 50000000
+  expanded_bytes: 200000000
+prohibitions:
+  - imagery_or_label_pixel_download
+  - pixel_decode
+  - model_forward_or_fit
+  - validation_or_test_outcomes
