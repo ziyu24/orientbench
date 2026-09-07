@@ -11,9 +11,11 @@ import urllib.parse
 import urllib.request
 from collections import defaultdict
 from pathlib import Path
+import sys
 
 import numpy as np
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from orientbench.r017.measurement import crossed_comparison, weighted_log_loss
 
 
