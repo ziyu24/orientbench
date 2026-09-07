@@ -1,0 +1,55 @@
+{
+  "digital_rotation": [
+    5,
+    3
+  ],
+  "equal_prior_two_point_population": {
+    "best_rotation_invariant_image_only_01_risk": 0.5,
+    "best_unrestricted_01_risk": 0.0
+  },
+  "isotropic_psf_control_separates_classes_by_eigenvalues": true,
+  "joint_rotation_of_shape_and_psf": [
+    5,
+    3
+  ],
+  "latent_covariance_diagonals": [
+    [
+      1,
+      4
+    ],
+    [
+      3,
+      2
+    ]
+  ],
+  "noncommutation_alone_insufficient": "The same anisotropic operator and two images with a constant class label have zero invariant and unrestricted risk.",
+  "observed_covariance_diagonals": [
+    [
+      3,
+      5
+    ],
+    [
+      5,
+      3
+    ]
+  ],
+  "physical_rotation_fixed_psf": [
+    6,
+    2
+  ],
+  "psf_covariance_diagonal": [
+    2,
+    1
+  ],
+  "recovered_shape_eigenvalues_with_psf": [
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "scope": "Exact algebra on a stipulated two-point Gaussian population. No images, training, fitted PSF, or scientific test data. Not evidence of a RarePlanes effect."
+}
