@@ -281,7 +281,7 @@ def evaluate(manifest: dict, out: Path, device: str) -> dict:
 
 def main() -> None:
     p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True); p.add_argument("--out", type=Path, required=True)
-    p.add_argument("--manifest", type=Path, required=True); p.add_argument("--weights", type=Path, required=True); p.add_argument("--device", default="cuda:2")
+    p.add_argument("--manifest", type=Path, required=True); p.add_argument("--weights", type=Path, required=True); p.add_argument("--device", default="cuda:0")
     args = p.parse_args(); manifest = _json(args.manifest); args.out.mkdir(parents=True, exist_ok=True)
     train_items = [x for x in manifest["images"] if x["split"] == "train"] + [x for x in manifest["labels"] if x["split"] == "train"]
     ledger = args.out / "downloads.json"
