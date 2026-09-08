@@ -1,0 +1,77 @@
+{
+  "task": "r024",
+  "base_protocol_sha256_canonical": "7a45722080c97d7e22c140ad099d7d549baf53f45f7849e54aaeb1a13b24b13e",
+  "manifest_sha256_canonical": "e43218c42ed26c7b25c4235fc346f528910d0ea82ae7d00c3ccb8dda4b0685ec",
+  "seed": 1701,
+  "cohort": "Exactly the previously consumed r023 48 scenes / 192 queries; paired follow-up exploration, not an independent held-out confirmation.",
+  "actions": [
+    {
+      "name": "repeat",
+      "slope": 1.0,
+      "u_start": -18.0,
+      "u_stop": 20.0,
+      "u_count": 33
+    },
+    {
+      "name": "dither",
+      "slope": 1.0,
+      "u_start": -17.40625,
+      "u_stop": 20.59375,
+      "u_count": 33
+    },
+    {
+      "name": "same_new",
+      "slope": 0.75,
+      "u_start": -18.0,
+      "u_stop": 20.0,
+      "u_count": 33
+    },
+    {
+      "name": "opposite_new",
+      "slope": -0.75,
+      "u_start": -4.0,
+      "u_stop": 34.0,
+      "u_count": 33
+    }
+  ],
+  "same_side_controls": [
+    "repeat",
+    "dither",
+    "same_new"
+  ],
+  "target_action": "opposite_new",
+  "image_v": [
+    -2,
+    -1,
+    0,
+    1,
+    2
+  ],
+  "new_samples_per_action": 165,
+  "inference": "Baseline full three RGB arrays, then intersection with exactly one additional RGB array. No true height, scene ID, stratum or visibility labels in compatibility inference; all 3125 candidates considered. Each arm evaluated separately.",
+  "opposite_fov": "Mirror original u window about fixed scene x-center=8; same angular magnitude, spacing and sample count as same_new. Every candidate query height and projected object support is in view.",
+  "aggregation": "Equal queries per scene, equal scenes; width reduction = 1 - mean(W_action)/mean(W_base); zero denominator is null. Retain all zero-width and all-occluded queries.",
+  "thresholds": {
+    "overall_shrinkage_min": 0.25,
+    "subgroup_shrinkage_min": 0.1,
+    "opposite_advantage_over_best_same_min": 0.1,
+    "opposite_subgroup_advantage_min": 0.0
+  },
+  "required_subgroups": [
+    "one_side_occluded",
+    "depth_boundary"
+  ],
+  "advantage": "(min of the three complete same-side arm mean widths - opposite mean width) / base mean width. Group summaries use group arm means, never per-query winner selection.",
+  "diagnostics": [
+    "All four groups and overall widths, shrinkage, zero widths and full height range counts",
+    "Number of distinct old three-bit visibility patterns among each image-compatible set; identifiable iff one pattern",
+    "All candidate sets and nested intervals; repeat must equal baseline exactly"
+  ],
+  "cpu_wall_seconds_limit": 1800,
+  "artifact_bytes_limit": 100000000,
+  "new_training_runs": 0,
+  "gpu_hours": 0,
+  "download_bytes": 0,
+  "scope": "Finite noiseless sampled silhouette measurement feasibility screen. Equal new ray samples, not equal satellite acquisition, monetary cost, independent views, or proof of a new algorithm. New image gain does not establish mediation by visibility.",
+  "stop_rule": "No new seed, member, angle, sampling density, threshold or training to rescue these frozen comparisons. A valid negative stops only this fixed opposite-view bridge; r023 oracle positive is retained."
+}
