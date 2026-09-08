@@ -290,7 +290,12 @@ def main():
     global_ap = ap11(np.array([1., 0.]), np.array([0., 1.]), 1)
     mean_image_ap = (average_counterexample["replay"]["ap11"] + average_counterexample_b["replay"]["ap11"]) / 2
     summary = {"status": "TECHNICAL_VALIDATION_COMPLETE_HUMAN_RELABEL_NOT_EXECUTED", "selected_images": len(selected),
-               "selection_population": len(population), "models": {model: {label: data["ap_abs_delta"] for label, data in item["per_threshold"].items()} for model, item in all_summaries.items()},
+               "selection_population": len(population),
+               "models": {model: {label: {"replay_ap11": data["replay"]["ap11"],
+                                             "standard_ap11": data["standard"]["ap11"],
+                                             "ap_abs_delta": data["ap_abs_delta"]}
+                                  for label, data in item["per_threshold"].items()}
+                          for model, item in all_summaries.items()},
                "counterexample": json.loads((out / "counterexamples.json").read_text())["checks"],
                "average_image_ap_counterexample": {"mean_image_ap": mean_image_ap, "global_ap": global_ap, "different": mean_image_ap != global_ap},
                "limitations": ["No human relabeling or natural-label-disagreement effect was measured.", "Fixed-24 unweighted results are not population inference or a model-winner certificate.", "Prefix vectors replay fixed-label AP exactly but do not establish unbiased AP, AP-difference, confidence interval, optional-stopping, or active-selection guarantees."]}
