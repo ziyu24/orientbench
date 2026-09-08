@@ -1,7 +1,7 @@
 {
   "task": "r028",
   "dataset_root": "/home/rspip/cqc/data/dataset/HRSC2016",
-  "prediction_root": "runs/r004/inference/test",
+  "prediction_root": "/home/rspip/cqc/study/orientbench/runs/r004/inference/test",
   "models": ["oriented_rcnn_r50", "rotated_rtmdet_m"],
   "prediction_label": "clean",
   "selection": {

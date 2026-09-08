@@ -233,6 +233,9 @@ def main():
     parser = argparse.ArgumentParser(); parser.add_argument("--root", type=Path, required=True); parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(); root, out = args.root.resolve(), args.out.resolve()
     cfg = json.loads((root / "configs/r028/protocol.json").read_text()); dataset = Path(cfg["dataset_root"])
+    prediction_root = Path(cfg["prediction_root"])
+    if not prediction_root.is_absolute():
+        prediction_root = root / prediction_root
     out.mkdir(parents=True, exist_ok=False)
     selected, population = select_images(dataset, cfg, out / "selection_population.csv")
     (out / "selection_manifest.json").write_text(json.dumps({"protocol": cfg["selection"], "selected": selected}, indent=2) + "\n")
@@ -240,7 +243,7 @@ def main():
     selected_ids = [row["image_id"] for row in selected]
     all_summaries, raw = {}, {}
     for model in cfg["models"]:
-        path = root / cfg["prediction_root"] / model / cfg["prediction_label"] / "predictions.pkl"
+        path = prediction_root / model / cfg["prediction_label"] / "predictions.pkl"
         records = {str(record["img_id"]): record for record in pickle.load(path.open("rb"))}
         if set(selected_ids) - set(records):
             raise RuntimeError(f"missing selected raw predictions for {model}")
