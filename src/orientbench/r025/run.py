@@ -9,6 +9,7 @@ from pathlib import Path
 
 from PIL import Image
 from shapely.geometry import Polygon
+from shapely.strtree import STRtree
 
 
 def sha(path):
@@ -33,10 +34,17 @@ def parse_native(path, version, image_id, tol):
     records = []
     for line_no, raw in enumerate(path.read_text(errors="replace").splitlines(), 1):
         fields = raw.split()
-        if len(fields) < 10:
+        if not fields or raw.strip().lower().startswith(("imagesource:", "gsd:", "acquisition date:")):
+            continue
+        if len(fields) != 10:
+            records.append({"version": version, "image_id": image_id, "line": line_no,
+                            "raw": raw, "class": fields[8] if len(fields) >= 9 else "",
+                            "valid": False, "error": "missing_difficult" if len(fields) == 9 else "invalid_field_count"})
             continue
         try:
             points = [(float(fields[i]), float(fields[i + 1])) for i in range(0, 8, 2)]
+            if not all(math.isfinite(v) for point in points for v in point):
+                raise ValueError("non-finite coordinate")
             poly = Polygon(points)
         except (ValueError, IndexError):
             records.append({"version": version, "image_id": image_id, "line": line_no,
@@ -49,6 +57,13 @@ def parse_native(path, version, image_id, tol):
             error = "self_intersection"
         elif poly.area <= 0:
             error = "zero_area"
+        if fields[9] not in {"0", "1", "2"}:
+            error = "invalid_difficult"
+        if error:
+            records.append({"version": version, "image_id": image_id, "line": line_no,
+                            "raw": raw, "class": fields[8], "difficult": fields[9],
+                            "quad": quad_text(points), "valid": False, "error": error})
+            continue
         records.append({"version": version, "image_id": image_id, "line": line_no,
                         "raw": raw, "class": fields[8], "difficult": fields[9],
                         "points": points, "quad": quad_text(points),
@@ -109,15 +124,18 @@ def pair_labels(image_id, old_path, new_path, cfg):
             x, y = a[0], b[0]; used_old.add(x["line"]); used_new.add(y["line"])
             same_meta = (x["class"], x["difficult"]) == (y["class"], y["difficult"])
             row("geometry_unchanged" if same_meta else "class_or_difficult_only", x, y, 1.0, x["quad"] == y["quad"])
-        elif a or b:
+        elif len(a) > 1 or len(b) > 1:
             for x in a: used_old.add(x["line"]); row("exact_duplicate_ambiguous", x, None)
             for y in b: used_new.add(y["line"]); row("exact_duplicate_ambiguous", None, y)
 
     rem_old = [x for x in valid_old if x["line"] not in used_old]
     rem_new = [x for x in valid_new if x["line"] not in used_new]
     graph = defaultdict(list)
+    # Spatial lookup only prunes disjoint bounds; the frozen polygon IoU rule is unchanged.
+    tree = STRtree([y["poly"] for y in rem_new])
     for x in rem_old:
-        for y in rem_new:
+        for index in sorted(tree.query(x["poly"])):
+            y = rem_new[int(index)]
             union = x["poly"].union(y["poly"]).area
             iou = x["poly"].intersection(y["poly"]).area / union if union else 0.0
             if iou >= cfg["iou_threshold"]:
@@ -131,10 +149,10 @@ def pair_labels(image_id, old_path, new_path, cfg):
             same_meta = (x["class"], x["difficult"]) == (y["class"], y["difficult"])
             row("geometry_revised" if same_meta else "geometry_revised_and_metadata_changed", x, y, iou, False)
         else:
-            row("old_unmatched_or_ambiguous", x, None)
+            row("old_iou_ambiguous" if c else "old_no_candidate", x, None)
     for y in rem_new:
         if y["line"] not in paired_new:
-            row("new_unmatched_or_ambiguous", None, y)
+            row("new_iou_ambiguous" if graph[("new", y["line"])] else "new_no_candidate", None, y)
     for x in old + new:
         if not x["valid"]:
             row("invalid_geometry_" + x["error"], x if x["version"] == "v1" else None,
@@ -151,9 +169,10 @@ def write_csv(path, rows):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--root", type=Path, required=True); args = ap.parse_args()
-    root = args.root.resolve(); cfg = json.loads((root / "configs/r025/protocol.json").read_text())
-    data, out = Path(cfg["dataset_root"]), root / "runs/r025/artifacts"
+    ap = argparse.ArgumentParser(); ap.add_argument("--root", type=Path, required=True)
+    ap.add_argument("--run-id", choices=["r025", "r026"], default="r025"); args = ap.parse_args()
+    root = args.root.resolve(); cfg = json.loads((root / f"configs/{args.run_id}/protocol.json").read_text())
+    data, out = Path(cfg["dataset_root"]), root / f"runs/{args.run_id}/artifacts"
     out.mkdir(parents=True, exist_ok=False)
     dirs = {key: data / rel for key, rel in (("i1", cfg["v1_images"]), ("i2", cfg["v2_images"]), ("l1", cfg["v1_labels"]), ("l2", cfg["v2_labels"]))}
     maps = {key: {p.stem: p for p in value.glob("*") if p.is_file()} for key, value in dirs.items()}
@@ -184,13 +203,14 @@ def main():
                   "conclusion": "No AP or label-conditioned prediction claim is permitted unless all complete prediction and mapping inputs are present."}
     (out / "prediction_sources.json").write_text(json.dumps(provenance, indent=2) + "\n")
     focus = [r for r in correspondence if r.get("old_class") in cfg["classes"] or r.get("new_class") in cfg["classes"]]
-    literal = sum(r.get("literal_quad_equal") == "False" and r["status"] in {"geometry_unchanged", "class_or_difficult_only"} for r in correspondence)
+    literal = sum(r.get("literal_quad_equal") is False and r["status"] in {"geometry_unchanged", "class_or_difficult_only"} for r in correspondence)
     summary = {"all_image_records": len(images), "same_pixel_images": len(pairable), "label_pairs": len(counts),
                "image_status": dict(sorted(Counter(r["status"] for r in images).items())),
                "all_correspondence_status": dict(sorted(Counter(r["status"] for r in correspondence).items())),
                "aircraft_ship_status": dict(sorted(Counter(r["status"] for r in focus).items())),
                "literal_vertex_difference_but_canonical_same": literal,
-               "candidate_iou_edges": len(edges), "prediction_complete": all(x["exists"] for x in source_rows),
+               "candidate_iou_edges": len(edges), "registered_prediction_files_present": all(x["exists"] for x in source_rows),
+               "prediction_complete": None,
                "scope": cfg["scope"]}
     (out / "label_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps(summary, sort_keys=True))

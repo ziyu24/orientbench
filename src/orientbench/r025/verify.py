@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 from PIL import Image
+from orientbench.r025.b_review import review
 
 
 def digest(path):
@@ -33,8 +34,9 @@ def direct_status(a, b):
 
 
 def main():
-    p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True); a = p.parse_args()
-    out = a.root.resolve() / "runs/r025/artifacts"
+    p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True)
+    p.add_argument("--run-id", choices=["r025", "r026"], default="r025"); a = p.parse_args()
+    out = a.root.resolve() / f"runs/{a.run_id}/artifacts"
     with open(out / "image_pairs.csv", newline="") as f:
         images = list(csv.DictReader(f))
     mismatches = [r["image_id"] for r in images if direct_status(r["v1_path"], r["v2_path"]) != r["status"]]
@@ -46,19 +48,26 @@ def main():
     new_keys = {(r["image_id"], r["line"]) for r in objects if r.get("version") == "v2" and r.get("valid") == "True"}
     referenced_old = {(r["image_id"], r["old_line"]) for r in corr if r.get("old_line")}
     referenced_new = {(r["image_id"], r["new_line"]) for r in corr if r.get("new_line")}
-    # Every retained valid object must be represented exactly once in the exhaustive correspondence partition.
+    old_repeats = Counter((r["image_id"], r["old_line"]) for r in corr if r.get("old_line"))
+    new_repeats = Counter((r["image_id"], r["new_line"]) for r in corr if r.get("new_line"))
+    native = review(a.root.resolve(), a.run_id)
+    # Native replay checks scientific classification, not merely membership in producer CSVs.
     report = {"image_rows": len(images), "image_status_counts": dict(Counter(r["status"] for r in images)),
               "image_status_mismatches": mismatches,
               "valid_old_objects": len(old_keys), "valid_new_objects": len(new_keys),
               "unpartitioned_old": sorted(old_keys - referenced_old)[:50],
               "unpartitioned_new": sorted(new_keys - referenced_new)[:50],
               "correspondence_status_counts": dict(Counter(r["status"] for r in corr)),
-              "pass": not mismatches and not (old_keys - referenced_old) and not (new_keys - referenced_new),
-              "independence": "Verifier reads native file paths and CSV evidence directly; it imports neither the audit module nor its matching/statistics implementation."}
+              "duplicate_references": sum(v != 1 for v in old_repeats.values())+sum(v != 1 for v in new_repeats.values()),
+              "native_replay": native,
+              "pass": not mismatches and not (old_keys - referenced_old) and not (new_keys - referenced_new)
+                      and all(v == 1 for v in old_repeats.values()) and all(v == 1 for v in new_repeats.values())
+                      and native["pass"],
+              "independence": "Independent native-label parsing, candidate graph and classification; no producer matching imports. Native malformed records fail closed."}
     (out / "independent_verify.json").write_text(json.dumps(report, indent=2) + "\n")
     if not report["pass"]:
         raise SystemExit("independent verification failed")
-    print(json.dumps(report, sort_keys=True))
+    print(json.dumps({k:v for k,v in report.items() if k != 'native_replay'}, sort_keys=True))
 
 
 if __name__ == "__main__":

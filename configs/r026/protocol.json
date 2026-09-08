@@ -1,0 +1,20 @@
+{
+  "task": "r026",
+  "dataset_root": "/home/rspip/cqc/data/dataset/dota",
+  "v1_images": "src_image_dota10_dota15/val",
+  "v2_images": "src_image_dota20/val",
+  "v1_labels": "dota1.0/val/annfiles",
+  "v2_labels": "dota2.0/val/annfiles",
+  "polygon_tolerance": 1e-06,
+  "iou_threshold": 0.5,
+  "classes": [
+    "plane",
+    "ship"
+  ],
+  "prediction_paths": [
+    "outputs/persistent_artifacts/orientbench_r019/prelabel/raw/orcnn/identity.pkl",
+    "outputs/persistent_artifacts/orientbench_r019/prelabel/raw/rtmdet/identity.pkl",
+    "outputs/persistent_artifacts/orientbench_r019/prelabel/tile_to_mother.csv"
+  ],
+  "scope": "Correction of r025 on the same DOTA v1.0/v2.0 public validation inputs; complete prediction-source investigation. No inference, training, AP or additional images."
+}
