@@ -142,7 +142,8 @@ def standard_ap(records: list[dict], threshold: float):
         boxes = array(record["pred_instances"]["bboxes"])
         scores = array(record["pred_instances"]["scores"]).reshape(-1, 1)
         dets.append([np.concatenate((boxes, scores), axis=1)])
-        gt, ignored = array(record["gt_instances"]["bboxes"]), array(record["ignored_instances"]["bboxes"])
+        gt = array(record["gt_instances"]["bboxes"]).reshape(-1, 5)
+        ignored = array(record["ignored_instances"]["bboxes"]).reshape(-1, 5)
         annotations.append({"bboxes": gt, "labels": np.zeros(len(gt), dtype=np.int64),
                             "bboxes_ignore": ignored, "labels_ignore": np.zeros(len(ignored), dtype=np.int64)})
     result, details = eval_rbbox_map(dets, annotations, iou_thr=threshold, use_07_metric=True,
