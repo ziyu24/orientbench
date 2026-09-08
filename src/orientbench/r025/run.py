@@ -10,6 +10,7 @@ from pathlib import Path
 from PIL import Image
 from shapely.geometry import Polygon
 from shapely.strtree import STRtree
+from orientbench.r025.provenance import audit as audit_provenance
 
 
 def sha(path):
@@ -201,6 +202,8 @@ def main():
     provenance = {"lookup_scope": [str(root / p) for p in cfg["prediction_paths"]] + [str(p) for p in metadata],
                   "prediction_files": source_rows, "training_index_entries": training,
                   "conclusion": "No AP or label-conditioned prediction claim is permitted unless all complete prediction and mapping inputs are present."}
+    if args.run_id == "r026":
+        provenance = audit_provenance(root)
     (out / "prediction_sources.json").write_text(json.dumps(provenance, indent=2) + "\n")
     focus = [r for r in correspondence if r.get("old_class") in cfg["classes"] or r.get("new_class") in cfg["classes"]]
     literal = sum(r.get("literal_quad_equal") is False and r["status"] in {"geometry_unchanged", "class_or_difficult_only"} for r in correspondence)
@@ -212,6 +215,15 @@ def main():
                "candidate_iou_edges": len(edges), "registered_prediction_files_present": all(x["exists"] for x in source_rows),
                "prediction_complete": None,
                "scope": cfg["scope"]}
+    if args.run_id == "r026":
+        prior = root / "runs/r025/artifacts/label_summary.json"
+        old = json.loads(prior.read_text()) if prior.is_file() else {}
+        correction = {"prior_run": "r025", "prior_status_counts": old.get("all_correspondence_status", {}),
+                      "corrected_status_counts": summary["all_correspondence_status"],
+                      "prior_focus_counts": old.get("aircraft_ship_status", {}),
+                      "corrected_focus_counts": summary["aircraft_ship_status"],
+                      "reference": "The r025 duplicate classification incorrectly blocked one-sided exact keys before IoU candidates; r026 sends them to the frozen candidate graph."}
+        (out / "r025_correction_delta.json").write_text(json.dumps(correction, indent=2) + "\n")
     (out / "label_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps(summary, sort_keys=True))
 
