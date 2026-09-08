@@ -171,9 +171,12 @@ def write_csv(path, rows):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--root", type=Path, required=True)
-    ap.add_argument("--run-id", choices=["r025", "r026"], default="r025"); args = ap.parse_args()
+    ap.add_argument("--run-id", choices=["r025", "r026", "r027"], default="r025")
+    ap.add_argument("--output-dir", type=Path)
+    args = ap.parse_args()
     root = args.root.resolve(); cfg = json.loads((root / f"configs/{args.run_id}/protocol.json").read_text())
-    data, out = Path(cfg["dataset_root"]), root / f"runs/{args.run_id}/artifacts"
+    data = Path(cfg["dataset_root"])
+    out = args.output_dir.resolve() if args.output_dir else root / f"runs/{args.run_id}/artifacts"
     out.mkdir(parents=True, exist_ok=False)
     dirs = {key: data / rel for key, rel in (("i1", cfg["v1_images"]), ("i2", cfg["v2_images"]), ("l1", cfg["v1_labels"]), ("l2", cfg["v2_labels"]))}
     maps = {key: {p.stem: p for p in value.glob("*") if p.is_file()} for key, value in dirs.items()}

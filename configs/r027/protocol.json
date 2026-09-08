@@ -1,14 +1,24 @@
 {
   "task": "r027",
   "dataset_root": "/home/rspip/cqc/data/dataset/dota",
+  "v1_images": "src_image_dota10_dota15/val",
+  "v2_images": "src_image_dota20/val",
   "v1_labels": "dota1.0/val/annfiles",
   "current_v2_labels": "dota2.0/val/annfiles",
+  "v2_labels": "dota2.0/val/annfiles_obb_official",
   "shared_v1_val_images": "src_image_dota10_dota15/val",
   "official_dataset_page": "https://captain-whu.github.io/DOTA/dataset.html",
   "official_baidu_share": "https://pan.baidu.com/s/1Y9rJPEZLCdjyVjMSyhFdDQ",
   "official_onedrive_share": "https://whueducn-my.sharepoint.com/:f:/g/personal/2014301200247_whu_edu_cn/EiJ3JsfWPqhPn2955rjdtxoBZUFYWCX2ZXOtbZ-GT0I7Qw?e=XjeBMB",
   "extraction_code": "ck24",
   "max_download_bytes": 104857600,
-  "candidate_obb_label_dir": null,
-  "scope": "Acquire and bind only official DOTA-v2.0 validation OBB labels. No images, training, inference, AP, seeds or hidden test."
+  "candidate_obb_label_dir": "/home/rspip/cqc/data/dataset/dota/dota2.0/val/annfiles_obb_official",
+  "source_archive": "/home/rspip/cqc/data/temp/DOTA-v2.0_val.zip",
+  "source_archive_sha256": "1f2e20e0abe4ba2c1ecad0cec1cf8b335c845e150070bbf1635814bb3017aed5",
+  "source_archive_expected_bytes": 1481549,
+  "polygon_tolerance": 1e-06,
+  "iou_threshold": 0.5,
+  "classes": ["plane", "ship"],
+  "prediction_paths": [],
+  "scope": "Source-bound DOTA-v2.0 validation OBB-label qualification and fixed 458-image v1-OBB to v2-OBB correspondence measurement. No training, inference, AP, seeds, weights or hidden test."
 }

@@ -80,8 +80,8 @@ def replay(old_path, new_path):
     return left, right, li, ri, results, links
 
 
-def review(root, run_id):
-    out = root / f"runs/{run_id}/artifacts"
+def review(root, run_id, output_dir=None):
+    out = Path(output_dir).resolve() if output_dir else root / f"runs/{run_id}/artifacts"
     cfg = json.loads((root / f"configs/{run_id}/protocol.json").read_text())
     data = Path(cfg["dataset_root"])
     old = {p.stem:p for p in (data/cfg["v1_labels"]).glob('*.txt')}
@@ -149,6 +149,7 @@ def review(root, run_id):
 if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--root',type=Path,required=True)
-    parser.add_argument('--run-id',choices=['r025','r026'],default='r025')
+    parser.add_argument('--run-id',choices=['r025','r026','r027'],default='r025')
+    parser.add_argument('--output-dir', type=Path)
     args=parser.parse_args()
-    print(json.dumps(review(args.root,args.run_id),ensure_ascii=False,indent=2))
+    print(json.dumps(review(args.root,args.run_id,args.output_dir),ensure_ascii=False,indent=2))

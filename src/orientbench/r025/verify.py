@@ -35,8 +35,10 @@ def direct_status(a, b):
 
 def main():
     p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True)
-    p.add_argument("--run-id", choices=["r025", "r026"], default="r025"); a = p.parse_args()
-    out = a.root.resolve() / f"runs/{a.run_id}/artifacts"
+    p.add_argument("--run-id", choices=["r025", "r026", "r027"], default="r025")
+    p.add_argument("--output-dir", type=Path)
+    a = p.parse_args()
+    out = a.output_dir.resolve() if a.output_dir else a.root.resolve() / f"runs/{a.run_id}/artifacts"
     with open(out / "image_pairs.csv", newline="") as f:
         images = list(csv.DictReader(f))
     mismatches = [r["image_id"] for r in images if direct_status(r["v1_path"], r["v2_path"]) != r["status"]]
@@ -50,7 +52,7 @@ def main():
     referenced_new = {(r["image_id"], r["new_line"]) for r in corr if r.get("new_line")}
     old_repeats = Counter((r["image_id"], r["old_line"]) for r in corr if r.get("old_line"))
     new_repeats = Counter((r["image_id"], r["new_line"]) for r in corr if r.get("new_line"))
-    native = review(a.root.resolve(), a.run_id)
+    native = review(a.root.resolve(), a.run_id, out)
     # Native replay checks scientific classification, not merely membership in producer CSVs.
     report = {"image_rows": len(images), "image_status_counts": dict(Counter(r["status"] for r in images)),
               "image_status_mismatches": mismatches,
