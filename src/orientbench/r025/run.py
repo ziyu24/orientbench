@@ -179,7 +179,9 @@ def main():
     out = args.output_dir.resolve() if args.output_dir else root / f"runs/{args.run_id}/artifacts"
     out.mkdir(parents=True, exist_ok=False)
     dirs = {key: data / rel for key, rel in (("i1", cfg["v1_images"]), ("i2", cfg["v2_images"]), ("l1", cfg["v1_labels"]), ("l2", cfg["v2_labels"]))}
-    maps = {key: {p.stem: p for p in value.glob("*") if p.is_file()} for key, value in dirs.items()}
+    maps = {key: {p.stem: p for p in value.glob("*")
+                  if p.is_file() and p.suffix.lower() == (".png" if key.startswith("i") else ".txt")}
+            for key, value in dirs.items()}
     names = sorted(set().union(*[set(x) for x in maps.values()]))
     images = [image_record(name, maps["i1"].get(name), maps["i2"].get(name)) for name in names]
     pairable = {x["image_id"] for x in images if x["status"] in {"byte_identical", "pixel_identical_encoding_diff"}}
@@ -215,7 +217,7 @@ def main():
                "all_correspondence_status": dict(sorted(Counter(r["status"] for r in correspondence).items())),
                "aircraft_ship_status": dict(sorted(Counter(r["status"] for r in focus).items())),
                "literal_vertex_difference_but_canonical_same": literal,
-               "candidate_iou_edges": len(edges), "registered_prediction_files_present": all(x["exists"] for x in source_rows),
+               "candidate_iou_edges": len(edges), "registered_prediction_files_present": all(x["exists"] for x in source_rows) if source_rows else None,
                "prediction_complete": None,
                "scope": cfg["scope"]}
     if args.run_id == "r026":
