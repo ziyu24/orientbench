@@ -59,3 +59,22 @@
 ## 未消除的缺口
 
 真实完整地面足迹真值；多个独立城市/过境的同任务实际包；新可计算机制超过强近邻；新方法真实效应。公开页面或文件头可达均不能替代完整解包与输入支持。C离线审阅的事实及结论以原文交付为准。
+
+## r024后与真实C讨论的定向补查
+
+以下由B检索，不称系统综述或论文复现。C本轮已做有限直接近邻检索，但本地执行器仍故障；
+其意见仅是科学审阅，不是代码审计。真实原文见`C_POST_R024_REVIEW_20260908.md`。
+
+|来源|实际读取与对候选的约束|
+|---|---|
+|[Space Carving，IJCV2000作者PDF](https://www.cs.toronto.edu/~kyros/pubs/00.ijcv.carve.pdf)|B读摘要、引言及成像假设：光度相容场景类与photo hull已有体系。引入纹理、遮挡或双解本身不足以立新意；其局部辐射假设不能自动覆盖真实卫星全部成像误差。|
+|[MUVA/MASFormer，ICCV2023](https://openaccess.thecvf.com/content/ICCV2023/papers/Li_MUVA_A_New_Large-Scale_Benchmark_for_Multi-View_Amodal_Instance_Segmentation_ICCV_2023_paper.pdf)|C检索并用于反驳普通多视图amodal提案；B直接PDF与HTML均403，本条不声称B独立读完。|
+|[MP3D-Amodal，CVPR2024作者页](https://www.robots.ox.ac.uk/~vgg/research/amodal/)|B读作者页：由三维数据建立amodal真值及相应方法已有先例；新增完整标签不等于新增推断算法。|
+|[RSAC，Remote Sensing2026出版页](https://spj.science.org/doi/10.34133/remotesensing.1035)|B读可访问摘要和泛化段落；遥感amodal扩散补全已有直接近邻。其建筑外部示例为10幅Google Earth图及合成遮挡，不能据此宣称真实完整建筑真值已解决。|
+|[Joint Modeling of Corruption-Driven and Information-Limited Uncertainty，WACV2026](https://openaccess.thecvf.com/content/WACV2026/html/Hui_Joint_Modeling_of_Corruption-Driven_and_Information-Limited_Uncertainty_for_Robust_3D_WACV_2026_paper.html)|B读出版摘要与搜索可见首页，直接PDF403；将噪声与信息不足区分也已有近邻，不能把命名当新贡献。|
+|[WHU-SSIDE作者仓库](https://github.com/zhanggb1997/WHU-SSIDE)|B读README，作者称3,737立体像对且提供下载入口；未下载数据成员。|
+|[WHU-SSIDE元数据样例](https://raw.githubusercontent.com/zhanggb1997/WHU-SSIDE/master/Dataset/metadata_example.md)|B完整读取3个JSON示例，仅见位置、GF7前后视、观测/太阳角度，没有RPC系数、PSF或LiDAR实体；不能据此断言整个数据包缺这些材料，也不能宣称资产已满足前向模型。README所列dataset_structure.md实际404。|
+
+决策：普通amodal/PU、通用不确定性命名和相容集合定义均不能独自支撑顶刊方案。
+保留的计算候选必须正面比较同前向模型、同颜色消元的通用搜索；真实数据是否能校准到
+可信误差模型仍未知。HRSC2016不提供这一高程/多视图终点，不适配该候选的首次验证。
