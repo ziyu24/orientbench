@@ -10,3 +10,6 @@ OrientBench 是遥感旋转目标检测方向可靠性与可辨识性的极简�
 
 当前活动 SERVER 指令以 `lab/sug.md` 的唯一 `rNNN` 小节为准。继续研究时先更新
 `lab/discussion.md`，再用收敛后的单项科学任务替换该单槽。
+
+科研交付默认直接更新任务单和简短Markdown；不制作PDF或额外长报告。
+当前r023执行入口与固定代码说明见`doc/R023_EXECUTION.md`。

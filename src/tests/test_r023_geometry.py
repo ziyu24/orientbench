@@ -1,11 +1,10 @@
 import copy
-import importlib.util
 from pathlib import Path
 import numpy as np
 import pytest
 from orientbench.r023.geometry import catalog, render, query_geometry, prepare_manifest, infer
-from orientbench.r023.run import read, summarize
-from orientbench.r023.verify import reference_worlds
+from orientbench.r023.run import read, write, summarize, execute
+from orientbench.r023.verify import reference_worlds, verify
 
 
 CFG = read(Path(__file__).resolve().parents[2]/'configs/r023/protocol.json')
@@ -68,3 +67,28 @@ def test_equal_means_not_mean_relative_reduction():
     for r in rows:
         r['base_hi'] = r['oracle_hi'] = 0
     assert summarize(rows, cfg)['decision'] == 'NO_ROOM_IN_FIXED_DESIGN'
+
+
+def test_fixture_end_to_end_and_reject_mutated_evidence(tmp_path):
+    # Different geometry and four fixture scenes, not the frozen 48-scene screen.
+    cfg = copy.deepcopy(CFG)
+    cfg.update(box_centers_x=[0, 1, 2, 3, 4], box_width=0.75,
+               height_values=[0, 1, 2, 3], queries_xy=[[2, 0], [2.25, 0]],
+               stratum_query_index=0, boundary_height_min=2,
+               image_u={'start': -8, 'stop': 8, 'count': 9}, image_v=[0], scenes_per_stratum=1)
+    protocol = tmp_path/'configs/r023/protocol.json'
+    protocol.parent.mkdir(parents=True)
+    manifest = protocol.with_name('manifest.json')
+    write(protocol, cfg)
+    write(manifest, prepare_manifest(cfg))
+    execute(tmp_path, protocol, manifest)
+    verify(tmp_path)
+    out = tmp_path/'runs/r023/artifacts'
+    assert read(out/'verification.json')['replayed_scenes'] == 4
+    with pytest.raises(FileExistsError):
+        execute(tmp_path, protocol, manifest)
+    sets = read(out/'compatible_sets.json')
+    sets[0]['oracle_ids'] = []
+    write(out/'compatible_sets.json', sets)
+    with pytest.raises(ValueError, match='compatible set'):
+        verify(tmp_path)
