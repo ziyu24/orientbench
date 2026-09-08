@@ -22,7 +22,7 @@ def main():
     parser.add_argument("--root", type=Path, required=True)
     args = parser.parse_args()
     root = args.root.resolve()
-    run_root = root / "runs/r027_restart"
+    run_root = root / "runs/r027"
     qualification = run_root / "qualification"
     artifacts = run_root / "artifacts"
     invoke(qualify.main, ["--root", str(root), "--output-dir", str(qualification)])
