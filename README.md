@@ -12,4 +12,4 @@ OrientBench 是遥感旋转目标检测方向可靠性与可辨识性的极简�
 `lab/discussion.md`，再用收敛后的单项科学任务替换该单槽。
 
 科研交付默认直接更新任务单和简短Markdown；不制作PDF或额外长报告。
-当前r023执行入口与固定代码说明见`doc/R023_EXECUTION.md`。
+r023已完成并经B复算；当前无活动SERVER任务。历史执行入口与固定代码见`doc/R023_EXECUTION.md`，结果见`lab/result.md`。

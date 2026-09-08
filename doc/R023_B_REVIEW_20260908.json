@@ -1,0 +1,181 @@
+{
+  "reviewer": "B",
+  "observed_from_utc": "2026-09-08T03:16:30Z",
+  "review_finished_utc": "2026-09-08T03:18:45.396217+00:00",
+  "server_root": "/home/rspip/cqc/study/orientbench",
+  "execution_source": "8f182f5919fb9a6b2cd6119478dd10c604de96a5",
+  "server_result_commit": "a0cc9f31f0e001fd566b620151b01e78df6b4a11",
+  "remote_actions": "Read-only repository identity, run metadata, artifact listing/hashes and SCP; no remote execution or changes. Independent replay performed locally.",
+  "artifact_bytes": 393519,
+  "artifact_sha256": {
+    "bindings.json": "000148296430f8c5e0ebaa7bfe2fd89d51e93da905dfa6186cdcaf67326d6503",
+    "candidate_worlds.npz": "45df13b1bb50a368c6bffcfa0ecdf0d139a26884b5f9a487a506742d097bfb32",
+    "compatible_sets.json": "406394c9853a24fed83fabebdf890cea71ac2a6a6409a6a21e133524b9e7823d",
+    "manifest.json": "7276dbd84c883b108d8cc1c2da89af47b389a616314fb8bba8213d80bed2de31",
+    "observations.npz": "a6f3a664b878fdfbb6c7fb05bd9881885ae128b2b4ac1b176313c8bed19fc251",
+    "protocol.json": "88acd5c0c2b25544285443c00950bc4364ea14bf824f4eea9b3674b2d49f5680",
+    "query_rows.json": "83f3107ee7dc94776a106bede51ae137d5939ce2a43c095ee9a99a3b708ccd74",
+    "summary.json": "32f1d1d67dd2b51dafeb2a58d9d3625be76e6676c33fcb627510040aa80d876c",
+    "verification.json": "12427dc603f3f90f8ff3bd08bb4c9499b41ed9bd4d30f712d459ecda7012c905"
+  },
+  "run": {
+    "command": [
+      "/usr/bin/env",
+      "PYTHONPATH=src",
+      "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+      "-m",
+      "orientbench.r023.run",
+      "--root",
+      "/home/rspip/cqc/study/orientbench"
+    ],
+    "config": "configs/r023/protocol.json",
+    "exit_code": 0,
+    "finished_at": "2026-09-08T02:54:31.985987Z",
+    "gpu_count": 0,
+    "inputs": [
+      "public:https://github.com/ziyu24/orientbench"
+    ],
+    "outputs": [
+      {
+        "path": "runs/r023/artifacts/summary.json",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r023/artifacts/candidate_worlds.npz",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r023/artifacts/query_rows.json",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r023/artifacts/compatible_sets.json",
+        "rebuildable": true
+      }
+    ],
+    "project_root": "/home/rspip/cqc/study/orientbench",
+    "result_summary": "lab/result.md#r023",
+    "run_id": "r023",
+    "schema_version": 1,
+    "selected_gpus": [],
+    "source_commit": "8f182f5919fb9a6b2cd6119478dd10c604de96a5",
+    "started_at": "2026-09-08T02:54:31.181382Z",
+    "status": "COMPLETE",
+    "worker_pid": 3547867,
+    "worker_start_ticks": 138589008
+  },
+  "verification": {
+    "geometry_recomputed_worlds": 3125,
+    "replayed_scenes": 48,
+    "replayed_queries": 192,
+    "decision": "FINITE_PRIVILEGED_INFORMATION_SCREEN_PASS",
+    "all_checks_passed": true
+  },
+  "summary": {
+    "decision": "FINITE_PRIVILEGED_INFORMATION_SCREEN_PASS",
+    "metrics": {
+      "overall": {
+        "scenes": 48,
+        "queries": 192,
+        "base_mean_width": 2.96875,
+        "oracle_mean_width": 1.84375,
+        "shrinkage": 0.3789473684210526,
+        "zero_base_width_queries": 102,
+        "full_height_range_queries": 39
+      },
+      "unoccluded": {
+        "scenes": 12,
+        "queries": 48,
+        "base_mean_width": 2.125,
+        "oracle_mean_width": 1.625,
+        "shrinkage": 0.23529411764705888,
+        "zero_base_width_queries": 27,
+        "full_height_range_queries": 0
+      },
+      "one_side_occluded": {
+        "scenes": 12,
+        "queries": 48,
+        "base_mean_width": 2.375,
+        "oracle_mean_width": 1.1666666666666667,
+        "shrinkage": 0.5087719298245614,
+        "zero_base_width_queries": 30,
+        "full_height_range_queries": 9
+      },
+      "common_occluded": {
+        "scenes": 12,
+        "queries": 48,
+        "base_mean_width": 4.375,
+        "oracle_mean_width": 2.4583333333333335,
+        "shrinkage": 0.4380952380952381,
+        "zero_base_width_queries": 18,
+        "full_height_range_queries": 15
+      },
+      "depth_boundary": {
+        "scenes": 12,
+        "queries": 48,
+        "base_mean_width": 3.0,
+        "oracle_mean_width": 2.125,
+        "shrinkage": 0.29166666666666663,
+        "zero_base_width_queries": 27,
+        "full_height_range_queries": 15
+      }
+    },
+    "scope": "Finite noiseless sampled orthographic silhouette experiment; same-azimuth oblique views, known uniform radiometry and restricted cuboid geometry. Not photorealistic RGB, RPC, physical footprint, learned-method evidence or cross-city confirmation.",
+    "automatic_training_authorized": false,
+    "truth_omissions": 0,
+    "empty_sets": 0,
+    "monotonicity_violations": 0,
+    "wall_seconds": 0.43345404602587223,
+    "candidate_scenes": 3125,
+    "evaluation_scenes": 48
+  },
+  "input_byte_note": "Windows checkout CRLF initially failed byte digest. Unmodified Git blob LF bytes from execution source matched server bindings; isolated local replay used those exact committed bytes. Scientific inputs were unchanged.",
+  "witness": {
+    "selection": "First saved query with interval contraction, first compatible candidate outside oracle interval; illustrative post-result witness, not a new test.",
+    "query": 0,
+    "scene_ids": [
+      1656,
+      1641
+    ],
+    "scene_heights": [
+      [
+        4,
+        6,
+        2,
+        2,
+        2
+      ],
+      [
+        4,
+        6,
+        0,
+        6,
+        2
+      ]
+    ],
+    "query_heights": [
+      2,
+      0
+    ],
+    "visibility_bits": [
+      7,
+      0
+    ],
+    "identical_three_images": true,
+    "row": {
+      "catalog_id": 1656,
+      "stratum": "unoccluded",
+      "query": 0,
+      "truth_height": 2,
+      "oracle_bits": 7,
+      "base_lo": 0,
+      "base_hi": 6,
+      "oracle_lo": 2,
+      "oracle_hi": 6,
+      "base_count": 59,
+      "oracle_count": 21
+    }
+  },
+  "interpretation": "Finite privileged information screen passed; identical-input witness excludes universally exact recovery of these bits from these three images within this class. It does not exclude distributional prediction or gains under new validated assumptions; no deployable method or top-journal novelty established.",
+  "next_question": "Specify an independently obtainable additional measurement and its cost, or a justified distributional/computational objective. No frozen new server task."
+}
