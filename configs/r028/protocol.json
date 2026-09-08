@@ -1,0 +1,21 @@
+{
+  "task": "r028",
+  "dataset_root": "/home/rspip/cqc/data/dataset/HRSC2016",
+  "prediction_root": "runs/r004/inference/test",
+  "models": ["oriented_rcnn_r50", "rotated_rtmdet_m"],
+  "prediction_label": "clean",
+  "selection": {
+    "seed": 28028,
+    "per_stratum": 12,
+    "high_density_count": "ceil(N/4)",
+    "density": "all XML ship objects including difficult divided by XML image width times height",
+    "tie_break": "canonical numeric image ID ascending"
+  },
+  "evaluation": {
+    "primary": {"iou_threshold": 0.5, "interpolation": "VOC2007_11_point"},
+    "auxiliary": {"iou_threshold": 0.75, "interpolation": "VOC2007_11_point"},
+    "box_type": "rbox",
+    "score_order": "numpy.argsort(-score), retaining evaluator image concatenation order for equal scores"
+  },
+  "scope": "HRSC2016 technical matching-dependence validation and blind whole-image relabel preparation only. No human relabeling, training, fitted selector, confidence interval, TTA, intervention, model search, or hidden-data access."
+}
