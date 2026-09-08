@@ -15,9 +15,11 @@ def digest(path):
     return h.hexdigest()
 
 
-def records(path):
+def records(path, include=None):
     all_rows, focus, axis, missing = Counter(), Counter(), Counter(), []
     for label in sorted(path.glob("*.txt")):
+        if include is not None and label.stem not in include:
+            continue
         count = 0
         for number, line in enumerate(label.read_text(errors="replace").splitlines(), 1):
             v = line.split()
@@ -37,12 +39,14 @@ def records(path):
 
 
 def main():
-    p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True); a = p.parse_args()
+    p = argparse.ArgumentParser(); p.add_argument("--root", type=Path, required=True); p.add_argument("--corrected", action="store_true"); a = p.parse_args()
     root = a.root.resolve(); cfg = json.loads((root / "configs/r027/protocol.json").read_text())
-    out = root / "runs/r027/artifacts"; out.mkdir(parents=True, exist_ok=False)
+    out = root / "runs/r027/artifacts"
+    if a.corrected: out.mkdir(parents=True, exist_ok=True)
+    else: out.mkdir(parents=True, exist_ok=False)
     data = Path(cfg["dataset_root"]); v1, hbb = data / cfg["v1_labels"], data / cfg["current_v2_labels"]
     shared_images = {x.stem for x in (data / cfg["shared_v1_val_images"]).glob("*.png")}
-    observed = records(hbb)
+    observed = records(hbb, shared_images)
     access = {"official_dataset_page": cfg["official_dataset_page"], "official_baidu_share": cfg["official_baidu_share"],
               "official_onedrive_share": cfg["official_onedrive_share"], "extraction_code": cfg["extraction_code"],
               "bytes_transferred": 0, "limit_bytes": cfg["max_download_bytes"],
@@ -52,11 +56,11 @@ def main():
     cand = cfg["candidate_obb_label_dir"]
     package = {"configured_path": cand, "exists": bool(cand and Path(cand).is_dir())}
     result = {"status": "OBB_INPUT_NOT_ACQUIRED", "shared_image_count": len(shared_images),
-              "v1_label_files": len(list(v1.glob("*.txt"))), "current_hbb": observed,
+              "v1_label_files": len(list(v1.glob("*.txt"))), "current_hbb_on_shared_458": observed,
               "access": access, "candidate_obb_package": package,
               "comparison": "NOT_RUN: no source-bound OBB validation label package; HBB must not be converted into pseudo-OBB.",
               "limitations": ["Local HBB-like labels are retained as evidence, not treated as OBB.", "No hidden test, images, training data, weights, inference or AP was accessed."]}
-    (out / "input_qualification.json").write_text(json.dumps(result, indent=2) + "\n")
+    (out / ("input_qualification_corrected.json" if a.corrected else "input_qualification.json")).write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, sort_keys=True))
 
 
