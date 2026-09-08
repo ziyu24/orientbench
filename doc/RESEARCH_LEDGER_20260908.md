@@ -78,3 +78,16 @@
 决策：普通amodal/PU、通用不确定性命名和相容集合定义均不能独自支撑顶刊方案。
 保留的计算候选必须正面比较同前向模型、同颜色消元的通用搜索；真实数据是否能校准到
 可信误差模型仍未知。HRSC2016不提供这一高程/多视图终点，不适配该候选的首次验证。
+
+第三轮结论更新：C明确接受测量/基准可以形成贡献，不再保留新求解器候选；唯一保留的是
+配对评价目标对方法比较结论的影响，先核实实际真值。上述计算候选段落只是当轮审议范围，
+不得读作仍在投入。当前唯一方向以`lab/discussion.md`为准。
+
+|第三轮期间B补查|实际读取及边界|
+|---|---|
+|[Satellite Sunroof，NeurIPS2024气候研讨会](https://s3.us-east-1.amazonaws.com/climate-change-ai/papers/neurips2024/4/paper.pdf)|B读摘要、§2、附录A/B：侧视/天底两套标签、几何投影、时相与屋顶不一致mask已有实际应用。不是完整独立地面足迹GT，也未证明本项目的配对效应已有结论；论文不是NeurIPS主会。|
+|[Data-Centric Benchmark for Label Noise Estimation and Ranking，2026-08-24 v2](https://arxiv.org/html/2603.00604v2)|B读摘要和评估说明：建筑二值分割受控标注扰动、噪声训练样本排序及方法比较。这里的ranking主要指样本噪声排序，不能仅凭标题误称已做本提案的方法排序翻转实验。|
+|[Metric Evaluation Pipeline for 3D Modeling of Urban Scenes，ISPRS Archives2017](https://isprs-archives.copernicus.org/articles/XLII-1-W1/239/2017/index.html)|B读出版摘要：多视卫星三维与航空LiDAR真值、语义与几何指标及建筑footprint参考已有框架；仅有三维评价流程并非新贡献。未下载资产验证实体。|
+
+C第三轮没有读取这三项新补查，不声称双方共同查阅或共同查新。配对数据准备、标签目标差异
+与评价结论效应须逐项区分；新意与真实效应仍未知。
