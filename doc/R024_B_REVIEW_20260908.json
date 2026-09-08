@@ -1,0 +1,320 @@
+{
+  "reviewer": "B",
+  "observed_from_utc": "2026-09-08T04:36:44Z",
+  "review_finished_utc": "2026-09-08T04:38:47.724431+00:00",
+  "server_root": "/home/rspip/cqc/study/orientbench",
+  "execution_source": "fc3bddf3db7f8f90c07c283a236260b7795443f9",
+  "server_result_commit": "ee959ed0f0d8aaa3888f486ef396d40aafc9c585",
+  "remote_actions": "Read-only config, repository identity/status, run metadata, artifact listing/hashes and SCP; no server mutation or execution. Independent replay on B local workstation. One SSH connection closed, existing-alias retry succeeded.",
+  "artifact_bytes": 1239356,
+  "artifact_sha256": {
+    "inputs.json": "8b7fe25967af42d9db2a49635c9ed5696fd533551b2ad12059591831cde07171",
+    "observations.npz": "0ea23b19e32ec35e8e8c83ec32e9613ae94b260d35b27679d5ea67bebb19b745",
+    "query_rows.json": "9d5df565b814a56802a4f6f9ba078bcf34c4b439118ec256ebd4fdc5100c2ad9",
+    "summary.json": "665bacda17c7db21e5e0d02da6ab42e351445f2b016b650d16bc00b555a9c2a7",
+    "verification.json": "b7f785c206c51e3d31eee58c03d5a921b6206709d1cd0724c16e2fa07d62c110",
+    "worlds.npz": "195d3d0bb533f2078991e56f8ac8e1409bc89c0ea2825fe7331250e89ccf3cbb"
+  },
+  "run": {
+    "command": [
+      "/usr/bin/env",
+      "PYTHONPATH=src",
+      "/home/rspip/cqc/data/install/yes/envs/pcp-obb/bin/python",
+      "-m",
+      "orientbench.r024.run",
+      "--root",
+      "/home/rspip/cqc/study/orientbench"
+    ],
+    "config": "configs/r024/protocol.json",
+    "exit_code": 0,
+    "finished_at": "2026-09-08T03:48:54.126984Z",
+    "gpu_count": 0,
+    "inputs": [
+      "public:https://github.com/ziyu24/orientbench"
+    ],
+    "outputs": [
+      {
+        "path": "runs/r024/artifacts/summary.json",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r024/artifacts/worlds.npz",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r024/artifacts/observations.npz",
+        "rebuildable": true
+      },
+      {
+        "path": "runs/r024/artifacts/query_rows.json",
+        "rebuildable": true
+      }
+    ],
+    "project_root": "/home/rspip/cqc/study/orientbench",
+    "result_summary": "lab/result.md#r024",
+    "run_id": "r024",
+    "schema_version": 1,
+    "selected_gpus": [],
+    "source_commit": "fc3bddf3db7f8f90c07c283a236260b7795443f9",
+    "started_at": "2026-09-08T03:48:53.323061Z",
+    "status": "COMPLETE",
+    "worker_pid": 3744011,
+    "worker_start_ticks": 138915226
+  },
+  "verification": {
+    "all_checks_passed": true,
+    "geometry_recomputed_worlds": 3125,
+    "replayed_scenes": 48,
+    "replayed_queries": 192,
+    "replayed_actions": 4,
+    "decision": "STOP_FIXED_OBSERVABLE_BRIDGE"
+  },
+  "verification_note": "Original server verification preserved separately before local verifier wrote its output; semantic JSON identical, Windows output newline bytes differ. All hashes above bind original server files.",
+  "summary": {
+    "decision": "STOP_FIXED_OBSERVABLE_BRIDGE",
+    "groups": {
+      "overall": {
+        "scenes": 48,
+        "queries": 192,
+        "arms": {
+          "base": {
+            "mean_width": 2.96875,
+            "shrinkage": 0.0,
+            "zero_width_queries": 102,
+            "full_range_queries": 39,
+            "visibility_identified_queries": 106
+          },
+          "repeat": {
+            "mean_width": 2.96875,
+            "shrinkage": 0.0,
+            "zero_width_queries": 102,
+            "full_range_queries": 39,
+            "visibility_identified_queries": 106
+          },
+          "dither": {
+            "mean_width": 2.96875,
+            "shrinkage": 0.0,
+            "zero_width_queries": 102,
+            "full_range_queries": 39,
+            "visibility_identified_queries": 106
+          },
+          "same_new": {
+            "mean_width": 2.96875,
+            "shrinkage": 0.0,
+            "zero_width_queries": 102,
+            "full_range_queries": 39,
+            "visibility_identified_queries": 106
+          },
+          "opposite_new": {
+            "mean_width": 2.5625,
+            "shrinkage": 0.13684210526315788,
+            "zero_width_queries": 117,
+            "full_range_queries": 39,
+            "visibility_identified_queries": 121
+          }
+        },
+        "opposite_advantage": 0.1368421052631579
+      },
+      "unoccluded": {
+        "scenes": 12,
+        "queries": 48,
+        "arms": {
+          "base": {
+            "mean_width": 2.125,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 0,
+            "visibility_identified_queries": 35
+          },
+          "repeat": {
+            "mean_width": 2.125,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 0,
+            "visibility_identified_queries": 35
+          },
+          "dither": {
+            "mean_width": 2.125,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 0,
+            "visibility_identified_queries": 35
+          },
+          "same_new": {
+            "mean_width": 2.125,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 0,
+            "visibility_identified_queries": 35
+          },
+          "opposite_new": {
+            "mean_width": 1.0,
+            "shrinkage": 0.5294117647058824,
+            "zero_width_queries": 36,
+            "full_range_queries": 0,
+            "visibility_identified_queries": 38
+          }
+        },
+        "opposite_advantage": 0.5294117647058824
+      },
+      "one_side_occluded": {
+        "scenes": 12,
+        "queries": 48,
+        "arms": {
+          "base": {
+            "mean_width": 2.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 30,
+            "full_range_queries": 9,
+            "visibility_identified_queries": 25
+          },
+          "repeat": {
+            "mean_width": 2.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 30,
+            "full_range_queries": 9,
+            "visibility_identified_queries": 25
+          },
+          "dither": {
+            "mean_width": 2.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 30,
+            "full_range_queries": 9,
+            "visibility_identified_queries": 25
+          },
+          "same_new": {
+            "mean_width": 2.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 30,
+            "full_range_queries": 9,
+            "visibility_identified_queries": 25
+          },
+          "opposite_new": {
+            "mean_width": 2.125,
+            "shrinkage": 0.10526315789473684,
+            "zero_width_queries": 33,
+            "full_range_queries": 9,
+            "visibility_identified_queries": 28
+          }
+        },
+        "opposite_advantage": 0.10526315789473684
+      },
+      "common_occluded": {
+        "scenes": 12,
+        "queries": 48,
+        "arms": {
+          "base": {
+            "mean_width": 4.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 18,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 21
+          },
+          "repeat": {
+            "mean_width": 4.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 18,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 21
+          },
+          "dither": {
+            "mean_width": 4.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 18,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 21
+          },
+          "same_new": {
+            "mean_width": 4.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 18,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 21
+          },
+          "opposite_new": {
+            "mean_width": 4.375,
+            "shrinkage": 0.0,
+            "zero_width_queries": 18,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 22
+          }
+        },
+        "opposite_advantage": 0.0
+      },
+      "depth_boundary": {
+        "scenes": 12,
+        "queries": 48,
+        "arms": {
+          "base": {
+            "mean_width": 3.0,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 25
+          },
+          "repeat": {
+            "mean_width": 3.0,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 25
+          },
+          "dither": {
+            "mean_width": 3.0,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 25
+          },
+          "same_new": {
+            "mean_width": 3.0,
+            "shrinkage": 0.0,
+            "zero_width_queries": 27,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 25
+          },
+          "opposite_new": {
+            "mean_width": 2.75,
+            "shrinkage": 0.08333333333333337,
+            "zero_width_queries": 30,
+            "full_range_queries": 15,
+            "visibility_identified_queries": 33
+          }
+        },
+        "opposite_advantage": 0.08333333333333333
+      }
+    },
+    "arms_passing_absolute_screen": [],
+    "automatic_training_authorized": false,
+    "scope": "Finite noiseless sampled silhouette measurement feasibility screen. Equal new ray samples, not equal satellite acquisition, monetary cost, independent views, or proof of a new algorithm. New image gain does not establish mediation by visibility.",
+    "cohort": "Exactly the previously consumed r023 48 scenes / 192 queries; paired follow-up exploration, not an independent held-out confirmation.",
+    "candidate_scenes": 3125,
+    "evaluation_scenes": 48,
+    "queries": 192,
+    "truth_omissions": 0,
+    "empty_sets": 0,
+    "monotonicity_violations": 0,
+    "repeat_control_violations": 0,
+    "new_samples_per_scene_per_arm": 165,
+    "wall_seconds": 0.5552216621581465
+  },
+  "posthoc_descriptive_changes": {
+    "repeat": {
+      "scenes_set_changed": 0,
+      "queries_height_width_reduced": 0
+    },
+    "dither": {
+      "scenes_set_changed": 2,
+      "queries_height_width_reduced": 0
+    },
+    "same_new": {
+      "scenes_set_changed": 1,
+      "queries_height_width_reduced": 0
+    },
+    "opposite_new": {
+      "scenes_set_changed": 45,
+      "queries_height_width_reduced": 24
+    }
+  },
+  "interpretation": "Frozen investment screen failed. Positive opposite-image effect is retained; common-occlusion stratum has zero height-width reduction. Zero width gain does not imply unchanged candidate sets. No statistical claim of zero general effect, and no parameter, angle, seed or density rescue."
+}
