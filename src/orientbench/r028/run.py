@@ -16,6 +16,7 @@ import cv2
 import numpy as np
 import torch
 from mmcv.ops import box_iou_rotated
+from mmdet.evaluation.functional import average_precision
 from mmrotate.evaluation import eval_rbbox_map
 
 
@@ -75,12 +76,14 @@ def trace_image(detections: np.ndarray, ground_truth: np.ndarray, ignored: np.nd
 
 
 def ap11(tp: np.ndarray, fp: np.ndarray, num_gt: int) -> float:
+    """VOC-2007 interpolation, with the evaluator's float32 arithmetic."""
     if num_gt <= 0:
         return 0.0
+    tp = np.asarray(tp, dtype=np.float32)
+    fp = np.asarray(fp, dtype=np.float32)
     recall = np.cumsum(tp) / num_gt
-    precision = np.cumsum(tp) / np.maximum(np.cumsum(tp) + np.cumsum(fp), np.finfo(float).eps)
-    return float(np.mean([precision[recall >= level].max() if np.any(recall >= level) else 0.0
-                          for level in np.linspace(0.0, 1.0, 11)]))
+    precision = np.cumsum(tp) / np.maximum(np.cumsum(tp) + np.cumsum(fp), np.finfo(np.float32).eps)
+    return float(average_precision(recall, precision, mode="11points"))
 
 
 def replay(traces: dict[str, list[dict]], effective_gt: dict[str, int], image_order: list[str]):
@@ -175,7 +178,13 @@ def counterexamples(output: Path):
     moved_edges = [[x >= threshold for x in row] for row in moved["iou"]]
     rotation = math.radians(17)
     def rot(box):
-        x, y = box[:2]; out = list(box); out[0] = x * math.cos(rotation) - y * math.sin(rotation); out[1] = x * math.sin(rotation) + y * math.cos(rotation); out[4] += rotation; return out
+        # Image coordinates are y-down while MMRotate's rbox angle is
+        # counter-clockwise in the corresponding y-up convention.
+        x, y = box[:2]; out = list(box)
+        out[0] = x * math.cos(rotation) + y * math.sin(rotation)
+        out[1] = -x * math.sin(rotation) + y * math.cos(rotation)
+        out[4] -= rotation
+        return out
     rotated = fixture_trace("two_target_rotated", [rot(make_box(1, .9)), rot(make_box(0, .8))], [rot(make_box(-.01)), rot(make_box(2))], [], threshold)
     single = fixture_trace("single", [make_box(.01, .9)], [make_box(0)], [], threshold)
     # A deterministic equal-IoU tie changes the selected physical ID when GT order is exchanged, but TP/FP stays unchanged.
@@ -193,7 +202,9 @@ def counterexamples(output: Path):
                    "two_target_tp_fp_changed": [x["state"] for x in start["trace"]] != [x["state"] for x in moved["trace"]],
                    "two_target_ap_changed": start["replay"]["ap11"] != moved["replay"]["ap11"],
                    "rotation_equivalent": np.allclose(start["iou"], rotated["iou"], atol=1e-6) and [x["state"] for x in start["trace"]] == [x["state"] for x in rotated["trace"]],
-                   "tie_id_changed_ap_unchanged": tie_a["trace"][0]["best_gt_index"] != tie_b["trace"][0]["best_gt_index"] and tie_a["replay"] == tie_b["replay"],
+                   # Both argmax indices are zero: exchanging the GT input
+                   # order changes its physical identity from left to right.
+                   "tie_id_changed_ap_unchanged": tie_a["trace"][0]["best_gt_index"] == 0 and tie_b["trace"][0]["best_gt_index"] == 0 and tie_a["replay"] == tie_b["replay"],
                    "all_fixture_replays_match_standard": all(item["ap_abs_delta"] <= 1e-8 for item in [single, start, moved, rotated, tie_a, tie_b, empty, duplicate, ignored, axial]),
                }}
     output.write_text(json.dumps(payload, indent=2) + "\n")
@@ -221,7 +232,7 @@ def blind_materials(dataset: Path, selected: list[dict], output: Path):
     for package in sorted(output.iterdir()):
         files = sorted(path.relative_to(package).as_posix() for path in package.rglob("*") if path.is_file() or path.is_symlink())
         image_files = sorted(path.name for path in (package / "images").iterdir())
-        text = "\n".join((package / "INSTRUCTIONS.md").read_text().lower() + (package / "annotations_template.csv").read_text().lower())
+        text = (package / "INSTRUCTIONS.md").read_text().lower() + "\n" + (package / "annotations_template.csv").read_text().lower()
         check["packages"].append({"package": package.name, "image_count": len(image_files), "files": files,
                                   "forbidden_term_hits": [term for term in check["forbidden_terms"] if term in text]})
     (output.parent / "blind_materials_check.json").write_text(json.dumps(check, indent=2) + "\n")
