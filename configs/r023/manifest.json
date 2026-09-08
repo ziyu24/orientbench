@@ -1,0 +1,540 @@
+{
+  "task": "r023",
+  "catalog_size": 3125,
+  "pool_sizes": {
+    "unoccluded": 200,
+    "one_side_occluded": 750,
+    "common_occluded": 750,
+    "depth_boundary": 1425
+  },
+  "records": [
+    {
+      "catalog_id": 32,
+      "heights": [
+        0,
+        0,
+        2,
+        2,
+        4
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 2126,
+      "heights": [
+        6,
+        4,
+        0,
+        0,
+        2
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 1656,
+      "heights": [
+        4,
+        6,
+        2,
+        2,
+        2
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 1282,
+      "heights": [
+        4,
+        0,
+        2,
+        2,
+        4
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 527,
+      "heights": [
+        0,
+        8,
+        2,
+        0,
+        4
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 2626,
+      "heights": [
+        8,
+        2,
+        0,
+        0,
+        2
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 1027,
+      "heights": [
+        2,
+        6,
+        2,
+        0,
+        4
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 1776,
+      "heights": [
+        4,
+        8,
+        2,
+        0,
+        2
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 406,
+      "heights": [
+        0,
+        6,
+        2,
+        2,
+        2
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 400,
+      "heights": [
+        0,
+        6,
+        2,
+        0,
+        0
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 777,
+      "heights": [
+        2,
+        2,
+        2,
+        0,
+        4
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 30,
+      "heights": [
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "stratum": "unoccluded"
+    },
+    {
+      "catalog_id": 1258,
+      "heights": [
+        4,
+        0,
+        0,
+        2,
+        6
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 1349,
+      "heights": [
+        4,
+        0,
+        6,
+        8,
+        8
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 2554,
+      "heights": [
+        8,
+        0,
+        4,
+        0,
+        8
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 598,
+      "heights": [
+        0,
+        8,
+        6,
+        8,
+        6
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 131,
+      "heights": [
+        0,
+        2,
+        0,
+        2,
+        2
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 2536,
+      "heights": [
+        8,
+        0,
+        2,
+        4,
+        2
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 349,
+      "heights": [
+        0,
+        4,
+        6,
+        8,
+        8
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 2473,
+      "heights": [
+        6,
+        8,
+        6,
+        8,
+        6
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 941,
+      "heights": [
+        2,
+        4,
+        4,
+        6,
+        2
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 1007,
+      "heights": [
+        2,
+        6,
+        0,
+        2,
+        4
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 1009,
+      "heights": [
+        2,
+        6,
+        0,
+        2,
+        8
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 2347,
+      "heights": [
+        6,
+        6,
+        6,
+        8,
+        4
+      ],
+      "stratum": "one_side_occluded"
+    },
+    {
+      "catalog_id": 1515,
+      "heights": [
+        4,
+        4,
+        0,
+        6,
+        0
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 2011,
+      "heights": [
+        6,
+        2,
+        0,
+        4,
+        2
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 420,
+      "heights": [
+        0,
+        6,
+        2,
+        8,
+        0
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 524,
+      "heights": [
+        0,
+        8,
+        0,
+        8,
+        8
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 2799,
+      "heights": [
+        8,
+        4,
+        2,
+        8,
+        8
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 321,
+      "heights": [
+        0,
+        4,
+        4,
+        8,
+        2
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 1165,
+      "heights": [
+        2,
+        8,
+        2,
+        6,
+        0
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 897,
+      "heights": [
+        2,
+        4,
+        0,
+        8,
+        4
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 639,
+      "heights": [
+        2,
+        0,
+        0,
+        4,
+        8
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 2323,
+      "heights": [
+        6,
+        6,
+        4,
+        8,
+        6
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 298,
+      "heights": [
+        0,
+        4,
+        2,
+        8,
+        6
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 2145,
+      "heights": [
+        6,
+        4,
+        0,
+        8,
+        0
+      ],
+      "stratum": "common_occluded"
+    },
+    {
+      "catalog_id": 83,
+      "heights": [
+        0,
+        0,
+        6,
+        2,
+        6
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 852,
+      "heights": [
+        2,
+        2,
+        8,
+        0,
+        4
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 3106,
+      "heights": [
+        8,
+        8,
+        8,
+        2,
+        2
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 484,
+      "heights": [
+        0,
+        6,
+        8,
+        2,
+        8
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 303,
+      "heights": [
+        0,
+        4,
+        4,
+        0,
+        6
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 701,
+      "heights": [
+        2,
+        0,
+        6,
+        0,
+        2
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 2367,
+      "heights": [
+        6,
+        6,
+        8,
+        6,
+        4
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 1234,
+      "heights": [
+        2,
+        8,
+        8,
+        2,
+        8
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 716,
+      "heights": [
+        2,
+        0,
+        6,
+        6,
+        2
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 1430,
+      "heights": [
+        4,
+        2,
+        4,
+        2,
+        0
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 2857,
+      "heights": [
+        8,
+        4,
+        8,
+        2,
+        4
+      ],
+      "stratum": "depth_boundary"
+    },
+    {
+      "catalog_id": 3104,
+      "heights": [
+        8,
+        8,
+        8,
+        0,
+        8
+      ],
+      "stratum": "depth_boundary"
+    }
+  ]
+}
