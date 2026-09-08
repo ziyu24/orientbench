@@ -1298,3 +1298,16 @@ matched-only表明确不能替代。两模型checkpoint/config存在，但训练
 且缺raw、映射、合并/NMS/截断记录，不能重算完整母图AP。更正明细、原r025差异、独立重放与来源
 复核在`runs/r026/artifacts/`。没有访问隐藏test、训练、推理、AP、下载或构造混合真值；这是输入
 可恢复性限制，而非科学阴性。
+
+## r027 DOTA2.0 OBB输入纠正（2026-09-08）
+
+最终资格为 `OBB_INPUT_NOT_ACQUIRED`，本轮正常结束但没有运行 v1 OBB→v2 OBB 差异测量。
+独立原生复核确认共享458图上的当前v2标签含69,565个对象、其中飞机/船舶13,315个，全部为
+水平框；该输入不能反推为伪OBB。官方页面说明DOTA使用OBB且v2应使用其自身标签，但官方百度
+公开分享页的提取码验证接口返回`errno=2`、目录接口返回`errno=-9`，OneDrive入口重定向登录。
+未进行认证访问，传输正文为0字节，未下载影像、训练集或权重，低于100MB上限。
+
+没有取得可与官方上游绑定的v2 OBB validation标签包，故不能把本地HBB目录作为替代，也不能得出
+真实OBB重标差异数量。原HBB、r025/r026产物均保持不变。资格和独立复核见
+`runs/r027/artifacts/input_qualification_corrected.json`与
+`runs/r027/artifacts/independent_verify_corrected.json`；这是访问/输入限制，不是科学阴性。
