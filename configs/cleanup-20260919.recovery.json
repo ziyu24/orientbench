@@ -4,7 +4,7 @@
   "deletion_status": "REGISTERED",
   "schema_version": 1,
   "project_scope": "orientbench only",
-  "source_commit": "3f57e6a347218ac7129069a657ce2bf7e174bc74",
+  "source_commit": "3f57e6a65941d56ff40471b4ca29d5238fdfa7ac",
   "reason": "Remove completed historical experiment caches, checkpoints, raw predictions and inherited legacy outputs after their conclusions and recovery boundaries were committed and pushed. Preserve source, configuration, scientific conclusions, Git and shared inputs.",
   "planned_command": ["cqc-run", "run", "cleanup", "--project", "/home/rspip/cqc/study/orientbench", "--recovery", "configs/cleanup-20260919.recovery.json", "--reason", "User-authorized cleanup of registered, regenerable historical OrientBench outputs"],
   "pre_delete_inventory": [
