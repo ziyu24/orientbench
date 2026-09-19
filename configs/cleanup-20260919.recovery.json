@@ -1,0 +1,43 @@
+{
+  "task": "project-storage-cleanup-20260919",
+  "project": "orientbench",
+  "project_root": "/home/rspip/cqc/study/orientbench",
+  "source_commit_before_cleanup": "0a409b5c34e30f768d7b7a6d9adac08ef62df9a4",
+  "status": "prepared",
+  "reason": "Historical experiment outputs have their scientific conclusions in tracked lab/result.md or lab/failed_methods.md and no active SERVER task or project process references them. They are recoverable artifacts, not source inputs.",
+  "preserved": [
+    ".git",
+    "src",
+    "configs",
+    "doc",
+    "lab",
+    "README.md",
+    "AGENTS.md",
+    "/home/rspip/cqc/data/dataset",
+    "/home/rspip/cqc/study/pth_data"
+  ],
+  "targets": [
+    "runs/r004",
+    "runs/r013",
+    "runs/r015",
+    "runs/r017",
+    "runs/r018",
+    "runs/r019",
+    "runs/r020",
+    "runs/r021",
+    "runs/r022",
+    "outputs",
+    "top_journal_v3",
+    "top_journal_v3_reaudit_055",
+    "archives",
+    "measure_fix_v2"
+  ],
+  "rebuild": {
+    "source": "git clone https://github.com/ziyu24/orientbench.git /home/rspip/cqc/study/orientbench && git -C /home/rspip/cqc/study/orientbench checkout 0a409b5c34e30f768d7b7a6d9adac08ef62df9a4",
+    "inputs": "Use the tracked per-round configs and the host dataset/pth_data roots recorded in cqc-run config show. No dataset or shared-weight content is deleted by this cleanup.",
+    "r013_to_r022": "Each retained historical runs/rNNN/RUN.json records its original command, config and source commit; restore its required upstream run outputs first, then execute that command from the recorded source commit. r015's verification command alone is not a training rebuild.",
+    "r004_and_legacy_outputs": "These legacy artifacts are intentionally not rebuilt automatically: their conclusions and evidence summaries are retained in Git, while recreating raw predictions/checkpoints requires the historical protocol and substantial compute. They are not current-task dependencies."
+  },
+  "zero_process_reference_check": "ps -eo pid,ppid,args showed no orientbench execution process before cleanup.",
+  "cleanup": []
+}
