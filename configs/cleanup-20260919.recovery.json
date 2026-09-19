@@ -3,7 +3,7 @@
   "project": "orientbench",
   "project_root": "/home/rspip/cqc/study/orientbench",
   "source_commit_before_cleanup": "0a409b5c34e30f768d7b7a6d9adac08ef62df9a4",
-  "status": "prepared",
+  "status": "inventory_only_cqc_scope_blocked",
   "reason": "Historical experiment outputs have their scientific conclusions in tracked lab/result.md or lab/failed_methods.md and no active SERVER task or project process references them. They are recoverable artifacts, not source inputs.",
   "preserved": [
     ".git",
@@ -39,5 +39,6 @@
     "r004_and_legacy_outputs": "These legacy artifacts are intentionally not rebuilt automatically: their conclusions and evidence summaries are retained in Git, while recreating raw predictions/checkpoints requires the historical protocol and substantial compute. They are not current-task dependencies."
   },
   "zero_process_reference_check": "ps -eo pid,ppid,args showed no orientbench execution process before cleanup.",
-  "cleanup": []
+  "cleanup": [],
+  "scope_blocker": "The installed cqc-run cleanup interface permits only outputs explicitly listed by a historical RUN.json below that run's artifacts directory, or five fixed legacy roots. These inherited targets are neither; no deletion was performed and no shell deletion fallback is permitted."
 }
